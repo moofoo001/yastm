@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- IDIC: Infinite Diversity in Infinite Combinations -->
+  <PreceptDef>
+    <defName>Precept_Starfleet_IDIC</defName>
+    <label>IDIC</label>
+    <description>Celebrates diversity of thought, culture, and lifeforms; encourages cooperation and mutual respect.</description>
+    <iconPath>UI/Icons/Starfleet/Precept_IDIC</iconPath>
+    <impact>Low</impact>
+    <issue>ST_Issue_StarfleetDoctrine</issue>
+    <displayOrderInIssue>4001</displayOrderInIssue>
+  </PreceptDef>
+
+  <!-- Prime Directive / Non-Interference -->
+  <PreceptDef>
+    <defName>Precept_Starfleet_NonInterference</defName>
+    <label>non-interference</label>
+    <description>Uphold the Prime Directive: avoid cultural contamination and prefer non-violent, non-lethal solutions.</description>
+    <iconPath>UI/Icons/Starfleet/Precept_NonInterference</iconPath>
+    <impact>Medium</impact>
+    <issue>ST_Issue_StarfleetDoctrine</issue>
+    <displayOrderInIssue>4002</displayOrderInIssue>
+  </PreceptDef>
+
+</Defs>

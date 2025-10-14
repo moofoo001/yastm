@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Phase V intro -->
+  <STQ.Obelisks.PhaseV.Title>Phase V: The Vault</STQ.Obelisks.PhaseV.Title>
+  <STQ.Obelisks.PhaseV.Body>
+    Site geometry suggests a sealed inner chamber — the vault. Our scan resolves several anomalies; one of them
+    should be the access point.
+  </STQ.Obelisks.PhaseV.Body>
+
+  <!-- Ferengi broker -->
+  <STQ.Obelisks.V.Ferengi.Title>Ferengi broker hails</STQ.Obelisks.V.Ferengi.Title>
+  <STQ.Obelisks.V.Ferengi.Body>
+    A Ferengi broker (likely on private subspace) offers “exclusive coordinates”: a precise map of the inner ring.
+    Klingon sources call his claim “laughable”; the Romulans say nothing — which is rarely a good sign. The broker
+    insists on an “immediate transaction”.
+  </STQ.Obelisks.V.Ferengi.Body>
+
+  <!-- Choice buttons -->
+  <STQ.Obelisks.V.Ferengi.Deal.Label>Accept the deal (off-record)</STQ.Obelisks.V.Ferengi.Deal.Label>
+  <STQ.Obelisks.V.Ferengi.Refuse.Label>Refuse (maintain protocol)</STQ.Obelisks.V.Ferengi.Refuse.Label>
+
+  <!-- Deal confirmed -->
+  <STQ.Obelisks.V.Ferengi.Deal.ConfirmTitle>Arrangement concluded</STQ.Obelisks.V.Ferengi.Deal.ConfirmTitle>
+  <STQ.Obelisks.V.Ferengi.Deal.ConfirmText>
+    The broker transmits encrypted raster data. Attached note: “noise-sensitive lock” — likely an acoustic or
+    subsonic mechanism. We can integrate the data into our map.
+  </STQ.Obelisks.V.Ferengi.Deal.ConfirmText>
+
+  <!-- Refuse -->
+  <STQ.Obelisks.V.Ferengi.Refuse.Title>Offer declined</STQ.Obelisks.V.Ferengi.Refuse.Title>
+  <STQ.Obelisks.V.Ferengi.Refuse.Text>
+    We refuse and cite Starfleet protocol. The broker “regrets” our decision and records “future terms”.
+    Expect Ferengi scrutiny on any subsequent transmission.
+  </STQ.Obelisks.V.Ferengi.Refuse.Text>
+
+  <!-- Continue Vault -->
+  <STQ.Obelisks.V.Vault.NextTitle>Proceed to the inner chamber</STQ.Obelisks.V.Vault.NextTitle>
+  <STQ.Obelisks.V.Vault.NextText>
+    Anomalies are now marked. With the (lawfully acquired or “supplemented”) data, we should locate the access point.
+    Prepare a team for the breach.
+  </STQ.Obelisks.V.Vault.NextText>
+
+</LanguageData>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef>
+    <defName>ST_CommandPresenceBuff</defName>
+    <label>command presence</label>
+    <description>Leadership aura that steadies nerves and improves coordination.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>2200</disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MoveSpeed>0.10</MoveSpeed>
+          <AimingDelayFactor>-0.05</AimingDelayFactor>
+          <ShootingAccuracyPawn>0.05</ShootingAccuracyPawn>
+          <MentalBreakThreshold>-0.03</MentalBreakThreshold>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>ST_TacticalOverwatchBuff</defName>
+    <label>tactical overwatch</label>
+    <description>Assumes a steady firing stance, improving aim at the cost of mobility.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>900</disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <AimingDelayFactor>-0.15</AimingDelayFactor>
+          <ShootingAccuracyPawn>0.03</ShootingAccuracyPawn>
+          <MoveSpeed>-0.05</MoveSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

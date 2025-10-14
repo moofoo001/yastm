@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <QuestScriptDef>
+    <defName>STQ_VE_Obelisks_V_Vault</defName>
+    <rootSelectionWeight>0</rootSelectionWeight>
+    <autoAccept>false</autoAccept>
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->Obelisk Survey — Phase V</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->Sensors point to a sealed vault linked to the obelisks’ pulse. Navigate the claimants’ pressure and crack the interface without collapsing the subspace window.</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <li Class="QuestNode_Letter">
+          <label>STQ.Obelisks.PhaseV.Title</label>
+          <text>STQ.Obelisks.PhaseV.Body</text>
+          <letterDef>ST_AprilComms_Letter</letterDef>
+        </li>
+
+        <li Class="QuestNode_Letter">
+          <label>STQ.Obelisks.V.Ferengi.Title</label>
+          <text>STQ.Obelisks.V.Ferengi.Body</text>
+          <letterDef>ST_AprilComms_Letter</letterDef>
+        </li>
+
+        <!-- Vollqualifizierter Typname -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_ChoiceCompat">
+          <choices>
+
+            <!-- Deal -->
+            <li>
+              <label>STQ.Obelisks.V.Ferengi.Deal.Label</label>
+              <node Class="QuestNode_Sequence">
+                <nodes>
+                  <li Class="QuestNode_Letter">
+                    <label>STQ.Obelisks.V.Ferengi.Deal.ConfirmTitle</label>
+                    <text>STQ.Obelisks.V.Ferengi.Deal.ConfirmText</text>
+                    <letterDef>ST_AprilComms_Letter</letterDef>
+                  </li>
+                  <li Class="QuestNode_Letter">
+                    <label>STQ.Obelisks.V.Vault.NextTitle</label>
+                    <text>STQ.Obelisks.V.Vault.NextText</text>
+                    <letterDef>ST_AprilComms_Letter</letterDef>
+                  </li>
+                </nodes>
+              </node>
+            </li>
+
+            <!-- Refuse -->
+            <li>
+              <label>STQ.Obelisks.V.Ferengi.Refuse.Label</label>
+              <node Class="QuestNode_Sequence">
+                <nodes>
+                  <li Class="QuestNode_Letter">
+                    <label>STQ.Obelisks.V.Ferengi.Refuse.Title</label>
+                    <text>STQ.Obelisks.V.Ferengi.Refuse.Text</text>
+                    <letterDef>ST_AprilComms_Letter</letterDef>
+                  </li>
+                  <li Class="QuestNode_Letter">
+                    <label>STQ.Obelisks.V.Vault.NextTitle</label>
+                    <text>STQ.Obelisks.V.Vault.NextText</text>
+                    <letterDef>ST_AprilComms_Letter</letterDef>
+                  </li>
+                </nodes>
+              </node>
+            </li>
+
+          </choices>
+        </li>
+
+        <!-- TODO: Vault-Mechaniken -->
+
+        <li Class="QuestNode_End">
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+</Defs>

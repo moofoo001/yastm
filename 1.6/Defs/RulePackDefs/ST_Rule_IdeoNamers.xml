@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Ideology names expect r_ideoName / r_ideoAdjective / r_memberName -->
+  <RulePackDef>
+    <defName>NamerIdeoName_Starfleet</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_ideoName-> [maybePrefix][baseUFP]</li>
+        <li>r_ideoAdjective-> [ufpAdj]</li>
+        <li>r_memberName-> [ufpMember]</li>
+
+        <li>maybePrefix-> [hyphenPrefix]-</li>
+        <li>maybePrefix-> </li>
+
+        <li>hyphenPrefix-> [memeHyphenPrefix]</li>
+        <li>hyphenPrefix-> [memeLeaderAdjective]</li>
+        <li>hyphenPrefix-> [memeAdjective]</li>
+
+        <li>ufpAdj-> federated</li>
+        <li>ufpAdj-> exploratory</li>
+        <li>ufpAdj-> scientific</li>
+        <li>ufpAdj-> humanitarian</li>
+
+        <li>ufpMember-> officer</li>
+        <li>ufpMember-> explorer</li>
+        <li>ufpMember-> citizen</li>
+
+        <li>baseUFP-> Federation Doctrine</li>
+        <li>baseUFP-> Prime Directive</li>
+        <li>baseUFP-> Starfleet Charter</li>
+        <li>baseUFP-> Explorers' Ethos</li>
+        <li>baseUFP-> Scientific Mandate</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>NamerDeity_UFP</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_deityName->IDIC</li>
+        <li>r_deityName->The Great Bird of the Galaxy</li>
+        <li>r_deityName->The Federation Charter</li>
+        <li>r_deityName->The Council of Worlds</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>DeityTypeMaker_UFP</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_deityType->Infinite Diversity in Infinite Combinations, a Vulcan ideal.</li>
+        <li>r_deityType->The guiding spirit of exploration and unity.</li>
+        <li>r_deityType->Principles enshrined in the Federation’s founding document.</li>
+        <li>r_deityType->Voices of countless worlds joined in harmony.</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+
+  <!-- ===== Klingon ===== -->
+  <RulePackDef>
+    <defName>NamerIdeoName_Klingon</defName>
+    <rulePack>
+      <rulesStrings>
+
+        <li>r_ideoName-> [maybePrefix][baseKlingon]</li>
+        <li>r_ideoAdjective-> [klingonAdj]</li>
+        <li>r_memberName-> [klingonMember]</li>
+
+        <li>maybePrefix-> [hyphenPrefix]-</li>
+        <li>maybePrefix-> </li>
+
+        <li>hyphenPrefix-> [memeHyphenPrefix]</li>
+        <li>hyphenPrefix-> [memeLeaderAdjective]</li>
+        <li>hyphenPrefix-> [memeAdjective]</li>
+
+        <li>klingonAdj-> honourable</li>
+        <li>klingonAdj-> courageous</li>
+        <li>klingonAdj-> warrior</li>
+        <li>klingonAdj-> stoic</li>
+
+        <li>klingonMember-> warrior</li>
+        <li>klingonMember-> house-brother</li>
+        <li>klingonMember-> oathkeeper</li>
+
+        <li>baseKlingon-> Honor Code</li>
+        <li>baseKlingon-> Warrior Creed</li>
+        <li>baseKlingon-> High Council Doctrine</li>
+        <li>baseKlingon-> Great House Edict</li>
+        <li>baseKlingon-> Path of Glory</li>
+        
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>NamerDeity_Klingon</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_deityName->Kahless the Unforgettable</li>
+        <li>r_deityName->The Black Fleet</li>
+        <li>r_deityName->Fek'lhr</li>
+        <li>r_deityName->The Ancestors</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>DeityTypeMaker_Klingon</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_deityType->Warriors who have proven themselves in glorious battle.</li>
+        <li>r_deityType->Guardians of honor watching from Sto'Vo'Kor.</li>
+        <li>r_deityType->The dread Fek'lhr who rules Gre'thor, the Klingon underworld.</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <!-- ===== Romulan ===== -->
+  <RulePackDef>
+    <defName>NamerIdeoName_Romulan</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_ideoName-> [maybePrefix][baseRomulan]</li>
+        <li>r_ideoAdjective-> [romulanAdj]</li>
+        <li>r_memberName-> [romulanMember]</li>
+
+        <li>maybePrefix-> [hyphenPrefix]-</li>
+        <li>maybePrefix-> </li>
+
+        <li>hyphenPrefix-> [memeHyphenPrefix]</li>
+        <li>hyphenPrefix-> [memeLeaderAdjective]</li>
+        <li>hyphenPrefix-> [memeAdjective]</li>
+
+        <li>romulanAdj-> imperial</li>
+        <li>romulanAdj-> clandestine</li>
+        <li>romulanAdj-> austere</li>
+        <li>romulanAdj-> disciplined</li>
+        <li>romulanAdj-> strategic</li>
+
+        <li>romulanMember-> centurion</li>
+        <li>romulanMember-> operative</li>
+        <li>romulanMember-> agent</li>
+
+        <li>baseRomulan-> Command Philosophy</li>
+        <li>baseRomulan-> Tal Shiar Doctrine</li>
+        <li>baseRomulan-> Imperial Mandate</li>
+        <li>baseRomulan-> Cloak Protocol</li>
+        <li>baseRomulan-> Star Empire Edict</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>NamerDeity_Romulan</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_deityName->The Elements</li>
+        <li>r_deityName->The Spirit of Vulcan</li>
+        <li>r_deityName->The Eternal Senate</li>
+        <li>r_deityName->The Shadow of the Star</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>DeityTypeMaker_Romulan</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_deityType->Romulan ancestors who guide their descendants.</li>
+        <li>r_deityType->The old Vulcan spirit, revered in secrecy.</li>
+        <li>r_deityType->Whispers of an eternal Romulan Senate beyond mortal reach.</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <!-- ===== Ferengi ===== -->
+  <RulePackDef>
+    <defName>NamerIdeoName_Ferengi</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_ideoName-> [maybePrefix][baseFerengi]</li>
+        <li>r_ideoAdjective-> [ferengiAdj]</li>
+        <li>r_memberName-> [ferengiMember]</li>
+
+        <li>maybePrefix-> [hyphenPrefix]-</li>
+        <li>maybePrefix-> </li>
+
+        <li>hyphenPrefix-> [memeHyphenPrefix]</li>
+        <li>hyphenPrefix-> [memeLeaderAdjective]</li>
+        <li>hyphenPrefix-> [memeAdjective]</li>
+
+        <li>ferengiAdj-> mercantile</li>
+        <li>ferengiAdj-> commercial</li>
+        <li>ferengiAdj-> acquisitive</li>
+        <li>ferengiAdj-> entrepreneurial</li>
+        <li>ferengiAdj-> profit-seeking</li>
+
+        <li>ferengiMember-> merchant</li>
+        <li>ferengiMember-> broker</li>
+        <li>ferengiMember-> liquidator</li>
+        <li>ferengiMember-> trader</li>
+
+        <li>baseFerengi-> Commerce Code</li>
+        <li>baseFerengi-> Trade Authority</li>
+        <li>baseFerengi-> Mercantile Union</li>
+        <li>baseFerengi-> Exchange</li>
+        <li>baseFerengi-> Consortium</li>
+        <li>baseFerengi-> Guild</li>
+        <li>baseFerengi-> Rules of Acquisition</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>NamerDeity_Ferengi</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_deityName->The Blessed Exchequer</li>
+        <li>r_deityName->The Divine Treasury</li>
+        <li>r_deityName->Grand Nagus</li>
+        <li>r_deityName->The Sacred Ledger</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>DeityTypeMaker_Ferengi</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_deityType->He who weighs the profit of all souls.</li>
+        <li>r_deityType->The ultimate banker in the Divine Treasury.</li>
+        <li>r_deityType->The Nagus, keeper of the Rules of Acquisition.</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+</Defs>

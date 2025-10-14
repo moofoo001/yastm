@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  
+<SoundDef>
+    <defName>ST_ObeliskHum</defName>
+    <context>MapOnly</context>
+    <sustain>true</sustain>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/hum</clipPath>
+          </li>
+        </grains>
+        <volumeRange>20~25</volumeRange>
+        <pitchRange>0.98~1.02</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>com_chirp</defName>
+    <context>MapOnly</context> 
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/com_chirp</clipPath>
+          </li>
+        </grains>
+        <volumeRange>23.91304~23.91304</volumeRange>      
+        <pitchRange>0.9576087~1.084783</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+
+  <SoundDef>
+    <defName>Phaser_T1</defName>
+    <context>MapOnly</context> 
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Phaser_T1</clipPath>
+          </li>
+        </grains>
+        <volumeRange>23.91304~23.91304</volumeRange>      
+        <pitchRange>0.9576087~1.084783</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Phaser_T2</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Phaser_T2</clipPath>
+          </li>
+        </grains>
+        <volumeRange>23.91304~23.91304</volumeRange>      
+        <pitchRange>0.9576087~1.084783</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Phaser_Rifle_TNG</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Phaser_Rifle_TNG</clipPath>
+          </li>
+        </grains>
+        <volumeRange>23.91304~23.91304</volumeRange>      
+        <pitchRange>0.9576087~1.084783</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Phaser_Rifle</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Phaser_Rifle</clipPath>
+          </li>
+        </grains>
+        <volumeRange>23.91304~23.91304</volumeRange>      
+        <pitchRange>0.9576087~1.084783</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Phaser_TOS</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Phaser_TOS</clipPath>
+          </li>
+        </grains>
+        <volumeRange>23.91304~23.91304</volumeRange>      
+        <pitchRange>0.9576087~1.084783</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+
+  <SoundDef>
+    <defName>Disruptor_Pistol</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Disruptor_Pistol</clipPath>
+          </li>
+        </grains>
+        <volumeRange>23.91304~23.91304</volumeRange>      
+        <pitchRange>0.9576087~1.084783</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Disruptor_Rifle</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Disruptor_Rifle</clipPath>
+          </li>
+        </grains>
+        <volumeRange>23.91304~23.91304</volumeRange>      
+        <pitchRange>0.9576087~1.084783</pitchRange>
+      </li>
+    </subSounds>  
+  </SoundDef>
+
+
+</Defs>

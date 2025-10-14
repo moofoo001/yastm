@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <!-- Base bullet definition -->
+  <ThingDef Name="BaseBullet" Abstract="True">
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>Bullet</thingClass>
+    <label>bullet</label>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+  </ThingDef>
+
+  <!-- Phaser Stun -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_PhaserPulse_Stun</defName>
+    <label>phaser pulse (stun)</label>
+    <thingClass>ST.PhaseWeapons.Projectile_Phaser</thingClass>
+    <projectile>
+      <damageDef>Blunt</damageDef>
+      <damageAmountBase>1</damageAmountBase> 
+      <armorPenetrationBase>0</armorPenetrationBase>
+      <stoppingPower>0.1</stoppingPower>
+      <speed>100</speed>
+    </projectile>
+    <graphicData>
+      <texPath>Things/Projectile/PhaserPulse_Stun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <modExtensions>
+      <li Class="ST.PhaseWeapons.ModExtension_PhaserSettings">
+        <stunChance>1.0</stunChance>
+        <stunOnlyFlesh>true</stunOnlyFlesh>
+        <stunTicks>240</stunTicks>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+<ThingDef ParentName="BaseBullet">
+  <defName>Bullet_PhaserPulse_TypeI</defName>
+  <thingClass>ST.PhaseWeapons.Projectile_Phaser</thingClass> <!-- WICHTIG -->
+  <graphicData>
+    <texPath>Things/Projectile/PhaserPulse</texPath>
+    <graphicClass>Graphic_Single</graphicClass>
+  </graphicData>
+  <modExtensions>
+    <li Class="ST.PhaseWeapons.ModExtension_PhaserSettings">
+      <stunOnlyFlesh>true</stunOnlyFlesh>
+      <stunChance>1.0</stunChance>
+      <stunTicks>240</stunTicks>
+    </li>
+  </modExtensions>
+  <projectile>
+    <damageDef>Burn</damageDef>
+    <damageAmountBase>12</damageAmountBase>
+    <speed>120</speed>
+  </projectile>
+</ThingDef>
+
+  <!-- Hand phaser TII -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_PhaserPulse_TypeII</defName>
+    <thingClass>ST.PhaseWeapons.Projectile_Phaser</thingClass>
+
+    <graphicData>
+      <texPath>Things/Projectile/PhaserPulse</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.80</drawSize>
+    </graphicData>
+
+    <projectile>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>16</damageAmountBase>
+      <armorPenetrationBase>0.28</armorPenetrationBase>
+      <stoppingPower>0.35</stoppingPower>
+      <speed>100</speed>
+    </projectile>
+
+    <modExtensions>
+      <li Class="ST.PhaseWeapons.ModExtension_PhaserSettings">
+        <stunTicks>300</stunTicks>
+        <stunChance>0.9</stunChance>
+        <stunOnlyFlesh>true</stunOnlyFlesh>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- Phase overcharge -->
+      <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_PhaserPulse_Overcharge</defName>
+        <label>phaser pulse (overcharge)</label>
+        <thingClass>ST.PhaseWeapons.Projectile_Phaser</thingClass>
+        <graphicData>
+          <texPath>Things/Projectile/PhaserPulse_Overcharge</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>0.30</drawSize>
+        </graphicData>
+        <projectile>
+          <damageDef>Burn</damageDef>
+          <damageAmountBase>20</damageAmountBase>
+          <armorPenetrationBase>0.35</armorPenetrationBase>
+          <stoppingPower>0.15</stoppingPower>
+          <speed>120</speed>
+        </projectile>
+        <!-- optional: ModExtension für Stun-OnlyFlesh etc., wenn du es brauchst -->
+      </ThingDef>
+
+  <!-- Phaser rifle -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_PhaserRifle</defName>
+    <thingClass>ST.PhaseWeapons.Projectile_Phaser</thingClass>
+    <label>phaser beam (rifle)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_PhaserRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+    	<flyOverhead>false</flyOverhead>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>24</damageAmountBase>
+      <armorPenetrationBase>0.45</armorPenetrationBase>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
+
+</Defs>

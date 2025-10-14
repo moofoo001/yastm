@@ -1,0 +1,11 @@
+<LanguageData>
+  <ST_Ability_VulcanNervePinch.label>Vulkanischer Nervengriff</ST_Ability_VulcanNervePinch.label>
+  <ST_Ability_VulcanNervePinch.description>Setzt einen gezielten Nervengriff ein, um das Ziel kurzzeitig zu betäuben.</ST_Ability_VulcanNervePinch.description>
+
+  <ST_Ability_FieldTriage.label>Feld-Triage</ST_Ability_FieldTriage.label>
+  <ST_Ability_FieldTriage.description>Steigert kurzfristig die Versorgungsgeschwindigkeit und stabilisiert den Patienten.</ST_Ability_FieldTriage.description>
+
+  <ST_Trait_StarfleetTraining.label>Starfleet-Ausbildung</ST_Trait_StarfleetTraining.label>
+  <ST_Trait_IDICMindset.label>IDIC-Mindset</ST_Trait_IDICMindset.label>
+  <ST_Trait_PrimeDirectiveMinded.label>Prime-Directive-fokussiert</ST_Trait_PrimeDirectiveMinded.label>
+</LanguageData>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <RulePackDef>
+    <defName>STA_ShipClasses</defName>
+    <rulePack><rulesStrings>
+      <li>r_shipClass->Explorer</li>
+      <li>r_shipClass->Heavy cruiser</li>
+      <li>r_shipClass->Light cruiser</li>
+      <li>r_shipClass->Science vessel</li>
+      <li>r_shipClass->Medical frigate</li>
+      <li>r_shipClass->Patrol cutter</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>STA_ShipNames</defName>
+    <rulePack><rulesStrings>
+      <li>r_shipName->Discovery</li>
+      <li>r_shipName->Intrepid</li>
+      <li>r_shipName->Voyager</li>
+      <li>r_shipName->Endeavor</li>
+      <li>r_shipName->Pathfinder</li>
+      <li>r_shipName->Venture</li>
+      <li>r_shipName->Resolute</li>
+      <li>r_shipName->Unity</li>
+      <li>r_shipName->Odyssey</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>STA_StarbaseNames</defName>
+    <rulePack><rulesStrings>
+      <li>r_starbase->Starbase 12</li>
+      <li>r_starbase->Starbase 39</li>
+      <li>r_starbase->Deep Space 7</li>
+      <li>r_starbase->Deep Space 9</li>
+      <li>r_starbase->Research Outpost Theta</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+</Defs>

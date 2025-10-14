@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- PHASE I + II (bereinigt: richtige Node-Typen, Start via QuestAccepted) -->
+  <QuestScriptDef>
+    <defName>STQ_VE_Obelisks_I_II_Setup</defName>
+    <rootSelectionWeight>0</rootSelectionWeight>
+    <autoAccept>false</autoAccept>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <!-- 0) Start-Info (Brief) beim Quest-Start -->
+        <li Class="QuestNode_Letter">
+          <inSignal>QuestAccepted</inSignal>
+          <label>STQ.Obelisks.Setup.LetterTitle</label>
+          <text>STQ.Obelisks.Setup.LetterText</text>
+          <letterDef>NeutralEvent</letterDef>
+        </li>
+
+        <!-- 1) Phase I: Titel + Beschreibung setzen -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
+          <inSignal>QuestAccepted</inSignal>
+          <titleKey>STQ.Obelisks.PhaseI.Title</titleKey>
+          <descriptionKey>STQ.Obelisks.PhaseI.Desc</descriptionKey>
+        </li>
+
+        <!-- 2) Umbenennen auf Phase II, sobald der Kom-Beacon aktiviert wurde -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
+          <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
+          <titleKey>STQ.Obelisks.PhaseII.Title</titleKey>
+          <descriptionKey>STQ.Obelisks.PhaseII.Desc</descriptionKey>
+        </li>
+
+        <!-- 3) Info-Brief bei Beacon-Aktivierung -->
+        <li Class="QuestNode_Letter">
+          <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
+          <label>STQ.Obelisks.Impulse.FaunaTitle</label>
+          <text>STQ.Obelisks.Impulse.FaunaText</text>
+          <letterDef>NeutralEvent</letterDef>
+        </li>
+
+        <!-- 4) Daten übertragen -> Manhunter -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
+          <inSignal>STQ.Obelisks.DataTransmitted</inSignal>
+          <incident>ManhunterPack</incident>
+          <outSignal>STQ.Obelisks.II.ManhuntersSpawned</outSignal>
+        </li>
+
+        <!-- 5) Warten bis Manhunter besiegt -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
+          <inSignal>STQ.Obelisks.II.ManhuntersSpawned</inSignal>
+          <onlyManhunters>true</onlyManhunters>
+          <outSignal>STQ.Obelisks.II.Cleared</outSignal>
+        </li>
+
+        <!-- 6) Abschluss-Brief Phase II -->
+        <li Class="QuestNode_Letter">
+          <inSignal>STQ.Obelisks.II.Cleared</inSignal>
+          <label>STQ.Obelisks.PhaseII.CompleteTitle</label>
+          <text>STQ.Obelisks.PhaseII.CompleteText</text>
+          <letterDef>NeutralEvent</letterDef>
+        </li>
+        
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<MemeDef>
+		<defName>UFP_Structure_Agnosticism</defName>
+		<label>Agnosticism</label>
+		<description>Agnosticism is the view or belief that the existence of God, the divine, or the supernatural is either unknowable in principle or unknown in fact</description>
+		<category>Structure</category>
+        <iconPath>UI/Structures/Structure_Agnosticism</iconPath>
+		<impact>0</impact>
+		<worshipRoomLabel>Briefing Room</worshipRoomLabel>
+		<deityCount>0</deityCount>
+		<exclusionTags>
+			<li>VME_GodEmperor</li>
+		</exclusionTags>
+		<descriptionMaker>
+			<patterns>
+				<li>
+					<def>VME_AgnosticismDescription</def>
+				</li>
+			</patterns>
+			<constants>
+				<li>
+					<key>structure_agnosticism</key>
+					<value>true</value>
+				</li>
+			</constants>
+		</descriptionMaker>
+		<symbolPacks>
+			<li>
+				<theme>agnosticism</theme>
+				<adjective>agnostic</adjective>
+				<member>agnostic</member>
+			</li>
+		</symbolPacks>
+		<thingStyleCategories>
+			<li>
+				<category>VME_Agnostic</category>
+				<priority>4</priority>
+			</li>
+		</thingStyleCategories>
+	</MemeDef>
+
+    	<MemeDef>
+		<defName>UFP_Egalitarian</defName>
+		<label>Egalitarian</label>
+		<description>Bigotry is absolutely to never be tolerated, helping those in need and respecting their beliefs are rewards in and of themselves.</description>
+		<iconPath>UI/Memes/Egalitarian</iconPath>
+		<groupDef>GroupRelation</groupDef>
+		<impact>1</impact>
+		<exclusionTags>
+			<li>GroupRelation</li>
+			<li>VME_Proselytism</li>
+			<li>GenderSupremacy</li>
+			<li>VME_CollectivistVsEgalitarian</li>
+			<li>VME_IndustrialistVsEgalitarian</li>
+		</exclusionTags>
+		<generalRules>
+			<rulesStrings>
+				<li>memeAdjective->egalitarian</li>
+				<li>memeAdjective->equal</li>
+				<li>memeAdjective->free</li>
+				<li>memeAdjective->just</li>
+				<li>memeLeaderNoun->peer</li>
+				<li>memeCreed->equality</li>
+				<li>memeHyphenPrefix->free</li>
+				<li>memeConcept->equality</li>
+			</rulesStrings>
+		</generalRules>
+		<descriptionMaker>
+			<rules>
+				<rulesStrings>
+					<!-- theist myth -->
+					<li>creation(tag=meme_Egalitarian)        ->[deity0_name] showed us that the path to true wisdom lies in tolerance and equality.</li>
+					<li>episode(uses=1,tag=meme_Egalitarian)  ->[deity0_name] said to all the [memberNamePlural], "You were all created in my own image, and you are all equal to my eyes."</li>
+					<!-- theist founder -->
+					<li>intro(tag=meme_Egalitarian)           ->On the [place_summary] [place_name], a tradition began at the [altarRoomLabel] of [deity0_name] where people would accept the beliefs of their neighbours, and revel in the sharing of different perspectives.</li>
+					<li>conflict(tag=meme_Egalitarian)           ->A bigot [foeLeader] looked at this with scorn, for [foeLeader_pronoun] was intolerant of any belief different from [foeLeader_possessive] own.</li>
+					<li>founderJoin(tag=meme_Egalitarian)        ->[deity0_name]'s truest follower [founderName] stood before the [place_powerCenter], and gave a long, passionate speech about the need for respect and tolerance.</li>
+					<li>victory(tag=meme_Egalitarian)            ->Even if the [foeLeader] wasn't convinced by the arguments, everyone else applauded [founderName]'s words, and [founderName_pronoun] was considered from that moment to be [deity0_name]'s speaker.</li>
+					<!-- ideological founder -->
+					<li>setup(tag=meme_Egalitarian)           ->From [founderName_possessive] early life, [founderName] was persecuted and imprisoned. [founderName_possessive] ideas were so radically different that [founderName_pronoun] could never fit anywhere. Perhaps [founderName_pronoun] could have reacted to this scorn with more hatred of [founderName_possessive] own, but instead [founderName_pronoun] decided to embrace the opposite.</li>
+					<li>story(uses=1,tag=meme_Egalitarian)    ->[founderName]'s ideas of tolerance and equality deeply resonated with some people, and a new school of thought was born: Light knows no bigotry, wind knows no discrimination, rain knows no snobbery, crops know no segregation.</li>
+					<!-- ideological lesson -->
+					<li>lessonIntro(tag=meme_Egalitarian)         ->Bigotry, hate, bullying, perversion and discrimination must never be considered to be human rights. It took so long to understand that</li>
+					<li>lesson(tag=meme_Egalitarian)              ->a human without a strong sense of justice, is no human - a human without a strong sense of acceptance, is no human - a human without a strong sense of egalitarianism, is no human</li>
+					<li>lessonReinforcement(tag=meme_Egalitarian) ->To be human, is to act human, and to act human, is to stand up to all forms of inhumanity.</li>
+					<!-- archist -->
+					<li>archistBasis(tag=meme_Egalitarian)    ->Archotechs are the pinnacle of ethical development. Beings so wise and so advanced that they have achieved perfection in their thoughts.</li>
+					<li>archistFact(tag=meme_Egalitarian)     ->To an archotech, there must be no differences between two human beings. We are all the same in their eyes.</li>
+					<li>archistProphecy(tag=meme_Egalitarian) ->Only by forgetting our differences and focusing on what makes us all human can we become worthy of transcendence.</li>
+					<!-- animist -->
+					<li>animistBasis(tag=meme_Egalitarian)    ->As spirits are but a shadow to us, pervading the hidden corners behind reality, so are we similarly hidden to them.</li>
+					<li>animistFact(tag=meme_Egalitarian)     ->To the spirits, we are a blurred impression upon the ethereal plane. The differences that seem so striking to us are not as noticeable to them.</li>
+					<li>animistProphecy(tag=meme_Egalitarian) ->[itIsSaid] only by forgetting our differences and focusing on what makes us all human can we make the spirits truly listen to us.</li>
+					<!-- serketist -->
+					<li>serketistProphecy(tag=meme_Egalitarian)->[itIsSaid] we will form a society in which our differences do not matter. Accepting and tolerant, as all insects are.</li>
+					<!-- eldritch / chthonian -->
+					<li>chthonianProphecy(tag=meme_Egalitarian)->In the face of such cosmic depravity our quarrels and differences are moot. Death does not care about the creed of those it collects.</li>
+					<!-- esoteric -->
+					<li>esotericismProphecy(tag=meme_Egalitarian)->Such occult knowledge will require an open mind. We'll need to welcome all sorts of creeds and beliefs into our fold.</li>
+					<!-- eschatologism -->
+					<li>eschatologismFact(tag=meme_Egalitarian)->A narrow mind won't be able to bring the end of days. We'll need to expand our minds if we want to get the job done.</li>
+					<!-- corporate -->
+					<li>introMemo(tag=meme_Egalitarian)->This coming week we are instating the new multifaith policies to ensure all our employees are free to express their own beliefs in peace. The Human Resources department will handle reservations and timetables for the scheduled multifaith masses.</li>
+					<!-- alienist -->
+					<li>alienistProphecy(tag=meme_Egalitarian)->These wayward creatures are a point of contention among many people. Are they to be protected, or destroyed? We'd do well to listen to all points of view before deciding.</li>
+				</rulesStrings>
+			</rules>
+		</descriptionMaker>
+		<requireOne>
+			<li>
+				<li>VME_Proselytizing_Never</li>
+			</li>
+			<li>
+				<li>Charity_Worthwhile</li>
+			</li>
+			<li>
+				<li>Slavery_Abhorrent</li>
+			</li>
+			<li>
+				<li>Apostasy_Despicable</li>
+			</li>
+			<li>
+				<li>IdeoDiversity_Respected</li>
+				<li>IdeoDiversity_Exalted</li>
+			</li>
+		</requireOne>
+		<symbolPacks>
+			<li>
+				<ideoName>Egalitarianism</ideoName>
+				<theme>equality</theme>
+				<adjective>egalitarian</adjective>
+				<member>egalitarian</member>
+			</li>
+		</symbolPacks>
+	</MemeDef>
+    
+	
+	<MemeDef>
+		<defName>UFP_Republic</defName>
+		<label>Republic</label>
+		<description>Power must be balanced between a select few, lest any settlement or empire fall to inevitable corruption.</description>
+		<iconPath>UI/Memes/Republic</iconPath>
+		<groupDef>Misc</groupDef>
+		<impact>1</impact>
+		<exclusionTags>
+			<li>VME_LeaderPrecepts</li>
+		</exclusionTags>
+		<generalRules>
+			<rulesStrings>
+				<li>memeAdjective->republican</li>
+				<li>memeAdjective->triumviral</li>
+				<li>memeConcept->republic</li>
+				<li>memeConcept->triumvirate</li>
+				<li>memeLeaderNoun->triumvir</li>
+				<li>memeLeaderNoun->senator</li>
+			</rulesStrings>
+		</generalRules>
+		<descriptionMaker>
+			<rules>
+				<rulesStrings>
+					<!-- theist myth -->
+					<li>creation(tag=meme_Republic)        ->[deity0_name] saw that some of the [memberNamePlural] were more fit to rule than others, and spoke to them: "Your governance shall be split between three leaders, and they will lead you to unimaginable glory".</li>
+					<li>episode(uses=1,tag=meme_Republic)  ->[deity0_name] said to all the [memberNamePlural]: "Understand that the dignity of the republic is of first importance and preferable to life".</li>
+					<!-- theist founder -->
+					<li>intro(tag=meme_Republic)           ->[memberNamePlural] built a huge senate house on the [place_summary] [place_name], a testament to [deity0_name]'s glory.</li>
+					<li>conflict(tag=meme_Republic)        ->A powerful [foeLeader] took advantage of the frailness of the old Empire of the [memberNamePlural], and [foeLeader_pronoun] used its ingrained corruption to dismantle it from inside.</li>
+					<li>founderJoin(tag=meme_Republic)     ->[deity0_name] instructed [founderName] to look for two other triumvirs, and thus created the First Republic of the [memberNamePlural].</li>
+					<li>victory(tag=meme_Republic)         ->Thus united, [foeLeader] was defeated, and the [memberNamePlural] have enjoyed the prosperity of the republican system ever since.</li>
+					<!-- ideological founder -->
+					<li>setup(tag=meme_Republic)           ->Our founder [founderName] was a great politician, who saw the corruption in the govermenets of [founder_possessive] native world and found them incredibly inadequate. There he founded the First Republic of the [memberNamePlural], an institution that has held triumphant for hundreds of years.</li>
+					<li>story(uses=1,tag=meme_Republic)    ->[founderName]'s followers studied [founder_possessive] writings and created a social structure that has always brought stability to us all.</li>
+					<!-- ideological lesson -->
+					<li>lessonIntro(tag=meme_Republic)         ->In all our years ruling over the masses, we three have learned one lesson that stands over all:</li>
+					<li>lesson(tag=meme_Republic)              ->a single leader cannot be expected to be incorruptible, for we are mere men, with out temptations and faults</li>
+					<li>lessonReinforcement(tag=meme_Republic) ->As triumvirs, it is our solemn duty to take care and look for one another, not letting any of us fall into temptation and corruption.</li>
+					<!-- archist -->
+					<li>archistBasis(tag=meme_Republic)    ->It is believed that three supreme archotechs bring a world into transcendence.</li>
+					<li>archistFact(tag=meme_Republic)     ->By the incomprehensible will of these three, all human followers are allowed to transcend. We must emulate this in our societies, for the numbre three seems to be of special significance.</li>
+					<li>archistProphecy(tag=meme_Republic) ->[inTheEnd], our three triumvirs will become archotechs themselves, and the endless cycle of ascension will continue.</li>
+					<!-- animist -->
+					<li>animistFact(tag=meme_Republic)     ->The number three is sacred to the spìrits. We model our society after the republican triumvirate to appease and honour them.</li>
+					<!-- serketist -->
+					<li>serketistProphecy(tag=meme_Republic)->Three great leaders will govern our society: The Beetle, the Spider and the Ant. This triumvirate will gide us in the greatest times of need.</li>
+					<!-- eldritch / chthonian -->
+					<li>chthonianProphecy(tag=meme_Republic)->Obscure stories tell of the Triumvirate of the Abyssal Depths, a particularly vicious group of eldritch entities bent on subjugating our mortal minds. We shall create our own triumvirate to protect us from them.</li>
+					<!-- esoteric -->
+					<li>esotericismProphecy(tag=meme_Republic)->It is said that the ancient Greeks of Earth considered the number three as the perfect number, the number of harmony, wisdom and understanding. The number of the divine.</li>
+					<!-- eschatologism -->
+					<li>eschatologismFact(tag=meme_Republic)->Lead by three heralds of the end of times, we will usher in a new era of darkness.</li>
+					<!-- corporate -->
+					<li>introMemo(tag=meme_Republic)->We are aware that some new employees are confused with our somewhat unorthodox three-winged corporate structure... It's simple, really, we consider our company to be a post-modern form of government, based on efficiency and economical robustness.</li>
+					<!-- alienist -->
+					<li>alienistProphecy(tag=meme_Republic)->Our three triumvir will decide the fate of all these wayward human creations, for we trust their wisdom in such matters.</li>
+				</rulesStrings>
+			</rules>
+		</descriptionMaker>
+		<requireOne>
+			<li>
+				<li>VME_Leader_Three</li>
+			</li>
+		</requireOne>
+		<symbolPacks>
+			<li>
+				<ideoName>Republic</ideoName>
+				<theme>republic</theme>
+				<adjective>republican</adjective>
+				<member>citizen</member>
+			</li>
+			<li>
+				<ideoName>Triumvirate</ideoName>
+				<theme>triumvirate</theme>
+				<adjective>triumviral</adjective>
+				<member>citizen</member>
+			</li>
+		</symbolPacks>
+	</MemeDef>
+<MemeDef>
+		<defName>UFP_Astrology</defName>
+		<label>Astrology</label>
+		<description>A careful examination of the stars will unlock mystical powers far beyond our wildest imagination.</description>
+		<iconPath>UI/Memes/Astrology</iconPath>
+		<groupDef>Misc</groupDef>
+		<impact>1</impact>
+		<exclusionTags>
+			<li>VME_AstrologyVsGestalt</li>
+			<li>VME_MadnessVsAstrology</li>
+		</exclusionTags>
+		<generalRules>
+			<rulesStrings>
+				<li>memeAdjective->astrological</li>
+				<li>memeAdjective->zodiacal</li>
+				<li>memeHyphenPrefix->astro</li>
+				<li>memeConcept->stars</li>
+				<li>memeLeaderNoun->grand astrologer</li>
+				<li>memeMoralist->diviner</li>
+				<li>memeMoralist->star seer</li>
+			</rulesStrings>
+		</generalRules>
+		<descriptionMaker>
+			<rules>
+				<rulesStrings>
+					<!-- theist myth -->
+					<li>creation(tag=meme_Astrology)        ->[deity0_name] showed us that the path to true wisdom lies in understanding the stars.</li>
+					<li>episode(uses=1,tag=meme_Astrology)  ->[deity0_name] said to all the [memberNamePlural], "For in the Firmament you shall see a reflection of my Will."</li>
+					<!-- theist founder -->
+					<li>intro(tag=meme_Astrology)           ->[memberNamePlural] built a great [altarName] on the [place_summary] [place_name], so that anyone may peer into the stars.</li>
+					<li>conflict(tag=meme_Astrology)        ->A coward [foeLeader], seeking to deny the will of [deity0_name], tried to obscure the firmament so we couldn't watch the majesty of the stars.</li>
+					<li>founderJoin(tag=meme_Astrology)     ->[deity0_name] blessed a [place_job] named [founderName] with [foeLeader_possessive] unwavering resolve, and a zodiacal sign was created then and there.</li>
+					<li>victory(tag=meme_Astrology)         ->[founderName] read the astrological fortunes of the [foeSoldiers] and used them to convince them of [deity0_name]'s power.</li>
+					<!-- ideological founder -->
+					<li>setup(tag=meme_Astrology)           ->Our founder [founderName] was a great astrologer, capable of divining the fortunes of [founder_possessive] followers as he traveled between the cities.</li>
+					<li>story(uses=1,tag=meme_Astrology)    ->The believers spread knowledge of the wisdom found in the movement of the stars.</li>
+					<!-- ideological lesson -->
+					<li>lessonIntro(tag=meme_Astrology)         ->In all my years observing the stars, I learned one lesson that stands over all:</li>
+					<li>lesson(tag=meme_Astrology)              ->our zodiacal signs guide us through all of our lives</li>
+					<li>lessonReinforcement(tag=meme_Astrology) ->This is the fact we need to spread, for the fate of oneself is reflected upon the heavens.</li>
+					<!-- archist -->
+					<li>archistBasis(tag=meme_Astrology)    ->The archotechs announce their presence from the sky, and in the mind, they showed us that great knowledge is encoded in the movement of celestial bodies.</li>
+					<li>archistFact(tag=meme_Astrology)     ->Archotechs are wise beyond all reason, and they have coded immense knowledge on the stars.</li>
+					<li>archistProphecy(tag=meme_Astrology) ->[inTheEnd], the archotechs will voice their final wisdom to the holder of the [relic0_name]. Only one who is trained on the Art of the Zodiac can absorb their teachings.</li>
+					<!-- animist -->
+					<li>animistFact(tag=meme_Astrology)     ->The spirits want to be known, and they manifest themselves not only through the creatures of land, but also in the heavens.</li>
+					<!-- serketist -->
+					<li>serketistProphecy(tag=meme_Astrology)->[itIsSaid] we will be wise enough to create a new zodiacal sign. Serket. The Holy Scarab.</li>
+					<!-- eldritch / chthonian -->
+					<li>chthonianProphecy(tag=meme_Astrology)->Eldritch knowledge lies upon the Unwavering Hungry Void between Stars, and by studying them we will be eternal, perhaps at the cost of our sanity.</li>
+					<!-- esoteric -->
+					<li>esotericismProphecy(tag=meme_Astrology)->With such knowledge, we will devise a way to control the zodiac, and thus the fate of everyone.</li>
+					<!-- eschatologism -->
+					<li>eschatologismFact(tag=meme_Astrology)->The stars will only show a singular fate: destruction.</li>
+					<!-- corporate -->
+					<li>introMemo(tag=meme_Astrology)->It has been brought to my atention that some of you are using work breaks to share your astrological charts. Although this is a sanctioned topic by the Company, I would like to remind you that breaks should never exceed the allotted time.</li>
+					<!-- alienist -->
+					<li>alienistProphecy(tag=meme_Astrology)->The stars will reveal us the reality of these wondrous creatures.</li>
+				</rulesStrings>
+			</rules>
+		</descriptionMaker>
+		<requireOne>
+			<li>
+				<li>VME_Mood_DictatedByStars</li>
+			</li>
+		</requireOne>
+		<requiredRituals>
+			<li>
+				<precept>VME_DivineStarsPrecept</precept>
+				<pattern>VME_DivineStarsRitual</pattern>
+			</li>
+		</requiredRituals>
+		<symbolPacks>
+			<li>
+				<ideoName>Astrology</ideoName>
+				<theme>astrology</theme>
+				<adjective>astrological</adjective>
+				<member>astrologer</member>
+			</li>
+			<li>
+				<ideoName>Tarot</ideoName>
+				<theme>tarot</theme>
+				<adjective>tarot reading</adjective>
+				<member>tarot reader</member>
+			</li>
+			<li>
+				<ideoName>Divination</ideoName>
+				<theme>divination</theme>
+				<adjective>divinatorial</adjective>
+				<member>diviner</member>
+			</li>
+		</symbolPacks>
+	</MemeDef>
+<MemeDef>
+		<defName>UFP_Pacifist</defName>
+		<label>Pacifist</label>
+		<description>While defending oneself is acceptable, we have come too far and evolved too much to ever endorse the premise of warfare or slavery. Even tantrums should only manifest in forms that do not harm others or property.</description>
+		<iconPath>UI/Memes/Pacifist</iconPath>
+		<groupDef>Misc</groupDef>
+		<exclusionTags>
+			<li>VME_TooViolent</li>
+			<li>VME_PacifistsNotViolentConverters</li>
+			<li>VME_TooHonourable</li>
+			<li>VME_NotRaiders</li>
+			<li>VME_SadistVsNonviolence</li>
+			<li>VME_PacifistsVsDefilers</li>
+			<li>VME_PacifistsVsSupremacist</li>
+			<li>VME_NationalistVsPacifist</li>
+			<li>VME_EldritchVsPacifist</li>
+		</exclusionTags>
+		<impact>1</impact>
+		<generalRules>
+			<rulesStrings>
+				<li>memeAdjective->pacifist</li>
+				<li>memeAdjective->peace-monger</li>
+				<li>memeAdjective->appeasing</li>
+				<li>memeLeaderNoun->peacemaker</li>
+				<li>memeConcept->peace</li>
+			</rulesStrings>
+		</generalRules>
+		<descriptionMaker>
+			<rules>
+				<rulesStrings>
+					<!-- theist myth -->
+					<li>creation(tag=meme_Pacifist)        ->[deity0_name] saw the violence in the human heart, and recoiled in disgust.</li>
+					<li>episode(uses=1,tag=meme_Pacifist)  ->Speaking to the believers, [deity0_name] said: "There are many causes worth dying for, but certainly, there are none worth killing for".</li>
+					<!-- theist founder -->
+					<li>intro(tag=meme_Pacifist)           ->[place_summary] [place_name] was always fraught with conflict. The [memberNamePlural] were no strangers to war and violence, and this deeply saddened [deity0_name].</li>
+					<li>conflict(tag=meme_Pacifist)        ->[deity0_name] saw the constant machinations of a terrible [foeLeader], a warmonger, and how [foeLeader_pronoun] was always fanning the flames of war.</li>
+					<li>founderJoin(tag=meme_Pacifist)     ->In a show of divine inspiration, [deity0_name] infused the [foeLeader] with the thoughts and experiences of all those [foeLeader_pronoun] had maimed and killed, and [foeLeader_pronoun] immediately had a change of heart. From that point on, the [foeLeader] took [foeLeader_possessive] new name as the [deity0_name]'s speaker: [founderName] the Peacemaker.</li>
+					<li>victory(tag=meme_Pacifist)         ->[founderName] made us all understand that no one is beyond redemption and that eternal wisdom lies in meeting hatred with non-hatred.</li>
+					<!-- ideological founder -->
+					<li>setup(tag=meme_Pacifist)           ->[founderName] was a former warlord. Hundreds of thousands had fallen before [founderName_possessive] armies. After years of fighting, [founder_pronoun] looked at [founderName_objective]self in the mirror one day and could only see the blood of all [founderName_possessive] victims, and then and there [founder_pronoun] decided to preach the cause of total pacifism. [founderName_possessive] tale of redemption would resonate through the centuries.</li>
+					<li>story(uses=1,tag=meme_Pacifist)    ->[founderName] understood better than anyone else that nothing will end war unless the people themselves refuse to go to war.</li>
+					<!-- ideological lesson -->
+					<li>lessonIntro(tag=meme_Pacifist)         ->Military lessons were part of our school education, but our teacher was what he called a militant pacifist. He tried to instill into us that</li>
+					<li>lesson(tag=meme_Pacifist)              ->nothing will end war unless the people themselves refuse to go to war</li>
+					<li>lessonReinforcement(tag=meme_Pacifist) ->Never do anything against conscience even if the state demands it.</li>
+					<!-- archist -->
+					<li>archistBasis(tag=meme_Pacifist)    ->Can you imagine how archotechs view such a primitive thing as war?</li>
+					<li>archistFact(tag=meme_Pacifist)     ->War is inherently wasteful. Dedicating resources to kill each other only serves to deplete those resources, which could have been better used to improve the lives of everyone involved. To an archotech this senseless squandering is abhorrent.</li>
+					<li>archistProphecy(tag=meme_Pacifist) ->[inTheEnd], only those who can resist their most basic violent urges will be ready to transcend.</li>
+					<!-- animist -->
+					<li>animistBasis(tag=meme_Pacifist)    ->The spirit of war is immensely powerful, fed by thousands of years of violent human expansion through the stars. It is, however, not a spirit of love, nor it has any sympathy for the humanity that feeds it with suffering.</li>
+					<li>animistFact(tag=meme_Pacifist)     ->Feeding the spirit of war with strife is senseless and wasteful. We should instead cultivate and feed a spirit of peace, of concordance.</li>
+					<li>animistProphecy(tag=meme_Pacifist) ->[itIsSaid] only those who can resist their most basic violent urges will be ready to commune with the spirits.</li>
+					<!-- serketist -->
+					<li>serketistProphecy(tag=meme_Pacifist)->[itIsSaid] we will understand that insects are not intrinsically violent, and don't kill for sport like humans do. We should strive to be more like them.</li>
+					<!-- eldritch / chthonian -->
+					<li>chthonianProphecy(tag=meme_Pacifist)->Violence will not be the key to overcoming these ancient entities, for you cannot fight terror with terror. Only by shunning the violence that arises from their cosmic insanity can we hope to save ourselves truly.</li>
+					<!-- esoteric -->
+					<li>esotericismProphecy(tag=meme_Pacifist)->Occult knowledge is subtle, and cannot be acquired by force. We shall hone our minds without violence to discover the hidden truths of the Universe.</li>
+					<!-- eschatologism -->
+					<li>eschatologismFact(tag=meme_Pacifist)->As much as the world deserves to burn, we are not killers. If we become murderers, how are we any better than this cursed Universe? No, the Apocalypse must be brought without bloodshed, cleanly. It's the only way.</li>
+					<!-- corporate -->
+					<li>introMemo(tag=meme_Pacifist)->We are writing to inform you that the two employees (who shall remain unnamed per the company's privacy clauses) who caused a violent altercation yesterday have had their contracts terminated, and are no longer part of our staff. Such violence in the workplace is abhorrent and we will NOT let it go unpunished.</li>
+					<!-- alienist -->
+					<li>alienistProphecy(tag=meme_Pacifist)->These wayward creatures are innocent beings. We are not killers, and perhaps we'd better leave them alone.</li>
+				</rulesStrings>
+			</rules>
+		</descriptionMaker>
+		<requireOne>
+			<li>
+				<li>VME_Raiding_Abhorrent</li>
+			</li>
+			<li>
+				<li>Slavery_Abhorrent</li>
+			</li>
+			<li>
+				<li>VME_Violence_Abhorrent</li>
+			</li>
+			<li>
+				<li>Execution_Abhorrent</li>
+			</li>
+		</requireOne>
+		<symbolPacks>
+			<li>
+				<ideoName>Pacifism</ideoName>
+				<theme>pacifism</theme>
+				<adjective>pacifist</adjective>
+				<member>pacifist</member>
+			</li>
+		</symbolPacks>
+	</MemeDef>
+
+		<MemeDef>
+		<defName>UFP_Emancipation</defName>
+		<label>Emancipation</label>
+		<description>It’s not enough to simply not participate in slavery, we should actively work to fight against those who dare to enslave others and free those who have suffered such inhumanities.</description>
+		<iconPath>UI/Memes/InwardPerfection</iconPath>
+		<groupDef>GroupRelation</groupDef>
+		<impact>1</impact>
+		<exclusionTags>
+			<li>GroupRelation</li>
+			<li>VME_EmancipationVsRaiders</li>
+			<li>VME_EmancipationVsViolentConversion</li>
+			<li>VME_EmancipationVsBushido</li>
+		</exclusionTags>
+		<generalRules>
+			<rulesStrings>
+				<li>memeAdjective->emancipating</li>
+				<li>memeAdjective->liberating</li>
+				<li>memeAdjective->free</li>
+				<li>memeAdjective->independent</li>
+				<li>memeLeaderNoun->emancipator</li>
+				<li>memeCreed->emancipation</li>
+				<li>memeHyphenPrefix->free</li>
+				<li>memeConcept->freedom</li>
+			</rulesStrings>
+		</generalRules>
+		<descriptionMaker>
+			<rules>
+				<rulesStrings>
+					<!-- theist myth -->
+					<li>creation(tag=meme_Emancipation)        ->[deity0_name] showed us that slavery is aberrant, and should be stopped at all costs.</li>
+					<li>episode(uses=1,tag=meme_Emancipation)  ->[deity0_name] said to all the [memberNamePlural], "Those who deny freedom to others, deserve it not for themselves."</li>
+					<!-- theist founder -->
+					<li>intro(tag=meme_Emancipation)           ->On the [place_summary] [place_name], a tradition began at the [altarRoomLabel] of [deity0_name] where slaves were freed and given a new chance at life.</li>
+					<li>conflict(tag=meme_Emancipation)           ->A bigot [foeLeader] looked at this with scorn, for [foeLeader_pronoun] was a slaver that saw [foeLeader_possessive] profits threatened.</li>
+					<li>founderJoin(tag=meme_Emancipation)        ->[deity0_name]'s truest follower [founderName] stood before the [place_powerCenter], and gave a long, passionate speech about emancipation and the evils of slavery.</li>
+					<li>victory(tag=meme_Emancipation)            ->Even if the [foeLeader] wasn't convinced by the arguments, everyone else applauded [founderName]'s words, and [founder_pronoun] was considered from that moment to be [deity0_name]'s speaker.</li>
+					<!-- ideological founder -->
+					<li>setup(tag=meme_Emancipation)           ->[founderName] was born in an oppressive urbworld where slavery was commonplace. [founder_pronoun] grew up seeing other human beings being used as property, and this deeply disgusted [founder_objective].</li>
+					<li>story(uses=1,tag=meme_Emancipation)    ->[founderName] set out to abolish slavery in [founder_possessive] native planet, and with [founder_possessive] success [founder_possessive] philosophy spread across the stars.</li>
+					<!-- ideological lesson -->
+					<li>lessonIntro(tag=meme_Emancipation)         ->Slavery is theft -- theft of a life, theft of work, theft of any property or produce, theft even of the children a slave might have borne. It is so important you understand that</li>
+					<li>lesson(tag=meme_Emancipation)              ->nature made no man a slave</li>
+					<li>lessonReinforcement(tag=meme_Emancipation) ->To subjugate another is to subjugate yourself.</li>
+					<!-- archist -->
+					<li>archistBasis(tag=meme_Emancipation)    ->Archotechs are the pinnacle of ethical development. Beings so wise and so advanced that they have achieved perfection in their thoughts.</li>
+					<li>archistFact(tag=meme_Emancipation)     ->To an archotech, slavery is an abhorrent sin. Treating another human like an object.</li>
+					<li>archistProphecy(tag=meme_Emancipation) ->Only by abolishing slavery and fighting against it everywhere we see it can we become worthy of transcendence.</li>
+					<!-- animist -->
+					<li>animistBasis(tag=meme_Emancipation)    ->The very concept of slavery, of owning another human being as if it were an object, is incomprehensible to the spirits.</li>
+					<li>animistFact(tag=meme_Emancipation)     ->To the spirits, slavery is not only sinful and wrong, but something that should be actively fought against in any way possible.</li>
+					<li>animistProphecy(tag=meme_Emancipation) ->[itIsSaid] only by abolishing slavery and fighting against it everywhere we see it can we make the spirits truly listen to us.</li>
+					<!-- serketist -->
+					<li>serketistProphecy(tag=meme_Emancipation)->[itIsSaid] we will form a society in which no human owns another as if it were a mere object. Accepting and tolerant, as all insects are.</li>
+					<!-- eldritch / chthonian -->
+					<li>chthonianProphecy(tag=meme_Emancipation)->These eldritch entities would love nothing more than to enslave the human race to do their bidding.</li>
+					<!-- esoteric -->
+					<li>esotericismProphecy(tag=meme_Emancipation)->Such occult knowledge will require an unshackled mind. As long as the mind is enslaved, the body can never be free.</li>
+					<!-- eschatologism -->
+					<li>eschatologismFact(tag=meme_Emancipation)->Only by working together can be bring the end of the world. We will free every shackled slave and recruit them to our cause.</li>
+					<!-- corporate -->
+					<li>introMemo(tag=meme_Emancipation)->We all know some other corporations in the Rim engage in "pseudo-illicit exploitment of human capital", so it is company policy to free these "forced employees" as soon as we can, and offer them an internship with us.</li>
+					<!-- alienist -->
+					<li>alienistProphecy(tag=meme_Emancipation)->These wayward creatures embody the concept of freedom that we espouse, and we'd do well to learn from them.</li>
+				</rulesStrings>
+			</rules>
+		</descriptionMaker>
+		<requireOne>
+			<li>
+				<li>VME_Slavery_Forbidden</li>
+			</li>
+			<li>
+				<li>VME_SlaveTrading_OnlyBuying</li>
+			</li>
+		</requireOne>
+		<requiredRituals>
+			<li>
+				<precept>VME_SlaveEmancipationPrecept</precept>
+				<pattern>VME_SlaveEmancipationPattern</pattern>
+			</li>
+		</requiredRituals>
+		<symbolPacks>
+			<li>
+				<ideoName>Emancipation</ideoName>
+				<theme>emancipation</theme>
+				<adjective>emancipator</adjective>
+				<member>rescuer</member>
+			</li>
+		</symbolPacks>
+	</MemeDef>
+
+</Defs>

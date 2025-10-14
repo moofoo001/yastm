@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Obelisk A -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_Obelisk_A</defName>
+    <label>alien obelisk A</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <selectable>true</selectable>
+    <size>(1,1)</size>
+    <graphicData>
+      <texPath>Things/Building/Obelisks/ST_Obelisk_A</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <comps>
+
+      <!-- Cyanes glow effect -->
+        <li Class="CompProperties_Glower">
+          <glowRadius>3.8</glowRadius>
+          <glowColor>(90, 210, 255)</glowColor>
+        </li>
+
+      <li Class="StarTrekFactions.CompProperties_ObeliskHighlight">
+        <pulseInterval>150</pulseInterval>
+        <pulseRadius>1.0</pulseRadius>            <!-- scale applied to fleck's drawSize -->
+        <humSound>ST_ObeliskHum</humSound>
+        <pulseFleck>MonolithLowLightningRing</pulseFleck>
+      </li>
+
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>ST_AnomalySensor</li>
+        </linkableFacilities>
+      </li>
+
+      <li Class="StarTrekFactions.Comps.CompProperties_ScanWork">
+        <successSignal>STQ.Obelisks.ScanA.Completed</successSignal>
+        <workTicksBase>6000</workTicksBase> <!-- ~1 Ingame-Stunde -->
+        <skill>Intellectual</skill>
+        <requiresPoweredSensor>true</requiresPoweredSensor>
+        <sensorRadius>25</sensorRadius>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- Obelisk B -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_Obelisk_B</defName>
+    <label>alien obelisk B</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <selectable>true</selectable>
+    <size>(1,1)</size>
+    <graphicData>
+      <texPath>Things/Building/Obelisks/ST_Obelisk_B</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <comps>
+
+      <!-- Cyanes glow effect -->
+      <li Class="CompProperties_Glower">
+        <glowRadius>3.8</glowRadius>
+        <glowColor>(0.35, 0.85, 1)</glowColor> 
+      </li>
+
+      <li Class="StarTrekFactions.CompProperties_ObeliskHighlight">
+        <pulseInterval>150</pulseInterval>
+        <pulseRadius>1.0</pulseRadius>            <!-- scale applied to fleck's drawSize -->
+        <humSound>ST_ObeliskHum</humSound>
+        <pulseFleck>MonolithLowLightningRing</pulseFleck>
+      </li>
+
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>ST_AnomalySensor</li>
+        </linkableFacilities>
+      </li>
+
+      <li Class="StarTrekFactions.Comps.CompProperties_ScanWork">
+        <successSignal>STQ.Obelisks.ScanB.Completed</successSignal>
+        <workTicksBase>6000</workTicksBase>
+        <skill>Intellectual</skill>
+        <requiresPoweredSensor>true</requiresPoweredSensor>
+        <sensorRadius>25</sensorRadius>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ========== CRATE / ITEM: per Use „Deploy ComBeacon“ ========== -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_ComBeacon_Item</defName>
+    <label>Starfleet ComBeacon (crate)</label>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Special/ST_ComBeacon_Crate</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>8</Mass>
+    </statBases>
+    <tradeability>Sellable</tradeability>
+    <stackLimit>1</stackLimit>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Usable">
+        <useLabel>Deploy ComBeacon</useLabel>
+        <useJob>UseItem</useJob>
+      </li>
+      <li Class="StarTrekFactions.Comps.CompProperties_UseEffect_DeployBeacon">
+        <buildingDef>ST_ComBeacon</buildingDef>
+        <placeNearUser>true</placeNearUser>
+      </li>
+    </comps>
+  </ThingDef>
+
+    <!-- Built Beacon -->
+    <ThingDef ParentName="BuildingBase">
+    <defName>ST_ComBeacon</defName>
+    <label>Starfleet Communications Beacon</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Building</altitudeLayer>
+    <selectable>true</selectable>
+    <description>A compact Starfleet subspace relay and anomaly triangulation node.
+    Initialize to begin the obelisk survey protocol.</description>
+    <size>(1,1)</size>
+
+    <!-- Minify: nur minifiedDef lassen (installBlueprintDef/installFrameDef entfernen) -->
+    <minifiedDef>MinifiedThing</minifiedDef>
+
+    <!-- Item-Eigenschaften für das verpackte Teil -->
+    <thingCategories>
+        <li>BuildingsMisc</li>
+    </thingCategories>
+    <statBases>
+        <Mass>5</Mass>
+    </statBases>
+    <graphicData>
+        <texPath>Things/Building/ST_ComBeacon</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <uiIconScale>0.5</uiIconScale>
+    <costList>
+        <Steel>30</Steel>
+        <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <designationCategory>ST_Designation</designationCategory>
+    <!--
+    <placeWorkers>
+        <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+    -->
+    <researchPrerequisites>
+        <li>ST_SubspaceTelemetry</li>
+    </researchPrerequisites>
+    <comps>
+      <!-- Strom + normaler Power-Schalter -->
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>120</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="StarTrekFactions.Comps.CompProperties_UseEffect_SpawnFarAndSignal">
+        <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
+        <minDist>42</minDist>
+        <maxDist>72</maxDist>
+        <outsideHome>true</outsideHome>
+        <requirePowerOn>true</requirePowerOn>  <!-- fürs Testen ggf. auf false -->
+        <thingA>ST_Obelisk_A</thingA>
+        <thingB>ST_Obelisk_B</thingB>
+        <questDefToEnsure>STQ_VE_Obelisks_I_Setup</questDefToEnsure>
+      </li>
+      <!-- Einziger Beacon-Flow: Init + Report -->
+      <li Class="StarTrekFactions.Comps.CompProperties_BeaconControls">
+        <!-- UI-Labels (Keys können natürlich auf deine Übersetzungen zeigen) -->
+        <initLabelKey>ST.InitializeBeacon</initLabelKey>
+        <reportLabelKey>ST.ReportToStarfleet</reportLabelKey>
+
+        <!-- Signale -->
+        <initSignal>STQ.Obelisks.BeaconActivated</initSignal>
+        <reportSignal>STQ.Obelisks.DataTransmitted</reportSignal>
+
+        <!-- Logik: Report erst, wenn beide Scans fertig -->
+        <requireScansForReport>true</requireScansForReport>
+
+        <!-- WICHTIG: Raid + Phase III NICHT am Beacon, das übernimmt die Quest -->
+        <fireIncidentOnReport>false</fireIncidentOnReport>
+        <pointsFactor>1.0</pointsFactor>
+        <!-- exists only in code after patch below -->
+        <!-- <startPhaseIIIOnReport>false</startPhaseIIIOnReport> -->
+
+        <!-- Was bei Init gespawnt wird -->
+        <spawnOnInit>
+          <li>
+            <thingDef>ST_Obelisk_A</thingDef>
+            <count>1</count>
+          </li>
+          <li>
+            <thingDef>ST_Obelisk_B</thingDef>
+            <count>1</count>
+          </li>
+        </spawnOnInit>
+      </li>
+    </comps>
+    </ThingDef>
+</Defs>

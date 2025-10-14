@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <IssueDef>
+    <defName>ST_Issue_StarfleetDoctrine</defName>
+    <label>Starfleet doctrine</label>
+    <description>Guiding principles that define Starfleet’s ethics and conduct for exploration and contact.</description>
+  </IssueDef>
+</Defs>

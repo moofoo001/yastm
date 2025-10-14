@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Gravship hull with color options. -->
+  <!-- Base definition, mostly copied from the core Substructure but with isPaintable=true -->  
+    <ThingDef Name="GravshipHull_C" ParentName="Wall" abstract="true">
+    <defName>GravshipHull_C</defName>
+    <label>gravship hull</label>
+    <description>A strong airtight wall that prevents oxygen leaks in the vacuum of space. The wall connects directly into the underlying substructure, meaning it can only be built on a gravship.</description>
+    <designationCategory>Odyssey</designationCategory>
+    <uiOrder>1800</uiOrder>
+    <uiIconPath>Things/Building/Linked/GravshipHull/GravshipHull_MenuIcon</uiIconPath>
+    <graphicData>
+      <texPath>Things/Building/Linked/GravshipHull/GravshipHull_Atlas</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <researchPrerequisites>
+      <li>BasicGravtech</li>
+    </researchPrerequisites>
+    <statBases>
+      <MaxHitPoints>420</MaxHitPoints>
+      <WorkToBuild>300</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <costStuffCount>7</costStuffCount>
+    <building>
+      <isAirtight>true</isAirtight>
+    </building>
+    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+    <useStuffTerrainAffordance>false</useStuffTerrainAffordance>
+    <stuffCategories Inherit="False">
+      <li>Metallic</li>
+    </stuffCategories>
+    <comps Inherit="False"/>
+    <designationCategory />
+  </ThingDef>
+
+  <!-- These inherit the *exact* behavior of the core gravship Substructure.
+       Only the tint changes. Keep the ParentName as the original defName: Substructure. -->
+
+  <!-- Glass-Blue tint -->
+  <ThingDef ParentName="GravshipHull_C">
+    <defName>ST_MetalColor_GlassDark</defName>
+    <label>Transparent Aluminum (darkened)</label>
+    <graphicData><color>(0.05, 0.05, 0.05, 1)</color></graphicData>
+    <stuffProps>
+      <categories>
+      <li>Metallic</li>
+      </categories>
+      <color>(0.05, 0.05, 0.05, 0.7)</color> <!-- black glass tint -->
+    </stuffProps>
+  </ThingDef>
+
+  <!-- Glass-Blue tint -->
+  <ThingDef ParentName="GravshipHull_C">
+    <defName>ST_MetalColor_GlassBlue</defName>
+    <label>Transparent Aluminum (light-blue)</label>
+    <graphicData><color>(0.74, 0.88, 1.00, 1)</color></graphicData>
+    <stuffProps>
+      <categories>
+      <li>Metallic</li>
+      </categories>
+      <color>(0.74, 0.88, 1.00, 0.7)</color> <!-- light sky blue glass tint -->
+    </stuffProps>
+  </ThingDef>
+
+  <!-- Blue tint -->
+  <ThingDef ParentName="GravshipHull_C">
+    <defName>ST_MetalColor_Blue</defName>
+    <label>hull (blue)</label>
+    <graphicData><color>(0.55, 0.70, 1.00, 1)</color></graphicData>
+        <stuffProps>
+      <categories>
+      <li>Metallic</li>
+      </categories>
+      <color>(0.55, 0.70, 1.00, 1)</color> <!-- light sky blue glass tint -->
+    </stuffProps>
+  </ThingDef>
+
+  <!-- Gold tint -->
+  <ThingDef ParentName="GravshipHull_C">
+    <defName>ST_MetalColor_Gold</defName>
+    <label>hull (gold)</label>
+    <graphicData><color>(1.00, 0.85, 0.35, 1)</color></graphicData>
+        <stuffProps>
+      <categories>
+      <li>Metallic</li>
+      </categories>
+      <color>(1.00, 0.85, 0.35, 1)</color> <!-- light sky blue glass tint -->
+    </stuffProps>
+  </ThingDef>
+
+  <!-- Dark tint -->
+  <ThingDef ParentName="GravshipHull_C">
+    <defName>ST_MetalColor_Dark</defName>
+    <label>hull (dark)</label>
+    <graphicData><color>(0.60, 0.60, 0.65, 1)</color></graphicData>
+        <stuffProps>
+      <categories>
+      <li>Metallic</li>
+      </categories>
+      <color>(0.60, 0.60, 0.65, 1)</color> <!-- light sky blue glass tint -->
+    </stuffProps>
+  </ThingDef>
+
+  <!-- off white -->
+  <ThingDef ParentName="GravshipHull_C">
+    <defName>ST_MetalColor_OffWhite</defName>
+    <label>hull (off-white)</label>
+    <graphicData><color>(0.98, 0.97, 0.93, 1)</color></graphicData>
+        <stuffProps>
+      <categories>
+      <li>Metallic</li>
+      </categories>
+      <color>(0.98, 0.97, 0.93, 1)</color> <!-- light sky blue glass tint -->
+    </stuffProps>
+  </ThingDef>
+
+</Defs>

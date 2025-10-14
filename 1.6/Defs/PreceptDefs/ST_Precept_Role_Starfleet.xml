@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Precepts -->
+
+  <!-- Commanding Officer -->
+  <PreceptDef ParentName="PreceptRoleSingleBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>IdeoRole_FederationCommandingOfficer</defName>
+    <label>leader</label>
+    <preceptClass>Precept_RoleSingle</preceptClass>
+    <description>The commanding officer of the starship crew. Responsible for leadership, mission planning, and crew safety.</description>
+    <iconPath>UI/Roles/FederationCaptain</iconPath>
+    <nameMaker>NamerLeaderTitle_Starfleet</nameMaker>
+    <ignoreNameUniqueness>false</ignoreNameUniqueness>
+		<leaderRole>true</leaderRole>
+		<roleTags>
+			<li>Leader</li>
+		</roleTags>
+    <canRemoveInUI>false</canRemoveInUI>
+    <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit> 
+    <displayOrderInImpact>1010</displayOrderInImpact>
+    <roleRequirements>
+        <li Class="RoleRequirement_MinSkillAny">
+          <skills>
+            <Social>5</Social>
+            <Intellectual>5</Intellectual>
+          </skills>
+        </li>
+    </roleRequirements>
+    <roleApparelRequirements>
+      <li>
+        <requirement>
+          <requiredDefs>
+            <li>Fed_Combadge_TNG</li>
+          </requiredDefs>
+        </requirement>
+      </li>
+    </roleApparelRequirements>
+    <grantedAbilities>
+      <li>LeaderSpeech</li>
+      <li>CombatCommand</li>
+      <li>Trial</li>
+    </grantedAbilities>
+    <requiredMemes>
+      <li>ST_Meme_Starfleet</li>
+    </requiredMemes>
+    <roleEffects>
+        <!-- to add -->
+    </roleEffects>
+  </PreceptDef>
+
+  <!-- Counselor -->
+  <PreceptDef ParentName="PreceptRoleSingleBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>IdeoRole_FederationCounselor</defName>
+    <label>moral guide</label>
+    <preceptClass>Precept_RoleSingle</preceptClass>
+    <description>A trained Federation officer who helps the crew navigate emotional challenges, morale loss, and ethical conflicts.</description>
+    <iconPath>UI/Roles/FederationCounselor</iconPath>
+    <nameMaker>NamerRoleMoralist_Starfleet</nameMaker>
+    <ignoreNameUniqueness>false</ignoreNameUniqueness>
+    <canRemoveInUI>false</canRemoveInUI>
+    <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit> 
+		<roleTags>
+			<li>Moralist</li>
+		</roleTags>
+    <roleRequiredWorkTags><li>Social</li></roleRequiredWorkTags>
+    <grantedAbilities>
+      <li>Convert</li>
+      <li>Counsel</li>
+      <li>Reassure</li>
+      <li>ConversionRitual</li>
+    </grantedAbilities>
+    <displayOrderInImpact>1005</displayOrderInImpact>
+    <roleApparelRequirements>
+      <li>
+        <requirement>
+          <requiredDefs>
+            <li>Apparel_FederationCounselorSash</li>
+            <li>Fed_Combadge_TNG</li>
+          </requiredDefs>
+        </requirement>
+      </li>
+    </roleApparelRequirements>
+    <roleRequirements>
+        <li Class="RoleRequirement_MinSkillAny">
+          <skills>
+            <Social>6</Social>
+          </skills>
+        </li>
+    </roleRequirements>
+    <requiredMemes>
+      <li>ST_Meme_Starfleet</li>
+    </requiredMemes>
+  </PreceptDef>
+
+  <!-- Medical Officer -->
+  <PreceptDef ParentName="PreceptRoleSingleBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>IdeoRole_FederationChiefMedicalOfficer</defName>
+    <label>chief medical officer</label>
+    <description>The senior medical authority aboard a starship, responsible for health, wellness, and medical ethics.</description>
+    <iconPath>UI/Roles/FederationMedicalOfficer</iconPath>
+    <nameMaker>NamerMedicspecialist_Starfleet</nameMaker>
+    <roleTags>
+			<li>Specialist</li>
+		</roleTags>
+    <displayOrderInImpact>1002</displayOrderInImpact>
+    <roleApparelRequirements>
+      <li>
+        <requirement>
+          <requiredDefs>
+            <li>Fed_Combadge_TNG</li>
+          </requiredDefs>
+        </requirement>
+      </li>
+    </roleApparelRequirements>
+    <grantedAbilities>
+      <li>PreachHealth</li>
+      <li>ImmunityDrive</li>
+    </grantedAbilities>
+    <roleRequirements>
+        <li Class="RoleRequirement_MinSkillAny">
+          <skills>
+            <Medicine>6</Medicine>
+          </skills>
+        </li>
+    </roleRequirements>
+    <roleEffects>
+      <li Class="RoleEffect_PawnStatFactor">
+        <statDef>MedicalTendQuality</statDef>
+        <modifier>1.5</modifier>
+      </li>
+      <li Class="RoleEffect_PawnStatFactor">
+        <statDef>MedicalOperationSpeed</statDef>
+        <modifier>1.5</modifier>
+      </li>
+      <li Class="RoleEffect_PawnStatFactor">
+        <statDef>MedicalSurgerySuccessChance</statDef>
+        <modifier>1.5</modifier>
+      </li>
+      <li Class="RoleEffect_GiveThoughtOnTend">
+        <thoughtDef>TendedByMedicalSpecialist</thoughtDef>
+      </li>
+    </roleEffects>
+    <requiredMemes>
+      <li>ST_Meme_Starfleet</li>
+    </requiredMemes>
+  </PreceptDef>
+
+    <!-- Security Officer -->
+  <PreceptDef ParentName="PreceptRoleSingleBase" MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>IdeoRole_FederationChiefSecurityOfficer</defName>
+    <label>chief security officer</label>
+    <description>The security authority onboard the star ship or station</description>
+    <iconPath>UI/Roles/FederationSecurityOfficer</iconPath>
+    <nameMaker>NamerSecurityspecialist_Starfleet</nameMaker>
+    <roleTags>
+			<li>Specialist</li>
+		</roleTags>
+    <displayOrderInImpact>1002</displayOrderInImpact>
+    <roleApparelRequirements>
+      <li>
+        <requirement>
+          <requiredDefs>
+            <li>Fed_Combadge_TNG</li>
+          </requiredDefs>
+        </requirement>
+      </li>
+    </roleApparelRequirements>
+    <grantedAbilities>
+      <li>LaunchFragGrenade</li>
+      <li>TerrorRoar</li>
+    </grantedAbilities>
+    <roleRequirements>
+        <li Class="RoleRequirement_MinSkillAny">
+          <skills>
+            <Shooting>10</Shooting>
+            <Melee>10</Melee>
+          </skills>
+        </li>
+    </roleRequirements>
+        <roleEffects>
+      <li Class="RoleEffect_PawnStatOffset">
+        <statDef>MeleeHitChance</statDef>
+        <modifier>2</modifier>
+      </li>
+      <li Class="RoleEffect_PawnStatOffset">
+        <statDef>MeleeDodgeChance</statDef>
+        <modifier>1.5</modifier>
+      </li>
+      <li Class="RoleEffect_PawnStatOffset">
+        <statDef>ShootingAccuracyPawn</statDef>
+        <modifier>2</modifier>
+      </li>
+      <li Class="RoleEffect_PawnStatOffset">
+        <statDef>AimingDelayFactor</statDef>
+        <modifier>-0.1</modifier>
+      </li>
+    </roleEffects>
+    <requiredMemes>
+      <li>ST_Meme_Starfleet</li>
+    </requiredMemes>
+  </PreceptDef>
+
+
+
+</Defs>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <QuestScriptDef>
+    <defName>STQ_VE_Obelisks_IV_Wardens</defName>
+    <rootSelectionWeight>0</rootSelectionWeight>
+    <autoAccept>false</autoAccept>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->Following Starfleet protocol, the team fortifies the obelisks and continues controlled subspace probing. Klingon and Romulan observers assert ancestral claims; the Ferengi smell profit. Maintain order and keep the window stable.</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->Obelisk Survey — Phase IV</li>
+      </rulesStrings>
+    </questNameRules>
+    <root Class="QuestNode_Sequence">
+      <nodes>
+        <li Class="QuestNode_Letter">
+          <label>STQ.Obelisks.Path.Warden.Title</label>
+          <text>STQ.Obelisks.Path.Warden.Text</text>
+          <letterDef>ST_AprilComms_Letter</letterDef>
+        </li>
+        <!-- Hier später euer echter Phase-IV-Inhalt -->
+      </nodes>
+    </root>
+  </QuestScriptDef>
+</Defs>

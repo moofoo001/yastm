@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <FactionDef ParentName="FactionBase">
+    <defName>Romulan_Star_Empire</defName>
+    <label>Romulan Star Empire</label>
+    <description>A secretive power preferring subterfuge and calculated strikes.</description>
+
+    <factionNameMaker>ST_NamerRomulanFaction</factionNameMaker>
+    <settlementNameMaker>ST_NamerRomulanBase</settlementNameMaker>
+    <factionIconPath>UI/Icons/Factions/Romulan</factionIconPath>
+
+    <listOrderPriority>47</listOrderPriority>
+    <settlementGenerationWeight>0.18</settlementGenerationWeight>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <maxConfigurableAtWorldCreation>1</maxConfigurableAtWorldCreation>
+    <configurationListOrderPriority>32</configurationListOrderPriority>
+    <displayInFactionSelection>true</displayInFactionSelection>
+
+    <allowedCultures><li>ST_Culture_Romulan</li></allowedCultures>
+    <techLevel>Spacer</techLevel>
+    <permanentEnemy>false</permanentEnemy>
+    <leaderTitle>commander</leaderTitle>
+    <fixedLeaderKinds>
+      <li>ROM_Leader</li>
+    </fixedLeaderKinds>
+
+    <colorSpectrum>
+      <li>(0.10, 0.60, 0.35)</li>
+      <li>(0.20, 0.90, 0.50)</li>
+    </colorSpectrum>
+
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances><Ectos_Romulan>0.90</Ectos_Romulan><Baseliner>0.10</Baseliner></xenotypeChances>
+    </xenotypeSet>
+
+    <backstoryFilters>
+      <li>
+        <categoriesChildhood><li>Civil</li><li>Spacer</li></categoriesChildhood>
+        <categoriesAdulthood><li>Civil</li><li>Spacer</li></categoriesAdulthood>
+      </li>
+    </backstoryFilters>
+
+    <!-- TraderKinds -->
+    <caravanTraderKinds><li>Trader_Romulan_BlackOps</li></caravanTraderKinds>
+    <visitorTraderKinds><li>Trader_Romulan_BlackOps</li></visitorTraderKinds>
+    <baseTraderKinds><li>Trader_Romulan_BlackOps</li></baseTraderKinds>
+
+    <maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(0,40)</li>
+        <li>(70,55)</li>
+        <li>(700,110)</li>
+        <li>(1300,170)</li>
+        <li>(100000,10000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>
+
+    <pawnGroupMakers>
+      <li>
+        <kindDef>Combat</kindDef>
+        <options>
+          <ROM_Soldier>2.2</ROM_Soldier>
+          <ROM_Scout>1.4</ROM_Scout>
+          <ROM_Civilian>0.2</ROM_Civilian>
+        </options>
+      </li>
+      <li>
+        <kindDef>Peaceful</kindDef>
+        <options>
+          <ROM_Civilian>3.0</ROM_Civilian>
+          <ROM_Scout>0.6</ROM_Scout>
+          <ROM_Soldier>0.5</ROM_Soldier>
+        </options>
+      </li>
+      <li>
+        <kindDef>Trader</kindDef>
+        <traders><ROM_Civilian>1</ROM_Civilian></traders>
+        <carriers><Muffalo>4</Muffalo><Alpaca>3</Alpaca></carriers>
+        <guards><ROM_Soldier>7</ROM_Soldier><ROM_Scout>3</ROM_Scout></guards>
+      </li>
+      <li>
+        <kindDef>Settlement</kindDef>
+        <options>
+          <ROM_Civilian>4.2</ROM_Civilian>
+          <ROM_Soldier>0.9</ROM_Soldier>
+          <ROM_Scout>0.6</ROM_Scout>
+          <ROM_Leader>0.1</ROM_Leader>
+        </options>
+      </li>
+    </pawnGroupMakers>
+
+    <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+  </FactionDef>
+</Defs>

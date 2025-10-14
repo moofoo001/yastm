@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ApparelLayerDef>
+    <defName>ST_Badge</defName>
+    <label>badge</label>
+    <!-- Draw above Shell so it's visible over uniforms and EV suits,
+         but below Overhead (helmets). Adjust if needed. -->
+    <drawOrder>350</drawOrder>
+  </ApparelLayerDef>
+</Defs>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef>
+    <defName>ST_FieldTriageBuff</defName>
+    <label>field triage</label>
+    <description>Provides a temporary boost to medical tend speed and immunity gain, while slightly reducing pain.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.65,0.95,1)</defaultLabelColor>
+    <tendable>false</tendable>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>3000</disappearsAfterTicks> <!-- 50 Sekunden -->
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MedicalTendSpeed>0.25</MedicalTendSpeed>
+          <ImmunityGainSpeed>0.05</ImmunityGainSpeed>
+        </statOffsets>
+        <painOffset>-0.05</painOffset>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

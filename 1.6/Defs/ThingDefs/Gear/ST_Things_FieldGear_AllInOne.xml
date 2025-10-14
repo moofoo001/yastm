@@ -1,0 +1,277 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+
+
+
+
+  <RecipeDef>
+    <defName>Make_ST_TricorderBelt</defName>
+    <label>make tricorder</label>
+    <jobString>Assembling tricorder…</jobString>
+    <workAmount>6000</workAmount>
+    <workSkill>Crafting</workSkill>
+    <workSkillLearnFactor>0.5</workSkillLearnFactor>
+    <effectWorking>ConstructMetal</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <skillRequirements>
+      <Crafting>6</Crafting>
+      </skillRequirements>
+    <researchPrerequisite>ST_Scanning_technology</researchPrerequisite>
+    <recipeUsers>
+      <li>TableMachining</li>
+      </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+            </thingDefs>
+          </filter>
+        <count>30</count>
+        </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+            </thingDefs>
+          </filter>
+        <count>3</count>
+        </li>
+      </ingredients>
+    <products>
+      <ST_Apparel_TricorderBelt>1</ST_Apparel_TricorderBelt>
+      </products>
+  </RecipeDef>
+  
+  <RecipeDef>
+    <defName>Make_ST_MedKitBelt</defName>
+    <label>make med kit</label>
+    <jobString>Assembling med kit…</jobString>
+    <workAmount>6000</workAmount>
+    <workSkill>Crafting</workSkill>
+    <workSkillLearnFactor>0.5</workSkillLearnFactor>
+    <effectWorking>ConstructMetal</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <skillRequirements>
+      <Crafting>6</Crafting>
+      </skillRequirements>
+    <researchPrerequisite>ST_Medical_diagnostics</researchPrerequisite>
+    <recipeUsers>
+      <li>TableMachining</li>
+      </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+            </thingDefs>
+          </filter>
+        <count>25</count>
+        </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineIndustrial</li>
+            </thingDefs>
+          </filter>
+        <count>2</count>
+        </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+            </thingDefs>
+          </filter>
+        <count>2</count>
+        </li>
+      </ingredients>
+    <products>
+      <ST_Apparel_MedKitBelt>1</ST_Apparel_MedKitBelt>
+      </products>
+    </RecipeDef>
+  
+<!-- Items def-->
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_Apparel_TricorderBelt</defName>
+    <label>tricorder</label>
+    <description>Multi-spectral sensor suite and analysis tools in a compact belt module.</description>
+    
+    <graphicData>
+      <texPath>Things/Item/Equipment/Utilities/Tricorder</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(0.6,0.6)</drawSize>
+    </graphicData>
+    <uiIconScale>1</uiIconScale>
+    <statBases>
+      <WorkToMake>4000</WorkToMake>
+      <Mass>0.25</Mass>
+      <MarketValue>220</MarketValue>
+    </statBases>
+
+    <equippedStatOffsets>
+      <ResearchSpeed>0.08</ResearchSpeed>
+      <GlobalLearningFactor>0.03</GlobalLearningFactor>
+      <HackingSpeed>0.04</HackingSpeed>
+    </equippedStatOffsets>
+    
+    <costList>
+      <Steel>30</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+
+  <apparel>
+      <wornGraphicPath>Things/Item/Equipment/Utilities/Tricorder</wornGraphicPath>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>StarfleetGear</li>
+        <li>StarfleetUtility</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+
+    <wornGraphicPath>Things/Item/Equipment/Utilities/Tricorder</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        
+    <north>
+      <offset>(+0.15,-0.25)</offset>
+		  <hulk><offset>(+0.05 ,-0.2)</offset></hulk>
+		  <fat><offset>(+0.3,-0.15)</offset></fat>
+		  <thin><offset>(-0.1,-0.1)</offset></thin>
+    </north>
+    <south>
+      <offset>(-0.15,-0.25)</offset>
+		  <hulk><offset>(-0.05,-0.2)</offset></hulk>
+		  <fat><offset>(-0.3,-0.15)</offset></fat>
+		  <thin><offset>(+0.1,-0.1)</offset></thin>
+    </south>
+    <east>
+      <offset>(-0.1,-0.25)</offset>
+		  <hulk><offset>(-0.1,-0.2)</offset></hulk>
+		  <fat><offset>(-0.20,-0.10)</offset></fat>
+    </east>
+    <west>
+      <offset>(+0.1,-0.25)</offset>
+		  <hulk><offset>(+0.1,-0.2)</offset></hulk>
+		  <fat><offset>(+0.20,-0.10)</offset></fat>
+    </west>
+    
+    <male>  <scale>(0.3,0.3)</scale></male>
+    <female><scale>(0.3,0.3)</scale></female>
+    <thin>  <scale>(0.3,0.3)</scale></thin>
+    <hulk>  <scale>(0.3,0.3)</scale></hulk>
+    <fat>   <scale>(0.3,0.3)</scale></fat> 
+        
+      </wornGraphicData>
+  </apparel>
+
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <alwaysHaulable>true</alwaysHaulable>
+    <!--tradeability>Sellable</tradeability-->
+    <techLevel>Spacer</techLevel>
+  </ThingDef>
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_Apparel_MedKitBelt</defName>
+    <label>med kit</label>
+    <description>Compact medical supplies and tools to stabilize patients quickly.</description>
+    <thingClass>Apparel</thingClass>
+    
+    <graphicData>
+      <texPath>Things/Item/Equipment/Utilities/Medic_sash</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(0.6,0.6)</drawSize>
+    </graphicData>
+
+    <uiIconScale>1</uiIconScale>
+
+    <statBases>
+      <WorkToMake>5000</WorkToMake>
+      <Mass>0.25</Mass>
+      <MarketValue>260</MarketValue>
+    </statBases>
+
+    <equippedStatOffsets>
+      <MedicalTendSpeed>0.12</MedicalTendSpeed>
+      <SurgerySuccessChanceFactor>0.05</SurgerySuccessChanceFactor>
+    </equippedStatOffsets>
+
+    <costList>
+      <Steel>35</Steel>
+      <MedicineIndustrial>2</MedicineIndustrial>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+
+    <apparel>
+      <bodyPartGroups>
+        <li>Waist</li>
+        </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+        </layers>
+      <tags>
+        <li>StarfleetMedicalUtility</li>
+        </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+
+      <wornGraphicPath>Things/Item/Equipment/Utilities/Medic_sash</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+
+    <north>
+      <offset>(+0.2,-0.25)</offset>
+		  <hulk><offset>(-0.5,-0.15)</offset></hulk>
+		  <fat><offset>(-0.4,-0.15)</offset></fat>
+		  <thin><offset>(-0.3,-0.1)</offset></thin>
+    </north>
+    <south>
+      <offset>(-0.2,-0.25)</offset>
+		  <hulk><offset>(+0.5,-0.15)</offset></hulk>
+		  <fat><offset>(+0.4,-0.15)</offset></fat>
+		  <thin><offset>(+0.3,-0.1)</offset></thin>
+    </south>
+    <east>
+      <offset>(-0.1,-0.25)</offset>
+		  <hulk><offset>(-0.1,-0.15)</offset></hulk>
+		  <fat><offset>(-0.20,-0.10)</offset></fat>
+    </east>
+    <west>
+      <offset>(+0.1,-0.25)</offset>
+		  <hulk><offset>(+0.1,-0.15)</offset></hulk>
+		  <fat><offset>(+0.20,-0.10)</offset></fat>
+    </west>
+    
+    <male>  <scale>(0.25,0.25)</scale></male>
+    <female><scale>(0.25,0.25)</scale></female>
+    <thin>  <scale>(0.25,0.25)</scale></thin>
+    <hulk>  <scale>(0.25,0.25)</scale></hulk>
+    <fat>   <scale>(0.25,0.25)</scale></fat> 
+
+      </wornGraphicData>
+    </apparel>
+    
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <alwaysHaulable>true</alwaysHaulable>
+    <!--tradeability>Sellable</tradeability-->
+    <techLevel>Spacer</techLevel>
+    </ThingDef>
+
+</Defs>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+<ResearchProjectDef ParentName="ST_Base_Research">
+  <defName>ST_SubspaceTelemetry</defName>
+  <label>Subspace Telemetry</label>
+  <baseCost>500</baseCost>
+  <techLevel>Spacer</techLevel>
+  <researchViewX>4</researchViewX>
+  <researchViewY>2</researchViewY>
+  <description>Fundamentals of detecting and amplifying weak subspace signals.</description>
+    <prerequisites>
+      <li>MicroelectronicsBasics</li>
+      <li>ST_Scanning_technology</li>
+    </prerequisites>
+</ResearchProjectDef>
+
+</Defs>
+

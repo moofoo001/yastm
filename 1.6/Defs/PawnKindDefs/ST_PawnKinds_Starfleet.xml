@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+ <!-- UFP Starfleet Base Member -->
+
+<PawnKindDef Name="FederationBasePawn" ParentName="BasePlayerPawnKind" abstract="true" >
+  <defName>FederationBasePawn_base</defName>
+  <label>Federation Starfleet Kinds</label>
+  <defaultFactionDef>Federation_Of_Planets</defaultFactionDef>
+  <race>Human</race>
+  <initialResistanceRange>8~16</initialResistanceRange>
+
+      <!-- Faction Xenotyps -->
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances>
+        <Ectos_Vulcan>0.10</Ectos_Vulcan>
+        <Ectos_Klingon>0.10</Ectos_Klingon>
+        <Ectos_Andorian>0.10</Ectos_Andorian>
+        <Ectos_Romulan>0.10</Ectos_Romulan>
+        <Ectos_Cardassian>0.05</Ectos_Cardassian>
+        <Ectos_Aenar>0.05</Ectos_Aenar>
+        <Ectos_Tellarite>0.01</Ectos_Tellarite>
+        <Ectos_Orion>0.05</Ectos_Orion>
+        <Ectos_Betazoid>0.01</Ectos_Betazoid>
+        <Ectos_Denobulan>0.01</Ectos_Denobulan>
+        <Ectos_Bolian>0.01</Ectos_Bolian>
+        <Ectos_Benzite>0.01</Ectos_Benzite>
+        <Ectos_Bajoran>0.05</Ectos_Bajoran>
+        <Ectos_Trill>0.05</Ectos_Trill>
+        <Ectos_Tibronian>0.01</Ectos_Tibronian>
+        <Ectos_Caitian>0.01</Ectos_Caitian>
+        <Ectos_Ferengi>0.05</Ectos_Ferengi>
+        <Ectos_Nausicaan>0.01</Ectos_Nausicaan>
+        <Ectos_Gorn>0.01</Ectos_Gorn>
+        <Baseliner>0.05</Baseliner>
+      </xenotypeChances>
+    </xenotypeSet>
+  
+  <minGenerationAge>22</minGenerationAge>
+  <maxGenerationAge>55</maxGenerationAge>
+  
+  <skills>
+    <li>
+      <skill>Construction</skill>
+      <range>2~10</range>
+      <skill>Crafting</skill>
+      <range>2~10</range>
+      <skill>Shooting</skill>
+      <range>4~9</range>
+      <skill>Melee</skill>
+      <range>2~8</range>
+      <skill>Intellectual</skill>
+      <range>4~8</range>
+      <skill>Cooking</skill>
+      <range>3~7</range>
+      <skill>Social</skill>
+      <range>2~6</range>
+      <skill>Mining</skill>
+      <range>2~6</range>
+      <skill>Plants</skill>
+      <range>2~6</range>
+    </li>
+  </skills> 
+
+  <weaponTags>
+    <li>ST_Phaser_T1</li>
+  </weaponTags>
+
+  <combatPower>45</combatPower>
+  <gearHealthRange>0.7~1.0</gearHealthRange>
+  <apparelMoney>200~1000</apparelMoney>
+  <weaponMoney>1000~3000</weaponMoney>
+  <apparelTags>
+      <li>Federation</li>
+      <li>StarfleetUniform</li>
+  </apparelTags>
+  <itemQuality>Good</itemQuality>
+    <inventoryOptions>
+      <skipChance>0.8</skipChance>
+      <subOptionsChooseOne>
+        <li>
+          <thingDef>Silver</thingDef>
+          <countRange>100~200</countRange>
+        </li>
+      </subOptionsChooseOne>
+    </inventoryOptions>
+
+</PawnKindDef>
+
+<!-- all devisions -->
+<PawnKindDef ParentName="FederationBasePawn">
+  <defName>FederationPawn_general</defName>
+  <label>Starfleet unasigned (general)</label>
+  <backstoryFiltersOverride>
+      <li>
+        <categoriesChildhood>
+          <li>Starfleet_Operations</li>    
+          <li>Starfleet_Engineering</li>
+          <li>Starfleet_Security</li>
+          <li>Starfleet_Science</li>
+          <li>Starfleet_Medical</li>
+        </categoriesChildhood>
+        <categoriesAdulthood>
+          <li>Starfleet_Operations</li>    
+          <li>Starfleet_Engineering</li>
+          <li>Starfleet_Security</li>
+          <li>Starfleet_Science</li>
+          <li>Starfleet_Medical</li>
+        </categoriesAdulthood>
+      </li>
+  </backstoryFiltersOverride>
+  <apparelRequired>
+    <li>ST_Apparel_StarfleetTunic</li>
+    <li>ST_Apparel_StarfleetPants</li>
+    <li>Fed_Combadge_TNG</li>
+  </apparelRequired>
+  <weaponTags>
+    <li>ST_Phaser_T1</li>
+    <li>ST_Phaser_T2</li>
+    <li>Starfleet Phasers Security SNW</li>
+  </weaponTags>
+  <gearHealthRange>0.7~1.0</gearHealthRange>
+</PawnKindDef>
+
+
+<!-- Command -->
+<PawnKindDef ParentName="FederationBasePawn">
+  <defName>FederationPawn_Command</defName>
+  <label>Starfleet officer (command)</label>
+  <backstoryFiltersOverride>
+      <li>
+        <categoriesChildhood>
+          <li>Starfleet_Command</li>
+        </categoriesChildhood>
+        <categoriesAdulthood>
+          <li>Starfleet_Command</li>
+        </categoriesAdulthood>
+      </li>
+  </backstoryFiltersOverride>
+  <apparelRequired>
+    <li>ST_Apparel_StarfleetTunic_Command</li>
+    <li>ST_Apparel_StarfleetPants</li>
+    <li>Fed_Combadge_TNG</li>
+  </apparelRequired>
+  <apparelTags>
+    <li>ST_CommandOnly</li>
+  </apparelTags>
+  <weaponTags>
+    <li>ST_Phaser_T2</li>
+  </weaponTags>
+  <gearHealthRange>0.7~1.0</gearHealthRange>
+</PawnKindDef>
+
+<!-- Operations/Engineering/Security -->
+<PawnKindDef ParentName="FederationBasePawn">
+  <defName>FederationPawn_Operations</defName>
+  <label>Starfleet officer (operations)</label>
+  <backstoryFiltersOverride>
+      <li>
+        <categoriesChildhood>
+          <li>Starfleet_Operations</li>    
+          <li>Starfleet_Engineering</li>
+          <li>Starfleet_Security</li>
+        </categoriesChildhood>
+        <categoriesAdulthood>
+          <li>Starfleet_Operations</li>    
+          <li>Starfleet_Engineering</li>
+          <li>Starfleet_Security</li>
+        </categoriesAdulthood>
+      </li>
+  </backstoryFiltersOverride>
+	<apparelRequired>
+    <li>ST_Apparel_StarfleetTunic_Operations</li>
+    <li>ST_Apparel_StarfleetPants</li>
+    <li>Fed_Combadge_TNG</li>
+  </apparelRequired>
+  <apparelTags>
+    <li>ST_OperationsOnly</li>
+  </apparelTags>
+  <weaponTags>
+    <li>ST_Phaser_T2</li>
+    <li>Starfleet Phasers Security SNW</li>
+  </weaponTags>
+  <gearHealthRange>0.7~1.0</gearHealthRange>
+</PawnKindDef>
+
+<!-- Security only-->
+<PawnKindDef ParentName="FederationBasePawn">
+  <defName>FederationPawn_Security</defName>
+  <label>Starfleet officer (security)</label>
+  <backstoryFiltersOverride>
+      <li>
+        <categoriesChildhood>
+          <li>Starfleet_Operations</li>    
+          <li>Starfleet_Engineering</li>
+          <li>Starfleet_Security</li>
+        </categoriesChildhood>
+        <categoriesAdulthood>
+          <li>Starfleet_Security</li>
+        </categoriesAdulthood>
+      </li>
+  </backstoryFiltersOverride>
+	<apparelRequired>
+    <li>ST_Apparel_StarfleetTunic_Operations</li>
+    <li>ST_Apparel_StarfleetPants</li>
+    <li>Fed_Combadge_TNG</li>
+  </apparelRequired>
+  <apparelTags>
+    <li>ST_OperationsOnly</li>
+  </apparelTags>
+  <weaponTags>
+    <li>FederationMelee_StunBaton</li>
+    <li>ST_Phaser_T2</li>
+    <li>Starfleet Phasers Security SNW</li>
+  </weaponTags>
+  <gearHealthRange>0.7~1.0</gearHealthRange>
+</PawnKindDef>
+
+
+<!-- Science -->
+<PawnKindDef ParentName="FederationBasePawn">
+  <defName>FederationPawn_Science</defName>
+  <label>Starfleet officer (science)</label>
+  <backstoryFiltersOverride>
+      <li>
+        <categoriesChildhood>
+           <li>Starfleet_Science</li>
+        </categoriesChildhood>
+        <categoriesAdulthood>
+           <li>Starfleet_Science</li>
+        </categoriesAdulthood>
+      </li>
+  </backstoryFiltersOverride>
+  <apparelRequired>
+    <li>ST_Apparel_StarfleetTunic_Science</li>
+    <li>ST_Apparel_StarfleetPants</li>
+    <li>Fed_Combadge_TNG</li>
+  </apparelRequired>
+  <weaponTags>
+    <li>ST_Phaser_T1</li>
+  </weaponTags>
+   <apparelTags>
+    <li>ST_ScienceOnly</li>
+    <li>StarfleetGear</li>
+  </apparelTags> 
+  <gearHealthRange>0.7~1.0</gearHealthRange>  
+</PawnKindDef>
+
+<!-- Medical -->
+<PawnKindDef ParentName="FederationBasePawn">
+  <defName>FederationPawn_Medical</defName>
+  <label>Starfleet officer (medical)</label>
+  <backstoryFiltersOverride>
+      <li>
+        <categoriesChildhood>
+           <li>Starfleet_Medical</li>
+        </categoriesChildhood>
+        <categoriesAdulthood>
+           <li>Starfleet_Medical</li>
+        </categoriesAdulthood>
+      </li>
+  </backstoryFiltersOverride>
+  <apparelRequired>
+    <li>ST_Apparel_StarfleetTunic_Medical</li>
+    <li>ST_Apparel_StarfleetPants</li>
+    <li>Fed_Combadge_TNG</li>
+  </apparelRequired>
+  <weaponTags>
+    <li>ST_Phaser_T1</li>
+  </weaponTags>
+  <apparelTags>
+    <li>ST_MedicalOnly</li>
+    <li>StarfleetMedicalUtility</li>
+  </apparelTags>
+  <gearHealthRange>0.7~1.0</gearHealthRange>
+</PawnKindDef>
+
+</Defs>

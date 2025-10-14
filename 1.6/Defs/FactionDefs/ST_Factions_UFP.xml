@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <FactionDef Name="Federation_Of_Planets" ParentName="PlayerFactionBase">
+    <defName>Federation_Of_Planets</defName>
+    <label>The Federation of Planets</label>
+    <description>A peaceful and advanced exploratory coalition of worlds, dedicated to the principles of cooperation, exploration, and mutual respect.</description>
+    <isPlayer>true</isPlayer>
+    <basicMemberKind>FederationPawn_general</basicMemberKind>
+    <pawnSingular>member</pawnSingular>
+    <pawnsPlural>members</pawnsPlural>
+    <techLevel>Spacer</techLevel>
+    <factionNameMaker>ST_NamerFedFaction</factionNameMaker>
+    <settlementNameMaker>ST_NamerFedBase</settlementNameMaker>
+    <allowedCultures>
+      <li>ST_Culture_UFP</li>
+    </allowedCultures>
+    
+    <factionIconPath>UI/Icons/Factions/UFP</factionIconPath>
+    <colorSpectrum>
+      <li>(0.20, 0.55, 0.95)</li>
+    </colorSpectrum>
+
+    <!-- Faction Xenotyps -->
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances>
+        <Baseliner>0.20</Baseliner>
+        <Ectos_Vulcan>0.14</Ectos_Vulcan>
+        <Ectos_Andorian>0.12</Ectos_Andorian>
+        <Ectos_Tellarite>0.06</Ectos_Tellarite>
+        <Ectos_Betazoid>0.08</Ectos_Betazoid>
+        <Ectos_Trill>0.07</Ectos_Trill>
+        <Ectos_Bajoran>0.05</Ectos_Bajoran>
+        <Ectos_Denobulan>0.04</Ectos_Denobulan>
+        <Ectos_Bolian>0.04</Ectos_Bolian>
+        <Ectos_Benzite>0.02</Ectos_Benzite>
+        <Ectos_Orion>0.02</Ectos_Orion>
+        <Ectos_Klingon>0.02</Ectos_Klingon>
+        <Ectos_Romulan>0.02</Ectos_Romulan>
+        <Ectos_Cardassian>0.02</Ectos_Cardassian>
+      </xenotypeChances>
+    </xenotypeSet>
+
+    <!-- Backstory fix-->
+    <canMakeRandomly>false</canMakeRandomly>
+    <hidden>false</hidden>
+    <backstoryCategories>
+      <li>Starfleet_Operations</li>    
+      <li>Starfleet_Engineering</li>
+      <li>Starfleet_Security</li>
+      <li>Starfleet_Science</li>
+      <li>Starfleet_Medical</li>
+      <li>FederationPawn_Command</li>
+    </backstoryCategories>
+
+    <startingResearchTags>
+      <li>ClassicStart</li>
+    </startingResearchTags>
+    <startingTechprintsResearchTags>
+      <li>ClassicStart</li>
+      <li>ClassicStartTechprints</li>
+    </startingTechprintsResearchTags>
+
+  </FactionDef>
+</Defs>

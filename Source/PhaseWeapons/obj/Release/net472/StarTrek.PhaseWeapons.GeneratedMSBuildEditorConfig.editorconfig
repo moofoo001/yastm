@@ -1,0 +1,8 @@
+is_global = true
+build_property.RootNamespace = ST.PhaseWeapons
+build_property.ProjectDir = G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\PhaseWeapons\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+  <!-- Thoughts: Beschreibung & Klasse absichern -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThoughtDef[defName="ST_Thought_Briefing_Completed"]</xpath>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThoughtDef[defName="ST_Thought_Briefing_Completed"]/description</xpath>
+          <value><description>The recent briefing left me focused and aligned.</description></value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThoughtDef[defName="ST_Thought_Briefing_Completed"]/thoughtClass</xpath>
+          <value><thoughtClass>Thought_Memory</thoughtClass></value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThoughtDef[defName="ST_Thought_ShoreLeave_Completed"]</xpath>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThoughtDef[defName="ST_Thought_ShoreLeave_Completed"]/description</xpath>
+          <value><description>Time off with the crew helped me unwind.</description></value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThoughtDef[defName="ST_Thought_ShoreLeave_Completed"]/thoughtClass</xpath>
+          <value><thoughtClass>Thought_Memory</thoughtClass></value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+
+  
+
+</Patch>

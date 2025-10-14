@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<loadFolders>
+  <li>1.6/Defs</li>
+  <li>1.6/Patches</li>  <li>1.6</li>
+  <li IfModActive="Ludeon.RimWorld.Ideology">1.6/Ideology</li>
+</loadFolders>

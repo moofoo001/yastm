@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <ScenarioDef ParentName="ScenarioBase">
+    <defName>ST_Scenario_Starfleet_LandingParty</defName>
+    <label>Starfleet landing party</label>
+    <description>Five crew, basic supplies, standard drop-pod insertion.</description>
+    
+    <scenario>
+      <name>Starfleet landing party</name>
+      <summary>Five Starfleet officers with basic field gear.</summary>
+      
+      <playerFaction>
+        <def>PlayerFaction</def>
+        <factionDef>Federation_Of_Planets</factionDef>
+        </playerFaction>
+      <parts>
+
+<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
+  <def>ConfigurePawnsKindDefs</def>
+  <pawnChoiceCount>5</pawnChoiceCount> <!-- 5 Startkolonisten -->
+  <kindCounts>
+    <li><kindDef>FederationPawn_Command</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+    <li><kindDef>FederationPawn_Operations</kindDef><count>2</count><requiredAtStart>true</requiredAtStart></li>
+    <li><kindDef>FederationPawn_Science</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+    <li><kindDef>FederationPawn_Medical</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+  </kindCounts>
+</li>
+        <li Class="ScenPart_PlayerPawnsArriveMethod">
+          <def>PlayerPawnsArriveMethod</def>
+          <method>DropPods</method>
+          <visible>false</visible>
+          </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MealSurvivalPack</thingDef>
+          <count>50</count>
+          </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MedicineIndustrial</thingDef>
+          <count>20</count>
+          </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Steel</thingDef>
+          <count>300</count>
+          </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>ComponentIndustrial</thingDef>
+          <count>20</count>
+          </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Bedroll</thingDef>
+          <count>5</count>
+          <stuff>Cloth</stuff>
+          </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>ST_Apparel_MedKitBelt</thingDef>
+          <count>1</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>ST_Apparel_TricorderBelt</thingDef>
+          <count>1</count>
+        </li>
+        
+        </parts>
+      </scenario>
+    </ScenarioDef>
+  </Defs>

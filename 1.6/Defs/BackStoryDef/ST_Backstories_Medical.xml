@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Medicine_Trauma_Response_Specialist</defName>
+    <title>Starfleet trauma response specialist</title>
+    <titleShort>trauma specialist</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>First in, last out: stabilizes critical patients under fire, triages mass
+      casualties, and keeps calm when alarms won't stop.
+    </baseDesc>
+    <skillGains>
+      <Medicine>+4</Medicine>
+      <Social>+3</Social>
+      <Shooting>+1</Shooting>
+      </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Medical</li>
+    </spawnCategories>
+    <forcedTraits />
+    <disallowedTraits>
+      <Pyromaniac>0</Pyromaniac>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Medicine_Xenomedicine_Researcher</defName>
+    <title>Starfleet xenomedicine researcher</title>
+    <titleShort>xenomedicine</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Investigates alien pathologies and immune responses; designs protocols
+      when \"standard human\" isn’t standard at all.
+    </baseDesc>
+    <skillGains>
+      <Medicine>+2</Medicine>
+      <Intellectual>+2</Intellectual>
+      <Animals>+2</Animals>
+      <Plants>+2</Plants>
+      </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Medical</li>
+      </spawnCategories>
+    <disallowedTraits>
+      <Pyromaniac>0</Pyromaniac>
+    </disallowedTraits>
+    <forcedTraits>
+      <FastLearner>0</FastLearner>
+    </forcedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Medicine_Surgical_Systems_Officer</defName>
+    <title>Starfleet surgical systems officer</title>
+    <titleShort>surgical systems</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Maintains biobeds, sterility fields, and auto-suture arrays; precision
+      hardware meets steady hands.
+    </baseDesc>
+    <skillGains>
+      <Medicine>+4</Medicine>
+      <Crafting>+2</Crafting>
+      <Intellectual>+1</Intellectual>
+      <Social>+1</Social>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Medical</li>
+    </spawnCategories>
+    <forcedTraits />
+    <disallowedTraits>
+      <Pyromaniac>0</Pyromaniac>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Medicine_Sickbay_Administrator</defName>
+    <title>Starfleet sickbay administrator</title>
+    <titleShort>sickbay admin</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Orchestrates staff rotations, triage queues, and supply levels so every
+      patient gets care when it matters most.
+    </baseDesc>
+    <skillGains>
+      <Medicine>+3</Medicine>
+      <Social>+2</Social>
+      <Intellectual>+1</Intellectual>
+      <Artistic>+1</Artistic>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Medical</li>
+    </spawnCategories>
+    <forcedTraits />
+    <disallowedTraits>
+      <Pyromaniac>0</Pyromaniac>
+    </disallowedTraits>
+    </BackstoryDef>
+  </Defs>

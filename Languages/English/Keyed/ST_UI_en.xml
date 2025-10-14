@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Beacon buttons -->
+  <ST.InitializeBeacon>Initialize Beacon</ST.InitializeBeacon>
+  <ST.InitializeBeacon.Desc>Begin the obelisk survey protocol.</ST.InitializeBeacon.Desc>
+
+  <ST.ReportToStarfleet>Report to Starfleet</ST.ReportToStarfleet>
+  <ST.ReportToStarfleet.Desc>Transmit findings to Starfleet.</ST.ReportToStarfleet.Desc>
+
+  <ST.ObeliskSurveyInitialized>Survey protocol initialized. Two obelisks detected – begin scans.</ST.ObeliskSurveyInitialized>
+  <ST.ReadyToReport>Scans complete. Use the beacon to report findings to Starfleet.</ST.ReadyToReport>
+  <ST.SubspaceImpulseStarted>Subspace impulse responses expected. Stay alert.</ST.SubspaceImpulseStarted>
+
+  <!-- Feedback / errors -->
+  <ST.MustBePowered>Must be powered.</ST.MustBePowered>
+  <ST.CompleteScansFirst>Complete scans first.</ST.CompleteScansFirst>
+  <ST.ObeliskSurveyInitialized>Obelisk survey initialized.</ST.ObeliskSurveyInitialized>
+  <ST.ReportSent>Report sent to Starfleet.</ST.ReportSent>
+
+  <!-- Crate -->
+  <ST.DeployedBeacon>Deployed ComBeacon.</ST.DeployedBeacon>
+  <ST.NoPlaceToDeploy>No place to deploy.</ST.NoPlaceToDeploy>
+
+
+
+
+</LanguageData>

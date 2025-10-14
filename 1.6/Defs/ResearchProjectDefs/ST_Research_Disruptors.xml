@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Klingonische Disruptoren -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Klingon_Disruptors</defName>
+    <label>klingon disruptors</label>
+    <description>Klingonische Disruptor-Technologie für Pistolen und Gewehre.</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1200</baseCost>
+    <prerequisites>
+      <li>Machining</li>
+      <li>Gunsmithing</li>
+      <li>Klingon_Standard</li>
+    </prerequisites>
+    <researchViewX>4</researchViewX>
+    <researchViewY>4</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- Romulanische Disruptoren -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Romulan_Disruptors</defName>
+    <label>romulan disruptors</label>
+    <description>Romulanische Disruptor-Technologie für Pistolen und Gewehre.</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1300</baseCost>
+    <prerequisites>
+      <li>Machining</li>
+      <li>Gunsmithing</li>
+      <li>Romulan_Standard</li>
+    </prerequisites>
+    <researchViewX>4</researchViewX>
+    <researchViewY>5</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- Ferengi Disruptoren -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Ferengi_Disruptors</defName>
+    <label>ferengi disruptors</label>
+    <description>Ferengi-Varianten von Disruptor-Pistolen und -Gewehren.</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1100</baseCost>
+    <prerequisites>
+      <li>Machining</li>
+      <li>Gunsmithing</li>
+      <li>Ferengi_Standard</li>
+    </prerequisites>
+    <researchViewX>4</researchViewX>
+    <researchViewY>6</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

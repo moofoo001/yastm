@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- clipPath ersetzen -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>//SongDef[defName="EntrySong"]/clipPath</xpath>
+    <value>
+      <!-- <clipPath>OHNE Dateiendung! -->
+      <clipPath>Theme/adventure</clipPath>
+    </value>
+  </Operation>
+
+
+</Patch>

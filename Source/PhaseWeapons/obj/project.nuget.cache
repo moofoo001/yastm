@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZBAm0k1zvsM=",
+  "success": true,
+  "projectFilePath": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\PhaseWeapons\\StarTrek.PhaseWeapons.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\moofoo\\.nuget\\packages\\krafs.rimworld.ref\\1.6.4566\\krafs.rimworld.ref.1.6.4566.nupkg.sha512",
+    "C:\\Users\\moofoo\\.nuget\\packages\\lib.harmony\\2.2.2\\lib.harmony.2.2.2.nupkg.sha512",
+    "C:\\Users\\moofoo\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.3\\microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "C:\\Users\\moofoo\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.3\\microsoft.netframework.referenceassemblies.net472.1.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

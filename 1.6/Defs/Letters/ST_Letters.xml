@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <LetterDef>
+    <defName>ST_AprilComms_Letter</defName>
+    <label>Starfleet communiqué</label>
+    <letterClass>StandardLetter</letterClass>
+        <arriveSound>LetterArrive</arriveSound>
+    <color>(0.55,0.85,1.0)</color>
+    </LetterDef>
+</Defs>

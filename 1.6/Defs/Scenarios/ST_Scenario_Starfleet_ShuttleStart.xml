@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <ScenarioDef>
+    <defName>ST_Gravship_ShuttleStart</defName>
+    <label>Starfleet Shuttle Start</label>
+    <description>
+    Your ship was on the way to the neutral zone to investigate a rare stelar phenomenon.
+    However, an extraordinarily strong neutrino storm caught your away team by surprise.
+    You crash-landed on a nearby planet, with no way to contact your ship.....
+    </description>
+	
+    <scenario>
+      <summary>A small Federation away team is stranded and must find a way to get in contact with their explorer vessel</summary>
+
+    <surfaceLayer>
+				<def>SurfaceLayerFixed</def>
+				<tag>Surface</tag>
+				<layer>Surface</layer>
+				<settingsDef>Surface</settingsDef>
+				<hide>true</hide>
+				<connections>
+					<Orbit MayRequire="Ludeon.RimWorld.Odyssey">
+						<zoomMode>ZoomOut</zoomMode>
+					</Orbit>
+				</connections>
+	</surfaceLayer>
+    
+      <playerFaction>
+        <def>PlayerFaction</def>
+        <factionDef>Federation_Of_Planets</factionDef>
+        </playerFaction>
+      <parts>
+
+        <!-- Layers -->
+				<li MayRequire="Ludeon.RimWorld.Odyssey" Class="ScenPart_PlanetLayer">
+					<def>PlanetLayer</def>
+					<tag>Orbit</tag>
+					<layer>Orbit</layer>
+					<settingsDef>Orbit</settingsDef>
+					<hide>true</hide>
+					<connections>
+						<Surface>
+							<zoomMode>ZoomIn</zoomMode>
+						</Surface>
+					</connections>
+				</li>
+
+        <!-- Game start dialog -->
+        <li Class="ScenPart_GameStartDialog">
+          <def>GameStartDialog</def>
+          <text>The moment before your shuttle crash-landed on the surface of a nearby planet your sensors picked up signals of incoming hostile mechanoids.
+          Your prime directive is to survive and re-establish contact with your ship.
+          Find your shuttle, repair it and avoid the mechanoids at all cost.
+          Good luck, officer !.</text>
+          <closeSound>GameStartSting</closeSound>
+        </li>
+
+            <!-- KCSG/VEF: Start-Pawns konfigurieren -->
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
+        <def>ConfigurePawnsKindDefs</def>
+        <pawnChoiceCount>5</pawnChoiceCount> 
+        <kindCounts>
+            <li><kindDef>FederationPawn_Command</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+            <li><kindDef>FederationPawn_Operations</kindDef><count>2</count><requiredAtStart>false</requiredAtStart></li>
+            <li><kindDef>FederationPawn_Science</kindDef><count>1</count><requiredAtStart>false</requiredAtStart></li>
+            <li><kindDef>FederationPawn_Medical</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+        </kindCounts>
+        </li>
+        
+        <!-- KCSG/VEF: Start-Structur -->
+        <li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core"
+            Class="KCSG.ScenPart_AddStartingStructure">
+          <def>VFEC_AddStartingStructure</def>
+          <structureLabel>Starfleet Shuttle Type-5</structureLabel>
+          <nearMapCenter>false</nearMapCenter>
+          <spawnTheStartingPawn>true</spawnTheStartingPawn>
+          <chooseFrom>
+            <li>ST_Shuttle_T5</li> <!--exported ship -->
+          </chooseFrom>
+        </li>
+
+        <!-- Pawns arrival -->
+        <!-- Mechanoids pursuing -->
+        <li Class="ScenPart_PursuingMechanoids">
+          <def>PursuingMechanoids</def>
+        </li>
+
+        <!-- Starting research -->
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>BasicGravtech</project>
+        </li>
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>BiofuelRefining</project>
+        </li>
+
+      </parts>
+
+    </scenario>
+  </ScenarioDef>
+</Defs>

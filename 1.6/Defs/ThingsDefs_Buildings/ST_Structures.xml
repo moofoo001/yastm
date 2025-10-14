@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Starship Hull Wall -->
+<ThingDef ParentName="BuildingBase">
+  <defName>ST_HullWall</defName>
+  <label>hull wall</label>
+  <thingClass>Building</thingClass>
+  <category>Building</category>
+  <selectable>true</selectable>
+  <description>Starship-grade hull section. Extremely durable and airtight.</description>
+
+  <graphicData>
+    <texPath>Things/Building/Ship/HullWall</texPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <linkType>CornerFiller</linkType>
+    <linkFlags><li>Wall</li></linkFlags>
+  </graphicData>
+
+  <uiIconPath>Things/Building/Ship/HullWall_MenuIcon</uiIconPath>
+  <altitudeLayer>Building</altitudeLayer>
+  <passability>Impassable</passability>
+  <fillPercent>1</fillPercent>
+  <coversFloor>true</coversFloor>
+  <useHitPoints>true</useHitPoints>
+  <rotatable>false</rotatable>
+
+  <statBases>
+    <MaxHitPoints>900</MaxHitPoints>
+    <WorkToBuild>3000</WorkToBuild>
+    <Flammability>0</Flammability>
+    <Beauty>-1</Beauty>
+  </statBases>
+
+  <building>
+    <isEdifice>true</isEdifice>
+    <deconstructible>true</deconstructible>
+    <canPlaceOverWall>false</canPlaceOverWall>
+  </building>
+
+  <designationCategory>Structure</designationCategory>
+  <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+  
+  <researchPrerequisites><li>ST_UFP_Structures</li></researchPrerequisites>
+
+  <costList>
+    <Steel>40</Steel>
+    <Plasteel>10</Plasteel>
+  </costList>
+</ThingDef>
+
+  <!-- Starship Hull Glass -->
+<ThingDef ParentName="BuildingBase">
+  <defName>ST_HullGlass</defName>
+  <label>hull viewport</label>
+  <thingClass>Building</thingClass>
+  <category>Building</category>
+  <selectable>true</selectable>
+  <description>Transparent duraglass panel rated for hull pressure.</description>
+
+  <graphicData>
+    <texPath>Things/Building/Ship/HullGlass</texPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <linkType>CornerFiller</linkType>
+    <linkFlags><li>Wall</li></linkFlags>
+  </graphicData>
+
+  <uiIconPath>Things/Building/Ship/HullGlass_MenuIcon</uiIconPath>
+  <altitudeLayer>Building</altitudeLayer>
+  <passability>Impassable</passability>
+  <fillPercent>1</fillPercent> <!-- vorher 0.65 -->
+  <coversFloor>true</coversFloor>
+  <useHitPoints>true</useHitPoints>
+  <rotatable>false</rotatable>
+
+  <statBases>
+    <MaxHitPoints>550</MaxHitPoints>
+    <WorkToBuild>2800</WorkToBuild>
+    <Flammability>0</Flammability>
+    <Beauty>1</Beauty>
+  </statBases>
+
+  <building>
+    <isEdifice>true</isEdifice>
+    <deconstructible>true</deconstructible>
+  </building>
+
+  <designationCategory>Structure</designationCategory>
+  <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+
+  <researchPrerequisites><li>ST_UFP_Structures</li></researchPrerequisites>
+
+  <costList>
+    <Plasteel>6</Plasteel>
+    <Steel>20</Steel>
+    <Gold>2</Gold>
+  </costList>
+</ThingDef>
+
+</Defs>

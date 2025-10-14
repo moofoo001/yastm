@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Arch main -->
+  <DesignationCategoryDef>
+    <defName>ST_Designation</defName>
+    <label>Trek Tek</label>
+    <order>150</order> 
+    <specialDesignatorClasses>
+      <li>Designator_Cancel</li>
+      <li>Designator_Deconstruct</li>
+    </specialDesignatorClasses>
+  </DesignationCategoryDef>
+
+</Defs>

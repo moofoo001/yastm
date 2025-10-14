@@ -1,0 +1,68 @@
+{
+  "format": 1,
+  "restore": {
+    "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\PhaseWeapons\\StarTrek.PhaseWeapons.csproj": {}
+  },
+  "projects": {
+    "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\PhaseWeapons\\StarTrek.PhaseWeapons.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\PhaseWeapons\\StarTrek.PhaseWeapons.csproj",
+        "projectName": "YASTM",
+        "projectPath": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\PhaseWeapons\\StarTrek.PhaseWeapons.csproj",
+        "packagesPath": "C:\\Users\\moofoo\\.nuget\\packages\\",
+        "outputPath": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\PhaseWeapons\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\moofoo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Krafs.Rimworld.Ref": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "Lib.Harmony": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[*, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

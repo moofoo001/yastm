@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ST Shuttle T5... -->
+  <KCSG.StructureLayoutDef>
+
+  <defName>ST_Shuttle_T5</defName>
+  <spawnConduits>false</spawnConduits>
+  <layouts>
+    <li>
+      <li>GravshipHull_ST_MetalColor_OffWhite,.,SmallThruster_North,GravshipHull_ST_MetalColor_OffWhite,GravshipHull_ST_MetalColor_OffWhite,Autodoor_ST_MetalColor_OffWhite,GravshipHull_ST_MetalColor_OffWhite,GravshipHull_ST_MetalColor_OffWhite,SmallThruster_North,.,GravshipHull_ST_MetalColor_OffWhite</li>
+      <li>GravshipHull_ST_MetalColor_OffWhite,.,.,ChemfuelTank,.,.,ChemfuelTank,.,.,.,GravshipHull_ST_MetalColor_OffWhite</li>
+      <li>GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_OffWhite,.,.,.,.,.,GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_OffWhite</li>
+      <li>GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_GlassBlue,Table1x2c_Plasteel_North,Stool_Plasteel_North,.,Stool_Plasteel_North,.,GravshipHull_ST_MetalColor_GlassBlue,.,GravshipHull_ST_MetalColor_OffWhite</li>
+      <li>GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_OffWhite,.,Stool_Plasteel_North,.,Stool_Plasteel_North,FueledStove_East,GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_OffWhite</li>
+      <li>GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_GlassBlue,BookcaseSmall_Jade_East,Stool_Plasteel_North,.,Stool_Plasteel_North,.,GravshipHull_ST_MetalColor_GlassBlue,.,GravshipHull_ST_MetalColor_OffWhite</li>
+      <li>GravshipHull_ST_MetalColor_Gold,.,GravshipHull_ST_MetalColor_OffWhite,MealSurvivalPack,.,PilotConsole_North,.,ComponentIndustrial,GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_Gold</li>
+      <li>GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_OffWhite,MealSurvivalPack,.,.,.,MedicineIndustrial,GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_OffWhite</li>
+      <li>.,.,GravshipHull_ST_MetalColor_OffWhite,Steel,.,.,.,Steel,GravshipHull_ST_MetalColor_OffWhite,.,.</li>
+      <li>.,.,GravshipHull_ST_MetalColor_OffWhite,Steel,.,GravEngine,.,Steel,GravshipHull_ST_MetalColor_OffWhite,.,.</li>
+      <li>.,.,.,GravshipHull_ST_MetalColor_OffWhite,.,.,.,GravshipHull_ST_MetalColor_OffWhite,.,.,.</li>
+      <li>.,.,.,GravshipHull_ST_MetalColor_OffWhite,GravshipHull_ST_MetalColor_GlassDark,GravshipHull_ST_MetalColor_GlassDark,GravshipHull_ST_MetalColor_GlassDark,GravshipHull_ST_MetalColor_OffWhite,.,.,.</li>
+    </li>
+    <li>
+      <li>.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,Shelf_Plasteel_West,.,.,.</li>
+      <li>.,.,.,Shelf_Plasteel_East,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,Shelf_Plasteel_West,.,.,.</li>
+      <li>.,.,.,Shelf_Plasteel_East,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.</li>
+    </li>
+  </layouts>
+  <terrainGrid>
+    <li>ST_Substructure_Dark,.,Substructure,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,ST_Substructure_Blue,Substructure,.,ST_Substructure_Dark</li>
+    <li>Substructure,PackedDirt,Substructure,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,ST_Substructure_Blue,Substructure,.,Substructure</li>
+    <li>ST_Substructure_Blue,.,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Blue,.,ST_Substructure_Blue</li>
+    <li>Substructure,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Blue,Substructure</li>
+    <li>Substructure,PackedDirt,Substructure,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,ST_Substructure_Blue,Substructure,.,Substructure</li>
+    <li>ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Blue</li>
+    <li>Substructure,.,Substructure,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,ST_Substructure_Blue,Substructure,.,Substructure</li>
+    <li>ST_Substructure_Dark,.,Substructure,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,ST_Substructure_Blue,Substructure,.,ST_Substructure_Dark</li>
+    <li>.,.,Substructure,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,ST_Substructure_Blue,Substructure,.,.</li>
+    <li>.,.,Substructure,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,ST_Substructure_Blue,Substructure,.,.</li>
+    <li>.,.,.,Substructure,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,Substructure,.,.,.</li>
+    <li>.,.,.,Substructure,Substructure,Substructure,Substructure,Substructure,.,.,.</li>
+  </terrainGrid>
+  <forceGenerateRoof>true</forceGenerateRoof>
+  <tags>
+    <li>ST_Shuttle_T5</li>
+  </tags>
+  <modRequirements>
+    <li>ludeon.rimworld.odyssey</li>
+    <li>moofoo.star.trek.faction</li>
+  </modRequirements>
+
+  </KCSG.StructureLayoutDef>
+
+<KCSG.SymbolDef>
+  <defName>GravshipHull_ST_MetalColor_OffWhite</defName>
+  <thing>GravshipHull</thing>
+  <stuff>ST_MetalColor_OffWhite</stuff>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>Autodoor_ST_MetalColor_OffWhite</defName>
+  <thing>Autodoor</thing>
+  <stuff>ST_MetalColor_OffWhite</stuff>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>GravshipHull_ST_MetalColor_GlassBlue</defName>
+  <thing>GravshipHull</thing>
+  <stuff>ST_MetalColor_GlassBlue</stuff>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>FederationPawn_Command</defName>
+  <pawnKindDef>FederationPawn_Command</pawnKindDef>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>GravshipHull_ST_MetalColor_Gold</defName>
+  <thing>GravshipHull</thing>
+  <stuff>ST_MetalColor_Gold</stuff>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>GravshipHull_ST_MetalColor_GlassDark</defName>
+  <thing>GravshipHull</thing>
+  <stuff>ST_MetalColor_GlassDark</stuff>
+</KCSG.SymbolDef>
+
+</Defs>
+

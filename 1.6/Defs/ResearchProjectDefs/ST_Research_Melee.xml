@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Federation-standard close-quarters combat issue -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_UFP_Melee</defName>
+    <label>UFP melee weapons</label>
+    <description>Federation-standard close-quarters combat training and melee weaponry.</description>
+    <techLevel>Industrial</techLevel>
+    <baseCost>400</baseCost>
+    <prerequisites>
+      <li>Smithing</li>
+      <li>Federation_Standard</li>
+    </prerequisites>
+    <researchViewX>2</researchViewX>
+    <researchViewY>3</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- Klingon melee traditions -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Klingon_MeleeTraditions</defName>
+    <label>klingon melee traditions</label>
+    <description>klingon melee traditions</description>
+    <techLevel>Industrial</techLevel>
+    <baseCost>400</baseCost>
+    <prerequisites>
+      <li>Smithing</li>
+      <li>Klingon_Standard</li>
+    </prerequisites>
+    <researchViewX>2</researchViewX>
+    <researchViewY>4</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- Romulan bladecraft -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Romulan_Bladecraft</defName>
+    <label>romulan bladecraft</label>
+    
+    <description>Romulan bladecraft techniques for precise bladed weapons.</description>
+    <techLevel>Industrial</techLevel>
+    <baseCost>400</baseCost>
+    <prerequisites>
+      <li>Smithing</li>
+      <li>Romulan_Standard</li>
+    </prerequisites>
+    <researchViewX>2</researchViewX>
+    <researchViewY>5</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- Ferengi Security Implements -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Ferengi_SecurityImplements</defName>
+    <label>Ferengi security implements</label>
+    <description>Ferengi-specific control and melee implements.</description>
+    <techLevel>Industrial</techLevel>
+    <baseCost>400</baseCost>
+    <prerequisites>
+      <li>Smithing</li>
+      <li>Ferengi_Standard</li>
+    </prerequisites>
+    <researchViewX>2</researchViewX>
+    <researchViewY>6</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--  FEDERATION  -->
+  <!-- Base ST Phaser -->
+  <ThingDef Name="ST_Base_Gun" Abstract="True">
+    <category>Item</category>
+    <thingClass>ThingWithComps</thingClass>
+    <equipmentType>Primary</equipmentType>
+    <pathCost>10</pathCost>
+    <useHitPoints>True</useHitPoints>
+    <selectable>True</selectable>
+    <graphicData>
+      <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+    </graphicData>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <weaponTags>
+      <li>StarfleetPhaser</li>
+    </weaponTags>
+    <thingCategories>
+      <li>WeaponsRanged</li>
+      <li>FederationWeapons</li>
+    </thingCategories>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>2</DeteriorationRate>
+      <SellPriceFactor>0.5</SellPriceFactor>
+    </statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>True</alwaysHaulable>
+    <tickerType>Never</tickerType>
+    <techLevel>Spacer</techLevel>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+    </comps>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+    </recipeMaker>
+    <smeltProducts>
+      <Steel>50</Steel>
+    </smeltProducts>
+	  <smeltable>true</smeltable>
+
+  </ThingDef>
+ 
+
+<!-- Phaser Type I (Multi)-->
+
+  <ThingDef ParentName="ST_Base_Gun">
+    <defName>Gun_Phaser_TypeI</defName>
+    <label>Phaser Type-I</label>
+    <description>A compact Starfleet phaser used for non-lethal or precision operations. Easily concealable, but low-powered.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Federation_weapons/Phaser_TypeI</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <uiIconScale>1.4</uiIconScale>
+    <soundInteract>Metal_Drop</soundInteract>
+   
+    <weaponTags>
+      <li>StarfleetPhaser</li>
+      <li>ST_Phaser_T1</li>
+    </weaponTags>
+
+    <verbs>
+      <li>
+        <verbClass>ST.PhaseWeapons.Verb_PhaserShoot</verbClass>
+        <defaultProjectile>Bullet_PhaserPulse_TypeI</defaultProjectile>
+        <hasStandardCommand>true</hasStandardCommand>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+        <warmupTime>0.28</warmupTime>
+        <range>22</range>
+        <soundCast>Phaser_T1</soundCast>
+        <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
+      </li>
+    </verbs>
+
+    <statBases>
+      <Mass>0.6</Mass>
+      <RangedWeapon_Cooldown>1.45</RangedWeapon_Cooldown>
+      <AccuracyTouch>0.85</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.55</AccuracyMedium>
+      <AccuracyLong>0.35</AccuracyLong>
+      <WorkToMake>3000</WorkToMake>
+      <MarketValue>750</MarketValue>
+    </statBases>
+
+    <comps>
+      <li Class="ST.PhaseWeapons.CompProperties_PhaserMode">
+        <allowOvercharge>true</allowOvercharge>
+        <projectileKill>Bullet_PhaserPulse_TypeI</projectileKill>
+        <projectileStun>Bullet_PhaserPulse_Stun</projectileStun>
+        <projectileOvercharge>Bullet_PhaserPulse_Overcharge</projectileOvercharge>
+        <overchargeMisfireChance>0.15</overchargeMisfireChance>
+        <overchargeExplosionRadius>1.9</overchargeExplosionRadius>
+        <overchargeExplosionDamage>Flame</overchargeExplosionDamage>
+      </li>
+    </comps>
+
+    <recipeMaker>
+      <workAmount>12000</workAmount>
+      <skillRequirements><Crafting>8</Crafting></skillRequirements>
+      <recipeUsers>
+        <li>ElectricSmithy</li>
+      </recipeUsers>
+      <researchPrerequisite>ST_UFP_Phasers</researchPrerequisite>
+    </recipeMaker>
+
+    <costList>
+      <Silver>100</Silver>
+      <Plasteel>5</Plasteel>
+	    <Gold>25</Gold>
+	    <Steel>30</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+
+    <tradeTags>
+      <li>Gun</li>
+      <li>Ultra</li>
+    </tradeTags>
+
+  <alwaysHaulable>true</alwaysHaulable>
+  </ThingDef>
+
+  <!-- Weapon: Type-II (Multi) -->
+  <ThingDef ParentName="ST_Base_Gun">
+    <defName>Gun_Phaser_TypeII</defName>
+    <label>phaser type-II </label>
+    <description>Standard Starfleet sidearm with lethal and non-lethal setting.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Federation_weapons/Phaser_TypeII</texPath> 
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.4</uiIconScale>
+    <soundInteract>Metal_Drop</soundInteract>
+
+    <weaponTags>
+      <li>StarfleetPhaser</li>
+      <li>ST_Phaser_T2</li>
+    </weaponTags>
+
+    <verbs>
+      <li>
+        <verbClass>ST.PhaseWeapons.Verb_PhaserShoot</verbClass>
+        <defaultProjectile>Bullet_PhaserPulse_TypeII</defaultProjectile>
+        <hasStandardCommand>true</hasStandardCommand>
+        <burstShotCount>1</burstShotCount>
+        <warmupTime>0.4</warmupTime>
+        <range>26</range>
+        <soundCast>Phaser_T2</soundCast>
+        <muzzleFlashScale>0.6</muzzleFlashScale>
+        <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
+      </li>
+    </verbs>
+
+    <statBases>
+      <AccuracyTouch>0.80</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.65</AccuracyMedium>
+      <AccuracyLong>0.45</AccuracyLong>
+      <RangedWeapon_Cooldown>1.60</RangedWeapon_Cooldown>
+      <Mass>1.1</Mass>
+      <WorkToMake>5000</WorkToMake>
+      <MarketValue>540</MarketValue>
+    </statBases>
+
+        <comps>
+          <li Class="ST.PhaseWeapons.CompProperties_PhaserMode">
+            <allowOvercharge>true</allowOvercharge>
+            <projectileKill>Bullet_PhaserPulse_TypeII</projectileKill>
+            <projectileStun>Bullet_PhaserPulse_Stun</projectileStun>
+            <projectileOvercharge>Bullet_PhaserPulse_Overcharge</projectileOvercharge>
+            <overchargeMisfireChance>0.15</overchargeMisfireChance>
+            <overchargeExplosionRadius>1.9</overchargeExplosionRadius>
+            <overchargeExplosionDamage>Flame</overchargeExplosionDamage>
+          </li>
+        </comps>
+
+    <recipeMaker>
+      <workAmount>12000</workAmount>
+      <skillRequirements><Crafting>8</Crafting></skillRequirements>
+      <recipeUsers>
+        <li>ElectricSmithy</li>
+      </recipeUsers>
+      <researchPrerequisite>ST_UFP_Phasers</researchPrerequisite>
+    </recipeMaker>
+
+    <costList>
+      <Silver>100</Silver>
+      <Plasteel>10</Plasteel>
+	    <Gold>25</Gold>
+	    <Steel>50</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  
+    <tradeTags>
+      <li>Gun</li>
+      <li>Ultra</li>
+    </tradeTags>
+
+  </ThingDef>
+
+<!-- Phase Rifle -->
+  <ThingDef ParentName="ST_Base_Gun">
+    <defName>Gun_Phaser_Rifle</defName>
+    <label>Phaser Rifle</label>
+    <description>A high-power directed energy rifle used in heavy combat scenarios. Federation issue, reliable and accurate at long ranges.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Federation_weapons/PhaserRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <uiIconScale>1.4</uiIconScale>
+    <soundInteract>Metal_Drop</soundInteract>
+
+    <weaponTags>
+      <li>Starfleet Phasers Security SNW</li>
+    </weaponTags>
+
+  <verbs>
+    <li>
+    <verbClass>ST.PhaseWeapons.Verb_PhaserShoot</verbClass>
+    <hasStandardCommand>true</hasStandardCommand>
+    <defaultProjectile>Bullet_PhaserRifle</defaultProjectile>
+    <burstShotCount>3</burstShotCount>
+    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+    <warmupTime>0.7</warmupTime>
+    <range>34.9</range>
+    <soundCast>Phaser_Rifle</soundCast>
+    <targetParams>
+      <canTargetLocations>true</canTargetLocations>
+    </targetParams>
+    </li> 
+  </verbs>
+    <tools>
+      <li>
+        <label>blast rifle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>3</cooldownTime>
+      </li>
+    </tools>
+  
+    <statBases>
+      <Mass>4.8</Mass>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+      <AccuracyTouch>0.88</AccuracyTouch>
+      <AccuracyShort>0.92</AccuracyShort>
+      <AccuracyMedium>0.85</AccuracyMedium>
+      <AccuracyLong>0.7</AccuracyLong>
+      <WorkToMake>7000</WorkToMake>
+      <MarketValue>1800</MarketValue>
+    </statBases>
+
+    <comps>
+      <li Class="ST.PhaseWeapons.CompProperties_PhaserMode">
+        <allowOvercharge>false</allowOvercharge>                   <!-- << -->
+        <projectileKill>Bullet_PhaserRifle</projectileKill> 
+        <projectileStun>Bullet_PhaserPulse_Stun</projectileStun>
+      </li>
+    </comps>
+
+    <recipeMaker>
+      <workAmount>16000</workAmount>
+      <skillRequirements><Crafting>10</Crafting></skillRequirements>
+      <recipeUsers>
+        <li>ElectricSmithy</li>
+      </recipeUsers>
+      <researchPrerequisite>ST_UFP_Phasers</researchPrerequisite>
+    </recipeMaker>
+  
+    <costList>
+      <Silver>200</Silver>
+      <Plasteel>30</Plasteel>
+	    <Gold>30</Gold>
+	    <Steel>800</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+
+  <alwaysHaulable>true</alwaysHaulable>
+  </ThingDef>
+
+
+</Defs>

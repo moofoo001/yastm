@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <PawnKindDef>
+    <defName>KLG_Civilian</defName>
+    <label>Klingon civilian</label>
+    <race>Human</race>
+    <combatPower>26</combatPower>
+    <isFighter>false</isFighter>
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances><Ectos_Klingon>0.85</Ectos_Klingon><Baseliner>0.15</Baseliner></xenotypeChances>
+    </xenotypeSet>
+    <initialResistanceRange>0~1</initialResistanceRange>
+    <initialWillRange>1~3</initialWillRange>
+    <apparelMoney>200~450</apparelMoney>
+    <apparelAllowHeadgearChance>0.6</apparelAllowHeadgearChance>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+      <li>Spacer</li>
+      <li>KlingonUniform</li>
+    </apparelTags>
+    <weaponMoney>260~300</weaponMoney>
+    <weaponTags>
+      <li>NeolithicMelee</li>
+      <li>KlingonMelee</li>
+    </weaponTags>
+  </PawnKindDef>
+
+  <PawnKindDef>
+    <defName>KLG_Warrior</defName>
+    <label>Klingon warrior</label>
+    <race>Human</race>
+    <combatPower>75</combatPower>
+    <isFighter>true</isFighter>
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances><Ectos_Klingon>0.90</Ectos_Klingon><Baseliner>0.10</Baseliner></xenotypeChances>
+    </xenotypeSet>
+    <initialResistanceRange>2~4</initialResistanceRange>
+    <initialWillRange>3~6</initialWillRange>
+    <apparelMoney>260~520</apparelMoney>
+    <apparelRequired>
+      <li>ST_Apparel_KlingonTunic</li>
+      <li>Apparel_PlateArmor</li>
+    </apparelRequired>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+      <li>Spacer</li>
+    </apparelTags>
+    <weaponMoney>300~900</weaponMoney>
+    <weaponTags>
+      <li>KlingonMelee</li>
+      <li>KlingonDisruptor_Pistol</li>
+    </weaponTags>
+    <gearHealthRange>0.75~1</gearHealthRange>
+  </PawnKindDef>
+
+  <PawnKindDef>
+    <defName>KLG_Soldier</defName>
+    <label>Klingon soldier</label>
+    <race>Human</race>
+    <combatPower>90</combatPower>
+    <isFighter>true</isFighter>
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances><Ectos_Klingon>0.90</Ectos_Klingon><Baseliner>0.10</Baseliner></xenotypeChances>
+    </xenotypeSet>
+    <initialResistanceRange>3~6</initialResistanceRange>
+    <initialWillRange>4~8</initialWillRange>
+    <apparelMoney>320~650</apparelMoney>
+    <apparelRequired>
+      <li>ST_Apparel_KlingonTunic</li>
+      <li>Apparel_FlakVest</li>
+      <li>Apparel_FlakPants</li>
+      <li>Apparel_FlakJacket</li>
+    </apparelRequired>
+    <apparelAllowHeadgearChance>0.7</apparelAllowHeadgearChance>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+      <li>Spacer</li>
+    </apparelTags>
+    <weaponMoney>300~1000</weaponMoney>
+    <weaponTags>
+      <li>KlingonMelee</li>
+      <li>KlingonDisruptor_Rifle</li>
+    </weaponTags>
+    <gearHealthRange>0.8~1</gearHealthRange>
+  </PawnKindDef>
+
+  <PawnKindDef>
+    <defName>KLG_Leader</defName>
+    <label>Klingon commander</label>
+    <race>Human</race>
+    <combatPower>140</combatPower>
+    <isFighter>true</isFighter>
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances><Ectos_Klingon>0.95</Ectos_Klingon><Baseliner>0.05</Baseliner></xenotypeChances>
+    </xenotypeSet>
+    <initialResistanceRange>4~8</initialResistanceRange>
+    <initialWillRange>6~10</initialWillRange>
+    <apparelMoney>600~1000</apparelMoney>
+    <apparelRequired>
+      <li>ST_Apparel_KlingonTunic</li>
+      <li>Apparel_FlakVest</li>
+      <li>Apparel_FlakPants</li>
+      <li>Apparel_FlakJacket</li>
+    </apparelRequired>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+      <li>Spacer</li>
+    </apparelTags>
+    <weaponMoney>450~1500</weaponMoney>
+    <weaponTags>
+      <li>KlingonMelee</li>
+      <li>KlingonDisruptor_Rifle</li>
+    </weaponTags>
+    <gearHealthRange>0.85~1</gearHealthRange>
+    <itemQuality>Good</itemQuality>
+    <invNutrition>0.6</invNutrition>
+  </PawnKindDef>
+
+</Defs>

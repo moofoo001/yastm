@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Science_Astrometrics_Analyst</defName>
+    <title>Starfleet astrometrics analyst</title>
+    <titleShort>astrometrics</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Charts subspace currents and stellar anomalies, turning sensor noise into
+      navigational insight and research leads.
+    </baseDesc>
+    <skillGains>
+      <Intellectual>+2</Intellectual>
+      <Crafting>+1</Crafting>
+      <Shooting>+1</Shooting>
+      <Artistic>+1</Artistic>
+      <Mining>+1</Mining>
+      <Animals>+1</Animals>
+      <Plants>+1</Plants>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Science</li>
+    </spawnCategories>
+    <forcedTraits>
+        <FastLearner>0</FastLearner>
+    </forcedTraits>
+    <disallowedTraits />
+
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Science_Xenobiology_Specialist</defName>
+    <title>Starfleet xenobiology specialist</title>
+    <titleShort>xenobiology</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Studies alien ecosystems and life cycles, from microbial mats to megafauna,
+      with a tricorder in one hand and a field kit in the other.
+    </baseDesc>
+    <skillGains>
+      <Intellectual>+1</Intellectual>
+      <Plants>+3</Plants>
+      <Animals>+3</Animals>
+      <Medicine>+1</Medicine>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Science</li>
+      </spawnCategories>
+    <forcedTraits>
+        <FastLearner>0</FastLearner>
+    </forcedTraits>
+    <disallowedTraits />
+
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Science_Sensor_Systems_Officer</defName>
+    <title>Starfleet sensor systems officer</title>
+    <titleShort>sensor systems</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Tunes arrays, debugs subspace filters, and squeezes clarity from faint returns.
+      If it emits a signal, they can read it.
+    </baseDesc>
+    <skillGains>
+      <Intellectual>+3</Intellectual>
+      <Crafting>+3</Crafting>
+      <Artistic>+2</Artistic>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Science</li>
+    </spawnCategories>
+    <forcedTraits>
+       <FastLearner>0</FastLearner>
+    </forcedTraits>
+    <disallowedTraits />
+
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Science_Field_Research_Lead</defName>
+    <title>Starfleet field research lead</title>
+    <titleShort>field research</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Manages away-team studies: sampling protocols, hazard assessments, and
+      meticulous logs that keep science reproducible under fire.
+    </baseDesc>
+    <skillGains>
+      <Intellectual>+2</Intellectual>
+      <Plants>+2</Plants>
+      <Mining>+1</Mining>
+      <Animals>+2</Animals>
+      <Shooting>+1</Shooting>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Science</li>
+    </spawnCategories>
+    <forcedTraits>
+      <FastLearner>0</FastLearner>
+    </forcedTraits>
+    <disallowedTraits />
+
+    </BackstoryDef>
+  </Defs>

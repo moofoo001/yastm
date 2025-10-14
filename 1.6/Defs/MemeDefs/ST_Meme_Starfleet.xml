@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+   <MemeDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Meme_Starfleet</defName>
+    <label>Starfleet doctrine</label>
+    <description>Paramilitary exploration, chain of command, and Federation values.</description>
+    <iconPath>UI/Icons/Starfleet/Precept_Federation_Doctrine</iconPath>
+    <groupDef>Misc</groupDef>
+    <impact>3</impact>
+    <renderOrder>650</renderOrder>
+		<worshipRoomLabel>Briefing Room</worshipRoomLabel>
+   
+    <generalRules>
+      <rulesStrings>
+        <li>memeAdjective->Starfleet</li>
+        <li>memeAdjective->disciplined</li>
+        <li>memeAdjective->exploratory</li>
+        <li>memeHyphenPrefix->Prime-Directive</li>
+        <li>memeConcept->exploration</li>
+        <li>memeConcept->science</li>
+        <li>memeConcept->diplomacy</li>
+        <li>memeLeaderNoun->commanding officer</li>
+        <li>memeLeaderNoun->captain</li>
+        <li>memeLeaderNoun->admiral</li>
+      </rulesStrings>
+    </generalRules>
+
+    <descriptionMaker>
+      <rules>
+        <rulesStrings>
+          <li>creation(tag=meme_ST)           ->In an age of chaos, a charter for exploration was signed to seek understanding among the stars.</li>
+          <li>episode(uses=1,tag=meme_ST)     ->Crews ventured outward, meeting the unknown with restraint and reason.</li>
+          <li>intro(tag=meme_ST)              ->On the [place_summary] [place_name], a tradition formed at the briefing room where officers aligned purpose with principle.</li>
+          <li>conflict(tag=meme_ST)           ->Ambition and fear tempted some to break the code, yet the chain of command held firm.</li>
+          <li>founderJoin(tag=meme_ST)        ->Guided by a clear duty, the first captains pledged to protect life and uphold the Prime Directive.</li>
+          <li>victory(tag=meme_ST)            ->By choosing restraint over conquest, they earned trust and forged lasting accords.</li>
+          <li>setup(tag=meme_ST)              ->Discipline, science, and diplomacy became the tools of a new frontier.</li>
+          <li>story(uses=1,tag=meme_ST)       ->Thus the doctrine spread: explore boldly, interfere lightly, act with honor.</li>
+          <li>lessonIntro(tag=meme_ST)        ->First, we survived by force alone.</li>
+          <li>lesson(tag=meme_ST)             ->Then we learned that understanding secures more than fear ever could.</li>
+          <li>lessonReinforcement(tag=meme_ST)->Hold to principle; let curiosity guide, not aggression.</li>
+          <li>archistBasis(tag=meme_ST)       ->When minds touched distant knowledge, we saw that reason must govern power.</li>
+          <li>archistFact(tag=meme_ST)        ->Technology without ethics invites catastrophe; thus doctrine restrains the hand.</li>
+          <li>archistProphecy(tag=meme_ST)    ->In the end, those who balance security with compassion will endure.</li>
+          <li>animistFact(tag=meme_ST)        ->Every world carries its own spirit; respect it and learn before you act.</li>
+        </rulesStrings>
+      </rules>
+    </descriptionMaker>
+
+  </MemeDef>
+
+
+
+</Defs>

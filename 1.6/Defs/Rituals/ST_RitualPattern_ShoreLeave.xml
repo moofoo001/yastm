@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Shore Leave -->
+  <RitualPatternDef ParentName="CelebrationPartyChat">
+    <defName>ST_RitualPattern_ShoreLeave</defName>
+    <shortDescOverride>shore leave</shortDescOverride>
+    <iconPathOverride>UI/Icons/Starfleet/Ritual_ShoreLeave</iconPathOverride>
+    <patternGroupTag>ST_ShoreLeave</patternGroupTag>
+    <canStartAnytime>true</canStartAnytime>
+    <!-- inherits: ritualBehavior DateRitual, ritualOutcomeEffect CelebratedDate, TargetFilter GatherSpot/Altar -->
+  </RitualPatternDef>
+</Defs>

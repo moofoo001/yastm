@@ -1,0 +1,108 @@
+<Defs>
+
+  <!-- KLINGONEN -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>KL_Projectile_Disruptor_Pistol</defName>
+    <label>klingon disruptor bolt (pistol)</label>
+    <graphicData>
+      <texPath>Things/Projectile/DisruptorBolt_Green</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.30</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>18</damageAmountBase>
+      <armorPenetrationBase>0.30</armorPenetrationBase>
+      <stoppingPower>0.30</stoppingPower>
+      <speed>100</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>KL_Projectile_Disruptor_Rifle</defName>
+    <label>klingon disruptor bolt (rifle)</label>
+    <graphicData>
+      <texPath>Things/Projectile/DisruptorBolt_Green</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>26</damageAmountBase>
+      <armorPenetrationBase>0.48</armorPenetrationBase>
+      <stoppingPower>0.35</stoppingPower>
+      <speed>95</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- ROMULANER -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>RO_Projectile_Disruptor_Pistol</defName>
+    <label>romulan disruptor bolt (pistol)</label>
+    <graphicData>
+      <texPath>Things/Projectile/DisruptorBolt_Green</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.30</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>18</damageAmountBase>
+      <armorPenetrationBase>0.27</armorPenetrationBase>
+      <stoppingPower>0.30</stoppingPower>
+      <speed>110</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>RO_Projectile_Disruptor_Rifle</defName>
+    <label>romulan disruptor bolt (rifle)</label>
+    <graphicData>
+      <texPath>Things/Projectile/DisruptorBolt_Green</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <armorPenetrationBase>0.30</armorPenetrationBase>
+      <stoppingPower>0.3</stoppingPower>
+      <speed>100</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- FERENGI -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>FE_Projectile_Disruptor_Pistol</defName>
+    <label>ferengi disruptor bolt (pistol)</label>
+    <graphicData>
+      <texPath>Things/Projectile/DisruptorBolt_Orange</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.3</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>16</damageAmountBase>
+      <armorPenetrationBase>0.3</armorPenetrationBase>
+      <stoppingPower>0.30</stoppingPower>
+      <speed>120</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>FE_Projectile_Disruptor_Rifle</defName>
+    <label>ferengi disruptor bolt (rifle)</label>
+    <graphicData>
+      <texPath>Things/Projectile/DisruptorBolt_Orange</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <armorPenetrationBase>0.40</armorPenetrationBase>
+      <stoppingPower>0.35</stoppingPower>
+      <speed>100</speed>
+    </projectile>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Command Presence: AoE-Buff für Verbündete -->
+  <AbilityDef>
+    <defName>ST_Ability_CommandPresence</defName>
+    <label>command presence</label>
+    <description>Projects calm authority, boosting nearby allies for a short time.</description>
+    <iconPath>UI/Abilities/CommandPresence</iconPath>
+    <cooldownTicksRange><min>3600</min><max>3600</max></cooldownTicksRange> <!-- 60s -->
+    <verbProperties>
+    <verbClass>Verb_CastAbility</verbClass>
+    <range>1</range>
+    <violent>false</violent>
+    <requireLineOfSight>false</requireLineOfSight>
+    <targetParams>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetLocations>false</canTargetLocations>
+    </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="RimWorld.CompProperties_AbilityEffect">
+        <compClass>ST.Abilities.CompAbilityEffect_CommandPresence</compClass>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- Tactical Overwatch: Selbstbuff -->
+  <AbilityDef>
+    <defName>ST_Ability_TacticalOverwatch</defName>
+    <label>tactical overwatch</label>
+    <description>Assumes an overwatch stance, reducing aiming time and improving accuracy.</description>
+    <iconPath>UI/Abilities/TacticalOverwatch</iconPath>
+    <cooldownTicksRange><min>2400</min><max>2400</max></cooldownTicksRange> <!-- 40s -->
+    <verbProperties>
+    <verbClass>Verb_CastAbility</verbClass>
+    <range>1</range>
+    <violent>false</violent>
+    <requireLineOfSight>false</requireLineOfSight>
+    <targetParams>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetLocations>false</canTargetLocations>
+    </targetParams>
+    </verbProperties>
+    
+    <comps>
+    <li Class="ST.Abilities.CompProperties_SelfBuff">
+        <hediffDefName>ST_TacticalOverwatchBuff</hediffDefName>
+        <durationTicks>900</durationTicks>
+    </li>
+    </comps>
+
+  </AbilityDef>
+
+</Defs>

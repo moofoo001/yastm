@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <FactionDef ParentName="FactionBase">
+    <defName>Klingon_Empire</defName>
+    <label>Klingon Empire</label>
+    <description>A proud warrior culture valuing honor and combat prowess.</description>
+    <factionNameMaker>ST_NamerKlingonFaction</factionNameMaker>
+    <settlementNameMaker>ST_NamerKlingonBase</settlementNameMaker>
+    <factionIconPath>UI/Icons/Factions/Klingon</factionIconPath>
+    <listOrderPriority>46</listOrderPriority>
+    <settlementGenerationWeight>0.25</settlementGenerationWeight>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <maxConfigurableAtWorldCreation>1</maxConfigurableAtWorldCreation>
+    <configurationListOrderPriority>31</configurationListOrderPriority>
+    <displayInFactionSelection>true</displayInFactionSelection>
+
+    <allowedCultures><li>ST_Culture_Klingon</li></allowedCultures>
+    <techLevel>Spacer</techLevel>
+    <permanentEnemy>false</permanentEnemy>
+    <leaderTitle>commander</leaderTitle>
+    <fixedLeaderKinds>
+      <li>KLG_Leader</li>
+    </fixedLeaderKinds>
+
+    <colorSpectrum>
+      <li>(0.70, 0.10, 0.10)</li>
+      <li>(0.90, 0.25, 0.20)</li>
+    </colorSpectrum>
+
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances><Ectos_Klingon>0.90</Ectos_Klingon><Baseliner>0.10</Baseliner></xenotypeChances>
+    </xenotypeSet>
+
+    <backstoryFilters>
+      <li>
+        <categoriesChildhood><li>Civil</li><li>Spacer</li></categoriesChildhood>
+        <categoriesAdulthood><li>Civil</li><li>Spacer</li></categoriesAdulthood>
+      </li>
+    </backstoryFilters>
+
+    <!-- TraderKinds -->
+    <caravanTraderKinds><li>Trader_Klingon_Armory</li></caravanTraderKinds>
+    <visitorTraderKinds><li>Trader_Klingon_Armory</li></visitorTraderKinds>
+    <baseTraderKinds><li>Trader_Klingon_Armory</li></baseTraderKinds>
+
+    <maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(0,40)</li>
+        <li>(70,55)</li>
+        <li>(700,110)</li>
+        <li>(1300,170)</li>
+        <li>(100000,10000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>
+
+    <pawnGroupMakers>
+      <li>
+        <kindDef>Combat</kindDef>
+        <options>
+          <KLG_Warrior>3.0</KLG_Warrior>
+          <KLG_Soldier>1.4</KLG_Soldier>
+          <KLG_Civilian>0.2</KLG_Civilian>
+        </options>
+      </li>
+      <li>
+        <kindDef>Peaceful</kindDef>
+        <options>
+          <KLG_Civilian>3.0</KLG_Civilian>
+          <KLG_Soldier>0.7</KLG_Soldier>
+          <KLG_Warrior>0.5</KLG_Warrior>
+        </options>
+      </li>
+      <li>
+        <kindDef>Trader</kindDef>
+        <traders><KLG_Civilian>1</KLG_Civilian></traders>
+        <carriers><Muffalo>6</Muffalo><Dromedary>4</Dromedary></carriers>
+        <guards><KLG_Soldier>7</KLG_Soldier><KLG_Warrior>4</KLG_Warrior></guards>
+      </li>
+      <li>
+        <kindDef>Settlement</kindDef>
+        <options>
+          <KLG_Civilian>4.0</KLG_Civilian>
+          <KLG_Soldier>0.9</KLG_Soldier>
+          <KLG_Warrior>0.7</KLG_Warrior>
+          <KLG_Leader>0.1</KLG_Leader>
+        </options>
+      </li>
+    </pawnGroupMakers>
+
+    <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+  </FactionDef>
+</Defs>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Shared base: Romulan Tunic -->
+  <ThingDef Name="ST_Apparel_RomulanTunic_shared" ParentName="ApparelMakeableBase" Abstract="True">
+    <label>Romulan tunic</label>
+    <description>Structured tessellated fabric; discreet tactical baffling.</description>
+
+    <graphicData>
+      <!-- TODO: Texturen hier ablegen -->
+      <texPath>Things/Item/Apparel/Romulan_Tunic/RomulanTunic</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <uiIconScale>2</uiIconScale>
+
+    <statBases>
+      <WorkToMake>2300</WorkToMake>
+      <Mass>0.6</Mass>
+      <MarketValue>130</MarketValue>
+      <ArmorRating_Sharp>0.18</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.04</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.14</ArmorRating_Heat>
+      <Insulation_Cold>4</Insulation_Cold>
+      <Insulation_Heat>5</Insulation_Heat>
+    </statBases>
+
+    <thingCategories><li>Apparel</li></thingCategories>
+
+    <apparel>
+      <wornGraphicPath>Things/Item/Apparel/Romulan_Tunic/RomulanTunic</wornGraphicPath>
+      <bodyPartGroups><li>Torso</li><li>Arms</li></bodyPartGroups>
+      <layers><li>OnSkin</li></layers>
+      <tags><li>RomulanUniform</li></tags>
+    </apparel>
+
+    <costList>
+      <Cloth>80</Cloth>
+      <Steel>15</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+
+    <equippedStatOffsets>
+      <SocialImpact>-0.01</SocialImpact>
+    </equippedStatOffsets>
+
+    <comps Inherit="False">
+      <li Class="CompProperties_Forbiddable"/>
+      <li><compClass>CompQuality</compClass></li>
+    </comps>
+  </ThingDef>
+
+  <!-- Craftable Romulan Tunic -->
+  <ThingDef ParentName="ST_Apparel_RomulanTunic_shared">
+    <defName>ST_Apparel_RomulanTunic</defName>
+    <label>Romulan tunic</label>
+
+    <stuffCategories><li>Fabric</li></stuffCategories>
+    <costStuffCount>45</costStuffCount>
+
+    <recipeMaker>
+      <workAmount>5000</workAmount>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Tailor</effectWorking>
+      <soundWorking>Recipe_Tailor</soundWorking>
+      <skillRequirements><Crafting>4</Crafting></skillRequirements>
+      <recipeUsers>
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+      </recipeUsers>
+      <researchPrerequisites>
+        <li>Romulan_Standard</li>
+      </researchPrerequisites>
+    </recipeMaker>
+
+    <generateCommonality>0</generateCommonality>
+    <tradeability>None</tradeability>
+    <alwaysHaulable>true</alwaysHaulable>
+  </ThingDef>
+
+  <!-- Romulan Armored Vest -->
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_Apparel_RomulanArmoredVest</defName>
+    <label>Romulan armored vest</label>
+    <description>Energy-baffled layers optimized against directed heat weapons.</description>
+
+    <graphicData>
+      <texPath>Things/Item/Apparel/Romulan_Vest/Romulan_Vest</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <uiIconScale>2</uiIconScale>
+
+    <thingCategories><li>Apparel</li></thingCategories>
+
+    <statBases>
+      <WorkToMake>4600</WorkToMake>
+      <Mass>2.3</Mass>
+      <MarketValue>280</MarketValue>
+      <ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.28</ArmorRating_Heat>
+      <Insulation_Cold>0.5</Insulation_Cold>
+      <Insulation_Heat>0.7</Insulation_Heat>
+    </statBases>
+
+    <apparel>
+      <wornGraphicPath>Things/Item/Apparel/Romulan_Vest/Romulan_Vest</wornGraphicPath>
+      <bodyPartGroups><li>Torso</li><li>Shoulders</li></bodyPartGroups>
+      <layers><li>Middle</li></layers>
+      <tags><li>RomulanUniform</li></tags>
+      <defaultOutfitTags><li>Soldier</li></defaultOutfitTags>
+    </apparel>
+
+    <equippedStatOffsets>
+      <MoveSpeed>-0.02</MoveSpeed>
+    </equippedStatOffsets>
+
+    <costList>
+      <Plasteel>20</Plasteel>
+      <Cloth>30</Cloth>
+      <ComponentIndustrial>12</ComponentIndustrial>
+    </costList>
+
+    <stuffCategories/>
+    <tradeTags><li>ClothingArmor</li></tradeTags>
+
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <efficiencyStat>GeneralLaborSpeed</efficiencyStat>
+      <skillRequirements><Crafting>5</Crafting></skillRequirements>
+      <researchPrerequisites>
+        <li>Romulan_Standard</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+</Defs>

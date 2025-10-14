@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <!-- Federation/Starfleet Leader titles and role names -->
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerLeaderTitle_Starfleet</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_leaderTitle->Commanding officer</li>
+
+        <li>r_roleName->Captain</li>
+        <li>r_roleName->Commander</li>
+        <li>r_roleName->Lieutenant Commander</li>
+        <li>r_roleName->Lieutenant</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerRoleMoralist_Starfleet</defName>
+    <rulePack><rulesStrings>
+      <li>r_roleName->Ethics officer</li>
+      <li>r_roleName->Morale officer</li>
+      <li>r_roleName->Cultural liaison</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerMedicspecialist_Starfleet</defName>
+    <rulePack><rulesStrings>
+      <li>r_roleName->Chief medical officer</li>
+      <li>r_roleName->Medical specialist</li>
+      <li>r_roleName->Surgeon</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerSecurityspecialist_Starfleet</defName>
+    <rulePack><rulesStrings>
+      <li>r_roleName->Chief security officer</li>
+      <li>r_roleName->Deputy Chief Security Officer</li>
+      <li>r_roleName->Security officer</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+  <!-- ===== Klingon ===== -->
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerLeaderTitle_Klingon</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_leaderTitle->commander</li>
+        <li>r_leaderTitle->captain</li>
+        <li>r_leaderTitle->general</li>
+        <li>r_leaderTitle->warlord</li>
+        <li>r_leaderTitle->high warrior</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerRoleMoralist_Klingon</defName>
+    <rulePack><rulesStrings>
+      <li>r_roleName->spiritual advisor</li>
+      <li>r_roleName->morale officer</li>
+      <li>r_roleName->ritualist</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerMedicspecialist_Klingon</defName>
+    <rulePack><rulesStrings>
+      <li>r_roleName->chief medical officer</li>
+      <li>r_roleName->medical specialist</li>
+      <li>r_roleName->surgeon</li>
+    </rulesStrings></rulePack>
+    </RulePackDef>
+
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerSecurityspecialist_Klingon</defName>
+    <rulePack><rulesStrings>
+      <li>r_roleName->chief security officer</li>
+      <li>r_roleName->deputy chief security officer</li>
+      <li>r_roleName->security officer</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+  <!-- ===== Romulan ===== -->
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerLeaderTitle_Romulan</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_leaderTitle->commander</li>
+        <li>r_leaderTitle->subcommander</li>
+        <li>r_leaderTitle->prefect</li>
+        <li>r_leaderTitle->proconsul</li>
+        <li>r_leaderTitle->praetor</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerRoleMoralist_Romulan</defName>
+    <rulePack><rulesStrings>
+      <li>r_roleName->ideological officer</li>
+      <li>r_roleName->morale officer</li>
+      <li>r_roleName->cultural liaison</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+  
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerMedicspecialist_Romulan</defName>
+    <rulePack><rulesStrings>
+      <li>r_roleName->chief medical officer</li>
+      <li>r_roleName->medical specialist</li>
+      <li>r_roleName->surgeon</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerSecurityspecialist_Romulan</defName>
+    <rulePack><rulesStrings>
+      <li>r_roleName->chief security officer</li>
+      <li>r_roleName->deputy chief security officer</li>
+      <li>r_roleName->security officer</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+  <!-- ===== Ferengi ===== -->
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerLeaderTitle_Ferengi</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_leaderTitle->liquidator</li>
+        <li>r_leaderTitle->broker</li>
+        <li>r_leaderTitle->executive</li>
+        <li>r_leaderTitle->chairman</li>
+        <li>r_leaderTitle->magnate</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerRoleMoralist_Ferengi</defName>
+    <rulePack><rulesStrings>
+      <li>r_roleName->cultural liaison</li>
+      <li>r_roleName->morale officer</li>
+      <li>r_roleName->ethics officer</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerMedicspecialist_Ferengi</defName>
+    <rulePack><rulesStrings>
+      <li>r_roleName->chief medical officer</li>
+      <li>r_roleName->medical specialist</li>
+      <li>r_roleName->surgeon</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+  <RulePackDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>NamerSecurityspecialist_Ferengi</defName>
+    <rulePack><rulesStrings>
+      <li>r_roleName->chief security officer</li>
+      <li>r_roleName->deputy chief security officer</li>
+      <li>r_roleName->security officer</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+</Defs>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <QuestScriptDef>
+    <defName>STQ_VE_Obelisks_III_Pressure</defName>
+    <rootSelectionWeight>0</rootSelectionWeight>
+    <autoAccept>false</autoAccept>
+
+    <!-- Phase III reagiert ausschließlich auf das Ende von Phase II -->
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <!-- (A) Rename: Titel/Beschreibung für Phase III, sobald II.Cleared kommt -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
+          <inSignal>STQ.Obelisks.II.Cleared</inSignal>
+          <!-- keys aus deinen Keyed/Strings, NICHT entfernen -->
+          <titleKey>STQ.Obelisks.PhaseIII.Title</titleKey>
+          <descriptionKey>STQ.Obelisks.PhaseIII.Desc</descriptionKey>
+        </li>
+
+        <!-- (C) Choice-Dialog: erscheint NACH dem Delay -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_ChoiceDialogOnSignalV2">
+          <inSignal>STQ.Obelisks.III.Ready</inSignal>
+
+          <!-- Überschrift & Text des Dialogs -->
+          <titleKey>STQ.Obelisks.PhaseIII.ChoiceTitle</titleKey>
+          <textKey>STQ.Obelisks.PhaseIII.ChoiceText</textKey>
+
+          <!-- Option 1: Halten nach Sternenflottenprotokoll (Warden-Pfad) -->
+          <optionALabel>STQ.Obelisks.Path.Warden.Label</optionALabel>
+          <optionASignal>STQ.Obelisks.Path.Warden.Chosen</optionASignal>
+
+          <!-- Option 2: Anspruchsteller überholen (Vault-Pfad) -->
+          <optionBLabel>STQ.Obelisks.Path.Vault.Label</optionBLabel>
+          <optionBSignal>STQ.Obelisks.Path.Vault.Chosen</optionBSignal>
+        </li>
+
+        <!-- (D) Start: Phase IV (Warden-Pfad), wenn Option A gewählt wurde -->
+        <!-- Start Phase IV (Warden) direkt auf Wahl-Signal -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_StartQuestOnSignal">
+          <inSignal>STQ.Obelisks.Path.Warden.Chosen</inSignal>
+          <questDef>STQ_VE_Obelisks_IV_Wardens</questDef>
+        </li>
+
+        <!-- Start Phase V (Vault) direkt auf Wahl-Signal -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_StartQuestOnSignal">
+          <inSignal>STQ.Obelisks.Path.Vault.Chosen</inSignal>
+          <questDef>STQ_VE_Obelisks_V_Vault</questDef>
+        </li>
+
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+</Defs>

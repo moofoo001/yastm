@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingCategoryDef>
+    <defName>FederationWeapons</defName>
+    <label>Federation Weapons</label>
+    <parent>Weapons</parent>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+    <defName>FederationApparel</defName>
+    <label>Federation Apparel</label>
+    <parent>Apparel</parent>
+  </ThingCategoryDef>
+</Defs>

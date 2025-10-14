@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <SongDef>
+    <defName>ST_Song_MainMenu</defName>
+    <clipPath>Theme/main_theme</clipPath>
+    <volume>0.8</volume>
+    <playOnMap>false</playOnMap>  <!-- dann im Hauptmenü/Ende -->
+    <tense>false</tense>
+    <commonality>1.0</commonality>
+  </SongDef>
+</Defs>

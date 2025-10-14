@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===== FERENGI: CHILDHOOD (6) ===== -->
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_BazaarHawker</defName>
+    <title>bazaar hawker</title>
+    <titleShort>hawker</titleShort>
+    <baseDesc>Learned to pitch trinkets loud and smile wider than the margins.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <skillGains><Social>2</Social><Crafting>1</Crafting></skillGains>
+      <forcedTraits><TooSmart>0</TooSmart></forcedTraits>
+      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_RulesReciter</defName>
+    <title>rules reciter</title>
+    <titleShort>reciter</titleShort>
+    <baseDesc>Could quote the Rules of Acquisition before learning long division.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <skillGains><Intellectual>2</Intellectual><Social>1</Social></skillGains>
+          <forcedTraits><Greedy>0</Greedy></forcedTraits>
+      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_ScrapSorter</defName>
+    <title>scrap sorter</title>
+    <titleShort>sorter</titleShort>
+    <baseDesc>Picked through ship-break yards, recognizing value under rust and grime.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <skillGains><Crafting>2</Crafting><Mining>1</Mining></skillGains>
+          <forcedTraits><Industriousness>1</Industriousness></forcedTraits>
+      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_JuniorLedger</defName>
+    <title>junior ledger-keeper</title>
+    <titleShort>ledger-keeper</titleShort>
+    <baseDesc>Balanced mock accounts and learned that debt is leverage, not failure.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <skillGains><Intellectual>2</Intellectual><Crafting>1</Crafting></skillGains>
+          <forcedTraits><Greedy>0</Greedy></forcedTraits>
+      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_DockRunner</defName>
+    <title>dock runner</title>
+    <titleShort>runner</titleShort>
+    <baseDesc>Fetched manifests and “misplaced” crates for a small cut of the profit.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
+    <skillGains><Social>1</Social><Construction>1</Construction><Shooting>1</Shooting></skillGains>
+          <forcedTraits><Nimble>0</Nimble></forcedTraits>
+      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_CantinaBusker</defName>
+    <title>cantina busker</title>
+    <titleShort>busker</titleShort>
+    <baseDesc>Entertained traders between deals; learned timing, tone, and reading a room.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <skillGains><Artistic>2</Artistic><Social>1</Social></skillGains>
+          <forcedTraits><Greedy>0</Greedy></forcedTraits>
+      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+  </BackstoryDef>
+
+  <!-- ===== FERENGI: ADULTHOOD (6) ===== -->
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_Liquidator</defName>
+    <title>liquidator</title>
+    <titleShort>liquidator</titleShort>
+    <baseDesc>Corporate troubleshooter who turns liabilities into dividends—fast.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <skillGains><Social>2</Social><Intellectual>2</Intellectual></skillGains>
+          <forcedTraits><Greedy>0</Greedy></forcedTraits>
+      <disallowedTraits><Kind>0</Kind></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_AcquisitionsAgent</defName>
+    <title>acquisitions agent</title>
+    <titleShort>agent</titleShort>
+    <baseDesc>Locates “motivated sellers” and closes before competitors sniff the deal.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <skillGains><Social>3</Social><Shooting>1</Shooting></skillGains>
+          <forcedTraits><Industriousness>1</Industriousness></forcedTraits>
+      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_ContractBroker</defName>
+    <title>contract broker</title>
+    <titleShort>broker</titleShort>
+    <baseDesc>Writes clauses that read fair and pay unfair—on purpose.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <skillGains><Intellectual>3</Intellectual><Social>1</Social></skillGains>
+          <forcedTraits><FastLearner>0</FastLearner></forcedTraits>
+      <disallowedTraits><Kind>0</Kind></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_Speculator</defName>
+    <title>market speculator</title>
+    <titleShort>speculator</titleShort>
+    <baseDesc>Buys dips, sells peaks, and never admits the difference was luck.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <skillGains><Intellectual>2</Intellectual><Crafting>1</Crafting><Social>1</Social></skillGains>
+          <forcedTraits><Abrasive>0</Abrasive></forcedTraits>
+      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_SmugglerLiaison</defName>
+    <title>smuggler liaison</title>
+    <titleShort>liaison</titleShort>
+    <baseDesc>Knows which customs officers are underpaid and which captains are over-bold.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
+    <skillGains><Social>2</Social><Shooting>1</Shooting><Intellectual>1</Intellectual></skillGains>
+          <forcedTraits><Greedy>0</Greedy></forcedTraits>
+      <disallowedTraits><Kind>0</Kind></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_TradeGuildAuditor</defName>
+    <title>trade guild auditor</title>
+    <titleShort>auditor</titleShort>
+    <baseDesc>Audits with a smile and an invoice; finds “fees” where others see errors.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <skillGains><Intellectual>2</Intellectual><Social>2</Social></skillGains>
+          <forcedTraits><Greedy>0</Greedy></forcedTraits>
+      <disallowedTraits><Kind>0</Kind></disallowedTraits>
+  </BackstoryDef>
+
+</Defs>

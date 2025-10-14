@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- After a team briefing or cross-disciplinary success -->
+  <ThoughtDef>
+    <defName>ST_Thought_IDIC_Encouraged</defName>
+    <label>diversity encouraged</label>
+    <durationDays>0.8</durationDays>
+    <stackLimit>1</stackLimit>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>diversity encouraged</label>
+        <baseMoodEffect>2</baseMoodEffect>
+        <description>Collaboration across different perspectives renewed my motivation.</description>
+      </li>
+    </stages>
+    <icon>UI/Icons/Starfleet/Thought_IDIC</icon>
+  </ThoughtDef>
+
+  <!-- After resolving a situation without lethal force / minimal interference -->
+  <ThoughtDef>
+    <defName>ST_Thought_NonInterference_Kept</defName>
+    <label>restraint maintained</label>
+    <durationDays>0.8</durationDays>
+    <stackLimit>1</stackLimit>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>restraint maintained</label>
+        <baseMoodEffect>3</baseMoodEffect>
+        <description>We chose a careful path that respected local culture and life.</description>
+      </li>
+    </stages>
+    <icon>UI/Icons/Starfleet/Thought_NonInterference</icon>
+  </ThoughtDef>
+
+  <!-- Promotion ceremony outcome -->
+  <ThoughtDef>
+    <defName>ST_Thought_Promotion_Ceremony</defName>
+    <label>recognized promotion</label>
+    <durationDays>2.0</durationDays>
+    <stackLimit>1</stackLimit>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>recognized promotion</label>
+        <baseMoodEffect>4</baseMoodEffect>
+        <description>The formal recognition of rank strengthens my sense of duty and belonging.</description>
+      </li>
+    </stages>
+    <icon>UI/Icons/Starfleet/Thought_Promotion</icon>
+  </ThoughtDef>
+
+</Defs>

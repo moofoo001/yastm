@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- Defs/MemeDefs/ST_Meme_HiddenVanilla.xml -->
+<Defs>
+   <MemeDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Meme_HiddenVanilla</defName>
+    <label>Hidden Vanilla Gate</label>
+    <description>This meme is used to hide vanilla rituals from the Starfleet ideology.</description>
+    <iconPath>UI/Icons/Starfleet/Placeholder</iconPath>
+    <groupDef>Misc</groupDef>   
+    <category>Normal</category>
+    <impact>3</impact>
+  </MemeDef>
+</Defs>
+
+

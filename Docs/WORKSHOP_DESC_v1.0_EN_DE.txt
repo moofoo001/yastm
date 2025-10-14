@@ -1,0 +1,51 @@
+EN – Workshop Description (v1.0)
+----------------------------------
+**Star Trek Factions** brings a Federation-inspired player faction with tailored backstories, uniforms, and a stable landing-party scenario.
+
+**Requires:** RimTrek (Continued). Optional: Ectos (Star Trek Genetics) for xenotypes.
+
+**Highlights**
+- Federation player faction (UFP) with lore-friendly backstories.
+- Landing Party scenario (5 crew, DropPods) – stable in 1.6.
+- Starfleet Tunic with proper worn graphics.
+- Briefing & Shore Leave rituals (fallback to vanilla outcomes).
+- Balanced values – not OP, playable from day one.
+
+**Load Order**
+1. Core + DLCs (Ideology/Biotech if used)
+2. Humanoid Alien Races (if used)
+3. RimTrek (Continued)
+4. Star Trek Factions (this mod)
+
+**0.9 → 1.0 Changelog**
+- Fixed thought stage descriptions (no more log warnings).
+- Ensured start-items use Cloth stuff (no madeFromStuff warnings).
+- Apparel now has wornGraphicPath (visible on pawns).
+- Removed empty <degree> in backstories; smeltable flags corrected.
+- General XML hygiene & cleanup.
+
+DE – Workshop-Beschreibung (v1.0)
+---------------------------------
+**Star Trek Factions** bringt eine Spielerfraktion nach Föderationsvorbild mit passenden Backstories, Uniformen und einem stabilen Landing‑Party‑Szenario.
+
+**Benötigt:** RimTrek (Continued). Optional: Ectos (Star Trek Genetics) für Xenotypen.
+
+**Highlights**
+- Föderations-Spielerfraktion (UFP) mit lore‑nahen Backstories.
+- Landing‑Party‑Szenario (5 Crew, DropPods) – stabil unter 1.6.
+- Starfleet‑Tunic mit korrekter „worn“‑Grafik.
+- Briefing & Shore Leave‑Rituale (Vanilla‑Fallback).
+- Ausgewogene Werte – spielbar ab Tag 1.
+
+**Ladereihenfolge**
+1. Core + DLCs (Ideology/Biotech, falls genutzt)
+2. Humanoid Alien Races (falls genutzt)
+3. RimTrek (Continued)
+4. Star Trek Factions (dieser Mod)
+
+**Changelog 0.9 → 1.0**
+- Stage‑Beschreibungen für Thoughts ergänzt (keine Log‑Hinweise mehr).
+- Start‑Items mit Stuff=Cloth (keine madeFromStuff‑Meldungen).
+- Apparel erhält wornGraphicPath (sichtbar am Pawn).
+- Leere <degree> in Backstories entfernt; smeltable korrigiert.
+- Allgemeine XML‑Hygiene & Cleanup.

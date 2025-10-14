@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===== KLINGONEN: CHILDHOOD (6) ===== -->
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_WarriorCub</defName>
+    <title>warrior cub</title>
+    <titleShort>cub</titleShort>
+    <baseDesc>Grew up sparring with dull bat’leths and reciting epics of Kahless by firelight.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Spacer</li><li>Soldier</li></spawnCategories>
+    <skillGains><Melee>3</Melee><Social>1</Social></skillGains>
+    <forcedTraits>
+      <Brawler>0</Brawler>
+    </forcedTraits>
+    <disallowedTraits>
+      <Kind>0</Kind>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_ShipyardApprentice</defName>
+    <title>shipyard apprentice</title>
+    <titleShort>apprentice</titleShort>
+    <baseDesc>Learned to rivet hull plates and respect the warriors who sail within.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <skillGains><Construction>2</Construction><Crafting>2</Crafting></skillGains>
+    <forcedTraits>
+      <Pilot_Cadet>0</Pilot_Cadet>
+    </forcedTraits>
+    <disallowedTraits>
+      <Wimp>0</Wimp>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_MonasteryAcolyte</defName>
+    <title>monastery acolyte</title>
+    <titleShort>acolyte</titleShort>
+    <baseDesc>Trained in discipline, fasting, and the philosophy of honor over comfort.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
+    <skillGains><Social>1</Social><Intellectual>2</Intellectual></skillGains>
+    <forcedTraits>
+      <Ascetic>0</Ascetic>
+    </forcedTraits>
+    <disallowedTraits>
+      <Wimp>0</Wimp>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_BorderColonyBrat</defName>
+    <title>border-colony brat</title>
+    <titleShort>border brat</titleShort>
+    <baseDesc>Life on a threatened frontier taught vigilance, hunting, and stubborn grit.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Soldier</li><li>Civil</li></spawnCategories>
+    <skillGains><Shooting>2</Shooting><Plants>1</Plants><Animals>1</Animals></skillGains>
+    <forcedTraits>
+      <Tough>0</Tough>
+    </forcedTraits>
+    <disallowedTraits>
+      <Wimp>0</Wimp>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_HoloArenaPage</defName>
+    <title>holo-arena page</title>
+    <titleShort>arena page</titleShort>
+    <baseDesc>Reset the holo-arena between duels and picked up more than a few tricks.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Spacer</li><li>Soldier</li></spawnCategories>
+    <skillGains><Melee>2</Melee><Crafting>1</Crafting><Medicine>1</Medicine></skillGains>
+    <forcedTraits>
+      <Brawler>0</Brawler>
+      <Tough>0</Tough>
+    </forcedTraits>
+    <disallowedTraits>
+      <Wimp>0</Wimp>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_HouseScion</defName>
+    <title>house scion</title>
+    <titleShort>scion</titleShort>
+    <baseDesc>Raised in a minor House, drilled in ritual, command, and the weight of legacy.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
+    <skillGains><Melee>2</Melee><Social>2</Social></skillGains>
+    <forcedTraits>
+      <FastLearner>0</FastLearner>
+    </forcedTraits>
+    <disallowedTraits>
+      <Wimp>0</Wimp>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <!-- ===== KLINGONEN: ADULTHOOD (6) ===== -->
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_HouseChampion</defName>
+    <title>house champion</title>
+    <titleShort>champion</titleShort>
+    <baseDesc>Duelist who fought in courts and blood-feuds to defend the House’s honor.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Soldier</li><li>Spacer</li></spawnCategories>
+    <skillGains><Melee>4</Melee><Shooting>1</Shooting><Social>1</Social></skillGains>
+    <forcedTraits>
+      <ShootingAccuracy>1</ShootingAccuracy>
+    </forcedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_RaidLeader</defName>
+    <title>raid leader</title>
+    <titleShort>raider</titleShort>
+    <baseDesc>Coordinated lightning strikes from a bird-of-prey, then shared glory with the crew.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Soldier</li><li>Spacer</li></spawnCategories>
+    <skillGains><Shooting>3</Shooting><Melee>1</Melee><Social>1</Social></skillGains>
+    <forcedTraits>
+      <Bloodlust>0</Bloodlust>
+    </forcedTraits>
+    <disallowedTraits>
+      <Kind>0</Kind>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_DefenseMarine</defName>
+    <title>defense fleet marine</title>
+    <titleShort>marine</titleShort>
+    <baseDesc>Served ship-to-ship boarding actions and brutal corridor fighting.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Soldier</li></spawnCategories>
+    <skillGains><Melee>3</Melee><Shooting>2</Shooting></skillGains>
+    <forcedTraits>
+      <Tough>0</Tough>
+    </forcedTraits>
+    <disallowedTraits>
+      <Wimp>0</Wimp>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_BladeMaster</defName>
+    <title>blade master</title>
+    <titleShort>master</titleShort>
+    <baseDesc>Instructor of bat’leth forms; scars are the curriculum vitae.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Soldier</li><li>Civil</li></spawnCategories>
+    <skillGains><Melee>4</Melee><Social>1</Social><Medicine>1</Medicine></skillGains>
+    <forcedTraits>
+      <SpeedOffset>1</SpeedOffset>
+      <Nimble>0</Nimble>
+    </forcedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_HonorGuard</defName>
+    <title>honor guard</title>
+    <titleShort>guard</titleShort>
+    <baseDesc>Stood watch over a Great Hall; vigilance honed to an edge.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Soldier</li></spawnCategories>
+    <skillGains><Shooting>2</Shooting><Melee>2</Melee><Construction>1</Construction></skillGains>
+    <forcedTraits>
+      <Tough>0</Tough>
+    </forcedTraits>
+    <disallowedTraits>
+      <Wimp>0</Wimp>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_Quartermaster</defName>
+    <title>warship quartermaster</title>
+    <titleShort>quartermaster</titleShort>
+    <baseDesc>Kept warriors armed and ships supplied—no glory without logistics.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <skillGains><Crafting>2</Crafting><Intellectual>1</Intellectual><Social>1</Social></skillGains>
+    <forcedTraits>
+      <Industriousness>1</Industriousness>
+      <Greedy>0</Greedy>
+    </forcedTraits>
+  </BackstoryDef>
+
+</Defs>

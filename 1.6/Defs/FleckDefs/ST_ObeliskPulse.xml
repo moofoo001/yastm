@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+<FleckDef ParentName="FleckBase_Thrown">
+  <defName>ST_ObeliskPulse</defName>
+  <altitudeLayer>MetaOverlays</altitudeLayer>        <!-- above clutter -->
+  <fadeInTime>0.15</fadeInTime>
+  <solidTime>0.15</solidTime>
+  <fadeOutTime>0.5</fadeOutTime>
+  <growthRate>0</growthRate>
+  <graphicData>
+    <graphicClass>Graphic_FleckPulse</graphicClass>
+    <texPath>Things/Mote/SoftRingWhiteRedTinged</texPath>
+    <shaderType>MoteGlow</shaderType>
+    <renderInstanced>true</renderInstanced>
+    <shaderParameters>
+      <_Color>(0.35, 0.15, 0.70, 0.15)</_Color>       <!-- cyan w/ soft alpha -->
+      <_Interval>0.1</_Interval>
+    </shaderParameters>
+    <drawSize>6.0</drawSize>                         <!-- smaller than 10 -->
+  </graphicData>
+</FleckDef>
+</Defs>
+
+
+  

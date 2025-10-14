@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <PawnKindDef>
+    <defName>ROM_Civilian</defName>
+    <label>Romulan civilian</label>
+    <race>Human</race>
+    <combatPower>24</combatPower>
+    <isFighter>false</isFighter>
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances><Ectos_Romulan>0.85</Ectos_Romulan><Baseliner>0.15</Baseliner></xenotypeChances>
+    </xenotypeSet>
+    <initialResistanceRange>0~1</initialResistanceRange>
+    <initialWillRange>1~3</initialWillRange>
+    <initialResistanceRange>0~0</initialResistanceRange>
+    <initialWillRange>0~2</initialWillRange>
+    <apparelMoney>200~450</apparelMoney>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
+    <apparelTags><li>IndustrialBasic</li><li>Spacer</li></apparelTags>
+    <weaponMoney>270~300</weaponMoney>
+    <weaponTags>
+    <li>NeolithicMelee</li>
+    <li>RomulanMelee</li>
+    </weaponTags>
+  </PawnKindDef>
+
+  <PawnKindDef>
+    <defName>ROM_Scout</defName>
+    <label>Romulan scout</label>
+    <race>Human</race>
+    <combatPower>70</combatPower>
+    <isFighter>true</isFighter>
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances><Ectos_Romulan>0.90</Ectos_Romulan><Baseliner>0.10</Baseliner></xenotypeChances>
+    </xenotypeSet>
+    <initialResistanceRange>1~3</initialResistanceRange>
+    <initialWillRange>2~5</initialWillRange>
+    <initialResistanceRange>0~1</initialResistanceRange>
+    <initialWillRange>1~3</initialWillRange>
+    <apparelMoney>260~520</apparelMoney>
+    <apparelRequired>
+      <li>ST_Apparel_RomulanTunic</li>
+    </apparelRequired>
+    <apparelTags><li>IndustrialBasic</li><li>Spacer</li></apparelTags>
+    <weaponMoney>220~500</weaponMoney>
+    <weaponTags>
+      <li>Gun</li>
+      <li>RomulanMelee</li>
+    </weaponTags>
+    <gearHealthRange>0.75~1</gearHealthRange>
+  </PawnKindDef>
+
+  <PawnKindDef>
+    <defName>ROM_Soldier</defName>
+    <label>Romulan soldier</label>
+    <race>Human</race>
+    <combatPower>85</combatPower>
+    <isFighter>true</isFighter>
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances><Ectos_Romulan>0.90</Ectos_Romulan><Baseliner>0.10</Baseliner></xenotypeChances>
+    </xenotypeSet>
+    <initialResistanceRange>3~6</initialResistanceRange>
+    <initialWillRange>4~8</initialWillRange>
+    <initialResistanceRange>0~1</initialResistanceRange>
+    <initialWillRange>1~3</initialWillRange>
+    <apparelRequired>
+      <li>ST_Apparel_RomulanTunic</li>
+      <li>Apparel_FlakJacket</li>
+    </apparelRequired>
+    <apparelMoney>320~650</apparelMoney>
+    <apparelTags><li>IndustrialBasic</li><li>Spacer</li></apparelTags>
+    <weaponMoney>620~700</weaponMoney>
+    <weaponTags>
+    <li>RomulanDisruptor_Pistol</li>
+    </weaponTags>
+    <gearHealthRange>0.8~1</gearHealthRange>
+  </PawnKindDef>
+
+  <PawnKindDef>
+    <defName>ROM_Leader</defName>
+    <label>Romulan commander</label>
+    <race>Human</race>
+    <combatPower>130</combatPower>
+    <isFighter>true</isFighter>
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances><Ectos_Romulan>0.95</Ectos_Romulan><Baseliner>0.05</Baseliner></xenotypeChances>
+    </xenotypeSet>
+    <initialResistanceRange>4~8</initialResistanceRange>
+    <initialWillRange>6~10</initialWillRange>
+    <initialResistanceRange>0~1</initialResistanceRange>
+    <initialWillRange>1~3</initialWillRange>
+    <apparelMoney>500~900</apparelMoney>
+    <apparelRequired>
+      <li>ST_Apparel_RomulanTunic</li>
+      <li>Apparel_FlakVest</li>
+      <li>Apparel_FlakPants</li>
+      <li>Apparel_FlakJacket</li>
+    </apparelRequired>
+    <weaponMoney>500~1500</weaponMoney>
+    <weaponTags>
+    <li>RomulanMelee</li>
+    <li>RomulanDisruptor_Rifle</li>
+    </weaponTags>
+    <apparelTags><li>IndustrialBasic</li><li>Spacer</li></apparelTags>
+    <gearHealthRange>0.85~1</gearHealthRange>
+    <itemQuality>Normal</itemQuality>
+    <invNutrition>0.6</invNutrition>
+  </PawnKindDef>
+
+</Defs>

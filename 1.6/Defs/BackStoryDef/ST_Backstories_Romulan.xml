@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===== ROMULANER: CHILDHOOD (6) ===== -->
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_LyceumAdept</defName>
+    <title>lyceum adept</title>
+    <titleShort>adept</titleShort>
+    <baseDesc>Groomed in rigorous academies to value precision, posture, and results.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
+    <skillGains><Intellectual>3</Intellectual><Social>1</Social></skillGains>
+    <forcedTraits>
+      <TooSmart>0</TooSmart>
+    </forcedTraits>
+    <disallowedTraits>
+      <Wimp>0</Wimp>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_FrontierSettler</defName>
+    <title>frontier settler</title>
+    <titleShort>settler</titleShort>
+    <baseDesc>Raised on a marginal colony balancing self-reliance with imperial duty.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <skillGains><Plants>2</Plants><Construction>1</Construction><Shooting>1</Shooting></skillGains>
+    <forcedTraits>
+      <Industriousness>1</Industriousness>
+    </forcedTraits>  
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_ColonyArchivist</defName>
+    <title>colony archivist’s aide</title>
+    <titleShort>archivist aide</titleShort>
+    <baseDesc>Catalogued shipment logs and edicts; learned to read the subtext in everything.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <skillGains><Intellectual>2</Intellectual><Crafting>1</Crafting></skillGains>
+    <forcedTraits>
+      <TooSmart>0</TooSmart>
+    </forcedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_StateOrphan</defName>
+    <title>state orphan</title>
+    <titleShort>orphan</titleShort>
+    <baseDesc>Ward of the state; discipline and subtlety were survival skills.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Soldier</li><li>Civil</li></spawnCategories>
+    <skillGains><Social>1</Social><Shooting>1</Shooting><Intellectual>1</Intellectual></skillGains>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_PraetoriumPage</defName>
+    <title>praetorium page</title>
+    <titleShort>page</titleShort>
+    <baseDesc>Served officials, observing the theatre of power from the wings.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <skillGains><Social>2</Social><Intellectual>1</Intellectual></skillGains>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_EngineeringTrainee</defName>
+    <title>engineering trainee</title>
+    <titleShort>trainee</titleShort>
+    <baseDesc>Took apart training boards and put them back faster, and better, each time.</baseDesc>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <skillGains><Crafting>2</Crafting><Construction>1</Construction></skillGains>
+    <forcedTraits>
+      <TorturedArtist />
+    </forcedTraits>
+  </BackstoryDef>
+
+  <!-- ===== ROMULANER: ADULTHOOD (6) ===== -->
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_TalShiarAnalyst</defName>
+    <title>Tal Shiar analyst</title>
+    <titleShort>analyst</titleShort>
+    <baseDesc>Reads patterns in noise and motives in faces for the empire’s shadow service.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li><li>Soldier</li></spawnCategories>
+    <skillGains><Intellectual>3</Intellectual><Social>2</Social></skillGains>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_WarbirdHelmsman</defName>
+    <title>warbird helmsman</title>
+    <titleShort>helmsman</titleShort>
+    <baseDesc>Guided cloaked mass through vacuum with ruthless calm.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Spacer</li><li>Soldier</li></spawnCategories>
+    <skillGains><Intellectual>1</Intellectual><Shooting>2</Shooting><Social>1</Social></skillGains>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_CloakTechnician</defName>
+    <title>cloaking technician</title>
+    <titleShort>technician</titleShort>
+    <baseDesc>Maintained fickle singularity-fed systems—failure was not an option anyone lived with.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <skillGains><Crafting>3</Crafting><Intellectual>1</Intellectual></skillGains>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_ProvincialAdministrator</defName>
+    <title>provincial administrator</title>
+    <titleShort>administrator</titleShort>
+    <baseDesc>Balanced quotas, appeased superiors, and kept the ledgers immaculate.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <skillGains><Intellectual>2</Intellectual><Social>2</Social></skillGains>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_BorderScout</defName>
+    <title>border scout</title>
+    <titleShort>scout</titleShort>
+    <baseDesc>Slip-in, slip-out reconnaissance with minimal signatures and maximum insight.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Soldier</li></spawnCategories>
+    <skillGains><Shooting>2</Shooting><Intellectual>1</Intellectual><Plants>1</Plants></skillGains>
+    <forcedTraits>
+      <ShootingAccuracy>1</ShootingAccuracy>
+    </forcedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_CivicEngineer</defName>
+    <title>civic engineer</title>
+    <titleShort>engineer</titleShort>
+    <baseDesc>Designed infrastructure that lasts—unless politics says otherwise.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <skillGains><Construction>3</Construction><Crafting>1</Crafting></skillGains>
+    <forcedTraits>
+      <FastLearner>0</FastLearner>
+      <Industriousness>1</Industriousness>
+    </forcedTraits>
+  </BackstoryDef>
+
+</Defs>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- Pilots -->
+<!-- Pilot (cadet) -->
+<TraitDef>
+  <defName>Pilot_Cadet</defName>
+  <label>pilot (cadet)</label>
+  <description>{PAWN_nameDef} trained the basics of low-grav and craft maneuvering.</description>
+  <commonality>0.12</commonality>
+  <degreeDatas>
+    <li>
+      <label>Pilot Cadet</label>
+      <description>Basic piloting discipline and stress handling.</description>
+      <statOffsets>
+        <!-- Odyssey stat, nur wenn vorhanden -->
+        <PilotingAbility MayRequire="Ludeon.RimWorld.Odyssey">0.15</PilotingAbility>
+        <!-- stabiler: niedrigerer Break-Threshold ist besser -->
+        <MentalBreakThreshold>-0.03</MentalBreakThreshold>
+      </statOffsets>
+    </li>
+  </degreeDatas>
+</TraitDef>
+
+<!-- Pilot (officer) -->
+<TraitDef>
+  <defName>Pilot_Officer</defName>
+  <label>pilot (officer)</label>
+  <description>{PAWN_nameDef} is a trained starship pilot.</description>
+  <commonality>0.07</commonality>
+  <degreeDatas>
+    <li>
+      <label>Pilot</label>
+      <description>Advanced flight under pressure.</description>
+      <statOffsets>
+        <PilotingAbility MayRequire="Ludeon.RimWorld.Odyssey">0.25</PilotingAbility>
+        <MentalBreakThreshold>-0.05</MentalBreakThreshold>
+      </statOffsets>
+    </li>
+  </degreeDatas>
+  <conflictingTraits>
+    <li>Wimp</li>
+    <li>Undergrounder</li>
+  </conflictingTraits>
+</TraitDef>
+
+<!-- Pilot (ace) -->
+<TraitDef>
+  <defName>Pilot_Ace</defName>
+  <label>Pilot (ace)</label>
+  <description>{PAWN_nameDef} has nerves of steel and unmatched flight instincts.</description>
+  <commonality>0.03</commonality>
+  <degreeDatas>
+    <li>
+      <label>ace</label>
+      <description>Elite maneuvering, rock-solid nerves.</description>
+
+      <statOffsets>
+        <PilotingAbility MayRequire="Ludeon.RimWorld.Odyssey">0.40</PilotingAbility>
+        <MentalBreakThreshold>-0.08</MentalBreakThreshold>
+      </statOffsets>
+    </li>
+  </degreeDatas>
+  <conflictingTraits>
+    <li>Wimp</li>
+    <li>Undergrounder</li>
+  </conflictingTraits>
+</TraitDef>
+
+ <!-- Starfleet-Grundausbildung: leichtes Skill-Plus + Stressresistenz -->
+  <TraitDef>
+    <defName>ST_Trait_StarfleetTraining</defName>
+    <label>Starfleet training</label>
+    <description>Formal Starfleet training: calm under pressure, solid fundamentals and a knack for learning.</description>
+    <commonality>1.2</commonality>
+    <degreeDatas>
+      <li>
+        <label>Starfleet training</label>
+        <description>Thorough Starfleet training helps in stressful situations and accelerates learning.</description>
+        <statOffsets>
+          <GlobalLearningFactor>0.03</GlobalLearningFactor>
+          <MentalBreakThreshold>-0.02</MentalBreakThreshold>
+        </statOffsets>
+        <skillGains>
+          <Shooting>2</Shooting>
+          <Medicine>1</Medicine>
+        </skillGains>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+  <!-- IDIC-Mindset (vulkanisch angehaucht): Forschung +, Sozialwirkung − leicht -->
+  <TraitDef>
+    <defName>ST_Trait_IDICMindset</defName>
+    <label>IDIC mindset</label>
+    <description>Logic and the pursuit of understanding: faster research, slightly stiffer social presence.</description>
+    <commonality>0.6</commonality>
+    <degreeDatas>
+      <li>
+        <label>IDIC mindset</label>
+        <description>An open yet logical mindset that favors knowledge and reason.</description>
+        <statOffsets>
+          <ResearchSpeed>0.08</ResearchSpeed>
+          <SocialImpact>-0.05</SocialImpact>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+  <!-- Prime Directive-fokussiert: Verhandlung +, Freude an Gewalt − -->
+  <TraitDef>
+    <defName>ST_Trait_PrimeDirectiveMinded</defName>
+    <label>prime directive-minded</label>
+    <description>Committed to the Prime Directive: favors negotiation and restraint in conflict.</description>
+    <commonality>0.8</commonality>
+    <degreeDatas>
+      <li>
+        <label>prime directive-minded</label>
+        <description>Prioritizes non-interference and diplomacy.</description>
+        <statOffsets>
+          <NegotiationAbility>0.08</NegotiationAbility>
+          <MeleeHitChance>-0.02</MeleeHitChance>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+</Defs>

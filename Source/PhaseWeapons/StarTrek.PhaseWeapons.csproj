@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>YASTM</AssemblyName>
+    <RootNamespace>ST.PhaseWeapons</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+<!-- compile -->
+<ItemGroup>
+  <Compile Include="CompPhaserMode.cs" />
+  <Compile Include="Verb_PhaserShoot.cs" />
+  <Compile Include="Projectile_Phaser.cs" />
+  <Compile Include="PhaserUtil.cs" />
+  <Compile Include="Patches.cs" />
+  <Compile Include="ST_Tex.cs" />
+  <Compile Include="MeleeStun.cs" />
+</ItemGroup>
+<!-- dont compile -->
+<ItemGroup>
+  <Compile Remove="**/*_old.cs" />
+  <Compile Remove="**/*.bak.cs" />
+</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="*" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="*" PrivateAssets="all" />
+    <PackageReference Include="Lib.Harmony" Version="2.2.2" PrivateAssets="all" />
+    <Compile Include="../Abilities\*.cs" />
+    <Compile Include="../Bootstrap\*.cs" />
+    <Compile Include="../Comps\*.cs" />
+    <Compile Include="../Defs\*.cs" />
+    <Compile Include="../Harmony\*.cs" />
+    <Compile Include="../Quest\*.cs" />
+    <Compile Include="../Work\*.cs" />
+    <Compile Include="../Systems\*.cs" />  
+  </ItemGroup>
+
+  <!-- Keine Unity/RimWorld-DLLs mit ausliefern -->
+  <PropertyGroup>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <!-- DLL nach dem Build direkt in deinen Mod kopieren -->
+  <Target Name="PostBuild" AfterTargets="Build">
+    <MakeDir Directories="$(MSBuildProjectDirectory)\..\..\1.6\Assemblies\" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(MSBuildProjectDirectory)\..\..\1.6\Assemblies\" />
+  </Target>
+</Project>

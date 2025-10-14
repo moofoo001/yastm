@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+
+  <BackstoryDef>
+    <defName>ST_Child_Colony_Schoolkid</defName>
+    <title>colony schoolkid</title>
+    <titleShort>schoolkid</titleShort>
+    <slot>Childhood</slot>
+    <baseDesc>Raised on a peaceful Federation colony, they grew up with replicators, safety drills,
+      and civic education. Science fairs and holodeck simulations were their playground.</baseDesc>
+    <skillGains>
+      <Mining>+1</Mining>
+      <Social>+1</Social>
+      <Animals>+1</Animals>
+      <Plants>+1</Plants>
+      </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Engineering</li>
+    </spawnCategories>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Child_Starbase_Deck_Rat</defName>
+    <title>starbase deck rat</title>
+    <titleShort>deck rat</titleShort>
+    <slot>Childhood</slot>
+    <baseDesc>Growing up on a bustling starbase meant learning to dodge cargo drones and fix things
+      before the quartermaster noticed. Curiosity and a toolkit went everywhere.</baseDesc>
+    <skillGains>
+      <Construction>+1</Construction>
+      <Crafting>+2</Crafting>
+      <Intellectual>+1</Intellectual>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Engineering</li>
+    </spawnCategories>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Child_Vulcan_Logic_Student</defName>
+    <title>logic student</title>
+    <titleShort>logic student</titleShort>
+    <slot>Childhood</slot>
+    <baseDesc>Schooled in rigorous logic and emotional discipline. Meditation, math puzzles,
+      and debate formed the backbone of their early years.</baseDesc>
+    <skillGains>
+      <Intellectual>+3</Intellectual>
+      <Social>+1</Social>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Science</li>
+      <li>Starfleet_Operations</li>
+      <li>Starfleet_Medical</li>
+      <li>Starfleet_Command</li>      
+    </spawnCategories>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Child_Bajoran_Refugee</defName>
+    <title>Bajoran refugee youth</title>
+    <titleShort>refugee youth</titleShort>
+    <slot>Childhood</slot>
+    <baseDesc>They spent formative years displaced by conflict before the Federation offered asylum.
+      Community aid and triage taught compassion and steady hands.</baseDesc>
+    <skillGains>
+      <Social>+1</Social>
+      <Cooking>1</Cooking>
+      <Medicine>+1</Medicine>
+      <Shooting>+1</Shooting>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Operations</li>
+      <li>Starfleet_Medical</li>
+      <li>Starfleet_Security</li>
+      <li>Starfleet_Command</li>    
+    </spawnCategories>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <defName>ST_Child_Replicator_Techs_Kid</defName>
+    <title>replicator tech’s kid</title>
+    <titleShort>replicator kid</titleShort>
+    <slot>Childhood</slot>
+    <baseDesc>Growing up around maintenance bays and calibration suites, they learned to coax
+      precision out of temperamental replicators and pattern buffers.</baseDesc>
+    <skillGains>
+      <Intellectual>+1</Intellectual>
+      <Crafting>+2</Crafting>
+      <Artistic>+1</Artistic>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Operations</li>
+      <li>Starfleet_Engineering</li>      
+    </spawnCategories>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <defName>ST_Child_Settlement_Medic_Aide</defName>
+    <title>settlement medic’s aide</title>
+    <titleShort>medic’s aide</titleShort>
+    <slot>Childhood</slot>
+    <baseDesc>On a frontier clinic, they fetched medkits and observed triage. Bedside manner
+      and steady hands came early.</baseDesc>
+    <skillGains>
+      <Medicine>+2</Medicine>
+      <Social>+1</Social>
+      <Plants>+1</Plants>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Medical</li>
+    </spawnCategories>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Child_Solar_Array_Tender</defName>
+    <title>solar array tender</title>
+    <titleShort>array tender</titleShort>
+    <slot>Childhood</slot>
+    <baseDesc>Their chores included dusting collectors, swapping cells, and balancing microgrids
+      during sandstorms.</baseDesc>
+    <skillGains>
+      <Construction>+1</Construction>
+      <Crafting>+1</Crafting>
+      <Plants>+2</Plants>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Engineering</li>
+    </spawnCategories>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <defName>ST_Child_Scholarship_Prodigy</defName>
+    <title>scholarship prodigy</title>
+    <titleShort>prodigy</titleShort>
+    <slot>Childhood</slot>
+    <baseDesc>With a sponsorship to a Federation preparatory program, they devoured coursework
+      and spent nights in simulator labs.</baseDesc>
+    <skillGains>
+      <Intellectual>+2</Intellectual>
+      <Artistic>+1</Artistic>
+      <Social>+1</Social>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Science</li>    
+      <li>Starfleet_Security</li>
+      <li>Starfleet_Command</li>
+    </spawnCategories>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <defName>ST_Child_Shipyard_Helper</defName>
+    <title>shipyard helper</title>
+    <titleShort>shipyard help</titleShort>
+    <slot>Childhood</slot>
+    <baseDesc>They grew up in orbital drydocks, learning field repairs, seal checks, and how
+      to listen for a drive core’s “hum”.</baseDesc>
+    <skillGains>
+      <Construction>+2</Construction>
+      <Crafting>+1</Crafting>
+      <Mining>+1</Mining>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Engineering</li>
+    </spawnCategories>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <defName>ST_Child_Diplomat_Shadow</defName>
+    <title>diplomat’s shadow</title>
+    <titleShort>diplomat’s ward</titleShort>
+    <slot>Childhood</slot>
+    <baseDesc>Following a guardian through embassies and hearings, they learned protocol,
+      patience, and how to read a room.</baseDesc>
+    <skillGains>
+      <Social>+3</Social>
+      <Intellectual>+1</Intellectual>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Science</li>    
+      <li>Starfleet_Command</li>
+    </spawnCategories>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <defName>ST_Child_Starfleet_Flight_Program</defName>
+    <title>flight prep program student</title>
+    <titleShort>flight prep</titleShort>
+    <slot>Childhood</slot>
+    <baseDesc>Early aptitude in simulators and orbital dynamics led them into a flight
+      prep program with strict routines and endless practice runs.
+    </baseDesc>
+    <skillGains>
+      <Shooting>+1</Shooting>
+      <Crafting>+1</Crafting>
+      <Intellectual>+1</Intellectual>
+      <Artistic>+1</Artistic>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Security</li>
+      <li>Starfleet_Command</li>
+    </spawnCategories>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <defName>ST_Child_Starfleet_Junior_Tactical</defName>
+    <title>junior tactical trainee</title>
+    <titleShort>junior tactical</titleShort>
+    <slot>Childhood</slot>
+    <baseDesc>Safety ranges, scenario drills, and de-escalation workshops built a cool
+      head and steady aim.
+    </baseDesc>
+    <skillGains>
+      <Shooting>+2</Shooting>
+      <Melee>+2</Melee>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Command</li>
+      <li>Starfleet_Security</li>
+    </spawnCategories>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Child_Starfleet_Academy_Prep</defName>
+    <title>Starfleet Academy prep candidate</title>
+    <titleShort>academy prep</titleShort>
+    <slot>Childhood</slot>
+    <baseDesc>A structured schedule of physical training, ethics seminars, and math labs
+      prepared them for Academy entrance exams.
+    </baseDesc>
+    <skillGains>
+      <Intellectual>+1</Intellectual>
+      <Social>+1</Social>
+      <Melee>+1</Melee>
+      <Shooting>+1</Shooting>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Command</li>
+      <li>Starfleet_Security</li>
+    </spawnCategories>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <defName>ST_Child_Starfleet_Shipboard_Apprentice</defName>
+    <title>shipboard apprentice</title>
+    <titleShort>apprentice</titleShort>
+    <slot>Childhood</slot>
+    <baseDesc>Grew up helping crew with simple tasks—inventory checks, panel polishing,
+      and learning not to press the red button.
+    </baseDesc>
+    <skillGains>
+      <Construction>+1</Construction>
+      <Crafting>+1</Crafting>
+      <Social>+1</Social>
+      <Cooking>+1</Cooking>
+    </skillGains>
+     <spawnCategories>
+        <li>Starfleet_Operations</li>    
+        <li>Starfleet_Engineering</li>
+      </spawnCategories>
+    </BackstoryDef>
+</Defs>

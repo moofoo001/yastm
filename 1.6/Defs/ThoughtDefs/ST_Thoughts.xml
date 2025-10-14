@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThoughtDef>
+    <defName>ST_Thought_Briefing_Completed</defName>
+    <label>briefing completed</label>
+    <description>A concise team briefing left me focused and aligned.</description>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>briefing completed</label>
+        <baseMoodEffect>3</baseMoodEffect>
+        <description>The briefing clarified our objectives and boosted my confidence.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>ST_Thought_ShoreLeave_Completed</defName>
+    <label>shore leave</label>
+    <description>Time off with the crew helped me unwind.</description>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>4</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>shore leave</label>
+        <baseMoodEffect>5</baseMoodEffect>
+        <description>Relaxing time with the crew left me refreshed and ready for action.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

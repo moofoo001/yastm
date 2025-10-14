@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <FactionDef ParentName="FactionBase">
+    <defName>Federation_Of_Planets_NPC</defName>
+    <label>United Federation of Planets</label>
+    <description>A cooperative, exploration-forward union of worlds aligned under Starfleet’s principles.</description>
+
+
+    <pawnSingular>member</pawnSingular>
+    <pawnsPlural>members</pawnsPlural>
+    <listOrderPriority>45</listOrderPriority>
+    <settlementGenerationWeight>0.2</settlementGenerationWeight>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <maxConfigurableAtWorldCreation>1</maxConfigurableAtWorldCreation>
+    <configurationListOrderPriority>30</configurationListOrderPriority>
+    <displayInFactionSelection>true</displayInFactionSelection>
+
+    <allowedCultures>
+      <li>ST_Culture_UFP</li>
+    </allowedCultures>
+    <techLevel>Spacer</techLevel>
+    <permanentEnemy>false</permanentEnemy>
+
+    <factionNameMaker>ST_NamerFedFaction</factionNameMaker>
+    <settlementNameMaker>ST_NamerFedBase</settlementNameMaker>
+    <factionIconPath>UI/Icons/Factions/UFP</factionIconPath>
+    <leaderTitle>administrator</leaderTitle>
+    <fixedLeaderKinds>
+      <li>ST_Pawn_Civil_Leader</li>
+    </fixedLeaderKinds>
+
+    <colorSpectrum>
+      <li>(0.20, 0.55, 0.95)</li>
+      <li>(0.35, 0.70, 1.00)</li>
+    </colorSpectrum>
+
+<!-- Faction Xenotyps -->
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances>
+        <Baseliner>0.20</Baseliner>
+        <Ectos_Vulcan>0.14</Ectos_Vulcan>
+        <Ectos_Andorian>0.12</Ectos_Andorian>
+        <Ectos_Tellarite>0.06</Ectos_Tellarite>
+        <Ectos_Betazoid>0.08</Ectos_Betazoid>
+        <Ectos_Trill>0.07</Ectos_Trill>
+        <Ectos_Bajoran>0.05</Ectos_Bajoran>
+        <Ectos_Denobulan>0.04</Ectos_Denobulan>
+        <Ectos_Bolian>0.04</Ectos_Bolian>
+        <Ectos_Benzite>0.02</Ectos_Benzite>
+        <Ectos_Orion>0.02</Ectos_Orion>
+        <Ectos_Klingon>0.02</Ectos_Klingon>
+        <Ectos_Romulan>0.02</Ectos_Romulan>
+        <Ectos_Cardassian>0.02</Ectos_Cardassian>
+      </xenotypeChances>
+    </xenotypeSet>
+
+    <backstoryFilters>
+      <li>
+        <categoriesChildhood>
+          <li>Starfleet_child</li>
+          <li>Spacer</li>
+          <li>Civil</li>
+        </categoriesChildhood>
+        <categoriesAdulthood>
+          <li>Starfleet_Operations</li>
+          <li>Starfleet_Engineering</li>
+          <li>Starfleet_Science</li>
+          <li>Starfleet_Medical</li>
+          <li>Starfleet_Security</li>
+          <li>Starfleet_Command</li>
+          <li>Spacer</li>
+          <li>Civil</li>
+        </categoriesAdulthood>
+      </li>
+    </backstoryFilters>
+    
+    <basicMemberKind>UFP_Civilian</basicMemberKind>
+
+    <!-- trader caravan visitor -->
+    <caravanTraderKinds>
+      <li>ST_Trader_Starfleet_Supplies</li>
+    </caravanTraderKinds>
+    <visitorTraderKinds>
+      <li>ST_Trader_Starfleet_Supplies</li>
+    </visitorTraderKinds>
+    <baseTraderKinds>
+      <li>ST_Trader_Starfleet_Supplies</li>
+    </baseTraderKinds>
+    <allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
+
+    <maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(0,35)</li>
+        <li>(70, 50)</li>
+        <li>(700, 100)</li>
+        <li>(1300, 150)</li>
+        <li>(100000, 10000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>
+
+    <pawnGroupMakers>
+
+      <li>
+        <kindDef>Combat</kindDef>
+        <options>
+          <FederationPawn_Security>3.2</FederationPawn_Security>
+          <FederationPawn_Operations>1.1</FederationPawn_Operations>
+          <UFP_Civilian>0.2</UFP_Civilian>
+        </options>
+      </li>
+
+      <li>
+        <kindDef>Peaceful</kindDef>
+        <options>
+          <UFP_Civilian>3.5</UFP_Civilian>
+          <UFP_Civilian_Professional>1.2</UFP_Civilian_Professional>
+          <FederationPawn_Security>0.6</FederationPawn_Security>
+          <FederationPawn_Operations>0.5</FederationPawn_Operations>
+          <FederationPawn_Science>0.4</FederationPawn_Science>
+        </options>
+      </li>
+
+      <li>
+      <kindDef>Trader</kindDef>
+        <traders>
+          <UFP_Civilian_Professional>1</UFP_Civilian_Professional>
+        </traders>
+        <carriers>
+          <Muffalo>6</Muffalo>
+          <Dromedary>5</Dromedary>
+          <Alpaca>2</Alpaca>
+        </carriers>
+
+        <guards>
+          <FederationPawn_Security>10</FederationPawn_Security>
+          <FederationPawn_Operations>4</FederationPawn_Operations>
+        </guards>
+      </li>
+      <li>
+        <kindDef>Settlement</kindDef>
+        <options>
+          <UFP_Civilian>4.0</UFP_Civilian>
+          <UFP_Civilian_Professional>1.2</UFP_Civilian_Professional>
+          <FederationPawn_Operations>0.8</FederationPawn_Operations>
+          <FederationPawn_Science>0.6</FederationPawn_Science>
+          <FederationPawn_Medical>0.5</FederationPawn_Medical>
+          <FederationPawn_Security>0.8</FederationPawn_Security>
+          <FederationPawn_Command>0.2</FederationPawn_Command>
+        </options>
+      </li>
+    </pawnGroupMakers>
+    <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+  </FactionDef>
+
+</Defs>

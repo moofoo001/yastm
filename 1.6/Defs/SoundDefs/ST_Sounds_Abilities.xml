@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <SoundDef>
+    <defName>ST_SND_CommandPresenceCast</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>3</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Abilities/command_presence_cast</clipPath>
+          </li>
+        </grains>
+        <volumeRange><min>0.8</min><max>0.8</max></volumeRange>
+        <pitchRange><min>0.98</min><max>1.02</max></pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>ST_SND_FieldTriageCast</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>3</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Abilities/field_triage_cast</clipPath>
+          </li>
+        </grains>
+        <volumeRange><min>0.8</min><max>0.8</max></volumeRange>
+        <pitchRange><min>0.98</min><max>1.02</max></pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>ST_SND_TacticalOverwatchCast</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>3</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Abilities/tactical_overwatch_cast</clipPath>
+          </li>
+        </grains>
+        <volumeRange><min>0.8</min><max>0.8</max></volumeRange>
+        <pitchRange><min>0.98</min><max>1.02</max></pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+</Defs>

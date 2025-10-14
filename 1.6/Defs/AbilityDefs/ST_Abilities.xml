@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <AbilityDef Name="Ability_BattleCry" Abstract="true">
+    <description>Inspire nearby allies with a cry of honor, boosting melee accuracy and pain resistance.</description>
+    <cooldownTicksRange>7500</cooldownTicksRange> <!-- 3 hours -->
+    <stunTargetWhileCasting>true</stunTargetWhileCasting>
+    <targetRequired>false</targetRequired>
+    <aiCanUse>true</aiCanUse>
+    <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
+    <displayOrder>300</displayOrder>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <statBases>
+      <Ability_EffectRadius>19.9</Ability_EffectRadius>
+    </statBases>
+    <verbs>
+      <li>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>19.9</range>
+      <warmupTime>0.5</warmupTime>
+      <requireLineOfSight>false</requireLineOfSight>
+      <soundCast>Ability_TerrorRoar</soundCast>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>true</canTargetHumans>
+      </targetParams>
+      </li>
+    </verbs>
+     <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <hediffDef>Hediff_BattleCry</hediffDef>
+        <severity>1.0</severity>
+        <applyToSelf>true</applyToSelf>
+        <applyToTarget>true</applyToTarget>
+      </li>
+     </comps>
+  </AbilityDef>
+
+  <HediffDef>
+    <defName>Hediff_BattleCry</defName>
+    <label>Blood Fury</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <description>Unleash a primal battle cry, boosting nearby allies' melee accuracy and pain resistance.</description>
+    <defaultLabelColor>(1.0, 0.3, 0.3)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <showRemainingTime>true</showRemainingTime>
+    </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeleeHitChance>0.2</MeleeHitChance>
+          <PainShockThreshold>0.2</PainShockThreshold>
+        </statOffsets>
+        <minSeverity>0</minSeverity>
+      </li>
+    </stages>
+  </HediffDef>
+
+  
+<AbilityDef>
+  <defName>ST_Ability_VulcanNervePinch</defName>
+  <label>Vulcan nerve pinch</label>
+  <description>Applies a precise nerve pinch that briefly stuns a humanoid target.</description>
+  <iconPath>UI/Abilities/VulcanNervePinch</iconPath>
+
+  <!-- Cooldown als IntRange -->
+  <cooldownTicksRange>
+    <min>2400</min>
+    <max>2400</max>
+  </cooldownTicksRange>
+
+  <!-- WICHTIG: Verb + TargetParams gehören in verbProperties -->
+  <verbProperties>
+    <verbClass>Verb_CastAbilityTouch</verbClass>
+    <range>1.42</range>
+    <requireLineOfSight>false</requireLineOfSight>
+    <violent>false</violent>
+    <targetParams>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetSelf>false</canTargetSelf>
+      <canTargetLocations>false</canTargetLocations>
+    </targetParams>
+  </verbProperties>
+
+  <!-- WICHTIG: CompProperties_AbilityEffect + compClass auf deine Effect-Klasse -->
+  <comps>
+    <li Class="RimWorld.CompProperties_AbilityEffect">
+      <compClass>ST.Abilities.CompAbilityEffect_VulcanNervePinch</compClass>
+    </li>
+  </comps>
+</AbilityDef>
+
+<AbilityDef>
+  <defName>ST_Ability_FieldTriage</defName>
+  <label>field triage</label>
+  <description>Temporarily boosts medical tending and stabilizes the patient.</description>
+  <iconPath>UI/Abilities/FieldTriage</iconPath>
+
+  <cooldownTicksRange>
+    <min>1800</min>
+    <max>1800</max>
+  </cooldownTicksRange>
+
+  <verbProperties>
+    <verbClass>Verb_CastAbility</verbClass>
+    <range>6</range>
+    <requireLineOfSight>true</requireLineOfSight>
+    <violent>false</violent>
+    <targetParams>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetSelf>false</canTargetSelf>
+      <canTargetLocations>false</canTargetLocations>
+    </targetParams>
+  </verbProperties>
+
+  <comps>
+    <li Class="RimWorld.CompProperties_AbilityEffect">
+      <compClass>ST.Abilities.CompAbilityEffect_FieldTriage</compClass>
+    </li>
+  </comps>
+</AbilityDef>
+
+</Defs>

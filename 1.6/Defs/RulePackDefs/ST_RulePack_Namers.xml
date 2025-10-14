@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Faction names -->
+  <RulePackDef>
+    <defName>ST_NamerFedFaction</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->[FederationName]</li>
+        <li>name->[FedPrefix] [FedDept]</li>
+        <li>name->[FedPrefix] [FedDept] - [SectorTag]</li>
+
+        <li>FederationName->United Federation of Planets</li>
+
+        <li>FedPrefix->Federation</li>
+        <li>FedPrefix->Starfleet</li>
+        <li>FedPrefix->UFP</li>
+
+        <li>FedDept->Liaison Office</li>
+        <li>FedDept->Diplomatic Corps</li>
+        <li>FedDept->Exploration Command</li>
+        <li>FedDept->Research Directorate</li>
+        <li>FedDept->Logistics Command</li>
+        <li>FedDept->Colonial Affairs</li>
+
+        <li>SectorTag->Sector Alpha</li>
+        <li>SectorTag->Sector Beta</li>
+        <li>SectorTag->Sector Gamma</li>
+        <li>SectorTag->Sector Delta</li>
+        <li>SectorTag->Perseus Arm</li>
+        <li>SectorTag->Taurus Reach</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <!-- Settlement/base names -->
+  <RulePackDef>
+    <defName>ST_NamerFedBase</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->Starbase [Roman]</li>
+        <li>name->Research Station [Greek]</li>
+        <li>name->Federation Outpost [Greek]</li>
+        <li>name->UFP Colony [Greek]</li>
+        <li>name->Observation Post [Greek]</li>
+
+        <!-- Roman numerals -->
+        <li>Roman->I</li><li>Roman->II</li><li>Roman->III</li><li>Roman->IV</li><li>Roman->V</li>
+        <li>Roman->VI</li><li>Roman->VII</li><li>Roman->VIII</li><li>Roman->IX</li><li>Roman->X</li>
+        <li>Roman->XI</li><li>Roman->XII</li><li>Roman->XIII</li><li>Roman->XIV</li><li>Roman->XV</li>
+        <li>Roman->XVI</li><li>Roman->XVII</li><li>Roman->XVIII</li><li>Roman->XIX</li><li>Roman->XX</li>
+
+        <!-- Greek letters -->
+        <li>Greek->Alpha</li><li>Greek->Beta</li><li>Greek->Gamma</li><li>Greek->Delta</li><li>Greek->Epsilon</li>
+        <li>Greek->Zeta</li><li>Greek->Eta</li><li>Greek->Theta</li><li>Greek->Iota</li><li>Greek->Kappa</li>
+        <li>Greek->Lambda</li><li>Greek->Mu</li><li>Greek->Nu</li><li>Greek->Xi</li><li>Greek->Omicron</li>
+        <li>Greek->Pi</li><li>Greek->Rho</li><li>Greek->Sigma</li><li>Greek->Tau</li><li>Greek->Upsilon</li>
+        <li>Greek->Phi</li><li>Greek->Chi</li><li>Greek->Psi</li><li>Greek->Omega</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+
+   <!-- ================== KLINGON ================== -->
+
+  <!-- Faction -->
+  <RulePackDef>
+    <defName>ST_NamerKlingonFaction</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->House of [klg_name]</li>
+        <li>name->[klg_name] Assault Command</li>
+        <li>name->Klingon Defense Force – [klg_word]</li>
+        <li>name->[klg_word] War Banner</li>
+
+        <li>klg_word->Ketha</li>
+        <li>klg_word->QeyHa'</li>
+        <li>klg_word->Mek'leth</li>
+        <li>klg_word->Targ</li>
+        <li>klg_word->Vor'cha</li>
+        <li>klg_word->Bat'leth</li>
+
+        <li>klg_name->Martok</li>
+        <li>klg_name->Gowron</li>
+        <li>klg_name->Koloth</li>
+        <li>klg_name->Kurn</li>
+        <li>klg_name->Lursa</li>
+        <li>klg_name->Duras</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <!-- Settlement/base names -->
+  <RulePackDef>
+    <defName>ST_NamerKlingonBase</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->[klg_word] Stronghold</li>
+        <li>name->Outpost [klg_word]</li>
+        <li>name->[klg_word] Garrison</li>
+        <li>name->Forward Camp [klg_name]</li>
+
+        <li>klg_word->Ketha</li>
+        <li>klg_word->QeyHa'</li>
+        <li>klg_word->Mek'leth</li>
+        <li>klg_word->Targ</li>
+        <li>klg_word->Vor'cha</li>
+        <li>klg_word->Bat'leth</li>
+
+        <li>klg_name->Martok</li>
+        <li>klg_name->Gowron</li>
+        <li>klg_name->Koloth</li>
+        <li>klg_name->Kurn</li>
+        <li>klg_name->Lursa</li>
+        <li>klg_name->Duras</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+
+  <!-- ================== ROMULAN ================== -->
+
+  <!-- Faction -->
+  <RulePackDef>
+    <defName>ST_NamerRomulanFaction</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->Romulan Star Command – [rom_word]</li>
+        <li>name->[rom_word] Praetorate</li>
+        <li>name->Tal Shiar Directorate – [rom_word]</li>
+        <li>name->[rom_name] Cohort</li>
+
+        <li>rom_word->Valdore</li>
+        <li>rom_word->Khellian</li>
+        <li>rom_word->Rator</li>
+        <li>rom_word->Veridian</li>
+        <li>rom_word->Eisn</li>
+        <li>rom_word->Kholaira</li>
+
+        <li>rom_name->Neral</li>
+        <li>rom_name->Sela</li>
+        <li>rom_name->Tomalak</li>
+        <li>rom_name->Donatra</li>
+        <li>rom_name->Jarok</li>
+        <li>rom_name->Toreth</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <!-- Settlement/base names -->
+  <RulePackDef>
+    <defName>ST_NamerRomulanBase</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->[rom_word] Annex</li>
+        <li>name->Listening Post [rom_word]</li>
+        <li>name->Research Node [rom_word]</li>
+        <li>name->Colony [rom_word]</li>
+
+        <li>rom_word->Valdore</li>
+        <li>rom_word->Khellian</li>
+        <li>rom_word->Rator</li>
+        <li>rom_word->Veridian</li>
+        <li>rom_word->Eisn</li>
+        <li>rom_word->Kholaira</li>
+
+        <li>rom_name->Neral</li>
+        <li>rom_name->Sela</li>
+        <li>rom_name->Tomalak</li>
+        <li>rom_name->Donatra</li>
+        <li>rom_name->Jarok</li>
+        <li>rom_name->Toreth</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+
+  <!-- ================== FERENGI ================== -->
+
+  <!-- Faction -->
+  <RulePackDef>
+    <defName>ST_NamerFerengiFaction</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->Ferengi Commerce Authority – [frg_word]</li>
+        <li>name->[frg_word] Consortium</li>
+        <li>name->House of Acquisition – [frg_name]</li>
+        <li>name->[frg_name] Holdings</li>
+
+        <li>frg_word->Profit</li>
+        <li>frg_word->Margin</li>
+        <li>frg_word->Dividend</li>
+        <li>frg_word->Venture</li>
+        <li>frg_word->Exchange</li>
+        <li>frg_word->Latinum</li>
+
+        <li>frg_name->Zek</li>
+        <li>frg_name->Quark</li>
+        <li>frg_name->Brunt</li>
+        <li>frg_name->Krax</li>
+        <li>frg_name->Gint</li>
+        <li>frg_name->Pel</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <!-- Settlement/base names -->
+  <RulePackDef>
+    <defName>ST_NamerFerengiBase</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->[frg_word] Depot</li>
+        <li>name->Trade Hub [frg_word]</li>
+        <li>name->Commerce Station [frg_word]</li>
+        <li>name->Freeport [frg_word]</li>
+
+
+        <li>frg_word->Profit</li>
+        <li>frg_word->Margin</li>
+        <li>frg_word->Dividend</li>
+        <li>frg_word->Venture</li>
+        <li>frg_word->Exchange</li>
+        <li>frg_word->Latinum</li>
+
+        <li>frg_name->Zek</li>
+        <li>frg_name->Quark</li>
+        <li>frg_name->Brunt</li>
+        <li>frg_name->Krax</li>
+        <li>frg_name->Gint</li>
+        <li>frg_name->Pel</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+
+</Defs>

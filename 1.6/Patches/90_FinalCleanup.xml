@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+  <!-- Altlastige Role-Apparel-Requirements entfernen, falls fehlerhafte Felder -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/PreceptDef[starts-with(defName,"IdeoRole_Federation")]/roleApparelRequirements</xpath>
+    <match Class="PatchOperationRemove">
+      <xpath>Defs/PreceptDef[starts-with(defName,"IdeoRole_Federation")]/roleApparelRequirements</xpath>
+    </match>
+  </Operation>
+
+
+<!--  
+ Problematische (alte) Ideo-Presets unsichtbar machen statt löschen 
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/IdeoPresetDef[contains(defName,"Starfleet") or starts-with(defName,"ST_")]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/IdeoPresetDef[contains(defName,"Starfleet") or starts-with(defName,"ST_")]</xpath>   
+         <value><hidden>true</hidden></value>
+    </match>
+  </Operation>
+
+
+  <Operation Class="PatchOperationRemove">
+    <xpath>
+      Defs/PreceptDef[
+        starts-with(defName,'ST_')
+        or contains(defName,'Starfleet')
+        or contains(defName,'ShoreLeave')
+        or contains(defName,'Briefing')
+        or contains(defName,'Promotion')
+      ]/requiredMemes/li[text()="ST_Meme_HiddenVanilla"]
+    </xpath>
+  </Operation>
+  -->
+</Patch>

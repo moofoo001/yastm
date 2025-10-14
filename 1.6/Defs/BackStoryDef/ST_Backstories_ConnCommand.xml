@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  
+    <!-- Cadet Ranks -->
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Conn_Advanced_Conn_Training</defName>
+    <title>Starfleet advanced conn training</title>
+    <titleShort>advanced conn</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Intensive courses in precision maneuvers, evasive patterns, and systems
+      diagnostics forged a reliable helm hand.
+    </baseDesc>
+    <skillGains>
+      <Shooting>+2</Shooting>
+      <Melee>+1</Melee>
+      <Crafting>+2</Crafting>
+      <Intellectual>+1</Intellectual>
+    </skillGains>
+    <spawnCategories>
+	    <li>Starfleet_Operations</li>
+    </spawnCategories>
+    <forcedTraits>
+       <Pilot_Cadet>0</Pilot_Cadet>
+    </forcedTraits>
+    <disallowedTraits />
+    <!-- must have ! -->
+
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Command_School_Graduate</defName>
+    <title>Starfleet command school graduate</title>
+    <titleShort>command school</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Leadership practicums, crisis simulations, and interdepartment drills
+      prepared them to coordinate crews under pressure.
+    </baseDesc>
+    <skillGains>
+      <Social>+2</Social>
+      <Intellectual>+2</Intellectual>
+      <Shooting>+1</Shooting>
+      <Medicine>+1</Medicine>
+    </skillGains>
+    <spawnCategories>
+	     <li>Starfleet_Operations</li>
+    </spawnCategories>
+    <disallowedTraits />
+
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Academy_Cadet</defName>
+    <title>Starfleet Academy cadet</title>
+    <titleShort>academy cadet</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Training on San Francisco campus and simulators: command protocols, survival courses,
+      first aid, and the Prime Directive drilled daily.</baseDesc>
+    <skillGains>
+      <Intellectual>+2</Intellectual>
+      <Shooting>+2</Shooting>
+      <Social>+1</Social>
+      <Medicine>+1</Medicine>
+    </skillGains>
+    <spawnCategories>
+	      <li>Starfleet_Operations</li>
+    </spawnCategories>
+    <forcedTraits>
+       <Pilot_Cadet>0</Pilot_Cadet>
+    </forcedTraits>
+
+  </BackstoryDef>
+
+  <!-- Petty / Officer ranks  -->
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Conn_Helm_Officer</defName>
+    <title>Starfleet helm officer</title>
+    <titleShort>helm officer</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Flies the ship through debris, gravity wells, and tight LZs. Lives for
+      clean approaches and smooth burns.
+    </baseDesc>
+    <skillGains>
+      <Shooting>+2</Shooting>
+      <Melee>+1</Melee>
+      <Crafting>+2</Crafting>
+      <Intellectual>+2</Intellectual>
+      <Construction>+1</Construction>
+    </skillGains>
+    <spawnCategories>
+  	  <li>Starfleet_Operations</li>
+    </spawnCategories>
+    <forcedTraits>
+       <Pilot_Ace>0</Pilot_Ace>
+    </forcedTraits>
+    <disallowedTraits />
+
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Conn_Navigation_Officer</defName>
+    <title>Starfleet navigation officer</title>
+    <titleShort>navigation</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Plots courses from astrometric drift and subspace reads, updating routes
+      on the fly when sensors disagree.
+    </baseDesc>
+    <skillGains>
+      <Intellectual>+3</Intellectual>
+      <Shooting>+2</Shooting>
+      <Crafting>+1</Crafting>
+      </skillGains>
+    <spawnCategories>
+	    <li>Starfleet_Operations</li>
+    </spawnCategories>
+    <forcedTraits>
+       <Pilot_Officer>0</Pilot_Officer>
+    </forcedTraits>
+    <disallowedTraits />
+
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Command_Bridge_Watch_Officer</defName>
+    <title>Starfleet bridge watch officer</title>
+    <titleShort>bridge watch</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Oversees bridge rotations, coordinates departments, and keeps the captain’s
+      standing orders in motion.
+    </baseDesc>
+    <skillGains>
+      <Social>+3</Social>
+      <Intellectual>+2</Intellectual>
+      <Shooting>+2</Shooting>
+      <Melee>+1</Melee>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Command</li>
+    </spawnCategories>
+    <forcedTraits />
+    <disallowedTraits />
+
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Command_Executive_Officer</defName>
+    <title>Starfleet executive officer</title>
+    <titleShort>executive officer</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Manages readiness, crew performance, and crisis protocols. The captain’s
+      right hand — and occasionally the left.
+    </baseDesc>
+    <skillGains>
+      <Social>+4</Social>
+      <Intellectual>+2</Intellectual>
+      <Shooting>+1</Shooting>
+      <Melee>+1</Melee>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Command</li>
+    </spawnCategories>
+    <forcedTraits />
+    <disallowedTraits />
+
+  </BackstoryDef>
+
+  </Defs>

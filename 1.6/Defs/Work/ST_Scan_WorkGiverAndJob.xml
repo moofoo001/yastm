@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <JobDef>
+    <defName>ST_ScanObelisk</defName>
+    <label>scan obelisk</label>
+    <driverClass>StarTrekFactions.Work.JobDriver_ScanObelisk</driverClass>
+    <reportString>scanning the obelisk TargetA.</reportString>
+    <playerInterruptible>true</playerInterruptible>
+    <casualInterruptible>true</casualInterruptible>
+    <alwaysShowWeapon>false</alwaysShowWeapon>
+    <!-- Enum-Wert, kein bool -->
+   <checkOverrideOnDamage>OnlyIfInstigatorNotJobTarget</checkOverrideOnDamage>
+  </JobDef>
+
+  <WorkGiverDef>
+    <defName>ST_WorkGiver_ScanObelisk</defName>
+    <label>scan obelisks</label>
+    <giverClass>StarTrekFactions.Work.WorkGiver_ScanObelisk</giverClass>
+    <workType>Research</workType>
+    <priorityInType>999</priorityInType>
+    <verb>scan</verb>
+    <gerund>scanning</gerund>
+    <priorityInType>50</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+      <li>Sight</li>
+    </requiredCapacities>
+    <directOrderable>true</directOrderable>
+    <scanThings>true</scanThings>
+    <emergency>false</emergency>
+  </WorkGiverDef>
+
+</Defs>

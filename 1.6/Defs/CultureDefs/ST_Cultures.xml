@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <CultureDef>
+    <defName>post_scarcity_society</defName>
+    <label>Post-Scarcity Society</label>
+    <description>Culturally, the Federation embodies a post-scarcity society where poverty,
+    hunger,and economic inequality have been eradicated. This transformation,
+    driven by technologies like replicators, allows individuals to pursue self-fulfillment rather than survival.
+    </description>
+    <ideoNameMaker>NamerIdeoName_Starfleet</ideoNameMaker>
+    <deityNameMaker>NamerDeity_UFP</deityNameMaker>
+    <deityTypeMaker>DeityTypeMaker_UFP</deityTypeMaker>
+    <leaderTitleMaker>NamerLeaderTitle_Starfleet</leaderTitleMaker>
+    <festivalNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerFestivalAstropolitan</festivalNameMaker>
+    <allowedPlaceTags>
+      <li>OriginSpacer</li>
+    </allowedPlaceTags>
+    <iconPath>UI/Icons/IdeoIcons/ps_society</iconPath>
+    <styleItemTags>
+      <li>
+        <tag>Urban</tag>
+        <baseWeight>1</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>NoBeard</tag>
+        <baseWeight>10</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>BeardRural</tag>
+        <baseWeight>0.1</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>BeardUrban</tag>
+        <baseWeight>0.2</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>NoTattoo</tag>
+        <baseWeight>1</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+    </styleItemTags>
+  </CultureDef>
+
+
+  <!-- UNITED FEDERATION OF PLANETS -->
+  <CultureDef>
+    <defName>ST_Culture_UFP</defName>
+    <label>Federation culture</label>
+    <description>Culturally, the Federation embodies a post-scarcity society where poverty,
+    hunger,and economic inequality have been eradicated. This transformation,
+    driven by technologies like replicators, allows individuals to pursue self-fulfillment rather than survival.
+    </description>
+    <ideoNameMaker>NamerIdeoName_Starfleet</ideoNameMaker>
+    <deityNameMaker>NamerDeity_UFP</deityNameMaker>
+    <deityTypeMaker>DeityTypeMaker_UFP</deityTypeMaker>
+    <leaderTitleMaker>NamerLeaderTitle_Starfleet</leaderTitleMaker>
+    <festivalNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerFestivalAstropolitan</festivalNameMaker>
+    <allowedPlaceTags>
+      <li>OriginSpacer</li>
+    </allowedPlaceTags>
+    <iconPath>UI/Icons/IdeoIcons/ps_society</iconPath>
+    <styleItemTags>
+      <li>
+        <tag>Urban</tag>
+        <baseWeight>1</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>NoBeard</tag>
+        <baseWeight>5</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>BeardUrban</tag>
+        <baseWeight>0.3</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>NoTattoo</tag>
+        <baseWeight>1</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+    </styleItemTags>
+  </CultureDef>
+
+  <!-- KLINGONEN -->
+  <CultureDef>
+    <defName>ST_Culture_Klingon</defName>
+    <label>Klingon culture</label>
+    <description>Culturally, the Klingon Empire is a warrior society that values honor, combat prowess, and loyalty. Klingons seek glory in battle and uphold a strict code of conduct that governs their actions and interactions.</description>
+    <ideoNameMaker>NamerIdeoName_Klingon</ideoNameMaker>
+    <leaderTitleMaker>NamerLeaderTitle_Klingon</leaderTitleMaker>
+    <deityNameMaker>NamerDeity_Klingon</deityNameMaker>
+    <deityTypeMaker>DeityTypeMaker_Klingon</deityTypeMaker>
+    <festivalNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerFestivalAstropolitan</festivalNameMaker>  
+    <iconPath>UI/Icons/IdeoIcons/Placeholder</iconPath>
+    <allowedPlaceTags>
+      <li>OriginSpacer</li>
+    </allowedPlaceTags>
+
+    <styleItemTags>
+      <li>
+        <tag>Rural</tag>
+        <baseWeight>0.7</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>Urban</tag>
+        <baseWeight>0.3</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>BeardRural</tag>
+        <baseWeight>1</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>BeardUrban</tag>
+        <baseWeight>0.2</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>NoBeard</tag>
+        <baseWeight>0.3</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>NoTattoo</tag>
+        <baseWeight>1</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+    </styleItemTags>
+  </CultureDef>
+
+  <!-- ROMULANER -->
+  <CultureDef>
+    <defName>ST_Culture_Romulan</defName>
+    <label>Romulan culture</label>
+    <description>Culturally, the Romulan Star Empire is characterized by its secretive and strategic nature. Romulans value loyalty to the state, intelligence gathering, and the supremacy of their empire. Their society is built on a foundation of discipline, order, and calculated actions to ensure their survival and dominance.</description>  
+    <ideoNameMaker>NamerIdeoName_Romulan</ideoNameMaker>
+    <leaderTitleMaker>NamerLeaderTitle_Romulan</leaderTitleMaker>
+    <deityNameMaker>NamerDeity_Romulan</deityNameMaker>
+    <deityTypeMaker>DeityTypeMaker_Romulan</deityTypeMaker>
+    <festivalNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerFestivalAstropolitan</festivalNameMaker>
+    <iconPath>UI/Icons/IdeoIcons/Placeholder</iconPath>
+    <allowedPlaceTags>
+      <li>OriginSpacer</li>
+    </allowedPlaceTags>
+
+    <styleItemTags>
+      <li>
+        <tag>Urban</tag>
+        <baseWeight>1</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>NoBeard</tag>
+        <baseWeight>8</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>BeardUrban</tag>
+        <baseWeight>0.1</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>NoTattoo</tag>
+        <baseWeight>1</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+    </styleItemTags>
+  </CultureDef>
+
+  <!-- FERENGI -->
+  <CultureDef>
+    <defName>ST_Culture_Ferengi</defName>
+    <label>Ferengi culture</label>
+    <description>Culturally, the Ferengi are driven by a profit-centric philosophy that prioritizes trade, wealth accumulation, and personal gain above all else. Their society is structured around commerce, with strict adherence to the Rules of Acquisition guiding their business dealings and interactions.</description>
+    <ideoNameMaker>NamerIdeoName_Ferengi</ideoNameMaker>
+    <leaderTitleMaker>NamerLeaderTitle_Ferengi</leaderTitleMaker>
+    <deityNameMaker>NamerDeity_Ferengi</deityNameMaker>
+    <deityTypeMaker>DeityTypeMaker_Ferengi</deityTypeMaker>
+    <festivalNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerFestivalAstropolitan</festivalNameMaker>
+    <iconPath>UI/Icons/IdeoIcons/Placeholder</iconPath>   
+    <allowedPlaceTags>
+      <li>OriginSpacer</li>
+    </allowedPlaceTags>
+
+    <styleItemTags>
+      <li>
+        <tag>Urban</tag>
+        <baseWeight>1</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>NoBeard</tag>
+        <baseWeight>10</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>BeardUrban</tag>
+        <baseWeight>0.05</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>NoTattoo</tag>
+        <baseWeight>1</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+    </styleItemTags>
+  </CultureDef>
+
+</Defs>

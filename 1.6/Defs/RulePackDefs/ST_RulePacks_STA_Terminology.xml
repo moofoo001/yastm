@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <!-- Departments -->
+  <RulePackDef>
+    <defName>STA_Departments</defName>
+    <rulePack><rulesStrings>
+      <li>r_department->Command</li>
+      <li>r_department->Conn</li>
+      <li>r_department->Security</li>
+      <li>r_department->Engineering</li>
+      <li>r_department->Science</li>
+      <li>r_department->Medicine</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+  <!-- Ranks (short + long) -->
+  <RulePackDef>
+    <defName>STA_Ranks_Short</defName>
+    <rulePack><rulesStrings>
+      <li>r_rankShort->Ens.</li>
+      <li>r_rankShort->Lt. j.g.</li>
+      <li>r_rankShort->Lt.</li>
+      <li>r_rankShort->Lt. Cmdr.</li>
+      <li>r_rankShort->Cmdr.</li>
+      <li>r_rankShort->Capt.</li>
+      <li>r_rankShort->Com.</li>
+      <li>r_rankShort->Adm.</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>STA_Ranks_Long</defName>
+    <rulePack><rulesStrings>
+      <li>r_rankLong->Ensign</li>
+      <li>r_rankLong->Lieutenant junior grade</li>
+      <li>r_rankLong->Lieutenant</li>
+      <li>r_rankLong->Lieutenant Commander</li>
+      <li>r_rankLong->Commander</li>
+      <li>r_rankLong->Captain</li>
+      <li>r_rankLong->Commodore</li>
+      <li>r_rankLong->Admiral</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+  <!-- Duty posts -->
+  <RulePackDef>
+    <defName>STA_DutyPosts</defName>
+    <rulePack><rulesStrings>
+      <li>r_dutyPost->Chief engineer</li>
+      <li>r_dutyPost->Operations officer</li>
+      <li>r_dutyPost->Tactical officer</li>
+      <li>r_dutyPost->Science officer</li>
+      <li>r_dutyPost->Chief medical officer</li>
+      <li>r_dutyPost->Counselor</li>
+      <li>r_dutyPost->Helm officer</li>
+      <li>r_dutyPost->Navigator</li>
+      <li>r_dutyPost->Communications officer</li>
+    </rulesStrings></rulePack>
+  </RulePackDef>
+
+</Defs>

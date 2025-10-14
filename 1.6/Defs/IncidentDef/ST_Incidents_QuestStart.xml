@@ -1,0 +1,20 @@
+<Defs>
+  <IncidentDef>
+    <defName>STQ_Incident_StartObeliskQuest</defName>
+    <label>Starfleet training assignment</label>
+    <workerClass>IncidentWorker_GiveQuest</workerClass>
+    <category>Misc</category>
+
+    <questScriptDef>STQ_VE_Obelisks_I_II_Setup</questScriptDef>
+
+    <targetTags>
+      <li>Map_Misc</li>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <baseChance>0.55</baseChance>
+    <minRefireDays>12</minRefireDays>
+    <letterLabel>== Starfleet orders received ==</letterLabel>
+    <letterText>Starfleet assigns your crew to a survey of ancient obelisks on this world.</letterText>
+    <letterDef>ST_AprilComms_Letter</letterDef>
+  </IncidentDef>
+</Defs>

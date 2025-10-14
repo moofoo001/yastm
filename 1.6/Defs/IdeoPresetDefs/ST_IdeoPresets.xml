@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- FEDERATION  -->
+    <IdeoPresetDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>Federation_Ideo</defName>
+    <label>Federation Doctrine</label>
+    <description>A progressive, exploratory philosophy rooted in diplomacy, science, and mutual cooperation.</description>
+    <categoryDef>Mild</categoryDef>
+    <iconPath>UI/Icons/IdeoIcons/Federation_Doctrine</iconPath>
+    <memes>
+      <li>VME_Egalitarian</li>
+      <li>ST_Meme_Starfleet</li>
+      <li>Individualist</li>
+      <li>HAR_Xenophilia</li>
+    </memes>
+    </IdeoPresetDef>
+
+    <!-- KLINGON  -->
+    <IdeoPresetDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Ideo_KlingonHonor</defName>
+    <label>Klingon Honor Code</label>
+    <description>A warrior-centric philosophy emphasizing honor, combat prowess, and loyalty to the Empire.</description>
+    <categoryDef>Mild</categoryDef>
+    <iconPath>UI/Icons/IdeoIcons/KlingonHonor</iconPath>
+    <memes>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Supremacist</li>
+      <li>VME_Bushido</li>
+      <li>Raider</li>
+    </memes>
+    </IdeoPresetDef>
+
+    <!-- ROMULAN  -->
+    <IdeoPresetDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Ideo_RomulanCommand</defName>
+    <label>Romulan Command Philosophy</label>
+    <description>A secretive and strategic doctrine focused on survival, intelligence, and the supremacy of the Romulan Star Empire.</description>
+    <categoryDef>Mild</categoryDef>
+    <iconPath>UI/Icons/IdeoIcons/RomulanCommand</iconPath>
+    <memes>
+      <li>Structure_TheistAbstract</li>
+      <li>VME_Structure_Authoritarianism</li>
+      <li>Collectivist</li>
+      <li>VFEA_Isolationist</li>
+      <li>VME_Anonymity</li>
+    </memes>
+    </IdeoPresetDef>
+
+    <!-- FERENGI  -->
+    <IdeoPresetDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Ideo_FerengiCommerce</defName>
+    <label>Ferengi Commerce Code</label>
+    <description>A profit-driven philosophy centered on trade, wealth accumulation, and the pursuit of personal gain above all else.</description>
+    <categoryDef>Mild</categoryDef>
+    <iconPath>UI/Icons/IdeoIcons/FerengiCommerce</iconPath>
+    <memes>
+      <li>VME_Trader</li>
+      <li>VME_Structure_Corporate</li>
+      <li>Loyalist</li>
+      <li>Structure_Ideological</li>
+    </memes>
+    </IdeoPresetDef>
+
+</Defs>

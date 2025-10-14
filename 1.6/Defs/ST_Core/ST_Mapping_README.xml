@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <!--
+    STA 2e ➜ RimWorld Skill Mapping (Design-Notizen):
+      Command     -> Social (+), Shooting (low)
+      Conn        -> Shooting (aim), Crafting (maintenance), Intellectual (nav, low)
+      Security    -> Shooting (++), Melee (+)
+      Engineering -> Construction (++), Crafting (+), Intellectual (low)
+      Science     -> Intellectual (++), Plants (fieldwork, low)
+      Medicine    -> Medicine (++), Intellectual (+)
+
+    Verwendung:
+      - Backstories pro Track bekommen passende skillGains (bereits begonnen).
+      - Trait-Gates über Patch (läuft).
+      - Departments steuern Uniformfarben/Icons (Phase 5).
+  -->
+</Defs>

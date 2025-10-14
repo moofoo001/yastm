@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<Defs>
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Engineer_Damage_Control</defName>
+    <title>Starfleet damage control specialist</title>
+    <titleShort>damage control</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Trained to keep ships alive under fire: sealing bulkheads, rerouting power,
+      and improvising patches with whatever’s on hand.
+    </baseDesc>
+    <skillGains>
+      <Construction>+4</Construction>
+      <Crafting>+1</Crafting>
+      <Intellectual>+1</Intellectual>
+      <Shooting>+2</Shooting>
+      </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Engineering</li>
+      </spawnCategories>
+    <forcedTraits />
+    <disallowedTraits />
+
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Engineer_Warp_Core_Specialist</defName>
+    <title>Starfleet warp-core specialist</title>
+    <titleShort>warp-core tech</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Responsible for matter-antimatter flow, field integrity, and reaction
+      balances. Lives by procedures—and a healthy respect for containment.
+    </baseDesc>
+    <skillGains>
+      <Intellectual>+2</Intellectual>
+      <Crafting>+3</Crafting>
+      <Construction>+3</Construction>
+      </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Engineering</li>
+      </spawnCategories>
+     <forcedTraits>
+       <Pilot_Cadet>0</Pilot_Cadet>
+    </forcedTraits>
+    <disallowedTraits />
+
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Engineer_Fabrication_Officer</defName>
+    <title>Starfleet fabrication officer</title>
+    <titleShort>fabrication officer</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Oversees replicator templates and emergency machining. From micro-circuit
+      boards to hull plates, they make parts appear when supply lines can’t.
+    </baseDesc>
+    <skillGains>
+      <Crafting>+4</Crafting>
+      <Construction>+2</Construction>
+      <Plants>+1</Plants>
+      <Intellectual>+1</Intellectual>
+      </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Engineering</li>
+      </spawnCategories>
+    <forcedTraits />
+    <disallowedTraits />
+
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Engineer_EVA_Hull_Technician</defName>
+    <title>Starfleet EVA hull technician</title>
+    <titleShort>EVA hull tech</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Specialized in exterior repairs: mag-boots, patch kits, and subzero sealants.
+      Keeps hull integrity up when the stars are the only audience.
+    </baseDesc>
+    <skillGains>
+      <Construction>+2</Construction>
+      <Crafting>+2</Crafting>
+      <Intellectual>+1</Intellectual>
+      <Shooting>+1</Shooting>
+      <Artistic>+1</Artistic>
+      </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Engineering</li>
+      </spawnCategories>
+    <forcedTraits />
+    <disallowedTraits />
+
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Adult_Starfleet_Engineer_Geological_Specialist</defName>
+    <title>Starfleet geolocical specialist</title>
+    <titleShort>geolocical specialist</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Gathers geolocical and plant samples across the universe.
+    </baseDesc>
+    <skillGains>
+      <Construction>+1</Construction>
+      <Crafting>+1</Crafting>
+      <Intellectual>+1</Intellectual>
+      <Mining>+5</Mining>
+    </skillGains>
+    <spawnCategories>
+      <li>Starfleet_Engineering</li>
+      </spawnCategories>
+    <forcedTraits />
+    <disallowedTraits />
+  </BackstoryDef>
+
+  <BackstoryDef>
+      <defName>ST_Adult_Starfleet_Engineering_Transporter_Systems_Specialist</defName>
+      <title>Starfleet transporter systems specialist</title>
+      <titleShort>transporter specialist</titleShort>
+      <slot>Adulthood</slot>
+      <baseDesc>Tunes pattern buffers, aligns confinement beams, and debugs Heisenberg compensators
+        when the signal refuses to cohere.
+      </baseDesc>
+      <skillGains>
+        <Intellectual>+2</Intellectual>
+        <Crafting>+2</Crafting>
+        <Construction>+2</Construction>
+        <Animals>+1</Animals>       
+        <Plants>+1</Plants>
+      </skillGains>
+      <spawnCategories>
+        <li>Starfleet_Engineering</li>
+      </spawnCategories>
+      <forcedTraits />
+      <disallowedTraits />
+  </BackstoryDef>
+
+  </Defs>
