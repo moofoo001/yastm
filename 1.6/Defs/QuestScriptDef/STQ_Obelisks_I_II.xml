@@ -70,6 +70,13 @@
             <letterDef>NeutralEvent</letterDef>
           </li>
 
+        <!-- Rename auf Phase III nach Sieg -->
+          <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
+            <inSignal>STQ.Obelisks.II.Cleared</inSignal>
+            <titleKey>STQ.Obelisks.PhaseIII.Title</titleKey>
+            <descriptionKey>STQ.Obelisks.PhaseIII.Desc</descriptionKey>
+          </li>
+
         <!-- 6) Abschluss-Brief Phase II -->
         <li Class="QuestNode_Letter">
           <inSignal>STQ.Obelisks.II.Cleared</inSignal>

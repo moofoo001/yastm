@@ -1,82 +1,85 @@
+// File: Source/Quest/QuestNode_DelayThenSignalOnSignal.cs
 using RimWorld;
 using RimWorld.QuestGen;
-using System.Linq;
 using Verse;
 
 namespace StarTrekFactions.QuestNodes
 {
-    public class QuestNode_WaitEnemiesDefeated : QuestNode
+    // Startet auf Signal, wartet delayTicks (oder Range) und sendet dann outSignal (roh & scoped).
+    public class QuestNode_DelayThenSignalOnSignal : QuestNode
     {
-        public string inSignal;
-        public string inSignalRaw;
-        public bool onlyManhunters = false;
-        public string outSignal;
+        public string inSignal;       // optional alias
+        public string inSignalRaw;    // optional alias (wird bevorzugt, falls gesetzt)
+
+        public int delayTicks = 60000;      // Standard: 1 Tag
+        public int delayTicksMin = -1;      // optional: Range
+        public int delayTicksMax = -1;
+
+        public string outSignal;      // Basisname ohne QuestID
 
         protected override void RunInt()
         {
             string raw = inSignalRaw.NullOrEmpty() ? inSignal : inSignalRaw;
-            var part = new QuestPart_WaitEnemiesDefeated
+            int chosen = delayTicks;
+            if (delayTicksMin >= 0 && delayTicksMax >= 0 && delayTicksMax >= delayTicksMin)
+                chosen = Verse.Rand.RangeInclusive(delayTicksMin, delayTicksMax);
+
+            var p = new QuestPart_DelayThenSignalOnSignal
             {
                 inSignalRaw     = raw,
                 inSignalScoped  = QuestGenUtility.HardcodedSignalWithQuestID(raw),
-                onlyManhunters  = onlyManhunters,
+                delayTicks      = chosen,
                 outSignalRaw    = outSignal,
                 outSignalScoped = outSignal.NullOrEmpty() ? null : QuestGenUtility.HardcodedSignalWithQuestID(outSignal)
             };
-            QuestGen.quest.AddPart(part);
+            QuestGen.quest.AddPart(p);
         }
 
         protected override bool TestRunInt(Slate slate)
             => !(inSignal.NullOrEmpty() && inSignalRaw.NullOrEmpty()) && !outSignal.NullOrEmpty();
     }
 
-    public class QuestPart_WaitEnemiesDefeated : QuestPart
+    public class QuestPart_DelayThenSignalOnSignal : QuestPart
     {
         public string inSignalRaw, inSignalScoped;
-        public bool onlyManhunters;
+        public int delayTicks;
         public string outSignalRaw, outSignalScoped;
 
         private bool active;
+        private int ticksLeft;
 
         public override void Notify_QuestSignalReceived(Signal signal)
         {
             if (signal.tag == inSignalRaw || signal.tag == inSignalScoped)
             {
                 active = true;
+                ticksLeft = delayTicks;
                 StarTrekFactions.GameComponent_QuestWatchers.Instance?.Register(this);
             }
         }
 
-        public bool CheckAndMaybeComplete()
+        // vom GameComponent aufgerufen
+        public bool TickAndMaybeFire()
         {
             if (!active) return false;
-            Map map = Find.AnyPlayerHomeMap ?? Find.Maps.FirstOrDefault();
-            if (map == null) return false;
+            if (ticksLeft > 0) ticksLeft--;
+            if (ticksLeft > 0) return false;
 
-            bool hostilesRemain = map.mapPawns.AllPawnsSpawned.Any(p =>
-                p.Spawned && !p.Dead && p.HostileTo(Faction.OfPlayer) &&
-                (!onlyManhunters || (p.RaceProps.Animal &&
-                 (p.MentalStateDef == MentalStateDefOf.Manhunter || p.MentalStateDef == MentalStateDefOf.ManhunterPermanent)))
-            );
-
-            if (!hostilesRemain)
-            {
-                active = false;
-                if (!outSignalRaw.NullOrEmpty())    Find.SignalManager.SendSignal(new Signal(outSignalRaw));
-                if (!outSignalScoped.NullOrEmpty()) Find.SignalManager.SendSignal(new Signal(outSignalScoped));
-                return true;
-            }
-            return false;
+            active = false;
+            if (!outSignalRaw.NullOrEmpty())    Find.SignalManager.SendSignal(new Signal(outSignalRaw));
+            if (!outSignalScoped.NullOrEmpty()) Find.SignalManager.SendSignal(new Signal(outSignalScoped));
+            return true; // fertig → deregistrieren
         }
 
         public override void ExposeData()
         {
             Scribe_Values.Look(ref inSignalRaw, "inSignalRaw");
             Scribe_Values.Look(ref inSignalScoped, "inSignalScoped");
-            Scribe_Values.Look(ref onlyManhunters, "onlyManhunters");
+            Scribe_Values.Look(ref delayTicks, "delayTicks", 60000);
             Scribe_Values.Look(ref outSignalRaw, "outSignalRaw");
             Scribe_Values.Look(ref outSignalScoped, "outSignalScoped");
             Scribe_Values.Look(ref active, "active");
+            Scribe_Values.Look(ref ticksLeft, "ticksLeft");
 
             if (Scribe.mode == LoadSaveMode.PostLoadInit && active)
                 StarTrekFactions.GameComponent_QuestWatchers.Instance?.Register(this);

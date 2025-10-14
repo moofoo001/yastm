@@ -63,6 +63,9 @@ The immediate threat has passed. Starfleet requests your recommendation on how t
   </STQ.Obelisks.II.Cleared.Text>
 
   <!-- ===== PHASE III (Choice) ===== -->
+  
+  <STQ.Obelisks.PhaseIII.ThreatTitle>Subspace surge attracts wildlife</STQ.Obelisks.PhaseIII.ThreatTitle>
+  <STQ.Obelisks.PhaseIII.ThreatText>Local fauna is agitated by the subspace window. Prepare for another attack.</STQ.Obelisks.PhaseIII.ThreatText>
 
   <STQ.Obelisks.PhaseIII.Title>Obelisk Survey — Phase III</STQ.Obelisks.PhaseIII.Title>
   <STQ.Obelisks.PhaseIII.Desc>

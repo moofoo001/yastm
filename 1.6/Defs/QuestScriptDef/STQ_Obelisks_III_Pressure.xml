@@ -9,14 +9,51 @@
     <root Class="QuestNode_Sequence">
       <nodes>
 
-        <!-- (A) Rename: Titel/Beschreibung für Phase III, sobald II.Cleared kommt -->
+        <!-- Beim Annehmen von Phase III sofort sauberer Titel/Text -->
         <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
-          <inSignal>STQ.Obelisks.II.Cleared</inSignal>
-          <!-- keys aus deinen Keyed/Strings, NICHT entfernen -->
+          <inSignal>QuestAccepted</inSignal>
           <titleKey>STQ.Obelisks.PhaseIII.Title</titleKey>
           <descriptionKey>STQ.Obelisks.PhaseIII.Desc</descriptionKey>
         </li>
 
+          <!-- 1–2 Tage warten nach Annahme der Phase III -->
+          <li Class="StarTrekFactions.QuestNodes.QuestNode_DelayThenSignalOnSignal">
+            <inSignal>QuestAccepted</inSignal>
+            <delayTicksMin>60000</delayTicksMin>   <!-- 1 Tag -->
+            <delayTicksMax>120000</delayTicksMax>  <!-- 2 Tage -->
+            <outSignal>STQ.Obelisks.III.DelayDone</outSignal>
+          </li>
+
+        <!-- Nach Delay: neuer Manhunter -->
+          <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
+            <inSignal>STQ.Obelisks.III.DelayDone</inSignal>
+            <incident>ManhunterPack</incident>
+            <pointsFactor>1.05</pointsFactor> <!-- leicht stärker, anpassbar -->
+            <outSignal>STQ.Obelisks.III.ManhuntersSpawned</outSignal>
+          </li>
+
+          <!-- Warten bis besiegt -->
+          <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
+            <inSignal>STQ.Obelisks.III.ManhuntersSpawned</inSignal>
+            <onlyManhunters>true</onlyManhunters>
+            <outSignal>STQ.Obelisks.III.Cleared</outSignal>
+          </li>
+
+            <!-- (Optional) Info-Brief -->
+            <li Class="QuestNode_Letter">
+              <inSignal>STQ.Obelisks.III.ManhuntersSpawned</inSignal>
+              <label>STQ.Obelisks.PhaseIII.ThreatTitle</label>
+              <text>STQ.Obelisks.PhaseIII.ThreatText</text>
+              <letterDef>ThreatSmall</letterDef>
+            </li>
+
+            <!-- (Optional) Rename/Statusupdate nach Sieg -->
+            <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
+              <inSignal>STQ.Obelisks.III.Cleared</inSignal>
+              <titleKey>STQ.Obelisks.PhaseIII.Title</titleKey>
+              <descriptionKey>STQ.Obelisks.PhaseIII.Desc</descriptionKey>
+            </li>
+            
         <!-- (C) Choice-Dialog: erscheint NACH dem Delay -->
         <li Class="StarTrekFactions.QuestNodes.QuestNode_ChoiceDialogOnSignalV2">
           <inSignal>STQ.Obelisks.III.Ready</inSignal>
