@@ -16,7 +16,7 @@
 
 Update log:
 
-.) Tweaked the weapon stats / workamount and value
+-) Tweaked the weapon stats / workamount and value
 .) Added Klingon, Romluans, Ferengi as NPC Factions
 .) added a 3rd mode to Type I and II:
   Overcharge enhances the damage output but has a high chance to let the weapon explode on you !
