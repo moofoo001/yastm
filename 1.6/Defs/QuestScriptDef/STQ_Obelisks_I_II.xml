@@ -47,12 +47,28 @@
           <outSignal>STQ.Obelisks.II.ManhuntersSpawned</outSignal>
         </li>
 
+        <!--Debug -->
+        <li Class="QuestNode_Letter">
+          <inSignal>STQ.Obelisks.II.ManhuntersSpawned</inSignal>
+          <label>DEBUG: ManhuntersSpawned</label>
+          <text>RunIncidentNow hat outSignal gesendet.</text>
+          <letterDef>NeutralEvent</letterDef>
+        </li>
+
         <!-- 5) Warten bis Manhunter besiegt -->
         <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
           <inSignal>STQ.Obelisks.II.ManhuntersSpawned</inSignal>
           <onlyManhunters>true</onlyManhunters>
           <outSignal>STQ.Obelisks.II.Cleared</outSignal>
         </li>
+        
+        <!--Debug -->
+          <li Class="QuestNode_Letter">
+            <inSignal>STQ.Obelisks.II.Cleared</inSignal>
+            <label>DEBUG: Phase II cleared</label>
+            <text>WaitEnemiesDefeated hat abgeschlossen.</text>
+            <letterDef>NeutralEvent</letterDef>
+          </li>
 
         <!-- 6) Abschluss-Brief Phase II -->
         <li Class="QuestNode_Letter">

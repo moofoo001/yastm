@@ -4,9 +4,7 @@
     <label>Starfleet training assignment</label>
     <workerClass>IncidentWorker_GiveQuest</workerClass>
     <category>Misc</category>
-
     <questScriptDef>STQ_VE_Obelisks_I_II_Setup</questScriptDef>
-
     <targetTags>
       <li>Map_Misc</li>
       <li>Map_PlayerHome</li>

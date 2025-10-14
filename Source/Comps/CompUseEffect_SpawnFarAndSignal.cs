@@ -19,7 +19,7 @@ namespace StarTrekFactions.Comps
         public ThingDef thingB;
 
         // Setup-Quest, die sicher laufen soll
-        public string questDefToEnsure = "STQ_VE_Obelisks_I_Setup";
+        public string questDefToEnsure = "STQ_VE_Obelisks_I_II_Setup";
 
         public CompProperties_UseEffect_SpawnFarAndSignal()
         {
@@ -112,7 +112,7 @@ namespace StarTrekFactions.Comps
             if (initialized) { Log.Message("[YASTM] Quest already ensured."); return; }
 
             // 1) Setup-Quest erzeugen (falls noch nicht da) + NAME & DESCRIPTION fest setzen
-            var setupDefName = Props.questDefToEnsure ?? "STQ_VE_Obelisks_I_Setup";
+            var setupDefName = Props.questDefToEnsure ?? "STQ_VE_Obelisks_I_II_Setup";
             var setup = DefDatabase<QuestScriptDef>.GetNamedSilentFail(setupDefName);
             if (setup == null) { Log.Warning($"[YASTM] QuestScriptDef not found: {setupDefName}"); return; }
 

@@ -26,8 +26,7 @@ namespace StarTrekFactions.QuestNodes
         {
             var part = new QuestPart_RunIncidentOnSignal
             {
-                inSignal    = QuestGenUtility.HardcodedSignalWithQuestID(
-                                  inSignalRaw.NullOrEmpty() ? inSignal : inSignalRaw),
+                inSignal    = (inSignalRaw.NullOrEmpty() ? inSignal : inSignalRaw),     // bereits mit QuestID gehärtet
                 incident    = incidentDef ?? incident,
                 outSignal   = outSignal,
                 pointsFactor = pointsFactor

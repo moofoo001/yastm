@@ -85,7 +85,7 @@
         <requirePowerOn>true</requirePowerOn>  <!-- fürs Testen ggf. auf false -->
         <thingA>ST_Obelisk_A</thingA>
         <thingB>ST_Obelisk_B</thingB>
-        <questDefToEnsure>STQ_VE_Obelisks_I_Setup</questDefToEnsure>
+        <questDefToEnsure>STQ_VE_Obelisks_I_II_Setup</questDefToEnsure>
       </li>
       <!-- Einziger Beacon-Flow: Init + Report -->
       <li Class="StarTrekFactions.Comps.CompProperties_BeaconControls">

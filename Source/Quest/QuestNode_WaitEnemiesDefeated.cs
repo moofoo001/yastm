@@ -16,7 +16,7 @@ namespace StarTrekFactions.QuestNodes
         {
             var part = new QuestPart_WaitEnemiesDefeated
             {
-                inSignal = QuestGenUtility.HardcodedSignalWithQuestID(inSignal),
+                inSignal = inSignal,
                 onlyManhunters = onlyManhunters,
                 outSignal = outSignal
             };

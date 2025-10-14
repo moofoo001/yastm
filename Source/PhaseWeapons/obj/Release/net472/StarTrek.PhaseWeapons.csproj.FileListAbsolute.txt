@@ -1,9 +1,10 @@
+G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\PhaseWeapons\bin\Release\net472\YASTM.dll
+G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\PhaseWeapons\bin\Release\net472\YASTM.pdb
 G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\PhaseWeapons\obj\Release\net472\StarTrek.PhaseWeapons.csproj.AssemblyReference.cache
 G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\PhaseWeapons\obj\Release\net472\StarTrek.PhaseWeapons.GeneratedMSBuildEditorConfig.editorconfig
 G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\PhaseWeapons\obj\Release\net472\StarTrek.PhaseWeapons.AssemblyInfoInputs.cache
 G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\PhaseWeapons\obj\Release\net472\StarTrek.PhaseWeapons.AssemblyInfo.cs
 G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\PhaseWeapons\obj\Release\net472\StarTrek.PhaseWeapons.csproj.CoreCompileInputs.cache
-G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\PhaseWeapons\bin\Release\net472\YASTM.dll
-G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\PhaseWeapons\bin\Release\net472\YASTM.pdb
+G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\PhaseWeapons\obj\Release\net472\StarTrek.PhaseWeapons.sourcelink.json
 G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\PhaseWeapons\obj\Release\net472\YASTM.dll
 G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\PhaseWeapons\obj\Release\net472\YASTM.pdb
