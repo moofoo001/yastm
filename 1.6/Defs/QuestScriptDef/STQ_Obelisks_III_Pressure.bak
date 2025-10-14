@@ -11,14 +11,14 @@
 
         <!-- Beim Annehmen von Phase III sofort sauberer Titel/Text -->
         <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
-          <inSignal>QuestAccepted</inSignal>
+          <inSignal>STQ.Obelisks.III.Kickoff</inSignal>
           <titleKey>STQ.Obelisks.PhaseIII.Title</titleKey>
           <descriptionKey>STQ.Obelisks.PhaseIII.Desc</descriptionKey>
         </li>
 
           <!-- 1–2 Tage warten nach Annahme der Phase III -->
           <li Class="StarTrekFactions.QuestNodes.QuestNode_DelayThenSignalOnSignal">
-            <inSignal>QuestAccepted</inSignal>
+            <inSignal>STQ.Obelisks.III.Kickoff</inSignal>
             <delayTicksMin>60000</delayTicksMin>   <!-- 1 Tag -->
             <delayTicksMax>120000</delayTicksMax>  <!-- 2 Tage -->
             <outSignal>STQ.Obelisks.III.DelayDone</outSignal>

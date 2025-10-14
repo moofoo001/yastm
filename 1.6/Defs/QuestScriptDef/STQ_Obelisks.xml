@@ -85,6 +85,12 @@
           <letterDef>NeutralEvent</letterDef>
         </li>
         
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_StartQuestOnSignal">
+          <inSignal>STQ.Obelisks.II.Cleared</inSignal>
+          <questDef>STQ_VE_Obelisks_III_Pressure</questDef>
+          <bridgeOutSignal>STQ.Obelisks.III.Kickoff</bridgeOutSignal>
+        </li>
+
       </nodes>
     </root>
   </QuestScriptDef>
