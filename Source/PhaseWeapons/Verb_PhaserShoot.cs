@@ -28,7 +28,7 @@ namespace ST.PhaseWeapons
                 {
                     var comp = PhaserUtil.GetPhaserComp(EquipmentSource as ThingWithComps);
                     // Debug hilft beim Verifizieren
-                    Log.Message($"[PhaserMode] Verb getter on {EquipmentSource?.def?.defName} {EquipmentSource?.ThingID} mode={(comp!=null ? comp.mode.ToString() : "null-comp")}");
+                    // Log.Message($"[PhaserMode] Verb getter on {EquipmentSource?.def?.defName} {EquipmentSource?.ThingID} mode={(comp!=null ? comp.mode.ToString() : "null-comp")}");
                     if (comp?.Props == null) return base.Projectile;
 
                     return comp.mode switch

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- PHASE I + II (bereinigt: richtige Node-Typen, Start via QuestAccepted) -->
+  <!-- YASTM – Obelisk Questline (alle Phasen in einem Quest) -->
   <QuestScriptDef>
+    <!-- defName unverändert lassen, damit dein Incident weiter funktioniert -->
     <defName>STQ_VE_Obelisks_I_II_Setup</defName>
     <rootSelectionWeight>0</rootSelectionWeight>
     <autoAccept>false</autoAccept>
@@ -10,7 +11,8 @@
     <root Class="QuestNode_Sequence">
       <nodes>
 
-        <!-- 0) Start-Info (Brief) beim Quest-Start -->
+        <!-- ========= PHASE I ========= -->
+        <!-- Startbrief beim Annehmen -->
         <li Class="QuestNode_Letter">
           <inSignal>QuestAccepted</inSignal>
           <label>STQ.Obelisks.Setup.LetterTitle</label>
@@ -18,21 +20,21 @@
           <letterDef>NeutralEvent</letterDef>
         </li>
 
-        <!-- 1) Phase I: Titel + Beschreibung setzen -->
+        <!-- Titel/Beschreibung Phase I -->
         <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
           <inSignal>QuestAccepted</inSignal>
           <titleKey>STQ.Obelisks.PhaseI.Title</titleKey>
           <descriptionKey>STQ.Obelisks.PhaseI.Desc</descriptionKey>
         </li>
 
-        <!-- 2) Umbenennen auf Phase II, sobald der Kom-Beacon aktiviert wurde -->
+        <!-- ========= PHASE II ========= -->
+        <!-- Beacon aktiviert -> Phase II -->
         <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
           <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
           <titleKey>STQ.Obelisks.PhaseII.Title</titleKey>
           <descriptionKey>STQ.Obelisks.PhaseII.Desc</descriptionKey>
         </li>
 
-        <!-- 3) Info-Brief bei Beacon-Aktivierung -->
         <li Class="QuestNode_Letter">
           <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
           <label>STQ.Obelisks.Impulse.FaunaTitle</label>
@@ -40,56 +42,148 @@
           <letterDef>NeutralEvent</letterDef>
         </li>
 
-        <!-- 4) Daten übertragen -> Manhunter -->
+        <!-- Daten übertragen -> Manhunter pack -->
         <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
           <inSignal>STQ.Obelisks.DataTransmitted</inSignal>
           <incident>ManhunterPack</incident>
+          <pointsFactor>1.0</pointsFactor>
           <outSignal>STQ.Obelisks.II.ManhuntersSpawned</outSignal>
         </li>
 
-        <!--Debug -->
-        <li Class="QuestNode_Letter">
-          <inSignal>STQ.Obelisks.II.ManhuntersSpawned</inSignal>
-          <label>DEBUG: ManhuntersSpawned</label>
-          <text>RunIncidentNow hat outSignal gesendet.</text>
-          <letterDef>NeutralEvent</letterDef>
-        </li>
-
-        <!-- 5) Warten bis Manhunter besiegt -->
+        <!-- Warten bis die Manhunter besiegt sind -->
         <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
           <inSignal>STQ.Obelisks.II.ManhuntersSpawned</inSignal>
           <onlyManhunters>true</onlyManhunters>
           <outSignal>STQ.Obelisks.II.Cleared</outSignal>
         </li>
-        
-        <!--Debug -->
-          <li Class="QuestNode_Letter">
-            <inSignal>STQ.Obelisks.II.Cleared</inSignal>
-            <label>DEBUG: Phase II cleared</label>
-            <text>WaitEnemiesDefeated hat abgeschlossen.</text>
-            <letterDef>NeutralEvent</letterDef>
-          </li>
 
-        <!-- Rename auf Phase III nach Sieg -->
-          <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
-            <inSignal>STQ.Obelisks.II.Cleared</inSignal>
-            <titleKey>STQ.Obelisks.PhaseIII.Title</titleKey>
-            <descriptionKey>STQ.Obelisks.PhaseIII.Desc</descriptionKey>
-          </li>
-
-        <!-- 6) Abschluss-Brief Phase II -->
+        <!-- Info: Phase II abgeschlossen -->
         <li Class="QuestNode_Letter">
           <inSignal>STQ.Obelisks.II.Cleared</inSignal>
           <label>STQ.Obelisks.PhaseII.CompleteTitle</label>
           <text>STQ.Obelisks.PhaseII.CompleteText</text>
           <letterDef>NeutralEvent</letterDef>
         </li>
-        
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_StartQuestOnSignal">
+
+        <!-- ========= PHASE III (Pressure) ========= -->
+        <!-- Umbenennen auf Phase III -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
           <inSignal>STQ.Obelisks.II.Cleared</inSignal>
-          <questDef>STQ_VE_Obelisks_III_Pressure</questDef>
-          <bridgeOutSignal>STQ.Obelisks.III.Kickoff</bridgeOutSignal>
+          <titleKey>STQ.Obelisks.PhaseIII.Title</titleKey>
+          <descriptionKey>STQ.Obelisks.PhaseIII.Desc</descriptionKey>
         </li>
+
+        <!-- 1–2 Tage warten -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_DelayThenSignalOnSignal">
+          <inSignal>STQ.Obelisks.II.Cleared</inSignal>
+          <delayTicksMin>60000</delayTicksMin>   <!-- 1 Tag -->
+          <delayTicksMax>120000</delayTicksMax>  <!-- 2 Tage -->
+          <outSignal>STQ.Obelisks.III.DelayDone</outSignal>
+        </li>
+
+        <!-- Zweiter Manhunter -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
+          <inSignal>STQ.Obelisks.III.DelayDone</inSignal>
+          <incident>ManhunterPack</incident>
+          <pointsFactor>1.05</pointsFactor>
+          <outSignal>STQ.Obelisks.III.ManhuntersSpawned</outSignal>
+        </li>
+
+        <!-- Warten bis besiegt -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
+          <inSignal>STQ.Obelisks.III.ManhuntersSpawned</inSignal>
+          <onlyManhunters>true</onlyManhunters>
+          <outSignal>STQ.Obelisks.III.Cleared</outSignal>
+        </li>
+
+        <!-- Hinweisbrief nach Sieg -->
+        <li Class="QuestNode_Letter">
+          <inSignal>STQ.Obelisks.III.Cleared</inSignal>
+          <label>STQ.Obelisks.PhaseIII.ThreatTitle</label>
+          <text>STQ.Obelisks.PhaseIII.ThreatText</text>
+          <letterDef>NeutralEvent</letterDef>
+        </li>
+
+        <!-- Choice: Warden vs Vault -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_ChoiceDialogOnSignalV2">
+          <inSignal>STQ.Obelisks.III.Cleared</inSignal>
+          <titleKey>STQ.Obelisks.Choice.Title</titleKey>
+          <textKey>STQ.Obelisks.Choice.Text</textKey>
+          <optionALabel>Warden protocol</optionALabel>
+          <optionASignal>STQ.Obelisks.Path.Warden.Chosen</optionASignal>
+          <optionBLabel>Vault recovery</optionBLabel>
+          <optionBSignal>STQ.Obelisks.Path.Vault.Chosen</optionBSignal>
+        </li>
+
+        <!-- ========= PHASE IV (Warden-Pfad) ========= -->
+        <li Class="QuestNode_Sequence">
+          <nodes>
+
+            <li Class="QuestNode_Letter">
+              <inSignal>STQ.Obelisks.Path.Warden.Chosen</inSignal>
+              <label>Warden directive confirmed</label>
+              <text>Proceed to discipline protocol at the obelisk sites.</text>
+              <letterDef>NeutralEvent</letterDef>
+            </li>
+
+            <!-- kleiner feindlicher Raid -->
+            <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
+              <inSignal>STQ.Obelisks.Path.Warden.Chosen</inSignal>
+              <incident>RaidEnemy</incident>
+              <pointsFactor>0.80</pointsFactor>
+              <outSignal>STQ.Obelisks.IV.RaidSpawned</outSignal>
+            </li>
+
+            <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
+              <inSignal>STQ.Obelisks.IV.RaidSpawned</inSignal>
+              <outSignal>STQ.Obelisks.IV.Cleared</outSignal>
+            </li>
+
+            <li Class="QuestNode_Letter">
+              <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
+              <label>Warden protocol complete</label>
+              <text>The sites are secured under the Warden’s rules.</text>
+              <letterDef>PositiveEvent</letterDef>
+            </li>
+
+          </nodes>
+        </li>
+
+        <!-- ========= PHASE V (Vault-Pfad) ========= -->
+        <li Class="QuestNode_Sequence">
+          <nodes>
+
+            <li Class="QuestNode_Letter">
+              <inSignal>STQ.Obelisks.Path.Vault.Chosen</inSignal>
+              <label>Vault directive confirmed</label>
+              <text>Begin recovery of sealed vault artifacts.</text>
+              <letterDef>NeutralEvent</letterDef>
+            </li>
+
+            <!-- leichter Raid (statt MechCluster – basegame-sicher) -->
+            <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
+              <inSignal>STQ.Obelisks.Path.Vault.Chosen</inSignal>
+              <incident>RaidEnemy</incident>
+              <pointsFactor>0.70</pointsFactor>
+              <outSignal>STQ.Obelisks.V.RaidSpawned</outSignal>
+            </li>
+
+            <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
+              <inSignal>STQ.Obelisks.V.RaidSpawned</inSignal>
+              <outSignal>STQ.Obelisks.V.Cleared</outSignal>
+            </li>
+
+            <li Class="QuestNode_Letter">
+              <inSignal>STQ.Obelisks.V.Cleared</inSignal>
+              <label>Vault recovered</label>
+              <text>The vault has been cleared and artifacts secured.</text>
+              <letterDef>PositiveEvent</letterDef>
+            </li>
+
+          </nodes>
+        </li>
+
+        <!-- (Optional) Hier könnte ein Quest-Ende folgen (QuestNode_End) -->
 
       </nodes>
     </root>
