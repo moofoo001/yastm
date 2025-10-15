@@ -695,11 +695,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\PhaseWeapons\\StarTrek.PhaseWeapons.csproj",
+      "projectUniqueName": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
       "projectName": "YASTM",
-      "projectPath": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\PhaseWeapons\\StarTrek.PhaseWeapons.csproj",
+      "projectPath": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
       "packagesPath": "C:\\Users\\moofoo\\.nuget\\packages\\",
-      "outputPath": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\PhaseWeapons\\obj\\",
+      "outputPath": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\moofoo\\AppData\\Roaming\\NuGet\\NuGet.Config"
