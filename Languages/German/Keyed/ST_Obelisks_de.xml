@@ -1,121 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <!-- ===== PHASE I / II ===== -->
-
-  <STQ.Obelisks.Setup.LetterTitle>Außenpostenauftrag bestätigt</STQ.Obelisks.Setup.LetterTitle>
+  <!-- Phase I: Aufbau & Anleitung -->
+  <STQ.Obelisks.Setup.LetterTitle>Sternenflotte: Einsatzbesprechung Obelisken</STQ.Obelisks.Setup.LetterTitle>
   <STQ.Obelisks.Setup.LetterText>
-    Sternenflotte an Einsatzteam: Errichtet einen kleinen Außenposten, initialisiert den
-    Kommunikationsbaken und bereitet Subraum-Telemetrie vor. Primärziel: Erfassung ungewöhnlicher
-    Signaturen – lokale Artefakte werden vermutet.
+Außenteam, eure Aufgabe ist es, einen gesicherten Perimeter zu errichten, das Subraum-Sensorfeld zu deployen und zwei von der Umlaufbahn detektierte außerirdische Obelisken zu untersuchen.
+
+1) Baut und versorgt bei jedem Obelisken einen Subraum-Sensor mit Energie.
+2) Führt an beiden Obelisken einen Scan durch.
+3) Konsolidiert die Telemetrie an der Bake und übermittelt sie an die Sternenflotte.
+
+Anmerkung: Die lokale Fauna zeigt unregelmäßige bioelektrische Reaktionen auf Subraumharmoniken. Sobald der Uplink die Ionosphäre anregt, sind Unruhen wahrscheinlich. Bleibt wachsam und schützt die Ausrüstung.
   </STQ.Obelisks.Setup.LetterText>
 
-  <STQ.Obelisks.Spawned.Title>Anomalien lokalisert</STQ.Obelisks.Spawned.Title>
+  <STQ.Obelisks.Spawned.Title>Obelisken lokalisiert</STQ.Obelisks.Spawned.Title>
   <STQ.Obelisks.Spawned.Text>
-    Zwei monolithische Objekte – Material und Herkunft unbekannt. Subraum-Fluktuationen im
-    Nahfeld. Richtet je einen Subraum-Scanner am Sockel aus, um verwertbare Daten zu gewinnen.
+Wir haben zwei außerirdische Obelisken auf dieser Welt genau bestimmt. Die Oberflächenglyphen entsprechen einer unbekannten Vor-Warp-Symbolik. Richtet die Sensoren ein und beginnt mit den Scans.
   </STQ.Obelisks.Spawned.Text>
 
-  <STQ.Obelisks.ScanA.OrderTitle>Scanauftrag: Obelisk A</STQ.Obelisks.ScanA.OrderTitle>
+  <!-- Scan A -->
+  <STQ.Obelisks.ScanA.OrderTitle>Ersten Scan starten</STQ.Obelisks.ScanA.OrderTitle>
   <STQ.Obelisks.ScanA.OrderText>
-    Baut und versorgt den Subraum-Sensor in der Nähe von Obelisk A. Sobald genügend Leistung anliegt,
-    kann der Scan gestartet werden.
+Nehmt den Subraum-Sensor nahe des ersten Obelisken in Betrieb und startet einen Tiefenscan. Richtet eine Sicherungslinie ein – Wildtiere können auf den Ping reagieren.
   </STQ.Obelisks.ScanA.OrderText>
-
-  <STQ.Obelisks.ScanA.SuccessTitle>Scan A abgeschlossen</STQ.Obelisks.ScanA.SuccessTitle>
+  <STQ.Obelisks.ScanA.SuccessTitle>Erster Scan abgeschlossen</STQ.Obelisks.ScanA.SuccessTitle>
   <STQ.Obelisks.ScanA.SuccessText>
-    Erste Telemetrie gesichert. Die Feldlinien deuten auf ein gekoppeltes System hin – ein zweiter
-    Scan ist erforderlich.
+Die harmonische Gitterstruktur des ersten Obelisken ist kartiert. Begebt euch zur zweiten Stätte und wiederholt das Verfahren.
   </STQ.Obelisks.ScanA.SuccessText>
 
-  <STQ.Obelisks.ScanB.OrderTitle>Scanauftrag: Obelisk B</STQ.Obelisks.ScanB.OrderTitle>
+  <!-- Scan B -->
+  <STQ.Obelisks.ScanB.OrderTitle>Zweiten Obelisken scannen</STQ.Obelisks.ScanB.OrderTitle>
   <STQ.Obelisks.ScanB.OrderText>
-    Wiederholt den Vorgang an Obelisk B. Achtet auf Resonanz-Artefakte zwischen beiden Strukturen.
+Versorgt den Sensor nahe des zweiten Obelisken mit Energie und schließt den Scan ab, um die lokale Erhebung zu beenden.
   </STQ.Obelisks.ScanB.OrderText>
+  <STQ.Obelisks.ScanB.SuccessTitle>Zweiter Scan abgeschlossen</STQ.Obelisks.ScanB.SuccessTitle>
+  <STQ.Obelisks.ScanB.SuccessText>
+Wir verfügen nun über ein Paar harmonischer Glyphenmuster. Konsolidiert die Ergebnisse und übermittelt sie über die Kommunikationsbake an die Sternenflotte.
+  </STQ.Obelisks.ScanB.SuccessText>
 
-  <STQ.Obelisks.Transmit.OrderTitle>Telemetrie übermitteln</STQ.Obelisks.Transmit.OrderTitle>
+  <!-- Übertragung -->
+  <STQ.Obelisks.Transmit.OrderTitle>Scantelemetrie übermitteln</STQ.Obelisks.Transmit.OrderTitle>
   <STQ.Obelisks.Transmit.OrderText>
-    Aktiviert den Baken und sendet die gesammelten Daten an die Sternenflotte. Achtung:
-    die lokale Fauna reagiert mitunter empfindlich auf die Scanfrequenzen.
+Nutzt an der Bake „An Sternenflotte berichten“, um die konsolidierten Obeliskendaten hochzuladen.
+Rechnet mit Unruhe unter der Fauna, sobald der Broadcast die Ionosphäre anregt.
   </STQ.Obelisks.Transmit.OrderText>
+  <STQ.Obelisks.Transmit.SentTitle>Telemetrie bestätigt</STQ.Obelisks.Transmit.SentTitle>
+  <STQ.Obelisks.Transmit.SentText>
+Die Sternenflotte bestätigt den Empfang. Voranalyse läuft. Haltet die Stellung, bis sich die Lage vor Ort stabilisiert.
+  </STQ.Obelisks.Transmit.SentText>
 
-  <STQ.Obelisks.Impulse.FaunaTitle>Störung im Umfeld</STQ.Obelisks.Impulse.FaunaTitle>
+  <!-- Reaktion / Manhunter -->
+  <STQ.Obelisks.Impulse.FaunaTitle>Subraumwelle registriert</STQ.Obelisks.Impulse.FaunaTitle>
   <STQ.Obelisks.Impulse.FaunaText>
-    Die Übertragung hat eine Resonanz im Ökosystem ausgelöst. Haltet die Stellung, bis die
-    Störung verebbt.
+Die Subraumausstrahlung hat eine Welle durch das Ökosystem geschickt und aggressives Verhalten bei Wildtieren ausgelöst. Rechnet mit Kontakt.
   </STQ.Obelisks.Impulse.FaunaText>
 
-  <STQ.Obelisks.PhaseIII.CompleteTitle>Störung abgeklungen</STQ.Obelisks.PhaseIII.CompleteTitle>
-  <STQ.Obelisks.PhaseIII.CompleteBody>
-    Die Umgebung ist wieder stabil. Die Datenlage legt eine innere Struktur nahe – weitere
-    Entscheidungen sind erforderlich.
-  </STQ.Obelisks.PhaseIII.CompleteBody>
+  <STQ.Obelisks.Manhunt.Title>Faunale Störung</STQ.Obelisks.Manhunt.Title>
+  <STQ.Obelisks.Manhunt.Text>
+Der Broadcast hat nahe Wildtiere aufgewühlt. Haltet die Linie und schützt die Ausrüstung, bis die Störung abklingt.
+  </STQ.Obelisks.Manhunt.Text>
 
-  <!-- ===== PHASE III (Choice) ===== -->
+  <!-- Nach erster Welle / Phase II abgeschlossen -->
+  <STQ.Obelisks.PhaseII.CompleteTitle>Subraumfenster stabilisiert</STQ.Obelisks.PhaseII.CompleteTitle>
+  <STQ.Obelisks.PhaseII.CompleteText>
+Die unmittelbare Bedrohung ist vorüber. Die Sternenflotte kann das Fenster nun modellieren – eure Empfehlung zum weiteren Vorgehen an den Stätten wird erwartet.
+  </STQ.Obelisks.PhaseII.CompleteText>
 
-  <STQ.Obelisks.PhaseIII.BriefTitle>Eingehende Ansprüche</STQ.Obelisks.PhaseIII.BriefTitle>
-  <STQ.Obelisks.PhaseIII.BriefBody>
-    Sowohl das Klingonische Reich als auch das Romulanische Sternenimperium melden Besitzansprüche:
-    Die Klingonen sprechen von Gefechtsdenkmälern eines alten Hauses; Romulaner verweisen auf
-    vor-surakische Archivreferenzen. Ferengi-Broker wittern indes Profit in jeder Platte und
-    haben unsere Telemetrie bereits aufgegriffen.
-  </STQ.Obelisks.PhaseIII.BriefBody>
+  <!-- ===== PHASE III (Druck / Wahl) ===== -->
+  <STQ.Obelisks.PhaseIII.ThreatTitle>Subraumschub lockt Wildtiere an</STQ.Obelisks.PhaseIII.ThreatTitle>
+  <STQ.Obelisks.PhaseIII.ThreatText>
+Restharmoniken reizen die lokale Fauna weiterhin. Rechnet mit einem weiteren Angriff, während sich das Fenster beruhigt.
+  </STQ.Obelisks.PhaseIII.ThreatText>
 
-  <STQ.Obelisks.PhaseIII.ChoiceTitle>Weisung erforderlich</STQ.Obelisks.PhaseIII.ChoiceTitle>
-  <STQ.Obelisks.PhaseIII.ChoiceText>
-    Um einen Zwischenfall zu vermeiden, kann der Fundort nach Sternenflottenprotokoll gesichert
-    werden – oder wir handeln entschlossen und versuchen, die vermutete Vault zu erreichen, bevor
-    Anspruchsteller und Händler eintreffen.
-  </STQ.Obelisks.PhaseIII.ChoiceText>
+  <STQ.Obelisks.PhaseIII.Title>Obelisken-Erkundung — Phase III</STQ.Obelisks.PhaseIII.Title>
+  <STQ.Obelisks.PhaseIII.Desc>
+Anweisung erforderlich. Das Subraumfenster ist vorerst stabil. Entscheidet, ob die Stätten unter Wächterprotokoll gesichert oder ob ein schneller Vorstoß zur vermuteten „Vault“ unternommen wird, bevor Anspruchsteller eintreffen.
+  </STQ.Obelisks.PhaseIII.Desc>
 
-  <STQ.Obelisks.Path.Warden.Label>Stellung halten — Sternenflottenprotokoll</STQ.Obelisks.Path.Warden.Label>
-  <STQ.Obelisks.Path.Warden.Title>Warden-Protokoll bestätigt</STQ.Obelisks.Path.Warden.Title>
-  <STQ.Obelisks.Path.Warden.Text>
-    Errichtet einen gesicherten Perimeter, katalogisiert jedes Artefakt und meldet Status an die
-    Sternenflotte. Delegationen werden unter Flaggenprotokoll empfangen; Ferengi-Aktivität wird
-    dokumentiert.
-  </STQ.Obelisks.Path.Warden.Text>
+  <!-- Wahl -->
+  <STQ.Obelisks.Choice.Title>Anweisung erforderlich</STQ.Obelisks.Choice.Title>
+  <STQ.Obelisks.Choice.Text>
+Option A — Wächterprotokoll: Zuständigkeit herstellen, Einmischung abschrecken und die Stätten für kontrollierte Forschung halten.
 
-  <STQ.Obelisks.Path.Vault.Label>Den Anspruchstellern zuvorkommen — Zur Vault</STQ.Obelisks.Path.Vault.Label>
-  <STQ.Obelisks.Path.Vault.Title>Vault-Priorität bestätigt</STQ.Obelisks.Path.Vault.Title>
-  <STQ.Obelisks.Path.Vault.Text>
-    Nutzt das Zeitfenster. Entschlüsselt die Geometrie und lokalisiert den Zugang zur inneren Kammer,
-    bevor andere Parteien eingreifen.
-  </STQ.Obelisks.Path.Vault.Text>
+Option B — Vault-Bergung: Handelt schnell. Sind die Obelisken Markierungen, existiert möglichweise ein Depot. Rivalen und Profitjäger warten nicht.
+  </STQ.Obelisks.Choice.Text>
+  <STQ.Obelisks.Choice.Warden>Wächterprotokoll</STQ.Obelisks.Choice.Warden>
+  <STQ.Obelisks.Choice.Vault>Vault-Bergung</STQ.Obelisks.Choice.Vault>
 
-  <!-- ===== PHASE V (Ferengi-Event) ===== -->
+  <!-- Phase IV: Warden -->
+  <STQ.Obelisks.PhaseIV.Title>Obelisken-Erkundung — Phase IV (Wächter)</STQ.Obelisks.PhaseIV.Title>
+  <STQ.Obelisks.PhaseIV.Desc>
+Setzt das Wächterprotokoll durch und sichert die Stätten gegen Einmischung. Rechnet mit einem Vergeltungsangriff lokaler Interessengruppen.
+  </STQ.Obelisks.PhaseIV.Desc>
+  <STQ.Obelisks.PhaseIV.LetterTitle>Wächterdirektive bestätigt</STQ.Obelisks.PhaseIV.LetterTitle>
+  <STQ.Obelisks.PhaseIV.LetterText>
+Kraft der Autorität der Sternenflotte sind die Obeliskenstättten nun Sperrgebiet. Richtet Kontrollpunkte ein, weist Anspruchsteller zurück und schlagt jeden Angriff auf den Perimeter zurück.
+  </STQ.Obelisks.PhaseIV.LetterText>
+  <STQ.Obelisks.PhaseIV.DoneTitle>Wächterprotokoll abgeschlossen</STQ.Obelisks.PhaseIV.DoneTitle>
+  <STQ.Obelisks.PhaseIV.DoneText>
+Das Gebiet ist unter Wächterregeln stabilisiert. Die Sternenflotte entsendet ein Forschungsschiff, sobald das Fenster vollständig kollabiert.
+  </STQ.Obelisks.PhaseIV.DoneText>
 
-  <STQ.Obelisks.PhaseV.Title>Phase V: Die Vault</STQ.Obelisks.PhaseV.Title>
-  <STQ.Obelisks.PhaseV.Body>
-    Die Anordnung der Obelisken deutet auf eine versiegelte innere Kammer. Mehrere Anomalien wurden
-    kartiert; eine davon sollte der Zugang sein.
-  </STQ.Obelisks.PhaseV.Body>
-
-  <STQ.Obelisks.V.Ferengi.Title>Ferengi-Broker meldet sich</STQ.Obelisks.V.Ferengi.Title>
-  <STQ.Obelisks.V.Ferengi.Body>
-    Ein Ferengi bietet „exklusive Koordinaten“ des Innenrings gegen sofortige Gegenleistung.
-    Klingonen lachen, Romulaner schweigen — selten ein gutes Zeichen. Entscheidung?
-  </STQ.Obelisks.V.Ferengi.Body>
-
-  <STQ.Obelisks.V.Ferengi.Deal.Label>Deal annehmen (inoffiziell)</STQ.Obelisks.V.Ferengi.Deal.Label>
-  <STQ.Obelisks.V.Ferengi.Refuse.Label>Ablehnen (Protokoll wahren)</STQ.Obelisks.V.Ferengi.Refuse.Label>
-
-  <STQ.Obelisks.V.Ferengi.Deal.ConfirmTitle>„Geschäft“ abgeschlossen</STQ.Obelisks.V.Ferengi.Deal.ConfirmTitle>
-  <STQ.Obelisks.V.Ferengi.Deal.ConfirmText>
-    Verschlüsselte Rasterdaten empfangen. Hinweis: „geräuschempfindliche Sicherung“ — wahrscheinlich
-    ein akustischer oder subsonischer Verschluss. Daten wurden in die Karte integriert.
-  </STQ.Obelisks.V.Ferengi.Deal.ConfirmText>
-
-  <STQ.Obelisks.V.Ferengi.Refuse.Title>Angebot abgelehnt</STQ.Obelisks.V.Ferengi.Refuse.Title>
-  <STQ.Obelisks.V.Ferengi.Refuse.Text>
-    Wir verweisen auf Sternenflottenprotokoll. Der Broker „merkt sich“ unsere Entscheidung; rechnet
-    mit künftiger Ferengi-Aufmerksamkeit bei jeder Übertragung.
-  </STQ.Obelisks.V.Ferengi.Refuse.Text>
-
-  <STQ.Obelisks.V.Vault.NextTitle>Fortfahren zur inneren Kammer</STQ.Obelisks.V.Vault.NextTitle>
-  <STQ.Obelisks.V.Vault.NextText>
-    Die Anomalien sind markiert. Mit den (legalen oder „nachgereichten“) Daten sollten wir den Zugang
-    identifizieren und öffnen können.
-  </STQ.Obelisks.V.Vault.NextText>
+  <!-- Phase V: Vault -->
+  <STQ.Obelisks.PhaseV.Title>Obelisken-Erkundung — Phase V (Vault)</STQ.Obelisks.PhaseV.Title>
+  <STQ.Obelisks.PhaseV.Desc>
+Zuvorkommen ist alles: Erreicht die vermutete Vault vor den Anspruchstellern und sichert die Funde.
+  </STQ.Obelisks.PhaseV.Desc>
+  <STQ.Obelisks.PhaseV.LetterTitle>Vault-Direktive bestätigt</STQ.Obelisks.PhaseV.LetterTitle>
+  <STQ.Obelisks.PhaseV.LetterText>
+Unsere Modelle triangulieren ein wahrscheinliches Depot im GPR-Bereich der Obelisken-Konstellation. Handelt zügig. Rechnet mit Widerstand durch Gelegenheitssucher, die unsere Signale verfolgen.
+  </STQ.Obelisks.PhaseV.LetterText>
+  <STQ.Obelisks.PhaseV.DoneTitle>Vault geborgen</STQ.Obelisks.PhaseV.DoneTitle>
+  <STQ.Obelisks.PhaseV.DoneText>
+Die Vault ist geräumt und die Artefakte gesichert. Katalogisiert die Funde und bereitet die Übergabe an die Sternenflotte vor.
+  </STQ.Obelisks.PhaseV.DoneText>
 
 </LanguageData>

@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  
-<!-- Phase I: setup & guidance -->
+  <!-- Phase I: setup & guidance -->
   <STQ.Obelisks.Setup.LetterTitle>Starfleet: Obelisk Survey Briefing</STQ.Obelisks.Setup.LetterTitle>
   <STQ.Obelisks.Setup.LetterText>
-Crew, your away mission is to establish a small perimeter, deploy the subspace sensor array, and survey two alien obelisks detected from orbit.
-  
+Crew, your away mission is to establish a secure perimeter, deploy the subspace sensor array, and survey two alien obelisks detected from orbit.
+
 1) Build and power a Subspace Sensor near each obelisk.
 2) Perform a scan on both obelisks.
-3) Transmit the collected telemetry to Starfleet via the beacon.
+3) Consolidate the telemetry at the beacon and transmit to Starfleet.
 
-Starfleet notes: Local fauna exhibits irregular bioelectric responses to subspace harmonics. Disturbances may occur once telemetry is broadcast.
+Operational note: Local fauna exhibits irregular bioelectric responses to subspace harmonics. Once the uplink energizes the ionosphere, agitation events are likely. Remain alert and protect the equipment.
   </STQ.Obelisks.Setup.LetterText>
 
   <STQ.Obelisks.Spawned.Title>Obelisks located</STQ.Obelisks.Spawned.Title>
   <STQ.Obelisks.Spawned.Text>
-We have pinpointed two alien obelisks on this world. Their surface glyphs are consistent with unknown pre-warp symbology. Establish the sensors and begin scans.
+We have pinpointed two alien obelisks on this world. Their surface glyphs map to an unknown pre-warp symbology. Establish the sensors and begin scans.
   </STQ.Obelisks.Spawned.Text>
 
   <!-- Scan A -->
   <STQ.Obelisks.ScanA.OrderTitle>Begin first scan</STQ.Obelisks.ScanA.OrderTitle>
   <STQ.Obelisks.ScanA.OrderText>
-Bring the Subspace Sensor online near the first obelisk and start a scan. Keep a security cordon—ambient wildlife may react to the subspace ping.
+Bring the Subspace Sensor online near the first obelisk and start a deep-field scan. Post a security cordon—wildlife may react to the ping.
   </STQ.Obelisks.ScanA.OrderText>
   <STQ.Obelisks.ScanA.SuccessTitle>First scan complete</STQ.Obelisks.ScanA.SuccessTitle>
   <STQ.Obelisks.ScanA.SuccessText>
-The first obelisk’s subspace lattice has been mapped. Proceed to the second site and repeat the procedure.
+The first obelisk’s harmonic lattice is mapped. Proceed to the second site and repeat the procedure.
   </STQ.Obelisks.ScanA.SuccessText>
 
   <!-- Scan B -->
@@ -36,7 +35,7 @@ Power the sensor near the second obelisk and complete the scan to finish the loc
   </STQ.Obelisks.ScanB.OrderText>
   <STQ.Obelisks.ScanB.SuccessTitle>Second scan complete</STQ.Obelisks.ScanB.SuccessTitle>
   <STQ.Obelisks.ScanB.SuccessText>
-We now hold a paired dataset of harmonic glyph patterns. Consolidate the results and transmit to Starfleet from the communications beacon.
+We now hold paired datasets of harmonic glyph patterns. Consolidate the results and transmit to Starfleet from the communications beacon.
   </STQ.Obelisks.ScanB.SuccessText>
 
   <!-- Transmit step -->
@@ -47,52 +46,73 @@ Expect local fauna agitation once the broadcast energizes the ionosphere.
   </STQ.Obelisks.Transmit.OrderText>
   <STQ.Obelisks.Transmit.SentTitle>Telemetry acknowledged</STQ.Obelisks.Transmit.SentTitle>
   <STQ.Obelisks.Transmit.SentText>
-Starfleet confirms receipt. Stand by for preliminary analysis. Maintain a defensive posture until local conditions stabilize.
+Starfleet confirms receipt. Preliminary analysis underway. Maintain a defensive posture until local conditions stabilize.
   </STQ.Obelisks.Transmit.SentText>
 
   <!-- Reaction / manhunter warning -->
-  <STQ.Obelisks.Manhunt.Title>Faunal disturbance detected</STQ.Obelisks.Manhunt.Title>
+  <STQ.Obelisks.Impulse.FaunaTitle>Subspace ripple detected</STQ.Obelisks.Impulse.FaunaTitle>
+  <STQ.Obelisks.Impulse.FaunaText>
+Subspace emission has rippled through the ecosystem, triggering aggressive behavior in nearby wildlife. Brace for contact.
+  </STQ.Obelisks.Impulse.FaunaText>
+
+  <STQ.Obelisks.Manhunt.Title>Faunal disturbance</STQ.Obelisks.Manhunt.Title>
   <STQ.Obelisks.Manhunt.Text>
-Subspace emission has triggered aggressive behavior in nearby wildlife. Hold the line and protect the equipment until the disturbance passes.
+The broadcast has agitated nearby wildlife. Hold the line and protect the equipment until the disturbance passes.
   </STQ.Obelisks.Manhunt.Text>
 
-  <!-- After first wave is cleared -->
-  <STQ.Obelisks.II.Cleared.Title>Subspace window stabilized</STQ.Obelisks.II.Cleared.Title>
-  <STQ.Obelisks.II.Cleared.Text>
-The immediate threat has passed. Starfleet requests your recommendation on how to proceed with the obelisk sites.
-  </STQ.Obelisks.II.Cleared.Text>
+  <!-- After first wave is cleared (used by Phase II complete in script) -->
+  <STQ.Obelisks.PhaseII.CompleteTitle>Subspace window stabilized</STQ.Obelisks.PhaseII.CompleteTitle>
+  <STQ.Obelisks.PhaseII.CompleteText>
+Immediate threats have passed. Starfleet has enough data to model the window—awaiting your recommendation on how to proceed with the sites.
+  </STQ.Obelisks.PhaseII.CompleteText>
 
-  <!-- ===== PHASE III (Choice) ===== -->
-  
+  <!-- ===== PHASE III (Pressure / choice build-up) ===== -->
   <STQ.Obelisks.PhaseIII.ThreatTitle>Subspace surge attracts wildlife</STQ.Obelisks.PhaseIII.ThreatTitle>
-  <STQ.Obelisks.PhaseIII.ThreatText>Local fauna is agitated by the subspace window. Prepare for another attack.</STQ.Obelisks.PhaseIII.ThreatText>
+  <STQ.Obelisks.PhaseIII.ThreatText>
+Residual harmonics continue to agitate local fauna. Expect another attack while the window stabilizes.
+  </STQ.Obelisks.PhaseIII.ThreatText>
 
   <STQ.Obelisks.PhaseIII.Title>Obelisk Survey — Phase III</STQ.Obelisks.PhaseIII.Title>
   <STQ.Obelisks.PhaseIII.Desc>
-  Directive required. Subspace window is stable; select how to proceed with the sites.
+Directive required. The subspace window is stable for now. Choose whether to secure the sites under Starfleet protocol or make a decisive push to reach the presumed vault before claimants converge.
   </STQ.Obelisks.PhaseIII.Desc>
-  
+
   <!-- Choice -->
   <STQ.Obelisks.Choice.Title>Directive required</STQ.Obelisks.Choice.Title>
   <STQ.Obelisks.Choice.Text>
-    To avoid an incident, we can secure the site under Starfleet protocol—or move decisively to reach the presumed vault before claimants converge.
+Option A — Warden protocol: Establish jurisdiction, deter interference, and hold the sites for controlled study.
+
+Option B — Vault recovery: Move fast. If the obelisks are markers, a cache or vault may exist. Rivals and profiteers won’t wait.
   </STQ.Obelisks.Choice.Text>
   <STQ.Obelisks.Choice.Warden>Warden protocol</STQ.Obelisks.Choice.Warden>
   <STQ.Obelisks.Choice.Vault>Vault recovery</STQ.Obelisks.Choice.Vault>
 
   <!-- Phase IV: Warden -->
   <STQ.Obelisks.PhaseIV.Title>Obelisk Survey — Phase IV (Warden)</STQ.Obelisks.PhaseIV.Title>
-  <STQ.Obelisks.PhaseIV.Desc>Impose the Warden’s protocol and secure the sites against interference.</STQ.Obelisks.PhaseIV.Desc>
+  <STQ.Obelisks.PhaseIV.Desc>
+Impose the Warden’s protocol and secure the sites against interference. Expect a retaliatory raid by local interests.
+  </STQ.Obelisks.PhaseIV.Desc>
   <STQ.Obelisks.PhaseIV.LetterTitle>Warden directive confirmed</STQ.Obelisks.PhaseIV.LetterTitle>
-  <STQ.Obelisks.PhaseIV.LetterText>Proceed to secure the sites under Starfleet authority.</STQ.Obelisks.PhaseIV.LetterText>
+  <STQ.Obelisks.PhaseIV.LetterText>
+By authority of Starfleet, the obelisk sites are now restricted. Establish checkpoints, warn off claimants, and repel any force that attempts to breach the perimeter.
+  </STQ.Obelisks.PhaseIV.LetterText>
   <STQ.Obelisks.PhaseIV.DoneTitle>Warden protocol complete</STQ.Obelisks.PhaseIV.DoneTitle>
-  <STQ.Obelisks.PhaseIV.DoneText>The area is stabilized under Warden rules.</STQ.Obelisks.PhaseIV.DoneText>
+  <STQ.Obelisks.PhaseIV.DoneText>
+The area is stabilized under Warden rules. Starfleet will dispatch a research tender when the window fully collapses.
+  </STQ.Obelisks.PhaseIV.DoneText>
 
   <!-- Phase V: Vault -->
   <STQ.Obelisks.PhaseV.Title>Obelisk Survey — Phase V (Vault)</STQ.Obelisks.PhaseV.Title>
-  <STQ.Obelisks.PhaseV.Desc>Race claimants to the presumed vault and recover its contents.</STQ.Obelisks.PhaseV.Desc>
+  <STQ.Obelisks.PhaseV.Desc>
+Race claimants to the presumed vault and recover its contents before the window attracts more attention.
+  </STQ.Obelisks.PhaseV.Desc>
   <STQ.Obelisks.PhaseV.LetterTitle>Vault directive confirmed</STQ.Obelisks.PhaseV.LetterTitle>
-  <STQ.Obelisks.PhaseV.LetterText>Begin recovery operations. Expect resistance.</STQ.Obelisks.PhaseV.LetterText>
+  <STQ.Obelisks.PhaseV.LetterText>
+Our models triangulate a likely cache within ground-penetrating range of the obelisk pair. Move quickly. Expect resistance from opportunists tracking our signals.
+  </STQ.Obelisks.PhaseV.LetterText>
   <STQ.Obelisks.PhaseV.DoneTitle>Vault recovered</STQ.Obelisks.PhaseV.DoneTitle>
-  <STQ.Obelisks.PhaseV.DoneText>The vault has been cleared and artifacts secured.</STQ.Obelisks.PhaseV.DoneText>
+  <STQ.Obelisks.PhaseV.DoneText>
+The vault has been cleared and its artifacts secured. Catalog the finds and prepare them for Starfleet custody.
+  </STQ.Obelisks.PhaseV.DoneText>
+
 </LanguageData>
