@@ -71,69 +71,28 @@ The immediate threat has passed. Starfleet requests your recommendation on how t
   <STQ.Obelisks.PhaseIII.Desc>
   Directive required. Subspace window is stable; select how to proceed with the sites.
   </STQ.Obelisks.PhaseIII.Desc>
+  
+  <!-- Choice -->
+  <STQ.Obelisks.Choice.Title>Directive required</STQ.Obelisks.Choice.Title>
+  <STQ.Obelisks.Choice.Text>
+    To avoid an incident, we can secure the site under Starfleet protocol—or move decisively to reach the presumed vault before claimants converge.
+  </STQ.Obelisks.Choice.Text>
+  <STQ.Obelisks.Choice.Warden>Warden protocol</STQ.Obelisks.Choice.Warden>
+  <STQ.Obelisks.Choice.Vault>Vault recovery</STQ.Obelisks.Choice.Vault>
 
-  <STQ.Obelisks.PhaseIII.BriefTitle>Incoming claims</STQ.Obelisks.PhaseIII.BriefTitle>
-  <STQ.Obelisks.PhaseIII.BriefBody>
-    Both the Klingon Empire and the Romulan Star Empire file immediate claims: Klingons call the
-    structures battle memorials of an ancient House; Romulans cite pre-Surak records. Ferengi brokers
-    have already sniffed our telemetry and smell profit in every slab.
-  </STQ.Obelisks.PhaseIII.BriefBody>
+  <!-- Phase IV: Warden -->
+  <STQ.Obelisks.PhaseIV.Title>Obelisk Survey — Phase IV (Warden)</STQ.Obelisks.PhaseIV.Title>
+  <STQ.Obelisks.PhaseIV.Desc>Impose the Warden’s protocol and secure the sites against interference.</STQ.Obelisks.PhaseIV.Desc>
+  <STQ.Obelisks.PhaseIV.LetterTitle>Warden directive confirmed</STQ.Obelisks.PhaseIV.LetterTitle>
+  <STQ.Obelisks.PhaseIV.LetterText>Proceed to secure the sites under Starfleet authority.</STQ.Obelisks.PhaseIV.LetterText>
+  <STQ.Obelisks.PhaseIV.DoneTitle>Warden protocol complete</STQ.Obelisks.PhaseIV.DoneTitle>
+  <STQ.Obelisks.PhaseIV.DoneText>The area is stabilized under Warden rules.</STQ.Obelisks.PhaseIV.DoneText>
 
-  <STQ.Obelisks.PhaseIII.ChoiceTitle>Directive required</STQ.Obelisks.PhaseIII.ChoiceTitle>
-  <STQ.Obelisks.PhaseIII.ChoiceText>
-    To avoid an incident, we can secure the site under Starfleet protocol—or move decisively to reach
-    the presumed vault before claimants and profiteers converge.
-  </STQ.Obelisks.PhaseIII.ChoiceText>
-
-  <STQ.Obelisks.Path.Warden.Label>Hold the site — Starfleet protocol</STQ.Obelisks.Path.Warden.Label>
-  <STQ.Obelisks.Path.Warden.Title>Warden protocol confirmed</STQ.Obelisks.Path.Warden.Title>
-  <STQ.Obelisks.Path.Warden.Text>
-    Establish a secure perimeter, catalogue every artifact, and report status to Starfleet. Delegations
-    are received under flag protocol; Ferengi activity is monitored and recorded.
-  </STQ.Obelisks.Path.Warden.Text>
-
-  <STQ.Obelisks.Path.Vault.Label>Beat the claimants — to the vault</STQ.Obelisks.Path.Vault.Label>
-  <STQ.Obelisks.Path.Vault.Title>Vault priority acknowledged</STQ.Obelisks.Path.Vault.Title>
-  <STQ.Obelisks.Path.Vault.Text>
-    Use the window. Decode the site geometry and locate the inner chamber before other parties intervene.
-  </STQ.Obelisks.Path.Vault.Text>
-
-  <!-- ===== PHASE IV (Wardens / Vault) ===== -->
-
-  <STQ.Obelisks.PhaseIV.Warden.Title>Obelisk Survey — Phase IV (Wardens)</STQ.Obelisks.PhaseIV.Warden.Title>
-  <STQ.Obelisks.PhaseIV.Vault.Title>Obelisk Survey — Phase IV (Vault)</STQ.Obelisks.PhaseIV.Vault.Title>
-
-  <!-- ===== PHASE V (Ferengi event) ===== -->
-
-  <STQ.Obelisks.PhaseV.Title>Phase V: The Vault</STQ.Obelisks.PhaseV.Title>
-  <STQ.Obelisks.PhaseV.Body>
-    The obelisk arrangement suggests a sealed inner chamber. Several anomalies have been mapped; one should
-    be the access point.
-  </STQ.Obelisks.PhaseV.Body>
-
-  <STQ.Obelisks.V.Ferengi.Title>Ferengi broker hails</STQ.Obelisks.V.Ferengi.Title>
-  <STQ.Obelisks.V.Ferengi.Body>
-    A Ferengi offers “exclusive coordinates” to the inner ring for immediate consideration. Klingons laugh,
-    Romulans say nothing — rarely a good sign. Your call?
-  </STQ.Obelisks.V.Ferengi.Body>
-
-  <STQ.Obelisks.V.Ferengi.Deal.Label>Accept the deal (off-record)</STQ.Obelisks.V.Ferengi.Deal.Label>
-  <STQ.Obelisks.V.Ferengi.Refuse.Label>Refuse (maintain protocol)</STQ.Obelisks.V.Ferengi.Refuse.Label>
-
-  <STQ.Obelisks.V.Ferengi.Deal.ConfirmTitle>Arrangement concluded</STQ.Obelisks.V.Ferengi.Deal.ConfirmTitle>
-  <STQ.Obelisks.V.Ferengi.Deal.ConfirmText>
-    Encrypted raster data received. Note attached: “noise-sensitive lock” — likely an acoustic or subsonic seal.
-    Data has been integrated into our map.
-  </STQ.Obelisks.V.Ferengi.Deal.ConfirmText>
-
-  <STQ.Obelisks.V.Ferengi.Refuse.Title>Offer declined</STQ.Obelisks.V.Ferengi.Refuse.Title>
-  <STQ.Obelisks.V.Ferengi.Refuse.Text>
-    We cite Starfleet protocol. The broker “records future terms”; expect Ferengi scrutiny on subsequent transmissions.
-  </STQ.Obelisks.V.Ferengi.Refuse.Text>
-
-  <STQ.Obelisks.V.Vault.NextTitle>Proceed to the inner chamber</STQ.Obelisks.V.Vault.NextTitle>
-  <STQ.Obelisks.V.Vault.NextText>
-    Anomalies marked. With the (lawful or “supplemented”) data, we should pinpoint and breach the access.
-  </STQ.Obelisks.V.Vault.NextText>
-
+  <!-- Phase V: Vault -->
+  <STQ.Obelisks.PhaseV.Title>Obelisk Survey — Phase V (Vault)</STQ.Obelisks.PhaseV.Title>
+  <STQ.Obelisks.PhaseV.Desc>Race claimants to the presumed vault and recover its contents.</STQ.Obelisks.PhaseV.Desc>
+  <STQ.Obelisks.PhaseV.LetterTitle>Vault directive confirmed</STQ.Obelisks.PhaseV.LetterTitle>
+  <STQ.Obelisks.PhaseV.LetterText>Begin recovery operations. Expect resistance.</STQ.Obelisks.PhaseV.LetterText>
+  <STQ.Obelisks.PhaseV.DoneTitle>Vault recovered</STQ.Obelisks.PhaseV.DoneTitle>
+  <STQ.Obelisks.PhaseV.DoneText>The vault has been cleared and artifacts secured.</STQ.Obelisks.PhaseV.DoneText>
 </LanguageData>

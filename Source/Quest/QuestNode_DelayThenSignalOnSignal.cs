@@ -6,14 +6,15 @@ namespace StarTrekFactions.QuestNodes
 {
     public class QuestNode_DelayThenSignalOnSignal : QuestNode
     {
-        public string inSignal;
-        public string inSignalRaw;
+        public string inSignal;          // oder ...
+        public string inSignalRaw;       // ... beide möglich
 
         public int delayTicks = 60000;
         public int delayTicksMin = -1;
         public int delayTicksMax = -1;
 
-        public string outSignal;
+        public string outSignal;         // Basis ohne QuestID
+        public string cancelIfSignal;    // optional: bricht Timer ab, falls gesetzt
         public bool debug;
 
         protected override void RunInt()
@@ -30,7 +31,12 @@ namespace StarTrekFactions.QuestNodes
                 delayTicks      = chosen,
                 outSignalRaw    = outSignal,
                 outSignalScoped = outSignal.NullOrEmpty() ? null : QuestGenUtility.HardcodedSignalWithQuestID(outSignal),
-                debug           = debug
+
+                // Weitergabe der Cancel-Signale (raw + scoped)
+                cancelIfSignalRaw    = cancelIfSignal,
+                cancelIfSignalScoped = cancelIfSignal.NullOrEmpty() ? null : QuestGenUtility.HardcodedSignalWithQuestID(cancelIfSignal),
+
+                debug = debug
             };
             QuestGen.quest.AddPart(p);
         }
@@ -39,6 +45,7 @@ namespace StarTrekFactions.QuestNodes
             => !(inSignal.NullOrEmpty() && inSignalRaw.NullOrEmpty()) && !outSignal.NullOrEmpty();
     }
 
+    // Absolutes Ziel-Tick + Abbruch per Signal
     public class QuestPart_DelayThenSignalOnSignal : QuestPart
     {
         public string inSignalRaw, inSignalScoped;
@@ -46,11 +53,26 @@ namespace StarTrekFactions.QuestNodes
         public string outSignalRaw, outSignalScoped;
         public bool debug;
 
+        // NEU: Cancel-Unterstützung
+        public string cancelIfSignalRaw, cancelIfSignalScoped;
+
         private bool active;
-        private int targetTick = -1;   // absoluter Ziel-Tick
+        private int targetTick = -1;
 
         public override void Notify_QuestSignalReceived(Signal signal)
         {
+            // Cancel?
+            if (signal.tag == cancelIfSignalRaw || signal.tag == cancelIfSignalScoped)
+            {
+                if (active)
+                {
+                    active = false;
+                    if (debug) Log.Message($"[YASTM][Delay] CANCELLED by '{signal.tag}'");
+                }
+                return;
+            }
+
+            // Start?
             if (signal.tag == inSignalRaw || signal.tag == inSignalScoped)
             {
                 active = true;
@@ -61,12 +83,12 @@ namespace StarTrekFactions.QuestNodes
             }
         }
 
-        // Aufruf durch GameComponent; absolute Prüfung statt runterzählen
+        // Vom GameComponent gepollt
         public bool TickAndMaybeFire(int _ignored = 0)
         {
             if (!active) return false;
-
             int now = Find.TickManager.TicksGame;
+
             if (debug && (now % 6000 == 0 || now >= targetTick))
                 Log.Message($"[YASTM][Delay] check now={now}, left={(targetTick - now)}");
 
@@ -77,7 +99,6 @@ namespace StarTrekFactions.QuestNodes
             if (!outSignalScoped.NullOrEmpty()) Find.SignalManager.SendSignal(new Signal(outSignalScoped));
             if (debug)
                 Log.Message($"[YASTM][Delay] DONE -> sent '{outSignalRaw}' + '{outSignalScoped}' at now={now}");
-
             return true;
         }
 
@@ -88,6 +109,12 @@ namespace StarTrekFactions.QuestNodes
             Scribe_Values.Look(ref delayTicks, "delayTicks", 60000);
             Scribe_Values.Look(ref outSignalRaw, "outSignalRaw");
             Scribe_Values.Look(ref outSignalScoped, "outSignalScoped");
+            Scribe_Values.Look(ref debug, "debug", false);
+
+            // NEU: Cancel persistieren
+            Scribe_Values.Look(ref cancelIfSignalRaw, "cancelIfSignalRaw");
+            Scribe_Values.Look(ref cancelIfSignalScoped, "cancelIfSignalScoped");
+
             Scribe_Values.Look(ref active, "active");
             Scribe_Values.Look(ref targetTick, "targetTick", -1);
 

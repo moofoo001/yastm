@@ -1,102 +1,89 @@
-using Verse;
 using RimWorld;
+using RimWorld.QuestGen;
+using Verse;
 
-namespace StarTrekFactions.QuestParts
+namespace StarTrekFactions.QuestNodes
 {
-    // Shows a two-option choice dialog when 'inSignal' is received.
-    // Version: RW 1.4/1.5/1.6 kompatibel, ohne PostAdd/QuestGenUtility.
     public class QuestPart_ChoiceDialogOnSignal : QuestPart
     {
-        public string inSignal;            // e.g. STQ.Obelisks.III.Choices.Ready
+        public string inSignalRaw, inSignalScoped;
 
-        // Text keys (Keyed)
-        public string titleKey;            // e.g. STQ.Obelisks.PhaseIII.ChoiceTitle
-        public string textKey;             // e.g. STQ.Obelisks.PhaseIII.ChoiceText
+        public string titleKey;
+        public string textKey;
 
-        // Option A
-        public string optionALabel;        // e.g. STQ.Obelisks.Path.Warden.Label
-        public string optionASignal;       // e.g. STQ.Obelisks.Path.Warden.Chosen
+        public string optionALabelKey;   // Keys empfohlen (werden .Translate()'t)
+        public string optionBLabelKey;
 
-        // Option B
-        public string optionBLabel;        // e.g. STQ.Obelisks.Path.Vault.Label
-        public string optionBSignal;       // e.g. STQ.Obelisks.Path.Vault.Chosen
+        public string optionASignalRaw;
+        public string optionASignalScoped;
 
-        private bool shown;
+        public string optionBSignalRaw;
+        public string optionBSignalScoped;
+
+        public string choiceMadeSignalRaw;     // optionales „ChoiceMade“
+        public string choiceMadeSignalScoped;
+
+        public bool shown;
 
         public override void Notify_QuestSignalReceived(Signal signal)
         {
             if (shown) return;
-            if (!Matches(signal.tag, inSignal)) return;
 
-            shown = true;
+            if (signal.tag == inSignalRaw || signal.tag == inSignalScoped)
+            {
+                shown = true;
 
-            // Sauber mit TaggedString arbeiten, um CS0172 zu vermeiden
-            TaggedString body  = string.IsNullOrEmpty(textKey)
-                ? (TaggedString)"Select how to proceed."
-                : textKey.Translate();
+                string title = titleKey.NullOrEmpty() ? "Directive required" : titleKey.Translate();
+                string body  = textKey.NullOrEmpty()  ? ""                  : textKey.Translate();
 
-            TaggedString title = string.IsNullOrEmpty(titleKey)
-                ? (TaggedString)"Directive required"
-                : titleKey.Translate();
+                DiaNode root = new DiaNode(body);
 
-            var root = new DiaNode(body);
+                DiaOption a = new DiaOption(optionALabelKey.Translate());
+                a.action = () =>
+                {
+                    if (!choiceMadeSignalRaw.NullOrEmpty())     Find.SignalManager.SendSignal(new Signal(choiceMadeSignalRaw));
+                    if (!choiceMadeSignalScoped.NullOrEmpty())  Find.SignalManager.SendSignal(new Signal(choiceMadeSignalScoped));
 
-            // Labels als string auflösen
-            string aLabel = string.IsNullOrEmpty(optionALabel) ? "OK"     : optionALabel.Translate().ToString();
-            string bLabel = string.IsNullOrEmpty(optionBLabel) ? "Cancel" : optionBLabel.Translate().ToString();
+                    if (!optionASignalRaw.NullOrEmpty())        Find.SignalManager.SendSignal(new Signal(optionASignalRaw));
+                    if (!optionASignalScoped.NullOrEmpty())     Find.SignalManager.SendSignal(new Signal(optionASignalScoped));
+                };
+                a.resolveTree = true;
+                root.options.Add(a);
 
-            var optA = new DiaOption(aLabel) { resolveTree = true };
-            optA.action = () => Fire(optionASignal);
-            root.options.Add(optA);
+                DiaOption b = new DiaOption(optionBLabelKey.Translate());
+                b.action = () =>
+                {
+                    if (!choiceMadeSignalRaw.NullOrEmpty())     Find.SignalManager.SendSignal(new Signal(choiceMadeSignalRaw));
+                    if (!choiceMadeSignalScoped.NullOrEmpty())  Find.SignalManager.SendSignal(new Signal(choiceMadeSignalScoped));
 
-            var optB = new DiaOption(bLabel) { resolveTree = true };
-            optB.action = () => Fire(optionBSignal);
-            root.options.Add(optB);
+                    if (!optionBSignalRaw.NullOrEmpty())        Find.SignalManager.SendSignal(new Signal(optionBSignalRaw));
+                    if (!optionBSignalScoped.NullOrEmpty())     Find.SignalManager.SendSignal(new Signal(optionBSignalScoped));
+                };
+                b.resolveTree = true;
+                root.options.Add(b);
 
-            // RW-kompatibel (ohne WithTitle). Wenn du den Titel sichtbar willst, pack ihn in den Text-Key.
-            Find.WindowStack.Add(new Dialog_NodeTree(root, true));
-        }
+                // Optionaler Close-Button ohne Aktion
+                root.options.Add(DiaOption.DefaultOK);
 
-        private void Fire(string tag)
-        {
-            if (string.IsNullOrEmpty(tag)) return;
-
-            // raw
-            Find.SignalManager.SendSignal(new Signal(tag));
-            // quest-scoped
-            var scoped = Scoped(tag);
-            if (scoped != tag)
-                Find.SignalManager.SendSignal(new Signal(scoped));
-
-            if (Prefs.DevMode)
-                Log.Message($"[YASTM][CHOICE] Sent '{tag}' & '{scoped}' (quest {quest?.id})");
-        }
-
-        private bool Matches(string got, string want)
-        {
-            if (string.IsNullOrEmpty(got) || string.IsNullOrEmpty(want)) return false;
-            if (got == want) return true;
-            return got == Scoped(want);
-        }
-
-        private string Scoped(string tag)
-        {
-            if (string.IsNullOrEmpty(tag) || quest == null) return tag;
-            if (tag.StartsWith("Quest")) return tag;
-            return $"Quest{quest.id}.{tag}";
+                Find.WindowStack.Add(new Dialog_NodeTree(root, true, true, title));
+            }
         }
 
         public override void ExposeData()
         {
-            base.ExposeData();
-            Scribe_Values.Look(ref inSignal,     nameof(inSignal));
-            Scribe_Values.Look(ref titleKey,     nameof(titleKey));
-            Scribe_Values.Look(ref textKey,      nameof(textKey));
-            Scribe_Values.Look(ref optionALabel, nameof(optionALabel));
-            Scribe_Values.Look(ref optionASignal,nameof(optionASignal));
-            Scribe_Values.Look(ref optionBLabel, nameof(optionBLabel));
-            Scribe_Values.Look(ref optionBSignal,nameof(optionBSignal));
-            Scribe_Values.Look(ref shown,        nameof(shown));
+            Scribe_Values.Look(ref inSignalRaw, "inSignalRaw");
+            Scribe_Values.Look(ref inSignalScoped, "inSignalScoped");
+            Scribe_Values.Look(ref titleKey, "titleKey");
+            Scribe_Values.Look(ref textKey, "textKey");
+            Scribe_Values.Look(ref optionALabelKey, "optionALabelKey");
+            Scribe_Values.Look(ref optionBLabelKey, "optionBLabelKey");
+            Scribe_Values.Look(ref optionASignalRaw, "optionASignalRaw");
+            Scribe_Values.Look(ref optionASignalScoped, "optionASignalScoped");
+            Scribe_Values.Look(ref optionBSignalRaw, "optionBSignalRaw");
+            Scribe_Values.Look(ref optionBSignalScoped, "optionBSignalScoped");
+            Scribe_Values.Look(ref choiceMadeSignalRaw, "choiceMadeSignalRaw");
+            Scribe_Values.Look(ref choiceMadeSignalScoped, "choiceMadeSignalScoped");
+            Scribe_Values.Look(ref shown, "shown", false);
         }
     }
 }

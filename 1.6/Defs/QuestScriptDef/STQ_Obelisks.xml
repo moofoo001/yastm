@@ -73,14 +73,14 @@
           <descriptionKey>STQ.Obelisks.PhaseIII.Desc</descriptionKey>
         </li>
 
-        <!-- 1–2 Tage warten -->
-    <li Class="StarTrekFactions.QuestNodes.QuestNode_DelayThenSignalOnSignal">
-      <inSignal>STQ.Obelisks.II.Cleared</inSignal>
-      <delayTicksMin>60000</delayTicksMin>
-      <delayTicksMax>120000</delayTicksMax>
-      <outSignal>STQ.Obelisks.III.DelayDone</outSignal>
-      <debug>true</debug>
-    </li>
+            <!-- 1–2 Tage warten -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_DelayThenSignalOnSignal">
+          <inSignal>STQ.Obelisks.II.Cleared</inSignal>
+          <delayTicksMin>60000</delayTicksMin>
+          <delayTicksMax>120000</delayTicksMax>
+          <outSignal>STQ.Obelisks.III.DelayDone</outSignal>
+          <debug>true</debug>
+        </li>
 
         <!-- Zweiter Manhunter -->
         <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
@@ -113,6 +113,7 @@
         <delayTicksMin>60000</delayTicksMin>   <!-- 1 Tag -->
         <delayTicksMax>60000</delayTicksMax>
         <outSignal>STQ.Obelisks.Path.Vault.Chosen</outSignal>
+        <cancelIfSignal>STQ.Obelisks.Path.ChoiceMade</cancelIfSignal>
         <debug>false</debug>
       </li>
 
