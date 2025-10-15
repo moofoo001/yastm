@@ -1,15 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+
   <RulePackDef>
     <defName>STQ_RP_Obelisks_Name</defName>
-    <rulesStrings>
-      <li>questName->Obelisk Survey</li>
-    </rulesStrings>
+    <rulePack>
+      <rulesStrings>
+        <li>questName->Obelisk Survey</li>
+      </rulesStrings>
+    </rulePack>
   </RulePackDef>
+
   <RulePackDef>
     <defName>STQ_RP_Obelisks_Desc</defName>
-    <rulesStrings>
-      <li>questDescription->Locate and scan the obelisks, then act on the findings.</li>
-    </rulesStrings>
+    <rulePack>
+      <rulesStrings>
+        <li>questDescription->Locate and scan the obelisks, then act on the findings.</li>
+      </rulesStrings>
+    </rulePack>
   </RulePackDef>
+
 </Defs>

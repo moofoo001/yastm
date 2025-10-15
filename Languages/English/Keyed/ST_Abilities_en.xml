@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ST_Ability_VulcanNervePinch.label>Vulcan nerve pinch</ST_Ability_VulcanNervePinch.label>
+  <ST_Ability_VulcanNervePinch.description>Applies a precise nerve pinch to briefly stun the target.</ST_Ability_VulcanNervePinch.description>
+
+  <ST_Ability_FieldTriage.label>Field triage</ST_Ability_FieldTriage.label>
+  <ST_Ability_FieldTriage.description>Temporarily increases tending speed and stabilizes the patient.</ST_Ability_FieldTriage.description>
+
+  <ST_Trait_StarfleetTraining.label>Starfleet training</ST_Trait_StarfleetTraining.label>
+  <ST_Trait_IDICMindset.label>IDIC mindset</ST_Trait_IDICMindset.label>
+  <ST_Trait_PrimeDirectiveMinded.label>Prime Directive–minded</ST_Trait_PrimeDirectiveMinded.label>
+
+</LanguageData>

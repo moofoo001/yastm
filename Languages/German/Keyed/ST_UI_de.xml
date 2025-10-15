@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Beacon buttons -->
+  <ST.InitializeBeacon>Bake initialisieren</ST.InitializeBeacon>
+  <ST.InitializeBeacon.Desc>Startet das Obelisken-Erkundungsprotokoll.</ST.InitializeBeacon.Desc>
+
+  <ST.ReportToStarfleet>An Sternenflotte berichten</ST.ReportToStarfleet>
+  <ST.ReportToStarfleet.Desc>Ergebnisse an die Sternenflotte übermitteln.</ST.ReportToStarfleet.Desc>
+
+  <ST.ObeliskSurveyInitialized>Erkundungsprotokoll initialisiert. Zwei Obelisken erkannt – mit den Scans beginnen.</ST.ObeliskSurveyInitialized>
+  <ST.ReadyToReport>Scans abgeschlossen. Verwende die Bake, um der Sternenflotte zu berichten.</ST.ReadyToReport>
+  <ST.SubspaceImpulseStarted>Subraum-Impulsreaktionen erwartet. Bleibt wachsam.</ST.SubspaceImpulseStarted>
+
+  <!-- Feedback / errors -->
+  <ST.MustBePowered>Muss mit Strom versorgt sein.</ST.MustBePowered>
+  <ST.CompleteScansFirst>Erst die Scans abschließen.</ST.CompleteScansFirst>
+  <!-- gespiegelt, weil in EN doppelt vorhanden -->
+  <ST.ObeliskSurveyInitialized>Obelisken-Erkundung initialisiert.</ST.ObeliskSurveyInitialized>
+  <ST.ReportSent>Bericht an die Sternenflotte gesendet.</ST.ReportSent>
+
+  <!-- Crate -->
+  <ST.DeployedBeacon>Kommunikationsbake aufgestellt.</ST.DeployedBeacon>
+  <ST.NoPlaceToDeploy>Kein Platz zum Aufstellen.</ST.NoPlaceToDeploy>
+
+</LanguageData>

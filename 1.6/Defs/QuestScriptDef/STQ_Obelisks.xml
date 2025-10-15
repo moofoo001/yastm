@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- YASTM – Obelisk Questline (alle Phasen in einem Quest) -->
+  <!-- YASTM – Obelisk Questline (v1.6) -->
   <QuestScriptDef>
-    <!-- defName unverändert lassen, damit dein Incident weiter funktioniert -->
     <defName>STQ_VE_Obelisks_I_II_Setup</defName>
-    <nameRulePack>STQ_RP_Obelisks_Name</nameRulePack>
-    <descriptionRulePack>STQ_RP_Obelisks_Desc</descriptionRulePack>
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->Obelisk Survey</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->Establish subspace sensors at the obelisks, scan them, and report findings to Starfleet Command. Be prepared for local wildlife agitation.</li>
+      </rulesStrings>
+    </questDescriptionRules>
     <rootSelectionWeight>0</rootSelectionWeight>
     <autoAccept>false</autoAccept>
 
@@ -14,7 +21,7 @@
       <nodes>
 
         <!-- ========= PHASE I ========= -->
-        <!-- Startbrief beim Annehmen -->
+  
         <li Class="QuestNode_Letter">
           <inSignal>QuestAccepted</inSignal>
           <label>STQ.Obelisks.Setup.LetterTitle</label>
@@ -22,7 +29,7 @@
           <letterDef>NeutralEvent</letterDef>
         </li>
 
-        <!-- Titel/Beschreibung Phase I -->
+  
         <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
           <inSignal>QuestAccepted</inSignal>
           <titleKey>STQ.Obelisks.PhaseI.Title</titleKey>
@@ -30,7 +37,7 @@
         </li>
 
         <!-- ========= PHASE II ========= -->
-        <!-- Beacon aktiviert -> Phase II -->
+  
         <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
           <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
           <titleKey>STQ.Obelisks.PhaseII.Title</titleKey>
@@ -44,7 +51,7 @@
           <letterDef>NeutralEvent</letterDef>
         </li>
 
-        <!-- Daten übertragen -> Manhunter pack -->
+  
         <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
           <inSignal>STQ.Obelisks.DataTransmitted</inSignal>
           <incident>ManhunterPack</incident>
@@ -52,14 +59,14 @@
           <outSignal>STQ.Obelisks.II.ManhuntersSpawned</outSignal>
         </li>
 
-        <!-- Warten bis die Manhunter besiegt sind -->
+  
         <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
           <inSignal>STQ.Obelisks.II.ManhuntersSpawned</inSignal>
           <onlyManhunters>true</onlyManhunters>
           <outSignal>STQ.Obelisks.II.Cleared</outSignal>
         </li>
 
-        <!-- Info: Phase II abgeschlossen -->
+  
         <li Class="QuestNode_Letter">
           <inSignal>STQ.Obelisks.II.Cleared</inSignal>
           <label>STQ.Obelisks.PhaseII.CompleteTitle</label>
@@ -68,14 +75,13 @@
         </li>
 
         <!-- ========= PHASE III (Pressure) ========= -->
-        <!-- Umbenennen auf Phase III -->
+  
         <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
           <inSignal>STQ.Obelisks.II.Cleared</inSignal>
           <titleKey>STQ.Obelisks.PhaseIII.Title</titleKey>
           <descriptionKey>STQ.Obelisks.PhaseIII.Desc</descriptionKey>
         </li>
 
-            <!-- 1–2 Tage warten -->
         <li Class="StarTrekFactions.QuestNodes.QuestNode_DelayThenSignalOnSignal">
           <inSignal>STQ.Obelisks.II.Cleared</inSignal>
           <delayTicksMin>60000</delayTicksMin>
@@ -84,7 +90,6 @@
           <debug>true</debug>
         </li>
 
-        <!-- Zweiter Manhunter -->
         <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
           <inSignal>STQ.Obelisks.III.DelayDone</inSignal>
           <incident>ManhunterPack</incident>
@@ -92,14 +97,12 @@
           <outSignal>STQ.Obelisks.III.ManhuntersSpawned</outSignal>
         </li>
 
-        <!-- Warten bis besiegt -->
         <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
           <inSignal>STQ.Obelisks.III.ManhuntersSpawned</inSignal>
           <onlyManhunters>true</onlyManhunters>
           <outSignal>STQ.Obelisks.III.Cleared</outSignal>
         </li>
 
-        <!-- Hinweisbrief nach Sieg -->
         <li Class="QuestNode_Letter">
           <inSignal>STQ.Obelisks.III.Cleared</inSignal>
           <label>STQ.Obelisks.PhaseIII.ThreatTitle</label>
@@ -116,18 +119,15 @@
         <delayTicksMax>60000</delayTicksMax>
         <outSignal>STQ.Obelisks.Path.Vault.Chosen</outSignal>
         <cancelIfSignal>STQ.Obelisks.Path.ChoiceMade</cancelIfSignal>
-        <debug>true</debug> <!-- temporär -->
+        <debug>true</debug>
       </li>
-
-      <!-- Auswahl-Dialog -->
+      
       <li Class="StarTrekFactions.QuestNodes.QuestNode_ChoiceDialogOnSignalV2">
         <inSignal>STQ.Obelisks.III.Cleared</inSignal>
 
-        <!-- Titel/Body aus Keys (empfohlen) -->
         <titleKey>STQ.Obelisks.Choice.Title</titleKey>
         <textKey>STQ.Obelisks.Choice.Text</textKey>
 
-        <!-- Optionen: schicken die beiden Pfad-Signale -->
         <optionALabel>STQ.Obelisks.Choice.Warden</optionALabel>
         <optionASignal>STQ.Obelisks.Path.Warden.Chosen</optionASignal>
 
@@ -136,7 +136,7 @@
       </li>
 
       <!-- ====== PFAD IV: WARDEN ====== -->
-      <!-- Umbenennen + Hinweisschreiben -->
+
       <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
         <inSignal>STQ.Obelisks.Path.Warden.Chosen</inSignal>
         <titleKey>STQ.Obelisks.PhaseIV.Title</titleKey>
@@ -149,7 +149,6 @@
         <letterDef>NeutralEvent</letterDef>
       </li>
 
-      <!-- Kleiner feindlicher Raid -->
       <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
         <inSignal>STQ.Obelisks.Path.Warden.Chosen</inSignal>
         <incident>RaidEnemy</incident>
@@ -157,47 +156,43 @@
         <outSignal>STQ.Obelisks.IV.RaidSpawned</outSignal>
       </li>
 
-        <!-- warten bis besiegt -->
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
-          <inSignal>STQ.Obelisks.IV.RaidSpawned</inSignal>
-          <onlyManhunters>false</onlyManhunters>
-          <outSignal>STQ.Obelisks.IV.Cleared</outSignal>
-        </li>
+      <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
+        <inSignal>STQ.Obelisks.IV.RaidSpawned</inSignal>
+        <onlyManhunters>false</onlyManhunters>
+        <outSignal>STQ.Obelisks.IV.Cleared</outSignal>
+      </li>
 
-        <!-- DEBUG: sehen, dass der Raid wirklich gespawnt ist -->
-        <li Class="QuestNode_Letter">
-          <inSignal>STQ.Obelisks.IV.RaidSpawned</inSignal>
-          <label>DEBUG: IV raid spawned</label>
-          <text>DEBUG</text>
-          <letterDef>NeutralEvent</letterDef>
-        </li>
+      <li Class="QuestNode_Letter">
+        <inSignal>STQ.Obelisks.IV.RaidSpawned</inSignal>
+        <label>DEBUG: IV raid spawned</label>
+        <text>DEBUG</text>
+        <letterDef>NeutralEvent</letterDef>
+      </li>
 
-        <!-- Abschlussbrief -->
-        <li Class="QuestNode_Letter">
-          <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
-          <label>STQ.Obelisks.PhaseIV.DoneTitle</label>
-          <text>STQ.Obelisks.PhaseIV.DoneText</text>
-          <letterDef>PositiveEvent</letterDef>
-        </li>
+      <li Class="QuestNode_Letter">
+        <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
+        <label>STQ.Obelisks.PhaseIV.DoneTitle</label>
+        <text>STQ.Obelisks.PhaseIV.DoneText</text>
+        <letterDef>PositiveEvent</letterDef>
+      </li>
 
-        <!-- LOOT VOR dem Enden der Quest -->
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_SpawnRewardsOnSignal">
-          <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
-          <dropPod>true</dropPod>
-          <rewards>
-            <li><thingDef>MealSurvivalPack</thingDef><count>30</count></li>
-            <li><thingDef>MedicineIndustrial</thingDef><count>20</count></li>
-            <li><thingDef>ComponentIndustrial</thingDef><count>8</count></li>
-            <li><thingDef>GravlitePanel</thingDef><count>50</count></li>
-            <li><thingDef>Silver</thingDef><count>100</count></li>
-          </rewards>
-        </li>
 
-        <!-- jetzt erst Quest beenden -->
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_EndOnSignal">
-          <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
-          <outcome>Success</outcome>
-        </li>
+      <li Class="StarTrekFactions.QuestNodes.QuestNode_SpawnRewardsOnSignal">
+        <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
+        <dropPod>true</dropPod>
+        <rewards>
+          <li><thingDef>MealSurvivalPack</thingDef><count>30</count></li>
+          <li><thingDef>MedicineIndustrial</thingDef><count>20</count></li>
+          <li><thingDef>ComponentIndustrial</thingDef><count>8</count></li>
+          <li><thingDef>GravlitePanel</thingDef><count>50</count></li>
+          <li><thingDef>Silver</thingDef><count>100</count></li>
+        </rewards>
+      </li>
+
+      <li Class="StarTrekFactions.QuestNodes.QuestNode_EndOnSignal">
+        <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
+        <outcome>Success</outcome>
+      </li>
 
       <!-- ====== PFAD V: VAULT ====== -->
       <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
@@ -212,7 +207,6 @@
         <letterDef>NeutralEvent</letterDef>
       </li>
 
-      <!-- Basis-Variante (Core-only): kleiner Raid -->
       <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
         <inSignal>STQ.Obelisks.Path.Vault.Chosen</inSignal>
         <incident>RaidEnemy</incident>
