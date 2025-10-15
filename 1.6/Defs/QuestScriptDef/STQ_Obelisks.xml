@@ -167,6 +167,40 @@
         <letterDef>PositiveEvent</letterDef>
       </li>
 
+      <li Class="StarTrekFactions.QuestNodes.QuestNode_EndOnSignal">
+        <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
+        <outcome>Success</outcome>
+      </li>
+
+
+      <!--LOOT ! -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_SpawnRewardsOnSignal">
+          <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
+          <dropPod>true</dropPod>
+          <rewards>
+            <li>
+              <thingDef>MealSurvivalPack</thingDef>
+              <count>30</count>
+            </li>
+            <li>
+              <thingDef>MedicineIndustrial</thingDef>
+              <count>20</count>
+            </li>
+            <li>
+              <thingDef>ComponentIndustrial</thingDef>
+              <count>8</count>
+            </li>
+            <li>
+              <thingDef>GravlitePanel</thingDef>
+              <count>50</count>
+            </li>
+            <li>
+              <thingDef>Silver</thingDef>
+              <count>100</count>
+            </li>
+          </rewards>
+      </li>
+
       <!-- ====== PFAD V: VAULT ====== -->
       <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
         <inSignal>STQ.Obelisks.Path.Vault.Chosen</inSignal>
@@ -199,6 +233,39 @@
         <text>STQ.Obelisks.PhaseV.DoneText</text>
         <letterDef>PositiveEvent</letterDef>
       </li>
+
+      <li Class="StarTrekFactions.QuestNodes.QuestNode_EndOnSignal">
+        <inSignal>STQ.Obelisks.V.Cleared</inSignal>
+        <outcome>Success</outcome>
+     </li>
+     
+      <!-- LOOT ! -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_SpawnRewardsOnSignal">
+          <inSignal>STQ.Obelisks.V.Cleared</inSignal>
+          <dropPod>true</dropPod>
+          <rewards>
+         <li>
+              <thingDef>MealSurvivalPack</thingDef>
+              <count>30</count>
+            </li>
+            <li>
+              <thingDef>MedicineIndustrial</thingDef>
+              <count>20</count>
+            </li>
+            <li>
+              <thingDef>GravlitePanel</thingDef>
+              <count>100</count>
+            </li>
+            <li>
+              <thingDef>ComponentSpacer</thingDef>
+              <count>4</count>
+            </li>
+            <li>
+              <thingDef>Gold</thingDef>
+              <count>100</count>
+            </li>
+          </rewards>
+        </li>
       </nodes>
     </root>
   </QuestScriptDef>
