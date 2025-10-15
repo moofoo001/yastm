@@ -5,6 +5,8 @@
   <QuestScriptDef>
     <!-- defName unverändert lassen, damit dein Incident weiter funktioniert -->
     <defName>STQ_VE_Obelisks_I_II_Setup</defName>
+    <nameRulePack>STQ_RP_Obelisks_Name</nameRulePack>
+    <descriptionRulePack>STQ_RP_Obelisks_Desc</descriptionRulePack>
     <rootSelectionWeight>0</rootSelectionWeight>
     <autoAccept>false</autoAccept>
 
@@ -105,16 +107,16 @@
           <letterDef>NeutralEvent</letterDef>
         </li>
 
+      <!-- PHASE IV  -->
       <!-- ====== CHOICE: Warden vs Vault ====== -->
 
-      <!-- (Optional) Auto-Choice nach 1 Tag: wenn nicht entschieden, Default = Vault -->
       <li Class="StarTrekFactions.QuestNodes.QuestNode_DelayThenSignalOnSignal">
         <inSignal>STQ.Obelisks.III.Cleared</inSignal>
-        <delayTicksMin>60000</delayTicksMin>   <!-- 1 Tag -->
+        <delayTicksMin>60000</delayTicksMin>
         <delayTicksMax>60000</delayTicksMax>
         <outSignal>STQ.Obelisks.Path.Vault.Chosen</outSignal>
         <cancelIfSignal>STQ.Obelisks.Path.ChoiceMade</cancelIfSignal>
-        <debug>false</debug>
+        <debug>true</debug> <!-- temporär -->
       </li>
 
       <!-- Auswahl-Dialog -->
@@ -151,55 +153,51 @@
       <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
         <inSignal>STQ.Obelisks.Path.Warden.Chosen</inSignal>
         <incident>RaidEnemy</incident>
-        <pointsFactor>0.80</pointsFactor>
+        <pointsFactor>1.0</pointsFactor>
         <outSignal>STQ.Obelisks.IV.RaidSpawned</outSignal>
       </li>
 
-      <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
-        <inSignal>STQ.Obelisks.IV.RaidSpawned</inSignal>
-        <outSignal>STQ.Obelisks.IV.Cleared</outSignal>
-      </li>
+        <!-- warten bis besiegt -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
+          <inSignal>STQ.Obelisks.IV.RaidSpawned</inSignal>
+          <onlyManhunters>false</onlyManhunters>
+          <outSignal>STQ.Obelisks.IV.Cleared</outSignal>
+        </li>
 
-      <li Class="QuestNode_Letter">
-        <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
-        <label>STQ.Obelisks.PhaseIV.DoneTitle</label>
-        <text>STQ.Obelisks.PhaseIV.DoneText</text>
-        <letterDef>PositiveEvent</letterDef>
-      </li>
+        <!-- DEBUG: sehen, dass der Raid wirklich gespawnt ist -->
+        <li Class="QuestNode_Letter">
+          <inSignal>STQ.Obelisks.IV.RaidSpawned</inSignal>
+          <label>DEBUG: IV raid spawned</label>
+          <text>DEBUG</text>
+          <letterDef>NeutralEvent</letterDef>
+        </li>
 
-      <li Class="StarTrekFactions.QuestNodes.QuestNode_EndOnSignal">
-        <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
-        <outcome>Success</outcome>
-      </li>
+        <!-- Abschlussbrief -->
+        <li Class="QuestNode_Letter">
+          <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
+          <label>STQ.Obelisks.PhaseIV.DoneTitle</label>
+          <text>STQ.Obelisks.PhaseIV.DoneText</text>
+          <letterDef>PositiveEvent</letterDef>
+        </li>
 
-
-      <!--LOOT ! -->
+        <!-- LOOT VOR dem Enden der Quest -->
         <li Class="StarTrekFactions.QuestNodes.QuestNode_SpawnRewardsOnSignal">
           <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
           <dropPod>true</dropPod>
           <rewards>
-            <li>
-              <thingDef>MealSurvivalPack</thingDef>
-              <count>30</count>
-            </li>
-            <li>
-              <thingDef>MedicineIndustrial</thingDef>
-              <count>20</count>
-            </li>
-            <li>
-              <thingDef>ComponentIndustrial</thingDef>
-              <count>8</count>
-            </li>
-            <li>
-              <thingDef>GravlitePanel</thingDef>
-              <count>50</count>
-            </li>
-            <li>
-              <thingDef>Silver</thingDef>
-              <count>100</count>
-            </li>
+            <li><thingDef>MealSurvivalPack</thingDef><count>30</count></li>
+            <li><thingDef>MedicineIndustrial</thingDef><count>20</count></li>
+            <li><thingDef>ComponentIndustrial</thingDef><count>8</count></li>
+            <li><thingDef>GravlitePanel</thingDef><count>50</count></li>
+            <li><thingDef>Silver</thingDef><count>100</count></li>
           </rewards>
-      </li>
+        </li>
+
+        <!-- jetzt erst Quest beenden -->
+        <li Class="StarTrekFactions.QuestNodes.QuestNode_EndOnSignal">
+          <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
+          <outcome>Success</outcome>
+        </li>
 
       <!-- ====== PFAD V: VAULT ====== -->
       <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
@@ -218,13 +216,21 @@
       <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
         <inSignal>STQ.Obelisks.Path.Vault.Chosen</inSignal>
         <incident>RaidEnemy</incident>
-        <pointsFactor>0.70</pointsFactor>
+        <pointsFactor>1.50</pointsFactor>
         <outSignal>STQ.Obelisks.V.RaidSpawned</outSignal>
       </li>
 
       <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
         <inSignal>STQ.Obelisks.V.RaidSpawned</inSignal>
+        <onlyManhunters>false</onlyManhunters>
         <outSignal>STQ.Obelisks.V.Cleared</outSignal>
+      </li>
+
+      <li Class="QuestNode_Letter">
+        <inSignal>STQ.Obelisks.V.RaidSpawned</inSignal>
+        <label>DEBUG: V raid spawned</label>
+        <text>DEBUG</text>
+        <letterDef>NeutralEvent</letterDef>
       </li>
 
       <li Class="QuestNode_Letter">
@@ -234,38 +240,23 @@
         <letterDef>PositiveEvent</letterDef>
       </li>
 
+      <li Class="StarTrekFactions.QuestNodes.QuestNode_SpawnRewardsOnSignal">
+        <inSignal>STQ.Obelisks.V.Cleared</inSignal>
+        <dropPod>true</dropPod>
+        <rewards>
+          <li><thingDef>MealSurvivalPack</thingDef><count>30</count></li>
+          <li><thingDef>MedicineIndustrial</thingDef><count>20</count></li>
+          <li><thingDef>GravlitePanel</thingDef><count>100</count></li>
+          <li><thingDef>ComponentSpacer</thingDef><count>4</count></li>
+          <li><thingDef>Gold</thingDef><count>100</count></li>
+        </rewards>
+      </li>
+
       <li Class="StarTrekFactions.QuestNodes.QuestNode_EndOnSignal">
         <inSignal>STQ.Obelisks.V.Cleared</inSignal>
         <outcome>Success</outcome>
-     </li>
-     
-      <!-- LOOT ! -->
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_SpawnRewardsOnSignal">
-          <inSignal>STQ.Obelisks.V.Cleared</inSignal>
-          <dropPod>true</dropPod>
-          <rewards>
-         <li>
-              <thingDef>MealSurvivalPack</thingDef>
-              <count>30</count>
-            </li>
-            <li>
-              <thingDef>MedicineIndustrial</thingDef>
-              <count>20</count>
-            </li>
-            <li>
-              <thingDef>GravlitePanel</thingDef>
-              <count>100</count>
-            </li>
-            <li>
-              <thingDef>ComponentSpacer</thingDef>
-              <count>4</count>
-            </li>
-            <li>
-              <thingDef>Gold</thingDef>
-              <count>100</count>
-            </li>
-          </rewards>
-        </li>
+      </li>
+
       </nodes>
     </root>
   </QuestScriptDef>
