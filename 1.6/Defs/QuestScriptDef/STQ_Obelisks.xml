@@ -119,7 +119,7 @@
         <delayTicksMax>60000</delayTicksMax>
         <outSignal>STQ.Obelisks.Path.Vault.Chosen</outSignal>
         <cancelIfSignal>STQ.Obelisks.Path.ChoiceMade</cancelIfSignal>
-        <debug>true</debug>
+        <debug>false</debug>
       </li>
       
       <li Class="StarTrekFactions.QuestNodes.QuestNode_ChoiceDialogOnSignalV2">
@@ -152,7 +152,10 @@
       <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
         <inSignal>STQ.Obelisks.Path.Warden.Chosen</inSignal>
         <incident>RaidEnemy</incident>
-        <pointsFactor>1.0</pointsFactor>
+        <forcedFactionDef>Romulan_Star_Empire</forcedFactionDef>
+        <arrivalMode>EdgeDrop</arrivalMode>
+        <raidStrategy>ImmediateAttack</raidStrategy>
+        <pointsFactor>1.10</pointsFactor>
         <outSignal>STQ.Obelisks.IV.RaidSpawned</outSignal>
       </li>
 
@@ -210,6 +213,9 @@
       <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
         <inSignal>STQ.Obelisks.Path.Vault.Chosen</inSignal>
         <incident>RaidEnemy</incident>
+        <forcedFactionDef>Romulan_Star_Empire</forcedFactionDef>
+        <arrivalMode>CenterDrop</arrivalMode>
+        <raidStrategy>ImmediateAttack</raidStrategy>
         <pointsFactor>1.50</pointsFactor>
         <outSignal>STQ.Obelisks.V.RaidSpawned</outSignal>
       </li>
@@ -220,13 +226,14 @@
         <outSignal>STQ.Obelisks.V.Cleared</outSignal>
       </li>
 
+<!--
       <li Class="QuestNode_Letter">
         <inSignal>STQ.Obelisks.V.RaidSpawned</inSignal>
         <label>DEBUG: V raid spawned</label>
         <text>DEBUG</text>
         <letterDef>NeutralEvent</letterDef>
       </li>
-
+-->
       <li Class="QuestNode_Letter">
         <inSignal>STQ.Obelisks.V.Cleared</inSignal>
         <label>STQ.Obelisks.PhaseV.DoneTitle</label>

@@ -32,81 +32,88 @@
     <ThingDef ParentName="BuildingBase">
     <defName>ST_ComBeacon</defName>
     <label>Starfleet Communications Beacon</label>
-    <thingClass>Building</thingClass>
+    <thingClass>Building_CommsConsole</thingClass>
     <category>Building</category>
     <tickerType>Normal</tickerType>
     <altitudeLayer>Building</altitudeLayer>
     <selectable>true</selectable>
-    <description>A compact Starfleet subspace relay and anomaly triangulation node.
-    Initialize to begin the obelisk survey protocol.</description>
-    <size>(1,1)</size>
-
-    <!-- Minify: nur minifiedDef lassen (installBlueprintDef/installFrameDef entfernen) -->
+    <description>Starfleet subspace communication node. Works as a comms console for contacting factions/orbital traders and can transmit a Starfleet subspace ping to initiate missions.</description>
     <minifiedDef>MinifiedThing</minifiedDef>
-
-    <!-- Item-Eigenschaften für das verpackte Teil -->
     <thingCategories>
         <li>BuildingsMisc</li>
     </thingCategories>
     <statBases>
-        <Mass>5</Mass>
+      <MaxHitPoints>90</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+      <Flammability>0.3</Flammability>
+      <Mass>6</Mass>
     </statBases>
     <graphicData>
-        <texPath>Things/Building/ST_ComBeacon</texPath>
-        <graphicClass>Graphic_Single</graphicClass>
-        <drawSize>(2,2)</drawSize>
+      <texPath>Things/Building/ST_ComBeacon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
     </graphicData>
     <uiIconScale>0.5</uiIconScale>
     <costList>
-        <Steel>30</Steel>
-        <ComponentIndustrial>4</ComponentIndustrial>
+        <Steel>50</Steel>
+        <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
     <designationCategory>ST_Designation</designationCategory>
-    <!--
+
     <placeWorkers>
-        <li>PlaceWorker_ShowFacilitiesConnections</li>
+         <li>PlaceWorker_PreventInteractionSpotOverlap</li>
     </placeWorkers>
-    -->
+
     <researchPrerequisites>
+        <li>MicroelectronicsBasics</li>
         <li>ST_SubspaceTelemetry</li>
     </researchPrerequisites>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
     <comps>
-      <!-- Strom + normaler Power-Schalter -->
+      <!-- Power and switch  -->
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>120</basePowerConsumption>
       </li>
       <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
       <li Class="StarTrekFactions.Comps.CompProperties_UseEffect_SpawnFarAndSignal">
         <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
         <minDist>42</minDist>
         <maxDist>72</maxDist>
         <outsideHome>true</outsideHome>
-        <requirePowerOn>true</requirePowerOn>  <!-- fürs Testen ggf. auf false -->
+        <requirePowerOn>true</requirePowerOn>  
         <thingA>ST_Obelisk_A</thingA>
         <thingB>ST_Obelisk_B</thingB>
         <questDefToEnsure>STQ_VE_Obelisks_I_II_Setup</questDefToEnsure>
       </li>
-      <!-- Einziger Beacon-Flow: Init + Report -->
+      
+      <!-- "Request Starfleet Aid"  -->
+      <li Class="YASTM.CompProperties_StarfleetAid">
+        <useLabel>Request Starfleet Aid</useLabel>
+        <cooldownDays>10</cooldownDays>            <!-- globaler Cooldown in Tagen -->
+        <silverCost>200</silverCost>               <!-- 0 = keine Silber-Kosten -->
+        <goodwillCost>6</goodwillCost>             <!-- 0 = keine Goodwill-Kosten -->
+        <minGoodwill>40</minGoodwill>              <!-- Button nur ab wohlwollender Beziehung -->
+        <federationFactionDef>Federation_Of_Planets</federationFactionDef> <!-- dein FactionDefName -->
+        <useDuration>120</useDuration>             <!-- "Sendezeit" (Flavor) -->
+      </li>
+
+      <!--  Beacon-Flow: Init + Report -->
       <li Class="StarTrekFactions.Comps.CompProperties_BeaconControls">
-        <!-- UI-Labels (Keys können natürlich auf deine Übersetzungen zeigen) -->
         <initLabelKey>ST.InitializeBeacon</initLabelKey>
         <reportLabelKey>ST.ReportToStarfleet</reportLabelKey>
-
-        <!-- Signale -->
         <initSignal>STQ.Obelisks.BeaconActivated</initSignal>
         <reportSignal>STQ.Obelisks.DataTransmitted</reportSignal>
-
-        <!-- Logik: Report erst, wenn beide Scans fertig -->
         <requireScansForReport>true</requireScansForReport>
-
-        <!-- WICHTIG: Raid + Phase III NICHT am Beacon, das übernimmt die Quest -->
         <fireIncidentOnReport>false</fireIncidentOnReport>
         <pointsFactor>1.0</pointsFactor>
-        <!-- exists only in code after patch below -->
-        <!-- <startPhaseIIIOnReport>false</startPhaseIIIOnReport> -->
-
-        <!-- Was bei Init gespawnt wird -->
         <spawnOnInit>
           <li>
             <thingDef>ST_Obelisk_A</thingDef>

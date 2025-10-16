@@ -3,14 +3,23 @@
   <ScenarioDef>
     <defName>ST_Gravship_ShuttleStart</defName>
     <label>Starfleet Shuttle Start</label>
-    <description>
-    Your ship was on the way to the neutral zone to investigate a rare stelar phenomenon.
-    However, an extraordinarily strong neutrino storm caught your away team by surprise.
-    You crash-landed on a nearby planet, with no way to contact your ship.....
-    </description>
+    <description>Starfleet Command has flagged a small neutral zone world for a routine surface survey.\n
+    Admiral April is dispatching a Lieutenant, junior grade, with four Starfleet cadets to\n execute a low-footprint away mission:\n
+    establish a perimeter, deploy subspace sensors, and investigate reports of ancient alien obelisks detected from orbit.\n
+    This is a training-grade operation with real stakes. Expect limited resupply and no starship air cover once the shuttle departs.\n
+    Maintain Prime Directive discipline—observe, sample, and document without unnecessary cultural impact.\n
+    Defensive force is authorized if local conditions deteriorate.\n
+    Mission objectives:\n
+    1. Insert by shuttle and secure a small operating zone.\n
+    2. Deploy the subspace sensor array near the suspected obelisk sites.\n
+    3. Complete paired scans and transmit telemetry to Starfleet.\n
+    4. Hold the area against wildlife agitation and opportunistic claimants until extraction.\n
+    Caution: subspace harmonics can agitate native fauna and may draw attention from scavengers—or trigger legacy defenses around any genuine relics.\n
+    Treat all unknown technology with care, and bring everyone home.</description>
 	
     <scenario>
-      <summary>A small Federation away team is stranded and must find a way to get in contact with their explorer vessel</summary>
+      <summary>Admiral April assigns a junior lieutenant (LtJG) and four Starfleet cadets to their first away mission:\n a routine survey within the neutral zone,
+      where orbital telemetry hints at ancient alien artifacts.</summary>
 
     <surfaceLayer>
 				<def>SurfaceLayerFixed</def>
@@ -48,44 +57,49 @@
         <!-- Game start dialog -->
         <li Class="ScenPart_GameStartDialog">
           <def>GameStartDialog</def>
-          <text>The moment before your shuttle crash-landed on the surface of a nearby planet your sensors picked up signals of incoming hostile mechanoids.
-          Your prime directive is to survive and re-establish contact with your ship.
-          Find your shuttle, repair it and avoid the mechanoids at all cost.
-          Good luck, officer !.</text>
+          <text>Welcome to your first Starfleet away mission Lieutenant Junior Grad.\n
+          You are leading a team of four cadets on a surface survey of a neutral zone world.\n
+          Your objectives are to establish a perimeter, deploy subspace sensors,\n
+          and investigate ancient alien obelisks detected from orbit.\n
+          Maintain Prime Directive discipline and be prepared for limited resupply\n
+          and no starship air cover once the shuttle departs.\n
+          Defensive force is authorized if local conditions deteriorate.\n
+          Treat all unknown technology with care.\n
+          Good luck Lieutenant JG, Admiral Robert April.</text>
           <closeSound>GameStartSting</closeSound>
         </li>
 
-            <!-- KCSG/VEF: Start-Pawns konfigurieren -->
         <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
-        <def>ConfigurePawnsKindDefs</def>
-        <pawnChoiceCount>5</pawnChoiceCount> 
-        <kindCounts>
-            <li><kindDef>FederationPawn_Command</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
-            <li><kindDef>FederationPawn_Operations</kindDef><count>2</count><requiredAtStart>false</requiredAtStart></li>
-            <li><kindDef>FederationPawn_Science</kindDef><count>1</count><requiredAtStart>false</requiredAtStart></li>
-            <li><kindDef>FederationPawn_Medical</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
-        </kindCounts>
+          <def>ConfigurePawnsKindDefs</def>
+          <pawnChoiceCount>5</pawnChoiceCount>
+          <kindCounts>
+            <!-- Leader -->
+            <li>
+              <kindDef>FederationPawn_Command_LtJG</kindDef>
+              <count>1</count>
+              <requiredAtStart>true</requiredAtStart>
+            </li>
+            <!-- 4 Tracks: Ops, Eng, Sec, Sci -->
+            <li><kindDef>FederationPawn_Cadet_Operations</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+            <li><kindDef>FederationPawn_Cadet_Engineering</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+            <li><kindDef>FederationPawn_Cadet_Security</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+            <li><kindDef>FederationPawn_Cadet_Science</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+          </kindCounts>
         </li>
         
         <!-- KCSG/VEF: Start-Structur -->
         <li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core"
             Class="KCSG.ScenPart_AddStartingStructure">
-          <def>VFEC_AddStartingStructure</def>
-          <structureLabel>Starfleet Shuttle Type-5</structureLabel>
-          <nearMapCenter>false</nearMapCenter>
-          <spawnTheStartingPawn>true</spawnTheStartingPawn>
-          <chooseFrom>
+            <def>VFEC_AddStartingStructure</def>
+            <structureLabel>Starfleet Shuttle Type-5</structureLabel>
+            <nearMapCenter>false</nearMapCenter>
+            <spawnTheStartingPawn>true</spawnTheStartingPawn>
+            <chooseFrom>
             <li>ST_Shuttle_T5</li> <!--exported ship -->
           </chooseFrom>
         </li>
 
-        <!-- Pawns arrival -->
-        <!-- Mechanoids pursuing -->
-        <li Class="ScenPart_PursuingMechanoids">
-          <def>PursuingMechanoids</def>
-        </li>
-
-        <!-- Starting research -->
+                <!-- Starting research -->
         <li Class="ScenPart_StartingResearch">
           <def>StartingResearch</def>
           <project>BasicGravtech</project>
@@ -94,7 +108,11 @@
           <def>StartingResearch</def>
           <project>BiofuelRefining</project>
         </li>
-
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>Federation_Standard</project>
+        </li>
+     
       </parts>
 
     </scenario>

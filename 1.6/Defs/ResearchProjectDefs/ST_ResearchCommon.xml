@@ -131,5 +131,20 @@
     <researchViewY>2</researchViewY>
   </ResearchProjectDef>
 
+  <!-- Graviton hull/substructure fundamentals to unlock gravship construction -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>BasicGravtech</defName>
+    <label>Basic gravtech</label>
+    <description>Applied graviton field control for substructure and hull integrity. Unlocks gravship hulls and substructure.</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>600</baseCost>
+    <prerequisites>
+      <li>MicroelectronicsBasics</li>
+      <li>ST_Common_Issue_Gear</li>
+    </prerequisites>
+    <researchViewX>4</researchViewX>
+    <researchViewY>0</researchViewY>
+  </ResearchProjectDef>
+
 
 </Defs>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Lt. (jg) – leichter Command-Lead -->
+  <PawnKindDef ParentName="FederationBasePawn">
+    <defName>FederationPawn_Command_LtJG</defName>
+    <label>Starfleet lieutenant (jg)</label>
+
+    <minGenerationAge>24</minGenerationAge>
+    <maxGenerationAge>34</maxGenerationAge>
+
+    <backstoryFiltersOverride>
+      <li>
+        <categoriesChildhood>
+          <li>Starfleet_Operations</li>
+          <li>Starfleet_Engineering</li>
+          <li>Starfleet_Security</li>
+          <li>Starfleet_Science</li>
+          <li>Starfleet_Medical</li>
+        </categoriesChildhood>
+        <categoriesAdulthood>
+          <li>Starfleet_Operations</li>
+        </categoriesAdulthood>
+      </li>
+    </backstoryFiltersOverride>
+
+    <skills>
+      <li>
+        <skill>Social</skill><range>6~10</range>
+        <skill>Shooting</skill><range>5~9</range>
+        <skill>Melee</skill><range>3~6</range>
+        <skill>Intellectual</skill><range>4~7</range>
+        <skill>Construction</skill><range>3~6</range>
+      </li>
+    </skills>
+
+    <weaponTags><li>ST_Phaser_T2</li></weaponTags>
+    <weaponMoney>750~1200</weaponMoney>
+
+    <apparelRequired>
+      <li>ST_Apparel_StarfleetTunic</li>
+      <li>ST_Apparel_StarfleetPants</li>
+      <li>Fed_Combadge_TNG</li>
+    </apparelRequired>
+    <apparelTags><li>StarfleetUniform</li></apparelTags>
+    <apparelMoney>300~700</apparelMoney>
+
+    <itemQuality>Good</itemQuality>
+    <gearHealthRange>0.8~1.0</gearHealthRange>
+    <combatPower>45</combatPower>
+
+    <inventoryOptions>
+      <skipChance>0.8</skipChance>
+      <subOptionsChooseOne>
+        <li><thingDef>MedicineIndustrial</thingDef><countRange>4~6</countRange></li>
+        <li><thingDef>Silver</thingDef><countRange>90~140</countRange></li>
+      </subOptionsChooseOne>
+    </inventoryOptions>
+  </PawnKindDef>
+
+  <!-- OPERATIONS -->
+  <PawnKindDef ParentName="FederationBasePawn">
+    <defName>FederationPawn_Cadet_Operations</defName>
+    <label>Starfleet cadet (operations)</label>
+
+    <minGenerationAge>18</minGenerationAge>
+    <maxGenerationAge>25</maxGenerationAge>
+
+    <backstoryFiltersOverride>
+      <li>
+        <categoriesChildhood>
+          <li>Starfleet_Operations</li>
+          <li>Starfleet_Engineering</li>
+          <li>Starfleet_Security</li>
+          <li>Starfleet_Science</li>
+          <li>Starfleet_Medical</li>
+        </categoriesChildhood>
+        <categoriesAdulthood>
+          <li>Starfleet_Operations</li>
+        </categoriesAdulthood>
+      </li>
+    </backstoryFiltersOverride>
+
+    <skills>
+      <li>
+        <skill>Social</skill><range>3~6</range>
+        <skill>Shooting</skill><range>3~6</range>
+        <skill>Construction</skill><range>2~5</range>
+        <skill>Plants</skill><range>2~5</range>
+        <skill>Mining</skill><range>1~4</range>
+      </li>
+    </skills>
+
+    <weaponTags><li>ST_Phaser_T1</li></weaponTags>
+    <weaponMoney>750~800</weaponMoney>
+    <apparelRequired>
+      <li>ST_Apparel_StarfleetTunic</li>
+      <li>ST_Apparel_StarfleetPants</li>
+      <li>Fed_Combadge_TNG</li>
+    </apparelRequired>
+    <apparelTags><li>StarfleetUniform</li></apparelTags>
+    <apparelMoney>120~260</apparelMoney>
+
+    <itemQuality>Normal</itemQuality>
+    <gearHealthRange>0.6~0.95</gearHealthRange>
+    <combatPower>24</combatPower>
+  </PawnKindDef>
+
+  <!-- ENGINEERING -->
+  <PawnKindDef ParentName="FederationBasePawn">
+    <defName>FederationPawn_Cadet_Engineering</defName>
+    <label>Starfleet cadet (engineering)</label>
+
+    <minGenerationAge>18</minGenerationAge>
+    <maxGenerationAge>25</maxGenerationAge>
+
+    <backstoryFiltersOverride>
+      <li>
+        <categoriesChildhood>
+          <li>Starfleet_Engineering</li>
+          <li>Starfleet_Operations</li>
+          <li>Starfleet_Science</li>
+        </categoriesChildhood>
+        <categoriesAdulthood>
+          <li>Starfleet_Engineering</li>
+        </categoriesAdulthood>
+      </li>
+    </backstoryFiltersOverride>
+
+    <skills>
+      <li>
+        <skill>Construction</skill><range>4~7</range>
+        <skill>Crafting</skill><range>4~7</range>
+        <skill>Intellectual</skill><range>2~5</range>
+        <skill>Mining</skill><range>2~5</range>
+        <skill>Shooting</skill><range>2~4</range>
+      </li>
+    </skills>
+
+    <weaponTags><li>ST_Phaser_T1</li></weaponTags>
+    <weaponMoney>750~800</weaponMoney>
+    <apparelRequired>
+      <li>ST_Apparel_StarfleetTunic</li>
+      <li>ST_Apparel_StarfleetPants</li>
+      <li>Fed_Combadge_TNG</li>
+    </apparelRequired>
+    <apparelTags><li>StarfleetUniform</li></apparelTags>
+    <apparelMoney>120~260</apparelMoney>
+
+    <itemQuality>Normal</itemQuality>
+    <gearHealthRange>0.6~0.95</gearHealthRange>
+    <combatPower>20</combatPower>
+  </PawnKindDef>
+
+  <!-- SECURITY -->
+  <PawnKindDef ParentName="FederationBasePawn">
+    <defName>FederationPawn_Cadet_Security</defName>
+    <label>Starfleet cadet (security)</label>
+
+    <minGenerationAge>18</minGenerationAge>
+    <maxGenerationAge>25</maxGenerationAge>
+
+    <backstoryFiltersOverride>
+      <li>
+        <categoriesChildhood>
+          <li>Starfleet_Security</li>
+          <li>Starfleet_Operations</li>
+        </categoriesChildhood>
+        <categoriesAdulthood>
+          <li>Starfleet_Security</li>
+        </categoriesAdulthood>
+      </li>
+    </backstoryFiltersOverride>
+
+    <skills>
+      <li>
+        <skill>Shooting</skill><range>5~8</range>
+        <skill>Melee</skill><range>4~7</range>
+        <skill>Social</skill><range>2~5</range>
+        <skill>Construction</skill><range>1~4</range>
+      </li>
+    </skills>
+
+    <weaponTags><li>ST_Phaser_T1</li></weaponTags>
+    <weaponMoney>750~800</weaponMoney>
+    <apparelRequired>
+      <li>ST_Apparel_StarfleetTunic</li>
+      <li>ST_Apparel_StarfleetPants</li>
+      <li>Fed_Combadge_TNG</li>
+    </apparelRequired>
+    <apparelTags><li>StarfleetUniform</li></apparelTags>
+    <apparelMoney>140~280</apparelMoney>
+
+    <itemQuality>Normal</itemQuality>
+    <gearHealthRange>0.65~0.95</gearHealthRange>
+    <combatPower>28</combatPower>
+  </PawnKindDef>
+
+  <!-- SCIENCE -->
+  <PawnKindDef ParentName="FederationBasePawn">
+    <defName>FederationPawn_Cadet_Science</defName>
+    <label>Starfleet cadet (science)</label>
+
+    <minGenerationAge>18</minGenerationAge>
+    <maxGenerationAge>25</maxGenerationAge>
+
+    <backstoryFiltersOverride>
+      <li>
+        <categoriesChildhood>
+          <li>Starfleet_Science</li>
+          <li>Starfleet_Medical</li>
+        </categoriesChildhood>
+        <categoriesAdulthood>
+          <li>Starfleet_Science</li>
+          <li>Starfleet_Medical</li>
+        </categoriesAdulthood>
+      </li>
+    </backstoryFiltersOverride>
+
+    <skills>
+      <li>
+        <skill>Intellectual</skill><range>5~8</range>
+        <skill>Medicine</skill><range>4~7</range>
+        <skill>Cooking</skill><range>1~4</range>
+        <skill>Shooting</skill><range>2~4</range>
+      </li>
+    </skills>
+
+    <weaponTags><li>ST_Phaser_T1</li></weaponTags>
+    <weaponMoney>750~800</weaponMoney>
+    <apparelRequired>
+      <li>ST_Apparel_StarfleetTunic</li>
+      <li>ST_Apparel_StarfleetPants</li>
+      <li>Fed_Combadge_TNG</li>
+    </apparelRequired>
+    <apparelTags><li>StarfleetUniform</li></apparelTags>
+    <apparelMoney>120~260</apparelMoney>
+
+    <itemQuality>Normal</itemQuality>
+    <gearHealthRange>0.6~0.95</gearHealthRange>
+    <combatPower>22</combatPower>
+  </PawnKindDef>
+
+</Defs>
