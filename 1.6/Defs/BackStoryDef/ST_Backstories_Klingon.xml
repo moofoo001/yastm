@@ -98,6 +98,78 @@
       <Wimp>0</Wimp>
     </disallowedTraits>
   </BackstoryDef>
+  
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_ForgeApprentice</defName>
+    <title>forge apprentice</title>
+    <titleShort>apprentice smith</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Raised near a house forge, learned metal, heat and the patience to hammer until dawn.</baseDesc>
+    <skillGains><Crafting>2</Crafting><Melee>1</Melee></skillGains>
+    <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
+    <forcedTraits><li>Brawler</li></forcedTraits>
+    <disallowedTraits><li>Wimp</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_BorderCampYouth</defName>
+    <title>border-camp youth</title>
+    <titleShort>border youth</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Grew up between tents and field rations. Learned to pack fast and sleep in armor.</baseDesc>
+    <skillGains><Melee>1</Melee><Shooting>1</Shooting></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Bloodlust</li></forcedTraits>
+    <disallowedTraits><li>Wimp</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_MonasteryNovice</defName>
+    <title>monastery novice</title>
+    <titleShort>novice</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Litanies at dawn, forms at dusk. Discipline etched into every stance.</baseDesc>
+    <skillGains><Melee>2</Melee><Intellectual>1</Intellectual></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Brawler</li></forcedTraits>
+    <disallowedTraits><li>Wimp</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_HousePage</defName>
+    <title>house page</title>
+    <titleShort>page</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Carried messages and steel; learned protocol and when to bite the tongue.</baseDesc>
+    <skillGains><Social>2</Social><Melee>1</Melee></skillGains>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <forcedTraits><li>Bloodlust</li></forcedTraits>
+    <disallowedTraits><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_DeckhandCadet</defName>
+    <title>deckhand cadet</title>
+    <titleShort>deckhand</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Grease on hands, hull under boots. Learned lines, knots and quick repairs.</baseDesc>
+    <skillGains><Construction>2</Construction><Crafting>1</Crafting></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Brawler</li></forcedTraits>
+    <disallowedTraits><li>Wimp</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_StalkerYouth</defName>
+    <title>stalker youth</title>
+    <titleShort>stalker</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Shadowed quarry for days. Learned silence, patience and the final lunge.</baseDesc>
+    <skillGains><Melee>1</Melee><Shooting>1</Shooting><Animals>1</Animals></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Bloodlust</li></forcedTraits>
+    <disallowedTraits><li>Wimp</li></disallowedTraits>
+  </BackstoryDef>
 
   <!-- ===== KLINGONEN: ADULTHOOD (6) ===== -->
   <BackstoryDef>
@@ -187,6 +259,78 @@
       <Industriousness>1</Industriousness>
       <Greedy>0</Greedy>
     </forcedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_HouseWarrior</defName>
+    <title>house warrior</title>
+    <titleShort>warrior</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Swore blade and blood to the house banner. Lives for the clash.</baseDesc>
+    <skillGains><Melee>4</Melee><Shooting>2</Shooting></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Brawler</li><li>Bloodlust</li></forcedTraits>
+    <disallowedTraits><li>Wimp</li><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_Tactician</defName>
+    <title>line tactician</title>
+    <titleShort>tactician</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Counts supply, measures wind, names weaknesses. Honor in winning the field.</baseDesc>
+    <skillGains><Shooting>3</Shooting><Intellectual>2</Intellectual><Social>1</Social></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Bloodlust</li></forcedTraits>
+    <disallowedTraits><li>Wimp</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_BoardingEngineer</defName>
+    <title>boarding engineer</title>
+    <titleShort>breacher</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Charges and clamps, cutters and sparks. Opens doors the loud way.</baseDesc>
+    <skillGains><Construction>3</Construction><Melee>2</Melee><Crafting>1</Crafting></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Brawler</li></forcedTraits>
+    <disallowedTraits><li>Wimp</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_BattleHealer</defName>
+    <title>battle healer</title>
+    <titleShort>healer</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Seals wounds between strikes. Keeps comrades in the fight.</baseDesc>
+    <skillGains><Medicine>3</Medicine><Melee>2</Melee></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Bloodlust</li></forcedTraits>
+    <disallowedTraits><li>Wimp</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_Pathfinder</defName>
+    <title>pathfinder</title>
+    <titleShort>pathfinder</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Walks first, maps later. Finds the weak seam in walls and men.</baseDesc>
+    <skillGains><Shooting>2</Shooting><Plants>2</Plants><Melee>1</Melee></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Bloodlust</li></forcedTraits>
+    <disallowedTraits><li>Wimp</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_Quartermaster</defName>
+    <title>house quartermaster</title>
+    <titleShort>quartermaster</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Counts blades, armor and rations. Honor favors those who keep ranks supplied.</baseDesc>
+    <skillGains><Social>2</Social><Crafting>2</Crafting><Intellectual>1</Intellectual></skillGains>
+    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Bloodlust</li></forcedTraits>
+    <disallowedTraits><li>Kind</li></disallowedTraits>
   </BackstoryDef>
 
 </Defs>

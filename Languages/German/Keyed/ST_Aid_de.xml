@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <ST_Aid_LetterLabel>Sternenflottenhilfe ist unterwegs</ST_Aid_LetterLabel>
+  <ST_Aid_LetterText>
+    Die Sternenflotte hat eure Anfrage bestätigt und eine kleine, nicht-militärische Nachschubkapsel entsandt.
+    Diese Unterstützung ist limitiert und sollte nicht zu häufig in Anspruch genommen werden.
+  </ST_Aid_LetterText>
+</LanguageData>

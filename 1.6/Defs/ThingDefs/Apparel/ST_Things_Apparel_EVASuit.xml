@@ -1,5 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+  <!-- generic EVA Suit -->
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_EVASuit</defName>
+    <label>EVA suit</label>
+    <description>Pressurized suit for vacuum/contamination. Bulky but lifesaving.</description>
+    <techLevel>Spacer</techLevel>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/Vacsuit/Vacsuit</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li><li>Arms</li><li>Legs</li>
+      </bodyPartGroups>
+      <layers>
+        <li>OnSkin</li><li>Shell</li>
+      </layers>
+      <tags>
+        <li>IndustrialBasic</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li><li>Soldier</li>
+      </defaultOutfitTags>
+    </apparel>
+    <statBases>
+      <WorkToMake>14000</WorkToMake>
+      <Mass>6.0</Mass>
+      <StuffEffectMultiplierInsulation_Cold>0.65</StuffEffectMultiplierInsulation_Cold>
+      <Insulation_Cold>36</Insulation_Cold>
+      <Insulation_Heat>6</Insulation_Heat>
+      <MoveSpeed>-0.10</MoveSpeed>
+      <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.06</ArmorRating_Blunt>
+      <ToxicResistance>0.30</ToxicResistance>
+    </statBases>
+    <costList>
+      <Cloth>50</Cloth>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <Plasteel>20</Plasteel>
+    </costList>
+  </ThingDef>
+
+  <!-- Helm -->
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_EVAHelmet</defName>
+    <label>EVA helmet</label>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/Vacsuit/VacsuitHelmet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <apparel>
+      <bodyPartGroups><li>FullHead</li></bodyPartGroups>
+      <layers><li>Overhead</li></layers>
+      <tags><li>IndustrialBasic</li></tags>
+    </apparel>
+    <statBases>
+      <WorkToMake>6000</WorkToMake>
+      <Mass>2.2</Mass>
+      <ArmorRating_Sharp>0.12</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.06</ArmorRating_Blunt>
+      <Insulation_Cold>12</Insulation_Cold>
+      <ToxicResistance>0.20</ToxicResistance>
+    </statBases>
+    <costList>
+      <Cloth>20</Cloth>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <Plasteel>8</Plasteel>
+    </costList>
+  </ThingDef>
+
 
   <!-- Starfleet EVS  -->
   <ThingDef ParentName="ApparelMakeableBase">

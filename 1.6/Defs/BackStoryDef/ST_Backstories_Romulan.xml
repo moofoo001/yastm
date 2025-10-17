@@ -77,6 +77,78 @@
     </forcedTraits>
   </BackstoryDef>
 
+ <BackstoryDef>
+    <defName>ST_BS_Romulan_CloisterStudent</defName>
+    <title>cloister student</title>
+    <titleShort>cloistered</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Taught restraint and rhetoric behind quiet walls. Listens twice, speaks once.</baseDesc>
+    <skillGains><Social>2</Social><Intellectual>1</Intellectual></skillGains>
+    <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
+    <forcedTraits><li>Abrasive</li></forcedTraits>
+    <disallowedTraits><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_DataArchivistYouth</defName>
+    <title>data-archivist’s aide</title>
+    <titleShort>archivist’s aide</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Feeding machines, labeling tapes, learning to doubt first reports.</baseDesc>
+    <skillGains><Intellectual>2</Intellectual><Crafting>1</Crafting></skillGains>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <forcedTraits><li>Abrasive</li></forcedTraits>
+    <disallowedTraits><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_LabRunner</defName>
+    <title>lab runner</title>
+    <titleShort>lab runner</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Carried samples and gossip in equal measure. Learned safety before speed.</baseDesc>
+    <skillGains><Intellectual>1</Intellectual><Medicine>1</Medicine><Social>1</Social></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Abrasive</li></forcedTraits>
+    <disallowedTraits><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_ObservatoryYouth</defName>
+    <title>observatory youth</title>
+    <titleShort>observer</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Nights under glass, mapping lights and learning to hide in data.</baseDesc>
+    <skillGains><Intellectual>2</Intellectual><Shooting>1</Shooting></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Abrasive</li></forcedTraits>
+    <disallowedTraits><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_PatrolWard</defName>
+    <title>patrol ward</title>
+    <titleShort>ward</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Escorted through quiet sectors. Watched scans more than stars.</baseDesc>
+    <skillGains><Shooting>1</Shooting><Intellectual>1</Intellectual><Plants>1</Plants></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Abrasive</li></forcedTraits>
+    <disallowedTraits><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_ProtocolPage</defName>
+    <title>protocol page</title>
+    <titleShort>protocol</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Learned the mask first, then the smile. Words as precise as blades.</baseDesc>
+    <skillGains><Social>2</Social><Intellectual>1</Intellectual></skillGains>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <forcedTraits><li>Abrasive</li></forcedTraits>
+    <disallowedTraits><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
   <!-- ===== ROMULANER: ADULTHOOD (6) ===== -->
   <BackstoryDef>
     <defName>ST_BS_Romulan_TalShiarAnalyst</defName>
@@ -143,6 +215,78 @@
       <FastLearner>0</FastLearner>
       <Industriousness>1</Industriousness>
     </forcedTraits>
+  </BackstoryDef>
+  
+ <BackstoryDef>
+    <defName>ST_BS_Romulan_IntelOfficer</defName>
+    <title>intelligence officer</title>
+    <titleShort>intel</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Reads faces and footnotes, edits truth to fit the day.</baseDesc>
+    <skillGains><Social>2</Social><Intellectual>3</Intellectual></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Abrasive</li></forcedTraits>
+    <disallowedTraits><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_FieldScientist</defName>
+    <title>field scientist</title>
+    <titleShort>field sci</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Packs light, records much. Prefers answers that take time.</baseDesc>
+    <skillGains><Intellectual>4</Intellectual><Plants>1</Plants></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Abrasive</li></forcedTraits>
+    <disallowedTraits><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_ScoutMarksman</defName>
+    <title>scout marksman</title>
+    <titleShort>marksman</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Counts breaths, not shots. Strikes from quiet margins.</baseDesc>
+    <skillGains><Shooting>4</Shooting><Intellectual>1</Intellectual></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Abrasive</li><!-- optional: <li>CarefulShooter</li> --></forcedTraits>
+    <disallowedTraits><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_SystemsAnalyst</defName>
+    <title>systems analyst</title>
+    <titleShort>analyst</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Models failure before it happens. Fixes people last, systems first.</baseDesc>
+    <skillGains><Crafting>2</Crafting><Intellectual>2</Intellectual><Construction>1</Construction></skillGains>
+    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Abrasive</li></forcedTraits>
+    <disallowedTraits><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_MedicQuiet</defName>
+    <title>quiet medic</title>
+    <titleShort>medic</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Steady hands, blank face. Keeps sheets cleaner than conscience.</baseDesc>
+    <skillGains><Medicine>4</Medicine><Intellectual>1</Intellectual></skillGains>
+    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Abrasive</li></forcedTraits>
+    <disallowedTraits><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_LogisticsOfficer</defName>
+    <title>logistics officer</title>
+    <titleShort>logistics</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Makes scarcity vanish on paper, then in crates.</baseDesc>
+    <skillGains><Social>2</Social><Intellectual>2</Intellectual><Crafting>1</Crafting></skillGains>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <forcedTraits><li>Abrasive</li></forcedTraits>
+    <disallowedTraits><li>Kind</li></disallowedTraits>
   </BackstoryDef>
 
 </Defs>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <ThingSetMakerDef>
+    <defName>ST_StarfleetAid_ThingSet</defName>
+    <root Class="ThingSetMaker_Sum">
+      <options>
+
+        <!-- 35% Chance auf 2–8 UltraTech-Meds -->
+        <li>
+          <chance>0.35</chance>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>MedicineUltratech</li>
+                </thingDefs>
+              </filter>
+              <countRange>2~8</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- 65% Chance auf 6–12 Industrial-Meds (fallback / Zusatz) -->
+        <li>
+          <chance>0.65</chance>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>MedicineIndustrial</li>
+                </thingDefs>
+              </filter>
+              <countRange>6~12</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- 80% Chance auf 4–8 Komponenten -->
+        <li>
+          <chance>0.80</chance>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>ComponentIndustrial</li>
+                </thingDefs>
+              </filter>
+              <countRange>4~8</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- 80% Chance auf 60–120 Pemmican -->
+        <li>
+          <chance>0.80</chance>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>Pemmican</li>
+                </thingDefs>
+              </filter>
+              <countRange>60~120</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <!-- 70% Chance auf 60–120 Stahl -->
+        <li>
+          <chance>0.70</chance>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>Steel</li>
+                </thingDefs>
+              </filter>
+              <countRange>60~120</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+      </options>
+    </root>
+  </ThingSetMakerDef>
+</Defs>

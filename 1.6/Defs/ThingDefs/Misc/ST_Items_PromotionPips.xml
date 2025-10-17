@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- rank system test promo pip  -->
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_PromotionPip_Ensign</defName>
+    <label>promotion pip (ensign)</label>
+    <graphicData><texPath>Things/Item/ST_Pips/Ensign</texPath></graphicData>
+    <description>Commission pip authorizing promotion to Ensign.</description>
+    <tradeability>Sellable</tradeability>
+    <useHitPoints>false</useHitPoints>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useLabel>Promote to Ensign</useLabel>
+        <useDuration>60</useDuration>
+      </li>
+      <li Class="YASTM.CompProperties_PromoteToRank">
+        <targetRankTrait>ST_Rank_Ensign</targetRankTrait>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_PromotionPip_LieutenantJG</defName>
+    <label>promotion pip (lieutenant jg)</label>
+    <graphicData><texPath>Things/Item/ST_Pips/LJG</texPath></graphicData>
+    <description>Commission pip authorizing promotion to Lieutenant (jg).</description>
+    <useHitPoints>false</useHitPoints>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useLabel>Promote to Lieutenant (jg)</useLabel>
+        <useDuration>60</useDuration>
+      </li>
+      <li Class="YASTM.CompProperties_PromoteToRank">
+        <targetRankTrait>ST_Rank_LieutenantJG</targetRankTrait>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_PromotionPip_Lieutenant</defName>
+    <label>promotion pip (lieutenant)</label>
+    <graphicData><texPath>Things/Item/ST_Pips/Lt</texPath></graphicData>
+    <description>Commission pip authorizing promotion to Lieutenant .</description>
+    <useHitPoints>false</useHitPoints>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useLabel>Promote to Lieutenant</useLabel>
+        <useDuration>60</useDuration>
+      </li>
+      <li Class="YASTM.CompProperties_PromoteToRank">
+        <targetRankTrait>ST_Rank_Lieutenant</targetRankTrait>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_PromotionPip_LtCommander</defName>
+    <label>promotion pip (lieutenant commander)</label>
+    <graphicData><texPath>Things/Item/ST_Pips/LtCmdr</texPath></graphicData>
+    <description>Commission pip authorizing promotion to Lieutenant Commander.</description>
+    <useHitPoints>false</useHitPoints>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useLabel>Promote to Lieutenant Commander</useLabel>
+        <useDuration>60</useDuration>
+      </li>
+      <li Class="YASTM.CompProperties_PromoteToRank">
+        <targetRankTrait>ST_Rank_LtCommander</targetRankTrait>
+      </li>
+    </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="ResourceBase">
+    <defName>ST_PromotionPip_Commander</defName>
+    <label>promotion pip (commander)</label>
+    <graphicData><texPath>Things/Item/ST_Pips/Cmdr</texPath></graphicData>
+    <description>Commission pip authorizing promotion to Commander.</description>
+    <useHitPoints>false</useHitPoints>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useLabel>Promote to Commander</useLabel>
+        <useDuration>60</useDuration>
+      </li>
+      <li Class="YASTM.Comp Properties_PromoteToRank">
+        <targetRankTrait>ST_Rank_Commander</targetRankTrait>
+        </li>
+    </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="ResourceBase">
+    <defName>ST_PromotionPip_Captain</defName>
+    <label>promotion pip (captain)</label>
+    <graphicData><texPath>Things/Item/ST_Pips/Captain</texPath></graphicData>
+    <description>Commission pip authorizing promotion to Captain.</description>
+    <useHitPoints>false</useHitPoints>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useLabel>Promote to Captain</useLabel>
+        <useDuration>60</useDuration>
+      </li>
+      <li Class="YASTM.CompProperties_PromoteToRank">
+        <targetRankTrait>ST_Rank_Captain</targetRankTrait>
+        </li>
+    </comps>
+    </ThingDef>
+  
+</Defs>

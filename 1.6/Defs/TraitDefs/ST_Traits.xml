@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+ <!-- Führungsausbildung: leichte Kommandoboni -->
+  <TraitDef>
+    <defName>ST_Trait_CommandTraining</defName>
+    <label>command training</label>
+    <description>Formal leadership training: calm authority and efficient coordination.</description>
+    <commonality>0.5</commonality>
+    <degreeDatas>
+      <li>
+        <label>command training</label>
+        <statOffsets>
+          <SocialImpact>0.05</SocialImpact>
+          <NegotiationAbility>0.05</NegotiationAbility>
+          <WorkSpeedGlobal>0.03</WorkSpeedGlobal> <!-- vorher GlobalWorkSpeed -->
+          <MentalBreakThreshold>-0.02</MentalBreakThreshold>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+  <!-- Sicherheitsoffizier: taktisch schneller zielen -->
+  <TraitDef>
+    <defName>ST_Trait_SecurityOfficer</defName>
+    <label>security officer</label>
+    <description>Trained for tactical response and overwatch procedures.</description>
+    <commonality>0.7</commonality>
+    <degreeDatas>
+      <li>
+        <label>security officer</label>
+        <skillGains>
+          <Shooting>1</Shooting>
+          <Melee>1</Melee>
+        </skillGains>
+        <statOffsets>
+          <AimingDelayFactor>-0.04</AimingDelayFactor>
+          <MoveSpeed>-0.01</MoveSpeed> <!-- winziger Tradeoff -->
+        </statOffsets>
+      </li>
+    </degreeDatas>
+  </TraitDef>
 <!-- Pilots -->
 <!-- Pilot (cadet) -->
 <TraitDef>
@@ -121,6 +160,46 @@
           <NegotiationAbility>0.08</NegotiationAbility>
           <MeleeHitChance>-0.02</MeleeHitChance>
         </statOffsets>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+  <TraitDef>
+    <defName>ST_RulesOfAcquisition</defName>
+    <label>rules of acquisition</label>
+    <description>Lives by profit. Sees margins where others see dust.</description>
+    <degreeDatas>
+      <li>
+        <label>ferengi trader</label>
+        <description>Knows every margin and every loophole.</description>
+        <statOffsets>
+          <TradePriceImprovement>0.10</TradePriceImprovement>
+          <SocialImpact>0.05</SocialImpact>
+        </statOffsets>
+        <commonality>1.8</commonality>
+        <conflictingTraits>
+          <li>Ascetic</li>
+        </conflictingTraits>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+  <TraitDef>
+   <defName>ST_BraklUl</defName>
+    <label>brak'lul</label>
+    <description>Redundant organs and a warrior’s tolerance for pain.</description>
+    <degreeDatas>
+      <li>
+        <label>hardened physiology</label>
+        <statOffsets>
+          <PainShockThreshold>0.08</PainShockThreshold>
+          <ImmunityGainSpeed>0.05</ImmunityGainSpeed>
+          <MeleeHitChance>0.03</MeleeHitChance>
+        </statOffsets>
+        <commonality>1.2</commonality>
+        <conflictingTraits>
+          <li>Wimp</li>
+        </conflictingTraits>
       </li>
     </degreeDatas>
   </TraitDef>

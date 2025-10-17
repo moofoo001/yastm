@@ -73,6 +73,78 @@
           <forcedTraits><Greedy>0</Greedy></forcedTraits>
       <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
+  
+<BackstoryDef>
+    <defName>ST_BS_Ferengi_LedgerRunner</defName>
+    <title>ledger runner</title>
+    <titleShort>runner</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Balances tallies for sweets. Learns that numbers beat fists.</baseDesc>
+    <skillGains><Social>2</Social><Intellectual>1</Intellectual></skillGains>
+    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Greedy</li></forcedTraits>
+    <disallowedTraits><li>Ascetic</li><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_BarterKid</defName>
+    <title>barter kid</title>
+    <titleShort>barterer</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Trades lunch twice, earns dessert. Learns to smile at no.</baseDesc>
+    <skillGains><Social>2</Social><Crafting>1</Crafting></skillGains>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <forcedTraits><li>Greedy</li></forcedTraits>
+    <disallowedTraits><li>Ascetic</li><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_MarketScribe</defName>
+    <title>market scribe</title>
+    <titleShort>scribe</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Tallies crates and curses. Learns to spot weight by ear.</baseDesc>
+    <skillGains><Intellectual>2</Intellectual><Crafting>1</Crafting></skillGains>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <forcedTraits><li>Greedy</li></forcedTraits>
+    <disallowedTraits><li>Ascetic</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_PortRat</defName>
+    <title>port rat</title>
+    <titleShort>port rat</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Lives under ramps, learns who to ask and who to avoid.</baseDesc>
+    <skillGains><Social>1</Social><Shooting>1</Shooting><Plants>1</Plants></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Greedy</li></forcedTraits>
+    <disallowedTraits><li>Ascetic</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_CounterClerk</defName>
+    <title>counter clerk</title>
+    <titleShort>clerk</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Makes change faster than thought. Keeps secrets for tips.</baseDesc>
+    <skillGains><Social>2</Social><Intellectual>1</Intellectual></skillGains>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <forcedTraits><li>Greedy</li></forcedTraits>
+    <disallowedTraits><li>Ascetic</li><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_StallBarker</defName>
+    <title>stall barker</title>
+    <titleShort>barker</titleShort>
+    <slot>Childhood</slot><shuffleable>true</shuffleable>
+    <baseDesc>Calls louder than doubt. Sells what’s not yet made.</baseDesc>
+    <skillGains><Social>3</Social></skillGains>
+    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Greedy</li></forcedTraits>
+    <disallowedTraits><li>Ascetic</li></disallowedTraits>
+  </BackstoryDef>
 
   <!-- ===== FERENGI: ADULTHOOD (6) ===== -->
   <BackstoryDef>
@@ -145,6 +217,78 @@
     <skillGains><Intellectual>2</Intellectual><Social>2</Social></skillGains>
           <forcedTraits><Greedy>0</Greedy></forcedTraits>
       <disallowedTraits><Kind>0</Kind></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_ContractBroker</defName>
+    <title>contract broker</title>
+    <titleShort>broker</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Writes the fine print that bites later.</baseDesc>
+    <skillGains><Social>4</Social><Intellectual>1</Intellectual></skillGains>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <forcedTraits><li>Greedy</li></forcedTraits>
+    <disallowedTraits><li>Ascetic</li><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_SalvageDealer</defName>
+    <title>salvage dealer</title>
+    <titleShort>salvager</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Finds value in dents and ash. Knows what a bolt is worth.</baseDesc>
+    <skillGains><Crafting>3</Crafting><Social>2</Social></skillGains>
+    <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
+    <forcedTraits><li>Greedy</li></forcedTraits>
+    <disallowedTraits><li>Ascetic</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_StreetTrader</defName>
+    <title>street trader</title>
+    <titleShort>trader</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Moves goods, stories and margins. Sleeps light, sells heavy.</baseDesc>
+    <skillGains><Social>3</Social><Shooting>1</Shooting><Plants>1</Plants></skillGains>
+    <spawnCategories><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Greedy</li></forcedTraits>
+    <disallowedTraits><li>Ascetic</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_LogisticsAgent</defName>
+    <title>logistics agent</title>
+    <titleShort>logistician</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Knows the route where others see a wall.</baseDesc>
+    <skillGains><Social>2</Social><Intellectual>2</Intellectual><Crafting>1</Crafting></skillGains>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <forcedTraits><li>Greedy</li></forcedTraits>
+    <disallowedTraits><li>Ascetic</li><li>Kind</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_Fence</defName>
+    <title>fence</title>
+    <titleShort>fence</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Buys doubts, sells certainties.</baseDesc>
+    <skillGains><Social>3</Social><Crafting>2</Crafting></skillGains>
+    <spawnCategories><li>Civil</li></spawnCategories>
+    <forcedTraits><li>Greedy</li></forcedTraits>
+    <disallowedTraits><li>Ascetic</li></disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_Quartermaster</defName>
+    <title>quartermaster</title>
+    <titleShort>quartermaster</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Counts stock like heartbeats. Moves pallets like promises.</baseDesc>
+    <skillGains><Social>2</Social><Crafting>2</Crafting><Intellectual>1</Intellectual></skillGains>
+    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <forcedTraits><li>Greedy</li></forcedTraits>
+    <disallowedTraits><li>Ascetic</li></disallowedTraits>
   </BackstoryDef>
 
 </Defs>
