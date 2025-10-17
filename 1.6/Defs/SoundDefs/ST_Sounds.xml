@@ -22,19 +22,17 @@
   <SoundDef>
     <defName>ST_RedAlert_SirenLong</defName>
     <context>Any</context>
-    <!--
     <sustain>True</sustain>
     <priorityMode>PrioritizeNearest</priorityMode> 
-    -->
     <maxSimultaneous>3</maxSimultaneous>
     <subSounds>
       <li>
        <grains>
         <li Class="AudioGrain_Clip">
-          <clipPath>Things/red_alert</clipPath>
+          <clipPath>Things/red_alert_fix</clipPath>
         </li>
         </grains>
-        <volumeRange>1.0~1.2</volumeRange>
+        <volumeRange>20~30</volumeRange>
         <pitchRange>1~1</pitchRange>
         <onCamera>true</onCamera>        
       </li>

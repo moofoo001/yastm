@@ -8,17 +8,17 @@
     <rotatable>true</rotatable>
     <graphicData>
     <drawSize>(3,3)</drawSize>
-      <texPath>Things/Building/RedAlert/RAButton</texPath>
+      <texPath>Things/Building/AlertPanel/AlertPanel</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-    <drawOffsetNorth>(0,0,0.6)</drawOffsetNorth>
-    <drawOffsetSouth>(0,0,-0.45)</drawOffsetSouth>
+    <drawOffsetNorth>(0,0,-0.2)</drawOffsetNorth>
+    <drawOffsetSouth>(0,0,0.2)</drawOffsetSouth>
     <drawOffsetWest>(0.45,0,0)</drawOffsetWest>
     <drawOffsetEast>(-0.45,0,0)</drawOffsetEast>
     <damageData>
         <enabled>false</enabled>
     </damageData>
     </graphicData>
-    <uiIconPath>Things/Building/RedAlert/RAButton</uiIconPath>
+    <uiIconPath>Things/Building/AlertPanel/AlertPanel</uiIconPath>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
     <statBases>
       <MaxHitPoints>120</MaxHitPoints>

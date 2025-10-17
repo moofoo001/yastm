@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Abstrakter Parent: unsichtbare Utility-Apparel, NICHT craftbar -->
+  <ThingDef ParentName="ApparelBase" Name="ST_RankPip_ApparelBase" Abstract="True">
+    <defName>ST_RankPip_ApparelBase</defName>
+    <label>rank pips (base)</label>
+
+    <!-- kein recipeMaker, kein smelten -->
+    <smeltable>false</smeltable>
+
+    <!-- unsichtbar am Pawn: KEIN wornGraphicPath -->
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+
+    <apparel>
+      <layers><li>Belt</li></layers>                <!-- Utility-Slot -->
+      <bodyPartGroups><li>Waist</li></bodyPartGroups>
+      <tags><li>UtilityBelt</li></tags>
+      <defaultOutfitTags><li>Worker</li><li>Soldier</li></defaultOutfitTags>
+    </apparel>
+
+    <statBases>
+      <Mass>0.05</Mass>
+    </statBases>
+    <tradeability>Sellable</tradeability> <!-- gern auf Never stellen, wenn nicht handelbar -->
+  </ThingDef>
+
+  <!-- Ensign -->
+  <ThingDef ParentName="ST_RankPip_ApparelBase">
+    <defName>ST_RankPips_Ensign</defName>
+    <label>rank pips (ensign)</label>
+    <description>Utility rank pips for Ensign. Invisible on pawn; shown in gear.</description>
+    <graphicData>
+      <texPath>Things/Item/Accessory/pip/pip_ensign</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+
+  <!-- Lieutenant (jg) -->
+  <ThingDef ParentName="ST_RankPip_ApparelBase">
+    <defName>ST_RankPips_LJG</defName>
+    <label>rank pips (lieutenant jg)</label>
+    <description>Utility rank pips for Lieutenant (jg). Invisible on pawn; shown in gear.</description>
+    <graphicData>
+      <texPath>Things/Item/Accessory/pip/pip_ltjg</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+
+  <!-- Lieutenant -->
+  <ThingDef ParentName="ST_RankPip_ApparelBase">
+    <defName>ST_RankPips_Lieutenant</defName>
+    <label>rank pips (lieutenant)</label>
+    <description>Utility rank pips for Lieutenant. Invisible on pawn; shown in gear.</description>
+    <graphicData>
+      <texPath>Things/Item/Accessory/pip/pip_lt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+
+  <!-- Lieutenant Commander -->
+  <ThingDef ParentName="ST_RankPip_ApparelBase">
+    <defName>ST_RankPips_LtCommander</defName>
+    <label>rank pips (lieutenant commander)</label>
+    <description>Utility rank pips for Lieutenant Commander. Invisible on pawn; shown in gear.</description>
+    <graphicData>
+      <texPath>Things/Item/Accessory/pip/pip_ltcmdr</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+
+  <!-- Commander -->
+  <ThingDef ParentName="ST_RankPip_ApparelBase">
+    <defName>ST_RankPips_Commander</defName>
+    <label>rank pips (commander)</label>
+    <description>Utility rank pips for Commander. Invisible on pawn; shown in gear.</description>
+    <graphicData>
+      <texPath>Things/Item/Accessory/pip/pip_cmdr</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+
+  <!-- Captain -->
+  <ThingDef ParentName="ST_RankPip_ApparelBase">
+    <defName>ST_RankPips_Captain</defName>
+    <label>rank pips (captain)</label>
+    <description>Utility rank pips for Captain. Invisible on pawn; shown in gear.</description>
+    <graphicData>
+      <texPath>Things/Item/Accessory/pip/pip_cpt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+
+</Defs>

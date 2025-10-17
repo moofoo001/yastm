@@ -24,7 +24,7 @@
       <li Class="CompProperties_Usable">
         <useLabel>Promote to Ensign</useLabel>
         <useDuration>60</useDuration>
-          <useJob>UseItem</useJob>    
+        <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
         <targetRankTrait>ST_Rank_Ensign</targetRankTrait>
@@ -52,7 +52,7 @@
       <li Class="CompProperties_Usable">
         <useLabel>Promote to Lieutenant (jg)</useLabel>
         <useDuration>60</useDuration>
-          <useJob>UseItem</useJob>    
+        <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
         <targetRankTrait>ST_Rank_LieutenantJG</targetRankTrait>
@@ -80,7 +80,7 @@
       <li Class="CompProperties_Usable">
         <useLabel>Promote to Lieutenant</useLabel>
         <useDuration>60</useDuration>
-          <useJob>UseItem</useJob>    
+        <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
         <targetRankTrait>ST_Rank_Lieutenant</targetRankTrait>
@@ -108,7 +108,7 @@
       <li Class="CompProperties_Usable">
         <useLabel>Promote to Lieutenant Commander</useLabel>
         <useDuration>60</useDuration>
-          <useJob>UseItem</useJob>    
+        <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
         <targetRankTrait>ST_Rank_LtCommander</targetRankTrait>
@@ -136,7 +136,7 @@
       <li Class="CompProperties_Usable">
         <useLabel>Promote to Commander</useLabel>
         <useDuration>60</useDuration>
-          <useJob>UseItem</useJob>    
+        <useJob>UseItem</useJob>    
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
         <targetRankTrait>ST_Rank_Commander</targetRankTrait>
@@ -164,7 +164,7 @@
       <li Class="CompProperties_Usable">
         <useLabel>Promote to Captain</useLabel>
         <useDuration>60</useDuration>
-          <useJob>UseItem</useJob>    
+        <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
         <targetRankTrait>ST_Rank_Captain</targetRankTrait>

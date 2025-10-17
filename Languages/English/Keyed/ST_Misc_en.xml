@@ -1,0 +1,30 @@
+<LanguageData>
+  <!-- Red Alert -->
+  <ST.RedAlert.EngageButton>Engage Red Alert</ST.RedAlert.EngageButton>
+  <ST.RedAlert.ButtonDesc>Trigger a colony-wide Red Alert buff with a cooldown.</ST.RedAlert.ButtonDesc>
+  <ST.RedAlert.NeedsPower>Needs power.</ST.RedAlert.NeedsPower>
+  <ST.RedAlert.Recharging>Red Alert recharging: {0}</ST.RedAlert.Recharging>
+  <ST.RedAlert.Engaged>Red Alert engaged.</ST.RedAlert.Engaged>
+  <ST.RedAlert.MissingHediff>Missing hediff: ST_RedAlert</ST.RedAlert.MissingHediff>
+
+  <!-- Starfleet Aid -->
+  <ST.Aid.Button>Request Starfleet Aid</ST.Aid.Button>
+  <ST.Aid.ButtonDesc>Request a limited Starfleet resupply drop (global cooldown).</ST.Aid.ButtonDesc>
+  <ST.Aid.NeedsCommander>Requires a Commander or Captain on this map.</ST.Aid.NeedsCommander>
+  <ST.Aid.RejectNoCommander>Aid request requires a Commander or Captain present.</ST.Aid.RejectNoCommander>
+  <ST.Aid.Recharging>Uplink recharging: {0}</ST.Aid.Recharging>
+  <ST.Aid.GoodwillMissing>Requires goodwill ≥ {0} with {1}. (Current: {2})</ST.Aid.GoodwillMissing>
+
+  <!-- Rank / Promotion -->
+  <ST.Rank.Promoted>{0} promoted to {1}.</ST.Rank.Promoted>
+  <ST.Pip.Use.Ensign>Promote to Ensign</ST.Pip.Use.Ensign>
+  <ST.Pip.Use.LJG>Promote to Lieutenant (jg)</ST.Pip.Use.LJG>
+  <ST.Pip.Use.Lieutenant>Promote to Lieutenant</ST.Pip.Use.Lieutenant>
+  <ST.Pip.Use.LtCommander>Promote to Lieutenant Commander</ST.Pip.Use.LtCommander>
+  <ST.Pip.Use.Commander>Promote to Commander</ST.Pip.Use.Commander>
+  <ST.Pip.Use.Captain>Promote to Captain</ST.Pip.Use.Captain>
+
+  <!-- Research -->
+  <ST.Research.RedAlert.Label>red alert protocols</ST.Research.RedAlert.Label>
+  <ST.Research.RedAlert.Desc>Implements colony-wide alert routing and EPS priority to enable the Red Alert panel.</ST.Research.RedAlert.Desc>
+</LanguageData>
