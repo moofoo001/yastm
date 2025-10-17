@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
   
 <SoundDef>
     <defName>ST_ObeliskHum</defName>
@@ -16,6 +15,28 @@
         </grains>
         <volumeRange>20~25</volumeRange>
         <pitchRange>0.98~1.02</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>ST_RedAlert_SirenLong</defName>
+    <context>Any</context>
+    <!--
+    <sustain>True</sustain>
+    <priorityMode>PrioritizeNearest</priorityMode> 
+    -->
+    <maxSimultaneous>3</maxSimultaneous>
+    <subSounds>
+      <li>
+       <grains>
+        <li Class="AudioGrain_Clip">
+          <clipPath>Things/red_alert</clipPath>
+        </li>
+        </grains>
+        <volumeRange>1.0~1.2</volumeRange>
+        <pitchRange>1~1</pitchRange>
+        <onCamera>true</onCamera>        
       </li>
     </subSounds>
   </SoundDef>

@@ -10,8 +10,8 @@
     <slot>Childhood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
     <skillGains><Social>2</Social><Crafting>1</Crafting></skillGains>
-      <forcedTraits><TooSmart>0</TooSmart></forcedTraits>
-      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+    <forcedTraits><TooSmart>0</TooSmart></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -22,8 +22,8 @@
     <slot>Childhood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Civil</li></spawnCategories>
     <skillGains><Intellectual>2</Intellectual><Social>1</Social></skillGains>
-          <forcedTraits><Greedy>0</Greedy></forcedTraits>
-      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -34,8 +34,8 @@
     <slot>Childhood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
     <skillGains><Crafting>2</Crafting><Mining>1</Mining></skillGains>
-          <forcedTraits><Industriousness>1</Industriousness></forcedTraits>
-      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+    <forcedTraits><Industriousness>1</Industriousness></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -46,8 +46,8 @@
     <slot>Childhood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Civil</li></spawnCategories>
     <skillGains><Intellectual>2</Intellectual><Crafting>1</Crafting></skillGains>
-          <forcedTraits><Greedy>0</Greedy></forcedTraits>
-      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -58,8 +58,8 @@
     <slot>Childhood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
     <skillGains><Social>1</Social><Construction>1</Construction><Shooting>1</Shooting></skillGains>
-          <forcedTraits><Nimble>0</Nimble></forcedTraits>
-      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+    <forcedTraits><Nimble>0</Nimble></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -70,10 +70,10 @@
     <slot>Childhood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Civil</li></spawnCategories>
     <skillGains><Artistic>2</Artistic><Social>1</Social></skillGains>
-          <forcedTraits><Greedy>0</Greedy></forcedTraits>
-      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
-  
+
 <BackstoryDef>
     <defName>ST_BS_Ferengi_LedgerRunner</defName>
     <title>ledger runner</title>
@@ -82,8 +82,8 @@
     <baseDesc>Balances tallies for sweets. Learns that numbers beat fists.</baseDesc>
     <skillGains><Social>2</Social><Intellectual>1</Intellectual></skillGains>
     <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
-    <forcedTraits><li>Greedy</li></forcedTraits>
-    <disallowedTraits><li>Ascetic</li><li>Kind</li></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic><Kind>0</Kind></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -94,8 +94,8 @@
     <baseDesc>Trades lunch twice, earns dessert. Learns to smile at no.</baseDesc>
     <skillGains><Social>2</Social><Crafting>1</Crafting></skillGains>
     <spawnCategories><li>Civil</li></spawnCategories>
-    <forcedTraits><li>Greedy</li></forcedTraits>
-    <disallowedTraits><li>Ascetic</li><li>Kind</li></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic><Kind>0</Kind></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -106,8 +106,8 @@
     <baseDesc>Tallies crates and curses. Learns to spot weight by ear.</baseDesc>
     <skillGains><Intellectual>2</Intellectual><Crafting>1</Crafting></skillGains>
     <spawnCategories><li>Civil</li></spawnCategories>
-    <forcedTraits><li>Greedy</li></forcedTraits>
-    <disallowedTraits><li>Ascetic</li></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -118,8 +118,8 @@
     <baseDesc>Lives under ramps, learns who to ask and who to avoid.</baseDesc>
     <skillGains><Social>1</Social><Shooting>1</Shooting><Plants>1</Plants></skillGains>
     <spawnCategories><li>Spacer</li></spawnCategories>
-    <forcedTraits><li>Greedy</li></forcedTraits>
-    <disallowedTraits><li>Ascetic</li></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -130,8 +130,8 @@
     <baseDesc>Makes change faster than thought. Keeps secrets for tips.</baseDesc>
     <skillGains><Social>2</Social><Intellectual>1</Intellectual></skillGains>
     <spawnCategories><li>Civil</li></spawnCategories>
-    <forcedTraits><li>Greedy</li></forcedTraits>
-    <disallowedTraits><li>Ascetic</li><li>Kind</li></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic><Kind>0</Kind></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -142,8 +142,8 @@
     <baseDesc>Calls louder than doubt. Sells what’s not yet made.</baseDesc>
     <skillGains><Social>3</Social></skillGains>
     <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
-    <forcedTraits><li>Greedy</li></forcedTraits>
-    <disallowedTraits><li>Ascetic</li></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
 
   <!-- ===== FERENGI: ADULTHOOD (6) ===== -->
@@ -155,8 +155,8 @@
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Civil</li></spawnCategories>
     <skillGains><Social>2</Social><Intellectual>2</Intellectual></skillGains>
-          <forcedTraits><Greedy>0</Greedy></forcedTraits>
-      <disallowedTraits><Kind>0</Kind></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Kind>0</Kind></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -167,8 +167,8 @@
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
     <skillGains><Social>3</Social><Shooting>1</Shooting></skillGains>
-          <forcedTraits><Industriousness>1</Industriousness></forcedTraits>
-      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+    <forcedTraits><Industriousness>1</Industriousness></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -179,8 +179,8 @@
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Civil</li></spawnCategories>
     <skillGains><Intellectual>3</Intellectual><Social>1</Social></skillGains>
-          <forcedTraits><FastLearner>0</FastLearner></forcedTraits>
-      <disallowedTraits><Kind>0</Kind></disallowedTraits>
+    <forcedTraits><FastLearner>0</FastLearner></forcedTraits>
+    <disallowedTraits><Kind>0</Kind></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -191,8 +191,8 @@
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Civil</li></spawnCategories>
     <skillGains><Intellectual>2</Intellectual><Crafting>1</Crafting><Social>1</Social></skillGains>
-          <forcedTraits><Abrasive>0</Abrasive></forcedTraits>
-      <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
+    <forcedTraits><Abrasive>0</Abrasive></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -203,8 +203,8 @@
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
     <skillGains><Social>2</Social><Shooting>1</Shooting><Intellectual>1</Intellectual></skillGains>
-          <forcedTraits><Greedy>0</Greedy></forcedTraits>
-      <disallowedTraits><Kind>0</Kind></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Kind>0</Kind></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -215,20 +215,20 @@
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Civil</li></spawnCategories>
     <skillGains><Intellectual>2</Intellectual><Social>2</Social></skillGains>
-          <forcedTraits><Greedy>0</Greedy></forcedTraits>
-      <disallowedTraits><Kind>0</Kind></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Kind>0</Kind></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
-    <defName>ST_BS_Ferengi_ContractBroker</defName>
+    <defName>ST_BS_Ferengi_WarehouseSupervisor</defName>
     <title>contract broker</title>
     <titleShort>broker</titleShort>
     <slot>Adulthood</slot>
-    <baseDesc>Writes the fine print that bites later.</baseDesc>
+    <baseDesc>Manages stock and staff with an eye for efficiency and profit.</baseDesc>
     <skillGains><Social>4</Social><Intellectual>1</Intellectual></skillGains>
     <spawnCategories><li>Civil</li></spawnCategories>
-    <forcedTraits><li>Greedy</li></forcedTraits>
-    <disallowedTraits><li>Ascetic</li><li>Kind</li></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic><Kind>0</Kind></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -239,8 +239,8 @@
     <baseDesc>Finds value in dents and ash. Knows what a bolt is worth.</baseDesc>
     <skillGains><Crafting>3</Crafting><Social>2</Social></skillGains>
     <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
-    <forcedTraits><li>Greedy</li></forcedTraits>
-    <disallowedTraits><li>Ascetic</li></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -251,8 +251,8 @@
     <baseDesc>Moves goods, stories and margins. Sleeps light, sells heavy.</baseDesc>
     <skillGains><Social>3</Social><Shooting>1</Shooting><Plants>1</Plants></skillGains>
     <spawnCategories><li>Spacer</li></spawnCategories>
-    <forcedTraits><li>Greedy</li></forcedTraits>
-    <disallowedTraits><li>Ascetic</li></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -263,8 +263,8 @@
     <baseDesc>Knows the route where others see a wall.</baseDesc>
     <skillGains><Social>2</Social><Intellectual>2</Intellectual><Crafting>1</Crafting></skillGains>
     <spawnCategories><li>Civil</li></spawnCategories>
-    <forcedTraits><li>Greedy</li></forcedTraits>
-    <disallowedTraits><li>Ascetic</li><li>Kind</li></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic><Kind>0</Kind></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -275,8 +275,8 @@
     <baseDesc>Buys doubts, sells certainties.</baseDesc>
     <skillGains><Social>3</Social><Crafting>2</Crafting></skillGains>
     <spawnCategories><li>Civil</li></spawnCategories>
-    <forcedTraits><li>Greedy</li></forcedTraits>
-    <disallowedTraits><li>Ascetic</li></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -287,8 +287,8 @@
     <baseDesc>Counts stock like heartbeats. Moves pallets like promises.</baseDesc>
     <skillGains><Social>2</Social><Crafting>2</Crafting><Intellectual>1</Intellectual></skillGains>
     <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
-    <forcedTraits><li>Greedy</li></forcedTraits>
-    <disallowedTraits><li>Ascetic</li></disallowedTraits>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
 
 </Defs>

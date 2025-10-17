@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+<FleckDef ParentName="FleckBase">
+    <defName>ST_RedAlertBlink</defName>
+    <altitudeLayer>MetaOverlays</altitudeLayer>
+    <fadeInTime>0.15</fadeInTime>
+    <solidTime>0.15</solidTime>
+    <fadeOutTime>0.5</fadeOutTime>
+    <growthRate>0</growthRate>
+    <fleckSystemClass>FleckSystemThrown</fleckSystemClass>
+    <graphicData>
+      <graphicClass>Graphic_FleckPulse</graphicClass>
+      <texPath>Things/Mote/LightningGlow</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <renderInstanced>true</renderInstanced>
+      <drawSize>1.2</drawSize>
+      <color>(1,0,0,0.9)</color>
+    <shaderParameters>
+      <_Color>(1,0,0,0.9)</_Color>      
+      <_Interval>0.1</_Interval>
+    </shaderParameters>
+    </graphicData>
+  </FleckDef>
+</Defs>

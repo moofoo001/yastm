@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Gemeinsame Leitplanken:
-       - Alle Rank-Traits haben commonality 0 (kein Random-Roll).
-       - Sie schließen sich gegenseitig aus (Konfliktliste).
-       - Moderate, thematische Offsets – nicht OP. -->
-
   <TraitDef>
     <defName>ST_Rank_Ensign</defName>
     <label>rank: ensign</label>
     <description>Freshly commissioned officer. Learns fast, follows procedure.</description>
+    <conflictingTraits>
+        <li>ST_Rank_LieutenantJG</li><li>ST_Rank_Lieutenant</li>
+        <li>ST_Rank_LtCommander</li><li>ST_Rank_Commander</li><li>ST_Rank_Captain</li>
+    </conflictingTraits>
     <degreeDatas>
       <li>
         <label>ensign</label>
@@ -19,10 +18,6 @@
           <SocialImpact>0.02</SocialImpact>
         </statOffsets>
         <commonality>0</commonality>
-        <conflictingTraits>
-          <li>ST_Rank_LieutenantJG</li><li>ST_Rank_Lieutenant</li>
-          <li>ST_Rank_LtCommander</li><li>ST_Rank_Commander</li><li>ST_Rank_Captain</li>
-        </conflictingTraits>
       </li>
     </degreeDatas>
   </TraitDef>
@@ -31,6 +26,10 @@
     <defName>ST_Rank_LieutenantJG</defName>
     <label>rank: lieutenant (jg)</label>
     <description>Junior officer with growing responsibilities.</description>
+    <conflictingTraits>
+        <li>ST_Rank_Ensign</li><li>ST_Rank_Lieutenant</li>
+        <li>ST_Rank_LtCommander</li><li>ST_Rank_Commander</li><li>ST_Rank_Captain</li>
+    </conflictingTraits>
     <degreeDatas>
       <li>
         <label>lieutenant (jg)</label>
@@ -40,10 +39,6 @@
           <SocialImpact>0.03</SocialImpact>
         </statOffsets>
         <commonality>0</commonality>
-        <conflictingTraits>
-          <li>ST_Rank_Ensign</li><li>ST_Rank_Lieutenant</li>
-          <li>ST_Rank_LtCommander</li><li>ST_Rank_Commander</li><li>ST_Rank_Captain</li>
-        </conflictingTraits>
       </li>
     </degreeDatas>
   </TraitDef>
@@ -52,6 +47,10 @@
     <defName>ST_Rank_Lieutenant</defName>
     <label>rank: lieutenant</label>
     <description>Experienced line officer. Trusted with section duties.</description>
+    <conflictingTraits>
+        <li>ST_Rank_Ensign</li><li>ST_Rank_LieutenantJG</li>
+        <li>ST_Rank_LtCommander</li><li>ST_Rank_Commander</li><li>ST_Rank_Captain</li>
+    </conflictingTraits>
     <degreeDatas>
       <li>
         <label>lieutenant</label>
@@ -62,10 +61,6 @@
           <MedicalTendSpeed>0.03</MedicalTendSpeed>
         </statOffsets>
         <commonality>0</commonality>
-        <conflictingTraits>
-          <li>ST_Rank_Ensign</li><li>ST_Rank_LieutenantJG</li>
-          <li>ST_Rank_LtCommander</li><li>ST_Rank_Commander</li><li>ST_Rank_Captain</li>
-        </conflictingTraits>
       </li>
     </degreeDatas>
   </TraitDef>
@@ -74,6 +69,10 @@
     <defName>ST_Rank_LtCommander</defName>
     <label>rank: lieutenant commander</label>
     <description>Senior officer; bridges command and line duties.</description>
+    <conflictingTraits>
+        <li>ST_Rank_Ensign</li><li>ST_Rank_LieutenantJG</li>
+        <li>ST_Rank_Lieutenant</li><li>ST_Rank_Commander</li><li>ST_Rank_Captain</li>
+    </conflictingTraits>
     <degreeDatas>
       <li>
         <label>lieutenant commander</label>
@@ -84,10 +83,6 @@
           <MentalBreakThreshold>-0.03</MentalBreakThreshold>
         </statOffsets>
         <commonality>0</commonality>
-        <conflictingTraits>
-          <li>ST_Rank_Ensign</li><li>ST_Rank_LieutenantJG</li>
-          <li>ST_Rank_Lieutenant</li><li>ST_Rank_Commander</li><li>ST_Rank_Captain</li>
-        </conflictingTraits>
       </li>
     </degreeDatas>
   </TraitDef>
@@ -96,6 +91,10 @@
     <defName>ST_Rank_Commander</defName>
     <label>rank: commander</label>
     <description>Executive authority. Keeps teams aligned and missions on time.</description>
+    <conflictingTraits>
+        <li>ST_Rank_Ensign</li><li>ST_Rank_LieutenantJG</li>
+        <li>ST_Rank_Lieutenant</li><li>ST_Rank_LtCommander</li><li>ST_Rank_Captain</li>
+    </conflictingTraits>
     <degreeDatas>
       <li>
         <label>commander</label>
@@ -106,11 +105,7 @@
           <AimingDelayFactor>-0.03</AimingDelayFactor>
         </statOffsets>
         <commonality>0</commonality>
-        <conflictingTraits>
-          <li>ST_Rank_Ensign</li><li>ST_Rank_LieutenantJG</li>
-          <li>ST_Rank_Lieutenant</li><li>ST_Rank_LtCommander</li><li>ST_Rank_Captain</li>
-        </conflictingTraits>
-      </li>
+    </li>
     </degreeDatas>
   </TraitDef>
 
@@ -118,6 +113,10 @@
     <defName>ST_Rank_Captain</defName>
     <label>rank: captain</label>
     <description>Commands the mission. Steady hand under pressure.</description>
+    <conflictingTraits>
+        <li>ST_Rank_Ensign</li><li>ST_Rank_LieutenantJG</li>
+        <li>ST_Rank_Lieutenant</li><li>ST_Rank_LtCommander</li><li>ST_Rank_Commander</li>
+    </conflictingTraits>
     <degreeDatas>
       <li>
         <label>captain</label>
@@ -128,10 +127,6 @@
           <MentalBreakThreshold>-0.05</MentalBreakThreshold>
         </statOffsets>
         <commonality>0</commonality>
-        <conflictingTraits>
-          <li>ST_Rank_Ensign</li><li>ST_Rank_LieutenantJG</li>
-          <li>ST_Rank_Lieutenant</li><li>ST_Rank_LtCommander</li><li>ST_Rank_Commander</li>
-        </conflictingTraits>
       </li>
     </degreeDatas>
   </TraitDef>

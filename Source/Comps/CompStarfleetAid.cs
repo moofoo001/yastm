@@ -3,6 +3,7 @@ using RimWorld;
 using RimWorld.Planet;      // für WorldComponent
 using UnityEngine;
 using Verse;
+using System.Linq;
 
 namespace YASTM
 {
@@ -31,14 +32,30 @@ namespace YASTM
         int   SilverCost   => (YASTM_Mod.Settings?.AidSilverCost    ?? Props.silverCost);
         int   GoodwillCost => (YASTM_Mod.Settings?.AidGoodwillCost  ?? Props.goodwillCost);
         int   MinGoodwill  => (YASTM_Mod.Settings?.AidMinGoodwill   ?? Props.minGoodwill);
+        bool HasCommanderOrCaptain(Map map)
+        {
+            if (map == null) return false;
+            var defCommander = DefDatabase<TraitDef>.GetNamedSilentFail("ST_Rank_Commander");
+            var defCaptain   = DefDatabase<TraitDef>.GetNamedSilentFail("ST_Rank_Captain");
+            if (defCommander == null && defCaptain == null) return false;
 
+            foreach (var p in map.mapPawns.FreeColonistsSpawned)
+            {
+                var traits = p?.story?.traits;
+                if (traits == null) continue;
+                if ((defCommander != null && traits.HasTrait(defCommander)) ||
+                    (defCaptain   != null && traits.HasTrait(defCaptain)))
+                    return true;
+            }
+            return false;
+        }
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             if (parent.Faction != Faction.OfPlayer)
                 yield break;
 
             var power = parent.GetComp<CompPowerTrader>();
-            bool hasPower = (power == null || power.PowerOn);
+            bool hasPower = power == null || power.PowerOn;
 
             var cmd = new Command_Action
             {
@@ -50,7 +67,8 @@ namespace YASTM
 
             var wc = Find.World.GetComponent<WorldComponent_StarfleetAid>();
             int ticksNow = Find.TickManager.TicksGame;
-            int ticksRemaining = Mathf.Max(0, (wc?.NextAllowedTick ?? 0) - ticksNow);
+            int nextAllowed = wc?.NextAllowedTick ?? 0;
+            int ticksRemaining = Mathf.Max(0, nextAllowed - ticksNow);
 
             if (!hasPower)
             {
@@ -60,8 +78,13 @@ namespace YASTM
             {
                 cmd.Disable($"Uplink recharging: {ticksRemaining.ToStringTicksToPeriod()}");
             }
+            else if (!HasCommanderOrCaptain(parent.Map))
+            {
+                cmd.Disable("Requires a Commander or Captain on this map.");
+            }
             else
             {
+                // Goodwill-Gate
                 var fed = FindFederationFaction();
                 if (fed != null && Faction.OfPlayer != null)
                 {
@@ -76,6 +99,12 @@ namespace YASTM
 
         void TryRequestAid()
         {
+            if (!HasCommanderOrCaptain(parent.Map))
+            {
+                Messages.Message("Aid request requires a Commander or Captain present.", parent, MessageTypeDefOf.RejectInput, false);
+                return;
+            }
+
             Map map = parent.Map;
             if (map == null) return;
 

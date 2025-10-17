@@ -6,14 +6,25 @@
   <ThingDef ParentName="ResourceBase">
     <defName>ST_PromotionPip_Ensign</defName>
     <label>promotion pip (ensign)</label>
-    <graphicData><texPath>Things/Item/ST_Pips/Ensign</texPath></graphicData>
     <description>Commission pip authorizing promotion to Ensign.</description>
+    <category>Item</category>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <graphicData>
+        <texPath>Things/Item/Accessory/pip/pip_ensign</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+     </graphicData>
     <tradeability>Sellable</tradeability>
     <useHitPoints>false</useHitPoints>
+    <statBases>
+        <Mass>0.03</Mass>
+    </statBases>
     <comps>
       <li Class="CompProperties_Usable">
         <useLabel>Promote to Ensign</useLabel>
         <useDuration>60</useDuration>
+          <useJob>UseItem</useJob>    
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
         <targetRankTrait>ST_Rank_Ensign</targetRankTrait>
@@ -24,13 +35,24 @@
   <ThingDef ParentName="ResourceBase">
     <defName>ST_PromotionPip_LieutenantJG</defName>
     <label>promotion pip (lieutenant jg)</label>
-    <graphicData><texPath>Things/Item/ST_Pips/LJG</texPath></graphicData>
     <description>Commission pip authorizing promotion to Lieutenant (jg).</description>
+    <category>Item</category>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <graphicData>
+        <texPath>Things/Item/Accessory/pip/pip_ltjg</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+     </graphicData>
     <useHitPoints>false</useHitPoints>
+    <statBases>
+        <Mass>0.03</Mass>
+    </statBases>
     <comps>
       <li Class="CompProperties_Usable">
         <useLabel>Promote to Lieutenant (jg)</useLabel>
         <useDuration>60</useDuration>
+          <useJob>UseItem</useJob>    
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
         <targetRankTrait>ST_Rank_LieutenantJG</targetRankTrait>
@@ -41,13 +63,24 @@
   <ThingDef ParentName="ResourceBase">
     <defName>ST_PromotionPip_Lieutenant</defName>
     <label>promotion pip (lieutenant)</label>
-    <graphicData><texPath>Things/Item/ST_Pips/Lt</texPath></graphicData>
     <description>Commission pip authorizing promotion to Lieutenant .</description>
+    <category>Item</category>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <graphicData>
+        <texPath>Things/Item/Accessory/pip/pip_lt</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+     </graphicData>
     <useHitPoints>false</useHitPoints>
+    <statBases>
+        <Mass>0.03</Mass>
+    </statBases>
     <comps>
       <li Class="CompProperties_Usable">
         <useLabel>Promote to Lieutenant</useLabel>
         <useDuration>60</useDuration>
+          <useJob>UseItem</useJob>    
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
         <targetRankTrait>ST_Rank_Lieutenant</targetRankTrait>
@@ -58,13 +91,24 @@
   <ThingDef ParentName="ResourceBase">
     <defName>ST_PromotionPip_LtCommander</defName>
     <label>promotion pip (lieutenant commander)</label>
-    <graphicData><texPath>Things/Item/ST_Pips/LtCmdr</texPath></graphicData>
     <description>Commission pip authorizing promotion to Lieutenant Commander.</description>
+    <category>Item</category>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <graphicData>
+        <texPath>Things/Item/Accessory/pip/pip_ltcmdr</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+     </graphicData>
     <useHitPoints>false</useHitPoints>
+    <statBases>
+        <Mass>0.03</Mass>
+    </statBases>
     <comps>
       <li Class="CompProperties_Usable">
         <useLabel>Promote to Lieutenant Commander</useLabel>
         <useDuration>60</useDuration>
+          <useJob>UseItem</useJob>    
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
         <targetRankTrait>ST_Rank_LtCommander</targetRankTrait>
@@ -72,38 +116,170 @@
     </comps>
     </ThingDef>
 
-    <ThingDef ParentName="ResourceBase">
+   <ThingDef ParentName="ResourceBase">
     <defName>ST_PromotionPip_Commander</defName>
     <label>promotion pip (commander)</label>
-    <graphicData><texPath>Things/Item/ST_Pips/Cmdr</texPath></graphicData>
     <description>Commission pip authorizing promotion to Commander.</description>
+    <category>Item</category>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <graphicData>
+        <texPath>Things/Item/Accessory/pip/pip_cmdr</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+     </graphicData>
     <useHitPoints>false</useHitPoints>
+    <statBases>
+        <Mass>0.03</Mass>
+    </statBases>
     <comps>
       <li Class="CompProperties_Usable">
         <useLabel>Promote to Commander</useLabel>
         <useDuration>60</useDuration>
+          <useJob>UseItem</useJob>    
       </li>
-      <li Class="YASTM.Comp Properties_PromoteToRank">
+      <li Class="YASTM.CompProperties_PromoteToRank">
         <targetRankTrait>ST_Rank_Commander</targetRankTrait>
         </li>
     </comps>
-    </ThingDef>
+   </ThingDef>
 
-    <ThingDef ParentName="ResourceBase">
+   <ThingDef ParentName="ResourceBase">
     <defName>ST_PromotionPip_Captain</defName>
     <label>promotion pip (captain)</label>
-    <graphicData><texPath>Things/Item/ST_Pips/Captain</texPath></graphicData>
     <description>Commission pip authorizing promotion to Captain.</description>
+    <category>Item</category>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <graphicData>
+        <texPath>Things/Item/Accessory/pip/pip_cpt</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+     </graphicData>
     <useHitPoints>false</useHitPoints>
+    <statBases>
+        <Mass>0.03</Mass>
+    </statBases>
     <comps>
       <li Class="CompProperties_Usable">
         <useLabel>Promote to Captain</useLabel>
         <useDuration>60</useDuration>
+          <useJob>UseItem</useJob>    
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
         <targetRankTrait>ST_Rank_Captain</targetRankTrait>
         </li>
     </comps>
-    </ThingDef>
+   </ThingDef>
   
+ <!-- Ein Template (Gold + Stahl), pro Pip ein Rezept -->
+  <RecipeDef>
+    <defName>Make_ST_PromotionPip_Ensign</defName>
+    <label>make promotion pip (ensign)</label>
+    <jobString>crafting a promotion pip (ensign).</jobString>
+    <workAmount>800</workAmount>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Gold</li></thingDefs></filter>
+        <count>5</count>
+      </li>
+      <li>
+        <filter><thingDefs><li>Steel</li></thingDefs></filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+    <products>
+      <ST_PromotionPip_Ensign>1</ST_PromotionPip_Ensign>
+    </products>
+    <recipeUsers>
+      <li>ElectricSmithy</li>
+      <li>TableMachining</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <!-- Duplikate für die restlichen Pips (gleiche Zutaten/Werte) -->
+  <RecipeDef>
+    <defName>Make_ST_PromotionPip_LieutenantJG</defName>
+    <label>make promotion pip (lieutenant jg)</label>
+    <jobString>crafting a promotion pip (lieutenant jg).</jobString>
+    <workAmount>900</workAmount>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <ingredients>
+      <li><filter><thingDefs><li>Gold</li></thingDefs></filter><count>6</count></li>
+      <li><filter><thingDefs><li>Steel</li></thingDefs></filter><count>12</count></li>
+    </ingredients>
+    <products><ST_PromotionPip_LieutenantJG>1</ST_PromotionPip_LieutenantJG></products>
+    <recipeUsers><li>ElectricSmithy</li><li>TableMachining</li></recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>Make_ST_PromotionPip_Lieutenant</defName>
+    <label>make promotion pip (lieutenant)</label>
+    <jobString>crafting a promotion pip (lieutenant).</jobString>
+    <workAmount>1000</workAmount>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <ingredients>
+      <li><filter><thingDefs><li>Gold</li></thingDefs></filter><count>7</count></li>
+      <li><filter><thingDefs><li>Steel</li></thingDefs></filter><count>14</count></li>
+    </ingredients>
+    <products><ST_PromotionPip_Lieutenant>1</ST_PromotionPip_Lieutenant></products>
+    <recipeUsers><li>ElectricSmithy</li><li>TableMachining</li></recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>Make_ST_PromotionPip_LtCommander</defName>
+    <label>make promotion pip (lieutenant commander)</label>
+    <jobString>crafting a promotion pip (lieutenant commander).</jobString>
+    <workAmount>1100</workAmount>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <ingredients>
+      <li><filter><thingDefs><li>Gold</li></thingDefs></filter><count>8</count></li>
+      <li><filter><thingDefs><li>Steel</li></thingDefs></filter><count>16</count></li>
+    </ingredients>
+    <products><ST_PromotionPip_LtCommander>1</ST_PromotionPip_LtCommander></products>
+    <recipeUsers><li>ElectricSmithy</li><li>TableMachining</li></recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>Make_ST_PromotionPip_Commander</defName>
+    <label>make promotion pip (commander)</label>
+    <jobString>crafting a promotion pip (commander).</jobString>
+    <workAmount>1200</workAmount>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <ingredients>
+      <li><filter><thingDefs><li>Gold</li></thingDefs></filter><count>9</count></li>
+      <li><filter><thingDefs><li>Steel</li></thingDefs></filter><count>18</count></li>
+    </ingredients>
+    <products><ST_PromotionPip_Commander>1</ST_PromotionPip_Commander></products>
+    <recipeUsers><li>ElectricSmithy</li><li>TableMachining</li></recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>Make_ST_PromotionPip_Captain</defName>
+    <label>make promotion pip (captain)</label>
+    <jobString>crafting a promotion pip (captain).</jobString>
+    <workAmount>1400</workAmount>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <ingredients>
+      <li><filter><thingDefs><li>Gold</li></thingDefs></filter><count>10</count></li>
+      <li><filter><thingDefs><li>Steel</li></thingDefs></filter><count>20</count></li>
+    </ingredients>
+    <products><ST_PromotionPip_Captain>1</ST_PromotionPip_Captain></products>
+    <recipeUsers><li>ElectricSmithy</li><li>TableMachining</li></recipeUsers>
+  </RecipeDef>
+
+
 </Defs>

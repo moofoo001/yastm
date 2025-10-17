@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef>
+    <defName>ST_RedAlert</defName>
+    <description>Colony-wide red alert status, boosting movement speed at the cost of focused work.</description>
+    <label>red alert</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <label>red alert</label>
+        <statOffsets>
+          <MoveSpeed>0.15</MoveSpeed>            <!-- schneller bewegen -->
+          <WorkSpeedGlobal>-0.05</WorkSpeedGlobal>
+          <AimingDelayFactor>-0.05</AimingDelayFactor>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>15000</disappearsAfterTicks> 
+      </li>
+    </comps>
+  </HediffDef>
+</Defs>

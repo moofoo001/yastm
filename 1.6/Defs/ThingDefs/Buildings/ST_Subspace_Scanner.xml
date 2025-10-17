@@ -15,7 +15,7 @@
     <Steel>40</Steel>
     <ComponentIndustrial>3</ComponentIndustrial>
   </costList>
-    <designationCategory>ST_Designation</designationCategory>
+  <designationCategory>ST_Designation</designationCategory>
 
 
   <!-- Minify: nur minifiedDef; die beiden Install*-Felder weglassen -->

@@ -40,6 +40,7 @@
       </li>
     </degreeDatas>
   </TraitDef>
+
 <!-- Pilots -->
 <!-- Pilot (cadet) -->
 <TraitDef>
@@ -52,13 +53,15 @@
       <label>Pilot Cadet</label>
       <description>Basic piloting discipline and stress handling.</description>
       <statOffsets>
-        <!-- Odyssey stat, nur wenn vorhanden -->
         <PilotingAbility MayRequire="Ludeon.RimWorld.Odyssey">0.15</PilotingAbility>
-        <!-- stabiler: niedrigerer Break-Threshold ist besser -->
         <MentalBreakThreshold>-0.03</MentalBreakThreshold>
       </statOffsets>
     </li>
   </degreeDatas>
+  <conflictingTraits>
+    <li>Wimp</li>
+    <li>Undergrounder</li>
+  </conflictingTraits>
 </TraitDef>
 
 <!-- Pilot (officer) -->
@@ -93,7 +96,6 @@
     <li>
       <label>ace</label>
       <description>Elite maneuvering, rock-solid nerves.</description>
-
       <statOffsets>
         <PilotingAbility MayRequire="Ludeon.RimWorld.Odyssey">0.40</PilotingAbility>
         <MentalBreakThreshold>-0.08</MentalBreakThreshold>
@@ -177,11 +179,11 @@
           <SocialImpact>0.05</SocialImpact>
         </statOffsets>
         <commonality>1.8</commonality>
-        <conflictingTraits>
-          <li>Ascetic</li>
-        </conflictingTraits>
       </li>
     </degreeDatas>
+    <conflictingTraits>
+       <li>Ascetic</li> 
+    </conflictingTraits>
   </TraitDef>
 
   <TraitDef>
@@ -197,11 +199,11 @@
           <MeleeHitChance>0.03</MeleeHitChance>
         </statOffsets>
         <commonality>1.2</commonality>
-        <conflictingTraits>
-          <li>Wimp</li>
-        </conflictingTraits>
       </li>
     </degreeDatas>
+    <conflictingTraits>
+      <li>Wimp</li>
+    </conflictingTraits>
   </TraitDef>
 
 </Defs>

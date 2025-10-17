@@ -11,6 +11,7 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <apparel>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/Vacsuit/Vacsuit</wornGraphicPath>
       <bodyPartGroups>
         <li>Torso</li><li>Arms</li><li>Legs</li>
       </bodyPartGroups>
@@ -47,10 +48,11 @@
     <defName>ST_EVAHelmet</defName>
     <label>EVA helmet</label>
     <graphicData>
-      <texPath>Things/Pawn/Humanlike/Apparel/Vacsuit/VacsuitHelmet</texPath>
+      <texPath>Things/Pawn/Humanlike/Apparel/VacsuitHelmet/VacsuitHelmet</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <apparel>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/VacsuitHelmet/VacsuitHelmet</wornGraphicPath>
       <bodyPartGroups><li>FullHead</li></bodyPartGroups>
       <layers><li>Overhead</li></layers>
       <tags><li>IndustrialBasic</li></tags>

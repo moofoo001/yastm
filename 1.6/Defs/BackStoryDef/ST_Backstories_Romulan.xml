@@ -75,6 +75,9 @@
     <forcedTraits>
       <TorturedArtist />
     </forcedTraits>
+    <disallowedTraits>
+      <Kind>0</Kind>
+    </disallowedTraits>
   </BackstoryDef>
 
  <BackstoryDef>
@@ -85,8 +88,12 @@
     <baseDesc>Taught restraint and rhetoric behind quiet walls. Listens twice, speaks once.</baseDesc>
     <skillGains><Social>2</Social><Intellectual>1</Intellectual></skillGains>
     <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
-    <forcedTraits><li>Abrasive</li></forcedTraits>
-    <disallowedTraits><li>Kind</li></disallowedTraits>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -97,8 +104,12 @@
     <baseDesc>Feeding machines, labeling tapes, learning to doubt first reports.</baseDesc>
     <skillGains><Intellectual>2</Intellectual><Crafting>1</Crafting></skillGains>
     <spawnCategories><li>Civil</li></spawnCategories>
-    <forcedTraits><li>Abrasive</li></forcedTraits>
-    <disallowedTraits><li>Kind</li></disallowedTraits>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -109,8 +120,12 @@
     <baseDesc>Carried samples and gossip in equal measure. Learned safety before speed.</baseDesc>
     <skillGains><Intellectual>1</Intellectual><Medicine>1</Medicine><Social>1</Social></skillGains>
     <spawnCategories><li>Spacer</li></spawnCategories>
-    <forcedTraits><li>Abrasive</li></forcedTraits>
-    <disallowedTraits><li>Kind</li></disallowedTraits>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -121,8 +136,12 @@
     <baseDesc>Nights under glass, mapping lights and learning to hide in data.</baseDesc>
     <skillGains><Intellectual>2</Intellectual><Shooting>1</Shooting></skillGains>
     <spawnCategories><li>Spacer</li></spawnCategories>
-    <forcedTraits><li>Abrasive</li></forcedTraits>
-    <disallowedTraits><li>Kind</li></disallowedTraits>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -133,8 +152,12 @@
     <baseDesc>Escorted through quiet sectors. Watched scans more than stars.</baseDesc>
     <skillGains><Shooting>1</Shooting><Intellectual>1</Intellectual><Plants>1</Plants></skillGains>
     <spawnCategories><li>Spacer</li></spawnCategories>
-    <forcedTraits><li>Abrasive</li></forcedTraits>
-    <disallowedTraits><li>Kind</li></disallowedTraits>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -145,8 +168,12 @@
     <baseDesc>Learned the mask first, then the smile. Words as precise as blades.</baseDesc>
     <skillGains><Social>2</Social><Intellectual>1</Intellectual></skillGains>
     <spawnCategories><li>Civil</li></spawnCategories>
-    <forcedTraits><li>Abrasive</li></forcedTraits>
-    <disallowedTraits><li>Kind</li></disallowedTraits>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
   </BackstoryDef>
 
   <!-- ===== ROMULANER: ADULTHOOD (6) ===== -->
@@ -158,6 +185,12 @@
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Civil</li><li>Soldier</li></spawnCategories>
     <skillGains><Intellectual>3</Intellectual><Social>2</Social></skillGains>
+    <forcedTraits>
+    <FastLearner>0</FastLearner>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -168,6 +201,10 @@
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Spacer</li><li>Soldier</li></spawnCategories>
     <skillGains><Intellectual>1</Intellectual><Shooting>2</Shooting><Social>1</Social></skillGains>
+    <disallowedTraits>
+      <Kind>0</Kind>
+      <Wimp>0</Wimp>
+    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -178,6 +215,9 @@
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Spacer</li></spawnCategories>
     <skillGains><Crafting>3</Crafting><Intellectual>1</Intellectual></skillGains>
+    <forcedTraits>
+      <FastLearner>0</FastLearner>
+    </forcedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -188,6 +228,9 @@
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
     <spawnCategories><li>Civil</li></spawnCategories>
     <skillGains><Intellectual>2</Intellectual><Social>2</Social></skillGains>
+    <disallowedTraits>
+    <Abrasive>0</Abrasive>
+    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -216,7 +259,7 @@
       <Industriousness>1</Industriousness>
     </forcedTraits>
   </BackstoryDef>
-  
+
  <BackstoryDef>
     <defName>ST_BS_Romulan_IntelOfficer</defName>
     <title>intelligence officer</title>
@@ -225,8 +268,12 @@
     <baseDesc>Reads faces and footnotes, edits truth to fit the day.</baseDesc>
     <skillGains><Social>2</Social><Intellectual>3</Intellectual></skillGains>
     <spawnCategories><li>Spacer</li></spawnCategories>
-    <forcedTraits><li>Abrasive</li></forcedTraits>
-    <disallowedTraits><li>Kind</li></disallowedTraits>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -237,8 +284,12 @@
     <baseDesc>Packs light, records much. Prefers answers that take time.</baseDesc>
     <skillGains><Intellectual>4</Intellectual><Plants>1</Plants></skillGains>
     <spawnCategories><li>Spacer</li></spawnCategories>
-    <forcedTraits><li>Abrasive</li></forcedTraits>
-    <disallowedTraits><li>Kind</li></disallowedTraits>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -249,8 +300,12 @@
     <baseDesc>Counts breaths, not shots. Strikes from quiet margins.</baseDesc>
     <skillGains><Shooting>4</Shooting><Intellectual>1</Intellectual></skillGains>
     <spawnCategories><li>Spacer</li></spawnCategories>
-    <forcedTraits><li>Abrasive</li><!-- optional: <li>CarefulShooter</li> --></forcedTraits>
-    <disallowedTraits><li>Kind</li></disallowedTraits>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -261,8 +316,12 @@
     <baseDesc>Models failure before it happens. Fixes people last, systems first.</baseDesc>
     <skillGains><Crafting>2</Crafting><Intellectual>2</Intellectual><Construction>1</Construction></skillGains>
     <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
-    <forcedTraits><li>Abrasive</li></forcedTraits>
-    <disallowedTraits><li>Kind</li></disallowedTraits>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -273,8 +332,12 @@
     <baseDesc>Steady hands, blank face. Keeps sheets cleaner than conscience.</baseDesc>
     <skillGains><Medicine>4</Medicine><Intellectual>1</Intellectual></skillGains>
     <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
-    <forcedTraits><li>Abrasive</li></forcedTraits>
-    <disallowedTraits><li>Kind</li></disallowedTraits>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -285,8 +348,12 @@
     <baseDesc>Makes scarcity vanish on paper, then in crates.</baseDesc>
     <skillGains><Social>2</Social><Intellectual>2</Intellectual><Crafting>1</Crafting></skillGains>
     <spawnCategories><li>Civil</li></spawnCategories>
-    <forcedTraits><li>Abrasive</li></forcedTraits>
-    <disallowedTraits><li>Kind</li></disallowedTraits>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
   </BackstoryDef>
 
 </Defs>
