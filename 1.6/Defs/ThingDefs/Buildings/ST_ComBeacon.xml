@@ -125,6 +125,37 @@
           </li>
         </spawnOnInit>
       </li>
+      <!-- Diplomacy -->
+      <li Class="YASTM.CompProperties_DiplomacyComms">
+        <improveCost>300</improveCost>
+        <improveGoodwill>10</improveGoodwill>
+        <ceasefireCost>800</ceasefireCost>
+        <cooldownDaysImprove>1</cooldownDaysImprove>
+        <cooldownDaysCeasefire>2</cooldownDaysCeasefire>
+        <!-- Requirment  -->
+        <!-- Improve: Ensign+ mit Social 6+ -->
+        <minSocialImprove>6</minSocialImprove>
+        <requiredTraitsImprove>
+          <li>*ANY_COMMISSIONED*</li> <!-- accept all ST_Rank_* Trait -->
+        </requiredTraitsImprove>
+        <requiredApparelsImprove>
+          <li>*ANY_PIP*</li>          <!-- accept all ST_RankPips_* Apparel -->
+        </requiredApparelsImprove>
+        <rankLabelImprove>Ensign+</rankLabelImprove>
+
+        <!-- Ceasefire: Commander+ mit Social 10+ -->
+        <minSocialCeasefire>10</minSocialCeasefire>
+        <requiredTraitsCeasefire>
+          <li>ST_Rank_Commander</li>
+          <li>ST_Rank_Captain</li>
+        </requiredTraitsCeasefire>
+        <requiredApparelsCeasefire>
+          <li>ST_RankPips_Commander</li>
+          <li>ST_RankPips_Captain</li>
+        </requiredApparelsCeasefire>
+        <rankLabelCeasefire>Commander+</rankLabelCeasefire>
+      </li>
+
     </comps>
     </ThingDef>
 </Defs>

@@ -1,13 +1,14 @@
 <LanguageData>
   <!-- Red Alert -->
   <ST.RedAlert.EngageButton>Engage Red Alert</ST.RedAlert.EngageButton>
-  <ST.RedAlert.ButtonDesc>Trigger a colony-wide Red Alert buff with a cooldown.</ST.RedAlert.ButtonDesc>
+  <ST.RedAlert.ButtonDesc>Trigger a colony-wide red alert with siren and full readiness.</ST.RedAlert.ButtonDesc>
   <ST.RedAlert.NeedsPower>Needs power.</ST.RedAlert.NeedsPower>
   <ST.RedAlert.Recharging>Red Alert recharging: {0}</ST.RedAlert.Recharging>
   <ST.RedAlert.Engaged>Red Alert engaged.</ST.RedAlert.Engaged>
   <ST.RedAlert.MissingHediff>Missing hediff: ST_RedAlert</ST.RedAlert.MissingHediff>
 
   <!-- Yellow Alert -->
+
   <ST.YellowAlert.EngageButton>Engage Yellow Alert</ST.YellowAlert.EngageButton>
   <ST.YellowAlert.ButtonDesc>Trigger a colony-wide caution alert with a short cooldown.</ST.YellowAlert.ButtonDesc>
   <ST.YellowAlert.NeedsPower>Needs power.</ST.YellowAlert.NeedsPower>
@@ -68,4 +69,35 @@
   <!-- Research -->
   <ST.Research.RedAlert.Label>red alert protocols</ST.Research.RedAlert.Label>
   <ST.Research.RedAlert.Desc>Implements colony-wide alert routing and EPS priority to enable the Red Alert panel.</ST.Research.RedAlert.Desc>
+
+
+  <!-- Diplomacy -->
+  <ST.Common.NeedsPower>Needs power.</ST.Common.NeedsPower>
+  <ST.Common.Recharging>Recharging: {0}</ST.Common.Recharging>
+  <ST.Common.NotEnoughSilver>Not enough silver ({0} required).</ST.Common.NotEnoughSilver>
+
+  <ST.Diplo.Improve.Button>Improve relations…</ST.Diplo.Improve.Button>
+  <ST.Diplo.Improve.Desc>Pay {0} silver to improve goodwill by +{1} with a non-hostile faction.</ST.Diplo.Improve.Desc>
+  <ST.Diplo.Improve.None>No eligible factions.</ST.Diplo.Improve.None>
+  <ST.Diplo.Improve.Confirm>Transmit cultural exchange package to {0} for {1} silver?\n\nExpected goodwill change: +{2}.</ST.Diplo.Improve.Confirm>
+  <ST.Diplo.Improve.Maxed>{0} already have maximum goodwill.</ST.Diplo.Improve.Maxed>
+  <ST.Diplo.Improve.Success>Relations with {0} improved.</ST.Diplo.Improve.Success>
+
+  <ST.Diplo.Ceasefire.Button>Request ceasefire…</ST.Diplo.Ceasefire.Button>
+  <ST.Diplo.Ceasefire.Desc>Pay {0} silver to negotiate a ceasefire with a hostile faction.</ST.Diplo.Ceasefire.Desc>
+  <ST.Diplo.Ceasefire.None>No hostile factions available.</ST.Diplo.Ceasefire.None>
+  <ST.Diplo.Ceasefire.Confirm>Attempt ceasefire with {0} for {1} silver?\n\nIf successful, status will become neutral.</ST.Diplo.Ceasefire.Confirm>
+  <ST.Diplo.Ceasefire.Success>Ceasefire established with {0}.</ST.Diplo.Ceasefire.Success>
+  
+  <ST.Diplo.Requirements.Improve>Requires a {1} with Social {0}+ on this map.</ST.Diplo.Requirements.Improve>
+  <ST.Diplo.Requirements.Ceasefire>Requires a {1} with Social {0}+ on this map.</ST.Diplo.Requirements.Ceasefire>
+
+  <!-- Ktarian Game -->
+  <ST.Ktarian.Play.Button>Play Ktarian Game</ST.Ktarian.Play.Button>
+  <ST.Ktarian.Play.Desc>Start a short neural-interface game session.</ST.Ktarian.Play.Desc>
+  <ST.Ktarian.Play.BlockedState>Pawn is unable to focus right now.</ST.Ktarian.Play.BlockedState>
+  <ST.Ktarian.Play.NeedsTalking>Pawn must be able to talk.</ST.Ktarian.Play.NeedsTalking>
+  <ST.Thought.KtarianCraving.Label>ktarian craving</ST.Thought.KtarianCraving.Label>
+  <ST.Thought.KtarianCraving.Desc>A lingering urge to return to the Ktarian game.</ST.Thought.KtarianCraving.Desc>
+
 </LanguageData>

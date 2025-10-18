@@ -1,19 +1,19 @@
 <LanguageData>
   <!-- Red Alert -->
   <ST.RedAlert.EngageButton>Rotalarm aktivieren</ST.RedAlert.EngageButton>
-  <ST.RedAlert.ButtonDesc>Löst einen kolonieweiten Rotalarm-Buff mit Abklingzeit aus.</ST.RedAlert.ButtonDesc>
+  <ST.RedAlert.ButtonDesc>Löst einen kolonieweiten Rotalarm mit Sirene und voller Gefechtsbereitschaft aus.</ST.RedAlert.ButtonDesc>
   <ST.RedAlert.NeedsPower>Benötigt Strom.</ST.RedAlert.NeedsPower>
   <ST.RedAlert.Recharging>Rotalarm lädt auf: {0}</ST.RedAlert.Recharging>
   <ST.RedAlert.Engaged>Rotalarm aktiviert.</ST.RedAlert.Engaged>
   <ST.RedAlert.MissingHediff>Fehlender Hediff: ST_RedAlert</ST.RedAlert.MissingHediff>
 
   <!-- Yellow Alert -->
-    <ST.YellowAlert.EngageButton>Gelbalarm aktivieren</ST.YellowAlert.EngageButton>
+  <ST.YellowAlert.EngageButton>Gelbalarm aktivieren</ST.YellowAlert.EngageButton>
   <ST.YellowAlert.ButtonDesc>Löst einen kolonieweiten Gelbalarm mit kurzer Abklingzeit aus.</ST.YellowAlert.ButtonDesc>
   <ST.YellowAlert.NeedsPower>Benötigt Strom.</ST.YellowAlert.NeedsPower>
   <ST.YellowAlert.Recharging>Gelbalarm lädt auf: {0}</ST.YellowAlert.Recharging>
   <ST.YellowAlert.Engaged>Gelbalarm aktiviert.</ST.YellowAlert.Engaged>
-  <ST.YellowAlert.MissingHediff>Fehlender Hediff: ST_YellowAlert</ST_YellowAlert.MissingHediff>
+  <ST.YellowAlert.MissingHediff>Fehlender Hediff: ST_YellowAlert</ST.YellowAlert.MissingHediff>
 
   <!-- Starfleet Aid -->
   <ST.Aid.Button>Sternenflottenhilfe anfordern</ST.Aid.Button>
@@ -68,4 +68,34 @@
   <!-- Research -->
   <ST.Research.RedAlert.Label>Alarmprotokolle (Rotalarm)</ST.Research.RedAlert.Label>
   <ST.Research.RedAlert.Desc>Implementiert Alarmrouten und EPS-Priorisierung, um das Rotalarm-Panel zu aktivieren.</ST.Research.RedAlert.Desc>
+
+  <!-- Diplomacy -->
+  <ST.Common.NeedsPower>Benötigt Strom.</ST.Common.NeedsPower>
+  <ST.Common.Recharging>Lädt auf: {0}</ST.Common.Recharging>
+  <ST.Common.NotEnoughSilver>Nicht genug Silber (benötigt: {0}).</ST.Common.NotEnoughSilver>
+
+  <ST.Diplo.Improve.Button>Beziehungen verbessern…</ST.Diplo.Improve.Button>
+  <ST.Diplo.Improve.Desc>Zahle {0} Silber für +{1} Goodwill bei einer nicht-feindlichen Fraktion.</ST.Diplo.Improve.Desc>
+  <ST.Diplo.Improve.None>Keine geeigneten Fraktionen.</ST.Diplo.Improve.None>
+  <ST.Diplo.Improve.Confirm>Kulturelles Austauschpaket an {0} für {1} Silber senden?\n\nErwartete Goodwill-Änderung: +{2}.</ST.Diplo.Improve.Confirm>
+  <ST.Diplo.Improve.Maxed>{0} haben bereits maximalen Goodwill.</ST.Diplo.Improve.Maxed>
+  <ST.Diplo.Improve.Success>Beziehungen mit {0} verbessert.</ST.Diplo.Improve.Success>
+
+  <ST.Diplo.Ceasefire.Button>Waffenstillstand anfragen…</ST.Diplo.Ceasefire.Button>
+  <ST.Diplo.Ceasefire.Desc>Zahle {0} Silber, um mit einer feindlichen Fraktion einen Waffenstillstand zu verhandeln.</ST.Diplo.Ceasefire.Desc>
+  <ST.Diplo.Ceasefire.None>Keine feindlichen Fraktionen verfügbar.</ST.Diplo.Ceasefire.None>
+  <ST.Diplo.Ceasefire.Confirm>Waffenstillstand mit {0} für {1} Silber versuchen?\n\nBei Erfolg wird der Status neutral.</ST.Diplo.Ceasefire.Confirm>
+  <ST.Diplo.Ceasefire.Success>Waffenstillstand mit {0} hergestellt.</ST.Diplo.Ceasefire.Success>
+
+  <ST.Diplo.Requirements.Improve>Erfordert einen/eine {1} mit Sozial {0}+ auf dieser Karte.</ST.Diplo.Requirements.Improve>
+  <ST.Diplo.Requirements.Ceasefire>Erfordert einen/eine {1} mit Sozial {0}+ auf dieser Karte.</ST.Diplo.Requirements.Ceasefire>
+
+  <!-- Ktarian Game -->
+  <ST.Ktarian.Play.Button>Ktarian-Spiel starten</ST.Ktarian.Play.Button>
+  <ST.Ktarian.Play.Desc>Startet eine kurze Neural-Interface-Spielsession.</ST.Ktarian.Play.Desc>
+  <ST.Ktarian.Play.BlockedState>Die Person kann sich derzeit nicht konzentrieren.</ST.Ktarian.Play.BlockedState>
+  <ST.Ktarian.Play.NeedsTalking>Die Person muss sprechen können.</ST.Ktarian.Play.NeedsTalking>
+  <ST.Thought.KtarianCraving.Label>ktarianisches Verlangen</ST.Thought.KtarianCraving.Label>
+  <ST.Thought.KtarianCraving.Desc>Ein anhaltender Drang, zum Ktarian-Spiel zurückzukehren.</ST.Thought.KtarianCraving.Desc>
+
 </LanguageData>

@@ -32,4 +32,22 @@
     </stages>
   </ThoughtDef>
 
+  <!-- Katarian neg effect -->
+<ThoughtDef>
+  <defName>ST_KtarianCraving</defName>
+  <label>ktarian craving</label>
+  <description>A lingering urge to return to the Ktarian game.</description>
+  <durationDays>1.5</durationDays>
+  <stackLimit>1</stackLimit>
+  <thoughtClass>Thought_Memory</thoughtClass>
+  <stages>
+    <li>
+      <label>ktarian craving</label>
+      <baseMoodEffect>-6</baseMoodEffect>
+      <description>A lingering urge to return to the Ktarian game.</description>  <!-- NEU -->
+    </li>
+  </stages>
+</ThoughtDef>
+
+
 </Defs>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>ST_PlayKtarianHeadset</defName>
+    <driverClass>YASTM.JobDriver_PlayKtarianHeadset</driverClass>
+    <reportString>using the Ktarian headset.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+    <playerInterruptible>true</playerInterruptible>
+    <alwaysShowWeapon>false</alwaysShowWeapon>
+  </JobDef>
+</Defs>

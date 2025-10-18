@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_KtarianHeadset</defName>
+    <label>ktarian headset</label>
+    <description>A neural-interface game as wearable headset. Play anywhere.</description>
+    <techLevel>Industrial</techLevel>
+
+    <graphicData>
+      <texPath>Things/Item/Accessory/ktarian/KatarianHS</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+
+    <apparel>
+    <bodyPartGroups>
+        <li>FullHead</li>
+    </bodyPartGroups>
+    <layers>
+        <li>Overhead</li>
+    </layers>
+    <tags>
+        <li>MortarBarrelNotForApparel</li>
+    </tags>
+    <defaultOutfitTags>
+        <li>Social</li>
+    </defaultOutfitTags>
+      <wornGraphicPath>Things/Item/Accessory/ktarian/KatarianHS</wornGraphicPath> <!-- optional -->
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+    </apparel>
+
+    <statBases>
+      <ArmorRating_Blunt>0.02</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.02</ArmorRating_Heat>
+      <Mass>0.3</Mass>
+      <Flammability>0.3</Flammability>
+      <MarketValue>180</MarketValue>
+    </statBases>
+
+    <thingSetMakerTags>
+        <li>RewardStandard</li>
+        <li>TradeShip</li>
+    </thingSetMakerTags>
+
+    <generateCommonality>0.2</generateCommonality>
+    <costList>
+      <Steel>15</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+
+    <tradeability>Sellable</tradeability>
+
+    <comps>
+      <li Class="YASTM.CompProperties_KtarianHeadset">
+        <sessionTicks>4000</sessionTicks>
+        <cooldownTicks>6000</cooldownTicks>
+        <obsessionChance>0.01</obsessionChance>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>
