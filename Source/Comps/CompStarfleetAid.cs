@@ -35,18 +35,29 @@ namespace YASTM
         bool HasCommanderOrCaptain(Map map)
         {
             if (map == null) return false;
-            var defCommander = DefDatabase<TraitDef>.GetNamedSilentFail("ST_Rank_Commander");
-            var defCaptain   = DefDatabase<TraitDef>.GetNamedSilentFail("ST_Rank_Captain");
-            if (defCommander == null && defCaptain == null) return false;
+
+            var defCmd = DefDatabase<TraitDef>.GetNamedSilentFail("ST_Rank_Commander");
+            var defCpt = DefDatabase<TraitDef>.GetNamedSilentFail("ST_Rank_Captain");
+
+            bool HasRankTrait(Pawn p) =>
+                p?.story?.traits != null &&
+                ((defCmd != null && p.story.traits.HasTrait(defCmd)) ||
+                (defCpt != null && p.story.traits.HasTrait(defCpt)));
+
+            bool HasRankPip(Pawn p)
+            {
+                var wa = p?.apparel?.WornApparel;
+                if (wa == null) return false;
+                return wa.Any(a =>
+                {
+                    var dn = a.def?.defName;
+                    return dn == "ST_RankPips_Commander" || dn == "ST_RankPips_Captain";
+                });
+            }
 
             foreach (var p in map.mapPawns.FreeColonistsSpawned)
-            {
-                var traits = p?.story?.traits;
-                if (traits == null) continue;
-                if ((defCommander != null && traits.HasTrait(defCommander)) ||
-                    (defCaptain   != null && traits.HasTrait(defCaptain)))
-                    return true;
-            }
+                if (HasRankTrait(p) || HasRankPip(p)) return true;
+
             return false;
         }
         public override IEnumerable<Gizmo> CompGetGizmosExtra()

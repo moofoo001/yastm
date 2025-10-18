@@ -146,5 +146,54 @@
     <researchViewY>0</researchViewY>
   </ResearchProjectDef>
 
+  <!-- Buildings -->
+
+  <ResearchProjectDef>
+    <defName>ST_AlertProtocols</defName>
+    <label>alert protocols</label>
+    <description>Implements colony-wide alert routing and EPS priority to enable the Alert panel.</description>
+    <baseCost>400</baseCost>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>Pre_Warp</li>
+      <li>Electricity</li>
+    </prerequisites>
+    <researchViewX>3</researchViewX>
+    <researchViewY>0</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- Subspace telemetry to unlock advanced commsgear -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_SubspaceTelemetry</defName>
+    <label>Subspace Telemetry</label>
+    <baseCost>500</baseCost>
+    <techLevel>Spacer</techLevel>
+    <researchViewX>4</researchViewX>
+    <researchViewY>2</researchViewY>
+    <description>Fundamentals of detecting and amplifying weak subspace signals.</description>
+      <prerequisites>
+        <li>MicroelectronicsBasics</li>
+        <li>ST_Scanning_technology</li>
+      </prerequisites>
+  </ResearchProjectDef>
+
+  <!-- Structures Hull Wall and Glass -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_UFP_Structures</defName>
+    <label>UFP structural engineering</label>
+    <description>Starfleet-grade hull construction and pressure-rated viewports.</description>
+    <baseCost>1200</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>Federation_Standard</li>
+      <li>MicroelectronicsBasics</li>
+      <li>Machining</li>
+    </prerequisites>
+    <researchViewX>5</researchViewX>
+    <researchViewY>3</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+  </ResearchProjectDef>
+
 
 </Defs>

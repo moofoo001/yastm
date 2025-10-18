@@ -7,6 +7,14 @@
   <ST.RedAlert.Engaged>Red Alert engaged.</ST.RedAlert.Engaged>
   <ST.RedAlert.MissingHediff>Missing hediff: ST_RedAlert</ST.RedAlert.MissingHediff>
 
+  <!-- Yellow Alert -->
+  <ST.YellowAlert.EngageButton>Engage Yellow Alert</ST.YellowAlert.EngageButton>
+  <ST.YellowAlert.ButtonDesc>Trigger a colony-wide caution alert with a short cooldown.</ST.YellowAlert.ButtonDesc>
+  <ST.YellowAlert.NeedsPower>Needs power.</ST.YellowAlert.NeedsPower>
+  <ST.YellowAlert.Recharging>Yellow Alert recharging: {0}</ST.YellowAlert.Recharging>
+  <ST.YellowAlert.Engaged>Yellow Alert engaged.</ST.YellowAlert.Engaged>
+  <ST.YellowAlert.MissingHediff>Missing hediff: ST_YellowAlert</ST.YellowAlert.MissingHediff>
+
   <!-- Starfleet Aid -->
   <ST.Aid.Button>Request Starfleet Aid</ST.Aid.Button>
   <ST.Aid.ButtonDesc>Request a limited Starfleet resupply drop (global cooldown).</ST.Aid.ButtonDesc>
@@ -23,6 +31,39 @@
   <ST.Pip.Use.LtCommander>Promote to Lieutenant Commander</ST.Pip.Use.LtCommander>
   <ST.Pip.Use.Commander>Promote to Commander</ST.Pip.Use.Commander>
   <ST.Pip.Use.Captain>Promote to Captain</ST.Pip.Use.Captain>
+
+  <ST.Promo.Accept>Accept commendation</ST.Promo.Accept>
+  <ST.Promo.Decline>Decline</ST.Promo.Decline>
+
+  <ST.Promo.Ensign.Offer>Starfleet Command offers a performance review. Acceptance will result in a field promotion to **Ensign** and delivery of a commission pip.</ST.Promo.Ensign.Offer>
+  <ST.Promo.Ensign.LetterLabelOffer>Starfleet performance review</ST.Promo.Ensign.LetterLabelOffer>
+  <ST.Promo.Ensign.LetterLabel>Commendation granted</ST.Promo.Ensign.LetterLabel>
+  <ST.Promo.Ensign.LetterText>A commission pip to **Ensign** has been delivered by supply drop.</ST.Promo.Ensign.LetterText>
+
+  <ST.Promo.LJG.Offer>Performance review indicates readiness for promotion to **Lieutenant (jg)**. Accept to receive the commission pip.</ST.Promo.LJG.Offer>
+  <ST.Promo.LJG.LetterLabelOffer>Performance review: Lieutenant (jg)</ST.Promo.LJG.LetterLabelOffer>
+  <ST.Promo.LJG.LetterLabel>Promotion approved</ST.Promo.LJG.LetterLabel>
+  <ST.Promo.LJG.LetterText>A commission pip to **Lieutenant (jg)** has been delivered.</ST.Promo.LJG.LetterText>
+
+  <ST.Promo.Lieutenant.Offer>Operational record supports promotion to **Lieutenant**. Accept to receive the commission pip.</ST.Promo.Lieutenant.Offer>
+  <ST.Promo.Lieutenant.LetterLabelOffer>Performance review: Lieutenant</ST.Promo.Lieutenant.LetterLabelOffer>
+  <ST.Promo.Lieutenant.LetterLabel>Promotion approved</ST.Promo.Lieutenant.LetterLabel>
+  <ST.Promo.Lieutenant.LetterText>A commission pip to **Lieutenant** has been delivered.</ST.Promo.Lieutenant.LetterText>
+
+  <ST.Promo.LtCommander.Offer>Leadership assessment suggests promotion to **Lieutenant Commander**. Accept to receive the commission pip.</ST.Promo.LtCommander.Offer>
+  <ST.Promo.LtCommander.LetterLabelOffer>Performance review: Lieutenant Commander</ST.Promo.LtCommander.LetterLabelOffer>
+  <ST.Promo.LtCommander.LetterLabel>Promotion approved</ST.Promo.LtCommander.LetterLabel>
+  <ST.Promo.LtCommander.LetterText>A commission pip to **Lieutenant Commander** has been delivered.</ST.Promo.LtCommander.LetterText>
+
+  <ST.Promo.Commander.Offer>Command fitness review recommends promotion to **Commander**. Accept to receive the commission pip.</ST.Promo.Commander.Offer>
+  <ST.Promo.Commander.LetterLabelOffer>Performance review: Commander</ST.Promo.Commander.LetterLabelOffer>
+  <ST.Promo.Commander.LetterLabel>Promotion approved</ST.Promo.Commander.LetterLabel>
+  <ST.Promo.Commander.LetterText>A commission pip to **Commander** has been delivered.</ST.Promo.Commander.LetterText>
+
+  <ST.Promo.Captain.Offer>Command authority review recommends promotion to **Captain**. Accept to receive the commission pip.</ST.Promo.Captain.Offer>
+  <ST.Promo.Captain.LetterLabelOffer>Performance review: Captain</ST.Promo.Captain.LetterLabelOffer>
+  <ST.Promo.Captain.LetterLabel>Promotion approved</ST.Promo.Captain.LetterLabel>
+  <ST.Promo.Captain.LetterText>A commission pip to **Captain** has been delivered.</ST_Promo.Captain.LetterText>
 
   <!-- Research -->
   <ST.Research.RedAlert.Label>red alert protocols</ST.Research.RedAlert.Label>

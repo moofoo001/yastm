@@ -7,6 +7,14 @@
   <ST.RedAlert.Engaged>Rotalarm aktiviert.</ST.RedAlert.Engaged>
   <ST.RedAlert.MissingHediff>Fehlender Hediff: ST_RedAlert</ST.RedAlert.MissingHediff>
 
+  <!-- Yellow Alert -->
+    <ST.YellowAlert.EngageButton>Gelbalarm aktivieren</ST.YellowAlert.EngageButton>
+  <ST.YellowAlert.ButtonDesc>Löst einen kolonieweiten Gelbalarm mit kurzer Abklingzeit aus.</ST.YellowAlert.ButtonDesc>
+  <ST.YellowAlert.NeedsPower>Benötigt Strom.</ST.YellowAlert.NeedsPower>
+  <ST.YellowAlert.Recharging>Gelbalarm lädt auf: {0}</ST.YellowAlert.Recharging>
+  <ST.YellowAlert.Engaged>Gelbalarm aktiviert.</ST.YellowAlert.Engaged>
+  <ST.YellowAlert.MissingHediff>Fehlender Hediff: ST_YellowAlert</ST_YellowAlert.MissingHediff>
+
   <!-- Starfleet Aid -->
   <ST.Aid.Button>Sternenflottenhilfe anfordern</ST.Aid.Button>
   <ST.Aid.ButtonDesc>Fordert einen begrenzten Sternenflotten-Nachschub (globale Abklingzeit) an.</ST.Aid.ButtonDesc>
@@ -23,6 +31,39 @@
   <ST.Pip.Use.LtCommander>Zum Lieutenant Commander befördern</ST.Pip.Use.LtCommander>
   <ST.Pip.Use.Commander>Zum Commander befördern</ST.Pip.Use.Commander>
   <ST.Pip.Use.Captain>Zum Captain befördern</ST.Pip.Use.Captain>
+
+  <ST.Promo.Accept>Anerkennung annehmen</ST.Promo.Accept>
+  <ST.Promo.Decline>Ablehnen</ST.Promo.Decline>
+
+  <ST.Promo.Ensign.Offer>Das Sternenflottenkommando bietet eine Leistungsbewertung an. Bei Annahme erfolgt eine Feldbeförderung zum **Ensign** und die Zustellung einer Kommissions-Pip.</ST.Promo.Ensign.Offer>
+  <ST.Promo.Ensign.LetterLabelOffer>Leistungsbewertung der Sternenflotte</ST.Promo.Ensign.LetterLabelOffer>
+  <ST.Promo.Ensign.LetterLabel>Anerkennung gewährt</ST.Promo.Ensign.LetterLabel>
+  <ST.Promo.Ensign.LetterText>Eine Kommissions-Pip zum **Ensign** wurde per Abwurf geliefert.</ST.Promo.Ensign.LetterText>
+
+  <ST.Promo.LJG.Offer>Die Leistungsbewertung bestätigt die Beförderung zum/zur **Lieutenant (jg)**. Bei Annahme wird die Kommissions-Pip zugestellt.</ST.Promo.LJG.Offer>
+  <ST.Promo.LJG.LetterLabelOffer>Leistungsbewertung: Lieutenant (jg)</ST.Promo.LJG.LetterLabelOffer>
+  <ST.Promo.LJG.LetterLabel>Beförderung genehmigt</ST.Promo.LJG.LetterLabel>
+  <ST.Promo.LJG.LetterText>Eine Kommissions-Pip zum/zur **Lieutenant (jg)** wurde geliefert.</ST.Promo.LJG.LetterText>
+
+  <ST.Promo.Lieutenant.Offer>Die Einsatzbilanz unterstützt die Beförderung zum/zur **Lieutenant**. Bei Annahme wird die Kommissions-Pip zugestellt.</ST.Promo.Lieutenant.Offer>
+  <ST.Promo.Lieutenant.LetterLabelOffer>Leistungsbewertung: Lieutenant</ST.Promo.Lieutenant.LetterLabelOffer>
+  <ST.Promo.Lieutenant.LetterLabel>Beförderung genehmigt</ST.Promo.Lieutenant.LetterLabel>
+  <ST.Promo.Lieutenant.LetterText>Eine Kommissions-Pip zum/zur **Lieutenant** wurde geliefert.</ST.Promo.Lieutenant.LetterText>
+
+  <ST.Promo.LtCommander.Offer>Die Führungsbewertung empfiehlt die Beförderung zum/zur **Lieutenant Commander**. Bei Annahme wird die Kommissions-Pip zugestellt.</ST.Promo.LtCommander.Offer>
+  <ST.Promo.LtCommander.LetterLabelOffer>Leistungsbewertung: Lieutenant Commander</ST.Promo.LtCommander.LetterLabelOffer>
+  <ST.Promo.LtCommander.LetterLabel>Beförderung genehmigt</ST.Promo.LtCommander.LetterLabel>
+  <ST.Promo.LtCommander.LetterText>Eine Kommissions-Pip zum/zur **Lieutenant Commander** wurde geliefert.</ST.Promo.LtCommander.LetterText>
+
+  <ST.Promo.Commander.Offer>Die Kommandobewertung empfiehlt die Beförderung zum/zur **Commander**. Bei Annahme wird die Kommissions-Pip zugestellt.</ST.Promo.Commander.Offer>
+  <ST.Promo.Commander.LetterLabelOffer>Leistungsbewertung: Commander</ST.Promo.Commander.LetterLabelOffer>
+  <ST.Promo.Commander.LetterLabel>Beförderung genehmigt</ST.Promo.Commander.LetterLabel>
+  <ST.Promo.Commander.LetterText>Eine Kommissions-Pip zum/zur **Commander** wurde geliefert.</ST.Promo.Commander.LetterText>
+
+  <ST.Promo.Captain.Offer>Die Kommandobefugnis-Bewertung empfiehlt die Beförderung zum/zur **Captain**. Bei Annahme wird die Kommissions-Pip zugestellt.</ST.Promo.Captain.Offer>
+  <ST.Promo.Captain.LetterLabelOffer>Leistungsbewertung: Captain</ST.Promo.Captain.LetterLabelOffer>
+  <ST.Promo.Captain.LetterLabel>Beförderung genehmigt</ST.Promo.Captain.LetterLabel>
+  <ST.Promo.Captain.LetterText>Eine Kommissions-Pip zum/zur **Captain** wurde geliefert.</ST.Promo.Captain.LetterText>
 
   <!-- Research -->
   <ST.Research.RedAlert.Label>Alarmprotokolle (Rotalarm)</ST.Research.RedAlert.Label>

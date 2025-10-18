@@ -30,21 +30,5 @@
     <researchViewY>3</researchViewY>
   </ResearchProjectDef>
 
-  <!-- Structures Hull Wall and Glass -->
-  <ResearchProjectDef ParentName="ST_Base_Research">
-    <defName>ST_UFP_Structures</defName>
-    <label>UFP structural engineering</label>
-    <description>Starfleet-grade hull construction and pressure-rated viewports.</description>
-    <baseCost>1200</baseCost>
-    <techLevel>Spacer</techLevel>
-    <prerequisites>
-      <li>Federation_Standard</li>
-      <li>MicroelectronicsBasics</li>
-      <li>Machining</li>
-    </prerequisites>
-    <researchViewX>5</researchViewX>
-    <researchViewY>3</researchViewY>
-    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-  </ResearchProjectDef>
 
 </Defs>
