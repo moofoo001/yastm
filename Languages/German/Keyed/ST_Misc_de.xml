@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <!-- Red Alert -->
   <ST.RedAlert.EngageButton>Rotalarm aktivieren</ST.RedAlert.EngageButton>
@@ -6,6 +7,7 @@
   <ST.RedAlert.Recharging>Rotalarm lädt auf: {0}</ST.RedAlert.Recharging>
   <ST.RedAlert.Engaged>Rotalarm aktiviert.</ST.RedAlert.Engaged>
   <ST.RedAlert.MissingHediff>Fehlender Hediff: ST_RedAlert</ST.RedAlert.MissingHediff>
+
 
   <!-- Yellow Alert -->
   <ST.YellowAlert.EngageButton>Gelbalarm aktivieren</ST.YellowAlert.EngageButton>

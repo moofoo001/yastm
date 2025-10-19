@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <!-- Red Alert -->
   <ST.RedAlert.EngageButton>Engage Red Alert</ST.RedAlert.EngageButton>
@@ -7,6 +8,7 @@
   <ST.RedAlert.Engaged>Red Alert engaged.</ST.RedAlert.Engaged>
   <ST.RedAlert.MissingHediff>Missing hediff: ST_RedAlert</ST.RedAlert.MissingHediff>
 
+  
   <!-- Yellow Alert -->
 
   <ST.YellowAlert.EngageButton>Engage Yellow Alert</ST.YellowAlert.EngageButton>
@@ -64,7 +66,7 @@
   <ST.Promo.Captain.Offer>Command authority review recommends promotion to **Captain**. Accept to receive the commission pip.</ST.Promo.Captain.Offer>
   <ST.Promo.Captain.LetterLabelOffer>Performance review: Captain</ST.Promo.Captain.LetterLabelOffer>
   <ST.Promo.Captain.LetterLabel>Promotion approved</ST.Promo.Captain.LetterLabel>
-  <ST.Promo.Captain.LetterText>A commission pip to **Captain** has been delivered.</ST_Promo.Captain.LetterText>
+  <ST.Promo.Captain.LetterText>A commission pip to **Captain** has been delivered.</ST.Promo.Captain.LetterText>
 
   <!-- Research -->
   <ST.Research.RedAlert.Label>red alert protocols</ST.Research.RedAlert.Label>

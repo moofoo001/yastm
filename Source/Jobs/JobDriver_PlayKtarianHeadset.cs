@@ -9,39 +9,48 @@ namespace YASTM
     public class JobDriver_PlayKtarianHeadset : JobDriver
     {
         Thing Headset => job.targetA.Thing;
+        private int nextMoteTick = -1;
 
-        public override bool TryMakePreToilReservations(bool errorOnFailed)
-        {
-            // wir reservieren nur uns selbst; das Headset ist am Pawn getragen
-            return true;
-        }
+        public override bool TryMakePreToilReservations(bool errorOnFailed) => true;
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            // Abbruchbedingungen
             this.FailOn(() => Headset == null || (Headset.ParentHolder != pawn.apparel));
             this.FailOn(() => pawn.Downed || pawn.InMentalState);
             this.FailOn(() => !pawn.health.capacities.CapableOf(PawnCapacityDefOf.Talking));
 
-            // Optional: sich hinsetzen, wenn Stuhl in Reichweite (soft)
-            // -> der Einfachheit halber hier ausgelassen; Pawn bleibt stehen
-
             var comp = Headset.TryGetComp<CompKtarianHeadset>();
             int duration = comp?.SessionTicks ?? 4000;
 
-            // "Spielen"
             var wait = Toils_General.Wait(duration);
             wait.handlingFacing = true;
+            wait.initAction = () => nextMoteTick = Find.TickManager.TicksGame;
+
             wait.tickAction = delegate
             {
                 pawn.rotationTracker.FaceCell(pawn.Position + IntVec3.North);
-                // Ältere API: (Pawn, int joyGain, JoyTickFullJoyAction, factor, Building source)
+
+                // Ältere API: (pawn, joyGain, action, factor, sourceBuilding)
                 JoyUtility.JoyTickCheckEnd(pawn, 1, JoyTickFullJoyAction.EndJob, 1f, null);
+
+                // --- HOLO-EFFEKT alle ~60 Ticks ---
+                int now = Find.TickManager.TicksGame;
+                if (now >= nextMoteTick && pawn.Map != null)
+                {
+                    // Nimm deinen blauen Fleck "ST_KtarianHolo"; falls nicht vorhanden, AirPuff als Fallback
+                    var fleck = DefDatabase<FleckDef>.GetNamedSilentFail("ST_KtarianHolo") ?? FleckDefOf.AirPuff;
+
+                    // ältere, robuste API
+                    FleckMaker.AttachedOverlay(pawn, fleck, new Vector3(0f, 0f, 0.35f));
+                    // Alternativ (falls AttachedOverlay fehlen sollte):
+                    // FleckMaker.Static(pawn.DrawPos + new Vector3(0f, 0f, 0.35f), pawn.Map, fleck, 1.0f);
+
+                    nextMoteTick = now + 60;
+                }
             };
             wait.WithProgressBarToilDelay(TargetIndex.A);
             yield return wait;
 
-            // Abschluss: Hediffs/Memory
             var finish = new Toil
             {
                 initAction = delegate
@@ -56,7 +65,7 @@ namespace YASTM
                     }
 
                     // 1% Obsession + Memory
-                    float chance = comp?.ObsessionChance ?? 0.01f;
+                    float chance = Headset.TryGetComp<CompKtarianHeadset>()?.ObsessionChance ?? 0.01f;
                     if (Rand.Chance(chance))
                     {
                         var obs = DefDatabase<HediffDef>.GetNamedSilentFail("ST_KtarianObsession");

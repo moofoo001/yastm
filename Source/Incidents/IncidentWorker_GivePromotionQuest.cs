@@ -1,95 +1,63 @@
-using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
-using RimWorld.QuestGen;   // QuestUtility
+using RimWorld;   // <- wichtig
 using Verse;
 
 namespace YASTM
 {
-    // ModExtension: Voraussetzungen je Rang (Trait ODER Utility-Pip)
-    public class ModExt_PromotionEligibility : DefModExtension
+    public class IncidentWorker_GiveNextPromotionQuest : IncidentWorker
     {
-        public List<string> requiredTraits;   // z.B. ["ST_Rank_Ensign"]
-        public List<string> requiredApparels; // z.B. ["ST_RankPips_Ensign"]
-    }
+        // Rang -> Quest
+        private static readonly (string trait, string pip, string quest)[] Order =
+        {
+            ("ST_Rank_Ensign",      "ST_RankPips_Ensign",      "ST_Promotion_Ensign"),
+            ("ST_Rank_LieutenantJ", "ST_RankPips_LieutenantJ", "ST_Promotion_LieutenantJ"),
+            ("ST_Rank_Lieutenant",  "ST_RankPips_Lieutenant",  "ST_Promotion_Lieutenant"),
+            ("ST_Rank_LtCommander","ST_RankPips_LtCommander","ST_Promotion_LtCommander"),
+            ("ST_Rank_Commander",   "ST_RankPips_Commander",   "ST_Promotion_Commander"),
+            ("ST_Rank_Captain",     "ST_RankPips_Captain",     "ST_Promotion_Captain")
+        };
 
-    // Bietet die Promotion-Quest nur an, wenn die Kolonie die Voraussetzung erfüllt
-    public class IncidentWorker_GivePromotionQuest : IncidentWorker
-    {
         protected override bool CanFireNowSub(IncidentParms parms)
         {
-            if (!base.CanFireNowSub(parms)) return false;
             var map = parms.target as Map;
-            if (map == null || !map.IsPlayerHome) return false;
-
-            var ext = def.GetModExtension<ModExt_PromotionEligibility>();
-            // Ensign (erste Stufe) hat evtl. keine Extension -> immer erlaubt
-            if (ext == null) return true;
-
-            return ColonyMeetsRequirements(map, ext);
+            return map != null && GetNextQuestDefName(map) != null;
         }
 
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
             var map = parms.target as Map;
-            if (map == null) return false;
+            var questDefName = GetNextQuestDefName(map);
+            if (questDefName == null) return false;
 
-            var ext = def.GetModExtension<ModExt_PromotionEligibility>();
-            if (ext != null && !ColonyMeetsRequirements(map, ext))
-                return false;
+            var q = DefDatabase<QuestScriptDef>.GetNamedSilentFail(questDefName);
+            if (q == null) { Log.Error($"QuestScriptDef '{questDefName}' not found."); return false; }
 
-            if (def.questScriptDef == null)
-            {
-                Log.Error($"[{def.defName}] questScriptDef is null.");
-                return false;
-            }
+            // <-- HIER: richtige API/Namespace
+            QuestUtility.GenerateQuestAndMakeAvailable(q, parms.points);
 
-            // ⬇️ WICHTIG: Punkte (float) übergeben, NICHT die ganzen IncidentParms
-            QuestUtility.GenerateQuestAndMakeAvailable(def.questScriptDef, parms.points);
-
-            // Label/Text ggf. übersetzen (falls Keys)
-            string label = def.letterLabel;
-            string text  = def.letterText;
-            if (!label.NullOrEmpty() && label.CanTranslate()) label = label.Translate();
-            if (!text.NullOrEmpty()  && text.CanTranslate())  text  = text.Translate();
-
-            // Letter sicher direkt senden (versionsunabhängig)
-            var lookTarget = new TargetInfo(map.Center, map);
-            Find.LetterStack.ReceiveLetter(label, text, def.letterDef ?? LetterDefOf.NeutralEvent, lookTarget);
-
+            var label = q.label ?? "Promotion available";
+            Find.LetterStack.ReceiveLetter(label, label, def.letterDef ?? LetterDefOf.PositiveEvent,
+                new TargetInfo(map.Center, map));
             return true;
         }
 
-        private static bool ColonyMeetsRequirements(Map map, ModExt_PromotionEligibility ext)
+        private static string GetNextQuestDefName(Map map)
         {
-            bool TraitCheck(Pawn p)
+            int highest = -1;
+            for (int i = 0; i < Order.Length; i++)
             {
-                if (ext.requiredTraits == null || ext.requiredTraits.Count == 0) return true;
-                var traits = p?.story?.traits;
-                if (traits == null) return false;
-
-                foreach (var tDefName in ext.requiredTraits)
-                {
-                    var tdef = DefDatabase<TraitDef>.GetNamedSilentFail(tDefName);
-                    if (tdef != null && traits.HasTrait(tdef)) return true;
-                }
-                return false;
+                if (ColonyHasRank(map, Order[i].trait, Order[i].pip)) highest = i;
+                else break;
             }
+            return (highest + 1 < Order.Length) ? Order[highest + 1].quest : null;
+        }
 
-            bool ApparelCheck(Pawn p)
-            {
-                if (ext.requiredApparels == null || ext.requiredApparels.Count == 0) return true;
-                var wa = p?.apparel?.WornApparel;
-                if (wa == null) return false;
-
-                return wa.Any(a => a?.def != null && ext.requiredApparels.Contains(a.def.defName));
-            }
-
-            foreach (var pawn in map.mapPawns.FreeColonistsSpawned)
-                if (TraitCheck(pawn) || ApparelCheck(pawn))   // Trait ODER passende Utility-Pip genügt
-                    return true;
-
-            return false;
+        private static bool ColonyHasRank(Map map, string traitDefName, string pipDefName)
+        {
+            return map.mapPawns.FreeColonistsSpawned.Any(p =>
+                (p.story?.traits?.HasTrait(DefDatabase<TraitDef>.GetNamedSilentFail(traitDefName)) ?? false)
+                || (p.apparel?.WornApparel?.Any(a => a?.def?.defName == pipDefName) ?? false)
+            );
         }
     }
 }

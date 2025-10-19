@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <IncidentDef>
+    <defName>ST_GiveNextPromotionQuest</defName>
+    <workerClass>YASTM.IncidentWorker_GiveNextPromotionQuest</workerClass>
+    <letterDef>PositiveEvent</letterDef>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+  </IncidentDef>
+</Defs>
