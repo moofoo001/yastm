@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Analgesic: weniger Schmerz, leicht benommen -->
+  <HediffDef>
+    <defName>ST_Hypo_Analgesic</defName>
+    <label>analgesic</label>
+    <description>Starfleet analgesic. Reduces pain for a short time, with mild drowsiness.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>18000</disappearsAfterTicks> <!-- ~0.3 Tage -->
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <painFactor>0.35</painFactor>
+        <!-- Capacities gehören in capMods -->
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.03</offset>
+          </li>
+        </capMods>
+        <statOffsets>
+          <WorkSpeedGlobal>-0.05</WorkSpeedGlobal> <!-- KORREKT -->
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Stimulant: schneller & reaktionsfreudig, kurzer Boost -->
+  <HediffDef>
+    <defName>ST_Hypo_Stimulant</defName>
+    <label>stimulant</label>
+    <description>Short burst of energy and coordination.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>12000</disappearsAfterTicks> <!-- ~0.2 Tage -->
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <!-- MoveSpeed ist ein Stat, Manipulation eine Capacity -->
+        <statOffsets>
+          <MoveSpeed>0.20</MoveSpeed>
+        </statOffsets>
+        <capMods>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>0.10</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

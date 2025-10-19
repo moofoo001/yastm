@@ -58,7 +58,7 @@
           </li>
         <li Class="ScenPart_StartingThing_Defined">
           <def>StartingThing_Defined</def>
-          <thingDef>ST_Apparel_MedKitBelt</thingDef>
+          <thingDef>ST_Tricorder_Medical</thingDef>
           <count>1</count>
         </li>
         <li Class="ScenPart_StartingThing_Defined">

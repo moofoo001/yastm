@@ -86,7 +86,7 @@
         </li>
       </ingredients>
     <products>
-      <ST_Apparel_MedKitBelt>1</ST_Apparel_MedKitBelt>
+      <ST_Tricorder_Medical>1</ST_Tricorder_Medical>
       </products>
     </RecipeDef>
   
@@ -116,6 +116,18 @@
       <HackingSpeed>0.04</HackingSpeed>
     </equippedStatOffsets>
     
+    <comps>
+      <li Class="YASTM.CompProperties_TricorderScience">
+        <cooldownTicks>6000</cooldownTicks>
+        <scanTicks>900</scanTicks>
+        <range>18</range>
+        <hediffDef>ST_ScienceInsight</hediffDef>
+        <hediffMinTicks>30000</hediffMinTicks>
+        <hediffMaxTicks>45000</hediffMaxTicks>
+        <minIntellectual>6</minIntellectual>
+      </li>
+    </comps>
+
     <costList>
       <Steel>30</Steel>
       <ComponentIndustrial>3</ComponentIndustrial>
@@ -184,11 +196,10 @@
   </ThingDef>
 
   <ThingDef ParentName="ApparelMakeableBase">
-    <defName>ST_Apparel_MedKitBelt</defName>
-    <label>med kit</label>
-    <description>Compact medical supplies and tools to stabilize patients quickly.</description>
+    <defName>ST_Tricorder_Medical</defName>
+    <label>tricorder (medical)</label>
+    <description>Handheld medical scanning device. Improves patient recovery after a quick scan.</description>
     <thingClass>Apparel</thingClass>
-    
     <graphicData>
       <texPath>Things/Item/Equipment/Utilities/Medic_sash</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -205,9 +216,21 @@
     </statBases>
 
     <equippedStatOffsets>
-      <MedicalTendSpeed>0.12</MedicalTendSpeed>
+      <MedicalTendSpeed>0.05</MedicalTendSpeed>
       <SurgerySuccessChanceFactor>0.05</SurgerySuccessChanceFactor>
     </equippedStatOffsets>
+   
+    <comps>
+      <li Class="YASTM.CompProperties_TricorderMedical">
+        <cooldownTicks>6000</cooldownTicks>
+        <scanTicks>1200</scanTicks>
+        <range>12</range>
+        <hediffDef>ST_MedScan_Boost</hediffDef>
+        <hediffMinTicks>30000</hediffMinTicks>
+        <hediffMaxTicks>45000</hediffMaxTicks>
+        <minMedicine>4</minMedicine>
+      </li>
+    </comps>
 
     <costList>
       <Steel>35</Steel>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Hyposprays -->
+  <ST_Hypospray_Analgesic.comps.CompProperties_Usable.useLabel>Hypospray anwenden</ST_Hypospray_Analgesic.comps.CompProperties_Usable.useLabel>
+  <ST_Hypospray_Stimulant.comps.CompProperties_Usable.useLabel>Hypospray verwenden</ST_Hypospray_Stimulant.comps.CompProperties_Usable.useLabel>
+
+</LanguageData>

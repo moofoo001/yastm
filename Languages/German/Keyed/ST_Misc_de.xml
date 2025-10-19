@@ -100,4 +100,18 @@
   <ST.Thought.KtarianCraving.Label>ktarianisches Verlangen</ST.Thought.KtarianCraving.Label>
   <ST.Thought.KtarianCraving.Desc>Ein anhaltender Drang, zum Ktarian-Spiel zurückzukehren.</ST.Thought.KtarianCraving.Desc>
 
+  <!-- Tricorder Medical Scan -->
+  <ST.Tricorder.Med.Scan>Patient scannen</ST.Tricorder.Med.Scan>
+  <ST.Tricorder.Med.Scan.Desc>Schneller Tricorder-Scan zur besseren Genesung.</ST.Tricorder.Med.Scan.Desc>
+  <ST.Tricorder.Med.OutOfRange>Ziel ist außer Reichweite.</ST.Tricorder.Med.OutOfRange>
+  <ST.Tricorder.Med.SkillReq>Erfordert Medizin {0}+.</ST.Tricorder.Med.SkillReq>
+  <ST.Tricorder.Med.Applied>Tricorder-Scan bei {PAWN_labelShort} durchgeführt.</ST.Tricorder.Med.Applied>
+  <ST.Common.Recharging>Lädt auf ({0})</ST.Common.Recharging>
+
+  <!-- Tricorder Science Scan -->
+  <ST.Tricorder.Sci.Scan>Bereich scannen (Wissenschaft)</ST.Tricorder.Sci.Scan>
+  <ST.Tricorder.Sci.Scan.Desc>Geologie-/Umfeldscan. Markiert Ressourcen und verleiht Erkenntnis.</ST.Tricorder.Sci.Scan.Desc>
+  <ST.Tricorder.Sci.OutOfRange>Zielzelle ist außer Reichweite.</ST.Tricorder.Sci.OutOfRange>
+  <ST.Tricorder.Sci.SkillReq>Erfordert Intellektuell {0}+.</ST.Tricorder.Sci.SkillReq>
+  <ST.Tricorder.Sci.Applied>Wissenschaftliche Erkenntnis bei {PAWN_labelShort} gewonnen.</ST.Tricorder.Sci.Applied>
 </LanguageData>

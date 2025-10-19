@@ -210,7 +210,7 @@
       
       <!-- Field gear -->
       <li Class="StockGenerator_SingleDef"><thingDef>ST_Apparel_TricorderBelt</thingDef><countRange>0~2</countRange></li>
-      <li Class="StockGenerator_SingleDef"><thingDef>ST_Apparel_MedKitBelt</thingDef><countRange>0~2</countRange></li>
+      <li Class="StockGenerator_SingleDef"><thingDef>ST_Tricorder_Medical</thingDef><countRange>0~2</countRange></li>
 
       <!-- EV suit -->
       <li Class="StockGenerator_SingleDef"><thingDef>ST_Apparel_Starfleet_EVS</thingDef><countRange>0~1</countRange></li>

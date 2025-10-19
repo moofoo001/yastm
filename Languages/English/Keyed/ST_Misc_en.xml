@@ -102,4 +102,19 @@
   <ST.Thought.KtarianCraving.Label>ktarian craving</ST.Thought.KtarianCraving.Label>
   <ST.Thought.KtarianCraving.Desc>A lingering urge to return to the Ktarian game.</ST.Thought.KtarianCraving.Desc>
 
+  <!-- Tricorder Medical Scan -->
+  <ST.Tricorder.Med.Scan>Scan patient</ST.Tricorder.Med.Scan>
+  <ST.Tricorder.Med.Scan.Desc>Perform a quick medical tricorder scan to improve recovery.</ST.Tricorder.Med.Scan.Desc>
+  <ST.Tricorder.Med.OutOfRange>Target is out of range.</ST.Tricorder.Med.OutOfRange>
+  <ST.Tricorder.Med.SkillReq>Requires Medicine {0}+.</ST.Tricorder.Med.SkillReq>
+  <ST.Tricorder.Med.Applied>Tricorder scan applied to {PAWN_labelShort}.</ST.Tricorder.Med.Applied>
+  <ST.Common.Recharging>Recharging ({0})</ST.Common.Recharging>
+
+  <!-- Tricorder Scientific Scan -->
+  <ST.Tricorder.Sci.Scan>Scan area (science)</ST.Tricorder.Sci.Scan>
+  <ST.Tricorder.Sci.Scan.Desc>Geological/environmental scan. Highlights resources and grants insight.</ST.Tricorder.Sci.Scan.Desc>
+  <ST.Tricorder.Sci.OutOfRange>Target cell is out of range.</ST.Tricorder.Sci.OutOfRange>
+  <ST.Tricorder.Sci.SkillReq>Requires Intellectual {0}+.</ST.Tricorder.Sci.SkillReq>
+  <ST.Tricorder.Sci.Applied>Scientific insight gained by {PAWN_labelShort}.</ST.Tricorder.Sci.Applied>
+
 </LanguageData>

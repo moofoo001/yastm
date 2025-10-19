@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Analgesic -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_Hypospray_Analgesic</defName>
+    <label>hypospray (analgesic)</label>
+    <description>Starfleet analgesic. Reduces pain for a short time.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Utilities/Hypospray_pain</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.7,0.7)</drawSize>
+    </graphicData>
+    <uiIconScale>1.5</uiIconScale>
+    <thingCategories>
+      <li>Medicine</li>
+    </thingCategories>
+    <statBases>
+      <Mass>0.05</Mass>
+      <MarketValue>45</MarketValue>
+    </statBases>
+    <tradeability>Sellable</tradeability>
+    <useHitPoints>false</useHitPoints>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Use hypospray (painkiller)</useLabel>
+      </li>
+      <li Class="YASTM.CompProperties_UseHediffTimed">
+        <hediffDef>ST_Hypo_Analgesic</hediffDef>
+        <minTicks>12000</minTicks>
+        <maxTicks>24000</maxTicks>
+        <severity>0</severity>
+        <minMedicalSkill>0</minMedicalSkill>
+        <requireTalking>true</requireTalking>
+        <destroyOnUse>true</destroyOnUse>  
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- Stimulant -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_Hypospray_Stimulant</defName>
+    <label>hypospray (stimulant)</label>
+    <description>Short burst of energy and coordination.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Utilities/Hypospray_stim</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.7,0.7)</drawSize>
+    </graphicData>
+    <uiIconScale>1.5</uiIconScale>
+    <thingCategories>
+      <li>Medicine</li>
+    </thingCategories>
+    <statBases>
+      <Mass>0.05</Mass>
+      <MarketValue>55</MarketValue>
+    </statBases>
+    <tradeability>Sellable</tradeability>
+    <useHitPoints>false</useHitPoints>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Use hypospray (stimulant)</useLabel>
+      </li>
+      <li Class="YASTM.CompProperties_UseHediffTimed">
+        <hediffDef>ST_Hypo_Stimulant</hediffDef>
+        <minTicks>6000</minTicks>
+        <maxTicks>15000</maxTicks>
+        <severity>0</severity>
+        <minMedicalSkill>0</minMedicalSkill>
+        <requireTalking>true</requireTalking>
+        <destroyOnUse>true</destroyOnUse>  
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

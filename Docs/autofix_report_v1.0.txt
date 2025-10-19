@@ -4,4 +4,4 @@ Timestamp: 2025-08-12T12:18:56.665986Z
 Applied changes:
  - [Scenario] StarTrekFactions/1.6/Defs/Scenarios/05_Scenario_LandingParty.xml: set stuff=Cloth for Bedroll
  - [ThingDef] StarTrekFactions/1.6/Defs/ThingDefs/ST_FieldGear_AllInOne.xml:ST_Apparel_TricorderBelt set wornGraphicPath from graphicData/texPath
- - [ThingDef] StarTrekFactions/1.6/Defs/ThingDefs/ST_FieldGear_AllInOne.xml:ST_Apparel_MedKitBelt set wornGraphicPath from graphicData/texPath
+ - [ThingDef] StarTrekFactions/1.6/Defs/ThingDefs/ST_FieldGear_AllInOne.xml:ST_Tricorder_Medical set wornGraphicPath from graphicData/texPath
