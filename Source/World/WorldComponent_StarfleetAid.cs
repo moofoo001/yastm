@@ -1,4 +1,4 @@
-using RimWorld.Planet;   // <- wichtig
+using RimWorld.Planet;  
 using Verse;
 
 namespace YASTM

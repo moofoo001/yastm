@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <!-- Gravship substructure with color options. -->
+
 
   <!-- Base definition, mostly copied from the core Substructure but with isPaintable=true -->  
     <TerrainDef Name="Substructure_C" ParentName="FloorBase" abstract="true">
@@ -43,8 +43,7 @@
     <designationCategory />
   </TerrainDef>
 
-  <!-- These inherit the *exact* behavior of the core gravship Substructure.
-       Only the tint changes. Keep the ParentName as the original defName: Substructure. -->
+
 
   <!-- Blue tint -->
   <TerrainDef ParentName="Substructure_C">

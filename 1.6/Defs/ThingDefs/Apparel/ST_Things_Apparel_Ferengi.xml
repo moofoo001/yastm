@@ -5,15 +5,12 @@
   <ThingDef Name="ST_Apparel_FerengiTunic_shared" ParentName="ApparelMakeableBase" Abstract="True">
     <label>Ferengi tunic</label>
     <description>Smart-weave commerce tunic with ostentatious trim.</description>
-
     <graphicData>
-      <!-- TODO: Texturen hier ablegen -->
       <texPath>Things/Item/Apparel/Ferengi_Tunic/FerengiTunic</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <uiIconScale>2</uiIconScale>
-
     <statBases>
       <WorkToMake>2000</WorkToMake>
       <Mass>0.5</Mass>
@@ -24,26 +21,21 @@
       <Insulation_Cold>3</Insulation_Cold>
       <Insulation_Heat>3</Insulation_Heat>
     </statBases>
-
     <thingCategories><li>Apparel</li></thingCategories>
-
     <apparel>
       <wornGraphicPath>Things/Item/Apparel/Ferengi_Tunic/FerengiTunic</wornGraphicPath>
       <bodyPartGroups><li>Torso</li><li>Arms</li></bodyPartGroups>
       <layers><li>OnSkin</li></layers>
       <tags><li>FerengiUniform</li></tags>
     </apparel>
-
     <costList>
       <Cloth>70</Cloth>
       <Steel>10</Steel>
       <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
-
     <equippedStatOffsets>
       <SocialImpact>0.08</SocialImpact>
     </equippedStatOffsets>
-
     <comps Inherit="False">
       <li Class="CompProperties_Forbiddable"/>
       <li><compClass>CompQuality</compClass></li>
@@ -54,10 +46,8 @@
   <ThingDef ParentName="ST_Apparel_FerengiTunic_shared">
     <defName>ST_Apparel_FerengiTunic</defName>
     <label>Ferengi tunic</label>
-
     <stuffCategories><li>Fabric</li></stuffCategories>
     <costStuffCount>45</costStuffCount>
-
     <recipeMaker>
       <workAmount>4800</workAmount>
       <workSkill>Crafting</workSkill>
@@ -72,7 +62,6 @@
         <li>Ferengi_Standard</li>
       </researchPrerequisites>
     </recipeMaker>
-
     <generateCommonality>0</generateCommonality>
     <tradeability>None</tradeability>
     <alwaysHaulable>true</alwaysHaulable>
@@ -83,16 +72,13 @@
     <defName>ST_Apparel_FerengiArmoredVest</defName>
     <label>Ferengi armored vest</label>
     <description>Lightweight protection favored by profit-minded security.</description>
-
     <graphicData>
       <texPath>Things/Item/Apparel/Ferengi_Vest/Ferengi_Vest</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <uiIconScale>2</uiIconScale>
-
     <thingCategories><li>Apparel</li></thingCategories>
-
     <statBases>
       <WorkToMake>4200</WorkToMake>
       <Mass>2.0</Mass>
@@ -103,7 +89,6 @@
       <Insulation_Cold>0.4</Insulation_Cold>
       <Insulation_Heat>0.5</Insulation_Heat>
     </statBases>
-
     <apparel>
       <wornGraphicPath>Things/Item/Apparel/Ferengi_Vest/Ferengi_Vest</wornGraphicPath>
       <bodyPartGroups><li>Torso</li><li>Shoulders</li></bodyPartGroups>
@@ -111,20 +96,16 @@
       <tags><li>FerengiUniform</li></tags>
       <defaultOutfitTags><li>Soldier</li></defaultOutfitTags>
     </apparel>
-
     <equippedStatOffsets>
       <SocialImpact>0.03</SocialImpact>
     </equippedStatOffsets>
-
     <costList>
       <Steel>25</Steel>
       <Cloth>35</Cloth>
       <ComponentIndustrial>6</ComponentIndustrial>
     </costList>
-
     <stuffCategories/>
     <tradeTags><li>ClothingArmor</li></tradeTags>
-
     <recipeMaker>
       <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
       <workSkill>Crafting</workSkill>

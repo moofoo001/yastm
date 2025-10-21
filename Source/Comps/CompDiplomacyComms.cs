@@ -9,18 +9,18 @@ namespace YASTM
 {
     public class CompProperties_DiplomacyComms : CompProperties
     {
-        // Kosten & Effekte
+
         public int improveCost = 300;
         public int improveGoodwill = 10;
         public int ceasefireCost = 600;
         public float cooldownDaysImprove = 1f;
         public float cooldownDaysCeasefire = 2f;
 
-        // Anforderungen (Rang + Social)
+
         public int minSocialImprove = 6;
         public int minSocialCeasefire = 10;
 
-        // Mindestrang-Anforderung
+
         public List<string> requiredTraitsImprove;
         public List<string> requiredApparelsImprove;
         public List<string> requiredTraitsCeasefire;
@@ -102,7 +102,7 @@ namespace YASTM
                 !f.def.hidden &&
                 (f.def.humanlikeFaction || f.def.permanentEnemy == false) &&
                 !f.defeated &&
-                f.GoodwillWith(Faction.OfPlayer) < 100 // <-- statt relation.goodwill
+                f.GoodwillWith(Faction.OfPlayer) < 100
             );
         }
 
@@ -124,11 +124,11 @@ namespace YASTM
 
             TradeUtility.LaunchSilver(map, cost);
 
-            int current = f.GoodwillWith(Faction.OfPlayer); // <-- statt relation.goodwill
+            int current = f.GoodwillWith(Faction.OfPlayer); 
             int delta = Mathf.Min(gain, Mathf.Max(0, 100 - current));
             if (delta <= 0) { Messages.Message("ST.Diplo.Improve.Maxed".Translate(f.NameColored), MessageTypeDefOf.RejectInput); return; }
 
-            // 5. Param: HistoryEventDef in deiner Version -> null übergeben
+
             Faction.OfPlayer.TryAffectGoodwillWith(f, delta, true, true, null, parent);
 
             Messages.Message("ST.Diplo.Improve.Success".Translate(f.NameColored, delta), parent, MessageTypeDefOf.PositiveEvent);
@@ -177,14 +177,14 @@ namespace YASTM
 
             TradeUtility.LaunchSilver(map, cost);
 
-            // Goodwill auf mindestens 0 anheben
-            int current = f.GoodwillWith(Faction.OfPlayer); // <-- statt relation.goodwill
+            // Goodwill
+            int current = f.GoodwillWith(Faction.OfPlayer); 
             int delta = Mathf.Max(0, 0 - current);
             if (delta > 0)
-                Faction.OfPlayer.TryAffectGoodwillWith(f, delta, true, true, null, parent); // <-- HistoryEventDef null
+                Faction.OfPlayer.TryAffectGoodwillWith(f, delta, true, true, null, parent);
 
             if (f.HostileTo(Faction.OfPlayer))
-                f.TryAffectGoodwillWith(Faction.OfPlayer, 1, false, false); // kleiner Nudge
+                f.TryAffectGoodwillWith(Faction.OfPlayer, 1, false, false); 
 
             Messages.Message("ST.Diplo.Ceasefire.Success".Translate(f.NameColored), parent, MessageTypeDefOf.PositiveEvent);
 

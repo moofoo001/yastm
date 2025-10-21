@@ -107,7 +107,6 @@
           <stoppingPower>0.15</stoppingPower>
           <speed>120</speed>
         </projectile>
-        <!-- optional: ModExtension für Stun-OnlyFlesh etc., wenn du es brauchst -->
       </ThingDef>
 
   <!-- Phaser rifle -->

@@ -22,22 +22,18 @@
       </damageData>
       <color>(1, .7, 0.8, 0.75)</color>   
     </graphicData>
-
     <uiIconPath>Things/Building/AlertPanel/AlertPanel</uiIconPath>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
-
     <statBases>
       <MaxHitPoints>120</MaxHitPoints>
       <WorkToBuild>700</WorkToBuild>
       <Flammability>0.5</Flammability>
       <Mass>8</Mass>
     </statBases>
-
     <costList>
       <Steel>40</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
-
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
@@ -51,14 +47,12 @@
         <yellowCooldownTicks>45000</yellowCooldownTicks>   <!-- ~0.75 Tage -->
         <playRedSirenLoop>true</playRedSirenLoop>          <!-- Sustainer während Blink -->
       </li>
-
       <li Class="CompProperties_Glower">
         <glowRadius>5</glowRadius>
         <glowColor>(100,100,1,0)</glowColor>  
         <colorPickerEnabled>false</colorPickerEnabled>
         <darklightToggle>false</darklightToggle>
       </li>
-
     </comps>
     <designationCategory>ST_Designation</designationCategory>
     <uiOrder>2150</uiOrder>

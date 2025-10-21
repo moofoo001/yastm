@@ -15,7 +15,7 @@ namespace ST.PhaseWeapons
                 {
                     var p = pm.Props;
                     if (p != null && (p.projectileKill != null || p.projectileStun != null || p.projectileOvercharge != null))
-                        return pm;   // bevorzugt „echter“ Comp
+                        return pm;  
                     fallback ??= pm;
                 }
             }
@@ -27,7 +27,7 @@ namespace ST.PhaseWeapons
                 get
                 {
                     var comp = PhaserUtil.GetPhaserComp(EquipmentSource as ThingWithComps);
-                    // Debug hilft beim Verifizieren
+
                     // Log.Message($"[PhaserMode] Verb getter on {EquipmentSource?.def?.defName} {EquipmentSource?.ThingID} mode={(comp!=null ? comp.mode.ToString() : "null-comp")}");
                     if (comp?.Props == null) return base.Projectile;
 

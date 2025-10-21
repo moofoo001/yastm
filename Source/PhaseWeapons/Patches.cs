@@ -22,7 +22,6 @@ namespace ST.PhaseWeapons
     {
         public static IEnumerable<Gizmo> Postfix(IEnumerable<Gizmo> __result, Pawn __instance)
         {
-            // Vorhandene Gizmos beibehalten
             foreach (var g in __result) yield return g;
 
             var eq = __instance?.equipment;
@@ -33,9 +32,9 @@ namespace ST.PhaseWeapons
                 var comp = PhaserUtil.GetPhaserComp(gear as ThingWithComps);
                 if (comp == null) continue;
 
-                // --- STUN Button ---
+
                 var stunCmd = new Command_Action();
-                stunCmd.hotKey = null; // kein Hotkey, keine Repeat-Events
+                stunCmd.hotKey = null; 
                 void SetStunVisuals()
                 {
                     bool on = comp.mode == PhaserFireMode.Stun;
@@ -49,7 +48,6 @@ namespace ST.PhaseWeapons
                 {
                     Log.Message($"[Phaser2Btn][CLICK-STUN] {gear.def.defName} {gear.ThingID} pre={comp.mode}");
                     comp.ToggleStun();
-                    // Stun aktiv? → Overcharge darf nicht aktiv sein
                     if (comp.mode == PhaserFireMode.Stun) { /* nichts weiter nötig */ }
                     SetStunVisuals();
                     SoundDefOf.Click.PlayOneShot(SoundInfo.OnCamera());
@@ -57,7 +55,6 @@ namespace ST.PhaseWeapons
                 };
                 yield return stunCmd;
 
-                // --- OVERCHARGE Button (nur wenn erlaubt) ---
                 if (comp.Props?.allowOvercharge ?? false)
                 {
                     var ocCmd = new Command_Action();
@@ -75,7 +72,7 @@ namespace ST.PhaseWeapons
                     {
                         Log.Message($"[Phaser2Btn][CLICK-OC] {gear.def.defName} {gear.ThingID} pre={comp.mode}");
                         comp.ToggleOvercharge();
-                        // Overcharge aktiv? → Stun darf nicht aktiv sein
+
                         if (comp.mode == PhaserFireMode.Overcharge) { /* nichts weiter nötig */ }
                         SetOcVisuals();
                         SoundDefOf.Click.PlayOneShot(SoundInfo.OnCamera());

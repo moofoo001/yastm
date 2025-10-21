@@ -7,14 +7,14 @@ namespace StarTrekFactions
 {
     public class MapComponent_ObeliskFlow : MapComponent
     {
-        // Status-Flags, auf die andere Comps zugreifen (Gating/Usability)
+
         public bool scanA;
         public bool scanB;
         public bool manhuntTriggered;
 
         public MapComponent_ObeliskFlow(Map map) : base(map) { }
 
-        // NICHT readonly -> sonst CS0192 beim Scribe
+
         private List<WaitDirective> waits = new List<WaitDirective>();
 
         private class WaitDirective : IExposable
@@ -33,7 +33,7 @@ namespace StarTrekFactions
             }
         }
 
-        // Vom QuestPart scharfgestellt: warte, bis keine Bedrohung mehr aktiv ist
+
         public void StartWaitEnemiesDefeated(int questId, string outSignal, Thing subject, bool onlyManhunters)
         {
             waits.Add(new WaitDirective
@@ -68,7 +68,7 @@ namespace StarTrekFactions
 
                 if (anyThreat) continue;
 
-                // Alles sauber -> "Cleared" (roh + quest-scoped) senden
+
                 var raw  = w.outSignal ?? "STQ.Obelisks.II.Cleared";
                 var args = new SignalArgs(w.subject?.Named("SUBJECT") ?? map.Named("SUBJECT"));
 
@@ -89,7 +89,7 @@ namespace StarTrekFactions
             Scribe_Collections.Look(ref waits, "waits", LookMode.Deep);
         }
 
-        // Kompatibilität: alter Fallback ruft das evtl. noch; macht jetzt nur Marker, kein Raid
+
         public void TriggerManhuntOnce(Map targetMap)
         {
             if (manhuntTriggered) return;

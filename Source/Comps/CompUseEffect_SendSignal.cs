@@ -4,30 +4,30 @@ using Verse;
 
 namespace StarTrekFactions.Comps
 {
-    // WICHTIG: von CompProperties_UseEffect erben!
+    
     public class CompProperties_UseEffect_SendSignal : CompProperties_UseEffect
     {
         public bool requirePowerOn = false;
 
-        // Quest/Signal
+        
         public string inSignal;
 
-        // Letter (optional)
+        
         public bool sendLetter = false;
         public LetterDef letterDef;
         public string letterLabelKey;
         public string letterTextKey;
 
-        // Incident (optional)
+        
         public bool fireIncidentOnUse = false;
         public IncidentDef incidentDef;
         public float pointsFactor = 1f;
 
-        // Eigenes, HAR-sicheres Spawn-Format
+        
         public class SpawnOnUseEntry
         {
             public ThingDef thingDef;
-            public int count = 1; // Default
+            public int count = 1; 
         }
         public List<SpawnOnUseEntry> spawnOnUse;
 
@@ -43,7 +43,7 @@ namespace StarTrekFactions.Comps
 
         public override void DoEffect(Pawn usedBy)
         {
-            // Power-Voraussetzung prüfen (bei Buildings relevant)
+            
             if (Props.requirePowerOn)
             {
                 var power = parent.TryGetComp<CompPowerTrader>();
@@ -56,7 +56,7 @@ namespace StarTrekFactions.Comps
 
             base.DoEffect(usedBy);
 
-            // Letter
+            
             if (Props.sendLetter && Props.letterDef != null)
             {
                 string label = !Props.letterLabelKey.NullOrEmpty() ? Props.letterLabelKey.Translate() : "Starfleet communiqué".Translate();
@@ -64,13 +64,13 @@ namespace StarTrekFactions.Comps
                 Find.LetterStack.ReceiveLetter(label, text, Props.letterDef);
             }
 
-            // Signal
+            
             if (!Props.inSignal.NullOrEmpty())
             {
                 Find.SignalManager.SendSignal(new Signal(Props.inSignal));
             }
 
-            // Spawn (unser eigenes Format)
+            
             if (Props.spawnOnUse != null && parent.Map != null)
             {
                 foreach (var e in Props.spawnOnUse)
@@ -85,7 +85,7 @@ namespace StarTrekFactions.Comps
                 }
             }
 
-            // Incident
+            
             if (Props.fireIncidentOnUse && Props.incidentDef != null && parent.Map != null)
             {
                 var parms = StorytellerUtility.DefaultParmsNow(Props.incidentDef.category, parent.Map);

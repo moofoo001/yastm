@@ -16,7 +16,7 @@ public static class SmartColorWidgets
     static SmartColorWidgets()
     {
         BrightnessTexture = new Texture2D(256, 1, TextureFormat.RGBA32, false);
-        // ... Pixels setzen ...
+
         BrightnessTexture.Apply();
     }
 }

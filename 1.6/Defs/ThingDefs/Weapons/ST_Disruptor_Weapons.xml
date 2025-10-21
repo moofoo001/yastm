@@ -1,6 +1,6 @@
 <Defs>
 
-  <!-- Gemeinsamer Basistyp für Disruptoren -->
+  <!-- Disruptor base -->
   <ThingDef Name="ST_DisruptorBase" ParentName="BaseHumanMakeableGun" Abstract="True">
     <thingClass>ThingWithComps</thingClass>
     <uiIconScale>1.2</uiIconScale>

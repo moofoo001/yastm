@@ -38,28 +38,28 @@ namespace YASTM.IdeoFix
         private void EnforceNow()
         {
             var player  = Faction.OfPlayer;
-            var primary = player?.ideos?.PrimaryIdeo; // <- geändert
+            var primary = player?.ideos?.PrimaryIdeo; 
             if (primary == null) return;
 
-            // bevorzugte Kultur: ST_Culture_UFP, sonst 1. erlaubte Kultur der Player-Faction
+            
             CultureDef preferred = DefDatabase<CultureDef>.GetNamedSilentFail("ST_Culture_UFP")
                                   ?? player.def?.allowedCultures?.FirstOrDefault();
 
             if (preferred != null)
                 TrySetIdeoCulture(primary, preferred);
 
-            // Startkolonisten absichern: nur wenn Ideo fehlt (Rekruten bleiben unberührt)
+            
             foreach (var p in PawnsFinder.AllMaps_FreeColonists)
             {
                 if (!p.RaceProps.Humanlike) continue;
                 if (p.ideo == null || p.ideo.Ideo == null)
-                    p.ideo?.SetIdeo(primary); // <- geändert (ein Parameter)
+                    p.ideo?.SetIdeo(primary); 
             }
         }
 
         private static void TrySetIdeoCulture(Ideo ideo, CultureDef culture)
         {
-            // per Reflection kompatibel setzen (RW 1.4–1.6)
+            
             try
             {
                 var prop = typeof(Ideo).GetProperty("culture", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
@@ -71,7 +71,7 @@ namespace YASTM.IdeoFix
             }
             catch
             {
-                // not critical
+                
             }
         }
     }

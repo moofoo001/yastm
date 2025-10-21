@@ -43,12 +43,11 @@ namespace ST.PhaseWeapons
 
             public override IEnumerable<Gizmo> CompGetGizmosExtra()
             {
-                // Wichtig: Keine Gizmos hier, damit es nicht doppelt wird.
+
                 yield break;
             }
             public void ToggleStun()
                 {
-                    // Stun ↔ Kill (deaktiviert Overcharge implizit)
                     mode = (mode == PhaserFireMode.Stun) ? PhaserFireMode.Kill : PhaserFireMode.Stun;
                     Log.Message($"[Phaser2Btn] {parent?.def?.defName} {parent?.ThingID} -> {mode} (StunToggle)");
                 }
@@ -56,7 +55,6 @@ namespace ST.PhaseWeapons
             public void ToggleOvercharge()
             {
                 if (!(Props?.allowOvercharge ?? false)) return;
-                // Overcharge ↔ Kill (deaktiviert Stun implizit)
                 mode = (mode == PhaserFireMode.Overcharge) ? PhaserFireMode.Kill : PhaserFireMode.Overcharge;
                 Log.Message($"[Phaser2Btn] {parent?.def?.defName} {parent?.ThingID} -> {mode} (OverchargeToggle)");
             }
@@ -107,7 +105,6 @@ namespace ST.PhaseWeapons
             else
                 mode = (mode == PhaserFireMode.Stun) ? PhaserFireMode.Kill : PhaserFireMode.Stun;
 
-            // optional: Hediff/Marker hier updaten, falls du sowas nutzt
             var pawn = Wielder;
             Log.Message($"[PhaserMode] {parent?.def?.defName} {parent?.ThingID} -> {mode} (pawn={pawn?.LabelShort ?? "null"})");
             Log.Message($"[PhaserMode][cycle] post={mode}");

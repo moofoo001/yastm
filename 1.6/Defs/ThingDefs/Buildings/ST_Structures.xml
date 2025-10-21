@@ -68,7 +68,7 @@
   <uiIconPath>Things/Building/Ship/HullGlass_MenuIcon</uiIconPath>
   <altitudeLayer>Building</altitudeLayer>
   <passability>Impassable</passability>
-  <fillPercent>1</fillPercent> <!-- vorher 0.65 -->
+  <fillPercent>1</fillPercent> 
   <coversFloor>true</coversFloor>
   <useHitPoints>true</useHitPoints>
   <rotatable>false</rotatable>

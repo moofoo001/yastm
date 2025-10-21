@@ -45,7 +45,7 @@ namespace YASTM
             base.DoEffect(user);
             if (user == null) return;
 
-            // Hediff anwenden
+            
             var def = DefDatabase<HediffDef>.GetNamedSilentFail(PropsTimed.hediffDef);
             if (def == null)
             {
@@ -63,11 +63,11 @@ namespace YASTM
                 disp.ticksToDisappear = dur;
             }
 
-            // Feedback
+            
             if (user.Map != null)
                 MoteMaker.ThrowText(user.DrawPos, user.Map, "ST.Hypo.Applied".Translate(), 1.5f);
 
-            // Verbrauch: GENAU 1 Stück
+            
             if (PropsTimed.destroyOnUse)
             {
                 if (parent.stackCount > 1)

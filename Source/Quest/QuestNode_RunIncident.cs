@@ -7,21 +7,20 @@ namespace StarTrekFactions.QuestNodes
 {
     public class QuestNode_RunIncidentNow : QuestNode
     {
-        public string inSignal;        // scoped vom Def-Lader
-        public string inSignalRaw;     // raw (direkt)
+        public string inSignal;      
+        public string inSignalRaw;   
 
-        // beides unterstützen (Kompatibilität):
-        public IncidentDef incident;   // alt
-        public IncidentDef incidentDef;// neu
+
+        public IncidentDef incident;  
+        public IncidentDef incidentDef;
         public float pointsFactor = 1f;
 
-        // Basisname; wir erzeugen zusätzlich die gescopte Variante
         public string outSignal;
 
-        // NEU
-        public string forcedFactionDef;              // z.B. "Romulan_Star_Empire"
-        public PawnsArrivalModeDef arrivalMode;     // z.B. CenterDrop / EdgeDrop / EdgeWalkIn
-        public RaidStrategyDef raidStrategy;        // z.B. ImmediateAttack
+
+        public string forcedFactionDef;            
+        public PawnsArrivalModeDef arrivalMode;     
+        public RaidStrategyDef raidStrategy;      
 
         protected override void RunInt()
         {
@@ -29,7 +28,7 @@ namespace StarTrekFactions.QuestNodes
 
             var part = new QuestPart_RunIncidentOnSignal
             {
-                // Signals
+
                 inSignalRaw     = raw,
                 inSignalScoped  = QuestGenUtility.HardcodedSignalWithQuestID(raw),
                 outSignalRaw    = outSignal,
@@ -37,11 +36,11 @@ namespace StarTrekFactions.QuestNodes
                                   ? null
                                   : QuestGenUtility.HardcodedSignalWithQuestID(outSignal),
 
-                // Incident + Tuning
+
                 incident     = incidentDef ?? incident,
                 pointsFactor = pointsFactor,
 
-                // NEU
+
                 forcedFactionDef = forcedFactionDef,
                 arrivalMode      = arrivalMode,
                 raidStrategy     = raidStrategy
@@ -54,20 +53,20 @@ namespace StarTrekFactions.QuestNodes
             => !(inSignal.NullOrEmpty() && inSignalRaw.NullOrEmpty())
                && (incidentDef != null || incident != null);
 
-        // WICHTIG: KEIN ExposeData() hier – Nodes werden nicht gescribed.
+
     }
 
     public class QuestPart_RunIncidentOnSignal : QuestPart
     {
-        // Signals (raw + scoped)
+
         public string inSignalRaw, inSignalScoped;
         public string outSignalRaw, outSignalScoped;
 
-        // Incident + Tuning
+
         public IncidentDef incident;
         public float pointsFactor = 1f;
 
-        // NEU
+
         public string forcedFactionDef;
         public PawnsArrivalModeDef arrivalMode;
         public RaidStrategyDef raidStrategy;
@@ -87,7 +86,7 @@ namespace StarTrekFactions.QuestNodes
             if (pointsFactor != 1f && parms.points > 0f)
                 parms.points *= pointsFactor;
 
-            // Fraktion erzwingen (Romulaner etc.)
+
             if (!forcedFactionDef.NullOrEmpty())
             {
                 var facDef = DefDatabase<FactionDef>.GetNamedSilentFail(forcedFactionDef);
@@ -96,7 +95,7 @@ namespace StarTrekFactions.QuestNodes
                     Faction fac = Find.FactionManager.AllFactions
                         .FirstOrDefault(f => f.def == facDef && !f.IsPlayer);
 
-                    // falls nicht vorhanden – optional erzeugen (1.6: Parms-Objekt)
+
                     if (fac == null)
                     {
                         var fgParms = new FactionGeneratorParms();
@@ -112,13 +111,13 @@ namespace StarTrekFactions.QuestNodes
                     if (fac != null)
                         parms.faction = fac;
 
-                    // (Hostility NICHT hier erzwingen; stelle das lieber im FactionDef oder Szenario ein)
+
                 }
             }
 
-            // Ankunft/Strategie (optional)
-            if (arrivalMode != null) parms.raidArrivalMode = arrivalMode;   // CenterDrop, EdgeDrop, EdgeWalkIn …
-            if (raidStrategy != null) parms.raidStrategy   = raidStrategy;  // ImmediateAttack, StageThenAttack …
+
+            if (arrivalMode != null) parms.raidArrivalMode = arrivalMode;  
+            if (raidStrategy != null) parms.raidStrategy   = raidStrategy; 
 
             if (incident.Worker.TryExecute(parms))
             {

@@ -1,5 +1,5 @@
 using System.Linq;
-using RimWorld;   // <- wichtig
+using RimWorld;   
 using Verse;
 
 namespace YASTM
@@ -32,7 +32,7 @@ namespace YASTM
             var q = DefDatabase<QuestScriptDef>.GetNamedSilentFail(questDefName);
             if (q == null) { Log.Error($"QuestScriptDef '{questDefName}' not found."); return false; }
 
-            // <-- HIER: richtige API/Namespace
+            
             QuestUtility.GenerateQuestAndMakeAvailable(q, parms.points);
 
             var label = q.label ?? "Promotion available";

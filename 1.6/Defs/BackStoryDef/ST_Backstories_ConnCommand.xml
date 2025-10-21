@@ -23,8 +23,6 @@
        <Pilot_Cadet>0</Pilot_Cadet>
     </forcedTraits>
     <disallowedTraits />
-    <!-- must have ! -->
-
   </BackstoryDef>
 
   <BackstoryDef>
@@ -67,7 +65,6 @@
     <forcedTraits>
        <Pilot_Cadet>0</Pilot_Cadet>
     </forcedTraits>
-
   </BackstoryDef>
 
   <!-- Petty / Officer ranks  -->
@@ -160,7 +157,6 @@
     </spawnCategories>
     <forcedTraits />
     <disallowedTraits />
-
   </BackstoryDef>
 
   </Defs>

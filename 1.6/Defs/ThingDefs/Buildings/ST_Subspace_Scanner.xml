@@ -5,23 +5,16 @@
   <label>subspace anomaly scanner</label>
   <description>Field scanner that can lock and read faint subspace signatures. Must be powered and placed near the target obelisks to enable scans.</description>
   <thingClass>Building</thingClass>
-  
   <uiIconScale>1</uiIconScale>
   <size>(2,2)</size>
   <rotatable>false</rotatable>
   <useHitPoints>true</useHitPoints>
-
   <costList>
     <Steel>40</Steel>
     <ComponentIndustrial>3</ComponentIndustrial>
   </costList>
   <designationCategory>ST_Designation</designationCategory>
-
-
-  <!-- Minify: nur minifiedDef; die beiden Install*-Felder weglassen -->
   <minifiedDef>MinifiedThing</minifiedDef>
-
-  <!-- Item-Eigenschaften für das verpackte Teil -->
   <thingCategories>
     <li>BuildingsProduction</li>
   </thingCategories>
@@ -32,13 +25,11 @@
     <MarketValue>200</MarketValue>
     <Mass>8</Mass>
   </statBases>
-
   <graphicData>
     <texPath>Things/Building/ST_AnomalySensor</texPath>
     <graphicClass>Graphic_Single</graphicClass>
     <drawSize>(2,2)</drawSize>
   </graphicData>
-
   <comps>
     <li Class="CompProperties_Power">
       <compClass>CompPowerTrader</compClass>
@@ -46,8 +37,6 @@
       <shortCircuitInRain>true</shortCircuitInRain>
     </li>
     <li Class="CompProperties_Flickable" />
-
-    <!-- Facility-Anker: Sensor kann mit Obelisken verlinken -->
     <li Class="CompProperties_Facility">
       <linkableBuildings>
         <li>ST_Obelisk_A</li>
@@ -57,13 +46,10 @@
       <maxSimultaneous>2</maxSimultaneous>
     </li>
   </comps>
-
   <placeWorkers>
     <li>PlaceWorker_ShowFacilitiesConnections</li>
   </placeWorkers>
-
   <constructEffect>ConstructMetal</constructEffect>
-
   <researchPrerequisites>
     <li>ST_SubspaceTelemetry</li>
   </researchPrerequisites>

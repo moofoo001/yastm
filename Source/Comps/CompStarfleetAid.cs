@@ -27,7 +27,7 @@ namespace YASTM
     {
         public CompProperties_StarfleetAid Props => (CompProperties_StarfleetAid)props;
 
-        // ---- Helper, verwenden Settings falls vorhanden, sonst XML-Props ----
+
         float CooldownDays => (YASTM_Mod.Settings?.AidCooldownDays  ?? Props.cooldownDays);
         int   SilverCost   => (YASTM_Mod.Settings?.AidSilverCost    ?? Props.silverCost);
         int   GoodwillCost => (YASTM_Mod.Settings?.AidGoodwillCost  ?? Props.goodwillCost);

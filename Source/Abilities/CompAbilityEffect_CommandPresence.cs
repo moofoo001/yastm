@@ -46,9 +46,9 @@ namespace ST.Abilities
                 {
                     Verse.Sound.SoundStarter.PlayOneShot(snd, Verse.Sound.SoundInfo.InMap(new TargetInfo(caster.Position, caster.Map)));
                 }
-                // dezenter Flash
+                
                 FleckMaker.Static(caster.Position, caster.Map, FleckDefOf.ExplosionFlash, 1.3f);
-                // bisschen „Luftwelle“
+                
                 for (int i = 0; i < 5; i++)
                     FleckMaker.ThrowDustPuff(caster.Position, caster.Map, 1.5f);
             }

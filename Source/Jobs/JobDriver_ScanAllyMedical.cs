@@ -33,7 +33,7 @@ namespace YASTM
             {
                 pawn.rotationTracker.FaceTarget(TargetPawn);
 
-                // Holo-Mote alle ~60 Ticks
+
                 int now = Find.TickManager.TicksGame;
                 if (now >= nextMoteTick && pawn.Map != null)
                 {

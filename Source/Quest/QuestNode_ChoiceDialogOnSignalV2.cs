@@ -1,9 +1,9 @@
 using RimWorld.QuestGen;
-using Verse; // <-- für .NullOrEmpty()
+using Verse;
 
 namespace StarTrekFactions.QuestNodes
 {
-    // Baut den Dialog-Part und erzeugt raw+scoped Signale
+
     public class QuestNode_ChoiceDialogOnSignalV2 : QuestNode
     {
         public string inSignal;
@@ -17,7 +17,7 @@ namespace StarTrekFactions.QuestNodes
         public string optionBLabel;
         public string optionBSignal;
 
-        // Gemeinsames "ChoiceMade"-Signal (für Abbruch von Defaults etc.)
+
         public string choiceMadeSignal = "STQ.Obelisks.Path.ChoiceMade";
 
         protected override void RunInt()

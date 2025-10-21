@@ -9,19 +9,19 @@ namespace StarTrekFactions.Comps
 {
     public class CompProperties_ScanWork : CompProperties
     {
-        // Grunddauer des Scans (JobDriver verwendet das)
+        
         public int workTicksBase = 1800;
 
-        // Optional: fertiges Signal aus XML, z.B. "STQ.Obelisks.ScanA.Completed"
+        
         public string successSignal;
 
-        // Muss ein eingeschalteter Sensor in der Nähe sein?
+        
         public bool requiresPoweredSensor = true;
 
-        // Reichweite für den Sensorcheck
+        
         public float sensorRadius = 10f;
 
-        // Optionale Skill-Referenz (z.B. Intellectual) – aktuell nur als Info/Balance-Hook
+        
         public SkillDef skill;
 
         public CompProperties_ScanWork()
@@ -39,13 +39,13 @@ namespace StarTrekFactions.Comps
 
         public int progressTicks;
 
-        // Overload ohne Parameter (für vorhandenen Code)
+        
         public bool PoweredSensorNearby()
         {
             return PoweredSensorNearby(null);
         }
 
-        // Check auf eingeschalteten ST_AnomalySensor im Radius
+        
         public bool PoweredSensorNearby(Pawn pawn)
         {
             if (!Props.requiresPoweredSensor) return true;
@@ -69,16 +69,13 @@ namespace StarTrekFactions.Comps
             return false;
         }
 
-        /// <summary>
-        /// Vom JobDriver aufrufen, wenn der Scan abgeschlossen ist.
-        /// Sendet IMMER ungescoped + gescoped, damit Listener sicher matchen.
-        /// </summary>
+
         public void OnScanFinished(Pawn pawn)
         {
             if (completed) return;
             completed = true;
 
-            // 1) Basistags ermitteln
+
             var tags = new List<string>();
             if (!Props.successSignal.NullOrEmpty())
             {
@@ -101,7 +98,7 @@ namespace StarTrekFactions.Comps
                 return;
             }
 
-            // 2) Beide Varianten schicken
+
             foreach (var baseTag in tags.Distinct())
             {
                 string raw = baseTag;

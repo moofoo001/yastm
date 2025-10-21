@@ -4,7 +4,7 @@ using Verse;
 
 namespace ST.Abilities
 {
-    // Vergibt/entfernt Abilities automatisch, wenn Traits vorhanden/fehlen.
+    
     public class GameComponent_AbilityBinder : GameComponent
     {
         private AbilityDef nervePinch;
@@ -34,7 +34,7 @@ namespace ST.Abilities
 
         public override void GameComponentTick()
         {
-            if (Find.TickManager.TicksGame % 1200 == 0) BindAll(); // alle 20s
+            if (Find.TickManager.TicksGame % 1200 == 0) BindAll(); 
         }
 
         private void BindAll()
@@ -57,7 +57,7 @@ namespace ST.Abilities
                 bool hasTrait = p.story?.traits?.HasTrait(traitIDIC) == true;
                 bool hasAbility = p.abilities.GetAbility(nervePinch) != null;
                 if (hasTrait && !hasAbility) p.abilities.GainAbility(nervePinch);
-                // if (!hasTrait && hasAbility) p.abilities.RemoveAbility(nervePinch); // <-- AUS
+                
             }
 
             // Field Triage an Starfleet Training
@@ -66,7 +66,7 @@ namespace ST.Abilities
                 bool hasTrait = p.story?.traits?.HasTrait(traitStarfleet) == true;
                 bool hasAbility = p.abilities.GetAbility(fieldTriage) != null;
                 if (hasTrait && !hasAbility) p.abilities.GainAbility(fieldTriage);
-                // if (!hasTrait && hasAbility) p.abilities.RemoveAbility(fieldTriage); // <-- AUS
+               
             }
 
             // Command Presence an CommandTraining
@@ -75,7 +75,7 @@ namespace ST.Abilities
                 bool hasTrait = p.story?.traits?.HasTrait(traitCommand) == true;
                 bool hasAbility = p.abilities.GetAbility(commandPresence) != null;
                 if (hasTrait && !hasAbility) p.abilities.GainAbility(commandPresence);
-                // if (!hasTrait && hasAbility) p.abilities.RemoveAbility(commandPresence); // <-- AUS
+                
             }
 
             // Tactical Overwatch an SecurityOfficer
@@ -84,7 +84,7 @@ namespace ST.Abilities
                 bool hasTrait = p.story?.traits?.HasTrait(traitSecurity) == true;
                 bool hasAbility = p.abilities.GetAbility(tacticalOverwatch) != null;
                 if (hasTrait && !hasAbility) p.abilities.GainAbility(tacticalOverwatch);
-                // if (!hasTrait && hasAbility) p.abilities.RemoveAbility(tacticalOverwatch); // <-- AUS
+                
             }
         }
     }

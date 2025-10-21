@@ -17,7 +17,7 @@ namespace StarTrekFactions.QuestParts
 
         public MapComponent_WaitEnemiesDefeated(Map map) : base(map) { }
 
-        // Ensure a component instance exists on the map
+
         public static MapComponent_WaitEnemiesDefeated For(Map map)
         {
             var comp = map.GetComponent<MapComponent_WaitEnemiesDefeated>();
@@ -31,7 +31,7 @@ namespace StarTrekFactions.QuestParts
 
         public void Arm(int questId, string outSignal, bool onlyManhunters)
         {
-            // de-dupe in case of re-arming
+ 
             entries.RemoveAll(e => e.questId == questId && e.outSignal == outSignal);
             entries.Add(new Entry { questId = questId, outSignal = outSignal, onlyManhunters = onlyManhunters });
 
@@ -55,7 +55,7 @@ namespace StarTrekFactions.QuestParts
                 }
                 else
                 {
-                    // status ping ~alle 5s
+
                     if (Find.TickManager.TicksGame % 300 == 0)
                         Log.Message($"[YASTM][WAIT/MC] still blocking (active={active}, downed={downed}) on map '{map}'.");
                 }
@@ -80,8 +80,8 @@ namespace StarTrekFactions.QuestParts
                     bool isMH = ms == MentalStateDefOf.Manhunter || ms == MentalStateDefOf.ManhunterPermanent;
                     if (!isMH) continue;
 
-                    if (p.Downed) { downed++; continue; } // downed/tote blockieren NICHT
-                    active++;                              // nur stehende blockieren
+                    if (p.Downed) { downed++; continue; } 
+                    active++;                              
                 }
                 else
                 {
@@ -94,7 +94,7 @@ namespace StarTrekFactions.QuestParts
         public override void ExposeData()
         {
             base.ExposeData();
-            // entries sind transient – genügt; bei Save/Load kann neu „gearmed“ werden
+
         }
     }
 }

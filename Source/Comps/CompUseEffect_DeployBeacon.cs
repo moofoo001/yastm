@@ -45,11 +45,11 @@ namespace StarTrekFactions.Comps
 
             if (placed)
             {
-                // >>> Auto-Claim & Unforbid
+                
                 thing.SetFaction(Faction.OfPlayer);
                 thing.SetForbidden(false, false);
 
-                // Kiste verbrauchen
+                
                 parent.Destroy(DestroyMode.Vanish);
 
                 SoundStarter.PlayOneShot(SoundDefOf.Click, SoundInfo.OnCamera());

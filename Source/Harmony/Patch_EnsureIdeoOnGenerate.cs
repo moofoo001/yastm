@@ -20,21 +20,21 @@ namespace YASTM.IdeoFix
             {
                 Ideo target = null;
 
-                // 1) Ideo der eigenen Fraktion bevorzugen
-                target = p.Faction?.ideos?.PrimaryIdeo; // <- geändert
+                
+                target = p.Faction?.ideos?.PrimaryIdeo;
 
-                // 2) Falls direkt als Spieler-Pawn erzeugt
+                
                 if (target == null && p.Faction == Faction.OfPlayer)
-                    target = Faction.OfPlayer?.ideos?.PrimaryIdeo; // <- geändert
+                    target = Faction.OfPlayer?.ideos?.PrimaryIdeo; 
 
-                // 3) Fallback: irgendeine Welt-Ideo
+                
                 if (target == null)
                     target = Find.IdeoManager.IdeosListForReading.FirstOrDefault();
 
                 if (target != null && p.ideo != null)
                 {
-                    // Signatur ohne bool-Parameter (RW 1.6)
-                    p.ideo.SetIdeo(target); // <- geändert
+                    
+                    p.ideo.SetIdeo(target); 
                 }
             }
         }

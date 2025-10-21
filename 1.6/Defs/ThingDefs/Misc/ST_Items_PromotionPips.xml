@@ -172,7 +172,7 @@
     </comps>
    </ThingDef>
   
- <!-- Ein Template (Gold + Stahl), pro Pip ein Rezept -->
+
   <RecipeDef>
     <defName>Make_ST_PromotionPip_Ensign</defName>
     <label>make promotion pip (ensign)</label>
@@ -200,7 +200,7 @@
     </recipeUsers>
   </RecipeDef>
 
-  <!-- Duplikate für die restlichen Pips (gleiche Zutaten/Werte) -->
+
   <RecipeDef>
     <defName>Make_ST_PromotionPip_LieutenantJG</defName>
     <label>make promotion pip (lieutenant jg)</label>

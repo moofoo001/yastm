@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Abstrakter Parent: unsichtbare Utility-Apparel, NICHT craftbar -->
+
   <ThingDef ParentName="ApparelBase" Name="ST_RankPip_ApparelBase" Abstract="True">
     <defName>ST_RankPip_ApparelBase</defName>
     <label>rank pips (base)</label>
-
-    <!-- kein recipeMaker, kein smelten -->
+    <description>Base definition for utility rank pips. Invisible on pawn; shown in gear.</description>
     <smeltable>false</smeltable>
-
-    <!-- unsichtbar am Pawn: KEIN wornGraphicPath -->
     <thingCategories>
       <li>ApparelUtility</li>
     </thingCategories>
-
     <apparel>
-      <layers><li>Belt</li></layers>                <!-- Utility-Slot -->
+      <layers><li>Belt</li></layers>             
       <bodyPartGroups><li>Waist</li></bodyPartGroups>
       <tags><li>UtilityBelt</li></tags>
       <defaultOutfitTags><li>Worker</li><li>Soldier</li></defaultOutfitTags>
     </apparel>
-
     <statBases>
       <Mass>0.05</Mass>
     </statBases>
-    <tradeability>Sellable</tradeability> <!-- gern auf Never stellen, wenn nicht handelbar -->
+    <tradeability>Sellable</tradeability>
   </ThingDef>
 
   <!-- Ensign -->

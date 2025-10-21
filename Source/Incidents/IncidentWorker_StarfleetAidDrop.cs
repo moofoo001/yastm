@@ -11,7 +11,7 @@ namespace YASTM
         {
             var map = parms.target as Map;
             if (map == null) return false;
-            // stabiler, vanilla Trade-Dropspot
+            
             IntVec3 spot = DropCellFinder.TradeDropSpot(map);
             return spot.IsValid;
         }
@@ -34,13 +34,13 @@ namespace YASTM
 
             List<Thing> things = tsm.root.Generate();
 
-            // Safety clamp gegen Ausreißer
+            
             float totalValue = 0f;
             foreach (var t in things) totalValue += t.MarketValue * t.stackCount;
             if (totalValue > 1200f)
                 foreach (var t in things) t.stackCount = Mathf.Max(1, Mathf.RoundToInt(t.stackCount * 0.75f));
 
-            // Einfach & stabil: direkt droppen
+            
             DropPodUtility.DropThingsNear(dropSpot, map, things);
 
             string label = "ST_Aid_LetterLabel".Translate();

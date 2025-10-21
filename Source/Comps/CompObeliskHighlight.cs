@@ -7,9 +7,9 @@ namespace StarTrekFactions
 {
     public class CompProperties_ObeliskHighlight : CompProperties
     {
-        public FleckDef pulseFleck;                 // optional (XML)
-        public string  pulseFleckDefName = "ST_ObeliskPulse"; // fallback
-        public SoundDef humSound;                   // optional
+        public FleckDef pulseFleck;                
+        public string  pulseFleckDefName = "ST_ObeliskPulse"; 
+        public SoundDef humSound;                   
         public int   pulseInterval = 180;
         public float pulseRadius   = 3.2f;
 
@@ -34,7 +34,7 @@ namespace StarTrekFactions
         {
             if (parent?.Map == null) return;
 
-            // hum only when on screen (avoid global noise)
+            
             if (Props.humSound != null)
             {
                 bool onScreen = Find.CameraDriver.CurrentViewRect.Contains(parent.Position);
@@ -51,7 +51,7 @@ namespace StarTrekFactions
                 }
             }
 
-            // pulse
+            
             int now = Find.TickManager.TicksGame;
             if (now < nextPulse) return;
             nextPulse = now + Props.pulseInterval;

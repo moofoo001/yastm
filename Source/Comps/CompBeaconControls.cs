@@ -1,23 +1,23 @@
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
-using RimWorld.QuestGen; // Slate, QuestUtility
+using RimWorld.QuestGen; 
 
 namespace StarTrekFactions.Comps
 {
     public class CompProperties_BeaconControls : CompProperties
     {
-        // INIT (nur UI; das eigentliche Spawnen macht CompUseEffect_SpawnFarAndSignal)
+
         public string initSignal;
-        public List<SpawnEntry> spawnOnInit; // legacy, unbenutzt
+        public List<SpawnEntry> spawnOnInit; 
         public class SpawnEntry { public ThingDef thingDef; public int count = 1; }
 
         // REPORT
         public string reportSignal;
-        public bool fireIncidentOnReport = false;   // Standard: false (Raid kommt aus der Quest)
+        public bool fireIncidentOnReport = false;  
         public IncidentDef incidentDef;
         public float pointsFactor = 1f;
-        public bool startPhaseIIIOnReport = false;  // Standard: false (Phase III kommt aus der Quest)
+        public bool startPhaseIIIOnReport = false; 
 
         // UX
         public string initLabelKey = "ST.InitializeBeacon";
@@ -48,7 +48,7 @@ namespace StarTrekFactions.Comps
             }
         }
 
-        // Liest die Scan-Flags wahlweise intern ODER aus der MapComponent (wo CompScanWork sie setzt)
+
         private bool ScansAreComplete()
         {
             if (scanA && scanB) return true;
@@ -121,12 +121,12 @@ namespace StarTrekFactions.Comps
             var map = parent.Map;
             if (map == null) return;
 
-            // Einzige Init-Logik: unsere UseEffect (spawnt weit weg + sendet BeaconActivated + startet Setup-Quest)
+            // Spawn beacon contents via CompUseEffect_SpawnFarAndSignal
             var use = parent.TryGetComp<CompUseEffect_SpawnFarAndSignal>();
             if (use != null)
             {
                 use.DoEffect(null);
-                initialized = true; // UI-Button ausblenden
+                initialized = true; 
                 return;
             }
 
@@ -144,7 +144,7 @@ namespace StarTrekFactions.Comps
                 return;
             }
 
-            // 1) Report-Signal: raw + quest-scoped broadcasten
+            // 
             var raw = Props.reportSignal;
             if (!raw.NullOrEmpty())
             {
@@ -163,7 +163,7 @@ namespace StarTrekFactions.Comps
                 Messages.Message("ST.ReportSent".Translate(), parent, MessageTypeDefOf.PositiveEvent, false);
         }
 
-        /// <summary>Obelisk meldet erfolgreichen Scan → Beacon merkt, welcher fertig ist.</summary>
+        // Called by CompScanWork when an obelisk has been scanned
         public void Notify_ObeliskScanned(Thing obelisk)
         {
             if (obelisk == null) return;

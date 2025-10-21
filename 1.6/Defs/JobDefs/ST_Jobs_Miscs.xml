@@ -28,4 +28,13 @@
     <playerInterruptible>true</playerInterruptible>
   </JobDef>
 
+  <!-- security Tricorder -->
+  <JobDef>
+    <defName>ST_ScanAreaSecurity</defName>
+    <driverClass>YASTM.JobDriver_ScanAreaSecurity</driverClass>
+    <reportString>performing a tactical sweep.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+    <playerInterruptible>true</playerInterruptible>
+  </JobDef>
+
 </Defs>

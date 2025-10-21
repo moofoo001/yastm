@@ -6,8 +6,8 @@ namespace StarTrekFactions.QuestNodes
 {
     public class QuestNode_RenameOnSignal : QuestNode
     {
-        public string inSignal;      // XML: üblich
-        public string inSignalRaw;   // XML: optional (Alias)
+        public string inSignal;    
+        public string inSignalRaw; 
         public string titleKey;
         public string descriptionKey;
 

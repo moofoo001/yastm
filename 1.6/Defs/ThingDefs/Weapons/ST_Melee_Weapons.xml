@@ -1,13 +1,12 @@
 <Defs>
 
-  <!-- Gemeinsame Basis für all eure Sci-Fi Nahkampfwaffen -->
+  <!-- melee base -->
   <ThingDef Name="ST_MeleeBase" ParentName="BaseMeleeWeapon" Abstract="True">
     <thingClass>ThingWithComps</thingClass>
     <useHitPoints>true</useHitPoints>
     <statBases>
       <MarketValue>240</MarketValue>
     </statBases>
-    <!-- Crafting: metallische Materialien -->
     <costStuffCount>60</costStuffCount>
     <stuffCategories>
       <li>Metallic</li>
@@ -56,7 +55,6 @@
       <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
     <tools>
-      <!-- main stab -->
       <li>
         <label>point</label>
         <capacities><li>Stab</li></capacities>
@@ -65,7 +63,6 @@
         <armorPenetration>0.20</armorPenetration>
         <chanceFactor>0.8</chanceFactor>
       </li>
-      <!-- side cut -->
       <li>
         <label>edge</label>
         <capacities><li>Cut</li></capacities>
@@ -108,7 +105,6 @@
       <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
     <tools>
-      <!-- blunt shock-head -->
       <li>
         <label>head</label>
         <capacities><li>Blunt</li></capacities>
@@ -120,14 +116,14 @@
     </tools>
     <comps>
         <li Class="ST.PhaseWeapons.CompProperties_StunOnMelee">
-            <stunTicks>300</stunTicks>          <!-- ~5 Sekunden -->
-            <stunOnlyFlesh>true</stunOnlyFlesh> <!-- nur Humanoide/Tiere -->
-            <chance>1.0</chance>                <!-- 100% -->
+            <stunTicks>300</stunTicks>         
+            <stunOnlyFlesh>true</stunOnlyFlesh> 
+            <chance>1.0</chance>               
         </li>
     </comps>
   </ThingDef>
 
-  <!-- KLINGON Bat'leth (zweischneidig, schwer) -->
+  <!-- KLINGON Bat'leth -->
   <ThingDef ParentName="ST_MeleeBase">
     <defName>KL_Weapon_Batleth</defName>
     <label>bat'leth</label>
@@ -158,7 +154,6 @@
       <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
     <tools>
-      <!-- Hauptschneide: Cut -->
       <li>
         <label>edge</label>
         <capacities>
@@ -169,7 +164,6 @@
         <armorPenetration>0.33</armorPenetration>
         <chanceFactor>1.0</chanceFactor>
       </li>
-      <!-- Griff/Stoß: Blunt (selten) -->
       <li>
         <label>pommel</label>
         <capacities>
@@ -183,7 +177,7 @@
     </tools>
   </ThingDef>
 
-  <!-- KLINGON D'k tahg (dolchartig, schnell) -->
+  <!-- KLINGON D'k tahg -->
   <ThingDef ParentName="ST_MeleeBase">
     <defName>KL_Weapon_DkTahg</defName>
     <label>d'k tahg</label>
@@ -214,7 +208,6 @@
       <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
     <tools>
-      <!-- Stab (Haupt) -->
       <li>
         <label>blade</label>
         <capacities>
@@ -225,7 +218,6 @@
         <armorPenetration>0.25</armorPenetration>
         <chanceFactor>0.8</chanceFactor>
       </li>
-      <!-- Schnitt (Neben) -->
       <li>
         <label>edge</label>
         <capacities>
@@ -239,7 +231,7 @@
     </tools>
   </ThingDef>
 
-  <!-- ROMULAN Dirhja Dagger (präzise, leicht) -->
+  <!-- ROMULAN Dirhja Dagger  -->
   <ThingDef ParentName="ST_MeleeBase">
     <defName>RO_Weapon_RomulanDagger</defName>
     <label>Dirhja</label>

@@ -31,7 +31,7 @@ namespace StarTrekFactions.QuestNodes
     {
         public ThingDef thingDef;
         public int count = 1;
-        public ThingDef stuff;                 // optional
+        public ThingDef stuff;                 
         public QualityCategory? quality = null;
 
         public void ExposeData()

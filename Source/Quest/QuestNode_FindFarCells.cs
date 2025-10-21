@@ -5,16 +5,12 @@ using RimWorld.QuestGen;
 
 namespace StarTrekFactions.QuestNodes
 {
-    // Findet 1–2 Map-Zellen, die:
-    // - standable & unreserved sind
-    // - NICHT in der Home-Zone liegen
-    // - in einem Distanzbereich zum Map-Center liegen
-    // Ergebnisse werden als Slate-Keys (locA, locB) abgelegt.
+
     public class QuestNode_FindFarCells : QuestNode
     {
-        public SlateRef<int> minDist = 40;     // Kacheln ab Map-Center
-        public SlateRef<int> maxDist = 70;     // Kacheln ab Map-Center
-        public SlateRef<bool> findTwo = true;  // zweiten Punkt suchen?
+        public SlateRef<int> minDist = 40; 
+        public SlateRef<int> maxDist = 70; 
+        public SlateRef<bool> findTwo = true;
 
         protected override void RunInt()
         {
@@ -29,7 +25,7 @@ namespace StarTrekFactions.QuestNodes
             if (findTwo.GetValue(slate))
             {
                 IntVec3 b;
-                // Suche b mit kleinem Mindestabstand zu a, damit sie nicht nebeneinander liegen
+
                 if (TryFind(map, minDist.GetValue(slate), maxDist.GetValue(slate), out b, 18, a))
                     slate.Set("locB", b);
             }
@@ -37,7 +33,7 @@ namespace StarTrekFactions.QuestNodes
 
         protected override bool TestRunInt(Slate slate)
         {
-            // Für TestRun reicht uns: map vorhanden?
+
             return slate.Get<Map>("map") != null;
         }
 
@@ -48,7 +44,7 @@ namespace StarTrekFactions.QuestNodes
             {
                 if (!c.InBounds(map) || c.Fogged(map)) return false;
                 if (!c.Standable(map)) return false;
-                // nicht in Home-Zone
+
                 if (map.areaManager?.Home != null && map.areaManager.Home[c]) return false;
 
                 int dist = (int) c.DistanceTo(center);
@@ -58,14 +54,14 @@ namespace StarTrekFactions.QuestNodes
                 {
                     if (c.DistanceTo(other) < minFromOther) return false;
                 }
-                // optional: etwas „sichtbar“, nicht im dichten Gebüsch
+
                 var edifice = c.GetEdifice(map);
                 if (edifice != null && edifice.def.passability == Traversability.Impassable) return false;
 
                 return true;
             }
 
-            // breit suchen: von Center nach außen
+
             return CellFinder.TryFindRandomCellNear(center, map, max, Validator, out cell);
         }
     }

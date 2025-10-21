@@ -74,7 +74,6 @@
     <max>2400</max>
   </cooldownTicksRange>
 
-  <!-- WICHTIG: Verb + TargetParams gehören in verbProperties -->
   <verbProperties>
     <verbClass>Verb_CastAbilityTouch</verbClass>
     <range>1.42</range>
@@ -87,7 +86,6 @@
     </targetParams>
   </verbProperties>
 
-  <!-- WICHTIG: CompProperties_AbilityEffect + compClass auf deine Effect-Klasse -->
   <comps>
     <li Class="RimWorld.CompProperties_AbilityEffect">
       <compClass>ST.Abilities.CompAbilityEffect_VulcanNervePinch</compClass>

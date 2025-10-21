@@ -117,4 +117,10 @@
   <ST.Tricorder.Sci.SkillReq>Requires Intellectual {0}+.</ST.Tricorder.Sci.SkillReq>
   <ST.Tricorder.Sci.Applied>Scientific insight gained by {PAWN_labelShort}.</ST.Tricorder.Sci.Applied>
 
+  <!-- Tricorder Security Scan -->
+  <ST.Tricorder.Sec.Scan>Tactical sweep (security)</ST.Tricorder.Sec.Scan>
+  <ST.Tricorder.Sec.Scan.Desc>Scan area for threats and gain combat awareness.</ST.Tricorder.Sec.Scan.Desc>
+  <ST.Tricorder.Sec.SkillReq>Requires Shooting {0}+ or Melee {1}+.</ST.Tricorder.Sec.SkillReq>
+  <ST.Tricorder.Sec.Applied>Combat awareness gained by {PAWN_labelShort}.</ST.Tricorder.Sec.Applied>
+  
 </LanguageData>

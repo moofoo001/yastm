@@ -17,8 +17,8 @@ public static class PhaserUtil
                 {
                     var p = pm.Props;
                     if (p != null && (p.projectileKill != null || p.projectileStun != null || p.projectileOvercharge != null))
-                        return pm;            // „echter“ Comp mit Props
-                    fallback ??= pm;           // Fallback
+                        return pm;           
+                    fallback ??= pm;           
                 }
             }
         }

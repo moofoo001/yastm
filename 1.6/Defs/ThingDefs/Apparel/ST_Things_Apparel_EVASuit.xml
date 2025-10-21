@@ -81,7 +81,7 @@
 
     <techLevel>Spacer</techLevel>
     <graphicData>
-      <!-- Ground sprite (item on floor) -->
+
       <texPath>Things/Item/Apparel/Starfleet_EVS/Starfleet_EVS</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
@@ -90,7 +90,6 @@
     <uiIconScale>2</uiIconScale>
     <thingCategories>
       <li>Apparel</li>
-      <!-- If you made custom categories, optionally add: <li>ST_StarfleetApparel</li> -->
     </thingCategories>
 
     <tradeTags>
@@ -103,28 +102,21 @@
       <DeteriorationRate>1.5</DeteriorationRate>
       <Mass>5.0</Mass>
       <MarketValue>800</MarketValue>
-
-      <!-- Protection & comfort: use only vanilla-safe stats -->
       <ArmorRating_Sharp>0.24</ArmorRating_Sharp>
       <ArmorRating_Blunt>0.12</ArmorRating_Blunt>
       <ArmorRating_Heat>0.45</ArmorRating_Heat>
       <Insulation_Cold>12</Insulation_Cold>
       <Insulation_Heat>18</Insulation_Heat>
-      <!-- small mobility tax via apparel stats -->
       <MoveSpeed>-0.10</MoveSpeed>
       <WorkSpeedGlobal>-0.04</WorkSpeedGlobal>
     </statBases>
-
     <costList>
       <Cloth>60</Cloth>
 	    <Plasteel>100</Plasteel>
       <ComponentIndustrial>10</ComponentIndustrial>
     </costList>
-
     <apparel>
-      <!-- Worn sprite on pawns -->
       <wornGraphicPath>Things/Item/Apparel/Starfleet_EVS/Starfleet_EVS</wornGraphicPath>
-
       <layers>
         <li>Shell</li>
       </layers>
@@ -133,7 +125,6 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-
       <tags>
         <li>StarfleetUniform</li>
         <li>Hazard</li>
@@ -142,7 +133,6 @@
         <li>Hazard</li>
       </defaultOutfitTags>
     </apparel>
-
     <recipeMaker>
       <workSkill>Crafting</workSkill>
       <effectWorking>Tailor</effectWorking>
@@ -169,7 +159,6 @@
         <li>ST_UFP_Starfleet_EVS</li>
       </researchPrerequisites>
     </recipeMaker>
-
   </ThingDef>
 
 
@@ -178,7 +167,6 @@
     <defName>ST_Apparel_Starfleet_EVS_Helmet</defName>
     <label>Starfleet EVS Helmet</label>
     <description>A sealed helmet for hazardous field operations. Strong heat protection, adequate impact resistance, and slight awareness penalty.</description>
-
     <techLevel>Spacer</techLevel>
     <graphicData>
       <texPath>Things/Item/Apparel/Starfleet_EVS/Starfleet_EV_Helmet</texPath>
@@ -190,33 +178,26 @@
     <thingCategories>
       <li>Apparel</li>
     </thingCategories>
-
     <tradeTags>
       <li>Clothing</li>
     </tradeTags>
-
     <statBases>
       <MaxHitPoints>160</MaxHitPoints>
       <Flammability>0.2</Flammability>
       <DeteriorationRate>1.2</DeteriorationRate>
       <Mass>2.0</Mass>
       <MarketValue>400</MarketValue>
-
       <ArmorRating_Sharp>0.30</ArmorRating_Sharp>
       <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
       <ArmorRating_Heat>0.50</ArmorRating_Heat>
-
-      <!-- tiny aim/work tax to reflect visor -->
       <AimingDelayFactor>0.05</AimingDelayFactor>
       <WorkSpeedGlobal>-0.02</WorkSpeedGlobal>
     </statBases>
-
     <costList>
       <Cloth>25</Cloth>
 	    <Plasteel>40</Plasteel>
       <ComponentIndustrial>6</ComponentIndustrial>
     </costList>
-
     <apparel>
       <wornGraphicPath>Things/Item/Apparel/Starfleet_EVS/Starfleet_EV_Helmet</wornGraphicPath>
       <layers>
@@ -233,7 +214,6 @@
         <li>Hazard</li>
       </defaultOutfitTags>
     </apparel>
-
     <recipeMaker>
       <workSkill>Crafting</workSkill>
       <effectWorking>Tailor</effectWorking>
@@ -260,7 +240,6 @@
         <li>ST_UFP_Starfleet_EVS</li>
       </researchPrerequisites>
     </recipeMaker>
-
   </ThingDef>
 
 </Defs>

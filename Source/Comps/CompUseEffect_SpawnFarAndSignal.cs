@@ -9,7 +9,7 @@ namespace StarTrekFactions.Comps
 {
     public class CompProperties_UseEffect_SpawnFarAndSignal : CompProperties_UseEffect
     {
-        public string inSignal;            // z.B. "STQ.Obelisks.BeaconActivated"
+        public string inSignal;            
         public int minDist = 42;
         public int maxDist = 72;
         public bool outsideHome = true;
@@ -18,7 +18,7 @@ namespace StarTrekFactions.Comps
         public ThingDef thingA;
         public ThingDef thingB;
 
-        // Setup-Quest, die sicher laufen soll
+        
         public string questDefToEnsure = "STQ_VE_Obelisks_I_II_Setup";
 
         public CompProperties_UseEffect_SpawnFarAndSignal()
@@ -29,7 +29,7 @@ namespace StarTrekFactions.Comps
 
     public class CompUseEffect_SpawnFarAndSignal : CompUseEffect
     {
-        private bool initialized; // einmal-Schutz
+        private bool initialized; 
 
         public CompProperties_UseEffect_SpawnFarAndSignal Props
             => (CompProperties_UseEffect_SpawnFarAndSignal)props;
@@ -51,14 +51,14 @@ namespace StarTrekFactions.Comps
                 return;
             }
 
-            // NEU: Einmal-Gate für die komplette Initialisierung
+            
             if (initialized)
             {
                 Messages.Message("Beacon already initialized.", parent, MessageTypeDefOf.NeutralEvent);
                 return;
             }
 
-            // Power-Gate (nur Hinweis)
+            
             if (Props.requirePowerOn)
             {
                 var power = parent.TryGetComp<CompPowerTrader>();
@@ -71,10 +71,10 @@ namespace StarTrekFactions.Comps
                 }
             }
 
-            // Quest sicherstellen
+            
             EnsureQuestRunningOnce();
 
-            // Zellen finden + Spawns
+            
             IntVec3 a; TryFindCell(map, out a);
             IntVec3 b; TryFindCell(map, out b, a, 18);
 
@@ -93,7 +93,7 @@ namespace StarTrekFactions.Comps
             }
             else Log.Warning("[YASTM] thingB missing or invalid cell.");
 
-            // Signal an Quest schicken
+            
             if (!string.IsNullOrEmpty(Props.inSignal))
             {
                 Find.SignalManager.SendSignal(new Signal(Props.inSignal, parent.Named("SUBJECT")));
@@ -101,17 +101,17 @@ namespace StarTrekFactions.Comps
             }
             else Log.Warning("[YASTM] No inSignal configured.");
 
-            // NEU: Einmal-Gate setzen – erst NACH erfolgreicher Initialisierung
+            
             initialized = true;
 
             Messages.Message($"Beacon initialized ({spawned} spawn(s))", parent, MessageTypeDefOf.PositiveEvent);
         }
-        // ---------- hier war die Methode zu hoch/außerhalb platziert ----------
+        
             private void EnsureQuestRunningOnce()
         {
             if (initialized) { Log.Message("[YASTM] Quest already ensured."); return; }
 
-            // 1) Setup-Quest erzeugen (falls noch nicht da) + NAME & DESCRIPTION fest setzen
+            
             var setupDefName = Props.questDefToEnsure ?? "STQ_VE_Obelisks_I_II_Setup";
             var setup = DefDatabase<QuestScriptDef>.GetNamedSilentFail(setupDefName);
             if (setup == null) { Log.Warning($"[YASTM] QuestScriptDef not found: {setupDefName}"); return; }
@@ -133,7 +133,7 @@ namespace StarTrekFactions.Comps
             }
             else
             {
-                // Falls schon da: Namen & Beschreibung trotzdem korrigieren
+                
                 foreach (var q in qm.QuestsListForReading.Where(x => x?.root == setup))
                 {
                     q.name = "Obelisk Survey — Phase I";
@@ -142,7 +142,7 @@ namespace StarTrekFactions.Comps
                     Log.Message("[YASTM] Renamed & re-described existing setup quest to 'Obelisk Survey — Phase I'");
                 }
             }
-            // 2) Diagnose: vorhandene Quests loggen (ohne Backslashes in der Interpolation)
+            
             foreach (var q in qm.QuestsListForReading)
             {
                 if (q == null) continue;
@@ -151,7 +151,7 @@ namespace StarTrekFactions.Comps
                 Log.Message($"[YASTM] Quest present: root={root} name=\"{name}\" dismissed={q.dismissed}");
             }
 
-            // 3) Alle "Wardens"-Quests hart beenden (egal wie benannt)
+            
             foreach (var q in qm.QuestsListForReading.ToArray())
             {
                 try

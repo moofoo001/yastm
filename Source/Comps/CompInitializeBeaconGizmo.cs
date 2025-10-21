@@ -7,8 +7,8 @@ namespace StarTrekFactions.Comps
 {
     public class CompProperties_InitializeBeaconGizmo : CompProperties
     {
-        public string useLabel = "Init Beacon • YASTM"; // eindeutiger Label
-        public bool requirePowerOn = false;             // nur Hinweis, keine Deaktivierung
+        public string useLabel = "Init Beacon • YASTM"; 
+        public bool requirePowerOn = false;            
         public CompProperties_InitializeBeaconGizmo()
         {
             compClass = typeof(CompInitializeBeaconGizmo);
@@ -23,14 +23,12 @@ namespace StarTrekFactions.Comps
         {
             if (parent?.Faction != Faction.OfPlayer) yield break;
 
-            // Debug-Log, damit wir sicher wissen, dass DIESER Gizmo aktiv ist
-            // Log.Message("[YASTM] Beacon gizmo offered on " + parent.def.defName);
 
             yield return new Command_Action
             {
                 defaultLabel = Props.useLabel,
                 defaultDesc  = "Initialize the subspace relay and start the obelisk survey.",
-                icon         = ContentFinder<UnityEngine.Texture2D>.Get("UI/Commands/DesirePower"), // egal welches Icon
+                icon         = ContentFinder<UnityEngine.Texture2D>.Get("UI/Commands/DesirePower"), // ToDo: custom icon
                 action       = OnClick
             };
         }

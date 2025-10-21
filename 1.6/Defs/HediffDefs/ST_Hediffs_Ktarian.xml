@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Bereits vorhanden: Afterglow -->
+  <!-- NEU: Ktarian Afterglow -->
   <HediffDef>
     <defName>ST_KtarianAfterglow</defName>
     <label>afterglow</label>
@@ -43,7 +43,7 @@
         <li>
         <label>obsessive focus</label>
         <statOffsets>
-            <WorkSpeedGlobal>0.08</WorkSpeedGlobal>      <!-- FIX -->
+            <WorkSpeedGlobal>0.08</WorkSpeedGlobal> 
             <GlobalLearningFactor>-0.10</GlobalLearningFactor>
             <SocialImpact>-0.15</SocialImpact>
         </statOffsets>

@@ -7,13 +7,11 @@
     <description>Warrior duty garb: rugged weaves, reinforced seams.</description>
 
     <graphicData>
-      <!-- TODO: Texturen hier ablegen -->
       <texPath>Things/Item/Apparel/Klingon_Tunic/KlingonTunic</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <uiIconScale>2</uiIconScale>
-
     <statBases>
       <WorkToMake>2400</WorkToMake>
       <Mass>0.7</Mass>
@@ -24,26 +22,21 @@
       <Insulation_Cold>3</Insulation_Cold>
       <Insulation_Heat>2</Insulation_Heat>
     </statBases>
-
     <thingCategories><li>Apparel</li></thingCategories>
-
     <apparel>
       <wornGraphicPath>Things/Item/Apparel/Klingon_Tunic/KlingonTunic</wornGraphicPath>
       <bodyPartGroups><li>Torso</li><li>Arms</li></bodyPartGroups>
       <layers><li>OnSkin</li></layers>
       <tags><li>KlingonUniform</li></tags>
     </apparel>
-
     <costList>
       <Cloth>80</Cloth>
       <Steel>25</Steel>
       <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
-
     <equippedStatOffsets>
       <SocialImpact>-0.02</SocialImpact>
     </equippedStatOffsets>
-
     <comps Inherit="False">
       <li Class="CompProperties_Forbiddable"/>
       <li><compClass>CompQuality</compClass></li>
@@ -54,10 +47,8 @@
   <ThingDef ParentName="ST_Apparel_KlingonTunic_shared">
     <defName>ST_Apparel_KlingonTunic</defName>
     <label>Klingon tunic</label>
-
     <stuffCategories><li>Fabric</li></stuffCategories>
     <costStuffCount>45</costStuffCount>
-
     <recipeMaker>
       <workAmount>5200</workAmount>
       <workSkill>Crafting</workSkill>
@@ -72,7 +63,6 @@
         <li>Klingon_Standard</li>
       </researchPrerequisites>
     </recipeMaker>
-
     <generateCommonality>0</generateCommonality>
     <tradeability>None</tradeability>
     <alwaysHaulable>true</alwaysHaulable>
@@ -83,16 +73,13 @@
     <defName>ST_Apparel_KlingonArmoredVest</defName>
     <label>Klingon armored vest</label>
     <description>Layered plates for brutal melee and shrapnel defense.</description>
-
     <graphicData>
       <texPath>Things/Item/Apparel/Klingon_Vest/Klingon_Vest</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <uiIconScale>2</uiIconScale>
-
     <thingCategories><li>Apparel</li></thingCategories>
-
     <statBases>
       <WorkToMake>4800</WorkToMake>
       <Mass>3.0</Mass>
@@ -103,7 +90,6 @@
       <Insulation_Cold>0.5</Insulation_Cold>
       <Insulation_Heat>0.5</Insulation_Heat>
     </statBases>
-
     <apparel>
       <wornGraphicPath>Things/Item/Apparel/Klingon_Vest/Klingon_Vest</wornGraphicPath>
       <bodyPartGroups><li>Torso</li><li>Shoulders</li></bodyPartGroups>
@@ -111,20 +97,16 @@
       <tags><li>KlingonUniform</li></tags>
       <defaultOutfitTags><li>Soldier</li></defaultOutfitTags>
     </apparel>
-
     <equippedStatOffsets>
       <MoveSpeed>-0.05</MoveSpeed>
     </equippedStatOffsets>
-
     <costList>
       <Plasteel>30</Plasteel>
       <Steel>20</Steel>
       <ComponentIndustrial>10</ComponentIndustrial>
     </costList>
-
     <stuffCategories/>
     <tradeTags><li>ClothingArmor</li></tradeTags>
-
     <recipeMaker>
       <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
       <workSkill>Crafting</workSkill>

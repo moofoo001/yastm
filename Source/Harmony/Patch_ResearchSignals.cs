@@ -11,7 +11,7 @@ namespace StarTrekFactions.Debug
         {
             if (proj == null) return;
 
-            // Heuristik: erkenne eure beiden Scan-Projekte am defName/Label
+            
             var dn = proj.defName ?? "";
             var lb = proj.label ?? "";
 

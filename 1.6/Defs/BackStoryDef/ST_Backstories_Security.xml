@@ -21,7 +21,6 @@
       <Psychopath>0</Psychopath>
       <Bloodlust>0</Bloodlust>
     </disallowedTraits>
-
   </BackstoryDef>
 
   <BackstoryDef>
@@ -93,6 +92,5 @@
       <Wimp>0</Wimp>
       <Psychopath>0</Psychopath>
     </disallowedTraits>
-
     </BackstoryDef>
   </Defs>

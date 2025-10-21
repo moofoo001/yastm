@@ -24,7 +24,7 @@ namespace YASTM
             Scribe_Values.Look(ref BlinkUntilTick,         "YASTM_RedAlert_BlinkUntilTick",  0);
             Scribe_Values.Look(ref NextAllowedTickYellow,  "YASTM_YellowAlert_NextAllowedTick", 0);
             Scribe_Values.Look(ref BlinkUntilTickYellow,   "YASTM_YellowAlert_BlinkUntilTick",  0);
-            // Sustainer nicht saven
+
         }
 
         public override void MapComponentTick()
@@ -32,7 +32,7 @@ namespace YASTM
             base.MapComponentTick();
             int now = Find.TickManager.TicksGame;
 
-            // Sustainer maintain/stop
+
             if (activeSiren != null)
             {
                 activeSiren.Maintain();
@@ -44,7 +44,7 @@ namespace YASTM
                 if (now >= BlinkUntilTickYellow) { activeSirenYellow.End(); activeSirenYellow = null; }
             }
 
-            // Blink alle ~1.5s
+
             if (now % 90 != 0) return;
 
             var panelDef = DefDatabase<ThingDef>.GetNamedSilentFail("ST_AlertPanel");

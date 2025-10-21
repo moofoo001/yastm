@@ -3,7 +3,7 @@ using Verse;
 
 namespace ST.PhaseWeapons
 {
-    // Lädt/erzeugt ALLE Texturen im Main Thread.
+
     [StaticConstructorOnStartup]
     public static class ST_Tex
     {
@@ -26,7 +26,7 @@ namespace ST.PhaseWeapons
             BrightnessTexture.Apply();
         }
          
-        // ← NEU: kleines Helper für die Gizmo-Icons
+
         public static Texture2D IconFor(PhaserFireMode mode)
         {
             switch (mode)

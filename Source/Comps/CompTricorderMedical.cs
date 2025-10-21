@@ -64,8 +64,10 @@ namespace YASTM
             };
 
             int now = Find.TickManager.TicksGame;
-            if (now < nextAllowedTick)
-                cmd.Disable("ST.Common.Recharging".Translate((nextAllowedTick - now).ToStringTicksToPeriod()));
+            var shared = parent.TryGetComp<CompTricorderSharedCooldown>();
+            bool gated = shared != null && !shared.IsReady(now);
+            if (gated)
+                cmd.Disable("ST.Common.Recharging".Translate(shared.Remaining(now).ToStringTicksToPeriod()));
 
             int med = wearer.skills?.GetSkill(SkillDefOf.Medicine)?.Level ?? 0;
             if (med < Props.minMedicine)

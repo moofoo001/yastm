@@ -11,7 +11,7 @@ namespace StarTrekFactions.QuestNodes
         public string titleKey;
         public string textKey;
 
-        public string optionALabelKey;   // Keys empfohlen (werden .Translate()'t)
+        public string optionALabelKey;   
         public string optionBLabelKey;
 
         public string optionASignalRaw;
@@ -20,7 +20,7 @@ namespace StarTrekFactions.QuestNodes
         public string optionBSignalRaw;
         public string optionBSignalScoped;
 
-        public string choiceMadeSignalRaw;     // optionales „ChoiceMade“
+        public string choiceMadeSignalRaw;    
         public string choiceMadeSignalScoped;
 
         public bool shown;
@@ -62,7 +62,7 @@ namespace StarTrekFactions.QuestNodes
                 b.resolveTree = true;
                 root.options.Add(b);
 
-                // Optionaler Close-Button ohne Aktion
+
                 root.options.Add(DiaOption.DefaultOK);
 
                 Find.WindowStack.Add(new Dialog_NodeTree(root, true, true, title));

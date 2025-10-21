@@ -114,4 +114,11 @@
   <ST.Tricorder.Sci.OutOfRange>Zielzelle ist außer Reichweite.</ST.Tricorder.Sci.OutOfRange>
   <ST.Tricorder.Sci.SkillReq>Erfordert Intellektuell {0}+.</ST.Tricorder.Sci.SkillReq>
   <ST.Tricorder.Sci.Applied>Wissenschaftliche Erkenntnis bei {PAWN_labelShort} gewonnen.</ST.Tricorder.Sci.Applied>
+
+    <!-- Tricorder Security Scan -->
+  <ST.Tricorder.Sec.Scan>Taktischer Sweep (Sicherheit)</ST.Tricorder.Sec.Scan>
+  <ST.Tricorder.Sec.Scan.Desc>Bereich auf Bedrohungen scannen und Kampfwahrnehmung steigern.</ST.Tricorder.Sec.Scan.Desc>
+  <ST.Tricorder.Sec.SkillReq>Erfordert Schusswaffen {0}+ oder Nahkampf {1}+.</ST.Tricorder.Sec.SkillReq>
+  <ST.Tricorder.Sec.Applied>Kampfwahrnehmung bei {PAWN_labelShort} verbessert.</ST.Tricorder.Sec.Applied>
+
 </LanguageData>

@@ -9,7 +9,6 @@
     <playerInterruptible>true</playerInterruptible>
     <casualInterruptible>true</casualInterruptible>
     <alwaysShowWeapon>false</alwaysShowWeapon>
-    <!-- Enum-Wert, kein bool -->
    <checkOverrideOnDamage>OnlyIfInstigatorNotJobTarget</checkOverrideOnDamage>
   </JobDef>
 

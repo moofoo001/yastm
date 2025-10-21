@@ -3,12 +3,11 @@ using Verse;
 
 namespace StarTrekFactions.QuestParts
 {
-    // Arms on a signal and delegates ticking to a MapComponent.
-    // When no blocking enemies remain, fires outSignal (quest-scoped).
+
     public class QuestPart_WaitEnemiesDefeated : QuestPart
     {
-        public string inSignalEnableRaw;           // e.g. "STQ.Obelisks.DataTransmitted"
-        public string outSignal;                   // e.g. "STQ.Obelisks.II.Cleared"
+        public string inSignalEnableRaw;        
+        public string outSignal;                  
         public bool   onlyManhunters = true;
 
         public override void Notify_QuestSignalReceived(Signal signal)

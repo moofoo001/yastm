@@ -1,12 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Defs>
 
-
-
-
   <RecipeDef>
     <defName>Make_ST_TricorderBelt</defName>
     <label>make tricorder</label>
+    <uiIconPath>Things/Item/Equipment/Utilities/Tricorder</uiIconPath>
     <jobString>Assembling tricorder…</jobString>
     <workAmount>6000</workAmount>
     <workSkill>Crafting</workSkill>
@@ -46,6 +44,7 @@
   <RecipeDef>
     <defName>Make_ST_MedKitBelt</defName>
     <label>make med kit</label>
+    <uiIconPath>Things/Item/Equipment/Utilities/Medic_sash</uiIconPath>
     <jobString>Assembling med kit…</jobString>
     <workAmount>6000</workAmount>
     <workSkill>Crafting</workSkill>
@@ -87,7 +86,7 @@
       </ingredients>
     <products>
       <ST_Tricorder_Medical>1</ST_Tricorder_Medical>
-      </products>
+    </products>
     </RecipeDef>
   
 <!-- Items def-->
@@ -96,7 +95,7 @@
     <defName>ST_Apparel_TricorderBelt</defName>
     <label>tricorder</label>
     <description>Multi-spectral sensor suite and analysis tools in a compact belt module.</description>
-    
+    <thingClass>Apparel</thingClass>
     <graphicData>
       <texPath>Things/Item/Equipment/Utilities/Tricorder</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -109,14 +108,13 @@
       <Mass>0.25</Mass>
       <MarketValue>220</MarketValue>
     </statBases>
-
     <equippedStatOffsets>
       <ResearchSpeed>0.08</ResearchSpeed>
       <GlobalLearningFactor>0.03</GlobalLearningFactor>
       <HackingSpeed>0.04</HackingSpeed>
     </equippedStatOffsets>
-    
     <comps>
+      <!-- SCIENCE-Gizmo (Intellectual-Gate) -->
       <li Class="YASTM.CompProperties_TricorderScience">
         <cooldownTicks>6000</cooldownTicks>
         <scanTicks>900</scanTicks>
@@ -124,16 +122,27 @@
         <hediffDef>ST_ScienceInsight</hediffDef>
         <hediffMinTicks>30000</hediffMinTicks>
         <hediffMaxTicks>45000</hediffMaxTicks>
-        <minIntellectual>6</minIntellectual>
+        <minIntellectual>4</minIntellectual>
       </li>
-    </comps>
 
+      <!-- SECURITY-Gizmo (Shooting ODER Melee Gate) -->
+      <li Class="YASTM.CompProperties_TricorderSecurity">
+        <cooldownTicks>6000</cooldownTicks>
+        <scanTicks>900</scanTicks>
+        <range>18</range>
+        <hediffDef>ST_SecuritySweep</hediffDef>
+        <hediffMinTicks>30000</hediffMinTicks>
+        <hediffMaxTicks>45000</hediffMaxTicks>
+        <minShooting>4</minShooting>
+        <minMelee>4</minMelee>
+      </li>
+      <li Class="YASTM.CompProperties_TricorderSharedCooldown"/>
+    </comps>
     <costList>
       <Steel>30</Steel>
       <ComponentIndustrial>3</ComponentIndustrial>
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
-
   <apparel>
       <wornGraphicPath>Things/Item/Equipment/Utilities/Tricorder</wornGraphicPath>
       <bodyPartGroups>
@@ -150,11 +159,9 @@
         <li>Worker</li>
         <li>Soldier</li>
       </defaultOutfitTags>
-
     <wornGraphicPath>Things/Item/Equipment/Utilities/Tricorder</wornGraphicPath>
       <wornGraphicData>
-        <renderUtilityAsPack>true</renderUtilityAsPack>
-        
+        <renderUtilityAsPack>true</renderUtilityAsPack>     
     <north>
       <offset>(+0.15,-0.25)</offset>
 		  <hulk><offset>(+0.05 ,-0.2)</offset></hulk>
@@ -177,22 +184,22 @@
 		  <hulk><offset>(+0.1,-0.2)</offset></hulk>
 		  <fat><offset>(+0.20,-0.10)</offset></fat>
     </west>
-    
     <male>  <scale>(0.3,0.3)</scale></male>
     <female><scale>(0.3,0.3)</scale></female>
     <thin>  <scale>(0.3,0.3)</scale></thin>
     <hulk>  <scale>(0.3,0.3)</scale></hulk>
-    <fat>   <scale>(0.3,0.3)</scale></fat> 
-        
+    <fat>   <scale>(0.3,0.3)</scale></fat>     
       </wornGraphicData>
   </apparel>
-
-    <thingCategories>
-      <li>Apparel</li>
-    </thingCategories>
     <alwaysHaulable>true</alwaysHaulable>
-    <!--tradeability>Sellable</tradeability-->
     <techLevel>Spacer</techLevel>
+    <tradeTags>
+        <li>ExoticMisc</li>
+    </tradeTags>
+    <thingSetMakerTags>
+        <li>RewardStandardMidTech</li>
+        <li>RewardStandardHighTech</li>
+    </thingSetMakerTags>
   </ThingDef>
 
   <ThingDef ParentName="ApparelMakeableBase">
@@ -206,20 +213,16 @@
       <shaderType>CutoutComplex</shaderType>
       <drawSize>(0.6,0.6)</drawSize>
     </graphicData>
-
     <uiIconScale>1</uiIconScale>
-
     <statBases>
       <WorkToMake>5000</WorkToMake>
       <Mass>0.25</Mass>
       <MarketValue>260</MarketValue>
     </statBases>
-
     <equippedStatOffsets>
       <MedicalTendSpeed>0.05</MedicalTendSpeed>
       <SurgerySuccessChanceFactor>0.05</SurgerySuccessChanceFactor>
     </equippedStatOffsets>
-   
     <comps>
       <li Class="YASTM.CompProperties_TricorderMedical">
         <cooldownTicks>6000</cooldownTicks>
@@ -231,13 +234,11 @@
         <minMedicine>4</minMedicine>
       </li>
     </comps>
-
     <costList>
       <Steel>35</Steel>
       <MedicineIndustrial>2</MedicineIndustrial>
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
-
     <apparel>
       <bodyPartGroups>
         <li>Waist</li>
@@ -252,11 +253,9 @@
         <li>Worker</li>
         <li>Soldier</li>
       </defaultOutfitTags>
-
       <wornGraphicPath>Things/Item/Equipment/Utilities/Medic_sash</wornGraphicPath>
       <wornGraphicData>
         <renderUtilityAsPack>true</renderUtilityAsPack>
-
     <north>
       <offset>(+0.2,-0.25)</offset>
 		  <hulk><offset>(-0.5,-0.15)</offset></hulk>
@@ -279,22 +278,26 @@
 		  <hulk><offset>(+0.1,-0.15)</offset></hulk>
 		  <fat><offset>(+0.20,-0.10)</offset></fat>
     </west>
-    
     <male>  <scale>(0.25,0.25)</scale></male>
     <female><scale>(0.25,0.25)</scale></female>
     <thin>  <scale>(0.25,0.25)</scale></thin>
     <hulk>  <scale>(0.25,0.25)</scale></hulk>
     <fat>   <scale>(0.25,0.25)</scale></fat> 
-
       </wornGraphicData>
-    </apparel>
-    
+    </apparel> 
     <thingCategories>
       <li>Apparel</li>
     </thingCategories>
     <alwaysHaulable>true</alwaysHaulable>
-    <!--tradeability>Sellable</tradeability-->
     <techLevel>Spacer</techLevel>
+    <tradeTags>
+      <li>Medicine</li> 
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <thingSetMakerTags>
+      <li>RewardStandardMidTech</li>
+      <li>RewardStandardHighTech</li>
+    </thingSetMakerTags>
     </ThingDef>
 
 </Defs>

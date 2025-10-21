@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
- <!-- Führungsausbildung: leichte Kommandoboni -->
+  <!-- Command Training -->
   <TraitDef>
     <defName>ST_Trait_CommandTraining</defName>
     <label>command training</label>
@@ -13,14 +13,14 @@
         <statOffsets>
           <SocialImpact>0.05</SocialImpact>
           <NegotiationAbility>0.05</NegotiationAbility>
-          <WorkSpeedGlobal>0.03</WorkSpeedGlobal> <!-- vorher GlobalWorkSpeed -->
+          <WorkSpeedGlobal>0.03</WorkSpeedGlobal> 
           <MentalBreakThreshold>-0.02</MentalBreakThreshold>
         </statOffsets>
       </li>
     </degreeDatas>
   </TraitDef>
 
-  <!-- Sicherheitsoffizier: taktisch schneller zielen -->
+  <!-- Security Officer -->
   <TraitDef>
     <defName>ST_Trait_SecurityOfficer</defName>
     <label>security officer</label>
@@ -35,13 +35,12 @@
         </skillGains>
         <statOffsets>
           <AimingDelayFactor>-0.04</AimingDelayFactor>
-          <MoveSpeed>-0.01</MoveSpeed> <!-- winziger Tradeoff -->
+          <MoveSpeed>-0.01</MoveSpeed> 
         </statOffsets>
       </li>
     </degreeDatas>
   </TraitDef>
 
-<!-- Pilots -->
 <!-- Pilot (cadet) -->
 <TraitDef>
   <defName>Pilot_Cadet</defName>
@@ -108,7 +107,7 @@
   </conflictingTraits>
 </TraitDef>
 
- <!-- Starfleet-Grundausbildung: leichtes Skill-Plus + Stressresistenz -->
+  <!-- Starfleet Training -->
   <TraitDef>
     <defName>ST_Trait_StarfleetTraining</defName>
     <label>Starfleet training</label>
@@ -130,7 +129,7 @@
     </degreeDatas>
   </TraitDef>
 
-  <!-- IDIC-Mindset (vulkanisch angehaucht): Forschung +, Sozialwirkung − leicht -->
+  <!-- IDIC-Mindset -->
   <TraitDef>
     <defName>ST_Trait_IDICMindset</defName>
     <label>IDIC mindset</label>
@@ -148,7 +147,7 @@
     </degreeDatas>
   </TraitDef>
 
-  <!-- Prime Directive-fokussiert: Verhandlung +, Freude an Gewalt − -->
+  <!-- Prime Directive Minded -->
   <TraitDef>
     <defName>ST_Trait_PrimeDirectiveMinded</defName>
     <label>prime directive-minded</label>
@@ -166,6 +165,7 @@
     </degreeDatas>
   </TraitDef>
 
+  <!-- Rules of Acquisition -->
   <TraitDef>
     <defName>ST_RulesOfAcquisition</defName>
     <label>rules of acquisition</label>
@@ -186,6 +186,7 @@
     </conflictingTraits>
   </TraitDef>
 
+  <!-- Brak'lul Trait -->
   <TraitDef>
    <defName>ST_BraklUl</defName>
     <label>brak'lul</label>

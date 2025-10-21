@@ -7,7 +7,7 @@ namespace StarTrekFactions
 {
     public class GameComponent_QuestWatchers : GameComponent
     {
-        // Debug: sehr sparsam loggen
+
         private const bool LogDebug = true;
         private int _lastLogTick;
 
@@ -21,8 +21,7 @@ namespace StarTrekFactions
             if (LogDebug) Log.Message("[YASTM][Watcher] GameComponent_QuestWatchers constructed.");
         }
 
-        // Selbstheilend: Falls das Ding (warum auch immer) nicht erzeugt wurde,
-        // fügen wir es on-demand hinzu.
+
         public static GameComponent_QuestWatchers Instance
         {
             get
@@ -63,7 +62,7 @@ namespace StarTrekFactions
         {
             int tick = Find.TickManager.TicksGame;
 
-            // Alle 60 Ticks (~1x/Sekunde) prüfen
+
             if (waiters.Count > 0 && tick % 60 == 0)
             {
                 for (int i = waiters.Count - 1; i >= 0; i--)
@@ -92,7 +91,7 @@ namespace StarTrekFactions
                 }
             }
 
-            // Alle ~2 reale Sekunden einen Heartbeat, wenn aktive Work vorhanden ist
+
             if (LogDebug && tick - _lastLogTick >= 120 && (waiters.Count > 0 || timers.Count > 0))
             {
                 _lastLogTick = tick;

@@ -1,45 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Ruhiger, optimistischer Kolonie-Track -->
+  <!--theme -->
   <SongDef>
     <defName>ST_Song_UFPTheme</defName>
-    <clipPath>Theme/galactic_contact</clipPath>  <!-- ohne .ogg -->
+    <clipPath>Theme/galactic_contact</clipPath>
     <volume>0.78</volume>
-    <!-- weglassen von allowedTimeOfDay = überall -->
+
     <allowedSeasons>
       <li>Spring</li>
       <li>Summer</li>
       <li>Fall</li>
       <li>Winter</li>
     </allowedSeasons>
-    <tense>false</tense>           <!-- keine Bedrohung -->
-    <playOnMap>true</playOnMap>    <!-- für Map-Gameplay -->
-    <commonality>1.0</commonality> <!-- Gewichtung -->
+    <tense>false</tense>          
+    <playOnMap>true</playOnMap>    
+    <commonality>1.0</commonality> 
   </SongDef>
 
-  <!-- Kampf-/Alarm-Track -->
+  <!-- red alert combat -->
   <SongDef>
     <defName>ST_Song_RedAlert</defName>
     <clipPath>Things/red_alert</clipPath>
     <volume>0.82</volume>
-    <tense>true</tense>            <!-- läuft bevorzugt bei Bedrohungen -->
-    <playOnMap>true</playOnMap>
+    <tense>true</tense>            
     <commonality>1.0</commonality>
   </SongDef>
 
-  <!-- Explorations-/Weltraum-Atmosphäre -->
+  <!-- exploration theme -->
   <SongDef>
     <defName>ST_Song_Exploration</defName>
     <clipPath>Theme/final_frontier</clipPath>
     <volume>0.76</volume>
-    <allowedTimeOfDay>Night</allowedTimeOfDay> <!-- z.B. nachts -->
+    <allowedTimeOfDay>Night</allowedTimeOfDay> 
     <tense>false</tense>
     <playOnMap>true</playOnMap>
     <commonality>0.8</commonality>
   </SongDef>
 
-  <!-- Feier-/Party-Track -->
+  <!-- shore leave / relaxation -->
   <SongDef>
     <defName>ST_Song_ShoreLeave</defName>
     <clipPath>Ambience/RitualSustainers/star-popper</clipPath>

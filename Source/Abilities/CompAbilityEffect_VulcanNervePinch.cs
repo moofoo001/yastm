@@ -16,7 +16,7 @@ namespace ST.Abilities
                 return false;
             }
 
-            // Caster braucht das passende Trait (IDIC)
+            
             var caster = parent.pawn;
             var traitIDIC = DefDatabase<TraitDef>.GetNamedSilentFail("ST_Trait_IDICMindset");
             if (caster?.story?.traits?.HasTrait(traitIDIC) != true)
@@ -25,8 +25,8 @@ namespace ST.Abilities
                 return false;
             }
 
-            // Nahkampfreichweite
-            if (caster.Position.DistanceToSquared(pawn.Position) > 2.8f) // ~1.67 cells
+            
+            if (caster.Position.DistanceToSquared(pawn.Position) > 2.8f) 
                 return false;
 
             return true;
@@ -37,11 +37,11 @@ namespace ST.Abilities
             var pawn = target.Pawn;
             if (pawn == null || pawn.Dead) return;
 
-            // Statt Hediff: StunHandler verwenden (keine DefOfs nötig)
+            
             var stunner = pawn.stances?.stunner;
             if (stunner != null)
             {
-                // 300 Ticks = 5 Sekunden
+                
                 stunner.StunFor(300, parent.pawn, addBattleLog: true, showMote: true);
             }
         }

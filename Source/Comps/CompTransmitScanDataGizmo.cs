@@ -48,7 +48,7 @@ namespace StarTrekFactions.Comps
 
             yield return cmd;
 
-            // DEV-Helfer immer anbieten, ignoriert alle Checks
+           
             if (Prefs.DevMode)
             {
                 yield return new Command_Action
@@ -86,14 +86,14 @@ namespace StarTrekFactions.Comps
                 var raw = Props.outSignal ?? "STQ.Obelisks.DataTransmitted";
                 var subject = parent.Named("SUBJECT");
 
-                // 1) Globales Signal (wie bisher)
+                
                 Find.SignalManager.SendSignal(new Signal(raw, subject));
 
-                // 2) Zusätzlich: für JEDEN aktiven Quest das gescopte Signal schicken
+                
                 int scoped = 0;
                 foreach (var q in Find.QuestManager.QuestsListForReading)
                 {
-                    // RimWorld nutzt "Quest{ID}." als Präfix (siehe Logzeilen "Quest0.…")
+                
                     var withQuest = $"Quest{q.id}.{raw}";
                     Find.SignalManager.SendSignal(new Signal(withQuest, subject));
                     scoped++;

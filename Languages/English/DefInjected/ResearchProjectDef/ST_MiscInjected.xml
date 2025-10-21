@@ -4,5 +4,17 @@
   <!-- Hyposprays -->
   <ST_Hypospray_Analgesic.comps.CompProperties_Usable.useLabel>Hypospray anwenden</ST_Hypospray_Analgesic.comps.CompProperties_Usable.useLabel>
   <ST_Hypospray_Stimulant.comps.CompProperties_Usable.useLabel>Hypospray verwenden</ST_Hypospray_Stimulant.comps.CompProperties_Usable.useLabel>
+  <ST_FieldHyposprays.label>field hyposprays</ST_FieldHyposprays.label>
+  <ST_FieldHyposprays.description>Standard Starfleet hyposprays for field use.</ST_FieldHyposprays.description>
+  <ST_TricorderSuite.label>tricorder suite</ST_TricorderSuite.label>
+  <ST_TricorderSuite.description>Starfleet handheld scanners: medical and science variants.</ST_TricorderSuite.description>
+  
+  <!-- Tricorder -->
+  <ST_TricorderSuite.label>tricorder suite</ST_TricorderSuite.label>
+  <ST_TricorderSuite.description>Starfleet handheld scanner with scientific and security modes.</ST_TricorderSuite.description>
+  <ST_FieldHyposprays.label>field hyposprays</ST_FieldHyposprays.label>
+  <ST_FieldHyposprays.description>Standard Starfleet hyposprays for field use.</ST_FieldHyposprays.description>
+  <ST_EVASystems.label>eva systems</ST_EVASystems.label>
+  <ST_EVASystems.description>Suit and helmet for extravehicular activity in hazardous environments.</ST_EVASystems.description>
 
 </LanguageData>

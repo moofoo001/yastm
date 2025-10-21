@@ -4,5 +4,16 @@
   <!-- Hyposprays -->
   <ST_Hypospray_Analgesic.comps.CompProperties_Usable.useLabel>Hypospray anwenden</ST_Hypospray_Analgesic.comps.CompProperties_Usable.useLabel>
   <ST_Hypospray_Stimulant.comps.CompProperties_Usable.useLabel>Hypospray verwenden</ST_Hypospray_Stimulant.comps.CompProperties_Usable.useLabel>
+  <ST_FieldHyposprays.label>Feld-Hyposprays</ST_FieldHyposprays.label>
+  <ST_FieldHyposprays.description>Standardisierte Hyposprays der Sternenflotte für den Feldeinsatz.</ST_FieldHyposprays.description>
+  <ST_TricorderSuite.label>Tricorder-Suite</ST_TricorderSuite.label>
+  <ST_TricorderSuite.description>Handscanner der Sternenflotte: Medizin- und Wissenschaftsvarianten.</ST_TricorderSuite.description>
 
+  <!-- Tricorder -->
+   <ST_TricorderSuite.label>Tricorder-Suite</ST_TricorderSuite.label>
+  <ST_TricorderSuite.description>Mehrzweck-Handscanner der Sternenflotte mit Wissenschafts- und Sicherheitsmodus.</ST_TricorderSuite.description>
+  <ST_FieldHyposprays.label>Feld-Hyposprays</ST_FieldHyposprays.label>
+  <ST_FieldHyposprays.description>Standardisierte Hyposprays der Sternenflotte für den Feldeinsatz.</ST_FieldHyposprays.description>
+  <ST_EVASystems.label>EVA-Systeme</ST_EVASystems.label>
+  <ST_EVASystems.description>Anzug und Helm für Außenbordeinsätze in gefährlichen Umgebungen.</ST_EVASystems.description>
 </LanguageData>

@@ -6,13 +6,11 @@
     <label>ktarian headset</label>
     <description>A neural-interface game as wearable headset. Play anywhere.</description>
     <techLevel>Industrial</techLevel>
-
     <graphicData>
       <texPath>Things/Item/Accessory/ktarian/KatarianHS</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(1,1)</drawSize>
     </graphicData>
-
     <apparel>
     <bodyPartGroups>
         <li>FullHead</li>
@@ -26,10 +24,9 @@
     <defaultOutfitTags>
         <li>Social</li>
     </defaultOutfitTags>
-      <wornGraphicPath>Things/Item/Accessory/ktarian/KatarianHS</wornGraphicPath> <!-- optional -->
+      <wornGraphicPath>Things/Item/Accessory/ktarian/KatarianHS</wornGraphicPath>
       <careIfWornByCorpse>false</careIfWornByCorpse>
     </apparel>
-
     <statBases>
       <ArmorRating_Blunt>0.02</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
@@ -38,20 +35,33 @@
       <Flammability>0.3</Flammability>
       <MarketValue>180</MarketValue>
     </statBases>
-
+    <tradeTags>
+        <li>ExoticMisc</li>        <!-- Exotic goods & orbital exotic -->
+        <li>OutlanderStandard</li> <!-- Outlander general (falls verwendet) -->
+    </tradeTags>
     <thingSetMakerTags>
-        <li>RewardStandard</li>
-        <li>TradeShip</li>
+      <li>RewardStandardMidTech</li>
+      <li>RewardStandardHighTech</li>
     </thingSetMakerTags>
-
     <generateCommonality>0.2</generateCommonality>
     <costList>
       <Steel>15</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
-
     <tradeability>Sellable</tradeability>
-
+    <recipeMaker>
+      <workAmount>5000</workAmount>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+        <Medicine>2</Medicine>
+      </skillRequirements>
+      <recipeUsers>
+        <li>TableMachining</li>
+        <li>ElectricSmithy</li>
+      </recipeUsers>
+      <researchPrerequisite>ST_RecreationalInterfaces</researchPrerequisite>
+      <productCount>1</productCount>
+    </recipeMaker>
     <comps>
       <li Class="YASTM.CompProperties_KtarianHeadset">
         <sessionTicks>4000</sessionTicks>
@@ -59,6 +69,7 @@
         <obsessionChance>0.01</obsessionChance>
       </li>
     </comps>
+    
   </ThingDef>
 
 </Defs>

@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <Defs>
 
+  <!-- recipe -->
+  <!-- Analgesic -->
+<RecipeDef>
+  <defName>Make_ST_Hypospray_Analgesic</defName>
+  <label>mix hypospray (analgesic)</label>
+  <jobString>compounding a hypospray (analgesic).</jobString>
+  <workAmount>1200</workAmount>
+  <workSkill>Medicine</workSkill>
+  <skillRequirements>
+      <Crafting>2</Crafting>
+      <Medicine>4</Medicine>
+  </skillRequirements>
+  <ingredients>
+    <li>
+      <filter><thingDefs><li>Neutroamine</li></thingDefs></filter>
+      <count>1</count>
+    </li>
+    <li>
+      <filter><thingDefs><li>MedicineHerbal</li></thingDefs></filter>
+      <count>1</count>
+    </li>
+    <li>
+      <filter><thingDefs><li>Steel</li></thingDefs></filter>
+      <count>2</count>
+    </li>
+  </ingredients>
+  <products>
+    <ST_Hypospray_Analgesic>1</ST_Hypospray_Analgesic>
+  </products>
+  <recipeUsers>
+    <li>DrugLab</li>
+  </recipeUsers>
+  <researchPrerequisite>ST_Medical_diagnostics</researchPrerequisite>
+</RecipeDef>
+
+  <!-- Stimulant -->
+<RecipeDef>
+  <defName>Make_ST_Hypospray_Stimulant</defName>
+  <label>mix hypospray (stimulant)</label>
+  <jobString>compounding a hypospray (stimulant).</jobString>
+  <workAmount>1400</workAmount>
+  <workSkill>Medicine</workSkill>
+  <skillRequirements>
+      <Crafting>2</Crafting>
+      <Medicine>4</Medicine>
+  </skillRequirements>
+  <ingredients>
+    <li><filter><thingDefs><li>Neutroamine</li></thingDefs></filter><count>2</count></li>
+    <li><filter><thingDefs><li>Chemfuel</li></thingDefs></filter><count>10</count></li>
+    <li><filter><thingDefs><li>Steel</li></thingDefs></filter><count>2</count></li>
+  </ingredients>
+  <products><ST_Hypospray_Stimulant>1</ST_Hypospray_Stimulant></products>
+  <recipeUsers><li>DrugLab</li></recipeUsers>
+  <researchPrerequisite>ST_Medical_diagnostics</researchPrerequisite>
+</RecipeDef>
+
+  <!--item -->
   <!-- Analgesic -->
   <ThingDef ParentName="ResourceBase">
     <defName>ST_Hypospray_Analgesic</defName>
@@ -31,11 +89,19 @@
         <minTicks>12000</minTicks>
         <maxTicks>24000</maxTicks>
         <severity>0</severity>
-        <minMedicalSkill>0</minMedicalSkill>
+        <minMedicalSkill>2</minMedicalSkill>
         <requireTalking>true</requireTalking>
         <destroyOnUse>true</destroyOnUse>  
       </li>
     </comps>
+    <tradeTags>
+      <li>Medicine</li>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <thingSetMakerTags>
+      <li>RewardStandardLowTech</li>
+      <li>RewardStandardMidTech</li>
+    </thingSetMakerTags>
   </ThingDef>
 
   <!-- Stimulant -->
@@ -68,11 +134,18 @@
         <minTicks>6000</minTicks>
         <maxTicks>15000</maxTicks>
         <severity>0</severity>
-        <minMedicalSkill>0</minMedicalSkill>
+        <minMedicalSkill>2</minMedicalSkill>
         <requireTalking>true</requireTalking>
         <destroyOnUse>true</destroyOnUse>  
       </li>
     </comps>
+    <tradeTags>
+      <li>Medicine</li>       
+      <li>ExoticMisc</li>     
+    </tradeTags>
+    <thingSetMakerTags>
+      <li>RewardStandardMidTech</li>
+    </thingSetMakerTags>
   </ThingDef>
 
 </Defs>

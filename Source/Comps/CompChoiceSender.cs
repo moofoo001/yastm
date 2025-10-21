@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System; // für Exception
+using System; 
 using RimWorld;
 using Verse;
 using Verse.Sound;
@@ -50,7 +50,7 @@ namespace StarTrekFactions.Comps
 
             foreach (var opt in Props.options)
             {
-                // Einheitlich zu string auflösen, um CS0172 zu vermeiden
+                // 
                 string label = opt.labelKey.NullOrEmpty()
                     ? "Choose"
                     : opt.labelKey.Translate().ToString();
@@ -62,19 +62,19 @@ namespace StarTrekFactions.Comps
                     icon = null,
                     action = () =>
                     {
-                        // 1) Signal
+
                         if (!opt.outSignal.NullOrEmpty())
                         {
                             Find.SignalManager.SendSignal(new Signal(opt.outSignal, new NamedArgument(parent, "SOURCE")));
                         }
 
-                        // fix für 1.6: LetterDef hat jetzt letterClass, ariveSound wurde zu arriveSound
+
                         if (opt.sendLetter && opt.letterDef != null)
                         {
                             TaggedString lab = opt.letterLabelKey.NullOrEmpty() ? "Starfleet" : opt.letterLabelKey.Translate();
                             TaggedString txt = opt.letterTextKey.NullOrEmpty() ? "" : opt.letterTextKey.Translate();
 
-                            // ChoiceLetter garantiert (per Def), trotzdem defensiv:
+ 
                             try
                             {
                                 Find.LetterStack.ReceiveLetter(lab, txt, opt.letterDef);
@@ -84,7 +84,7 @@ namespace StarTrekFactions.Comps
                                 Log.Warning($"[STF] ChoiceSender Letter failed ({opt.letterDef?.defName}): {e.Message}");
                             }
                         }
-                        // 2) Optional: Letter
+
                         if (opt.sendLetter && opt.letterDef != null)
                         {
                             string l = !opt.letterLabelKey.NullOrEmpty() ? opt.letterLabelKey.Translate().ToString() : "Transmission";
@@ -92,7 +92,7 @@ namespace StarTrekFactions.Comps
                             Find.LetterStack.ReceiveLetter(l, t, opt.letterDef, parent);
                         }
 
-                        // 3) Optional: Incident
+
                         if (opt.fireIncident && parent.Map != null && opt.incidentDef != null)
                         {
                             var map = parent.Map;

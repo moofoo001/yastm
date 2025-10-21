@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- Gravship hull with color options. -->
-  <!-- Base definition, mostly copied from the core Substructure but with isPaintable=true -->  
+
     <ThingDef Name="GravshipHull_C" ParentName="Wall" abstract="true">
     <defName>GravshipHull_C</defName>
     <label>gravship hull</label>
@@ -35,8 +35,7 @@
     <designationCategory />
   </ThingDef>
 
-  <!-- These inherit the *exact* behavior of the core gravship Substructure.
-       Only the tint changes. Keep the ParentName as the original defName: Substructure. -->
+
 
   <!-- Glass-Blue tint -->
   <ThingDef ParentName="GravshipHull_C">

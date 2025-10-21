@@ -11,7 +11,7 @@
     <isBad>false</isBad>
     <comps>
       <li Class="HediffCompProperties_Disappears">
-        <disappearsAfterTicks>3000</disappearsAfterTicks> <!-- 50 Sekunden -->
+        <disappearsAfterTicks>3000</disappearsAfterTicks> 
       </li>
     </comps>
     <stages>

@@ -43,4 +43,26 @@
     </stages>
   </HediffDef>
 
+  <!-- security Tricorder -->
+  <HediffDef>
+    <defName>ST_SecuritySweep</defName>
+    <label>security sweep</label>
+    <description>Heightened situational awareness after a tricorder sweep.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>36000</disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.10</ShootingAccuracyPawn>
+          <MeleeHitChance>0.08</MeleeHitChance>
+          <AimingDelayFactor>-0.08</AimingDelayFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
 </Defs>

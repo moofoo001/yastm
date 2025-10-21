@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.AI; // <— wichtig für Job/Toils etc.
+using Verse.AI;
 
 namespace YASTM
 {
@@ -30,7 +30,7 @@ namespace YASTM
             Scribe_Values.Look(ref nextAllowedTick, "YASTM_KtarianHeadset_nextAllowedTick", 0);
         }
 
-        // Gizmo am getragenen Apparel
+
         public override IEnumerable<Gizmo> CompGetWornGizmosExtra()
         {
             var apparel = parent as Apparel;
@@ -72,7 +72,7 @@ namespace YASTM
             var job = new Job(jobDef, parent);
             job.count = 1;
 
-            // ältere API: KEIN JobTag-Parameter vorhanden
+
             pawn.jobs.TryTakeOrderedJob(job);
 
             nextAllowedTick = now + Props.cooldownTicks;

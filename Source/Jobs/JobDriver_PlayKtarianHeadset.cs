@@ -30,21 +30,15 @@ namespace YASTM
             {
                 pawn.rotationTracker.FaceCell(pawn.Position + IntVec3.North);
 
-                // Ältere API: (pawn, joyGain, action, factor, sourceBuilding)
                 JoyUtility.JoyTickCheckEnd(pawn, 1, JoyTickFullJoyAction.EndJob, 1f, null);
 
-                // --- HOLO-EFFEKT alle ~60 Ticks ---
                 int now = Find.TickManager.TicksGame;
                 if (now >= nextMoteTick && pawn.Map != null)
                 {
-                    // Nimm deinen blauen Fleck "ST_KtarianHolo"; falls nicht vorhanden, AirPuff als Fallback
                     var fleck = DefDatabase<FleckDef>.GetNamedSilentFail("ST_KtarianHolo") ?? FleckDefOf.AirPuff;
 
-                    // ältere, robuste API
                     FleckMaker.AttachedOverlay(pawn, fleck, new Vector3(0f, 0f, 0.35f));
-                    // Alternativ (falls AttachedOverlay fehlen sollte):
-                    // FleckMaker.Static(pawn.DrawPos + new Vector3(0f, 0f, 0.35f), pawn.Map, fleck, 1.0f);
-
+                   
                     nextMoteTick = now + 60;
                 }
             };
@@ -55,7 +49,7 @@ namespace YASTM
             {
                 initAction = delegate
                 {
-                    // Afterglow
+                    
                     var after = DefDatabase<HediffDef>.GetNamedSilentFail("ST_KtarianAfterglow");
                     if (after != null)
                     {
@@ -64,7 +58,7 @@ namespace YASTM
                         if (disp != null) disp.ticksToDisappear = Rand.RangeInclusive(15000, 30000);
                     }
 
-                    // 1% Obsession + Memory
+                    
                     float chance = Headset.TryGetComp<CompKtarianHeadset>()?.ObsessionChance ?? 0.01f;
                     if (Rand.Chance(chance))
                     {

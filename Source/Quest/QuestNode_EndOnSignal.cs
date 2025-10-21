@@ -8,7 +8,7 @@ namespace StarTrekFactions.QuestNodes
     public class QuestNode_EndOnSignal : QuestNode
     {
         public string inSignal;
-        // Allowed: "Success", "Fail", "Unknown" (auch "Undefined"/"Neutral" werden als Unknown geparst)
+
         public string outcome = "Success";
 
         protected override void RunInt()

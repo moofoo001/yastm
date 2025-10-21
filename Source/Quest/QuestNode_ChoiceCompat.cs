@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using RimWorld;              // QuestPart_Choice
+using RimWorld;            
 using RimWorld.QuestGen;
 using Verse;
 
@@ -22,7 +22,7 @@ namespace StarTrekFactions.QuestNodes
 
         public class Option
         {
-            public SlateRef<string> label;  // nur fürs XML (RW zeigt es i.d.R. nicht an)
+            public SlateRef<string> label; 
             public QuestNode node;
         }
 
@@ -36,7 +36,7 @@ namespace StarTrekFactions.QuestNodes
                 return;
             }
 
-            // Gate aus umgebendem Signal/Delay übernehmen; sonst eigenes generieren
+
             string gate = slate.Get<string>("inSignal");
             if (gate.NullOrEmpty())
                 gate = QuestGen.GenerateNewSignal("ChoiceCompat");
@@ -55,12 +55,12 @@ namespace StarTrekFactions.QuestNodes
 
                 if (opt?.node != null)
                 {
-                    // eindeutige Überladung: Parent als Signal-String
+
                     string innerDone = QuestGen.GenerateNewSignal("ChoiceCompatInner");
                     QuestGenUtility.RunInnerNode(opt.node, innerDone);
                 }
 
-                // alle neu erzeugten Parts dieser Choice zuordnen
+
                 var parts = QuestGen.quest.PartsListForReading;
                 if (parts.Count > before)
                 {

@@ -3,21 +3,20 @@ using RimWorld;
 
 namespace StarTrekFactions.QuestParts
 {
-    // Opens a two-option dialog when a (raw or scoped) signal fires,
-    // and emits the chosen out-signal (quest-scoped).
+
     public class QuestPart_DialogOnSignal : QuestPart
     {
-        public string inSignal;       // e.g. "STQ.Obelisks.II.Cleared"
-        public string titleKey;       // optional dialog title (Keyed)
-        public string textKey;        // body text (Keyed)
-        public string optionALabel;   // Keyed label
-        public string optionASignal;  // out signal (raw, will be quest-scoped)
-        public string optionBLabel;   // Keyed label
-        public string optionBSignal;  // out signal (raw, will be quest-scoped)
+        public string inSignal;      
+        public string titleKey;      
+        public string textKey;       
+        public string optionALabel;   
+        public string optionASignal;  
+        public string optionBLabel;  
+        public string optionBSignal; 
 
         public override void Notify_QuestSignalReceived(Signal signal)
         {
-            // accept raw + quest-scoped
+
             if (signal.tag != inSignal && signal.tag != $"Quest{quest.id}.{inSignal}") return;
 
             var title = titleKey.NullOrEmpty() ? "Starfleet" : titleKey.Translate().ToString();

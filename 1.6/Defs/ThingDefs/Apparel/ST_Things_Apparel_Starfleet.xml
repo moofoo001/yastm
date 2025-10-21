@@ -10,10 +10,8 @@
       <texPath>Things/Item/Apparel/Federation_Tunic/FederationTunic</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
-      <!--drawSize>(0.8,1)</drawSize-->
     </graphicData>
     <uiIconScale>2</uiIconScale>
-    
     <statBases>
       <WorkToMake>2200</WorkToMake>
       <Mass>0.6</Mass>
@@ -24,30 +22,23 @@
       <Insulation_Cold>4</Insulation_Cold>
       <Insulation_Heat>4</Insulation_Heat>
     </statBases>
-    
     <thingCategories><li>Apparel</li></thingCategories>
-
     <apparel>
       <wornGraphicPath>Things/Item/Apparel/Federation_Tunic/FederationTunic</wornGraphicPath>
       <bodyPartGroups><li>Torso</li><li>Arms</li></bodyPartGroups>
       <layers><li>OnSkin</li></layers>
       <tags><li>StarfleetUniform</li></tags>
     </apparel>
-    
     <costList>
       <Cloth>80</Cloth>
       <Steel>20</Steel>
       <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
-    
     <equippedStatOffsets><SocialImpact>0.05</SocialImpact></equippedStatOffsets>
-      
     <comps Inherit="False">
       <li Class="CompProperties_Forbiddable"/>
       <li><compClass>CompQuality</compClass></li>
-      <!-- KEIN CompColorable, KEIN CompProperties_Styleable -->
     </comps>
-
   </ThingDef>
 
   <!-- 2) Craftbare neutrale Tunic: fügt Stuff/Kosten/Recipe hinzu -->
@@ -56,14 +47,12 @@
     <label>Starfleet tunic</label>
     <stuffCategories><li>Fabric</li></stuffCategories>
     <costStuffCount>45</costStuffCount>
-
     <apparel>
       <wornGraphicPath>Things/Item/Apparel/Federation_Tunic/FederationTunic</wornGraphicPath>
       <bodyPartGroups><li>Torso</li><li>Arms</li></bodyPartGroups>
       <layers><li>OnSkin</li></layers>
       <tags><li>StarfleetUniform</li></tags>
     </apparel>
-
     <recipeMaker>
       <workAmount>5000</workAmount>
       <workSkill>Crafting</workSkill>
@@ -78,15 +67,12 @@
         <li>Federation_Standard</li>
       </researchPrerequisites>
     </recipeMaker>
-
-    <!-- NICHT zufällig generieren/auswählen -->
     <generateCommonality>0</generateCommonality>
     <tradeability>None</tradeability>
-    <alwaysHaulable>true</alwaysHaulable>   <!-- optional, aber robust -->
+    <alwaysHaulable>true</alwaysHaulable>  
 
   </ThingDef>
 
-  <!-- 3) Varianten (spawn-only, keine Stuff/Kosten) -->
   <!-- Command (Gold) -->
   <ThingDef ParentName="ST_Apparel_StarfleetTunic_shared">
     <defName>ST_Apparel_StarfleetTunic_Command</defName>
@@ -304,7 +290,6 @@
     </thingCategories>
 
     <statBases>
-      <!-- Flak-Weste !≈ -->
       <WorkToMake>4500</WorkToMake>
       <Mass>2.4</Mass>
       <MarketValue>220</MarketValue>

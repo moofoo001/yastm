@@ -110,6 +110,7 @@
     <defName>ST_Scanning_technology</defName>
     <label>Tricorder Technology</label>
     <description>Portable multispectral scanners and data processing modules.</description>
+    <tab>ST_Research</tab>
     <baseCost>800</baseCost>
     <prerequisites>
       <li>ST_Common_Issue_Gear</li>
@@ -118,20 +119,41 @@
     <researchViewY>2</researchViewY>
   </ResearchProjectDef>
 
-  <!-- Medical sash / support harness etc -->
+  <!-- Medical sash / support harness > hypospray etc -->
   <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>ST_Medical_diagnostics</defName>
     <label>Medical Diagnostics</label>
     <description>Portable medical diagnostic and treatment support harness.</description>
+    <tab>ST_Research</tab>
     <baseCost>500</baseCost>
     <prerequisites>
+      <li>DrugProduction</li>   
+      <li>MedicineProduction</li>
       <li>ST_Common_Issue_Gear</li>
+  </prerequisites>
+    <researchViewX>1</researchViewX>
+    <researchViewY>2</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>ST_RecreationalInterfaces</defName>
+    <label>recreational interfaces</label>
+    <description>Neurale Interface-Spielgeräte (Headsets) in Standardfertigung.</description>
+    <tab>ST_Research</tab>
+    <baseCost>600</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>MicroelectronicsBasics</li>
+       <li>ST_Common_Issue_Gear</li>
     </prerequisites>
     <researchViewX>3</researchViewX>
     <researchViewY>2</researchViewY>
   </ResearchProjectDef>
 
+  <!-- Buildings -->
+
   <!-- Graviton hull/substructure fundamentals to unlock gravship construction -->
+  
   <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>BasicGravtech</defName>
     <label>Basic gravtech</label>
@@ -146,7 +168,6 @@
     <researchViewY>0</researchViewY>
   </ResearchProjectDef>
 
-  <!-- Buildings -->
 
   <ResearchProjectDef>
     <defName>ST_AlertProtocols</defName>

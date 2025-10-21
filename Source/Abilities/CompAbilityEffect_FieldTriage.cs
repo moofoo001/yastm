@@ -12,7 +12,7 @@ namespace ST.Abilities
             var pawn = target.Pawn;
             if (pawn == null || pawn.Dead) return false;
 
-            // Caster sollte medizinisch geschult sein (StarfleetTraining)
+            
             var caster = parent.pawn;
             var t = DefDatabase<TraitDef>.GetNamedSilentFail("ST_Trait_StarfleetTraining");
             if (t != null && caster?.story?.traits?.HasTrait(t) != true)
@@ -32,9 +32,9 @@ namespace ST.Abilities
             if (buff != null)
             {
                 var h = pawn.health?.AddHediff(buff);
-                // Optional: skalieren mit Medicine-Skill des Casters
+                
                 var casterMed = parent.pawn?.skills?.GetSkill(SkillDefOf.Medicine)?.Level ?? 0;
-                // leichte Skalierung der Dauer via Skill
+                
                 var comp = h?.TryGetComp<HediffComp_Disappears>();
                 if (comp != null) comp.ticksToDisappear = 2400 + (int)(casterMed * 60f); // 40s + 1s/Skill
 

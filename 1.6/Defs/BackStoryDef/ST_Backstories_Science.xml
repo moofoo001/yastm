@@ -24,7 +24,6 @@
         <FastLearner>0</FastLearner>
     </forcedTraits>
     <disallowedTraits />
-
   </BackstoryDef>
 
   <BackstoryDef>
@@ -48,7 +47,6 @@
         <FastLearner>0</FastLearner>
     </forcedTraits>
     <disallowedTraits />
-
   </BackstoryDef>
 
   <BackstoryDef>
@@ -71,7 +69,6 @@
        <FastLearner>0</FastLearner>
     </forcedTraits>
     <disallowedTraits />
-
   </BackstoryDef>
 
   <BackstoryDef>
@@ -96,6 +93,5 @@
       <FastLearner>0</FastLearner>
     </forcedTraits>
     <disallowedTraits />
-
     </BackstoryDef>
   </Defs>

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace YASTM
 {
-    public class JobDriver_ScanAreaScience : JobDriver
+    public class JobDriver_ScanAreaSecurity : JobDriver
     {
         IntVec3 TargetCell => job.targetA.Cell;
         private int nextMoteTick;
@@ -25,10 +25,10 @@ namespace YASTM
             var wait = Toils_General.Wait(scanTicks);
             wait.handlingFacing = true;
             wait.initAction = () => nextMoteTick = Find.TickManager.TicksGame;
+
             wait.tickAction = delegate
             {
                 pawn.rotationTracker.FaceCell(TargetCell);
-                // kleiner Scan-Ring
                 int now = Find.TickManager.TicksGame;
                 if (now >= nextMoteTick && pawn.Map != null)
                 {
@@ -47,27 +47,39 @@ namespace YASTM
                     var map = pawn.Map;
                     if (map != null)
                     {
-
                         foreach (var cell in GenRadial.RadialCellsAround(TargetCell, radius, true))
                         {
                             if (!cell.InBounds(map)) continue;
-                            var things = map.thingGrid.ThingsListAtFast(cell);
-                            for (int i = 0; i < things.Count; i++)
+                            var list = map.thingGrid.ThingsListAtFast(cell);
+                            for (int i = 0; i < list.Count; i++)
                             {
-                                var t = things[i];
-                                if (t?.def?.building != null && (t.def.building.isResourceRock || t.def.building.isNaturalRock))
-                                {
+                                var t = list[i];
+                                if (t == null) continue;
 
+                                bool ping = false;
+
+                                // Hostile Pawns
+                                if (t is Pawn p && p.HostileTo(Faction.OfPlayer)) ping = true;
+
+                                // Turrets
+                                if (!ping && t is Building_TurretGun) ping = true;
+
+                                // (Optional) explosive devices (IED etc.) heuristisch über CompExplosive
+                                if (!ping && t.TryGetComp<CompExplosive>() != null) ping = true;
+
+                                if (ping)
+                                {
                                     var fleck = DefDatabase<FleckDef>.GetNamedSilentFail("ST_KtarianHolo") ?? FleckDefOf.AirPuff;
                                     FleckMaker.Static(t.DrawPos + new Vector3(0f, 0f, 0.35f), map, fleck, 1.2f);
+                                    MoteMaker.ThrowText(t.DrawPos, map, "!", 1.4f);
                                 }
                             }
                         }
                     }
 
-
-                    var compMed = GetTricorderComp(pawn);
-                    string hedName = compMed?.HediffDefName ?? "ST_ScienceInsight";
+                    // Buff an den Benutzer
+                    var compSec = GetTricorderComp(pawn);
+                    string hedName = compSec?.HediffDefName ?? "ST_SecuritySweep";
                     var def = DefDatabase<HediffDef>.GetNamedSilentFail(hedName);
                     if (def != null)
                     {
@@ -75,10 +87,10 @@ namespace YASTM
                         var disp = h.TryGetComp<HediffComp_Disappears>();
                         if (disp != null)
                         {
-                            var dur = compMed != null ? compMed.HediffDuration : new IntRange(30000, 45000);
+                            var dur = compSec != null ? compSec.HediffDuration : new IntRange(30000, 45000);
                             disp.ticksToDisappear = Rand.RangeInclusive(dur.min, dur.max);
                         }
-                        Messages.Message("ST.Tricorder.Sci.Applied".Translate(pawn.Named("PAWN")),
+                        Messages.Message("ST.Tricorder.Sec.Applied".Translate(pawn.Named("PAWN")),
                             pawn, MessageTypeDefOf.PositiveEvent);
                     }
                 },
@@ -87,13 +99,13 @@ namespace YASTM
             yield return finish;
         }
 
-        private CompTricorderScience GetTricorderComp(Pawn p)
+        private CompTricorderSecurity GetTricorderComp(Pawn p)
         {
             var worn = p.apparel?.WornApparel;
             if (worn == null) return null;
             for (int i = 0; i < worn.Count; i++)
             {
-                var comp = worn[i].TryGetComp<CompTricorderScience>();
+                var comp = worn[i].TryGetComp<CompTricorderSecurity>();
                 if (comp != null) return comp;
             }
             return null;

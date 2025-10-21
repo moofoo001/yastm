@@ -7,7 +7,6 @@
     <description>Used for communication and universal translation by Starfleet personnel.</description>
     <thingClass>Apparel</thingClass>
     <soundInteract>com_chirp</soundInteract>
-
     <graphicData>
       <texPath>Things/Item/Accessory/Combadge/Combadge</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -15,19 +14,14 @@
       <drawSize>1,1</drawSize>
     </graphicData>
     <uiIconScale>1</uiIconScale>
-    
-    <!-- base stats -->
     <statBases>
       <Mass>0.05</Mass>
       <MarketValue>80</MarketValue>
-      <SocialImpact>0.03</SocialImpact>   <!-- small bonus -->
+      <SocialImpact>0.03</SocialImpact> 
     </statBases>
-
     <equippedStatOffsets>
       <SocialImpact>0.12</SocialImpact>
     </equippedStatOffsets>
-
-  <!-- crafting -->
   <costList>
     <Steel>10</Steel>
     <ComponentIndustrial>1</ComponentIndustrial>
@@ -35,7 +29,7 @@
     <thingCategories>
       <li>FederationApparel</li>
     </thingCategories>
-  <smeltable>false</smeltable> <!-- oder smeltable=true + smeltProducts mit etwas Steel -->
+  <smeltable>false</smeltable> 
   <recipeMaker>
     <workAmount>800</workAmount>
     <recipeUsers>
@@ -44,22 +38,18 @@
     </recipeUsers>
     <researchPrerequisite>
         <li>Federation_Standard</li>
-      </researchPrerequisite>
+    </researchPrerequisite>
     <skillRequirements><Crafting>4</Crafting></skillRequirements>
   </recipeMaker>
-
   <equippedStatOffsets>
     <SocialImpact>0.1</SocialImpact>
     <MentalBreakThreshold>-0.01</MentalBreakThreshold>
   </equippedStatOffsets>
-  
   <apparel>
     <wornGraphicPath>Things/Item/Accessory/Combadge/Combadge</wornGraphicPath>
     <bodyPartGroups><li>Torso</li></bodyPartGroups>
     <layers><li>ST_Badge</li></layers>
     <tags><li>StarfleetUniform</li></tags>
-
-
     <wornGraphicData>
       <renderUtilityAsPack>true</renderUtilityAsPack>
       <north>
@@ -84,21 +74,17 @@
         <hulk><offset>(+0.1,-0.15)</offset></hulk>
         <fat><offset>(+0.20,-0.10)</offset></fat>
       </west>
-      
       <male>  <scale>(0.1,0.1)</scale></male>
       <female><scale>(0.1,0.1)</scale></female>
       <thin>  <scale>(0.1,0.1)</scale></thin>
       <hulk>  <scale>(0.1,0.1)</scale></hulk>
       <fat>   <scale>(0.1,0.1)</scale></fat> 
     </wornGraphicData>
-  
   </apparel>
-
     <thingCategories>
       <li>Apparel</li>
     </thingCategories>
     <alwaysHaulable>true</alwaysHaulable>
-
   </ThingDef>
 
 

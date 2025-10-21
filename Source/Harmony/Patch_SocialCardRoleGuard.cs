@@ -21,10 +21,10 @@ namespace YASTM.SafeUI
             if (playerIdeo == null || pawnIdeo == null) return false;
             if (!HasCulture(playerIdeo) || !HasCulture(pawnIdeo)) return false;
 
-            return true; // nur wenn alles vollständig ist
+            return true; 
         }
 
-        // RW 1.6: culture ist i. d. R. Feld/Property ohne public Getter/Setter -> Reflection
+        
         private static bool HasCulture(Ideo ideo)
         {
             if (ideo == null) return false;

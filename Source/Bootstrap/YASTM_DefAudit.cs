@@ -8,7 +8,7 @@ namespace StarTrekFactions.Debug
     {
         static YASTM_DefAudit()
         {
-            // Welche Beacon-Defs sind wirklich geladen?
+            
             var beacons = DefDatabase<ThingDef>.AllDefsListForReading
                 .Where(d => d.defName == "ST_ComBeacon").ToList();
 
@@ -25,7 +25,7 @@ namespace StarTrekFactions.Debug
                 }
             }
 
-            // Gleiches für Sensor (optional)
+            
             var sensors = DefDatabase<ThingDef>.AllDefsListForReading
                 .Where(d => d.defName == "ST_AnomalySensor").ToList();
 

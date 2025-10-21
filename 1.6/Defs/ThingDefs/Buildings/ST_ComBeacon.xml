@@ -65,11 +65,9 @@
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
     </building>
     <designationCategory>ST_Designation</designationCategory>
-
     <placeWorkers>
          <li>PlaceWorker_PreventInteractionSpotOverlap</li>
     </placeWorkers>
-
     <researchPrerequisites>
         <li>MicroelectronicsBasics</li>
         <li>ST_SubspaceTelemetry</li>
@@ -97,12 +95,12 @@
       <!-- "Request Starfleet Aid"  -->
       <li Class="YASTM.CompProperties_StarfleetAid">
         <useLabel>Request Starfleet Aid</useLabel>
-        <cooldownDays>10</cooldownDays>            <!-- globaler Cooldown in Tagen -->
-        <silverCost>200</silverCost>               <!-- 0 = keine Silber-Kosten -->
-        <goodwillCost>6</goodwillCost>             <!-- 0 = keine Goodwill-Kosten -->
-        <minGoodwill>40</minGoodwill>              <!-- Button nur ab wohlwollender Beziehung -->
-        <federationFactionDef>Federation_Of_Planets</federationFactionDef> <!-- dein FactionDefName -->
-        <useDuration>120</useDuration>             <!-- "Sendezeit" (Flavor) -->
+        <cooldownDays>10</cooldownDays>         
+        <silverCost>200</silverCost>              
+        <goodwillCost>6</goodwillCost>           
+        <minGoodwill>40</minGoodwill>            
+        <federationFactionDef>Federation_Of_Planets</federationFactionDef> 
+        <useDuration>120</useDuration>            
       </li>
 
       <!--  Beacon-Flow: Init + Report -->
@@ -132,17 +130,14 @@
         <ceasefireCost>800</ceasefireCost>
         <cooldownDaysImprove>1</cooldownDaysImprove>
         <cooldownDaysCeasefire>2</cooldownDaysCeasefire>
-        <!-- Requirment  -->
-        <!-- Improve: Ensign+ mit Social 6+ -->
         <minSocialImprove>6</minSocialImprove>
         <requiredTraitsImprove>
-          <li>*ANY_COMMISSIONED*</li> <!-- accept all ST_Rank_* Trait -->
+          <li>*ANY_COMMISSIONED*</li> 
         </requiredTraitsImprove>
         <requiredApparelsImprove>
-          <li>*ANY_PIP*</li>          <!-- accept all ST_RankPips_* Apparel -->
+          <li>*ANY_PIP*</li>  
         </requiredApparelsImprove>
         <rankLabelImprove>Ensign+</rankLabelImprove>
-
         <!-- Ceasefire: Commander+ mit Social 10+ -->
         <minSocialCeasefire>10</minSocialCeasefire>
         <requiredTraitsCeasefire>

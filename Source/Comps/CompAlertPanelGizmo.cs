@@ -109,19 +109,19 @@ namespace YASTM
                 MoteMaker.ThrowText(p.DrawPos, map, "YELLOW ALERT", new Color(1f, 0.95f, 0.2f), 1.2f);
             }
 
-            // Blink (gelb) + kurzer Ping
+
             SpawnBlink(isRed:false, scale:1.1f);
             var ping = DefDatabase<SoundDef>.GetNamedSilentFail("ST_YellowAlert_Ping");
             ping?.PlayOneShot(SoundInfo.OnCamera());
 
-            // Cooldown/Blinkfenster setzen
+
             if (mc != null)
             {
                 mc.BlinkUntilTickYellow = now + 300;              // ~5s
                 mc.NextAllowedTickYellow = now + Props.yellowCooldownTicks;
             }
 
-            // Panel gelb einfärben
+
             SetPanelTint(new Color(1f, 0.92f, 0.2f));
 
             Messages.Message("ST.YellowAlert.Engaged".Translate(), parent, MessageTypeDefOf.PositiveEvent);
@@ -147,7 +147,7 @@ namespace YASTM
                 return;
             }
 
-            // Hediff anwenden
+
             var hediffDef = DefDatabase<HediffDef>.GetNamedSilentFail("ST_RedAlert");
             if (hediffDef == null)
             {
@@ -164,14 +164,14 @@ namespace YASTM
                 MoteMaker.ThrowText(p.DrawPos, map, "RED ALERT", Color.red, 1.4f);
             }
 
-            // Blink (rot) + Sounds
+
             SpawnBlink(isRed:true, scale:1.2f);
 
-            // kurzer Ping
+
             var ping = DefDatabase<SoundDef>.GetNamedSilentFail("ST_RedAlert_SirenPing");
             ping?.PlayOneShot(SoundInfo.OnCamera());
 
-            // loopende Sirene (optional)
+
             var mc2 = mc;
             if (Props.playRedSirenLoop && mc2 != null)
             {
@@ -184,24 +184,24 @@ namespace YASTM
                 }
             }
 
-            // Cooldown/Blinkfenster setzen
+
             if (mc != null)
             {
                 mc.BlinkUntilTick = now + 360;                    // ~6s
                 mc.NextAllowedTick = now + Props.redCooldownTicks;
             }
 
-            // Panel rot einfärben
+
             SetPanelTint(new Color(0.95f, 0.2f, 0.2f));
 
             Messages.Message("ST.RedAlert.Engaged".Translate(), parent, MessageTypeDefOf.PositiveEvent);
         }
 
-        // --- Helpers ---
+
 
         void SpawnBlink(bool isRed, float scale)
         {
-            // Zwei farbige Flecks aus XML (API erlaubt kein Per-Instance-Tint)
+
             string defName = isRed ? "ST_AlertBlink_Red" : "ST_AlertBlink_Yellow";
             var def = DefDatabase<FleckDef>.GetNamedSilentFail(defName) ?? FleckDefOf.Smoke;
 

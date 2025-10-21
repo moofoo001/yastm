@@ -9,7 +9,7 @@ namespace StarTrekFactions.HarmonyPatches
     [HarmonyPatch]
     public static class Patch_GiveRewards_RunInt
     {
-        // internen Typ & Methode per String auflösen
+        
         static MethodBase TargetMethod() =>
             AccessTools.Method("RimWorld.QuestGen.QuestNode_GiveRewards:RunInt");
 
@@ -18,7 +18,7 @@ namespace StarTrekFactions.HarmonyPatches
             if (__exception != null)
             {
                 Log.Warning("[YASTM] Suppressed GiveRewards exception: " + __exception.GetType().Name);
-                return null; // Exception unterdrücken
+                return null; 
             }
             return null;
         }

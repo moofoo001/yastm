@@ -17,7 +17,6 @@
     <tickerType>Normal</tickerType>
     <comps>
 
-      <!-- Cyanes glow effect -->
         <li Class="CompProperties_Glower">
           <glowRadius>3.8</glowRadius>
           <glowColor>(90, 210, 255)</glowColor>
@@ -25,7 +24,7 @@
 
       <li Class="StarTrekFactions.CompProperties_ObeliskHighlight">
         <pulseInterval>150</pulseInterval>
-        <pulseRadius>1.0</pulseRadius>            <!-- scale applied to fleck's drawSize -->
+        <pulseRadius>1.0</pulseRadius> 
         <humSound>ST_ObeliskHum</humSound>
         <pulseFleck>MonolithLowLightningRing</pulseFleck>
       </li>
@@ -38,7 +37,7 @@
 
       <li Class="StarTrekFactions.Comps.CompProperties_ScanWork">
         <successSignal>STQ.Obelisks.ScanA.Completed</successSignal>
-        <workTicksBase>6000</workTicksBase> <!-- ~1 Ingame-Stunde -->
+        <workTicksBase>6000</workTicksBase> 
         <skill>Intellectual</skill>
         <requiresPoweredSensor>true</requiresPoweredSensor>
         <sensorRadius>25</sensorRadius>
@@ -67,20 +66,17 @@
         <glowRadius>3.8</glowRadius>
         <glowColor>(0.35, 0.85, 1)</glowColor> 
       </li>
-
       <li Class="StarTrekFactions.CompProperties_ObeliskHighlight">
         <pulseInterval>150</pulseInterval>
-        <pulseRadius>1.0</pulseRadius>            <!-- scale applied to fleck's drawSize -->
+        <pulseRadius>1.0</pulseRadius>         
         <humSound>ST_ObeliskHum</humSound>
         <pulseFleck>MonolithLowLightningRing</pulseFleck>
       </li>
-
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
           <li>ST_AnomalySensor</li>
         </linkableFacilities>
       </li>
-
       <li Class="StarTrekFactions.Comps.CompProperties_ScanWork">
         <successSignal>STQ.Obelisks.ScanB.Completed</successSignal>
         <workTicksBase>6000</workTicksBase>

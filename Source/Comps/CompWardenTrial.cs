@@ -12,7 +12,7 @@ namespace StarTrekFactions.Comps
         public IncidentDef incidentDef;
         public float pointsFactor = 0.5f;
 
-        // zur Laufzeit genutzt, nicht serialisieren
+        
         [Unsaved(false)] public bool fired = false;
 
         public WardenCheckpoint() { }
@@ -22,15 +22,15 @@ namespace StarTrekFactions.Comps
     {
         public bool requirePowerOn = true;
 
-        // Gesamtdauer, die das Gerät online bleiben muss
+        
         public int durationTicks = 15000;
 
-        // Signale
+        
         public string outSignalStarted;
         public string outSignalSucceeded;
         public string outSignalFailed;
 
-        // Checkpoints (List statt Array, damit XML-Deserialisierung klappt)
+        
         public List<WardenCheckpoint> checkpoints = new List<WardenCheckpoint>();
 
         public CompProperties_WardenTrial()
@@ -44,11 +44,11 @@ namespace StarTrekFactions.Comps
         public CompProperties_WardenTrial Props => (CompProperties_WardenTrial)props;
 
         private bool active;
-        private int ticksOnline;            // wie viele Ticks „online“ (mit Power)
+        private int ticksOnline;            
         private bool successOrFailSent;
         private bool unlocked;
 
-// Freischalten per Signal
+
 public override void ReceiveCompSignal(string signal)
 {
     if (signal == "STQ.Obelisks.Warden.Unlock")
@@ -57,7 +57,7 @@ public override void ReceiveCompSignal(string signal)
     }
 }
 
-        // Gizmo nur zeigen, wenn freigeschaltet:
+        
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             if (parent.Faction != Faction.OfPlayer) yield break;
@@ -88,21 +88,21 @@ public override void ReceiveCompSignal(string signal)
             base.CompTickRare();
             if (!active || successOrFailSent) return;
 
-            // Power-Check
+            
             if (Props.requirePowerOn)
             {
                 var p = parent.TryGetComp<CompPowerTrader>();
                 if (p != null && !p.PowerOn)
                 {
-                    // kein Strom -> keine Online-Zeit sammeln
+                    
                     return;
                 }
             }
 
-            // Online-Zeit addieren (TickRare = 250 Ticks)
+            
             ticksOnline += 250;
 
-            // Checkpoints abfeuern
+            
             if (Props.checkpoints != null && parent.Map != null)
             {
                 for (int i = 0; i < Props.checkpoints.Count; i++)
@@ -116,7 +116,7 @@ public override void ReceiveCompSignal(string signal)
                 }
             }
 
-            // Erfolg?
+            
             if (ticksOnline >= Props.durationTicks)
             {
                 successOrFailSent = true;
@@ -129,7 +129,7 @@ public override void ReceiveCompSignal(string signal)
         public override void PostDestroy(DestroyMode mode, Map previousMap)
         {
             base.PostDestroy(mode, previousMap);
-            // Fail, wenn während aktivem Trial zerstört
+            
             if (active && !successOrFailSent)
             {
                 successOrFailSent = true;
@@ -163,7 +163,7 @@ public override void ReceiveCompSignal(string signal)
             Scribe_Values.Look(ref ticksOnline, "STF_WardenTrial_ticksOnline");
             Scribe_Values.Look(ref successOrFailSent, "STF_WardenTrial_done");
 
-            // fired-Flags pro Checkpoint mitschreiben/lesen (optional)
+            
             if (Scribe.mode == LoadSaveMode.Saving)
             {
                 if (Props.checkpoints != null)

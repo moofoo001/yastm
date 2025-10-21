@@ -71,16 +71,14 @@
       <texPath>Things/Item/Equipment/Federation_weapons/Phaser_TypeI</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
-      <drawSize>(1,1)</drawSize>
+      <drawSize>(0.7,0.7)</drawSize>
     </graphicData>
-    <uiIconScale>1.4</uiIconScale>
+    <uiIconScale>1.5</uiIconScale>
     <soundInteract>Metal_Drop</soundInteract>
-   
     <weaponTags>
       <li>StarfleetPhaser</li>
       <li>ST_Phaser_T1</li>
     </weaponTags>
-
     <verbs>
       <li>
         <verbClass>ST.PhaseWeapons.Verb_PhaserShoot</verbClass>
@@ -94,7 +92,6 @@
         <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
       </li>
     </verbs>
-
     <statBases>
       <Mass>0.6</Mass>
       <RangedWeapon_Cooldown>1.45</RangedWeapon_Cooldown>
@@ -105,7 +102,6 @@
       <WorkToMake>3000</WorkToMake>
       <MarketValue>750</MarketValue>
     </statBases>
-
     <comps>
       <li Class="ST.PhaseWeapons.CompProperties_PhaserMode">
         <allowOvercharge>true</allowOvercharge>
@@ -117,7 +113,6 @@
         <overchargeExplosionDamage>Flame</overchargeExplosionDamage>
       </li>
     </comps>
-
     <recipeMaker>
       <workAmount>12000</workAmount>
       <skillRequirements><Crafting>8</Crafting></skillRequirements>
@@ -126,7 +121,6 @@
       </recipeUsers>
       <researchPrerequisite>ST_UFP_Phasers</researchPrerequisite>
     </recipeMaker>
-
     <costList>
       <Silver>100</Silver>
       <Plasteel>5</Plasteel>
@@ -134,12 +128,10 @@
 	    <Steel>30</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
-
     <tradeTags>
       <li>Gun</li>
       <li>Ultra</li>
     </tradeTags>
-
   <alwaysHaulable>true</alwaysHaulable>
   </ThingDef>
 
@@ -154,12 +146,10 @@
     </graphicData>
     <uiIconScale>1.4</uiIconScale>
     <soundInteract>Metal_Drop</soundInteract>
-
     <weaponTags>
       <li>StarfleetPhaser</li>
       <li>ST_Phaser_T2</li>
     </weaponTags>
-
     <verbs>
       <li>
         <verbClass>ST.PhaseWeapons.Verb_PhaserShoot</verbClass>
@@ -173,7 +163,6 @@
         <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
       </li>
     </verbs>
-
     <statBases>
       <AccuracyTouch>0.80</AccuracyTouch>
       <AccuracyShort>0.75</AccuracyShort>
@@ -184,7 +173,6 @@
       <WorkToMake>5000</WorkToMake>
       <MarketValue>540</MarketValue>
     </statBases>
-
         <comps>
           <li Class="ST.PhaseWeapons.CompProperties_PhaserMode">
             <allowOvercharge>true</allowOvercharge>
@@ -196,7 +184,6 @@
             <overchargeExplosionDamage>Flame</overchargeExplosionDamage>
           </li>
         </comps>
-
     <recipeMaker>
       <workAmount>12000</workAmount>
       <skillRequirements><Crafting>8</Crafting></skillRequirements>
@@ -205,7 +192,6 @@
       </recipeUsers>
       <researchPrerequisite>ST_UFP_Phasers</researchPrerequisite>
     </recipeMaker>
-
     <costList>
       <Silver>100</Silver>
       <Plasteel>10</Plasteel>
@@ -213,12 +199,10 @@
 	    <Steel>50</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
-  
     <tradeTags>
       <li>Gun</li>
       <li>Ultra</li>
     </tradeTags>
-
   </ThingDef>
 
 <!-- Phase Rifle -->
@@ -234,11 +218,9 @@
     </graphicData>
     <uiIconScale>1.4</uiIconScale>
     <soundInteract>Metal_Drop</soundInteract>
-
     <weaponTags>
       <li>Starfleet Phasers Security SNW</li>
     </weaponTags>
-
   <verbs>
     <li>
     <verbClass>ST.PhaseWeapons.Verb_PhaserShoot</verbClass>
@@ -264,7 +246,6 @@
         <cooldownTime>3</cooldownTime>
       </li>
     </tools>
-  
     <statBases>
       <Mass>4.8</Mass>
       <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
@@ -275,7 +256,6 @@
       <WorkToMake>7000</WorkToMake>
       <MarketValue>1800</MarketValue>
     </statBases>
-
     <comps>
       <li Class="ST.PhaseWeapons.CompProperties_PhaserMode">
         <allowOvercharge>false</allowOvercharge>                   <!-- << -->
@@ -283,7 +263,6 @@
         <projectileStun>Bullet_PhaserPulse_Stun</projectileStun>
       </li>
     </comps>
-
     <recipeMaker>
       <workAmount>16000</workAmount>
       <skillRequirements><Crafting>10</Crafting></skillRequirements>
@@ -292,7 +271,6 @@
       </recipeUsers>
       <researchPrerequisite>ST_UFP_Phasers</researchPrerequisite>
     </recipeMaker>
-  
     <costList>
       <Silver>200</Silver>
       <Plasteel>30</Plasteel>
@@ -300,7 +278,6 @@
 	    <Steel>800</Steel>
       <ComponentIndustrial>4</ComponentIndustrial>
     </costList>
-
   <alwaysHaulable>true</alwaysHaulable>
   </ThingDef>
 
