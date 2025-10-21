@@ -27,7 +27,7 @@
         <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
-        <targetRankTrait>ST_Rank_Ensign</targetRankTrait>
+        <rankTraitDef>ST_Rank_Ensign</rankTraitDef>
       </li>
     </comps>
   </ThingDef>
@@ -55,7 +55,7 @@
         <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
-        <targetRankTrait>ST_Rank_LieutenantJG</targetRankTrait>
+        <rankTraitDef>ST_Rank_LieutenantJG</rankTraitDef>
       </li>
     </comps>
   </ThingDef>
@@ -83,7 +83,7 @@
         <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
-        <targetRankTrait>ST_Rank_Lieutenant</targetRankTrait>
+        <rankTraitDef>ST_Rank_Lieutenant</rankTraitDef>
       </li>
     </comps>
   </ThingDef>
@@ -111,7 +111,7 @@
         <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
-        <targetRankTrait>ST_Rank_LtCommander</targetRankTrait>
+        <rankTraitDef>ST_Rank_LtCommander</rankTraitDef>
       </li>
     </comps>
     </ThingDef>
@@ -139,7 +139,7 @@
         <useJob>UseItem</useJob>    
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
-        <targetRankTrait>ST_Rank_Commander</targetRankTrait>
+        <rankTraitDef>ST_Rank_Commander</rankTraitDef>
         </li>
     </comps>
    </ThingDef>
@@ -167,7 +167,7 @@
         <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
-        <targetRankTrait>ST_Rank_Captain</targetRankTrait>
+        <rankTraitDef>ST_Rank_Captain</rankTraitDef>
         </li>
     </comps>
    </ThingDef>

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LanguageData>
-  <ST_RedAlertProtocols.label>Alarmprotokolle (Rotalarm)</ST_RedAlertProtocols.label>
-  <ST_RedAlertProtocols.description>Implementiert kolonieweite Alarmrouten und EPS-Priorisierung, um das Rotalarm-Panel zu aktivieren.</ST_RedAlertProtocols.description>
-</LanguageData>

@@ -60,14 +60,16 @@
     <defName>ST_KtarianHolo</defName>
     <fleckSystemClass>FleckSystemStatic</fleckSystemClass>
     <altitudeLayer>MoteOverhead</altitudeLayer>
-    <fadeInTime>6</fadeInTime>
-    <solidTime>18</solidTime>
-    <fadeOutTime>12</fadeOutTime>
+    <fadeInTime>2</fadeInTime>
+    <solidTime>3</solidTime>
+    <fadeOutTime>2</fadeOutTime>
     <graphicData>
-      <graphicClass>Graphic_Fleck</graphicClass>   <!-- wichtig -->
-      <texPath>Things/Mote/ElectricalSpark</texPath>
+      <graphicClass>Graphic_FleckPulse</graphicClass>  
+      <texPath>Things/Mote/LightningGlow</texPath>
       <drawSize>1.2</drawSize>
-      <color>(0.65,0.85,1,0.9)</color>
+      <color>(0.65,0.85,1,0.9)</color>         <!-- light blue, mostly opaque -->
+      <shaderType>MoteGlow</shaderType>
+      <renderInstanced>true</renderInstanced>
     </graphicData>
   </FleckDef>
 

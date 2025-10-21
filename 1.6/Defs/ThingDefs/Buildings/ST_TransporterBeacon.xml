@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_TransporterBeacon</defName>
+    <label>transporter beacon</label>
+    <description>Starfleet transporter beacon for short-range beam-in logistics and emergency beam-out.</description>
+
+    <statBases>
+        <Mass>25</Mass>
+    </statBases>
+
+    <graphicData>
+      <texPath>Things/Building/Misc/TransporterBeacon/Beacon</texPath> <!-- Placeholder -->
+      <drawSize>(1.0,1.0)</drawSize>
+    </graphicData>
+
+    <size>(1,1)</size>
+    <altitudeLayer>Building</altitudeLayer>
+    <selectable>true</selectable>
+    <passability>PassThroughOnly</passability>
+    <pathCost>0</pathCost>
+
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <stuffCategories><li>Metallic</li></stuffCategories>
+    <costList>
+      <Steel>80</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+
+    <minifiedDef>MinifiedThing</minifiedDef>
+
+    <comps>
+      <li Class="CompProperties_Power">
+        <basePowerConsumption>350</basePowerConsumption>
+      </li>
+      <li Class="YASTM.CompProperties_TransporterBeacon">
+        <cooldownBeamInTicks>300000</cooldownBeamInTicks>   <!-- 5 Tage -->
+        <cooldownBeamOutTicks>120000</cooldownBeamOutTicks> <!-- 2 Tage -->
+        <maxBeamOutDistance>50</maxBeamOutDistance>
+        <soundDefName>ST_Transporter_Beam</soundDefName>
+      </li>
+    </comps>
+    <designationCategory>ST_Designation</designationCategory>
+    <researchPrerequisites>
+      <li>ST_TransporterTech</li>
+    </researchPrerequisites>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+  </ThingDef>
+</Defs>

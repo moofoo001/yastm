@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
+<TraitDef>
+    <defName>ST_Rank_Cadet</defName>
+    <label>rank: cadet</label>
+    <description>Initial training phase. Adapts quickly to new situations.</description>
+    <conflictingTraits>
+        <li>ST_Rank_Ensign</li><li>ST_Rank_LieutenantJG</li><li>ST_Rank_Lieutenant</li>
+        <li>ST_Rank_LtCommander</li><li>ST_Rank_Commander</li><li>ST_Rank_Captain</li>
+    </conflictingTraits>
+    <degreeDatas>
+      <li>
+        <label>cadet</label>
+        <description>Initial training phase. Adapts quickly to new situations.</description>
+        <degree>0</degree>
+        <statOffsets>
+          <GlobalLearningFactor>0.05</GlobalLearningFactor>
+          <WorkSpeedGlobal>0.03</WorkSpeedGlobal>
+          <SocialImpact>0.02</SocialImpact>
+        </statOffsets>
+        <commonality>0</commonality>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+
   <TraitDef>
     <defName>ST_Rank_Ensign</defName>
     <label>rank: ensign</label>
@@ -12,6 +36,8 @@
     <degreeDatas>
       <li>
         <label>ensign</label>
+        <description>Freshly commissioned officer. Learns fast, follows procedure.</description>
+        <degree>0</degree>
         <statOffsets>
           <GlobalLearningFactor>0.05</GlobalLearningFactor>
           <WorkSpeedGlobal>0.03</WorkSpeedGlobal>
@@ -20,6 +46,18 @@
         <commonality>0</commonality>
       </li>
     </degreeDatas>
+  <modExtensions>
+    <li Class="YASTM.PromotionRequirementsExtension">
+      <factionDefName>ST_Starfleet</factionDefName>
+      <goodwillMin>10</goodwillMin>
+      <requiredCompletedQuests>0</requiredCompletedQuests>
+      <minDaysSinceLastPromotion>0</minDaysSinceLastPromotion>
+      <uniqueColonyWide>false</uniqueColonyWide>
+    </li>
+	<li Class="YASTM.RankVisualExtension">
+      <pipApparelDefName>ST_RankPips_Ensign</pipApparelDefName>
+    </li>
+  </modExtensions>
   </TraitDef>
 
   <TraitDef>
@@ -33,6 +71,8 @@
     <degreeDatas>
       <li>
         <label>lieutenant (jg)</label>
+        <description>Junior officer with growing responsibilities.</description>
+        <degree>0</degree>
         <statOffsets>
           <GlobalLearningFactor>0.06</GlobalLearningFactor>
           <WorkSpeedGlobal>0.04</WorkSpeedGlobal>
@@ -41,6 +81,18 @@
         <commonality>0</commonality>
       </li>
     </degreeDatas>
+  <modExtensions>
+    <li Class="YASTM.PromotionRequirementsExtension">
+      <factionDefName>ST_Starfleet</factionDefName>
+      <goodwillMin>20</goodwillMin>
+      <requiredCompletedQuests>1</requiredCompletedQuests>
+      <minDaysSinceLastPromotion>3</minDaysSinceLastPromotion>
+      <uniqueColonyWide>false</uniqueColonyWide>
+    </li>
+	<li Class="YASTM.RankVisualExtension">
+      <pipApparelDefName>ST_RankPips_LJG</pipApparelDefName>
+    </li>
+  </modExtensions>
   </TraitDef>
 
   <TraitDef>
@@ -54,6 +106,8 @@
     <degreeDatas>
       <li>
         <label>lieutenant</label>
+        <description>Experienced line officer. Trusted with section duties.</description>
+        <degree>0</degree>
         <statOffsets>
           <WorkSpeedGlobal>0.05</WorkSpeedGlobal>
           <SocialImpact>0.05</SocialImpact>
@@ -63,6 +117,18 @@
         <commonality>0</commonality>
       </li>
     </degreeDatas>
+  <modExtensions>
+    <li Class="YASTM.PromotionRequirementsExtension">
+      <factionDefName>ST_Starfleet</factionDefName>
+      <goodwillMin>35</goodwillMin>
+      <requiredCompletedQuests>2</requiredCompletedQuests>
+      <minDaysSinceLastPromotion>3</minDaysSinceLastPromotion>
+      <uniqueColonyWide>false</uniqueColonyWide>
+    </li>
+	<li Class="YASTM.RankVisualExtension">
+      <pipApparelDefName>ST_RankPips_Lieutenant</pipApparelDefName>
+    </li>
+  </modExtensions>
   </TraitDef>
 
   <TraitDef>
@@ -76,6 +142,8 @@
     <degreeDatas>
       <li>
         <label>lieutenant commander</label>
+        <description>Senior officer; bridges command and line duties.</description>
+        <degree>0</degree>
         <statOffsets>
           <WorkSpeedGlobal>0.06</WorkSpeedGlobal>
           <SocialImpact>0.06</SocialImpact>
@@ -85,6 +153,18 @@
         <commonality>0</commonality>
       </li>
     </degreeDatas>
+  <modExtensions>
+    <li Class="YASTM.PromotionRequirementsExtension">
+      <factionDefName>ST_Starfleet</factionDefName>
+      <goodwillMin>50</goodwillMin>
+      <requiredCompletedQuests>2</requiredCompletedQuests>
+      <minDaysSinceLastPromotion>6</minDaysSinceLastPromotion>
+      <uniqueColonyWide>false</uniqueColonyWide>
+    </li>
+		<li Class="YASTM.RankVisualExtension">
+      <pipApparelDefName>ST_RankPips_LtCommander</pipApparelDefName>
+    </li>
+  </modExtensions>
   </TraitDef>
 
   <TraitDef>
@@ -98,6 +178,8 @@
     <degreeDatas>
       <li>
         <label>commander</label>
+        <description>Executive authority. Keeps teams aligned and missions on time.</description>
+        <degree>0</degree>
         <statOffsets>
           <WorkSpeedGlobal>0.07</WorkSpeedGlobal>
           <SocialImpact>0.08</SocialImpact>
@@ -107,6 +189,18 @@
         <commonality>0</commonality>
     </li>
     </degreeDatas>
+  <modExtensions>
+    <li Class="YASTM.PromotionRequirementsExtension">
+      <factionDefName>ST_Starfleet</factionDefName>
+      <goodwillMin>65</goodwillMin>
+      <requiredCompletedQuests>3</requiredCompletedQuests>
+      <minDaysSinceLastPromotion>10</minDaysSinceLastPromotion>
+      <uniqueColonyWide>false</uniqueColonyWide>
+    </li>
+	<li Class="YASTM.RankVisualExtension">
+      <pipApparelDefName>ST_RankPips_Commander</pipApparelDefName>
+    </li>
+  </modExtensions>
   </TraitDef>
 
   <TraitDef>
@@ -120,6 +214,8 @@
     <degreeDatas>
       <li>
         <label>captain</label>
+        <description>Commands the mission. Steady hand under pressure.</description>
+        <degree>0</degree>
         <statOffsets>
           <WorkSpeedGlobal>0.08</WorkSpeedGlobal>
           <SocialImpact>0.10</SocialImpact>
@@ -129,6 +225,18 @@
         <commonality>0</commonality>
       </li>
     </degreeDatas>
+  <modExtensions>
+    <li Class="YASTM.PromotionRequirementsExtension">
+      <factionDefName>ST_Starfleet</factionDefName>
+      <goodwillMin>80</goodwillMin>
+      <requiredCompletedQuests>5</requiredCompletedQuests>
+      <minDaysSinceLastPromotion>15</minDaysSinceLastPromotion>
+      <uniqueColonyWide>true</uniqueColonyWide>
+    </li>
+    <li Class="YASTM.RankVisualExtension">
+      <pipApparelDefName>ST_RankPips_Captain</pipApparelDefName>
+    </li>
+  </modExtensions>
   </TraitDef>
 
 </Defs>

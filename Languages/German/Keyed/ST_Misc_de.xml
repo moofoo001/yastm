@@ -67,6 +67,14 @@
   <ST.Promo.Captain.LetterLabel>Beförderung genehmigt</ST.Promo.Captain.LetterLabel>
   <ST.Promo.Captain.LetterText>Eine Kommissions-Pip zum/zur **Captain** wurde geliefert.</ST.Promo.Captain.LetterText>
 
+  <ST.Promo.Fail.Goodwill>Benötigt Ansehen ≥ {0} bei {1}.</ST.Promo.Fail.Goodwill>
+  <ST.Promo.Fail.Quests>Benötigt mindestens {0} abgeschlossene Quests.</ST.Promo.Fail.Quests>
+  <ST.Promo.Fail.Time>Noch nicht genug Zeit vergangen ({0} verbleibend).</ST.Promo.Fail.Time>
+  <ST.Promo.Fail.Unique>Dieser Rang darf nur einmal vergeben werden.</ST.Promo.Fail.Unique>
+  <ST.Promo.Success>{PAWN_labelShort} wurde zu {1} befördert.</ST.Promo.Success>
+
+  <ST.Promo.Ceremony.Started>Die Beförderungszeremonie für {PAWN_labelShort} beginnt.</ST.Promo.Ceremony.Started>
+  
   <!-- Research -->
   <ST.Research.RedAlert.Label>Alarmprotokolle (Rotalarm)</ST.Research.RedAlert.Label>
   <ST.Research.RedAlert.Desc>Implementiert Alarmrouten und EPS-Priorisierung, um das Rotalarm-Panel zu aktivieren.</ST.Research.RedAlert.Desc>
@@ -115,10 +123,21 @@
   <ST.Tricorder.Sci.SkillReq>Erfordert Intellektuell {0}+.</ST.Tricorder.Sci.SkillReq>
   <ST.Tricorder.Sci.Applied>Wissenschaftliche Erkenntnis bei {PAWN_labelShort} gewonnen.</ST.Tricorder.Sci.Applied>
 
-    <!-- Tricorder Security Scan -->
+  <!-- Tricorder Security Scan -->
   <ST.Tricorder.Sec.Scan>Taktischer Sweep (Sicherheit)</ST.Tricorder.Sec.Scan>
   <ST.Tricorder.Sec.Scan.Desc>Bereich auf Bedrohungen scannen und Kampfwahrnehmung steigern.</ST.Tricorder.Sec.Scan.Desc>
   <ST.Tricorder.Sec.SkillReq>Erfordert Schusswaffen {0}+ oder Nahkampf {1}+.</ST.Tricorder.Sec.SkillReq>
   <ST.Tricorder.Sec.Applied>Kampfwahrnehmung bei {PAWN_labelShort} verbessert.</ST.Tricorder.Sec.Applied>
+
+  <!--Transporter -->
+  <ST.Transporter.BeamIn>Logistik herbeamen</ST.Transporter.BeamIn>
+  <ST.Transporter.BeamIn.Desc>Materialisiert ein kleines Versorgungspaket am Beacon.</ST.Transporter.BeamIn.Desc>
+  <ST.Transporter.BeamOut>Notfall-Beam-out</ST.Transporter.BeamOut>
+  <ST.Transporter.BeamOut.Desc>Teleportiert einen Kolonisten zum Beacon. Verursacht kurz Übelkeit.</ST.Transporter.BeamOut.Desc>
+  <ST.Transporter.BeamIn.Done>Logistik herbegebeamt.</ST.Transporter.BeamIn.Done>
+  <ST.Transporter.BeamOut.Done>{PAWN_labelShort} wurde herausgebeamt.</ST.Transporter.BeamOut.Done>
+  <ST.Transporter.BeamOut.TooFar>Ziel ist außer Reichweite.</ST.Transporter.BeamOut.TooFar>
+  <ST.Common.RequiresPower>Benötigt Strom.</ST.Common.RequiresPower>
+  <ST.Common.Recharging>Lädt auf ({0}).</ST.Common.Recharging>
 
 </LanguageData>

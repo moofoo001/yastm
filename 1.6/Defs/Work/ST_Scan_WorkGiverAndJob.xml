@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
 
+  <!-- Obelisk scan -->
   <JobDef>
     <defName>ST_ScanObelisk</defName>
     <label>scan obelisk</label>
@@ -28,6 +29,22 @@
     <directOrderable>true</directOrderable>
     <scanThings>true</scanThings>
     <emergency>false</emergency>
+  </WorkGiverDef>
+
+  <!-- Med Tricorder -->
+
+ <WorkGiverDef>
+    <defName>ST_UseMedicalTricorder</defName>
+    <label>use medical tricorder</label>
+    <giverClass>YASTM.WorkGiver_UseMedicalTricorder</giverClass>
+    <workType>Doctor</workType>
+    <priorityInType>9999</priorityInType>
+    <emergency>true</emergency>
+    <verb>scan</verb>
+    <gerund>scanning</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
   </WorkGiverDef>
 
 </Defs>

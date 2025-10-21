@@ -16,4 +16,14 @@
   <ST_FieldHyposprays.description>Standardisierte Hyposprays der Sternenflotte für den Feldeinsatz.</ST_FieldHyposprays.description>
   <ST_EVASystems.label>EVA-Systeme</ST_EVASystems.label>
   <ST_EVASystems.description>Anzug und Helm für Außenbordeinsätze in gefährlichen Umgebungen.</ST_EVASystems.description>
+  <ST_UseMedicalTricorder.label>Med-Tricorder benutzen</ST_UseMedicalTricorder.label>
+  <ST_UseMedicalTricorder.gerund>scannt....</ST_UseMedicalTricorder.gerund>
+
+  <!-- Red Alert Protocols -->
+  <ST_RedAlertProtocols.label>Alarmprotokolle (Rotalarm)</ST_RedAlertProtocols.label>
+  <ST_RedAlertProtocols.description>Implementiert kolonieweite Alarmrouten und EPS-Priorisierung, um das Rotalarm-Panel zu aktivieren.</ST_RedAlertProtocols.description>
+
+  <!-- Promotion -->
+  <ST_PromotionHonored.stages.0.label>durch Beförderung geehrt</ST_PromotionHonored.stages.0.label>
+  
 </LanguageData>

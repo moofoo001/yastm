@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+
+  <!-- Briefing completed -->
   <ThoughtDef>
     <defName>ST_Thought_Briefing_Completed</defName>
     <label>briefing completed</label>
@@ -16,6 +18,7 @@
     </stages>
   </ThoughtDef>
 
+  <!-- Shore leave completed -->
   <ThoughtDef>
     <defName>ST_Thought_ShoreLeave_Completed</defName>
     <label>shore leave</label>
@@ -32,7 +35,7 @@
     </stages>
   </ThoughtDef>
 
-  <!-- Katarian neg effect -->
+  <!-- Ktarian craving -->  
 <ThoughtDef>
   <defName>ST_KtarianCraving</defName>
   <label>ktarian craving</label>
@@ -44,10 +47,23 @@
     <li>
       <label>ktarian craving</label>
       <baseMoodEffect>-6</baseMoodEffect>
-      <description>A lingering urge to return to the Ktarian game.</description>  <!-- NEU -->
+      <description>A lingering urge to return to the Ktarian game.</description> 
     </li>
   </stages>
 </ThoughtDef>
 
-
+  <!-- Promotion honored -->
+  <ThoughtDef>
+    <defName>ST_PromotionHonored</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stages>
+      <li>
+        <label>honored by promotion</label>
+        <description>Was formally recognized for service. Crew morale is up.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
 </Defs>

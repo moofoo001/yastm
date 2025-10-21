@@ -68,6 +68,14 @@
   <ST.Promo.Captain.LetterLabel>Promotion approved</ST.Promo.Captain.LetterLabel>
   <ST.Promo.Captain.LetterText>A commission pip to **Captain** has been delivered.</ST.Promo.Captain.LetterText>
 
+  <ST.Promo.Fail.Goodwill>Requires goodwill ≥ {0} with {1}.</ST.Promo.Fail.Goodwill>
+  <ST.Promo.Fail.Quests>Requires at least {0} completed quests.</ST.Promo.Fail.Quests>
+  <ST.Promo.Fail.Time>Requires more time ({0} remaining).</ST.Promo.Fail.Time>
+  <ST.Promo.Fail.Unique>Only one colonist may hold this rank.</ST.Promo.Fail.Unique>
+  <ST.Promo.Success>{PAWN_labelShort} promoted to {1}.</ST.Promo.Success>
+
+  <ST.Promo.Ceremony.Started>Promotion ceremony for {PAWN_labelShort} is starting.</ST.Promo.Ceremony.Started>
+
   <!-- Research -->
   <ST.Research.RedAlert.Label>red alert protocols</ST.Research.RedAlert.Label>
   <ST.Research.RedAlert.Desc>Implements colony-wide alert routing and EPS priority to enable the Red Alert panel.</ST.Research.RedAlert.Desc>
@@ -122,5 +130,16 @@
   <ST.Tricorder.Sec.Scan.Desc>Scan area for threats and gain combat awareness.</ST.Tricorder.Sec.Scan.Desc>
   <ST.Tricorder.Sec.SkillReq>Requires Shooting {0}+ or Melee {1}+.</ST.Tricorder.Sec.SkillReq>
   <ST.Tricorder.Sec.Applied>Combat awareness gained by {PAWN_labelShort}.</ST.Tricorder.Sec.Applied>
+
+  <!--Transporter -->
+  <ST.Transporter.BeamIn>Beam-in logistics</ST.Transporter.BeamIn>
+  <ST.Transporter.BeamIn.Desc>Materialize a small care package at the beacon.</ST.Transporter.BeamIn.Desc>
+  <ST.Transporter.BeamOut>Emergency beam-out</ST.Transporter.BeamOut>
+  <ST.Transporter.BeamOut.Desc>Teleport a colonist to the beacon. Causes brief nausea.</ST.Transporter.BeamOut.Desc>
+  <ST.Transporter.BeamIn.Done>Logistics beamed in.</ST.Transporter.BeamIn.Done>
+  <ST.Transporter.BeamOut.Done>Beamed out {PAWN_labelShort}.</ST.Transporter.BeamOut.Done>
+  <ST.Transporter.BeamOut.TooFar>Target is out of range.</ST.Transporter.BeamOut.TooFar>
+  <ST.Common.RequiresPower>Requires power.</ST.Common.RequiresPower>
+  <ST.Common.Recharging>Recharging ({0}).</ST.Common.Recharging>
   
 </LanguageData>

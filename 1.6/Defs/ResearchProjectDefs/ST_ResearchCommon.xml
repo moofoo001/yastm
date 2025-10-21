@@ -135,7 +135,7 @@
     <researchViewY>2</researchViewY>
   </ResearchProjectDef>
 
-  <ResearchProjectDef>
+  <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>ST_RecreationalInterfaces</defName>
     <label>recreational interfaces</label>
     <description>Neurale Interface-Spielgeräte (Headsets) in Standardfertigung.</description>
@@ -169,7 +169,7 @@
   </ResearchProjectDef>
 
 
-  <ResearchProjectDef>
+  <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>ST_AlertProtocols</defName>
     <label>alert protocols</label>
     <description>Implements colony-wide alert routing and EPS priority to enable the Alert panel.</description>
@@ -216,5 +216,20 @@
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
   </ResearchProjectDef>
 
+  <!-- Transporter Technology -->
+ <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_TransporterTech</defName>
+    <label>transporter systems</label>
+    <description>Enables the Transporter Beacon for short-range beam operations.</description>
+    <baseCost>2000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>AdvancedFabrication</li>
+      <li>BasicGravtech</li>
+      <li>ST_SubspaceTelemetry</li>  
+    </prerequisites>
+    <researchViewX>12</researchViewX>
+    <researchViewY>8</researchViewY>
+  </ResearchProjectDef>
 
 </Defs>

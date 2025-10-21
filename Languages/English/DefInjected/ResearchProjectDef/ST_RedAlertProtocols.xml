@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LanguageData>
-  <ST_RedAlertProtocols.label>red alert protocols</ST_RedAlertProtocols.label>
-  <ST_RedAlertProtocols.description>Implements colony-wide alert routing and EPS priority to enable the Red Alert panel.</ST_RedAlertProtocols.description>
-</LanguageData>

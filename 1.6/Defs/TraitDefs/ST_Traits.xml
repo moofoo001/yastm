@@ -10,6 +10,8 @@
     <degreeDatas>
       <li>
         <label>command training</label>
+        <description>Leadership training enhances social presence and work efficiency.</description>
+        <degree>0</degree>
         <statOffsets>
           <SocialImpact>0.05</SocialImpact>
           <NegotiationAbility>0.05</NegotiationAbility>
@@ -29,6 +31,8 @@
     <degreeDatas>
       <li>
         <label>security officer</label>
+        <description>Specialized training in combat tactics and threat assessment.</description>
+        <degree>0</degree>
         <skillGains>
           <Shooting>1</Shooting>
           <Melee>1</Melee>
@@ -51,6 +55,7 @@
     <li>
       <label>Pilot Cadet</label>
       <description>Basic piloting discipline and stress handling.</description>
+      <degree>0</degree>
       <statOffsets>
         <PilotingAbility MayRequire="Ludeon.RimWorld.Odyssey">0.15</PilotingAbility>
         <MentalBreakThreshold>-0.03</MentalBreakThreshold>
@@ -73,6 +78,7 @@
     <li>
       <label>Pilot</label>
       <description>Advanced flight under pressure.</description>
+      <degree>0</degree>
       <statOffsets>
         <PilotingAbility MayRequire="Ludeon.RimWorld.Odyssey">0.25</PilotingAbility>
         <MentalBreakThreshold>-0.05</MentalBreakThreshold>
@@ -95,6 +101,7 @@
     <li>
       <label>ace</label>
       <description>Elite maneuvering, rock-solid nerves.</description>
+      <degree>0</degree>
       <statOffsets>
         <PilotingAbility MayRequire="Ludeon.RimWorld.Odyssey">0.40</PilotingAbility>
         <MentalBreakThreshold>-0.08</MentalBreakThreshold>
@@ -117,6 +124,7 @@
       <li>
         <label>Starfleet training</label>
         <description>Thorough Starfleet training helps in stressful situations and accelerates learning.</description>
+        <degree>0</degree>
         <statOffsets>
           <GlobalLearningFactor>0.03</GlobalLearningFactor>
           <MentalBreakThreshold>-0.02</MentalBreakThreshold>
@@ -139,6 +147,7 @@
       <li>
         <label>IDIC mindset</label>
         <description>An open yet logical mindset that favors knowledge and reason.</description>
+        <degree>0</degree>
         <statOffsets>
           <ResearchSpeed>0.08</ResearchSpeed>
           <SocialImpact>-0.05</SocialImpact>
@@ -157,6 +166,7 @@
       <li>
         <label>prime directive-minded</label>
         <description>Prioritizes non-interference and diplomacy.</description>
+        <degree>0</degree>
         <statOffsets>
           <NegotiationAbility>0.08</NegotiationAbility>
           <MeleeHitChance>-0.02</MeleeHitChance>
@@ -174,6 +184,7 @@
       <li>
         <label>ferengi trader</label>
         <description>Knows every margin and every loophole.</description>
+        <degree>0</degree>
         <statOffsets>
           <TradePriceImprovement>0.10</TradePriceImprovement>
           <SocialImpact>0.05</SocialImpact>
@@ -194,6 +205,8 @@
     <degreeDatas>
       <li>
         <label>hardened physiology</label>
+        <description>Possesses redundant organs and a high pain tolerance.</description>
+        <degree>0</degree>
         <statOffsets>
           <PainShockThreshold>0.08</PainShockThreshold>
           <ImmunityGainSpeed>0.05</ImmunityGainSpeed>

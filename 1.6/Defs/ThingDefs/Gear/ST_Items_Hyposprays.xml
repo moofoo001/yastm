@@ -72,6 +72,7 @@
     <uiIconScale>1.5</uiIconScale>
     <thingCategories>
       <li>Medicine</li>
+      <li>ST_StarfleetMedical</li>
     </thingCategories>
     <statBases>
       <Mass>0.05</Mass>
@@ -117,6 +118,7 @@
     <uiIconScale>1.5</uiIconScale>
     <thingCategories>
       <li>Medicine</li>
+      <li>ST_StarfleetMedical</li>
     </thingCategories>
     <statBases>
       <Mass>0.05</Mass>

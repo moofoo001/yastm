@@ -169,5 +169,23 @@
     </subSounds>  
   </SoundDef>
 
+<SoundDef>
+  <defName>ST_Transporter_Beam</defName>
+  <context>MapOnly</context>
+  <priorityMode>PrioritizeNearest</priorityMode>
+  <maxSimultaneous>1</maxSimultaneous>
+  <subSounds>
+    <li>
+      <grains>
+        <li Class="AudioGrain_Clip">
+          <clipPath>Things/transporter</clipPath>
+        </li>
+      </grains>
+      <volumeRange>10~12</volumeRange>
+      <pitchRange>1~1</pitchRange>
+      <onCamera>false</onCamera>
+    </li>
+  </subSounds>
+</SoundDef>
 
 </Defs>

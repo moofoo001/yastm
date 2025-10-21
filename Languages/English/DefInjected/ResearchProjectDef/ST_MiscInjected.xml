@@ -16,5 +16,13 @@
   <ST_FieldHyposprays.description>Standard Starfleet hyposprays for field use.</ST_FieldHyposprays.description>
   <ST_EVASystems.label>eva systems</ST_EVASystems.label>
   <ST_EVASystems.description>Suit and helmet for extravehicular activity in hazardous environments.</ST_EVASystems.description>
+  <ST_UseMedicalTricorder.label>use Med-Tricorder</ST_UseMedicalTricorder.label>
+  <ST_UseMedicalTricorder.gerund>scanning....</ST_UseMedicalTricorder.gerund>
 
+  <!-- Red Alert Protocols -->
+  <ST_RedAlertProtocols.label>red alert protocols</ST_RedAlertProtocols.label>
+  <ST_RedAlertProtocols.description>Implements colony-wide alert routing and EPS priority to enable the Red Alert panel.</ST_RedAlertProtocols.description>
+
+  <!-- Promotion -->
+  <ST_PromotionHonored.stages.0.label>honored by promotion</ST_PromotionHonored.stages.0.label>
 </LanguageData>

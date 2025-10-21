@@ -11,4 +11,17 @@
     <label>Federation Apparel</label>
     <parent>Apparel</parent>
   </ThingCategoryDef>
+
+    <ThingCategoryDef>
+    <defName>ST_StarfleetEquipment</defName>
+    <label>Starfleet equipment</label>
+    <parent>Apparel</parent>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+    <defName>ST_StarfleetMedical</defName>
+    <label>Starfleet medical</label>
+    <parent>Manufactured</parent>
+  </ThingCategoryDef>
+  
 </Defs>
