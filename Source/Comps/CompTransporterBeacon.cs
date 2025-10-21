@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -11,7 +12,13 @@ namespace YASTM
     {
         public int cooldownBeamInTicks = 300000;   // ~5 Tage
         public int cooldownBeamOutTicks = 120000;  // ~2 Tage
-        public float maxBeamOutDistance = 50f;     // max. Ziel-Entfernung für Beam-Out
+        public float maxBeamOutDistance = 50f;     // Max. Zielentfernung für Beam-out
+
+        // NEW: Operator / Rang-Gating
+        public float operatorMaxDistance = 6f;     // Offizier muss so nah am Beacon stehen
+        public List<string> requiredRankTraitsBeamIn;   // z.B. LtJG+
+        public List<string> requiredRankTraitsBeamOut;  // z.B. Commander+
+
         public string soundDefName = "ST_Transporter_Beam";  // optionaler Sound
 
         public CompProperties_TransporterBeacon()
@@ -39,25 +46,36 @@ namespace YASTM
             if (parent.Faction != Faction.OfPlayer) yield break;
             var map = parent.Map;
             var power = parent.TryGetComp<CompPowerTrader>();
+            int now = Find.TickManager.TicksGame;
 
-            // Beam-in Logistics (kleines Care-Paket)
+            // ---- Beam-in ----
             var beamIn = new Command_Action
             {
                 defaultLabel = "ST.Transporter.BeamIn".Translate(),
                 defaultDesc  = "ST.Transporter.BeamIn.Desc".Translate(),
                 icon         = ContentFinder<Texture2D>.Get("UI/Commands/PodLaunch", false),
-                action       = DoBeamIn
+                action       = () =>
+                {
+                    if (!TryFindEligibleOperator(Props.requiredRankTraitsBeamIn, out var op, out var reason))
+                    {
+                        Messages.Message(reason ?? "ST.Transporter.RequiresOfficerGeneric".Translate(),
+                            parent, MessageTypeDefOf.RejectInput);
+                        return;
+                    }
+                    DoBeamIn(op);
+                }
             };
 
-            int now = Find.TickManager.TicksGame;
             if (power != null && !power.PowerOn)
                 beamIn.Disable("ST.Common.RequiresPower".Translate());
-            if (now < nextAllowedBeamInTick)
+            else if (now < nextAllowedBeamInTick)
                 beamIn.Disable("ST.Common.Recharging".Translate((nextAllowedBeamInTick - now).ToStringTicksToPeriod()));
+            else if (!HasEligibleOperator(Props.requiredRankTraitsBeamIn, out _))
+                beamIn.Disable(NeedOfficerReason(Props.requiredRankTraitsBeamIn));
 
             yield return beamIn;
 
-            // Emergency Beam-out (Pawn auswählen)
+            // ---- Beam-out ----
             var beamOut = new Command_Target
             {
                 defaultLabel = "ST.Transporter.BeamOut".Translate(),
@@ -72,24 +90,100 @@ namespace YASTM
                     {
                         var p = t.Thing as Pawn;
                         if (p == null || p.Map != map) return false;
-                        if (p.Faction != Faction.OfPlayer) return false;
-                        // Optional: downed bevorzugt – aber nicht zwingend
-                        return true;
+                        return p.Faction == Faction.OfPlayer;
                     }
+                },
+                action = target =>
+                {
+                    var pawn = target.Thing as Pawn;
+                    if (pawn == null) return;
+
+                    if (!TryFindEligibleOperator(Props.requiredRankTraitsBeamOut, out var op, out var reason))
+                    {
+                        Messages.Message(reason ?? "ST.Transporter.RequiresOfficerGeneric".Translate(),
+                            parent, MessageTypeDefOf.RejectInput);
+                        return;
+                    }
+                    TryBeamOutPawn(pawn, op);
                 }
             };
 
             if (power != null && !power.PowerOn)
                 beamOut.Disable("ST.Common.RequiresPower".Translate());
-            if (now < nextAllowedBeamOutTick)
+            else if (now < nextAllowedBeamOutTick)
                 beamOut.Disable("ST.Common.Recharging".Translate((nextAllowedBeamOutTick - now).ToStringTicksToPeriod()));
+            else if (!HasEligibleOperator(Props.requiredRankTraitsBeamOut, out _))
+                beamOut.Disable(NeedOfficerReason(Props.requiredRankTraitsBeamOut));
 
-            beamOut.action = target => TryBeamOutPawn(target.Thing as Pawn);
             yield return beamOut;
         }
 
+        // ---------- Operator-Findung / Rang-Gate ----------
+        private bool HasEligibleOperator(List<string> requiredTraits, out Pawn op)
+        {
+            return TryFindEligibleOperator(requiredTraits, out op, out _);
+        }
+
+        private bool TryFindEligibleOperator(List<string> requiredTraits, out Pawn op, out string failReason)
+        {
+            op = null;
+            failReason = null;
+
+            var map = parent.Map;
+            if (map == null) { failReason = "ST.Transporter.RequiresOfficerGeneric".Translate(); return false; }
+
+            var pawns = map.mapPawns.FreeColonistsSpawned;
+            Pawn best = null;
+            float bestDist = float.MaxValue;
+
+            for (int i = 0; i < pawns.Count; i++)
+            {
+                var p = pawns[i];
+                if (p.Downed || p.InMentalState || p.IsPrisoner) continue;
+                float dist = p.Position.DistanceTo(parent.Position);
+                if (dist > Props.operatorMaxDistance) continue;
+                if (!PawnHasAnyRank(p, requiredTraits)) continue;
+
+                if (dist < bestDist)
+                {
+                    bestDist = dist;
+                    best = p;
+                }
+            }
+
+            if (best == null)
+            {
+                failReason = NeedOfficerReason(requiredTraits);
+                return false;
+            }
+
+            op = best;
+            return true;
+        }
+
+        private static bool PawnHasAnyRank(Pawn p, List<string> rankDefNames)
+        {
+            if (rankDefNames == null || rankDefNames.Count == 0) return true; // kein Gate gesetzt
+            var traits = p.story?.traits;
+            if (traits == null) return false;
+            for (int i = 0; i < rankDefNames.Count; i++)
+            {
+                var tdef = DefDatabase<TraitDef>.GetNamedSilentFail(rankDefNames[i]);
+                if (tdef != null && traits.HasTrait(tdef)) return true;
+            }
+            return false;
+        }
+
+        private string NeedOfficerReason(List<string> rankDefNames)
+        {
+            // Kurzer, generischer Hinweis inkl. Distanz
+            if (rankDefNames != null && rankDefNames.Count > 0)
+                return "ST.Transporter.RequiresOfficerRanked".Translate(Props.operatorMaxDistance.ToString("0"));
+            return "ST.Transporter.RequiresOfficerGeneric".Translate();
+        }
+
         // ---------- Beam-in ----------
-        private void DoBeamIn()
+        private void DoBeamIn(Pawn operatorPawn)
         {
             var map = parent.Map;
             if (map == null) return;
@@ -97,20 +191,15 @@ namespace YASTM
             int now = Find.TickManager.TicksGame;
             if (now < nextAllowedBeamInTick) return;
 
-            // Zielzelle: in der Nähe des Beacons
             if (!CellFinder.TryFindRandomCellNear(parent.Position, map, 3,
                     c => c.Standable(map) && c.InBounds(map) && !c.Fogged(map), out var cell))
                 cell = parent.Position;
 
-            // Kleines Care-Paket zusammenstellen
             var things = MakeLogisticsPackage();
-
-            // Beamen: Items an Zelle platzieren, Effekte & Sound
             foreach (var t in things)
                 GenPlace.TryPlaceThing(t, cell, map, ThingPlaceMode.Near);
 
             PlayTransporterFX(cell, map);
-
             Messages.Message("ST.Transporter.BeamIn.Done".Translate(), new LookTargets(cell, map), MessageTypeDefOf.PositiveEvent);
 
             nextAllowedBeamInTick = now + Props.cooldownBeamInTicks;
@@ -123,11 +212,7 @@ namespace YASTM
             {
                 var def = DefDatabase<ThingDef>.GetNamedSilentFail(defName);
                 if (def == null || count <= 0) return;
-                var thing = ThingMaker.MakeThing(def);
-                thing.stackCount = Mathf.Min(count, def.stackLimit);
-                // Falls mehr als stackLimit gewünscht: aufteilen
-                int remaining = count - thing.stackCount;
-                list.Add(thing);
+                int remaining = count;
                 while (remaining > 0)
                 {
                     var t = ThingMaker.MakeThing(def);
@@ -146,7 +231,7 @@ namespace YASTM
         }
 
         // ---------- Beam-out ----------
-        private void TryBeamOutPawn(Pawn pawn)
+        private void TryBeamOutPawn(Pawn pawn, Pawn operatorPawn)
         {
             var map = parent.Map;
             if (pawn == null || map == null) return;
@@ -154,51 +239,40 @@ namespace YASTM
             int now = Find.TickManager.TicksGame;
             if (now < nextAllowedBeamOutTick) return;
 
-            // Reichweitencheck
             if (pawn.Position.DistanceTo(parent.Position) > Props.maxBeamOutDistance)
             {
                 Messages.Message("ST.Transporter.BeamOut.TooFar".Translate(), pawn, MessageTypeDefOf.RejectInput);
                 return;
             }
 
-            // Ziel: beim Beacon oder angrenzend
             IntVec3 dest = parent.Position;
             if (!dest.Walkable(map))
                 dest = CellFinder.StandableCellNear(parent.Position, map, 1);
 
-            // Effekte am Start
             PlayTransporterFX(pawn.Position, map);
-
-            // Teleport
             if (pawn.Spawned) pawn.DeSpawn();
             GenSpawn.Spawn(pawn, dest, map);
-
-            // Effekte am Ziel
             PlayTransporterFX(dest, map);
 
-            // Leichte Übelkeit (kurzer Debuff)
             var nausea = DefDatabase<HediffDef>.GetNamedSilentFail("ST_TransporterNausea");
             if (nausea != null)
             {
                 var h = pawn.health.AddHediff(nausea);
                 var disp = h.TryGetComp<HediffComp_Disappears>();
-                if (disp != null) disp.ticksToDisappear = Rand.RangeInclusive(15000, 25000); // ~0.25–0.4 Tage
+                if (disp != null) disp.ticksToDisappear = Rand.RangeInclusive(15000, 25000);
             }
 
             Messages.Message("ST.Transporter.BeamOut.Done".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent);
-
             nextAllowedBeamOutTick = now + Props.cooldownBeamOutTicks;
         }
 
         private void PlayTransporterFX(IntVec3 cell, Map map)
         {
-            // Sound
             if (!Props.soundDefName.NullOrEmpty())
             {
                 var sd = DefDatabase<SoundDef>.GetNamedSilentFail(Props.soundDefName);
                 if (sd != null) SoundStarter.PlayOneShot(sd, new TargetInfo(cell, map));
             }
-            // Flecks
             FleckMaker.Static(cell.ToVector3Shifted(), map, FleckDefOf.MicroSparks, 1.2f);
             FleckMaker.Static(cell.ToVector3Shifted(), map, FleckDefOf.AirPuff, 1.0f);
         }

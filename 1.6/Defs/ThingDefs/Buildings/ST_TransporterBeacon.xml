@@ -10,8 +10,9 @@
     </statBases>
 
     <graphicData>
-      <texPath>Things/Building/Misc/TransporterBeacon/Beacon</texPath> <!-- Placeholder -->
-      <drawSize>(1.0,1.0)</drawSize>
+      <texPath>Things/Building/ST_TransportBeacon</texPath> <!-- Placeholder -->
+        <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5,1.5)</drawSize>
     </graphicData>
 
     <size>(1,1)</size>
@@ -40,6 +41,29 @@
         <maxBeamOutDistance>50</maxBeamOutDistance>
         <soundDefName>ST_Transporter_Beam</soundDefName>
       </li>
+      <li Class="YASTM.CompProperties_TransporterBeacon">
+        <cooldownBeamInTicks>300000</cooldownBeamInTicks>
+        <cooldownBeamOutTicks>120000</cooldownBeamOutTicks>
+        <maxBeamOutDistance>50</maxBeamOutDistance>
+        <operatorMaxDistance>6</operatorMaxDistance>
+
+        <!-- Beam-in: LtJG+ -->
+        <requiredRankTraitsBeamIn>
+            <li>ST_Rank_LieutenantJG</li>
+            <li>ST_Rank_Lieutenant</li>
+            <li>ST_Rank_LtCommander</li>
+            <li>ST_Rank_Commander</li>
+            <li>ST_Rank_Captain</li>
+        </requiredRankTraitsBeamIn>
+
+        <!-- Beam-out: Commander+ -->
+        <requiredRankTraitsBeamOut>
+            <li>ST_Rank_Commander</li>
+            <li>ST_Rank_Captain</li>
+        </requiredRankTraitsBeamOut>
+
+        <soundDefName>ST_Transporter_Beam</soundDefName>
+        </li>
     </comps>
     <designationCategory>ST_Designation</designationCategory>
     <researchPrerequisites>

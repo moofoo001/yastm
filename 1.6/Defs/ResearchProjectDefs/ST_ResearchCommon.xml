@@ -153,7 +153,7 @@
   <!-- Buildings -->
 
   <!-- Graviton hull/substructure fundamentals to unlock gravship construction -->
-  
+<!--
   <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>BasicGravtech</defName>
     <label>Basic gravtech</label>
@@ -167,7 +167,7 @@
     <researchViewX>4</researchViewX>
     <researchViewY>0</researchViewY>
   </ResearchProjectDef>
-
+-->
 
   <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>ST_AlertProtocols</defName>
@@ -225,11 +225,11 @@
     <techLevel>Spacer</techLevel>
     <prerequisites>
       <li>AdvancedFabrication</li>
-      <li>BasicGravtech</li>
+      <li>AdvancedGravtech</li>
       <li>ST_SubspaceTelemetry</li>  
     </prerequisites>
-    <researchViewX>12</researchViewX>
-    <researchViewY>8</researchViewY>
+    <researchViewX>6</researchViewX>
+    <researchViewY>0</researchViewY>
   </ResearchProjectDef>
 
 </Defs>
