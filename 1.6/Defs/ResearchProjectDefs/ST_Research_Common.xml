@@ -105,6 +105,22 @@
 
   <!-- Common Gear -->
 
+  <!-- Common EV Suit -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+  <defName>ST_EVSuits</defName>
+  <label>EV suits</label>
+  <description>Protective standard-issue Extra-Vehicular suit and helmet for hazardous environments and field operations.</description>
+  <techLevel>Spacer</techLevel>
+  <tab>ST_Research</tab>
+  <baseCost>1000</baseCost>
+  <prerequisites>
+    <li>ST_Common_Issue_Gear</li>
+    <li>Electricity</li>
+  </prerequisites>
+  <researchViewX>2</researchViewX>
+  <researchViewY>0</researchViewY>
+</ResearchProjectDef>
+
   <!-- Scanner / Tricorder etc -->
   <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>ST_Scanning_technology</defName>

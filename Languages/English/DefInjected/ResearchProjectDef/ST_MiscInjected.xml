@@ -20,6 +20,10 @@
   <ST_UseMedicalTricorder.gerund>scanning....</ST_UseMedicalTricorder.gerund>
 
   <!-- Red Alert Protocols -->
+  <ST_Alert_YellowState.label>yellow alert</ST_Alert_YellowState.label>
+  <ST_Alert_YellowState.description>Heightened readiness.</ST_Alert_YellowState.description>
+  <ST_Alert_RedState.label>red alert</ST_Alert_RedState.label>
+  <ST_Alert_RedState.description>All hands to stations.</ST_Alert_RedState.description>
   <ST_RedAlertProtocols.label>red alert protocols</ST_RedAlertProtocols.label>
   <ST_RedAlertProtocols.description>Implements colony-wide alert routing and EPS priority to enable the Red Alert panel.</ST_RedAlertProtocols.description>
 

@@ -7,16 +7,19 @@
   <ST.RedAlert.Recharging>Red Alert recharging: {0}</ST.RedAlert.Recharging>
   <ST.RedAlert.Engaged>Red Alert engaged.</ST.RedAlert.Engaged>
   <ST.RedAlert.MissingHediff>Missing hediff: ST_RedAlert</ST.RedAlert.MissingHediff>
+  <ST.Alert.Red.Toggle>Red Alert</ST.Alert.Red.Toggle>
+  <ST.Alert.Red.Desc>All hands to battle stations.</ST.Alert.Red.Desc>
 
-  
   <!-- Yellow Alert -->
-
   <ST.YellowAlert.EngageButton>Engage Yellow Alert</ST.YellowAlert.EngageButton>
   <ST.YellowAlert.ButtonDesc>Trigger a colony-wide caution alert with a short cooldown.</ST.YellowAlert.ButtonDesc>
   <ST.YellowAlert.NeedsPower>Needs power.</ST.YellowAlert.NeedsPower>
   <ST.YellowAlert.Recharging>Yellow Alert recharging: {0}</ST.YellowAlert.Recharging>
   <ST.YellowAlert.Engaged>Yellow Alert engaged.</ST.YellowAlert.Engaged>
   <ST.YellowAlert.MissingHediff>Missing hediff: ST_YellowAlert</ST.YellowAlert.MissingHediff>
+  <ST.Alert.Yellow.Toggle>Yellow Alert</ST.Alert.Yellow.Toggle>
+  <ST.Alert.Yellow.Desc>Heightened readiness.</ST.Alert.Yellow.Desc>
+
 
   <!-- Starfleet Aid -->
   <ST.Aid.Button>Request Starfleet Aid</ST.Aid.Button>
@@ -27,6 +30,17 @@
   <ST.Aid.GoodwillMissing>Requires goodwill ≥ {0} with {1}. (Current: {2})</ST.Aid.GoodwillMissing>
 
   <!-- Rank / Promotion -->
+
+  <ST.Promotion.NotEligible>This pawn is not eligible for promotion.</ST.Promotion.NotEligible>
+  <ST.Promotion.AlreadyHasRank>Already holds this rank.</ST.Promotion.AlreadyHasRank>
+  <ST.Promotion.Cooldown>Promotion systems recharging ({0}).</ST.Promotion.Cooldown>
+  <ST.Promotion.Done>{PAWN_labelShort} has been promoted to {0}.</ST.Promotion.Done>
+  <ST.Promotion.RequiresFaction>Requires a Starfleet career path.</ST.Promotion.RequiresFaction>
+  <ST.Promotion.RequiresGoodwill>Requires goodwill ≥ {0} with {0}.</ST.Promotion.RequiresGoodwill>
+  <ST.Promotion.RequiresQuests>Requires {0} completed promotion quest(s).</ST.Promotion.RequiresQuests>
+  <ST.Promotion.RequiresDays>Must wait {0} more days since the last promotion.</ST.Promotion.RequiresDays>
+  <ST.Promotion.UniqueRoleTaken>Only one Captain per colony is allowed.</ST.Promotion.UniqueRoleTaken>
+
   <ST.Rank.Promoted>{0} promoted to {1}.</ST.Rank.Promoted>
   <ST.Pip.Use.Ensign>Promote to Ensign</ST.Pip.Use.Ensign>
   <ST.Pip.Use.LJG>Promote to Lieutenant (jg)</ST.Pip.Use.LJG>
@@ -75,6 +89,18 @@
   <ST.Promo.Success>{PAWN_labelShort} promoted to {1}.</ST.Promo.Success>
 
   <ST.Promo.Ceremony.Started>Promotion ceremony for {PAWN_labelShort} is starting.</ST.Promo.Ceremony.Started>
+  <ST.Promo.Ceremony.Obligation>A promotion ceremony for {PAWN_labelShort} has been scheduled.</ST.Promo.Ceremony.Obligation>
+
+ <!-- Promotion 2.0 (Lite Tracker) -->
+  <STQ.LJG.Intro>Complete the following Starfleet tasks to qualify for lieutenant junior grade:</STQ.LJG.Intro>
+  <STQ.LJG.Start>Starfleet objectives issued: complete one medical OR science scan, a security sweep, and improve relations via diplomacy.</STQ.LJG.Start>
+  <STQ.LJG.Complete>Objectives complete. A promotion pip has been authorized.</STQ.LJG.Complete>
+  <STQ.LJG.Alert.Label>LtJG objectives</STQ.LJG.Alert.Label>
+  <STQ.LJG.Alert.Desc>Complete the following to receive authorization for promotion:</STQ.LJG.Alert.Desc>
+  <STQ.LJG.Task.Scan>One medical OR science scan</STQ.LJG.Task.Scan>
+  <STQ.LJG.Task.Sweep>Security sweep</STQ.LJG.Task.Sweep>
+  <STQ.LJG.Task.Diplo>Improve relations via diplomacy</STQ.LJG.Task.Diplo>
+
 
   <!-- Research -->
   <ST.Research.RedAlert.Label>red alert protocols</ST.Research.RedAlert.Label>
@@ -102,6 +128,19 @@
   <ST.Diplo.Requirements.Improve>Requires a {1} with Social {0}+ on this map.</ST.Diplo.Requirements.Improve>
   <ST.Diplo.Requirements.Ceasefire>Requires a {1} with Social {0}+ on this map.</ST.Diplo.Requirements.Ceasefire>
 
+  <ST.Diplomacy.OpenChannel>Open diplomacy channel</ST.Diplomacy.OpenChannel>
+  <ST.Diplomacy.OpenChannel.Desc>Contact a faction representative.</ST.Diplomacy.OpenChannel.Desc>
+  <ST.Diplomacy.ImproveRelations>Improve relations</ST.Diplomacy.ImproveRelations>
+  <ST.Diplomacy.ImproveRelations.Desc>Spend silver to improve goodwill.</ST.Diplomacy.ImproveRelations.Desc>
+  <ST.Diplomacy.NoTargets>No valid target factions.</ST.Diplomacy.NoTargets>
+  <ST.Diplomacy.Costs>Costs {0} silver.</ST.Diplomacy.Costs>
+  <ST.Diplomacy.Result>Relations with {FACTION_name} improved by {0}.</ST.Diplomacy.Result>
+  <ST.Diplomacy.FailCooldown>Channel is busy ({0}).</ST.Diplomacy.FailCooldown>
+
+  <!-- Common / Utility -->
+  <ST.Common.RequiresPower>Requires power.</ST.Common.RequiresPower>
+  <ST.Common.Recharging>Recharging ({0}).</ST.Common.Recharging>
+
   <!-- Ktarian Game -->
   <ST.Ktarian.Play.Button>Play Ktarian Game</ST.Ktarian.Play.Button>
   <ST.Ktarian.Play.Desc>Start a short neural-interface game session.</ST.Ktarian.Play.Desc>
@@ -109,6 +148,9 @@
   <ST.Ktarian.Play.NeedsTalking>Pawn must be able to talk.</ST.Ktarian.Play.NeedsTalking>
   <ST.Thought.KtarianCraving.Label>ktarian craving</ST.Thought.KtarianCraving.Label>
   <ST.Thought.KtarianCraving.Desc>A lingering urge to return to the Ktarian game.</ST.Thought.KtarianCraving.Desc>
+  <ST.Ktarian.Use>Play Ktarian game</ST.Ktarian.Use>
+  <ST.Ktarian.Use.Desc>Immerse in a holographic puzzle experience.</ST.Ktarian.Use.Desc>
+  <ST.Ktarian.AddictionWarning>Careful: prolonged use may cause obsessive focus.</ST.Ktarian.AddictionWarning>
 
   <!-- Tricorder Medical Scan -->
   <ST.Tricorder.Med.Scan>Scan patient</ST.Tricorder.Med.Scan>
@@ -117,6 +159,7 @@
   <ST.Tricorder.Med.SkillReq>Requires Medicine {0}+.</ST.Tricorder.Med.SkillReq>
   <ST.Tricorder.Med.Applied>Tricorder scan applied to {PAWN_labelShort}.</ST.Tricorder.Med.Applied>
   <ST.Common.Recharging>Recharging ({0})</ST.Common.Recharging>
+  <ST.Tricorder.MedScanApplied>Applied medical tricorder scan to {PAWN_labelShort}.</ST.Tricorder.MedScanApplied>
 
   <!-- Tricorder Scientific Scan -->
   <ST.Tricorder.Sci.Scan>Scan area (science)</ST.Tricorder.Sci.Scan>
@@ -124,12 +167,22 @@
   <ST.Tricorder.Sci.OutOfRange>Target cell is out of range.</ST.Tricorder.Sci.OutOfRange>
   <ST.Tricorder.Sci.SkillReq>Requires Intellectual {0}+.</ST.Tricorder.Sci.SkillReq>
   <ST.Tricorder.Sci.Applied>Scientific insight gained by {PAWN_labelShort}.</ST.Tricorder.Sci.Applied>
+  <ST.Tricorder.SciScanApplied>Applied science tricorder scan to {PAWN_labelShort}.</ST.Tricorder.SciScanApplied>
 
   <!-- Tricorder Security Scan -->
   <ST.Tricorder.Sec.Scan>Tactical sweep (security)</ST.Tricorder.Sec.Scan>
   <ST.Tricorder.Sec.Scan.Desc>Scan area for threats and gain combat awareness.</ST.Tricorder.Sec.Scan.Desc>
   <ST.Tricorder.Sec.SkillReq>Requires Shooting {0}+ or Melee {1}+.</ST.Tricorder.Sec.SkillReq>
   <ST.Tricorder.Sec.Applied>Combat awareness gained by {PAWN_labelShort}.</ST.Tricorder.Sec.Applied>
+  <ST.Security.Sweep.Label>Security sweep</ST.Security.Sweep.Label>
+  <ST.Security.Sweep.Desc>Perform a short-range security sweep of the area.</ST.Security.Sweep.Desc>
+  <ST.Security.Sweep.Started>Security sweep initiated.</ST.Security.Sweep.Started>
+  <ST.Security.Sweep.Completed>Security sweep completed.</ST.Security.Sweep.Completed>
+
+
+  <ST.Tricorder.Cooldown>Tricorder is recalibrating ({0}).</ST.Tricorder.Cooldown>
+  <ST.Tricorder.RequirementsFail>Requirements not met.</ST.Tricorder.RequirementsFail>
+  <ST.Tricorder.NeedTarget>No valid target selected.</ST.Tricorder.NeedTarget>
 
   <!--Transporter -->
   <ST.Transporter.BeamIn>Beam-in logistics</ST.Transporter.BeamIn>
@@ -142,4 +195,8 @@
   <ST.Common.RequiresPower>Requires power.</ST.Common.RequiresPower>
   <ST.Common.Recharging>Recharging ({0}).</ST.Common.Recharging>
   
+  <ST.Transporter.NearGravEngine.Required>A gravity engine (or its blueprint) must exist on this map.</ST.Transporter.NearGravEngine.Required>
+  <ST.Transporter.NearGravEngine.TooFar>Must be placed within {0} tiles of the gravity engine.</ST.Transporter.NearGravEngine.TooFar>
+  
+
 </LanguageData>

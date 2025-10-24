@@ -22,4 +22,16 @@
   <ST.DeployedBeacon>Deployed ComBeacon.</ST.DeployedBeacon>
   <ST.NoPlaceToDeploy>No place to deploy.</ST.NoPlaceToDeploy>
 
+  <ST.Transporter.BeamIn>Beam-in logistics</ST.Transporter.BeamIn>
+  <ST.Transporter.BeamIn.Desc>Materialize a small care package at the beacon.</ST.Transporter.BeamIn.Desc>
+  <ST.Transporter.BeamOut>Emergency beam-out</ST.Transporter.BeamOut>
+  <ST.Transporter.BeamOut.Desc>Teleport a colonist to the beacon. Causes brief nausea.</ST.Transporter.BeamOut.Desc>
+  <ST.Transporter.BeamIn.Done>Logistics beamed in.</ST.Transporter.BeamIn.Done>
+  <ST.Transporter.BeamOut.Done>Beamed out {PAWN_labelShort}.</ST.Transporter.BeamOut.Done>
+  <ST.Transporter.BeamOut.TooFar>Target is out of range.</ST.Transporter.BeamOut.TooFar>
+  <ST.Transporter.RequiresOfficerGeneric>Requires an eligible officer nearby.</ST.Transporter.RequiresOfficerGeneric>
+  <ST.Transporter.RequiresOfficerRanked>Requires an eligible officer within {0} tiles.</ST.Transporter.RequiresOfficerRanked>
+  <ST.Transporter.NearGravEngine.Required>A gravity engine (or its blueprint) must exist on this map.</ST.Transporter.NearGravEngine.Required>
+  <ST.Transporter.NearGravEngine.TooFar>Must be placed within {0} tiles of the gravity engine.</ST.Transporter.NearGravEngine.TooFar>
+
 </LanguageData>

@@ -135,52 +135,42 @@
   </HediffDef>
 
     <!-- alert statuses -->
+ 
   <HediffDef>
-    <defName>ST_RedAlert</defName>
-    <description>Colony-wide red alert status, boosting movement speed at the cost of focused work.</description>
+    <defName>ST_Alert_RedState</defName>
     <label>red alert</label>
+    <description>All hands to stations.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>false</isBad>
     <stages>
       <li>
-        <label>red alert</label>
-        <statOffsets>
-          <MoveSpeed>0.15</MoveSpeed>       
-          <WorkSpeedGlobal>-0.05</WorkSpeedGlobal>
-          <AimingDelayFactor>-0.05</AimingDelayFactor>
+      <statOffsets>
+            <WorkSpeedGlobal>0.05</WorkSpeedGlobal>
+            <MoveSpeed>0.05</MoveSpeed>
+            <AimingDelayFactor>-0.05</AimingDelayFactor>
         </statOffsets>
       </li>
     </stages>
-    <comps>
-      <li Class="HediffCompProperties_Disappears">
-        <disappearsAfterTicks>15000</disappearsAfterTicks> 
-      </li>
-    </comps>
   </HediffDef>
 
     <!-- yellow alert -->
+
   <HediffDef>
-    <defName>ST_YellowAlert</defName>
+    <defName>ST_Alert_YellowState</defName>
     <label>yellow alert</label>
-    <description>Heightened readiness without full EPS priority. Slight movement bonus with minor work focus penalty.</description>
+    <description>Heightened readiness.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <isBad>false</isBad>
     <stages>
       <li>
-        <label>yellow alert</label>
         <statOffsets>
-          <MoveSpeed>0.08</MoveSpeed>
-          <AimingDelayFactor>-0.03</AimingDelayFactor>
-          <WorkSpeedGlobal>-0.02</WorkSpeedGlobal>
+            <WorkSpeedGlobal>0.03</WorkSpeedGlobal> <!-- +3% -->
+            <MoveSpeed>0.03</MoveSpeed> <!-- +3% -->
         </statOffsets>
       </li>
     </stages>
-    <comps>
-      <li Class="HediffCompProperties_Disappears">
-        <disappearsAfterTicks>9000</disappearsAfterTicks> 
-      </li>
-    </comps>
   </HediffDef>
+
 
   <!-- command presence buff -->
   <HediffDef>

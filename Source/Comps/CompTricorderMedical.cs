@@ -25,6 +25,8 @@ namespace YASTM
     public class CompTricorderMedical : ThingComp
     {
         public CompProperties_TricorderMedical Props => (CompProperties_TricorderMedical)props;
+
+        // Fallback (falls Shared-Comp fehlt)
         private int nextAllowedTick;
 
         public override void PostExposeData()
@@ -38,6 +40,9 @@ namespace YASTM
             var apparel = parent as Apparel;
             var wearer  = apparel?.Wearer;
             if (wearer == null || wearer.Faction != Faction.OfPlayer) yield break;
+
+            var shared = parent.TryGetComp<CompTricorderSharedCooldown>();
+            int now = Find.TickManager.TicksGame;
 
             var cmd = new Command_Target
             {
@@ -63,12 +68,13 @@ namespace YASTM
                 action = t => TryStartScan(wearer, t.Thing as Pawn)
             };
 
-            int now = Find.TickManager.TicksGame;
-            var shared = parent.TryGetComp<CompTricorderSharedCooldown>();
-            bool gated = shared != null && !shared.IsReady(now);
-            if (gated)
+            // Cooldown-Anzeige (Shared bevorzugt)
+            if (shared != null && !shared.IsReady(now))
                 cmd.Disable("ST.Common.Recharging".Translate(shared.Remaining(now).ToStringTicksToPeriod()));
+            else if (now < nextAllowedTick)
+                cmd.Disable("ST.Common.Recharging".Translate((nextAllowedTick - now).ToStringTicksToPeriod()));
 
+            // Skill-Gate
             int med = wearer.skills?.GetSkill(SkillDefOf.Medicine)?.Level ?? 0;
             if (med < Props.minMedicine)
                 cmd.Disable("ST.Tricorder.Med.SkillReq".Translate(Props.minMedicine));
@@ -81,7 +87,18 @@ namespace YASTM
             if (target == null) return;
 
             int now = Find.TickManager.TicksGame;
-            if (now < nextAllowedTick) return;
+            var shared = parent.TryGetComp<CompTricorderSharedCooldown>();
+
+            // Cooldown-Gate (Shared bevorzugt)
+            if (shared != null)
+            {
+                if (!shared.IsReady(now))
+                {
+                    Messages.Message("ST.Common.Recharging".Translate(shared.Remaining(now).ToStringTicksToPeriod()), user, MessageTypeDefOf.RejectInput);
+                    return;
+                }
+            }
+            else if (now < nextAllowedTick) return;
 
             if (user.Position.DistanceTo(target.Position) > Props.range)
             {
@@ -98,7 +115,10 @@ namespace YASTM
 
             var job = new Job(jobDef, target);
             user.jobs.TryTakeOrderedJob(job);
-            nextAllowedTick = now + Props.cooldownTicks;
+
+            // Cooldown START (Shared bevorzugt)
+            if (shared != null) shared.StartCooldown(now, Props.cooldownTicks);
+            else nextAllowedTick = now + Props.cooldownTicks;
         }
 
         // von Job aus abrufbar

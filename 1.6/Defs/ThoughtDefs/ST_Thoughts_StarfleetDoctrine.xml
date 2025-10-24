@@ -5,6 +5,7 @@
   <ThoughtDef>
     <defName>ST_Thought_IDIC_Encouraged</defName>
     <label>diversity encouraged</label>
+    <description>After a team briefing or cross-disciplinary success</description>
     <durationDays>0.8</durationDays>
     <stackLimit>1</stackLimit>
     <validWhileDespawned>true</validWhileDespawned>
@@ -22,6 +23,7 @@
   <ThoughtDef>
     <defName>ST_Thought_NonInterference_Kept</defName>
     <label>restraint maintained</label>
+    <description>After resolving a situation without lethal force / minimal interference</description>
     <durationDays>0.8</durationDays>
     <stackLimit>1</stackLimit>
     <validWhileDespawned>true</validWhileDespawned>
@@ -39,6 +41,7 @@
   <ThoughtDef>
     <defName>ST_Thought_Promotion_Ceremony</defName>
     <label>recognized promotion</label>
+    <description>Promotion ceremony outcome</description>
     <durationDays>2.0</durationDays>
     <stackLimit>1</stackLimit>
     <validWhileDespawned>true</validWhileDespawned>
@@ -50,6 +53,132 @@
       </li>
     </stages>
     <icon>UI/Icons/Starfleet/Thought_Promotion</icon>
+  </ThoughtDef>
+
+<!-- Honoree -->
+  <ThoughtDef>
+    <defName>ST_PromotionCeremony_Honoree_Best</defName>
+    <label>celebrated promotion (unforgettable)</label>
+    <description>A flawless ceremony marked this promotion.</description>
+    <durationDays>5</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stages>
+      <li>
+      <label>celebrated promotion</label>
+      <baseMoodEffect>12</baseMoodEffect>
+      <description>A flawless ceremony marked this promotion.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>ST_PromotionCeremony_Honoree_Good</defName>
+    <label>celebrated promotion</label>
+    <description>The ceremony honored this promotion.</description>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stages>
+      <li>
+      <label>celebrated promotion</label>
+      <baseMoodEffect>7</baseMoodEffect>
+      <description>The ceremony honored this promotion.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>ST_PromotionCeremony_Honoree_Bad</defName>
+    <label>botched promotion ceremony</label>
+    <description>The ceremony fell short of expectations.</description>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stages>
+      <li>
+      <label>botched promotion ceremony</label>
+      <baseMoodEffect>-4</baseMoodEffect>
+      <description>The ceremony fell short of expectations.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Officer -->
+  <ThoughtDef>
+    <defName>ST_PromotionCeremony_Officer_Best</defName>
+    <label>presided a flawless ceremony</label>
+    <description>An exemplary ceremony reflects well on leadership.</description>
+    <durationDays>4</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stages>
+      <li>
+      <label>presided a flawless ceremony</label>
+      <baseMoodEffect>6</baseMoodEffect>
+      <description>An exemplary ceremony reflects well on leadership.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>ST_PromotionCeremony_Officer_Good</defName>
+    <label>presided a ceremony</label>
+    <description>A solid ceremony.</description>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stages>
+      <li>
+      <label>presided a ceremony</label>
+      <baseMoodEffect>3</baseMoodEffect>
+      <description>A solid ceremony.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>ST_PromotionCeremony_Officer_Bad</defName>
+    <label>botched the ceremony</label>
+    <description>Poor preparation showed.</description>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stages>
+      <li>
+      <label>botched the ceremony</label>
+      <baseMoodEffect>-3</baseMoodEffect>
+      <description>Poor preparation showed.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Zuschauer -->
+  <ThoughtDef>
+    <defName>ST_PromotionCeremony_Spectator_Positive</defName>
+    <label>attended a promotion ceremony</label>
+    <description>A colleague's promotion was celebrated.</description>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stages>
+     <li>
+      <label>attended a promotion ceremony</label>
+      <baseMoodEffect>3</baseMoodEffect>
+      <description>A colleague's promotion was celebrated.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>ST_PromotionCeremony_Spectator_Best</defName>
+    <label>attended a remarkable ceremony</label>
+    <description>An inspiring promotion ceremony.</description>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stages>
+      <li>
+      <label>attended a remarkable ceremony</label>
+      <baseMoodEffect>5</baseMoodEffect>
+      <description>An inspiring promotion ceremony.</description>
+      </li>
+      </stages>
   </ThoughtDef>
 
 </Defs>

@@ -30,17 +30,33 @@
     </costList>
 
     <minifiedDef>MinifiedThing</minifiedDef>
+    
+  <placeWorkers>
+    <li>YASTM.PlaceWorker_RequireProximityToDef</li>
+  </placeWorkers>
+
+  <modExtensions>
+    <li Class="YASTM.ProximityRequirementExtension">
+      <targetDefs>
+        <li>GravEngine</li>          
+      </targetDefs>
+      <maxDistance>15</maxDistance>      
+      <allowBlueprints>true</allowBlueprints>
+    </li>
+  </modExtensions>
 
     <comps>
       <li Class="CompProperties_Power">
         <basePowerConsumption>350</basePowerConsumption>
       </li>
+
       <li Class="YASTM.CompProperties_TransporterBeacon">
         <cooldownBeamInTicks>300000</cooldownBeamInTicks>   <!-- 5 Tage -->
         <cooldownBeamOutTicks>120000</cooldownBeamOutTicks> <!-- 2 Tage -->
         <maxBeamOutDistance>50</maxBeamOutDistance>
         <soundDefName>ST_Transporter_Beam</soundDefName>
       </li>
+
       <li Class="YASTM.CompProperties_TransporterBeacon">
         <cooldownBeamInTicks>300000</cooldownBeamInTicks>
         <cooldownBeamOutTicks>120000</cooldownBeamOutTicks>
@@ -63,7 +79,13 @@
         </requiredRankTraitsBeamOut>
 
         <soundDefName>ST_Transporter_Beam</soundDefName>
-        </li>
+    </li>
+
+     <li Class="CompProperties_Glower">
+        <glowRadius>8</glowRadius>
+        <glowColor>(0,218,255,0)</glowColor>
+      </li>
+
     </comps>
     <designationCategory>ST_Designation</designationCategory>
     <researchPrerequisites>

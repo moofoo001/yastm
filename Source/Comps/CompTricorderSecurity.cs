@@ -23,6 +23,8 @@ namespace YASTM
     public class CompTricorderSecurity : ThingComp
     {
         public CompProperties_TricorderSecurity Props => (CompProperties_TricorderSecurity)props;
+
+        // Fallback (falls Shared-Comp fehlt)
         private int nextAllowedTick;
 
         public override void PostExposeData()
@@ -37,32 +39,49 @@ namespace YASTM
             var wearer  = apparel?.Wearer;
             if (wearer == null || wearer.Faction != Faction.OfPlayer) yield break;
 
+            var shared = parent.TryGetComp<CompTricorderSharedCooldown>();
+            int now = Find.TickManager.TicksGame;
+
             var cmd = new Command_Target
             {
                 defaultLabel   = "ST.Tricorder.Sec.Scan".Translate(),
                 defaultDesc    = "ST.Tricorder.Sec.Scan.Desc".Translate(),
                 icon           = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/SecurityScan", false),
-                targetingParams = new TargetingParameters { canTargetLocations = true, canTargetPawns = false }
+                targetingParams = new TargetingParameters { canTargetLocations = true, canTargetPawns = false },
+                action = t => TryStartScan(wearer, t.Cell)
             };
 
-            int now = Find.TickManager.TicksGame;
-            if (now < nextAllowedTick)
+            // Cooldown-Anzeige (Shared bevorzugt)
+            if (shared != null && !shared.IsReady(now))
+                cmd.Disable("ST.Common.Recharging".Translate(shared.Remaining(now).ToStringTicksToPeriod()));
+            else if (now < nextAllowedTick)
                 cmd.Disable("ST.Common.Recharging".Translate((nextAllowedTick - now).ToStringTicksToPeriod()));
 
-            // Skill-Gate: Shooting ODER Melee >= Schwelle
+            // Skill-Gate: Shooting ODER Melee
             int shoot = wearer.skills?.GetSkill(SkillDefOf.Shooting)?.Level ?? 0;
             int melee = wearer.skills?.GetSkill(SkillDefOf.Melee)?.Level ?? 0;
             if (shoot < Props.minShooting && melee < Props.minMelee)
                 cmd.Disable("ST.Tricorder.Sec.SkillReq".Translate(Props.minShooting, Props.minMelee));
 
-            cmd.action = t => TryStartScan(wearer, t.Cell);
             yield return cmd;
         }
 
         private void TryStartScan(Pawn user, IntVec3 cell)
         {
             int now = Find.TickManager.TicksGame;
-            if (now < nextAllowedTick) return;
+            var shared = parent.TryGetComp<CompTricorderSharedCooldown>();
+
+            // Cooldown-Gate
+            if (shared != null)
+            {
+                if (!shared.IsReady(now))
+                {
+                    Messages.Message("ST.Common.Recharging".Translate(shared.Remaining(now).ToStringTicksToPeriod()), user, MessageTypeDefOf.RejectInput);
+                    return;
+                }
+            }
+            else if (now < nextAllowedTick) return;
+
             if (!cell.InBounds(user.Map) || cell.DistanceTo(user.Position) > Props.range)
             {
                 Messages.Message("ST.Tricorder.Sci.OutOfRange".Translate(), user, MessageTypeDefOf.RejectInput);
@@ -78,7 +97,10 @@ namespace YASTM
 
             var job = new Job(jobDef, cell);
             user.jobs.TryTakeOrderedJob(job);
-            nextAllowedTick = now + Props.cooldownTicks;
+
+            // Cooldown START (Shared bevorzugt)
+            if (shared != null) shared.StartCooldown(now, Props.cooldownTicks);
+            else nextAllowedTick = now + Props.cooldownTicks;
         }
 
         // Für den Job:

@@ -22,6 +22,8 @@ namespace YASTM
     public class CompTricorderScience : ThingComp
     {
         public CompProperties_TricorderScience Props => (CompProperties_TricorderScience)props;
+
+        // Fallback (falls Shared-Comp fehlt)
         private int nextAllowedTick;
 
         public override void PostExposeData()
@@ -36,32 +38,47 @@ namespace YASTM
             var wearer  = apparel?.Wearer;
             if (wearer == null || wearer.Faction != Faction.OfPlayer) yield break;
 
+            var shared = parent.TryGetComp<CompTricorderSharedCooldown>();
+            int now = Find.TickManager.TicksGame;
+
             var cmd = new Command_Target
             {
                 defaultLabel   = "ST.Tricorder.Sci.Scan".Translate(),
                 defaultDesc    = "ST.Tricorder.Sci.Scan.Desc".Translate(),
                 icon           = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/ScienceScan", false),
-                targetingParams = new TargetingParameters { canTargetLocations = true, canTargetPawns = false }
+                targetingParams = new TargetingParameters { canTargetLocations = true, canTargetPawns = false },
+                action = t => TryStartScan(wearer, t.Cell)
             };
 
-                int now = Find.TickManager.TicksGame;
-                var shared = parent.TryGetComp<CompTricorderSharedCooldown>();
-                bool gated = shared != null && !shared.IsReady(now);
-                if (gated)
-                 cmd.Disable("ST.Common.Recharging".Translate(shared.Remaining(now).ToStringTicksToPeriod()));
+            // Cooldown-Anzeige
+            if (shared != null && !shared.IsReady(now))
+                cmd.Disable("ST.Common.Recharging".Translate(shared.Remaining(now).ToStringTicksToPeriod()));
+            else if (now < nextAllowedTick)
+                cmd.Disable("ST.Common.Recharging".Translate((nextAllowedTick - now).ToStringTicksToPeriod()));
 
+            // Skill-Gate
             int intel = wearer.skills?.GetSkill(SkillDefOf.Intellectual)?.Level ?? 0;
             if (intel < Props.minIntellectual)
                 cmd.Disable("ST.Tricorder.Sci.SkillReq".Translate(Props.minIntellectual));
 
-            cmd.action = t => TryStartScan(wearer, t.Cell);
             yield return cmd;
         }
 
         private void TryStartScan(Pawn user, IntVec3 cell)
         {
             int now = Find.TickManager.TicksGame;
-            if (now < nextAllowedTick) return;
+            var shared = parent.TryGetComp<CompTricorderSharedCooldown>();
+
+            // Cooldown-Gate
+            if (shared != null)
+            {
+                if (!shared.IsReady(now))
+                {
+                    Messages.Message("ST.Common.Recharging".Translate(shared.Remaining(now).ToStringTicksToPeriod()), user, MessageTypeDefOf.RejectInput);
+                    return;
+                }
+            }
+            else if (now < nextAllowedTick) return;
 
             if (!cell.InBounds(user.Map) || cell.DistanceTo(user.Position) > Props.range)
             {
@@ -78,7 +95,10 @@ namespace YASTM
 
             var job = new Job(jobDef, cell);
             user.jobs.TryTakeOrderedJob(job);
-            nextAllowedTick = now + Props.cooldownTicks;
+
+            // Cooldown START
+            if (shared != null) shared.StartCooldown(now, Props.cooldownTicks);
+            else nextAllowedTick = now + Props.cooldownTicks;
         }
 
         // Für den Job:

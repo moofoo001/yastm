@@ -77,7 +77,11 @@ namespace YASTM
                 user.needs?.mood?.thoughts?.memories?.TryGainMemory(honorThought);
 
             // 8) Promotion Ceremony starten (vanilla Party als Feier)
-            TryStartPromotionCeremony(user.Map, user);
+            if (!TryCreatePromotionRitualObligation(user))
+                {
+                    // nur wenn Ideology nicht aktiv oder Precept fehlt → Party-Fallback
+                    TryStartPromotionParty(user.Map, user);
+                }
         }
 
         private void TryClearExistingRankTraits(Pawn pawn)
@@ -124,12 +128,32 @@ namespace YASTM
             pawn.apparel.Wear(pip, true); // ersetzt Konflikte, dropt ggf. auf Boden
         }
 
-        private void TryStartPromotionCeremony(Map map, Pawn honoree)
+        private bool TryCreatePromotionRitualObligation(Pawn honoree)
+            {
+                if (!ModsConfig.IdeologyActive) return false;
+                if (honoree?.Faction != Faction.OfPlayer) return false;
+
+                var preceptDef = DefDatabase<PreceptDef>.GetNamedSilentFail("ST_PromotionCeremonyPrecept");
+                if (preceptDef == null) return false;
+
+                var ideo = Faction.OfPlayer?.ideos?.PrimaryIdeo;
+                if (ideo == null) return false;
+
+                var ritualPrecept = ideo.PreceptsListForReading.OfType<Precept_Ritual>()
+                                    .FirstOrDefault(p => p.def == preceptDef);
+                if (ritualPrecept == null) return false;
+
+                var obligation = new RitualObligation(ritualPrecept, honoree);
+                ritualPrecept.AddObligation(obligation);
+
+                Messages.Message("ST.Promo.Ceremony.Obligation".Translate(honoree.Named("PAWN")),
+                    honoree, MessageTypeDefOf.PositiveEvent);
+                return true;
+            }
+        private void TryStartPromotionParty(Map map, Pawn honoree)
         {
             if (map == null || honoree == null || !honoree.Spawned) return;
 
-            // Party-Def per Name holen (RW-Versionen unterscheiden sich beim IncidentDefOf)
-            // Fallback auf Gathering_Friendly, falls "Party" nicht existiert.
             var partyDef = DefDatabase<IncidentDef>.GetNamedSilentFail("Party")
                         ?? DefDatabase<IncidentDef>.GetNamedSilentFail("Gathering_Friendly");
 
@@ -138,14 +162,12 @@ namespace YASTM
                 var parms = StorytellerUtility.DefaultParmsNow(IncidentCategoryDefOf.Misc, map);
                 parms.target = map;
 
-                bool started = partyDef.Worker.TryExecute(parms);
-                if (started)
+                if (partyDef.Worker.TryExecute(parms))
                 {
                     Messages.Message("ST.Promo.Ceremony.Started".Translate(honoree.Named("PAWN")),
                         new LookTargets(honoree), MessageTypeDefOf.PositiveEvent);
                 }
             }
-            // else: kein passender Incident in dieser Version – einfach stillschweigend kein Party-Start
         }
     }
 }

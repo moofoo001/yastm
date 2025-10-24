@@ -7,11 +7,11 @@
     <description>Pressurized suit for vacuum/contamination. Bulky but lifesaving.</description>
     <techLevel>Spacer</techLevel>
     <graphicData>
-      <texPath>Things/Pawn/Humanlike/Apparel/Vacsuit/Vacsuit</texPath>
+      <texPath>Things/Item/Apparel/EVSuit/Starfleet_EV_Helmet</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <apparel>
-      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/Vacsuit/Vacsuit</wornGraphicPath>
+      <wornGraphicPath>Things/Item/Apparel/EVSuit/Starfleet_EVS</wornGraphicPath>
       <bodyPartGroups>
         <li>Torso</li><li>Arms</li><li>Legs</li>
       </bodyPartGroups>
@@ -36,6 +36,9 @@
       <ArmorRating_Blunt>0.06</ArmorRating_Blunt>
       <ToxicResistance>0.30</ToxicResistance>
     </statBases>
+    <equippedStatOffsets>
+      <VacuumResistance>0.35</VacuumResistance>
+    </equippedStatOffsets>
     <costList>
       <Cloth>50</Cloth>
       <ComponentIndustrial>4</ComponentIndustrial>
@@ -48,11 +51,11 @@
     <defName>ST_EVAHelmet</defName>
     <label>EVA helmet</label>
     <graphicData>
-      <texPath>Things/Pawn/Humanlike/Apparel/VacsuitHelmet/VacsuitHelmet</texPath>
+      <texPath>Things/Item/Apparel/EVSuit/Starfleet_EV_Helmet</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <apparel>
-      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/VacsuitHelmet/VacsuitHelmet</wornGraphicPath>
+      <wornGraphicPath>Things/Item/Apparel/EVSuit/Starfleet_EV_Helmet</wornGraphicPath>
       <bodyPartGroups><li>FullHead</li></bodyPartGroups>
       <layers><li>Overhead</li></layers>
       <tags><li>IndustrialBasic</li></tags>
@@ -65,6 +68,10 @@
       <Insulation_Cold>12</Insulation_Cold>
       <ToxicResistance>0.20</ToxicResistance>
     </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>-1.25</MoveSpeed>
+      <VacuumResistance>0.65</VacuumResistance>
+    </equippedStatOffsets>
     <costList>
       <Cloth>20</Cloth>
       <ComponentIndustrial>2</ComponentIndustrial>
@@ -82,7 +89,7 @@
     <techLevel>Spacer</techLevel>
     <graphicData>
 
-      <texPath>Things/Item/Apparel/Starfleet_EVS/Starfleet_EVS</texPath>
+      <texPath>Things/Item/Apparel/EVSuit/Starfleet_EVS</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
       <drawSize>1,1</drawSize>
@@ -110,13 +117,18 @@
       <MoveSpeed>-0.10</MoveSpeed>
       <WorkSpeedGlobal>-0.04</WorkSpeedGlobal>
     </statBases>
+
+    <equippedStatOffsets>
+      <MoveSpeed>-1.25</MoveSpeed>
+      <VacuumResistance>0.35</VacuumResistance>
+    </equippedStatOffsets>
     <costList>
       <Cloth>60</Cloth>
 	    <Plasteel>100</Plasteel>
       <ComponentIndustrial>10</ComponentIndustrial>
     </costList>
     <apparel>
-      <wornGraphicPath>Things/Item/Apparel/Starfleet_EVS/Starfleet_EVS</wornGraphicPath>
+      <wornGraphicPath>Things/Item/Apparel/EVSuit/Starfleet_EVS</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
@@ -156,7 +168,7 @@
         <Crafting>7</Crafting>
       </skillRequirements>
       <researchPrerequisites>
-        <li>ST_UFP_Starfleet_EVS</li>
+        <li>ST_EVSuits</li>
       </researchPrerequisites>
     </recipeMaker>
   </ThingDef>
@@ -169,7 +181,7 @@
     <description>A sealed helmet for hazardous field operations. Strong heat protection, adequate impact resistance, and slight awareness penalty.</description>
     <techLevel>Spacer</techLevel>
     <graphicData>
-      <texPath>Things/Item/Apparel/Starfleet_EVS/Starfleet_EV_Helmet</texPath>
+      <texPath>Things/Item/Apparel/EVSuit/Starfleet_EV_Helmet</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
       <drawSize>1.1,1.1</drawSize>
@@ -193,13 +205,16 @@
       <AimingDelayFactor>0.05</AimingDelayFactor>
       <WorkSpeedGlobal>-0.02</WorkSpeedGlobal>
     </statBases>
+    <equippedStatOffsets>
+      <VacuumResistance>0.65</VacuumResistance>
+    </equippedStatOffsets>
     <costList>
       <Cloth>25</Cloth>
 	    <Plasteel>40</Plasteel>
       <ComponentIndustrial>6</ComponentIndustrial>
     </costList>
     <apparel>
-      <wornGraphicPath>Things/Item/Apparel/Starfleet_EVS/Starfleet_EV_Helmet</wornGraphicPath>
+      <wornGraphicPath>Things/Item/Apparel/EVSuit/Starfleet_EV_Helmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -237,7 +252,169 @@
         <Crafting>6</Crafting>
       </skillRequirements>
       <researchPrerequisites>
-        <li>ST_UFP_Starfleet_EVS</li>
+        <li>ST_EVSuits</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <!-- Klingon -->
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_KlingonEVAHelmet</defName>
+    <label>Klingon EVA helmet</label>
+    <graphicData>
+      <texPath>Things/Item/Apparel/EVSuit/Klingon_EV_Helmet</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>1,1</drawSize>
+    </graphicData>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <tradeTags>
+      <li>Clothing</li>
+    </tradeTags>
+    <statBases>
+      <MaxHitPoints>160</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <DeteriorationRate>1.2</DeteriorationRate>
+      <Mass>2.0</Mass>
+      <MarketValue>400</MarketValue>
+      <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.20</ArmorRating_Heat>
+      <AimingDelayFactor>0.1</AimingDelayFactor>
+      <WorkSpeedGlobal>-0.05</WorkSpeedGlobal>
+    </statBases>
+    <equippedStatOffsets>
+      <VacuumResistance>0.65</VacuumResistance>
+    </equippedStatOffsets>
+    <costList>
+      <Cloth>10</Cloth>
+      <Steel>20</Steel>
+	    <Plasteel>20</Plasteel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <apparel>
+      <wornGraphicPath>Things/Item/Apparel/EVSuit/Klingon_EV_Helmet</wornGraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <tags>
+        <li>KlingonUniform</li>
+        <li>Hazard</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Hazard</li>
+      </defaultOutfitTags>
+    </apparel>
+    <recipeMaker>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Tailor</effectWorking>
+      <soundWorking>Recipe_Tailor</soundWorking>
+      <recipeUsers>
+        <li>ElectricSmithy</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
+      <defaultIngredientFilter>
+        <categories>
+          <li>Root</li>
+        </categories>
+        <disallowedThingDefs>
+          <li>Jade</li>
+          <li>Uranium</li>
+        </disallowedThingDefs>
+      </defaultIngredientFilter>
+      <workAmount>12000</workAmount>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+      <researchPrerequisites>
+        <li>ST_EVSuits</li>
+      </researchPrerequisites>
+    </recipeMaker>
+  </ThingDef>
+
+  <!-- Romulan -->
+
+    <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_RomulanEVAHelmet</defName>
+    <label>Romulan EVA helmet</label>
+    <graphicData>
+      <texPath>Things/Item/Apparel/EVSuit/Romulan_EV_Helmet</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>1,1</drawSize>
+    </graphicData>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <tradeTags>
+      <li>Clothing</li>
+    </tradeTags>
+    <statBases>
+      <MaxHitPoints>160</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <DeteriorationRate>1.2</DeteriorationRate>
+      <Mass>2.0</Mass>
+      <MarketValue>400</MarketValue>
+      <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.20</ArmorRating_Heat>
+      <AimingDelayFactor>0.1</AimingDelayFactor>
+      <WorkSpeedGlobal>-0.05</WorkSpeedGlobal>
+    </statBases>
+    <equippedStatOffsets>
+      <VacuumResistance>0.65</VacuumResistance>
+    </equippedStatOffsets>
+    <costList>
+      <Cloth>10</Cloth>
+      <Steel>20</Steel>
+	    <Plasteel>20</Plasteel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <apparel>
+      <wornGraphicPath>Things/Item/Apparel/EVSuit/Romulan_EV_Helmet</wornGraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <tags>
+        <li>RomulanUniform</li>
+        <li>Hazard</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Hazard</li>
+      </defaultOutfitTags>
+    </apparel>
+    <recipeMaker>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Tailor</effectWorking>
+      <soundWorking>Recipe_Tailor</soundWorking>
+      <recipeUsers>
+        <li>ElectricSmithy</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
+      <defaultIngredientFilter>
+        <categories>
+          <li>Root</li>
+        </categories>
+        <disallowedThingDefs>
+          <li>Jade</li>
+          <li>Uranium</li>
+        </disallowedThingDefs>
+      </defaultIngredientFilter>
+      <workAmount>12000</workAmount>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+      <researchPrerequisites>
+        <li>ST_EVSuits</li>
       </researchPrerequisites>
     </recipeMaker>
   </ThingDef>

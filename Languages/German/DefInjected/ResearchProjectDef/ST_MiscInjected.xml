@@ -22,7 +22,11 @@
   <!-- Red Alert Protocols -->
   <ST_RedAlertProtocols.label>Alarmprotokolle (Rotalarm)</ST_RedAlertProtocols.label>
   <ST_RedAlertProtocols.description>Implementiert kolonieweite Alarmrouten und EPS-Priorisierung, um das Rotalarm-Panel zu aktivieren.</ST_RedAlertProtocols.description>
-
+  <ST_Alert_YellowState.label>Gelb-Alarm</ST_Alert_YellowState.label>
+  <ST_Alert_YellowState.description>Erhöhte Einsatzbereitschaft.</ST_Alert_YellowState.description>
+  <ST_Alert_RedState.label>Rot-Alarm</ST_Alert_RedState.label>
+  <ST_Alert_RedState.description>Alle Mann auf Gefechtsstationen.</ST_Alert_RedState.description>
+  
   <!-- Promotion -->
   <ST_PromotionHonored.stages.0.label>durch Beförderung geehrt</ST_PromotionHonored.stages.0.label>
   

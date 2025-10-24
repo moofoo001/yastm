@@ -68,6 +68,7 @@ namespace YASTM
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
             yield return finish;
+            Find.SignalManager.SendSignal(new Signal("STQ_ScanCategoryCompleted")); 
         }
 
         private CompTricorderMedical GetTricorderComp(Pawn p)

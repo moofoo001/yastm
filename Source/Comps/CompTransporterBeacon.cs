@@ -14,12 +14,11 @@ namespace YASTM
         public int cooldownBeamOutTicks = 120000;  // ~2 Tage
         public float maxBeamOutDistance = 50f;     // Max. Zielentfernung für Beam-out
 
-        // NEW: Operator / Rang-Gating
         public float operatorMaxDistance = 6f;     // Offizier muss so nah am Beacon stehen
         public List<string> requiredRankTraitsBeamIn;   // z.B. LtJG+
         public List<string> requiredRankTraitsBeamOut;  // z.B. Commander+
 
-        public string soundDefName = "ST_Transporter_Beam";  // optionaler Sound
+        public string soundDefName = "ST_Transporter_Beam";  
 
         public CompProperties_TransporterBeacon()
         {
@@ -53,7 +52,7 @@ namespace YASTM
             {
                 defaultLabel = "ST.Transporter.BeamIn".Translate(),
                 defaultDesc  = "ST.Transporter.BeamIn.Desc".Translate(),
-                icon         = ContentFinder<Texture2D>.Get("UI/Commands/PodLaunch", false),
+                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/BeamSupply", false),
                 action       = () =>
                 {
                     if (!TryFindEligibleOperator(Props.requiredRankTraitsBeamIn, out var op, out var reason))
@@ -80,7 +79,7 @@ namespace YASTM
             {
                 defaultLabel = "ST.Transporter.BeamOut".Translate(),
                 defaultDesc  = "ST.Transporter.BeamOut.Desc".Translate(),
-                icon         = ContentFinder<Texture2D>.Get("UI/Commands/LoadTransporter", false),
+                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/BeamEmerg", false),
                 targetingParams = new TargetingParameters
                 {
                     canTargetPawns = true,
@@ -163,7 +162,7 @@ namespace YASTM
 
         private static bool PawnHasAnyRank(Pawn p, List<string> rankDefNames)
         {
-            if (rankDefNames == null || rankDefNames.Count == 0) return true; // kein Gate gesetzt
+            if (rankDefNames == null || rankDefNames.Count == 0) return true; 
             var traits = p.story?.traits;
             if (traits == null) return false;
             for (int i = 0; i < rankDefNames.Count; i++)

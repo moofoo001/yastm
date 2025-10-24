@@ -19,6 +19,8 @@ namespace YASTM
 
         protected override bool CanFireNowSub(IncidentParms parms)
         {
+            var wc = Find.World.GetComponent<YASTM.WorldComponent_PromotionLtJG>();
+            if (wc == null || wc.RewardGiven || wc.Active) return false; // schon aktiv/abgeschlossen
             var map = parms.target as Map;
             return map != null && GetNextQuestDefName(map) != null;
         }

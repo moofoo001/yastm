@@ -136,6 +136,7 @@ namespace YASTM
             int now = Find.TickManager.TicksGame;
             int cd = (int)(Props.cooldownDaysImprove * 60000f);
             if (MC != null) MC.NextImproveTick = now + cd;
+            Find.SignalManager.SendSignal(new Signal("STQ_DiplomacyImproveCompleted"));
         }
 
         // ---------- Ceasefire ----------
@@ -191,6 +192,7 @@ namespace YASTM
             int now = Find.TickManager.TicksGame;
             int cd = (int)(Props.cooldownDaysCeasefire * 60000f);
             if (MC != null) MC.NextCeaseTick = now + cd;
+            Find.SignalManager.SendSignal(new Signal("STQ_DiplomacyImproveCompleted"));
         }
 
         // ---------- Helpers ----------

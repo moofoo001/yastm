@@ -74,6 +74,14 @@
   <ST.Promo.Success>{PAWN_labelShort} wurde zu {1} befördert.</ST.Promo.Success>
 
   <ST.Promo.Ceremony.Started>Die Beförderungszeremonie für {PAWN_labelShort} beginnt.</ST.Promo.Ceremony.Started>
+  <ST.Promo.Ceremony.Obligation>Eine Beförderungszeremonie für {PAWN_labelShort} wurde angesetzt.</ST.Promo.Ceremony.Obligation>
+
+  <STQ.LJG.Intro>Schliesse folgende Aufgaben ab um dich fuer eine Berförderung zum **Lieutenant (JG)** zu qulifizieren</STQ.LJG.Intro>
+  <STQ.LJG.Alert.Label>LtJG-Aufgaben</STQ.LJG.Alert.Label>
+  <STQ.LJG.Alert.Desc>Erledige Folgendes, um die Beförderung zu erhalten:</STQ.LJG.Alert.Desc>
+  <STQ.LJG.Task.Scan>Einen medizinischen ODER wissenschaftlichen Scan</STQ.LJG.Task.Scan>
+  <STQ.LJG.Task.Sweep>Sicherheitssweep</STQ.LJG.Task.Sweep>
+  <STQ.LJG.Task.Diplo>Beziehungen per Diplomatie verbessern</STQ.LJG.Task.Diplo>
   
   <!-- Research -->
   <ST.Research.RedAlert.Label>Alarmprotokolle (Rotalarm)</ST.Research.RedAlert.Label>
@@ -99,6 +107,8 @@
 
   <ST.Diplo.Requirements.Improve>Erfordert einen/eine {1} mit Sozial {0}+ auf dieser Karte.</ST.Diplo.Requirements.Improve>
   <ST.Diplo.Requirements.Ceasefire>Erfordert einen/eine {1} mit Sozial {0}+ auf dieser Karte.</ST.Diplo.Requirements.Ceasefire>
+
+
 
   <!-- Ktarian Game -->
   <ST.Ktarian.Play.Button>Ktarian-Spiel starten</ST.Ktarian.Play.Button>
@@ -139,5 +149,8 @@
   <ST.Transporter.BeamOut.TooFar>Ziel ist außer Reichweite.</ST.Transporter.BeamOut.TooFar>
   <ST.Common.RequiresPower>Benötigt Strom.</ST.Common.RequiresPower>
   <ST.Common.Recharging>Lädt auf ({0}).</ST.Common.Recharging>
+
+  <ST.Transporter.NearGravEngine.Required>Es muss eine Grav-Engine (oder ihr Bauplan) auf der Karte existieren.</ST.Transporter.NearGravEngine.Required>
+  <ST.Transporter.NearGravEngine.TooFar>Muss innerhalb von {0} Feldern zur Grav-Engine platziert werden.</ST.Transporter.NearGravEngine.TooFar>
 
 </LanguageData>
