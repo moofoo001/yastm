@@ -3,96 +3,76 @@
   <ThingDef ParentName="BuildingBase">
     <defName>ST_TransporterBeacon</defName>
     <label>transporter beacon</label>
-    <description>Starfleet transporter beacon for short-range beam-in logistics and emergency beam-out.</description>
+    <description>Fixed transporter node. Beams nearby colonists to the nearest powered beacon on this map.</description>
 
-    <statBases>
-        <Mass>25</Mass>
-    </statBases>
-
-    <graphicData>
-      <texPath>Things/Building/ST_TransportBeacon</texPath> <!-- Placeholder -->
-        <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(1.5,1.5)</drawSize>
-    </graphicData>
-
+    <thingClass>Building</thingClass>
     <size>(1,1)</size>
-    <altitudeLayer>Building</altitudeLayer>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <rotatable>false</rotatable>
     <selectable>true</selectable>
     <passability>PassThroughOnly</passability>
-    <pathCost>0</pathCost>
 
-    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-    <stuffCategories><li>Metallic</li></stuffCategories>
+    <graphicData>
+      <texPath>Things/Building/ST_TransportBeacon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+
+    <!-- KEIN PlaceWorker_RequireProximityToDef, KEINE ModExtension für Grav-Engine -->
+
     <costList>
-      <Steel>80</Steel>
-      <ComponentIndustrial>4</ComponentIndustrial>
-      <ComponentSpacer>1</ComponentSpacer>
+      <Steel>60</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
-
-    <minifiedDef>MinifiedThing</minifiedDef>
-    
-  <placeWorkers>
-    <li>YASTM.PlaceWorker_RequireProximityToDef</li>
-  </placeWorkers>
-
-  <modExtensions>
-    <li Class="YASTM.ProximityRequirementExtension">
-      <targetDefs>
-        <li>GravEngine</li>          
-      </targetDefs>
-      <maxDistance>15</maxDistance>      
-      <allowBlueprints>true</allowBlueprints>
-    </li>
-  </modExtensions>
+    <statBases>
+      <MaxHitPoints>180</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+    </statBases>
 
     <comps>
       <li Class="CompProperties_Power">
+        <shortCircuitInRain>true</shortCircuitInRain>
         <basePowerConsumption>350</basePowerConsumption>
       </li>
+      <li Class="CompProperties_Flickable" />
 
+      <!-- QoL-Gate (Power/Flick/Cooldown-Anzeige), ohne Grav-Anforderung -->
+      <li Class="YASTM.CompProperties_TransporterPolish" />
+
+      <!-- Transporter-Logik -->
       <li Class="YASTM.CompProperties_TransporterBeacon">
+        <!-- Entweder große Reichweite ... -->
+        <maxBeamOutDistance>200</maxBeamOutDistance>
+        <!-- ... oder -1 = unbegrenzt auf der Map -->
+        <!-- <maxBeamOutDistance>-1</maxBeamOutDistance> -->
+
+        <!-- Zieltyp (leer = jeder Beacon); Standard lassen: -->
+        <targetBeaconDefName>ST_TransporterBeacon</targetBeaconDefName>
+
+        <!-- Bediener-Gate optional: min. Rang -->
+        <minOperatorRankTraitDefName>ST_Rank_LieutenantJG</minOperatorRankTraitDefName>
+
+        <!-- Bedienung: direkt am Beacon stehen -->
+        <requireOperatorAdjacent>true</requireOperatorAdjacent>
+        <operatorMaxDistance>1</operatorMaxDistance>
+
+        <!-- Baselines -->
+        <maxPawnsPerPulse>1</maxPawnsPerPulse>
+        <colonistsOnly>true</colonistsOnly>
         <cooldownBeamInTicks>300000</cooldownBeamInTicks>   <!-- 5 Tage -->
         <cooldownBeamOutTicks>120000</cooldownBeamOutTicks> <!-- 2 Tage -->
-        <maxBeamOutDistance>50</maxBeamOutDistance>
-        <soundDefName>ST_Transporter_Beam</soundDefName>
+        <soundDefName>ST_Transporter_Beam_YASTM</soundDefName>
       </li>
 
-      <li Class="YASTM.CompProperties_TransporterBeacon">
-        <cooldownBeamInTicks>300000</cooldownBeamInTicks>
-        <cooldownBeamOutTicks>120000</cooldownBeamOutTicks>
-        <maxBeamOutDistance>50</maxBeamOutDistance>
-        <operatorMaxDistance>6</operatorMaxDistance>
-
-        <!-- Beam-in: LtJG+ -->
-        <requiredRankTraitsBeamIn>
-            <li>ST_Rank_LieutenantJG</li>
-            <li>ST_Rank_Lieutenant</li>
-            <li>ST_Rank_LtCommander</li>
-            <li>ST_Rank_Commander</li>
-            <li>ST_Rank_Captain</li>
-        </requiredRankTraitsBeamIn>
-
-        <!-- Beam-out: Commander+ -->
-        <requiredRankTraitsBeamOut>
-            <li>ST_Rank_Commander</li>
-            <li>ST_Rank_Captain</li>
-        </requiredRankTraitsBeamOut>
-
-        <soundDefName>ST_Transporter_Beam</soundDefName>
-    </li>
-
-     <li Class="CompProperties_Glower">
+      <li Class="CompProperties_Glower">
         <glowRadius>8</glowRadius>
         <glowColor>(0,218,255,0)</glowColor>
       </li>
-
     </comps>
+
     <designationCategory>ST_Designation</designationCategory>
     <researchPrerequisites>
-      <li>ST_TransporterTech</li>
+      <li>Electricity</li>
     </researchPrerequisites>
-    <thingCategories>
-      <li>BuildingsMisc</li>
-    </thingCategories>
   </ThingDef>
 </Defs>

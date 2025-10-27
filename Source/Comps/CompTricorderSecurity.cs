@@ -41,7 +41,6 @@ namespace YASTM
 
             var shared = parent.TryGetComp<CompTricorderSharedCooldown>();
             int now = Find.TickManager.TicksGame;
-
             var cmd = new Command_Target
             {
                 defaultLabel   = "ST.Tricorder.Sec.Scan".Translate(),
@@ -52,11 +51,11 @@ namespace YASTM
             };
 
             // Cooldown-Anzeige (Shared bevorzugt)
-            if (shared != null && !shared.IsReady(now))
-                cmd.Disable("ST.Common.Recharging".Translate(shared.Remaining(now).ToStringTicksToPeriod()));
-            else if (now < nextAllowedTick)
-                cmd.Disable("ST.Common.Recharging".Translate((nextAllowedTick - now).ToStringTicksToPeriod()));
-
+            var cd = parent.GetComp<CompTricorderSharedCooldown>();
+            if (cd != null && !cd.IsReady(now))
+            {
+                cmd.Disable("Cooldown: " + Mathf.CeilToInt(cd.Remaining(now)/60f) + " s");
+            }
             // Skill-Gate: Shooting ODER Melee
             int shoot = wearer.skills?.GetSkill(SkillDefOf.Shooting)?.Level ?? 0;
             int melee = wearer.skills?.GetSkill(SkillDefOf.Melee)?.Level ?? 0;

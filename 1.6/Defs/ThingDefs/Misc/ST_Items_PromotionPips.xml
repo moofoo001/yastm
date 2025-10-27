@@ -27,7 +27,8 @@
         <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
-        <rankTraitDef>ST_Rank_Ensign</rankTraitDef>
+        <targetRankTraitDefName>ST_Rank_Ensign</targetRankTraitDefName>
+        <pipApparelDefName>ST_RankPips_Ensign</pipApparelDefName>
       </li>
     </comps>
   </ThingDef>
@@ -55,7 +56,8 @@
         <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
-        <rankTraitDef>ST_Rank_LieutenantJG</rankTraitDef>
+        <targetRankTraitDefName>ST_Rank_LieutenantJG</targetRankTraitDefName>
+        <pipApparelDefName>ST_RankPips_LJG</pipApparelDefName>
       </li>
     </comps>
   </ThingDef>
@@ -83,7 +85,8 @@
         <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
-        <rankTraitDef>ST_Rank_Lieutenant</rankTraitDef>
+        <targetRankTraitDefName>ST_Rank_Lieutenant</targetRankTraitDefName>
+        <pipApparelDefName>ST_RankPips_Lieutenant</pipApparelDefName>
       </li>
     </comps>
   </ThingDef>
@@ -111,7 +114,8 @@
         <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
-        <rankTraitDef>ST_Rank_LtCommander</rankTraitDef>
+        <targetRankTraitDefName>ST_Rank_LtCommander</targetRankTraitDefName>
+        <pipApparelDefName>ST_RankPips_LtCommander</pipApparelDefName>
       </li>
     </comps>
     </ThingDef>
@@ -139,7 +143,8 @@
         <useJob>UseItem</useJob>    
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
-        <rankTraitDef>ST_Rank_Commander</rankTraitDef>
+        <targetRankTraitDefName>ST_Rank_Commander</targetRankTraitDefName>
+        <pipApparelDefName>ST_RankPips_Commander</pipApparelDefName>
         </li>
     </comps>
    </ThingDef>
@@ -167,7 +172,8 @@
         <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
-        <rankTraitDef>ST_Rank_Captain</rankTraitDef>
+        <targetRankTraitDefName>ST_Rank_Captain</targetRankTraitDefName>
+        <pipApparelDefName>ST_RankPips_Captain</pipApparelDefName>
         </li>
     </comps>
    </ThingDef>

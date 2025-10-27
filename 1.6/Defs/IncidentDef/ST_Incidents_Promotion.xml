@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Starts the LtJG objective tracker (Promotion 2.0 Lite).
-       Uses YASTM.IncidentWorker_StartLtJGObjectives (no QuestGen required). -->
   <IncidentDef>
-    <defName>STQ_Offer_LJG_Lite</defName>
-    <workerClass>YASTM.IncidentWorker_StartLtJGObjectives</workerClass>
+    <defName>STQ_Offer_PromotionObjectives</defName>
+    <workerClass>YASTM.IncidentWorker_StartPromotionObjectives</workerClass>
     <category>Misc</category>
-
-    <!-- Fire on player maps -->
     <targetTags>
       <li>Map_Misc</li>
       <li>Map_PlayerHome</li>
     </targetTags>
-
-    <!-- Base random chance; adjust to taste or trigger via Dev-Mode -->
     <baseChance>0.03</baseChance>
-
-    <!-- Optional: make it show up in dev action menu -->
-    
   </IncidentDef>
 
 </Defs>

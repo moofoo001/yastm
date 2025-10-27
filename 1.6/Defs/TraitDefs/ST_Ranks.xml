@@ -22,6 +22,25 @@
         <commonality>0</commonality>
       </li>
     </degreeDatas>
+    <modExtensions>
+        <li Class="YASTM.PromotionRequirementsExtension">
+          <fromRankTraitDefName>ST_Rank_Cadet</fromRankTraitDefName>
+
+          <requiredMedOrScienceScans>1</requiredMedOrScienceScans>
+          <requiredSecuritySweeps>1</requiredSecuritySweeps>
+          <requiredDiplomacyActions>0</requiredDiplomacyActions>
+
+          <minDaysSinceLastPromotion>0</minDaysSinceLastPromotion>
+          <goodwillMin>0</goodwillMin>
+          <uniqueColonyWide>false</uniqueColonyWide>
+
+          <pipApparelDefName>ST_RankPips_Ensign</pipApparelDefName>
+        </li>
+
+        <li Class="YASTM.RankVisualExtension">
+          <pipApparelDefName>ST_RankPips_Ensign</pipApparelDefName>
+        </li>
+      </modExtensions>
   </TraitDef>
 
 
@@ -46,18 +65,25 @@
         <commonality>0</commonality>
       </li>
     </degreeDatas>
-  <modExtensions>
-    <li Class="YASTM.PromotionRequirementsExtension">
-      <factionDefName>ST_Starfleet</factionDefName>
-      <goodwillMin>10</goodwillMin>
-      <requiredCompletedQuests>0</requiredCompletedQuests>
-      <minDaysSinceLastPromotion>0</minDaysSinceLastPromotion>
-      <uniqueColonyWide>false</uniqueColonyWide>
-    </li>
-	<li Class="YASTM.RankVisualExtension">
-      <pipApparelDefName>ST_RankPips_Ensign</pipApparelDefName>
-    </li>
-  </modExtensions>
+    <modExtensions>
+      <li Class="YASTM.PromotionRequirementsExtension">
+        <fromRankTraitDefName>ST_Rank_Ensign</fromRankTraitDefName>
+
+        <requiredMedOrScienceScans>3</requiredMedOrScienceScans>
+        <requiredSecuritySweeps>2</requiredSecuritySweeps>
+        <requiredDiplomacyActions>1</requiredDiplomacyActions>
+
+        <minDaysSinceLastPromotion>2</minDaysSinceLastPromotion>
+        <goodwillMin>5</goodwillMin>
+        <uniqueColonyWide>false</uniqueColonyWide>
+
+        <pipApparelDefName>ST_RankPips_LJG</pipApparelDefName>
+      </li>
+
+      <li Class="YASTM.RankVisualExtension">
+        <pipApparelDefName>ST_RankPips_LJG</pipApparelDefName>
+      </li>
+    </modExtensions>
   </TraitDef>
 
   <TraitDef>
@@ -81,18 +107,25 @@
         <commonality>0</commonality>
       </li>
     </degreeDatas>
-  <modExtensions>
-    <li Class="YASTM.PromotionRequirementsExtension">
-      <factionDefName>ST_Starfleet</factionDefName>
-      <goodwillMin>20</goodwillMin>
-      <requiredCompletedQuests>1</requiredCompletedQuests>
-      <minDaysSinceLastPromotion>3</minDaysSinceLastPromotion>
-      <uniqueColonyWide>false</uniqueColonyWide>
-    </li>
-	<li Class="YASTM.RankVisualExtension">
-      <pipApparelDefName>ST_RankPips_LJG</pipApparelDefName>
-    </li>
-  </modExtensions>
+    <modExtensions>
+      <li Class="YASTM.PromotionRequirementsExtension">
+        <fromRankTraitDefName>ST_Rank_LieutenantJG</fromRankTraitDefName>
+
+        <requiredMedOrScienceScans>4</requiredMedOrScienceScans>
+        <requiredSecuritySweeps>3</requiredSecuritySweeps>
+        <requiredDiplomacyActions>2</requiredDiplomacyActions>
+
+        <minDaysSinceLastPromotion>4</minDaysSinceLastPromotion>
+        <goodwillMin>10</goodwillMin>
+        <uniqueColonyWide>false</uniqueColonyWide>
+
+        <pipApparelDefName>ST_RankPips_Lieutenant</pipApparelDefName>
+      </li>
+
+      <li Class="YASTM.RankVisualExtension">
+        <pipApparelDefName>ST_RankPips_Lieutenant</pipApparelDefName>
+      </li>
+    </modExtensions>
   </TraitDef>
 
   <TraitDef>
@@ -117,18 +150,25 @@
         <commonality>0</commonality>
       </li>
     </degreeDatas>
-  <modExtensions>
-    <li Class="YASTM.PromotionRequirementsExtension">
-      <factionDefName>ST_Starfleet</factionDefName>
-      <goodwillMin>35</goodwillMin>
-      <requiredCompletedQuests>2</requiredCompletedQuests>
-      <minDaysSinceLastPromotion>3</minDaysSinceLastPromotion>
-      <uniqueColonyWide>false</uniqueColonyWide>
-    </li>
-	<li Class="YASTM.RankVisualExtension">
-      <pipApparelDefName>ST_RankPips_Lieutenant</pipApparelDefName>
-    </li>
-  </modExtensions>
+    <modExtensions>
+      <li Class="YASTM.PromotionRequirementsExtension">
+        <fromRankTraitDefName>ST_Rank_Lieutenant</fromRankTraitDefName>
+
+        <requiredMedOrScienceScans>5</requiredMedOrScienceScans>
+        <requiredSecuritySweeps>3</requiredSecuritySweeps>
+        <requiredDiplomacyActions>3</requiredDiplomacyActions>
+
+        <minDaysSinceLastPromotion>6</minDaysSinceLastPromotion>
+        <goodwillMin>20</goodwillMin>
+        <uniqueColonyWide>false</uniqueColonyWide>
+
+        <pipApparelDefName>ST_RankPips_LtCommander</pipApparelDefName>
+      </li>
+
+      <li Class="YASTM.RankVisualExtension">
+        <pipApparelDefName>ST_RankPips_LtCommander</pipApparelDefName>
+      </li>
+    </modExtensions>
   </TraitDef>
 
   <TraitDef>
@@ -153,18 +193,25 @@
         <commonality>0</commonality>
       </li>
     </degreeDatas>
-  <modExtensions>
-    <li Class="YASTM.PromotionRequirementsExtension">
-      <factionDefName>ST_Starfleet</factionDefName>
-      <goodwillMin>50</goodwillMin>
-      <requiredCompletedQuests>2</requiredCompletedQuests>
-      <minDaysSinceLastPromotion>6</minDaysSinceLastPromotion>
-      <uniqueColonyWide>false</uniqueColonyWide>
-    </li>
-		<li Class="YASTM.RankVisualExtension">
-      <pipApparelDefName>ST_RankPips_LtCommander</pipApparelDefName>
-    </li>
-  </modExtensions>
+    <modExtensions>
+      <li Class="YASTM.PromotionRequirementsExtension">
+        <fromRankTraitDefName>ST_Rank_LtCommander</fromRankTraitDefName>
+
+        <requiredMedOrScienceScans>6</requiredMedOrScienceScans>
+        <requiredSecuritySweeps>4</requiredSecuritySweeps>
+        <requiredDiplomacyActions>4</requiredDiplomacyActions>
+
+        <minDaysSinceLastPromotion>8</minDaysSinceLastPromotion>
+        <goodwillMin>30</goodwillMin>
+        <uniqueColonyWide>false</uniqueColonyWide>
+
+        <pipApparelDefName>ST_RankPips_Commander</pipApparelDefName>
+      </li>
+
+      <li Class="YASTM.RankVisualExtension">
+        <pipApparelDefName>ST_RankPips_Commander</pipApparelDefName>
+      </li>
+    </modExtensions>
   </TraitDef>
 
   <TraitDef>
@@ -189,18 +236,25 @@
         <commonality>0</commonality>
     </li>
     </degreeDatas>
-  <modExtensions>
-    <li Class="YASTM.PromotionRequirementsExtension">
-      <factionDefName>ST_Starfleet</factionDefName>
-      <goodwillMin>65</goodwillMin>
-      <requiredCompletedQuests>3</requiredCompletedQuests>
-      <minDaysSinceLastPromotion>10</minDaysSinceLastPromotion>
-      <uniqueColonyWide>false</uniqueColonyWide>
-    </li>
-	<li Class="YASTM.RankVisualExtension">
-      <pipApparelDefName>ST_RankPips_Commander</pipApparelDefName>
-    </li>
-  </modExtensions>
+    <modExtensions>
+      <li Class="YASTM.PromotionRequirementsExtension">
+        <fromRankTraitDefName>ST_Rank_Commander</fromRankTraitDefName>
+
+        <requiredMedOrScienceScans>7</requiredMedOrScienceScans>
+        <requiredSecuritySweeps>5</requiredSecuritySweeps>
+        <requiredDiplomacyActions>5</requiredDiplomacyActions>
+
+        <minDaysSinceLastPromotion>10</minDaysSinceLastPromotion>
+        <goodwillMin>40</goodwillMin>
+        <uniqueColonyWide>true</uniqueColonyWide>
+
+        <pipApparelDefName>ST_RankPips_Captain</pipApparelDefName>
+      </li>
+
+      <li Class="YASTM.RankVisualExtension">
+        <pipApparelDefName>ST_RankPips_Captain</pipApparelDefName>
+      </li>
+    </modExtensions>
   </TraitDef>
 
   <TraitDef>

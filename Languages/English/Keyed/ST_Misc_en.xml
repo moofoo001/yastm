@@ -92,15 +92,23 @@
   <ST.Promo.Ceremony.Obligation>A promotion ceremony for {PAWN_labelShort} has been scheduled.</ST.Promo.Ceremony.Obligation>
 
  <!-- Promotion 2.0 (Lite Tracker) -->
-  <STQ.LJG.Intro>Complete the following Starfleet tasks to qualify for lieutenant junior grade:</STQ.LJG.Intro>
-  <STQ.LJG.Start>Starfleet objectives issued: complete one medical OR science scan, a security sweep, and improve relations via diplomacy.</STQ.LJG.Start>
-  <STQ.LJG.Complete>Objectives complete. A promotion pip has been authorized.</STQ.LJG.Complete>
-  <STQ.LJG.Alert.Label>LtJG objectives</STQ.LJG.Alert.Label>
-  <STQ.LJG.Alert.Desc>Complete the following to receive authorization for promotion:</STQ.LJG.Alert.Desc>
-  <STQ.LJG.Task.Scan>One medical OR science scan</STQ.LJG.Task.Scan>
-  <STQ.LJG.Task.Sweep>Security sweep</STQ.LJG.Task.Sweep>
-  <STQ.LJG.Task.Diplo>Improve relations via diplomacy</STQ.LJG.Task.Diplo>
+  <STQ.Promo.Start>{PAWN_labelShort} has been assigned objectives for promotion to {1}.</STQ.Promo.Start>
+  <STQ.Promo.Complete>{PAWN_labelShort} completed promotion objectives for {1}. A pip has been authorized.</STQ.Promo.Complete>
 
+  <STQ.Promo.Alert.Label>Promotion objectives</STQ.Promo.Alert.Label>
+  <STQ.Promo.Alert.Desc>Complete the following per candidate to receive authorization for promotion:</STQ.Promo.Alert.Desc>
+  <STQ.Promo.Task.Scan>Medical/Science scans: {0}/{1}</STQ.Promo.Task.Scan>
+  <STQ.Promo.Task.Sweep>Security sweeps: {0}/{1}</STQ.Promo.Task.Sweep>
+  <STQ.Promo.Task.Diplo>Diplomacy improvements: {0}/{1}</STQ.Promo.Task.Diplo>
+
+  <ST.Promotion.Error.NoTarget>No target rank defined on this pip.</ST.Promotion.Error.NoTarget>
+  <ST.Promotion.Error.NoReqs>No promotion requirements are defined for {0}.</ST.Promotion.Error.NoReqs>
+  <ST.Promotion.Error.WrongFromRank>{PAWN_labelShort} does not meet the previous rank requirement.</ST.Promotion.Error.WrongFromRank>
+  <ST.Promotion.Error.ObjectivesMissing>{PAWN_labelShort} has not completed the promotion objectives yet.</ST.Promotion.Error.ObjectivesMissing>
+  <ST.Promotion.Error.Unique>Only one {0} is allowed in the colony.</ST.Promotion.Error.Unique>
+
+  <STQ.Promo.ChooseTitle>Promotion objectives</STQ.Promo.ChooseTitle>
+  <STQ.Promo.ChooseCandidate>Select a candidate to receive promotion objectives.</STQ.Promo.ChooseCandidate>
 
   <!-- Research -->
   <ST.Research.RedAlert.Label>red alert protocols</ST.Research.RedAlert.Label>
@@ -198,5 +206,16 @@
   <ST.Transporter.NearGravEngine.Required>A gravity engine (or its blueprint) must exist on this map.</ST.Transporter.NearGravEngine.Required>
   <ST.Transporter.NearGravEngine.TooFar>Must be placed within {0} tiles of the gravity engine.</ST.Transporter.NearGravEngine.TooFar>
   
+  <ST.Transporter.Cooldown>Cooldown: {0}s</ST.Transporter.Cooldown>
+  <ST.Transporter.NeedsPower>Needs power.</ST.Transporter.NeedsPower>
+  <ST.Transporter.SwitchedOff>Switch is off.</ST.Transporter.SwitchedOff>
 
+  <ST.Transporter.Energize.Label>Energize</ST.Transporter.Energize.Label>
+  <ST.Transporter.Energize.Desc>Beam nearby colonists to the linked beacon.</ST.Transporter.Energize.Desc>
+  <ST.Transporter.NoTarget>No valid target beacon.</ST.Transporter.NoTarget>
+  <ST.Transporter.OutOfRange>Target out of range ({0} tiles).</ST.Transporter.OutOfRange>
+  <ST.Transporter.NoOperator>No qualified operator adjacent.</ST.Transporter.NoOperator>
+  <ST.Transporter.NoPawns>No eligible pawns near the beacon.</ST.Transporter.NoPawns>
+  <ST.Transporter.NoValidDest>No valid destination cell found.</ST.Transporter.NoValidDest>
+  <ST.Transporter.Moved>Transported {0} pawn(s).</ST.Transporter.Moved>
 </LanguageData>

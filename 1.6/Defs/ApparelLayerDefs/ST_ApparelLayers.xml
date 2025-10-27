@@ -3,7 +3,12 @@
   <ApparelLayerDef>
     <defName>ST_Badge</defName>
     <label>badge</label>
-
     <drawOrder>350</drawOrder>
+  </ApparelLayerDef>
+
+  <ApparelLayerDef>
+    <defName>ST_RankPipLayer</defName>
+    <label>rank pips</label>
+    <drawOrder>315</drawOrder>
   </ApparelLayerDef>
 </Defs>

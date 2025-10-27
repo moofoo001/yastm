@@ -8,7 +8,8 @@ namespace YASTM
     public class ProximityRequirementExtension : DefModExtension
     {
         public List<string> targetDefs;   // z.B. { "ST_GravEngine" }
-        public int maxDistance = 15;      // Tiles
+        // public int maxDistance = 15;      // Tiles
+        public int maxDistance = YASTM_Mod.Settings?.transporterMaxRange ?? 15;
         public bool allowBlueprints = true;
     }
 

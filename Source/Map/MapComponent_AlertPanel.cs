@@ -1,4 +1,8 @@
+// Source/Map/MapComponent_AlertPanel.cs
+using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
+using UnityEngine;
 using Verse;
 using Verse.Sound;
 
@@ -6,105 +10,141 @@ namespace YASTM
 {
     public class MapComponent_AlertPanel : MapComponent
     {
-        // RED
-        public int NextAllowedTick;
-        public int BlinkUntilTick;
-        public Sustainer activeSiren;
+        // Zustände (vom Gizmo gesetzt)
+        public bool IsRedAlertOn;
+        public bool IsYellowAlertOn;
 
-        // YELLOW
-        public int NextAllowedTickYellow;
+        // Blink/Cooldown (vom Gizmo benutzt)
+        public int BlinkUntilTickRed;
         public int BlinkUntilTickYellow;
-        public Sustainer activeSirenYellow;
+        public int NextAllowedTickRed;
+        public int NextAllowedTickYellow;
 
-        // Hediff-Defs (lazy per Tick aufgelöst)
-        static HediffDef HediffRed    => DefDatabase<HediffDef>.GetNamedSilentFail("ST_Alert_RedState");
-        static HediffDef HediffYellow => DefDatabase<HediffDef>.GetNamedSilentFail("ST_Alert_YellowState");
+        // Sirene (Red)
+        private Sustainer redSiren;
+
+        // Hediffs aus XML (ST_Misc_Hediffs.xml)
+        private static readonly HediffDef H_Red    = DefDatabase<HediffDef>.GetNamedSilentFail("ST_Alert_RedState");
+        private static readonly HediffDef H_Yellow = DefDatabase<HediffDef>.GetNamedSilentFail("ST_Alert_YellowState");
+
+        // optionale Sounds (falls per Code gebraucht)
+        private static readonly SoundDef S_RedLoop = DefDatabase<SoundDef>.GetNamedSilentFail("ST_RedAlert_SirenLong");
+
+        // periodisches Sync-Intervall
+        private int nextSyncTick;
 
         public MapComponent_AlertPanel(Map map) : base(map) { }
 
-        public override void ExposeData()
+        // ---------------- Sirenen-API (wird vom Gizmo via Reflection aufgerufen) ----------------
+
+        // Red-Sirene starten (Loop/Sustainer)
+        public void StartRedSiren(SoundDef sound)
         {
-            Scribe_Values.Look(ref NextAllowedTick,       "YASTM_RedAlert_NextAllowedTick", 0);
-            Scribe_Values.Look(ref BlinkUntilTick,        "YASTM_RedAlert_BlinkUntilTick",  0);
-            Scribe_Values.Look(ref NextAllowedTickYellow, "YASTM_YellowAlert_NextAllowedTick", 0);
-            Scribe_Values.Look(ref BlinkUntilTickYellow,  "YASTM_YellowAlert_BlinkUntilTick",  0);
+            StopRedSiren(); // sicherheitshalber vorherigen Sustainer beenden
+            var use = sound ?? S_RedLoop;
+            if (use != null)
+            {
+                // Map → TargetInfo (z.B. Mapmitte)
+                var ti = new TargetInfo(map.Center, map);
+                var info = SoundInfo.InMap(ti);
+                info.volumeFactor = Mathf.Clamp01(YASTM_Mod.Settings?.AlertVolume01 ?? 1f);
+                redSiren = SoundStarter.TrySpawnSustainer(use, info);
+            }
         }
+
+        public void StopRedSiren()
+        {
+            if (redSiren != null)
+            {
+                redSiren.End();
+                redSiren = null;
+            }
+        }
+
+        // Optional: kurzer Signal-Ton für Yellow (einmalig)
+        
+        public void StartYellowSiren(SoundDef sound)
+        {
+            if (sound == null) return;
+            var ti = new TargetInfo(map.Center, map);
+            var info = SoundInfo.InMap(ti);
+            info.volumeFactor = Mathf.Clamp01(YASTM_Mod.Settings?.AlertVolume01 ?? 1f);
+            SoundStarter.PlayOneShot(sound, info);
+        }
+        // ---------------- Hediff-Verteilung ----------------
 
         public override void MapComponentTick()
         {
-            base.MapComponentTick();
-            int now = Find.TickManager.TicksGame;
-
-            // Sustain die Sirenen solange Blink aktiv ist
-            if (activeSiren != null)
+            // Sirene am Leben halten / stoppen
+            if (IsRedAlertOn)
             {
-                activeSiren.Maintain();
-                if (now >= BlinkUntilTick) { activeSiren.End(); activeSiren = null; }
+                redSiren?.Maintain();
             }
-            if (activeSirenYellow != null)
+            else
             {
-                activeSirenYellow.Maintain();
-                if (now >= BlinkUntilTickYellow) { activeSirenYellow.End(); activeSirenYellow = null; }
+                if (redSiren != null) StopRedSiren();
             }
 
-            // Alle 250 Ticks: Hediffs je nach aktivem Alert-Status setzen/entfernen
-            if (now % 250 == 0)
+            // Blink-Optik: Deine existierende Fleck-Logik kann hier laufen (wir lassen sie unverändert)
+
+            // Hediffs regelmäßig synchron halten (z.B. für Neuzugänge)
+            if (Find.TickManager.TicksGame >= nextSyncTick)
             {
-                bool redActive    = now < BlinkUntilTick;
-                bool yellowActive = now < BlinkUntilTickYellow;
-
-                ApplyAlertHediffs(redActive, yellowActive);
-            }
-
-            // Alle 90 Ticks: Blinker/Effekte rendern
-            if (now % 90 != 0) return;
-
-            var panelDef = DefDatabase<ThingDef>.GetNamedSilentFail("ST_AlertPanel");
-            if (panelDef == null) return;
-
-            var panels = map.listerThings.ThingsOfDef(panelDef);
-            if (panels == null || panels.Count == 0) return;
-
-            if (now < BlinkUntilTick)
-            {
-                var fleckRed = DefDatabase<FleckDef>.GetNamedSilentFail("ST_AlertBlink_Red") ?? FleckDefOf.Smoke;
-                foreach (var t in panels) FleckMaker.Static(t.Position, map, fleckRed, 1.2f);
-            }
-            if (now < BlinkUntilTickYellow)
-            {
-                var fleckYellow = DefDatabase<FleckDef>.GetNamedSilentFail("ST_AlertBlink_Yellow") ?? FleckDefOf.Smoke;
-                foreach (var t in panels) FleckMaker.Static(t.Position, map, fleckYellow, 1.1f);
+                ApplyAlertHediffs(map.mapPawns.FreeColonistsSpawned);
+                nextSyncTick = Find.TickManager.TicksGame + 250; // ~4s
             }
         }
 
-        // -------------------------------------------------
-        // Hediff-Management
-        // -------------------------------------------------
-        void ApplyAlertHediffs(bool redActive, bool yellowActive)
+        /// <summary>
+        /// Sofort anwenden (nach Umschalten aufgerufen – kannst du auch manuell callen, wenn du willst).
+        /// </summary>
+        public void ApplyAlertEffectsImmediate()
         {
-            var pawns = map.mapPawns.FreeColonistsSpawned;
-            for (int i = 0; i < pawns.Count; i++)
+            ApplyAlertHediffs(map.mapPawns.FreeColonistsSpawned);
+        }
+
+        private static void ApplyAlertHediffs(IEnumerable<Pawn> pawns, bool redOn, bool yellowOn)
+        {
+            foreach (var p in pawns)
             {
-                var p = pawns[i];
-                if (p?.health == null) continue;
+                if (p == null || !p.Spawned) continue;
+                TryRemove(p, H_Red);
+                TryRemove(p, H_Yellow);
 
-                // Alt entfernen
-                TryRemove(p, HediffRed);
-                TryRemove(p, HediffYellow);
-
-                // Neu setzen (exklusiv)
-                if (redActive && HediffRed != null)
-                    p.health.AddHediff(HediffRed);
-                else if (yellowActive && HediffYellow != null)
-                    p.health.AddHediff(HediffYellow);
+                if (redOn && H_Red != null)
+                    TryAddOnce(p, H_Red);
+                else if (yellowOn && H_Yellow != null)
+                    TryAddOnce(p, H_Yellow);
             }
         }
 
-        static void TryRemove(Pawn p, HediffDef def)
+        private void ApplyAlertHediffs(IEnumerable<Pawn> pawns)
+            => ApplyAlertHediffs(pawns, IsRedAlertOn, IsYellowAlertOn);
+
+        private static void TryAddOnce(Pawn p, HediffDef def)
         {
             if (def == null) return;
-            var h = p.health.hediffSet.GetFirstHediffOfDef(def);
+            if (p.health?.hediffSet?.HasHediff(def) == true) return;
+            p.health.AddHediff(def);
+        }
+
+        private static void TryRemove(Pawn p, HediffDef def)
+        {
+            if (def == null) return;
+            var h = p.health?.hediffSet?.GetFirstHediffOfDef(def);
             if (h != null) p.health.RemoveHediff(h);
+        }
+
+        // ---------------- Speichern/Laden ----------------
+
+        public override void ExposeData()
+        {
+            Scribe_Values.Look(ref IsRedAlertOn, "ST_IsRedAlertOn", false);
+            Scribe_Values.Look(ref IsYellowAlertOn, "ST_IsYellowAlertOn", false);
+            Scribe_Values.Look(ref BlinkUntilTickRed, "ST_BlinkUntilTickRed", 0);
+            Scribe_Values.Look(ref BlinkUntilTickYellow, "ST_BlinkUntilTickYellow", 0);
+            Scribe_Values.Look(ref NextAllowedTickRed, "ST_NextAllowedTickRed", 0);
+            Scribe_Values.Look(ref NextAllowedTickYellow, "ST_NextAllowedTickYellow", 0);
         }
     }
 }

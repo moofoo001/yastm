@@ -1,15 +1,35 @@
+// Source/Promotion/PromotionRequirementsExtension.cs
 using Verse;
 
 namespace YASTM
 {
-    // An diese Extension hängen wir die Anforderungen direkt an eure Rang-Traits.
+    /// <summary>
+    /// ModExtension, die an den ZIEL-Rang (TraitDef) gehängt wird.
+    /// Steuert: von welchem Rang befördert wird + welche Objectives/Zusatzgates gelten.
+    /// </summary>
     public class PromotionRequirementsExtension : DefModExtension
     {
-        public string factionDefName = "ST_Starfleet"; // Fraktion, gegen deren Goodwill geprüft wird
-        public int goodwillMin = 0;                    // Mindest-Goodwill
-        public int requiredCompletedQuests = 0;        // Mindestanzahl erfolgreich beendeter Quests (gesamt)
-        public string requiredQuestTag = null;         // Optional: nur Quests mit diesem Tag zählen
-        public int minDaysSinceLastPromotion = 0;      // Mindesttage seit letzter Beförderung (Pawn-individuell)
-        public bool uniqueColonyWide = false;          // true => nur 1 Kolonist darf diesen Rang tragen (z.B. Captain)
+        // Von welchem Rang (TraitDef.defName) kommt die Beförderung?
+        public string fromRankTraitDefName;
+
+        // Objectives (Zähler): Medical ODER Science zählt hier hinein.
+        public int requiredMedOrScienceScans = 1;
+        public int requiredSecuritySweeps = 1;
+        public int requiredDiplomacyActions = 1;
+
+        // Zusätzliche Gates (optional)
+        public int minDaysSinceLastPromotion = 0;
+        public bool uniqueColonyWide = false;
+        public int goodwillMin = 0;
+
+        // Ziel-Fraktion, gegen die goodwillMin geprüft wird (z. B. "ST_Starfleet").
+        // Wenn leer/null, kann PromotionGating.cs einen Default verwenden.
+        public string factionDefName = null;
+
+        // Mindestanzahl abgeschlossener (relevanter) Quests.
+        public int requiredCompletedQuests = 0;
+
+        // Optional: direktes Mapping auf das Pip-Item (ThingDef.defName)
+        public string pipApparelDefName = null;
     }
 }

@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  
+
+ <SoundDef>
+  <defName>ST_Transporter_Beam</defName>
+  <maxSimultaneous>2</maxSimultaneous>
+  <priorityMode>PrioritizeNearest</priorityMode>
+  <subSounds>
+    <li>
+      <grains>
+        <li Class="AudioGrain_Clip">
+          <clipPath>Things/transporter</clipPath> <!-- pfad anpassen -->
+        </li>
+      </grains>
+      <onCamera>true</onCamera>
+      <volumeRange>1.0~1.1</volumeRange>
+    </li>
+  </subSounds>
+</SoundDef>
+
 <SoundDef>
     <defName>ST_ObeliskHum</defName>
     <context>MapOnly</context>
@@ -168,24 +185,5 @@
       </li>
     </subSounds>  
   </SoundDef>
-
-<SoundDef>
-  <defName>ST_Transporter_Beam</defName>
-  <context>MapOnly</context>
-  <priorityMode>PrioritizeNearest</priorityMode>
-  <maxSimultaneous>1</maxSimultaneous>
-  <subSounds>
-    <li>
-      <grains>
-        <li Class="AudioGrain_Clip">
-          <clipPath>Things/transporter</clipPath>
-        </li>
-      </grains>
-      <volumeRange>10~12</volumeRange>
-      <pitchRange>1~1</pitchRange>
-      <onCamera>false</onCamera>
-    </li>
-  </subSounds>
-</SoundDef>
 
 </Defs>

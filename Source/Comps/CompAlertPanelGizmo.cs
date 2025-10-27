@@ -1,3 +1,4 @@
+// Source/Comps/CompAlertPanelGizmo.cs
 using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
@@ -6,216 +7,162 @@ using Verse.Sound;
 
 namespace YASTM
 {
-    public class CompProperties_AlertPanel : CompProperties
+    public class CompProperties_AlertPanelGizmo : CompProperties
     {
-        public int redDurationTicks = 18000;       // ~5h
-        public int redCooldownTicks = 90000;       // ~1.5 Tage
-        public int yellowDurationTicks = 9000;     // ~2.5h
-        public int yellowCooldownTicks = 45000;    // ~0.75 Tage
-        public bool playRedSirenLoop = true;       // Sustainer beim Rotalarm
+        // kleine, interne Defaults – können später in Mod-Settings wandern
+        public int redCooldownSeconds = 5;
+        public int yellowCooldownSeconds = 5;
+        public int blinkSeconds = 3;
 
-        public CompProperties_AlertPanel()
+        public CompProperties_AlertPanelGizmo()
         {
-            compClass = typeof(CompAlertPanel);
+            compClass = typeof(CompAlertPanelGizmo);
         }
     }
 
-    public class CompAlertPanel : ThingComp
+    public class CompAlertPanelGizmo : ThingComp
     {
-        public CompProperties_AlertPanel Props => (CompProperties_AlertPanel)props;
+        public CompProperties_AlertPanelGizmo Props => (CompProperties_AlertPanelGizmo)props;
+
+        IEnumerable<Gizmo> RedGizmo()
+        {
+            if (parent?.Map == null || parent.Faction != Faction.OfPlayer) yield break;
+
+            var map = parent.Map;
+            var mc = map.GetComponent<YASTM.MapComponent_AlertPanel>();
+            if (mc == null) yield break;
+
+            int now = Find.TickManager.TicksGame;
+            int cdTicks = Props.redCooldownSeconds * 60;
+            int blinkTicks = Props.blinkSeconds * 60;
+
+            var cmd = new Command_Action
+            {
+                defaultLabel = "ST.AlertPanel.Red.Label".Translate(),   // z.B. "Red Alert"
+                defaultDesc  = "ST.AlertPanel.Red.Desc".Translate(),    // Erklärungstext
+                icon = null, // Optional: ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/RedAlert", true)
+                action = () =>
+                {
+                    // MapComponent referenzieren
+                    var map2 = parent.Map;
+                    var mc2 = map2?.GetComponent<YASTM.MapComponent_AlertPanel>();
+                    if (mc2 == null) return;
+
+                    // Red toggeln, Yellow aus
+                    bool newState = !mc2.IsRedAlertOn;
+                    mc2.IsRedAlertOn = newState;
+                    mc2.IsYellowAlertOn = false;
+
+                    // Blinken
+                    mc2.BlinkUntilTickRed = now + blinkTicks;
+
+                    // Cooldown setzen
+                    mc2.NextAllowedTickRed = now + cdTicks;
+
+                    // Sirene starten (MapComponent-Methode nutzen, falls vorhanden)
+                    var redSnd = DefDatabase<SoundDef>.GetNamed("ST_RedAlert_SirenLong", false);
+                    if (newState && redSnd != null)
+                    {
+                        // bevorzugt Start-Methode (setzt auch Sustainer im MC)
+                        var m = typeof(YASTM.MapComponent_AlertPanel).GetMethod("StartRedSiren");
+                        if (m != null)
+                        {
+                            m.Invoke(mc2, new object[] { redSnd });
+                        }
+                        else
+                        {
+                            // Fallback: direkt spawnen mit Settings-Lautstärke
+                            var info = SoundInfo.OnCamera(MaintenanceType.None);
+                            info.volumeFactor = Mathf.Clamp01(YASTM_Mod.Settings?.AlertVolume01 ?? 1f);
+                            var sust = SoundStarter.TrySpawnSustainer(redSnd, info);
+                            // Wenn dein MC public Felder 'activeSiren' hat, kannst du sie hier setzen:
+                            // mc2.activeSiren = sust;
+                        }
+                    }
+
+                    // Wenn Red aus → Yellow-Sirene ggf. beenden übernimmt dein MC-Tick
+                }
+            };
+
+            // Cooldown-Disable
+            if (now < mc.NextAllowedTickRed)
+            {
+                int sec = Mathf.CeilToInt((mc.NextAllowedTickRed - now) / 60f);
+                cmd.Disable("ST.AlertPanel.Cooldown".Translate(sec));
+            }
+
+            // Optionales Status-Suffix
+            if (mc.IsRedAlertOn)
+                cmd.defaultLabel += " (ON)";
+
+            yield return cmd;
+        }
+
+        IEnumerable<Gizmo> YellowGizmo()
+        {
+            if (parent?.Map == null || parent.Faction != Faction.OfPlayer) yield break;
+
+            var map = parent.Map;
+            var mc = map.GetComponent<YASTM.MapComponent_AlertPanel>();
+            if (mc == null) yield break;
+
+            int now = Find.TickManager.TicksGame;
+            int cdTicks = Props.yellowCooldownSeconds * 60;
+            int blinkTicks = Props.blinkSeconds * 60;
+
+            var cmd = new Command_Action
+            {
+                defaultLabel = "ST.AlertPanel.Yellow.Label".Translate(), // z.B. "Yellow Alert"
+                defaultDesc  = "ST.AlertPanel.Yellow.Desc".Translate(),
+                icon = null, // Optional: ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/YellowAlert", true)
+                action = () =>
+                {
+                    var map2 = parent.Map;
+                    var mc2 = map2?.GetComponent<YASTM.MapComponent_AlertPanel>();
+                    if (mc2 == null) return;
+
+                    bool newState = !mc2.IsYellowAlertOn;
+                    mc2.IsYellowAlertOn = newState;
+                    mc2.IsRedAlertOn = false;
+
+                    mc2.BlinkUntilTickYellow = now + blinkTicks;
+                    mc2.NextAllowedTickYellow = now + cdTicks;
+
+                    var yelSnd = DefDatabase<SoundDef>.GetNamed("ST_YellowAlert_Signal", false);
+                    if (newState && yelSnd != null)
+                    {
+                        var m = typeof(YASTM.MapComponent_AlertPanel).GetMethod("StartYellowSiren");
+                        if (m != null)
+                        {
+                            m.Invoke(mc2, new object[] { yelSnd });
+                        }
+                        else
+                        {
+                            var info = SoundInfo.OnCamera(MaintenanceType.None);
+                            info.volumeFactor = Mathf.Clamp01(YASTM_Mod.Settings?.AlertVolume01 ?? 1f);
+                            var sust = SoundStarter.TrySpawnSustainer(yelSnd, info);
+                            // mc2.activeSirenYellow = sust; // falls Feld vorhanden & public
+                        }
+                    }
+                }
+            };
+
+            if (now < mc.NextAllowedTickYellow)
+            {
+                int sec = Mathf.CeilToInt((mc.NextAllowedTickYellow - now) / 60f);
+                cmd.Disable("ST.AlertPanel.Cooldown".Translate(sec));
+            }
+
+            if (mc.IsYellowAlertOn)
+                cmd.defaultLabel += " (ON)";
+
+            yield return cmd;
+        }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            if (parent.Faction != Faction.OfPlayer) yield break;
-
-            var power = parent.GetComp<CompPowerTrader>();
-            bool powered = power == null || power.PowerOn;
-            int now = Find.TickManager.TicksGame;
-            var mc = parent.Map?.GetComponent<MapComponent_AlertPanel>();
-
-            // Yellow Alert Button
-            var cmdYellow = new Command_Action
-            {
-                defaultLabel = "ST.YellowAlert.EngageButton".Translate(),
-                defaultDesc  = "ST.YellowAlert.ButtonDesc".Translate(),
-                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/YellowAlert", false),
-                action       = TriggerYellow
-            };
-            if (!powered)
-            {
-                cmdYellow.Disable("ST.YellowAlert.NeedsPower".Translate());
-            }
-            else if (mc != null && now < mc.NextAllowedTickYellow)
-            {
-                int rem = mc.NextAllowedTickYellow - now;
-                cmdYellow.Disable("ST.YellowAlert.Recharging".Translate(rem.ToStringTicksToPeriod()));
-            }
-            yield return cmdYellow;
-
-            // Red Alert Button
-            var cmdRed = new Command_Action
-            {
-                defaultLabel = "ST.RedAlert.EngageButton".Translate(),
-                defaultDesc  = "ST.RedAlert.ButtonDesc".Translate(),
-                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/RedAlert", false),
-                action       = TriggerRed
-            };
-            if (!powered)
-            {
-                cmdRed.Disable("ST.RedAlert.NeedsPower".Translate());
-            }
-            else if (mc != null && now < mc.NextAllowedTick)
-            {
-                int rem = mc.NextAllowedTick - now;
-                cmdRed.Disable("ST.RedAlert.Recharging".Translate(rem.ToStringTicksToPeriod()));
-            }
-            yield return cmdRed;
-        }
-
-        void TriggerYellow()
-        {
-            var map = parent.Map; if (map == null) return;
-
-            var power = parent.GetComp<CompPowerTrader>();
-            if (power != null && !power.PowerOn)
-            {
-                Messages.Message("ST.YellowAlert.NeedsPower".Translate(), parent, MessageTypeDefOf.RejectInput); 
-                return;
-            }
-
-            var mc = map.GetComponent<MapComponent_AlertPanel>();
-            int now = Find.TickManager.TicksGame;
-            if (mc != null && now < mc.NextAllowedTickYellow)
-            {
-                int rem = mc.NextAllowedTickYellow - now;
-                Messages.Message("ST.YellowAlert.Recharging".Translate(rem.ToStringTicksToPeriod()), parent, MessageTypeDefOf.RejectInput);
-                return;
-            }
-
-            // Hediff anwenden
-            var hediffDef = DefDatabase<HediffDef>.GetNamedSilentFail("ST_YellowAlert");
-            if (hediffDef == null)
-            {
-                Messages.Message("Missing hediff: ST_YellowAlert", parent, MessageTypeDefOf.RejectInput);
-                return;
-            }
-            foreach (var p in map.mapPawns.FreeColonistsSpawned)
-            {
-                var existing = p.health?.hediffSet?.GetFirstHediffOfDef(hediffDef);
-                HediffWithComps h = existing as HediffWithComps ?? (p.health?.AddHediff(hediffDef) as HediffWithComps);
-                var disp = h?.TryGetComp<HediffComp_Disappears>();
-                if (disp != null) disp.ticksToDisappear = Props.yellowDurationTicks;
-
-                MoteMaker.ThrowText(p.DrawPos, map, "YELLOW ALERT", new Color(1f, 0.95f, 0.2f), 1.2f);
-            }
-
-
-            SpawnBlink(isRed:false, scale:1.1f);
-            var ping = DefDatabase<SoundDef>.GetNamedSilentFail("ST_YellowAlert_Ping");
-            ping?.PlayOneShot(SoundInfo.OnCamera());
-
-
-            if (mc != null)
-            {
-                mc.BlinkUntilTickYellow = now + 300;              // ~5s
-                mc.NextAllowedTickYellow = now + Props.yellowCooldownTicks;
-            }
-
-
-            SetPanelTint(new Color(1f, 0.92f, 0.2f));
-
-            Messages.Message("ST.YellowAlert.Engaged".Translate(), parent, MessageTypeDefOf.PositiveEvent);
-        }
-
-        void TriggerRed()
-        {
-            var map = parent.Map; if (map == null) return;
-
-            var power = parent.GetComp<CompPowerTrader>();
-            if (power != null && !power.PowerOn)
-            {
-                Messages.Message("ST.RedAlert.NeedsPower".Translate(), parent, MessageTypeDefOf.RejectInput);
-                return;
-            }
-
-            var mc = map.GetComponent<MapComponent_AlertPanel>();
-            int now = Find.TickManager.TicksGame;
-            if (mc != null && now < mc.NextAllowedTick)
-            {
-                int rem = mc.NextAllowedTick - now;
-                Messages.Message("ST.RedAlert.Recharging".Translate(rem.ToStringTicksToPeriod()), parent, MessageTypeDefOf.RejectInput);
-                return;
-            }
-
-
-            var hediffDef = DefDatabase<HediffDef>.GetNamedSilentFail("ST_RedAlert");
-            if (hediffDef == null)
-            {
-                Messages.Message("ST.RedAlert.MissingHediff".Translate(), parent, MessageTypeDefOf.RejectInput);
-                return;
-            }
-            foreach (var p in map.mapPawns.FreeColonistsSpawned)
-            {
-                var existing = p.health?.hediffSet?.GetFirstHediffOfDef(hediffDef);
-                HediffWithComps h = existing as HediffWithComps ?? (p.health?.AddHediff(hediffDef) as HediffWithComps);
-                var disp = h?.TryGetComp<HediffComp_Disappears>();
-                if (disp != null) disp.ticksToDisappear = Props.redDurationTicks;
-
-                MoteMaker.ThrowText(p.DrawPos, map, "RED ALERT", Color.red, 1.4f);
-            }
-
-
-            SpawnBlink(isRed:true, scale:1.2f);
-
-
-            var ping = DefDatabase<SoundDef>.GetNamedSilentFail("ST_RedAlert_SirenPing");
-            ping?.PlayOneShot(SoundInfo.OnCamera());
-
-
-            var mc2 = mc;
-            if (Props.playRedSirenLoop && mc2 != null)
-            {
-                var longDef = DefDatabase<SoundDef>.GetNamedSilentFail("ST_RedAlert_SirenLong");
-                if (longDef != null)
-                {
-                    mc2.activeSiren?.End();
-                    mc2.activeSiren = SoundStarter.TrySpawnSustainer(longDef, SoundInfo.OnCamera());
-                    mc2.activeSiren?.Maintain();
-                }
-            }
-
-
-            if (mc != null)
-            {
-                mc.BlinkUntilTick = now + 360;                    // ~6s
-                mc.NextAllowedTick = now + Props.redCooldownTicks;
-            }
-
-
-            SetPanelTint(new Color(0.95f, 0.2f, 0.2f));
-
-            Messages.Message("ST.RedAlert.Engaged".Translate(), parent, MessageTypeDefOf.PositiveEvent);
-        }
-
-
-
-        void SpawnBlink(bool isRed, float scale)
-        {
-
-            string defName = isRed ? "ST_AlertBlink_Red" : "ST_AlertBlink_Yellow";
-            var def = DefDatabase<FleckDef>.GetNamedSilentFail(defName) ?? FleckDefOf.Smoke;
-
-            FleckMaker.AttachedOverlay(parent, def, Vector3.zero, scale);
-        }
-
-        void SetPanelTint(Color c)
-        {
-            var cc = parent.TryGetComp<CompColorable>();
-            if (cc != null)
-            {
-                cc.SetColor(c);
-                parent.Notify_ColorChanged();
-            }
+            foreach (var g in RedGizmo()) yield return g;
+            foreach (var g in YellowGizmo()) yield return g;
         }
     }
 }

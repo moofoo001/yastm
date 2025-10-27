@@ -11,14 +11,19 @@
       <li>ApparelUtility</li>
     </thingCategories>
     <apparel>
-      <layers><li>Belt</li></layers>             
-      <bodyPartGroups><li>Waist</li></bodyPartGroups>
-      <tags><li>UtilityBelt</li></tags>
-      <defaultOutfitTags><li>Worker</li><li>Soldier</li></defaultOutfitTags>
+        <layers>
+          <li>ST_RankPipLayer</li>
+        </layers>
+        <bodyPartGroups>
+          <li>Neck</li>
+        </bodyPartGroups>
     </apparel>
     <statBases>
       <Mass>0.05</Mass>
     </statBases>
+    <comps>
+          <li Class="YASTM.CompProperties_StarfleetCareer" />
+    </comps>
     <tradeability>Sellable</tradeability>
   </ThingDef>
 

@@ -82,7 +82,18 @@
   <STQ.LJG.Task.Scan>Einen medizinischen ODER wissenschaftlichen Scan</STQ.LJG.Task.Scan>
   <STQ.LJG.Task.Sweep>Sicherheitssweep</STQ.LJG.Task.Sweep>
   <STQ.LJG.Task.Diplo>Beziehungen per Diplomatie verbessern</STQ.LJG.Task.Diplo>
-  
+
+
+  <!--Promotion 2.0 -->
+  <ST.Promotion.Error.NoTarget>Für dieses Pip ist kein Zielrang definiert.</ST.Promotion.Error.NoTarget>
+  <ST.Promotion.Error.NoReqs>Für {0} sind keine Beförderungsanforderungen definiert.</ST.Promotion.Error.NoReqs>
+  <ST.Promotion.Error.WrongFromRank>{PAWN_labelShort} erfüllt die Vor-Rang-Bedingung nicht.</ST.Promotion.Error.WrongFromRank>
+  <ST.Promotion.Error.ObjectivesMissing>{PAWN_labelShort} hat die Beförderungsziele noch nicht abgeschlossen.</ST.Promotion.Error.ObjectivesMissing>
+  <ST.Promotion.Error.Unique>Nur ein(e) {0} ist in der Kolonie zulässig.</ST.Promotion.Error.Unique>
+  <STQ.Promo.ChooseTitle>Beförderungsziele</STQ.Promo.ChooseTitle>
+  <STQ.Promo.ChooseCandidate>Wähle eine(n) Kandidat(in) für die Beförderungsziele.</STQ.Promo.ChooseCandidate>
+
+
   <!-- Research -->
   <ST.Research.RedAlert.Label>Alarmprotokolle (Rotalarm)</ST.Research.RedAlert.Label>
   <ST.Research.RedAlert.Desc>Implementiert Alarmrouten und EPS-Priorisierung, um das Rotalarm-Panel zu aktivieren.</ST.Research.RedAlert.Desc>
@@ -153,4 +164,15 @@
   <ST.Transporter.NearGravEngine.Required>Es muss eine Grav-Engine (oder ihr Bauplan) auf der Karte existieren.</ST.Transporter.NearGravEngine.Required>
   <ST.Transporter.NearGravEngine.TooFar>Muss innerhalb von {0} Feldern zur Grav-Engine platziert werden.</ST.Transporter.NearGravEngine.TooFar>
 
+  <ST.Transporter.Cooldown>Abklingzeit: {0}s</ST.Transporter.Cooldown>
+  <ST.Transporter.NeedsPower>Benötigt Strom.</ST.Transporter.NeedsPower>
+  <ST.Transporter.SwitchedOff>Schalter ist aus.</ST.Transporter.SwitchedOff>
+  <ST.Transporter.Energize.Label>Energize</ST.Transporter.Energize.Label>
+  <ST.Transporter.Energize.Desc>Beame nahe Kolonist(inn)en zum verbundenen Beacon.</ST.Transporter.Energize.Desc>
+  <ST.Transporter.NoTarget>Kein gültiger Ziel-Beacon.</ST.Transporter.NoTarget>
+  <ST.Transporter.OutOfRange>Ziel außerhalb der Reichweite ({0} Felder).</ST.Transporter.OutOfRange>
+  <ST.Transporter.NoOperator>Kein qualifizierter Bediener angrenzend.</ST.Transporter.NoOperator>
+  <ST.Transporter.NoPawns>Keine geeigneten Pawns in Beacon-Nähe.</ST.Transporter.NoPawns>
+  <ST.Transporter.NoValidDest>Kein gültiges Ankunftsfeld gefunden.</ST.Transporter.NoValidDest>
+  <ST.Transporter.Moved>{0} Pawn(s) transportiert.</ST.Transporter.Moved>
 </LanguageData>

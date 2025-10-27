@@ -8,12 +8,5 @@
       <xpath>Defs/PreceptDef[starts-with(defName,"IdeoRole_Federation")]/roleApparelRequirements</xpath>
     </match>
   </Operation>
-  <!--
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/QuestScriptDef[defName="STQ_Promotion_LJG"]</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/IncidentDef[defName="STQ_Offer_LJG"]</xpath>
-  </Operation>
-  -->
+
 </Patch>

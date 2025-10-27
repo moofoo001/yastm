@@ -3,12 +3,19 @@
   <ThingDef ParentName="BuildingBase">
     <defName>ST_AlertPanel</defName>
     <label>alert panel</label>
-    <description>Colony-wide alert controls for yellow and red alert.</description>
+    <description>Wall-mounted alert control panel with Red and Yellow alert toggles.</description>
+
+    <thingClass>Building</thingClass>
     <size>(1,1)</size>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
     <rotatable>true</rotatable>
+    <selectable>true</selectable>
     <fillPercent>0.1</fillPercent>
     <pathCost>0.1</pathCost>
-    <graphicData>
+    <passability>PassThroughOnly</passability>
+    <uiIconPath>Things/Building/AlertPanel/AlertPanel</uiIconPath>
+
+  <graphicData>
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
       <texPath>Things/Building/AlertPanel/AlertPanel</texPath>
@@ -22,8 +29,7 @@
       </damageData>
       <color>(1, .7, 0.8, 0.75)</color>   
     </graphicData>
-    <uiIconPath>Things/Building/AlertPanel/AlertPanel</uiIconPath>
-    <altitudeLayer>BuildingOnTop</altitudeLayer>
+
     <statBases>
       <MaxHitPoints>120</MaxHitPoints>
       <WorkToBuild>700</WorkToBuild>
@@ -34,18 +40,19 @@
       <Steel>40</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
+
     <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>40</basePowerConsumption>
-      </li>
-      <li Class="CompProperties_Flickable" />
+      <!-- Alias-Props (Ticks werden intern auf Sekunden gemappt) -->
       <li Class="YASTM.CompProperties_AlertPanel">
+      <!--
+        <redCooldownTicks>600</redCooldownTicks>       
+        <yellowCooldownTicks>600</yellowCooldownTicks>  
+        -->
         <redDurationTicks>18000</redDurationTicks>         <!-- ~5h -->
         <redCooldownTicks>90000</redCooldownTicks>         <!-- ~1.5 Tage -->
         <yellowDurationTicks>9000</yellowDurationTicks>    <!-- ~2.5h -->
-        <yellowCooldownTicks>45000</yellowCooldownTicks>   <!-- ~0.75 Tage -->
-        <playRedSirenLoop>true</playRedSirenLoop>          <!-- Sustainer während Blink -->
+        <yellowCooldownTicks>45000</yellowCooldownTicks> 
+        <blinkSeconds>3</blinkSeconds>
       </li>
       <li Class="CompProperties_Glower">
         <glowRadius>5</glowRadius>
@@ -54,11 +61,7 @@
         <darklightToggle>false</darklightToggle>
       </li>
     </comps>
-    <designationCategory>ST_Designation</designationCategory>
-    <uiOrder>2150</uiOrder>
-    <researchPrerequisites>       
-        <li>ST_AlertProtocols</li>
-    </researchPrerequisites>
+
     <building>
 		  <isEdifice>false</isEdifice>
 		  <isAttachment>true</isAttachment>
@@ -67,6 +70,10 @@
     <placeWorkers>
 			<li>Placeworker_AttachedToWall</li>
 		</placeWorkers>
+    <designationCategory>ST_Designation</designationCategory>
+    <researchPrerequisites>
+      <li>Electricity</li>
+      <li>ST_AlertProtocols</li>
+    </researchPrerequisites>
   </ThingDef>
-
 </Defs>
