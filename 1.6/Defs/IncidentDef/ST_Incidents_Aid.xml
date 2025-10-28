@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <IncidentDef>
+    <defName>ST_StarfleetAidDrop</defName>
+    <workerClass>RimWorld.IncidentWorker_ResourcePodCrash</workerClass>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_Misc</li>
+    </targetTags>
+    <baseChance>0</baseChance> <!-- nur manuell, nicht vom Storyteller -->
+    <letterLabel>Starfleet aid drop</letterLabel>
+    <letterText>Starfleet has delivered emergency supplies via drop pods.</letterText>
+    <letterDef>PositiveEvent</letterDef>
+  </IncidentDef>
+</Defs>

@@ -108,7 +108,12 @@ namespace YASTM
                             usedBy.apparel.Wear(apparelToWear, dropReplacedApparel: true);
                     }
                 }
-
+                if (Props.consumeOnUse && !(parent is Apparel))
+                {
+                    // genau 1 Stück verbrauchen – funktioniert auch bei Stacks
+                    var one = parent.SplitOff(1);
+                    one.Destroy(DestroyMode.Vanish);
+                }
                 Messages.Message("ST.Promotion.Applied".Translate(usedBy.Named("PAWN")),
                     usedBy, MessageTypeDefOf.PositiveEvent);
             }

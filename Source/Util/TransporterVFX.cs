@@ -1,37 +1,17 @@
 // Source/Util/TransporterVFX.cs
-using UnityEngine;
-using Verse;
-using Verse.Sound;
 using RimWorld;
+using Verse;
 
 namespace YASTM
 {
     public static class TransporterVFX
     {
-        private static FleckDef GetBlinkFleck()
+        public static void PlayBeam(Map map, IntVec3 pos)
         {
-            // 1) Mod-Def, 2) vanilla MicroSparks, 3) AirPuff (Fallback)
-            return DefDatabase<FleckDef>.GetNamedSilentFail("ST_TransporterBlink")
-                ?? DefDatabase<FleckDef>.GetNamedSilentFail("MicroSparks")
-                ?? DefDatabase<FleckDef>.GetNamedSilentFail("AirPuff");
-        }
-
-        public static void PlayBeam(Map map, IntVec3 cell)
-        {
-            if (map == null || !cell.InBounds(map)) return;
-
-            // Fleck
-            var fleck = GetBlinkFleck();
-            if (fleck != null)
-                FleckMaker.Static(cell, map, fleck, 1.2f);
-
-            // Sound (optional)
-            var snd = DefDatabase<SoundDef>.GetNamedSilentFail("ST_Transporter_Beam");
-            if (snd != null)
-            {
-                var info = SoundInfo.InMap(new TargetInfo(cell, map), MaintenanceType.None);
-                SoundStarter.PlayOneShot(snd, info);
-            }
+            if (map == null) return;
+            var data = FleckMaker.GetDataStatic(pos.ToVector3Shifted(), map, FleckDefOf.PsycastAreaEffect, 1.25f);
+            data.rotation = Rand.Range(0f, 360f);
+            map.flecks.CreateFleck(data);
         }
     }
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Research projects that tatsächlich existieren -->
+  <ST_FieldHyposprays.label>field hyposprays</ST_FieldHyposprays.label>
+  <ST_FieldHyposprays.description>Standard Starfleet hyposprays for field use.</ST_FieldHyposprays.description>
+
+  <ST_TricorderSuite.label>tricorder suite</ST_TricorderSuite.label>
+  <ST_TricorderSuite.description>Starfleet handheld scanners: medical and science variants.</ST_TricorderSuite.description>
+
+  <ST_UseMedicalTricorder.label>use Med-Tricorder</ST_UseMedicalTricorder.label>
+  <ST_UseMedicalTricorder.gerund>scanning....</ST_UseMedicalTricorder.gerund>
+
+  <!-- ACHTUNG: Name an dein Def anpassen – bei dir heißt es ST_EVSuits, nicht ST_EVASystems -->
+  <ST_EVSuits.label>EV suits</ST_EVSuits.label>
+  <ST_EVSuits.description>Suit and helmet for extravehicular activity in hazardous environments.</ST_EVSuits.description>
+</LanguageData>

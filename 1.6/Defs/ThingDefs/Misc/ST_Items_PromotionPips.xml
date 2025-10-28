@@ -26,9 +26,11 @@
         <useDuration>60</useDuration>
         <useJob>UseItem</useJob>
       </li>
-      <li Class="YASTM.CompProperties_PromoteToRank">
-        <targetRankTraitDefName>ST_Rank_Ensign</targetRankTraitDefName>
-        <pipApparelDefName>ST_RankPips_Ensign</pipApparelDefName>
+        <li Class="YASTM.CompProperties_PromoteToRank">
+          <compClass>YASTM.CompPromoteToRank</compClass>
+          <targetRankTraitDefName>ST_Rank_Ensign</targetRankTraitDefName>
+          <pipApparelDefName>ST_RankPips_Ensign</pipApparelDefName>
+          <consumeOnUse>true</consumeOnUse>
       </li>
     </comps>
   </ThingDef>
@@ -55,9 +57,11 @@
         <useDuration>60</useDuration>
         <useJob>UseItem</useJob>
       </li>
-      <li Class="YASTM.CompProperties_PromoteToRank">
+  <li Class="YASTM.CompProperties_PromoteToRank">
+        <compClass>YASTM.CompPromoteToRank</compClass>
         <targetRankTraitDefName>ST_Rank_LieutenantJG</targetRankTraitDefName>
         <pipApparelDefName>ST_RankPips_LJG</pipApparelDefName>
+        <consumeOnUse>true</consumeOnUse>
       </li>
     </comps>
   </ThingDef>
@@ -85,8 +89,10 @@
         <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
+        <compClass>YASTM.CompPromoteToRank</compClass>
         <targetRankTraitDefName>ST_Rank_Lieutenant</targetRankTraitDefName>
         <pipApparelDefName>ST_RankPips_Lieutenant</pipApparelDefName>
+        <consumeOnUse>true</consumeOnUse>
       </li>
     </comps>
   </ThingDef>
@@ -114,8 +120,10 @@
         <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
+        <compClass>YASTM.CompPromoteToRank</compClass>
         <targetRankTraitDefName>ST_Rank_LtCommander</targetRankTraitDefName>
         <pipApparelDefName>ST_RankPips_LtCommander</pipApparelDefName>
+        <consumeOnUse>true</consumeOnUse>
       </li>
     </comps>
     </ThingDef>
@@ -143,9 +151,11 @@
         <useJob>UseItem</useJob>    
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
+        <compClass>YASTM.CompPromoteToRank</compClass>
         <targetRankTraitDefName>ST_Rank_Commander</targetRankTraitDefName>
         <pipApparelDefName>ST_RankPips_Commander</pipApparelDefName>
-        </li>
+        <consumeOnUse>true</consumeOnUse>
+      </li>
     </comps>
    </ThingDef>
 
@@ -172,9 +182,11 @@
         <useJob>UseItem</useJob>
       </li>
       <li Class="YASTM.CompProperties_PromoteToRank">
+       <compClass>YASTM.CompPromoteToRank</compClass>
         <targetRankTraitDefName>ST_Rank_Captain</targetRankTraitDefName>
         <pipApparelDefName>ST_RankPips_Captain</pipApparelDefName>
-        </li>
+        <consumeOnUse>true</consumeOnUse>
+      </li>
     </comps>
    </ThingDef>
   

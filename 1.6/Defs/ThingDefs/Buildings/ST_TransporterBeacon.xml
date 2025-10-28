@@ -3,22 +3,22 @@
   <ThingDef ParentName="BuildingBase">
     <defName>ST_TransporterBeacon</defName>
     <label>transporter beacon</label>
-    <description>Fixed transporter node. Beams nearby colonists to the nearest powered beacon on this map.</description>
+    <description>Pairs with other transporter beacons. Use “Beam out” to send a selected pawn from this beacon to a linked beacon within range; use “Beam in” to bring a selected pawn here. Requires power.</description>
 
     <thingClass>Building</thingClass>
-    <size>(1,1)</size>
+    <size>(3,1)</size>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
-    <rotatable>false</rotatable>
+    <rotatable>true</rotatable>
     <selectable>true</selectable>
     <passability>PassThroughOnly</passability>
 
     <graphicData>
       <texPath>Things/Building/ST_TransportBeacon</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(1,1)</drawSize>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(3,3)</drawSize>
     </graphicData>
-
-    <!-- KEIN PlaceWorker_RequireProximityToDef, KEINE ModExtension für Grav-Engine -->
+    <uiIconScale>1</uiIconScale>
 
     <costList>
       <Steel>60</Steel>
@@ -31,39 +31,41 @@
 
     <comps>
       <li Class="CompProperties_Power">
-        <shortCircuitInRain>true</shortCircuitInRain>
-        <basePowerConsumption>350</basePowerConsumption>
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>200</basePowerConsumption>
       </li>
       <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
 
-      <!-- QoL-Gate (Power/Flick/Cooldown-Anzeige), ohne Grav-Anforderung -->
-      <li Class="YASTM.CompProperties_TransporterPolish" />
-
-      <!-- Transporter-Logik -->
+      <!-- YASTM 2-Beacon Transporter -->
       <li Class="YASTM.CompProperties_TransporterBeacon">
-        <!-- Entweder große Reichweite ... -->
-        <maxBeamOutDistance>200</maxBeamOutDistance>
-        <!-- ... oder -1 = unbegrenzt auf der Map -->
-        <!-- <maxBeamOutDistance>-1</maxBeamOutDistance> -->
+        <!-- pro Beam-Vorgang (nur informativ, derzeit visuell/VFX) -->
+        <energyCostPerUse>1200</energyCostPerUse>
+        <!-- Warmup bis zum Beam -->
+        <warmupTicks>60</warmupTicks>
+        <!-- gemeinsamer Cooldown für In/Out -->
+        <cooldownTicks>120000</cooldownTicks>  <!-- 2 in-game Stunden -->
+        <!-- Maximaler Abstand zwischen Beacon A und B -->
+        <maxLinkDistance>100</maxLinkDistance>
 
-        <!-- Zieltyp (leer = jeder Beacon); Standard lassen: -->
-        <targetBeaconDefName>ST_TransporterBeacon</targetBeaconDefName>
+        <!-- Mindest-Rang für BEAM OUT (vom aktiven Beacon weg) -->
+        <requiredRankTraitsBeamOut>
+          <li>ST_Rank_LieutenantJG</li>
+          <li>ST_Rank_Lieutenant</li>
+          <li>ST_Rank_LtCommander</li>
+          <li>ST_Rank_Commander</li>
+          <li>ST_Rank_Captain</li>
+        </requiredRankTraitsBeamOut>
 
-        <!-- Bediener-Gate optional: min. Rang -->
-        <minOperatorRankTraitDefName>ST_Rank_LieutenantJG</minOperatorRankTraitDefName>
-
-        <!-- Bedienung: direkt am Beacon stehen -->
-        <requireOperatorAdjacent>true</requireOperatorAdjacent>
-        <operatorMaxDistance>1</operatorMaxDistance>
-
-        <!-- Baselines -->
-        <maxPawnsPerPulse>1</maxPawnsPerPulse>
-        <colonistsOnly>true</colonistsOnly>
-        <cooldownBeamInTicks>300000</cooldownBeamInTicks>   <!-- 5 Tage -->
-        <cooldownBeamOutTicks>120000</cooldownBeamOutTicks> <!-- 2 Tage -->
-        <soundDefName>ST_Transporter_Beam_YASTM</soundDefName>
+        <!-- Mindest-Rang für BEAM IN (zum aktiven Beacon her) -->
+        <requiredRankTraitsBeamIn>
+          <li>ST_Rank_LieutenantJG</li>
+          <li>ST_Rank_Lieutenant</li>
+          <li>ST_Rank_LtCommander</li>
+          <li>ST_Rank_Commander</li>
+          <li>ST_Rank_Captain</li>
+        </requiredRankTraitsBeamIn>
       </li>
-
       <li Class="CompProperties_Glower">
         <glowRadius>8</glowRadius>
         <glowColor>(0,218,255,0)</glowColor>
@@ -73,6 +75,7 @@
     <designationCategory>ST_Designation</designationCategory>
     <researchPrerequisites>
       <li>Electricity</li>
+      <li>ST_TransporterTech</li>
     </researchPrerequisites>
   </ThingDef>
 </Defs>

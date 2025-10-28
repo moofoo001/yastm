@@ -145,10 +145,11 @@
   <ST.Diplomacy.Result>Relations with {FACTION_name} improved by {0}.</ST.Diplomacy.Result>
   <ST.Diplomacy.FailCooldown>Channel is busy ({0}).</ST.Diplomacy.FailCooldown>
 
-  <!-- Common / Utility -->
-  <ST.Common.RequiresPower>Requires power.</ST.Common.RequiresPower>
+  <!-- Common / shared -->
+  <ST.Common.NeedsPower>Requires power.</ST.Common.NeedsPower>
   <ST.Common.Recharging>Recharging ({0}).</ST.Common.Recharging>
-
+  <ST.Common.NotEnoughSilver>Not enough silver ({0} required).</ST.Common.NotEnoughSilver>
+  
   <!-- Ktarian Game -->
   <ST.Ktarian.Play.Button>Play Ktarian Game</ST.Ktarian.Play.Button>
   <ST.Ktarian.Play.Desc>Start a short neural-interface game session.</ST.Ktarian.Play.Desc>

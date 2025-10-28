@@ -40,7 +40,7 @@ namespace YASTM
             {
                 defaultLabel = "ST.AlertPanel.Red.Label".Translate(),   // z.B. "Red Alert"
                 defaultDesc  = "ST.AlertPanel.Red.Desc".Translate(),    // Erklärungstext
-                icon = null, // Optional: ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/RedAlert", true)
+                icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/RedAlert", true),
                 action = () =>
                 {
                     // MapComponent referenzieren
@@ -114,7 +114,7 @@ namespace YASTM
             {
                 defaultLabel = "ST.AlertPanel.Yellow.Label".Translate(), // z.B. "Yellow Alert"
                 defaultDesc  = "ST.AlertPanel.Yellow.Desc".Translate(),
-                icon = null, // Optional: ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/YellowAlert", true)
+                icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/YellowAlert", true),
                 action = () =>
                 {
                     var map2 = parent.Map;

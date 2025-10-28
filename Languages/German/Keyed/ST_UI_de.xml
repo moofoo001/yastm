@@ -23,4 +23,22 @@
   <ST.DeployedBeacon>Kommunikationsbake aufgestellt.</ST.DeployedBeacon>
   <ST.NoPlaceToDeploy>Kein Platz zum Aufstellen.</ST.NoPlaceToDeploy>
 
+  <ST.Aid.IncidentMissing>Aid-Event nicht gefunden: {0}</ST.Aid.IncidentMissing>
+  <ST.Aid.Button>Starfleet-Hilfe anfordern</ST.Aid.Button>
+  <ST.Aid.Button.Desc>Bezahle Silber und Ansehen, um eine Starfleet-Hilfslieferung anzufordern.</ST.Aid.Button.Desc>
+
+  <ST.Transporter.BeamOut>Hinausbeamen (Pawn wählen)</ST.Transporter.BeamOut>
+  <ST.Transporter.BeamOut.Desc>Beame den gewählten Pawn von diesem Beacon zum nächstgelegenen verlinkten Beacon innerhalb von {0} Feldern.</ST.Transporter.BeamOut.Desc>
+
+  <ST.Transporter.BeamIn>Hereinbeamen (zu diesem Beacon)</ST.Transporter.BeamIn>
+  <ST.Transporter.BeamIn.Desc>Beame den gewählten Pawn zu diesem Beacon (muss innerhalb von {0} Feldern sein).</ST.Transporter.BeamIn.Desc>
+
+  <!-- Rückmeldungen -->
+  <ST.Transporter.RankTooLow>{PAWN_labelShort} hat nicht den erforderlichen Starfleet-Rang.</ST.Transporter.RankTooLow>
+  <ST.Transporter.NoTargetBeacon>Kein verlinkter Transporter-Beacon innerhalb von {0} Feldern gefunden.</ST.Transporter.NoTargetBeacon>
+  <ST.Transporter.SameMapOnly>Beamen funktioniert nur auf derselben Karte.</ST.Transporter.SameMapOnly>
+  <ST.Transporter.TooFar>Ziel ist außer Reichweite (max. {0} Felder).</ST.Transporter.TooFar>
+  <ST.Transporter.Warmup>Energie…</ST.Transporter.Warmup>
+
+
 </LanguageData>

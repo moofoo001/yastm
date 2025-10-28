@@ -15,7 +15,6 @@
   <!-- Feedback / errors -->
   <ST.MustBePowered>Must be powered.</ST.MustBePowered>
   <ST.CompleteScansFirst>Complete scans first.</ST.CompleteScansFirst>
-  <ST.ObeliskSurveyInitialized>Obelisk survey initialized.</ST.ObeliskSurveyInitialized>
   <ST.ReportSent>Report sent to Starfleet.</ST.ReportSent>
 
   <!-- Crate -->
@@ -33,5 +32,23 @@
   <ST.Transporter.RequiresOfficerRanked>Requires an eligible officer within {0} tiles.</ST.Transporter.RequiresOfficerRanked>
   <ST.Transporter.NearGravEngine.Required>A gravity engine (or its blueprint) must exist on this map.</ST.Transporter.NearGravEngine.Required>
   <ST.Transporter.NearGravEngine.TooFar>Must be placed within {0} tiles of the gravity engine.</ST.Transporter.NearGravEngine.TooFar>
+
+  <ST.Aid.IncidentMissing>Aid incident not found: {0}</ST.Aid.IncidentMissing>
+  <ST.Aid.Button>Request Starfleet aid</ST.Aid.Button>
+  <ST.Aid.Button.Desc>Spend silver and goodwill to request a Starfleet aid drop.</ST.Aid.Button.Desc>
+
+  <!-- Transporter gizmos -->
+  <ST.Transporter.BeamOut>Beam out (select pawn)</ST.Transporter.BeamOut>
+  <ST.Transporter.BeamOut.Desc>Beam the selected pawn from this beacon to the nearest linked beacon within {0} tiles.</ST.Transporter.BeamOut.Desc>
+
+  <ST.Transporter.BeamIn>Beam in (to this beacon)</ST.Transporter.BeamIn>
+  <ST.Transporter.BeamIn.Desc>Beam the selected pawn to this beacon (must be within {0} tiles).</ST.Transporter.BeamIn.Desc>
+
+  <!-- Common/feedback -->
+  <ST.Transporter.RankTooLow>{PAWN_labelShort} lacks the required Starfleet rank.</ST.Transporter.RankTooLow>
+  <ST.Transporter.NoTargetBeacon>No linked transporter beacon found within {0} tiles.</ST.Transporter.NoTargetBeacon>
+  <ST.Transporter.SameMapOnly>Beaming only works on the same map.</ST.Transporter.SameMapOnly>
+  <ST.Transporter.TooFar>Target is beyond range ({0} tiles max).</ST.Transporter.TooFar>
+  <ST.Transporter.Warmup>Energizing…</ST.Transporter.Warmup>
 
 </LanguageData>

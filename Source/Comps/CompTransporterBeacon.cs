@@ -1,8 +1,6 @@
 // Source/Comps/CompTransporterBeacon.cs
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -10,34 +8,14 @@ using Verse.Sound;
 
 namespace YASTM
 {
-    // ------------------------------------------------------------
-    // PROPS
-    // ------------------------------------------------------------
     public class CompProperties_TransporterBeacon : CompProperties
     {
-        // Cooldowns (Ticks) – Info/Kompat; Handling ggf. separat
-        public int cooldownBeamInTicks  = 300000;   // 5 Tage
-        public int cooldownBeamOutTicks = 120000;   // 2 Tage
-
-        // Reichweite: -1 = unlimitiert (auf derselben Map)
-        public int maxBeamOutDistance = 200;
-
-        // Zieltyp einschränken (leer/null = jeder Beacon mit dieser Comp)
-        public string targetBeaconDefName = "ST_TransporterBeacon";
-
-        // Bedienung
-        public bool requireOperatorAdjacent = true;
-        public int  operatorMaxDistance     = 1;
-
-        // Rang-Gates
-        public string       minOperatorRankTraitDefName = "ST_Rank_LieutenantJG";
-        public List<string> requiredRankTraitsBeamIn    = null; // Listen haben Vorrang, falls gesetzt
-        public List<string> requiredRankTraitsBeamOut   = null;
-
-        // Sonstiges
-        public int     maxPawnsPerPulse = 1; // bei Select ist das 1; bleibt als Kompat-Feld
-        public bool    colonistsOnly    = true;
-        public string  soundDefName     = "ST_Transporter_Beam_YASTM";
+        public int energyCostPerUse = 1200;
+        public int warmupTicks = 60;
+        public int cooldownTicks = 600;
+        public int maxLinkDistance = 60;
+        public List<string> requiredRankTraitsBeamOut;
+        public List<string> requiredRankTraitsBeamIn;
 
         public CompProperties_TransporterBeacon()
         {
@@ -45,242 +23,253 @@ namespace YASTM
         }
     }
 
-    // ------------------------------------------------------------
-    // COMP
-    // ------------------------------------------------------------
     public class CompTransporterBeacon : ThingComp
     {
         public CompProperties_TransporterBeacon Props => (CompProperties_TransporterBeacon)props;
 
-        // --------------------------------------------------------
-        // SETTINGS-INTEGRATION (reflektiert optional auf ModSettings)
-        // Min(Props.maxBeamOutDistance, SettingsCap) – wenn Settings fehlen, nur Props
-        // --------------------------------------------------------
-        int EffectiveMaxDistance()
-        {
-            int propsVal    = Props.maxBeamOutDistance;         // -1 => unlimitiert
-            int settingsCap = TryGetSettingsCapOrIntMax();       // int.MaxValue => kein Cap
+        private static readonly Dictionary<Map, List<CompTransporterBeacon>> Registry = new();
 
-            if (propsVal <= 0) return settingsCap;               // unlimitiert durch Props => nur Settings-Cap
-            return propsVal < settingsCap ? propsVal : settingsCap;
+        private int nextUsableTick;
+        private int _nextLightCacheTick;
+        private bool _isPoweredCached;
+        private int _nextPruneTick;
+
+        public override void PostExposeData()
+        {
+            Scribe_Values.Look(ref nextUsableTick, "ST_nextUsableTick", 0);
         }
 
-        static int TryGetSettingsCapOrIntMax()
+        public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            // Sucht nach YASTM.YASTM_ModSettings.[TransporterMaxDistance|TransporterMaxBeamDistance]
-            try
+            base.PostSpawnSetup(respawningAfterLoad);
+            var map = parent.Map;
+            if (map != null)
             {
-                var allTypes = AppDomain.CurrentDomain.GetAssemblies()
-                    .SelectMany(a => { try { return a.GetTypes(); } catch { return Array.Empty<Type>(); } });
-
-                var t = allTypes.FirstOrDefault(tp => tp.FullName == "YASTM.YASTM_ModSettings");
-                if (t == null) return int.MaxValue;
-
-                // 1) statische Property?
-                var p = t.GetProperty("TransporterMaxDistance", BindingFlags.Public | BindingFlags.Static)
-                     ?? t.GetProperty("TransporterMaxBeamDistance", BindingFlags.Public | BindingFlags.Static);
-                if (p != null)
+                if (!Registry.TryGetValue(map, out var list))
                 {
-                    var val = p.GetValue(null);
-                    if (val is int iv1 && iv1 > 0) return iv1;
+                    list = new List<CompTransporterBeacon>();
+                    Registry[map] = list;
                 }
-
-                // 2) Instanz über Instance/Current
-                var instProp = t.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static)
-                            ?? t.GetProperty("Current",  BindingFlags.Public | BindingFlags.Static);
-                var inst = instProp?.GetValue(null);
-                if (inst != null)
-                {
-                    var p2 = t.GetProperty("TransporterMaxDistance", BindingFlags.Public | BindingFlags.Instance)
-                          ?? t.GetProperty("TransporterMaxBeamDistance", BindingFlags.Public | BindingFlags.Instance);
-                    if (p2 != null)
-                    {
-                        var val2 = p2.GetValue(inst);
-                        if (val2 is int iv2 && iv2 > 0) return iv2;
-                    }
-                }
+                if (!list.Contains(this)) list.Add(this);
             }
-            catch { /* still safe */ }
-
-            return int.MaxValue; // kein Cap gefunden
         }
 
-        // --------------------------------------------------------
-        // HILFSMETHODEN
-        // --------------------------------------------------------
-        bool PowerIsOn()
+        private static void PruneRegistry(Map map)
         {
-            var p = parent.GetComp<CompPowerTrader>();
-            var f = parent.GetComp<CompFlickable>();
-            if (f != null && !f.SwitchIsOn) return false;
-            return p == null || p.PowerOn;
-        }
-
-        bool OperatorSatisfiesRank(Pawn pawn, bool forBeamOut)
-        {
-            if (pawn == null || pawn.story?.traits == null) return false;
-
-            // Listen haben Vorrang, wenn vorhanden
-            var list = forBeamOut ? Props.requiredRankTraitsBeamOut : Props.requiredRankTraitsBeamIn;
-            if (list != null && list.Count > 0)
-                return pawn.story.traits.allTraits.Any(t => t?.def != null && list.Contains(t.def.defName));
-
-            // Fallback: Mindest-Rang
-            if (!string.IsNullOrEmpty(Props.minOperatorRankTraitDefName))
+            if (map == null) return;
+            if (!Registry.TryGetValue(map, out var list)) return;
+            for (int i = list.Count - 1; i >= 0; i--)
             {
-                var td = DefDatabase<TraitDef>.GetNamedSilentFail(Props.minOperatorRankTraitDefName);
-                return td != null && pawn.story.traits.HasTrait(td);
+                var c = list[i];
+                if (c == null || c.parent == null || c.parent.Destroyed)
+                    list.RemoveAt(i);
+            }
+        }
+
+        private bool HasPowerLightCached()
+        {
+            if (Find.TickManager.TicksGame >= _nextLightCacheTick)
+            {
+                _nextLightCacheTick = Find.TickManager.TicksGame + 60;
+                var p = parent.TryGetComp<CompPowerTrader>();
+                var f = parent.TryGetComp<CompFlickable>();
+                _isPoweredCached = (p == null || p.PowerOn) && (f == null || f.SwitchIsOn);
+            }
+            return _isPoweredCached;
+        }
+
+        private int EffectiveMaxLink() => Props.maxLinkDistance;
+
+        private static bool PawnHasAnyRank(Pawn pawn, List<string> traitDefNames)
+        {
+            if (pawn?.story?.traits == null || traitDefNames == null || traitDefNames.Count == 0) return true;
+            foreach (var defName in traitDefNames)
+            {
+                var td = DefDatabase<TraitDef>.GetNamedSilentFail(defName);
+                if (td != null && pawn.story.traits.HasTrait(td))
+                    return true;
+            }
+            return false;
+        }
+
+        private IEnumerable<CompTransporterBeacon> TargetBeaconsInRange()
+        {
+            var map = parent.Map;
+            if (map == null) yield break;
+
+            if (Find.TickManager.TicksGame >= _nextPruneTick)
+            {
+                _nextPruneTick = Find.TickManager.TicksGame + 600;
+                PruneRegistry(map);
             }
 
-            return true; // kein Gate
-        }
+            if (!Registry.TryGetValue(map, out var list)) yield break;
 
-        Pawn FindOperator()
-        {
-            IEnumerable<Pawn> pool = parent.Map.mapPawns.FreeColonistsSpawned;
+            int maxDist = EffectiveMaxLink();
+            float maxDistSq = maxDist * maxDist;
 
-            if (Props.requireOperatorAdjacent)
-                pool = pool.Where(p => p.Position.DistanceTo(parent.Position) <= Props.operatorMaxDistance);
-
-            return pool
-                .Where(p => !p.Downed && p.Awake() && OperatorSatisfiesRank(p, forBeamOut: true))
-                .OrderByDescending(p => p.skills?.GetSkill(SkillDefOf.Social)?.Level ?? 0)
-                .FirstOrDefault();
-        }
-
-        bool TryFindTargetBeacon(out Building target)
-        {
-            target = null;
-
-            IEnumerable<Building> candidates = parent.Map.listerThings.AllThings
-                .OfType<Building>()
-                .Where(b => b != parent && b.Spawned);
-
-            // Muss ebenfalls unser Beacon sein (hat unsere Comp)
-            candidates = candidates.Where(b => b.TryGetComp<CompTransporterBeacon>() != null);
-
-            // optional: gleicher DefName
-            if (!string.IsNullOrEmpty(Props.targetBeaconDefName))
-                candidates = candidates.Where(b => b.def?.defName == Props.targetBeaconDefName);
-
-            // powered & nicht defekt
-            candidates = candidates.Where(b =>
+            foreach (var b in list)
             {
-                var p = b.TryGetComp<CompPowerTrader>();
-                return (p == null || p.PowerOn) && !b.IsBrokenDown();
-            });
-
-            // Reichweite (Settings-Cap berücksichtigen)
-            int eff = EffectiveMaxDistance();
-            if (eff > 0)
-                candidates = candidates.Where(b => parent.Position.DistanceTo(b.Position) <= eff);
-
-            target = candidates.OrderBy(b => parent.Position.DistanceTo(b.Position)).FirstOrDefault();
-            return target != null;
-        }
-
-        string Disabled_NoTarget()  => "No valid target beacon. Place and power a second transporter beacon on this map.";
-        string Disabled_NoPower()   => "This beacon has no power.";
-        string Disabled_NoOperator() =>
-            !string.IsNullOrEmpty(Props.minOperatorRankTraitDefName)
-                ? $"No qualified operator nearby (min rank: {Props.minOperatorRankTraitDefName})."
-                : "No operator nearby.";
-
-        void PlaySound()
-        {
-            if (string.IsNullOrEmpty(Props.soundDefName)) return;
-            var s = DefDatabase<SoundDef>.GetNamedSilentFail(Props.soundDefName);
-            if (s != null) SoundStarter.PlayOneShot(s, SoundInfo.InMap(parent));
-        }
-
-        void DoBeam(Building target, IEnumerable<Pawn> pawns)
-        {
-            if (target == null) return;
-
-            foreach (var p in pawns)
-            {
-                if (!p.Spawned) continue;
-
-                var srcMap = p.Map;
-                IntVec3 dest = CellFinder.RandomClosewalkCellNear(target.Position, target.Map, 1);
-
-                p.DeSpawn();
-                GenSpawn.Spawn(p, dest, target.Map, Rot4.Random);
-
-                // kleine VFX (ersetzbar durch eigenen Transporter-Fleck)
-                FleckMaker.Static(parent.Position, srcMap, FleckDefOf.PsycastAreaEffect);
-                FleckMaker.Static(dest, target.Map, FleckDefOf.PsycastAreaEffect);
+                if (b == null || b.parent == null || b.parent.Destroyed) continue;
+                if (b == this) continue;
+                if ((b.parent.Position - parent.Position).LengthHorizontalSquared <= maxDistSq)
+                    yield return b;
             }
-
-            PlaySound();
         }
 
-        TargetingParameters BuildTargetingParams()
-        {
-            return new TargetingParameters
-            {
-                canTargetPawns = true,
-                canTargetAnimals = !Props.colonistsOnly,
-                canTargetLocations = false,
-
-                // Deine Version erwartet Predicate<TargetInfo>
-                validator = (TargetInfo ti) =>
-                {
-                    var p = ti.Thing as Pawn;
-                    if (p == null || !p.Spawned || p.Downed || p.Dead) return false;
-                    if (Props.colonistsOnly && !p.IsColonist) return false;
-                    // Auswahlradius um den QUELL-Beacon (UX)
-                    return p.Position.DistanceTo(parent.Position) <= 4.0f;
-                }
-            };
-        }
-
-        // --------------------------------------------------------
-        // GIZMOS (nur „Select Pawn“ via Command_Target)
-        // --------------------------------------------------------
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            foreach (var g in base.CompGetGizmosExtra())
-                yield return g;
-
-            var cmdSelect = new Command_Target
+            // ---- Beam OUT ----
+            var cmdOut = new Command_Action
             {
-                defaultLabel = "Energize (select pawn)",
-                defaultDesc  = "Select a pawn near this beacon to beam to the nearest powered target beacon.",
-                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/ST_EnergizeSelect", false),
-                targetingParams = BuildTargetingParams(),
-                action = (LocalTargetInfo lti) =>
-                {
-                    var pawn = lti.Thing as Pawn;
-                    if (pawn == null) return;
-
-                    if (!PowerIsOn())
-                    {
-                        Messages.Message(Disabled_NoPower(), parent, MessageTypeDefOf.RejectInput);
-                        return;
-                    }
-                    if (!TryFindTargetBeacon(out var target))
-                    {
-                        Messages.Message(Disabled_NoTarget(), parent, MessageTypeDefOf.RejectInput);
-                        return;
-                    }
-                    var op = FindOperator();
-                    if (op == null)
-                    {
-                        Messages.Message(Disabled_NoOperator(), parent, MessageTypeDefOf.RejectInput);
-                        return;
-                    }
-
-                    // alles ok → nur diesen Pawn beamen
-                    DoBeam(target, new[] { pawn });
-                }
+                defaultLabel = "ST.Transporter.BeamOut".Translate(),
+                defaultDesc  = "ST.Transporter.BeamOut.Desc".Translate(EffectiveMaxLink()),
+                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/ST_BeamOut", false),
+                action       = BeginBeamOutTargeting
             };
 
-            if (!PowerIsOn()) cmdSelect.Disable(Disabled_NoPower());
-            else if (!TryFindTargetBeacon(out _)) cmdSelect.Disable(Disabled_NoTarget());
-            else if (FindOperator() == null) cmdSelect.Disable(Disabled_NoOperator());
+            bool disableOut = !HasPowerLightCached() || Find.TickManager.TicksGame < nextUsableTick;
+            if (disableOut)
+            {
+                string reason = !HasPowerLightCached()
+                    ? "ST.Common.NeedsPower".Translate()
+                    : "ST.Common.Recharging".Translate((nextUsableTick - Find.TickManager.TicksGame).ToStringTicksToPeriod());
+                cmdOut.Disable(reason);
+            }
+            yield return cmdOut;
 
-            yield return cmdSelect;
+            // ---- Beam IN ----
+            var cmdIn = new Command_Action
+            {
+                defaultLabel = "ST.Transporter.BeamIn".Translate(),
+                defaultDesc  = "ST.Transporter.BeamIn.Desc".Translate(EffectiveMaxLink()),
+                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/ST_BeamIn", false),
+                action       = BeginBeamInTargeting
+            };
+
+            bool disableIn = !HasPowerLightCached() || Find.TickManager.TicksGame < nextUsableTick;
+            if (disableIn)
+            {
+                string reason = !HasPowerLightCached()
+                    ? "ST.Common.NeedsPower".Translate()
+                    : "ST.Common.Recharging".Translate((nextUsableTick - Find.TickManager.TicksGame).ToStringTicksToPeriod());
+                cmdIn.Disable(reason);
+            }
+            yield return cmdIn;
+        }
+
+        private void BeginBeamOutTargeting()
+        {
+            var tp = new TargetingParameters { canTargetPawns = true, canTargetAnimals = false, canTargetBuildings = false, canTargetSelf = false };
+            Find.Targeter.BeginTargeting(tp, target =>
+            {
+                var pawn = target.Thing as Pawn;
+                if (pawn == null || pawn.Dead || pawn.Map != parent.Map) return;
+                if (!PawnHasAnyRank(pawn, Props.requiredRankTraitsBeamOut))
+                {
+                    Messages.Message("ST.Transporter.RankTooLow".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.RejectInput);
+                    return;
+                }
+
+                var dest = ClosestTargetBeacon();
+                if (dest == null)
+                {
+                    Messages.Message("ST.Transporter.NoTargetBeacon".Translate(EffectiveMaxLink()), MessageTypeDefOf.RejectInput);
+                    return;
+                }
+
+                TryBeam(pawn, dest.parent.Position, dest.parent.Map);
+            });
+        }
+
+        private void BeginBeamInTargeting()
+        {
+            var tp = new TargetingParameters { canTargetPawns = true, canTargetAnimals = false, canTargetBuildings = false, canTargetSelf = false };
+            Find.Targeter.BeginTargeting(tp, target =>
+            {
+                var pawn = target.Thing as Pawn;
+                if (pawn == null || pawn.Dead) return;
+
+                if (!PawnHasAnyRank(pawn, Props.requiredRankTraitsBeamIn))
+                {
+                    Messages.Message("ST.Transporter.RankTooLow".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.RejectInput);
+                    return;
+                }
+
+                if (pawn.Map != parent.Map)
+                {
+                    Messages.Message("ST.Transporter.SameMapOnly".Translate(), MessageTypeDefOf.RejectInput);
+                    return;
+                }
+                if ((pawn.Position - parent.Position).LengthHorizontal > EffectiveMaxLink())
+                {
+                    Messages.Message("ST.Transporter.TooFar".Translate(EffectiveMaxLink()), MessageTypeDefOf.RejectInput);
+                    return;
+                }
+
+                TryBeam(pawn, parent.Position, parent.Map);
+            });
+        }
+
+        private CompTransporterBeacon ClosestTargetBeacon()
+        {
+            CompTransporterBeacon best = null;
+            float bestDistSq = float.MaxValue;
+            foreach (var b in TargetBeaconsInRange())
+            {
+                float d = (b.parent.Position - parent.Position).LengthHorizontalSquared;
+                if (d < bestDistSq)
+                {
+                    bestDistSq = d;
+                    best = b;
+                }
+            }
+            return best;
+        }
+
+        private void TryBeam(Pawn pawn, IntVec3 dest, Map map)
+        {
+            if (!HasPowerLightCached())
+            {
+                Messages.Message("ST.Common.NeedsPower".Translate(), MessageTypeDefOf.RejectInput);
+                return;
+            }
+            if (Find.TickManager.TicksGame < nextUsableTick)
+            {
+                Messages.Message("ST.Common.Recharging".Translate(
+                    (nextUsableTick - Find.TickManager.TicksGame).ToStringTicksToPeriod()), MessageTypeDefOf.RejectInput);
+                return;
+            }
+
+            var power = parent.TryGetComp<CompPowerTrader>();
+            if (power != null && !power.PowerOn)
+            {
+                Messages.Message("ST.Common.NeedsPower".Translate(), MessageTypeDefOf.RejectInput);
+                return;
+            }
+
+            int warmup = Math.Max(0, Props.warmupTicks);
+            if (warmup > 0)
+                MoteMaker.ThrowText(parent.TrueCenter(), parent.Map, "ST.Transporter.Warmup".Translate(), 2f);
+
+            TransporterVFX.PlayBeam(parent.Map, parent.Position);
+
+            LongEventHandler.ExecuteWhenFinished(() =>
+            {
+                if (pawn == null || pawn.Destroyed || map == null) return;
+                if (pawn.Map != map)
+                {
+                    Messages.Message("ST.Transporter.SameMapOnly".Translate(), MessageTypeDefOf.RejectInput);
+                    return;
+                }
+
+                TransporterVFX.PlayBeam(map, dest);
+
+                pawn.DeSpawn();
+                GenSpawn.Spawn(pawn, CellFinder.StandableCellNear(dest, map, 2), map);
+
+                nextUsableTick = Find.TickManager.TicksGame + Math.Max(Props.cooldownTicks, 60);
+            });
         }
     }
 }
