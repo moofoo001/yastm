@@ -7,7 +7,7 @@
     <description>Pressurized suit for vacuum/contamination. Bulky but lifesaving.</description>
     <techLevel>Spacer</techLevel>
     <graphicData>
-      <texPath>Things/Item/Apparel/EVSuit/Starfleet_EV_Helmet</texPath>
+      <texPath>Things/Item/Apparel/EVSuit/Starfleet_EVS</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <apparel>
