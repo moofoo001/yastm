@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-<TraitDef>
+  <!-- =========================
+       CADET
+       ========================= -->
+  <TraitDef>
     <defName>ST_Rank_Cadet</defName>
     <label>rank: cadet</label>
     <description>Initial training phase. Adapts quickly to new situations.</description>
     <conflictingTraits>
-        <li>ST_Rank_Ensign</li><li>ST_Rank_LieutenantJG</li><li>ST_Rank_Lieutenant</li>
-        <li>ST_Rank_LtCommander</li><li>ST_Rank_Commander</li><li>ST_Rank_Captain</li>
+      <li>ST_Rank_Ensign</li>
+      <li>ST_Rank_LieutenantJG</li>
+      <li>ST_Rank_Lieutenant</li>
+      <li>ST_Rank_LtCommander</li>
+      <li>ST_Rank_Commander</li>
+      <li>ST_Rank_Captain</li>
     </conflictingTraits>
     <degreeDatas>
       <li>
@@ -23,34 +30,34 @@
       </li>
     </degreeDatas>
     <modExtensions>
-        <li Class="YASTM.PromotionRequirementsExtension">
-          <fromRankTraitDefName>ST_Rank_Cadet</fromRankTraitDefName>
-
-          <requiredMedOrScienceScans>1</requiredMedOrScienceScans>
-          <requiredSecuritySweeps>1</requiredSecuritySweeps>
-          <requiredDiplomacyActions>0</requiredDiplomacyActions>
-
-          <minDaysSinceLastPromotion>0</minDaysSinceLastPromotion>
-          <goodwillMin>0</goodwillMin>
-          <uniqueColonyWide>false</uniqueColonyWide>
-
-          <pipApparelDefName>ST_RankPips_Ensign</pipApparelDefName>
-        </li>
-
-        <li Class="YASTM.RankVisualExtension">
-          <pipApparelDefName>ST_RankPips_Ensign</pipApparelDefName>
-        </li>
-      </modExtensions>
+      <li Class="YASTM.PromotionRequirementsExtension">
+        <!-- niedrigster Rang: kein fromRank nötig -->
+        <requiredMedOrScienceScans>1</requiredMedOrScienceScans>
+        <requiredSecuritySweeps>1</requiredSecuritySweeps>
+        <requiredDiplomacyActions>0</requiredDiplomacyActions>
+        <minDaysSinceLastPromotion>0</minDaysSinceLastPromotion>
+        <goodwillMin>0</goodwillMin>
+        <uniqueColonyWide>false</uniqueColonyWide>
+      </li>
+      <li Class="YASTM.RankVisualExtension">
+        <pipApparelDefName>ST_RankPips_Cadet</pipApparelDefName>
+      </li>
+    </modExtensions>
   </TraitDef>
 
-
+  <!-- =========================
+       ENSIGN
+       ========================= -->
   <TraitDef>
     <defName>ST_Rank_Ensign</defName>
     <label>rank: ensign</label>
     <description>Freshly commissioned officer. Learns fast, follows procedure.</description>
     <conflictingTraits>
-        <li>ST_Rank_LieutenantJG</li><li>ST_Rank_Lieutenant</li>
-        <li>ST_Rank_LtCommander</li><li>ST_Rank_Commander</li><li>ST_Rank_Captain</li>
+      <li>ST_Rank_LieutenantJG</li>
+      <li>ST_Rank_Lieutenant</li>
+      <li>ST_Rank_LtCommander</li>
+      <li>ST_Rank_Commander</li>
+      <li>ST_Rank_Captain</li>
     </conflictingTraits>
     <degreeDatas>
       <li>
@@ -67,32 +74,32 @@
     </degreeDatas>
     <modExtensions>
       <li Class="YASTM.PromotionRequirementsExtension">
-        <fromRankTraitDefName>ST_Rank_Ensign</fromRankTraitDefName>
-
-        <requiredMedOrScienceScans>3</requiredMedOrScienceScans>
-        <requiredSecuritySweeps>2</requiredSecuritySweeps>
+        <fromRankTraitDefName>ST_Rank_Cadet</fromRankTraitDefName>
+        <requiredMedOrScienceScans>1</requiredMedOrScienceScans>
+        <requiredSecuritySweeps>1</requiredSecuritySweeps>
         <requiredDiplomacyActions>1</requiredDiplomacyActions>
-
-        <minDaysSinceLastPromotion>2</minDaysSinceLastPromotion>
-        <goodwillMin>5</goodwillMin>
+        <minDaysSinceLastPromotion>3</minDaysSinceLastPromotion>
         <uniqueColonyWide>false</uniqueColonyWide>
-
-        <pipApparelDefName>ST_RankPips_LJG</pipApparelDefName>
       </li>
-
       <li Class="YASTM.RankVisualExtension">
-        <pipApparelDefName>ST_RankPips_LJG</pipApparelDefName>
+        <pipApparelDefName>ST_RankPips_Ensign</pipApparelDefName>
       </li>
     </modExtensions>
   </TraitDef>
 
+  <!-- =========================
+       LIEUTENANT (JG)
+       ========================= -->
   <TraitDef>
     <defName>ST_Rank_LieutenantJG</defName>
     <label>rank: lieutenant (jg)</label>
     <description>Junior officer with growing responsibilities.</description>
     <conflictingTraits>
-        <li>ST_Rank_Ensign</li><li>ST_Rank_Lieutenant</li>
-        <li>ST_Rank_LtCommander</li><li>ST_Rank_Commander</li><li>ST_Rank_Captain</li>
+      <li>ST_Rank_Ensign</li>
+      <li>ST_Rank_Lieutenant</li>
+      <li>ST_Rank_LtCommander</li>
+      <li>ST_Rank_Commander</li>
+      <li>ST_Rank_Captain</li>
     </conflictingTraits>
     <degreeDatas>
       <li>
@@ -109,32 +116,32 @@
     </degreeDatas>
     <modExtensions>
       <li Class="YASTM.PromotionRequirementsExtension">
-        <fromRankTraitDefName>ST_Rank_LieutenantJG</fromRankTraitDefName>
-
-        <requiredMedOrScienceScans>4</requiredMedOrScienceScans>
-        <requiredSecuritySweeps>3</requiredSecuritySweeps>
-        <requiredDiplomacyActions>2</requiredDiplomacyActions>
-
-        <minDaysSinceLastPromotion>4</minDaysSinceLastPromotion>
-        <goodwillMin>10</goodwillMin>
+        <fromRankTraitDefName>ST_Rank_Ensign</fromRankTraitDefName>
+        <requiredMedOrScienceScans>1</requiredMedOrScienceScans>
+        <requiredSecuritySweeps>2</requiredSecuritySweeps>
+        <requiredDiplomacyActions>1</requiredDiplomacyActions>
+        <minDaysSinceLastPromotion>5</minDaysSinceLastPromotion>
         <uniqueColonyWide>false</uniqueColonyWide>
-
-        <pipApparelDefName>ST_RankPips_Lieutenant</pipApparelDefName>
       </li>
-
       <li Class="YASTM.RankVisualExtension">
-        <pipApparelDefName>ST_RankPips_Lieutenant</pipApparelDefName>
+        <pipApparelDefName>ST_RankPips_LJG</pipApparelDefName>
       </li>
     </modExtensions>
   </TraitDef>
 
+  <!-- =========================
+       LIEUTENANT
+       ========================= -->
   <TraitDef>
     <defName>ST_Rank_Lieutenant</defName>
     <label>rank: lieutenant</label>
     <description>Experienced line officer. Trusted with section duties.</description>
     <conflictingTraits>
-        <li>ST_Rank_Ensign</li><li>ST_Rank_LieutenantJG</li>
-        <li>ST_Rank_LtCommander</li><li>ST_Rank_Commander</li><li>ST_Rank_Captain</li>
+      <li>ST_Rank_Ensign</li>
+      <li>ST_Rank_LieutenantJG</li>
+      <li>ST_Rank_LtCommander</li>
+      <li>ST_Rank_Commander</li>
+      <li>ST_Rank_Captain</li>
     </conflictingTraits>
     <degreeDatas>
       <li>
@@ -152,32 +159,32 @@
     </degreeDatas>
     <modExtensions>
       <li Class="YASTM.PromotionRequirementsExtension">
-        <fromRankTraitDefName>ST_Rank_Lieutenant</fromRankTraitDefName>
-
-        <requiredMedOrScienceScans>5</requiredMedOrScienceScans>
-        <requiredSecuritySweeps>3</requiredSecuritySweeps>
+        <fromRankTraitDefName>ST_Rank_LieutenantJG</fromRankTraitDefName>
+        <requiredMedOrScienceScans>2</requiredMedOrScienceScans>
+        <requiredSecuritySweeps>2</requiredSecuritySweeps>
         <requiredDiplomacyActions>3</requiredDiplomacyActions>
-
-        <minDaysSinceLastPromotion>6</minDaysSinceLastPromotion>
-        <goodwillMin>20</goodwillMin>
+        <minDaysSinceLastPromotion>10</minDaysSinceLastPromotion>
         <uniqueColonyWide>false</uniqueColonyWide>
-
-        <pipApparelDefName>ST_RankPips_LtCommander</pipApparelDefName>
       </li>
-
       <li Class="YASTM.RankVisualExtension">
-        <pipApparelDefName>ST_RankPips_LtCommander</pipApparelDefName>
+        <pipApparelDefName>ST_RankPips_Lieutenant</pipApparelDefName>
       </li>
     </modExtensions>
   </TraitDef>
 
+  <!-- =========================
+       LT. COMMANDER
+       ========================= -->
   <TraitDef>
     <defName>ST_Rank_LtCommander</defName>
     <label>rank: lieutenant commander</label>
     <description>Senior officer; bridges command and line duties.</description>
     <conflictingTraits>
-        <li>ST_Rank_Ensign</li><li>ST_Rank_LieutenantJG</li>
-        <li>ST_Rank_Lieutenant</li><li>ST_Rank_Commander</li><li>ST_Rank_Captain</li>
+      <li>ST_Rank_Ensign</li>
+      <li>ST_Rank_LieutenantJG</li>
+      <li>ST_Rank_Lieutenant</li>
+      <li>ST_Rank_Commander</li>
+      <li>ST_Rank_Captain</li>
     </conflictingTraits>
     <degreeDatas>
       <li>
@@ -195,32 +202,32 @@
     </degreeDatas>
     <modExtensions>
       <li Class="YASTM.PromotionRequirementsExtension">
-        <fromRankTraitDefName>ST_Rank_LtCommander</fromRankTraitDefName>
-
-        <requiredMedOrScienceScans>6</requiredMedOrScienceScans>
-        <requiredSecuritySweeps>4</requiredSecuritySweeps>
+        <fromRankTraitDefName>ST_Rank_Lieutenant</fromRankTraitDefName>
+        <requiredMedOrScienceScans>4</requiredMedOrScienceScans>
+        <requiredSecuritySweeps>5</requiredSecuritySweeps>
         <requiredDiplomacyActions>4</requiredDiplomacyActions>
-
-        <minDaysSinceLastPromotion>8</minDaysSinceLastPromotion>
-        <goodwillMin>30</goodwillMin>
+        <minDaysSinceLastPromotion>15</minDaysSinceLastPromotion>
         <uniqueColonyWide>false</uniqueColonyWide>
-
-        <pipApparelDefName>ST_RankPips_Commander</pipApparelDefName>
       </li>
-
       <li Class="YASTM.RankVisualExtension">
-        <pipApparelDefName>ST_RankPips_Commander</pipApparelDefName>
+        <pipApparelDefName>ST_RankPips_LtCommander</pipApparelDefName>
       </li>
     </modExtensions>
   </TraitDef>
 
+  <!-- =========================
+       COMMANDER
+       ========================= -->
   <TraitDef>
     <defName>ST_Rank_Commander</defName>
     <label>rank: commander</label>
     <description>Executive authority. Keeps teams aligned and missions on time.</description>
     <conflictingTraits>
-        <li>ST_Rank_Ensign</li><li>ST_Rank_LieutenantJG</li>
-        <li>ST_Rank_Lieutenant</li><li>ST_Rank_LtCommander</li><li>ST_Rank_Captain</li>
+      <li>ST_Rank_Ensign</li>
+      <li>ST_Rank_LieutenantJG</li>
+      <li>ST_Rank_Lieutenant</li>
+      <li>ST_Rank_LtCommander</li>
+      <li>ST_Rank_Captain</li>
     </conflictingTraits>
     <degreeDatas>
       <li>
@@ -234,36 +241,36 @@
           <AimingDelayFactor>-0.03</AimingDelayFactor>
         </statOffsets>
         <commonality>0</commonality>
-    </li>
+      </li>
     </degreeDatas>
     <modExtensions>
       <li Class="YASTM.PromotionRequirementsExtension">
-        <fromRankTraitDefName>ST_Rank_Commander</fromRankTraitDefName>
-
-        <requiredMedOrScienceScans>7</requiredMedOrScienceScans>
-        <requiredSecuritySweeps>5</requiredSecuritySweeps>
+        <fromRankTraitDefName>ST_Rank_LtCommander</fromRankTraitDefName>
+        <requiredMedOrScienceScans>6</requiredMedOrScienceScans>
+        <requiredSecuritySweeps>6</requiredSecuritySweeps>
         <requiredDiplomacyActions>5</requiredDiplomacyActions>
-
-        <minDaysSinceLastPromotion>10</minDaysSinceLastPromotion>
-        <goodwillMin>40</goodwillMin>
-        <uniqueColonyWide>true</uniqueColonyWide>
-
-        <pipApparelDefName>ST_RankPips_Captain</pipApparelDefName>
+        <minDaysSinceLastPromotion>20</minDaysSinceLastPromotion>
+        <uniqueColonyWide>false</uniqueColonyWide>
       </li>
-
       <li Class="YASTM.RankVisualExtension">
-        <pipApparelDefName>ST_RankPips_Captain</pipApparelDefName>
+        <pipApparelDefName>ST_RankPips_Commander</pipApparelDefName>
       </li>
     </modExtensions>
   </TraitDef>
 
+  <!-- =========================
+       CAPTAIN
+       ========================= -->
   <TraitDef>
     <defName>ST_Rank_Captain</defName>
     <label>rank: captain</label>
     <description>Commands the mission. Steady hand under pressure.</description>
     <conflictingTraits>
-        <li>ST_Rank_Ensign</li><li>ST_Rank_LieutenantJG</li>
-        <li>ST_Rank_Lieutenant</li><li>ST_Rank_LtCommander</li><li>ST_Rank_Commander</li>
+      <li>ST_Rank_Ensign</li>
+      <li>ST_Rank_LieutenantJG</li>
+      <li>ST_Rank_Lieutenant</li>
+      <li>ST_Rank_LtCommander</li>
+      <li>ST_Rank_Commander</li>
     </conflictingTraits>
     <degreeDatas>
       <li>
@@ -279,18 +286,19 @@
         <commonality>0</commonality>
       </li>
     </degreeDatas>
-  <modExtensions>
-    <li Class="YASTM.PromotionRequirementsExtension">
-      <factionDefName>ST_Starfleet</factionDefName>
-      <goodwillMin>80</goodwillMin>
-      <requiredCompletedQuests>5</requiredCompletedQuests>
-      <minDaysSinceLastPromotion>15</minDaysSinceLastPromotion>
-      <uniqueColonyWide>true</uniqueColonyWide>
-    </li>
-    <li Class="YASTM.RankVisualExtension">
-      <pipApparelDefName>ST_RankPips_Captain</pipApparelDefName>
-    </li>
-  </modExtensions>
+    <modExtensions>
+      <li Class="YASTM.PromotionRequirementsExtension">
+        <fromRankTraitDefName>ST_Rank_Commander</fromRankTraitDefName>
+        <requiredMedOrScienceScans>8</requiredMedOrScienceScans>
+        <requiredSecuritySweeps>6</requiredSecuritySweeps>
+        <requiredDiplomacyActions>10</requiredDiplomacyActions>
+        <minDaysSinceLastPromotion>35</minDaysSinceLastPromotion>
+        <uniqueColonyWide>true</uniqueColonyWide>
+      </li>
+      <li Class="YASTM.RankVisualExtension">
+        <pipApparelDefName>ST_RankPips_Captain</pipApparelDefName>
+      </li>
+    </modExtensions>
   </TraitDef>
 
 </Defs>

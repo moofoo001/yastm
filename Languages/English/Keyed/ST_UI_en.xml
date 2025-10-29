@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <!-- Beacon buttons -->
+  <!-- Beacon Quest -->
   <ST.InitializeBeacon>Initialize Beacon</ST.InitializeBeacon>
   <ST.InitializeBeacon.Desc>Begin the obelisk survey protocol.</ST.InitializeBeacon.Desc>
 
@@ -12,37 +12,9 @@
   <ST.ReadyToReport>Scans complete. Use the beacon to report findings to Starfleet.</ST.ReadyToReport>
   <ST.SubspaceImpulseStarted>Subspace impulse responses expected. Stay alert.</ST.SubspaceImpulseStarted>
 
-  <!-- Feedback / errors -->
-  <ST.MustBePowered>Must be powered.</ST.MustBePowered>
-  <ST.CompleteScansFirst>Complete scans first.</ST.CompleteScansFirst>
-  <ST.ReportSent>Report sent to Starfleet.</ST.ReportSent>
-
   <!-- Crate -->
   <ST.DeployedBeacon>Deployed ComBeacon.</ST.DeployedBeacon>
   <ST.NoPlaceToDeploy>No place to deploy.</ST.NoPlaceToDeploy>
-
-  <ST.Transporter.BeamIn>Beam-in logistics</ST.Transporter.BeamIn>
-  <ST.Transporter.BeamIn.Desc>Materialize a small care package at the beacon.</ST.Transporter.BeamIn.Desc>
-  <ST.Transporter.BeamOut>Emergency beam-out</ST.Transporter.BeamOut>
-  <ST.Transporter.BeamOut.Desc>Teleport a colonist to the beacon. Causes brief nausea.</ST.Transporter.BeamOut.Desc>
-  <ST.Transporter.BeamIn.Done>Logistics beamed in.</ST.Transporter.BeamIn.Done>
-  <ST.Transporter.BeamOut.Done>Beamed out {PAWN_labelShort}.</ST.Transporter.BeamOut.Done>
-  <ST.Transporter.BeamOut.TooFar>Target is out of range.</ST.Transporter.BeamOut.TooFar>
-  <ST.Transporter.RequiresOfficerGeneric>Requires an eligible officer nearby.</ST.Transporter.RequiresOfficerGeneric>
-  <ST.Transporter.RequiresOfficerRanked>Requires an eligible officer within {0} tiles.</ST.Transporter.RequiresOfficerRanked>
-  <ST.Transporter.NearGravEngine.Required>A gravity engine (or its blueprint) must exist on this map.</ST.Transporter.NearGravEngine.Required>
-  <ST.Transporter.NearGravEngine.TooFar>Must be placed within {0} tiles of the gravity engine.</ST.Transporter.NearGravEngine.TooFar>
-
-  <ST.Aid.IncidentMissing>Aid incident not found: {0}</ST.Aid.IncidentMissing>
-  <ST.Aid.Button>Request Starfleet aid</ST.Aid.Button>
-  <ST.Aid.Button.Desc>Spend silver and goodwill to request a Starfleet aid drop.</ST.Aid.Button.Desc>
-
-  <!-- Transporter gizmos -->
-  <ST.Transporter.BeamOut>Beam out (select pawn)</ST.Transporter.BeamOut>
-  <ST.Transporter.BeamOut.Desc>Beam the selected pawn from this beacon to the nearest linked beacon within {0} tiles.</ST.Transporter.BeamOut.Desc>
-
-  <ST.Transporter.BeamIn>Beam in (to this beacon)</ST.Transporter.BeamIn>
-  <ST.Transporter.BeamIn.Desc>Beam the selected pawn to this beacon (must be within {0} tiles).</ST.Transporter.BeamIn.Desc>
 
   <!-- Common/feedback -->
   <ST.Transporter.RankTooLow>{PAWN_labelShort} lacks the required Starfleet rank.</ST.Transporter.RankTooLow>
@@ -50,5 +22,61 @@
   <ST.Transporter.SameMapOnly>Beaming only works on the same map.</ST.Transporter.SameMapOnly>
   <ST.Transporter.TooFar>Target is beyond range ({0} tiles max).</ST.Transporter.TooFar>
   <ST.Transporter.Warmup>Energizing…</ST.Transporter.Warmup>
+-- Alert Panel gizmos -->
+  <ST_AlertPanel_ToggleRed_Label>Red alert</ST_AlertPanel_ToggleRed_Label>
+  <ST_AlertPanel_ToggleRed_Desc>Trigger a shipwide red alert. Colonists gain combat focus but suffer stress over time.</ST_AlertPanel_ToggleRed_Desc>
+
+  <ST_AlertPanel_ToggleYellow_Label>Yellow alert</ST_AlertPanel_ToggleYellow_Label>
+  <ST_AlertPanel_ToggleYellow_Desc>Raise readiness without full combat posture. Moderate buffs, lower stress.</ST_AlertPanel_ToggleYellow_Desc>
+
+  <!-- Transporter Beacon -->
+  <ST_Transporter_Energize_Label>Energize</ST_Transporter_Energize_Label>
+  <ST_Transporter_Energize_Desc>Select a colonist near this beacon and beam them to the linked beacon.</ST_Transporter_Energize_Desc>
+  <ST_Transporter_LinkStatus_Linked>Linked to: {0}</ST_Transporter_LinkStatus_Linked>
+  <ST_Transporter_LinkStatus_Unlinked>No target beacon linked.</ST_Transporter_LinkStatus_Unlinked>
+  <ST_Transporter_Cooldown>Cooldown: {0}</ST_Transporter_Cooldown>
+  <ST_Transporter_RangeBlocked>Out of range (max {0} tiles).</ST_Transporter_RangeBlocked>
+  
+  <!-- Diplomacy comms -->
+  <ST_Comms_Report_Label>Report to Starfleet</ST_Comms_Report_Label>
+  <ST_Comms_Report_Desc>File a status report. May affect goodwill.</ST_Comms_Report_Desc>
+
+  <!-- Promotion checklist alert -->
+  <ST_Promo_Objectives_AlertTitle>LtJG objectives</ST_Promo_Objectives_AlertTitle>
+  <ST_Promo_Objectives_Explain>Complete the following to receive authorization for promotion:\n\n[ ] One medical OR science scan\n[ ] Security sweep\n[ ] Improve relations via diplomacy</ST_Promo_Objectives_Explain>
+  
+  <!-- Tricorder gizmos -->
+  <ST_Tricorder_Science_Label>Scan area</ST_Tricorder_Science_Label>
+  <ST_Tricorder_Science_Desc>Science sweep of the surroundings.</ST_Tricorder_Science_Desc>
+
+  <ST_Tricorder_Security_Label>Tactical sweep</ST_Tricorder_Security_Label>
+  <ST_Tricorder_Security_Desc>Security sweep for threats and contraband.</ST_Tricorder_Security_Desc>
+
+  <ST_Tricorder_Medical_Label>Medical scan</ST_Tricorder_Medical_Label>
+  <ST_Tricorder_Medical_Desc>Diagnose a friendly pawn.</ST_Tricorder_Medical_Desc>
+
+    <!-- Feedback / errors -->
+  <ST.MustBePowered>Must be powered.</ST.MustBePowered>
+  <ST.CompleteScansFirst>Complete scans first.</ST.CompleteScansFirst>
+  <ST.ReportSent>Report sent to Starfleet.</ST.ReportSent>
+
+    <!--Mod settings -->
+  <YASTM.Settings.Category>YASTM (Star Trek)</YASTM.Settings.Category>
+
+  <YASTM.Settings.PromoMultiplier>Promotion objectives multiplier: {0}</YASTM.Settings.PromoMultiplier>
+  <YASTM.Settings.MinDaysSinceLastPromotion>Min extra days since last promotion: {0}</YASTM.Settings.MinDaysSinceLastPromotion>
+
+  <YASTM.Settings.TricorderCooldown>Tricorder shared cooldown (seconds): {0}</YASTM.Settings.TricorderCooldown>
+
+  <YASTM.Settings.TransporterRange>Transporter beacon max range (tiles): {0}</YASTM.Settings.TransporterRange>
+  <YASTM.Settings.TransporterCooldown>Transporter global cooldown (seconds): {0}</YASTM.Settings.TransporterCooldown>
+
+  <YASTM.Settings.AlertVolume>Alert sound volume: {0}</YASTM.Settings.AlertVolume>
+  <YASTM.Settings.PromoMaxConcurrent>Max concurrent promotion candidates: {0}</YASTM.Settings.PromoMaxConcurrent>
+
+  <YASTM.Settings.AidCooldown>Starfleet Aid — cooldown (days): {0}</YASTM.Settings.AidCooldown>
+  <YASTM.Settings.AidSilver>Starfleet Aid — silver cost: {0}</YASTM.Settings.AidSilver>
+  <YASTM.Settings.AidGoodwill>Starfleet Aid — goodwill cost: {0}</YASTM.Settings.AidGoodwill>
+  <YASTM.Settings.AidMinGoodwill>Starfleet Aid — minimum goodwill required: {0}</YASTM.Settings.AidMinGoodwill>
 
 </LanguageData>

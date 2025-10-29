@@ -40,5 +40,23 @@
   <ST.Transporter.TooFar>Ziel ist außer Reichweite (max. {0} Felder).</ST.Transporter.TooFar>
   <ST.Transporter.Warmup>Energie…</ST.Transporter.Warmup>
 
+  <!--Mod settings -->
+  <YASTM.Settings.Category>YASTM (Star Trek)</YASTM.Settings.Category>
+
+  <YASTM.Settings.PromoMultiplier>Multiplikator für Beförderungs-Ziele: {0}</YASTM.Settings.PromoMultiplier>
+  <YASTM.Settings.MinDaysSinceLastPromotion>Zusätzliche Tage seit letzter Beförderung: {0}</YASTM.Settings.MinDaysSinceLastPromotion>
+
+  <YASTM.Settings.TricorderCooldown>Geteilter Tricorder-Cooldown (Sekunden): {0}</YASTM.Settings.TricorderCooldown>
+
+  <YASTM.Settings.TransporterRange>Transporterbake – Max-Reichweite (Felder): {0}</YASTM.Settings.TransporterRange>
+  <YASTM.Settings.TransporterCooldown>Transporter – globaler Cooldown (Sekunden): {0}</YASTM.Settings.TransporterCooldown>
+
+  <YASTM.Settings.AlertVolume>Alarm-Lautstärke: {0}</YASTM.Settings.AlertVolume>
+  <YASTM.Settings.PromoMaxConcurrent>Max. gleichzeitige Beförderungskandidaten: {0}</YASTM.Settings.PromoMaxConcurrent>
+
+  <YASTM.Settings.AidCooldown>Sternenflotten-Hilfe — Abklingzeit (Tage): {0}</YASTM.Settings.AidCooldown>
+  <YASTM.Settings.AidSilver>Sternenflotten-Hilfe — Silberkosten: {0}</YASTM.Settings.AidSilver>
+  <YASTM.Settings.AidGoodwill>Sternenflotten-Hilfe — Rufkosten: {0}</YASTM.Settings.AidGoodwill>
+  <YASTM.Settings.AidMinGoodwill>Sternenflotten-Hilfe — Mindest-Ruf: {0}</YASTM.Settings.AidMinGoodwill>
 
 </LanguageData>

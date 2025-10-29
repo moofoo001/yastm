@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <!-- Red Alert -->
+  <!-- 
+  Red Alert
   <ST.RedAlert.EngageButton>Engage Red Alert</ST.RedAlert.EngageButton>
   <ST.RedAlert.ButtonDesc>Trigger a colony-wide red alert with siren and full readiness.</ST.RedAlert.ButtonDesc>
   <ST.RedAlert.NeedsPower>Needs power.</ST.RedAlert.NeedsPower>
@@ -10,7 +11,7 @@
   <ST.Alert.Red.Toggle>Red Alert</ST.Alert.Red.Toggle>
   <ST.Alert.Red.Desc>All hands to battle stations.</ST.Alert.Red.Desc>
 
-  <!-- Yellow Alert -->
+ Yellow Alert
   <ST.YellowAlert.EngageButton>Engage Yellow Alert</ST.YellowAlert.EngageButton>
   <ST.YellowAlert.ButtonDesc>Trigger a colony-wide caution alert with a short cooldown.</ST.YellowAlert.ButtonDesc>
   <ST.YellowAlert.NeedsPower>Needs power.</ST.YellowAlert.NeedsPower>
@@ -19,6 +20,21 @@
   <ST.YellowAlert.MissingHediff>Missing hediff: ST_YellowAlert</ST.YellowAlert.MissingHediff>
   <ST.Alert.Yellow.Toggle>Yellow Alert</ST.Alert.Yellow.Toggle>
   <ST.Alert.Yellow.Desc>Heightened readiness.</ST.Alert.Yellow.Desc>
+ -->
+
+ 
+  <!-- Alert Panel messages -->
+  <ST_AlertPanel_Red_On>Red alert engaged.</ST_AlertPanel_Red_On>
+  <ST_AlertPanel_Red_Off>Red alert disengaged.</ST_AlertPanel_Red_Off>
+  <ST_AlertPanel_Yellow_On>Yellow alert engaged.</ST_AlertPanel_Yellow_On>
+  <ST_AlertPanel_Yellow_Off>Yellow alert disengaged.</ST_AlertPanel_Yellow_Off>
+
+  <!-- Hediffs from alerts -->
+  <ST_RedAlert_Pumped_label>combat adrenaline</ST_RedAlert_Pumped_label>
+  <ST_RedAlert_Pumped_description>On edge and ready for a fight. Increased combat performance, but rising stress.</ST_RedAlert_Pumped_description>
+
+  <ST_YellowAlert_Focus_label>heightened readiness</ST_YellowAlert_Focus_label>
+  <ST_YellowAlert_Focus_description>Prepared for trouble. Mild performance boost with limited strain.</ST_YellowAlert_Focus_description>
 
 
   <!-- Starfleet Aid -->
@@ -110,15 +126,16 @@
   <STQ.Promo.ChooseTitle>Promotion objectives</STQ.Promo.ChooseTitle>
   <STQ.Promo.ChooseCandidate>Select a candidate to receive promotion objectives.</STQ.Promo.ChooseCandidate>
 
+   <!-- Promotion ceremony -->
+  <ST_Promo_Ceremony_Started>A promotion ceremony for {PAWN_nameShortDef} has been scheduled.</ST_Promo_Ceremony_Started>
+
+
   <!-- Research -->
   <ST.Research.RedAlert.Label>red alert protocols</ST.Research.RedAlert.Label>
   <ST.Research.RedAlert.Desc>Implements colony-wide alert routing and EPS priority to enable the Red Alert panel.</ST.Research.RedAlert.Desc>
 
 
   <!-- Diplomacy -->
-  <ST.Common.NeedsPower>Needs power.</ST.Common.NeedsPower>
-  <ST.Common.Recharging>Recharging: {0}</ST.Common.Recharging>
-  <ST.Common.NotEnoughSilver>Not enough silver ({0} required).</ST.Common.NotEnoughSilver>
 
   <ST.Diplo.Improve.Button>Improve relations…</ST.Diplo.Improve.Button>
   <ST.Diplo.Improve.Desc>Pay {0} silver to improve goodwill by +{1} with a non-hostile faction.</ST.Diplo.Improve.Desc>
@@ -167,7 +184,6 @@
   <ST.Tricorder.Med.OutOfRange>Target is out of range.</ST.Tricorder.Med.OutOfRange>
   <ST.Tricorder.Med.SkillReq>Requires Medicine {0}+.</ST.Tricorder.Med.SkillReq>
   <ST.Tricorder.Med.Applied>Tricorder scan applied to {PAWN_labelShort}.</ST.Tricorder.Med.Applied>
-  <ST.Common.Recharging>Recharging ({0})</ST.Common.Recharging>
   <ST.Tricorder.MedScanApplied>Applied medical tricorder scan to {PAWN_labelShort}.</ST.Tricorder.MedScanApplied>
 
   <!-- Tricorder Scientific Scan -->
@@ -193,6 +209,9 @@
   <ST.Tricorder.RequirementsFail>Requirements not met.</ST.Tricorder.RequirementsFail>
   <ST.Tricorder.NeedTarget>No valid target selected.</ST.Tricorder.NeedTarget>
 
+  
+  <ST_Hypo_UseLabel>Use hypospray</ST_Hypo_UseLabel>
+
   <!--Transporter -->
   <ST.Transporter.BeamIn>Beam-in logistics</ST.Transporter.BeamIn>
   <ST.Transporter.BeamIn.Desc>Materialize a small care package at the beacon.</ST.Transporter.BeamIn.Desc>
@@ -202,7 +221,6 @@
   <ST.Transporter.BeamOut.Done>Beamed out {PAWN_labelShort}.</ST.Transporter.BeamOut.Done>
   <ST.Transporter.BeamOut.TooFar>Target is out of range.</ST.Transporter.BeamOut.TooFar>
   <ST.Common.RequiresPower>Requires power.</ST.Common.RequiresPower>
-  <ST.Common.Recharging>Recharging ({0}).</ST.Common.Recharging>
   
   <ST.Transporter.NearGravEngine.Required>A gravity engine (or its blueprint) must exist on this map.</ST.Transporter.NearGravEngine.Required>
   <ST.Transporter.NearGravEngine.TooFar>Must be placed within {0} tiles of the gravity engine.</ST.Transporter.NearGravEngine.TooFar>
@@ -219,4 +237,11 @@
   <ST.Transporter.NoPawns>No eligible pawns near the beacon.</ST.Transporter.NoPawns>
   <ST.Transporter.NoValidDest>No valid destination cell found.</ST.Transporter.NoValidDest>
   <ST.Transporter.Moved>Transported {0} pawn(s).</ST.Transporter.Moved>
+
+    <!-- Transporter messages -->
+  <ST_Transporter_NoTarget>Disabled: No valid target beacon.</ST_Transporter_NoTarget>
+  <ST_Transporter_SelectPawn>Choose a colonist to beam.</ST_Transporter_SelectPawn>
+  <ST_Transporter_BeamComplete>Transport complete.</ST_Transporter_BeamComplete>
+
+  
 </LanguageData>

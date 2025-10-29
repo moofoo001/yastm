@@ -135,7 +135,7 @@
   <ST.Tricorder.Med.OutOfRange>Ziel ist außer Reichweite.</ST.Tricorder.Med.OutOfRange>
   <ST.Tricorder.Med.SkillReq>Erfordert Medizin {0}+.</ST.Tricorder.Med.SkillReq>
   <ST.Tricorder.Med.Applied>Tricorder-Scan bei {PAWN_labelShort} durchgeführt.</ST.Tricorder.Med.Applied>
-  <ST.Common.Recharging>Lädt auf ({0})</ST.Common.Recharging>
+
 
   <!-- Tricorder Science Scan -->
   <ST.Tricorder.Sci.Scan>Bereich scannen (Wissenschaft)</ST.Tricorder.Sci.Scan>
@@ -159,7 +159,7 @@
   <ST.Transporter.BeamOut.Done>{PAWN_labelShort} wurde herausgebeamt.</ST.Transporter.BeamOut.Done>
   <ST.Transporter.BeamOut.TooFar>Ziel ist außer Reichweite.</ST.Transporter.BeamOut.TooFar>
   <ST.Common.RequiresPower>Benötigt Strom.</ST.Common.RequiresPower>
-  <ST.Common.Recharging>Lädt auf ({0}).</ST.Common.Recharging>
+
 
   <ST.Transporter.NearGravEngine.Required>Es muss eine Grav-Engine (oder ihr Bauplan) auf der Karte existieren.</ST.Transporter.NearGravEngine.Required>
   <ST.Transporter.NearGravEngine.TooFar>Muss innerhalb von {0} Feldern zur Grav-Engine platziert werden.</ST.Transporter.NearGravEngine.TooFar>
