@@ -20,7 +20,7 @@
   <ST.ReportSent>Bericht an die Sternenflotte gesendet.</ST.ReportSent>
 
   <!-- Crate -->
-  <ST.DeployedBeacon>Kommunikationsbake aufgestellt.</ST.DeployedBeacon>
+  <ST.DeployedBeacon>Kommunikationsbarke aufgestellt.</ST.DeployedBeacon>
   <ST.NoPlaceToDeploy>Kein Platz zum Aufstellen.</ST.NoPlaceToDeploy>
 
   <ST.Aid.IncidentMissing>Aid-Event nicht gefunden: {0}</ST.Aid.IncidentMissing>
@@ -40,23 +40,51 @@
   <ST.Transporter.TooFar>Ziel ist außer Reichweite (max. {0} Felder).</ST.Transporter.TooFar>
   <ST.Transporter.Warmup>Energie…</ST.Transporter.Warmup>
 
-  <!--Mod settings -->
-  <YASTM.Settings.Category>YASTM (Star Trek)</YASTM.Settings.Category>
+    <!-- Alert Panel -->
+  <ST.Alert.Yellow.Label>Yellow Alert</ST.Alert.Yellow.Label>
+  <ST.Alert.Yellow.Desc>Versetzt die Kolonie in Bereitschaft: kleine Arbeits-/Bewegungsboni, leichte Stimmungsstrafe. Sirene kurz.</ST.Alert.Yellow.Desc>
+  <ST.Alert.Red.Label>Red Alert</ST.Alert.Red.Label>
+  <ST.Alert.Red.Desc>Volle Gefechtsbereitschaft: deutliche Arbeits-/Bewegungsboni, starke Stimmungsstrafe. Sirene und Blinklicht.</ST.Alert.Red.Desc>
+  <ST.Alert.On>Alarm aktiviert.</ST.Alert.On>
+  <ST.Alert.Off>Alarm beendet.</ST.Alert.Off>
 
-  <YASTM.Settings.PromoMultiplier>Multiplikator für Beförderungs-Ziele: {0}</YASTM.Settings.PromoMultiplier>
-  <YASTM.Settings.MinDaysSinceLastPromotion>Zusätzliche Tage seit letzter Beförderung: {0}</YASTM.Settings.MinDaysSinceLastPromotion>
+  <!-- Hediff/Thought infos -->
+  <ST.Alert.Yellow.Hediff>Yellow Alert</ST.Alert.Yellow.Hediff>
+  <ST.Alert.Yellow.HediffDesc>Die Crew ist in erhöhter Bereitschaft.</ST.Alert.Yellow.HediffDesc>
+  <ST.Alert.Red.Hediff>Red Alert</ST.Alert.Red.Hediff>
+  <ST.Alert.Red.HediffDesc>Die Crew ist in voller Gefechtsbereitschaft.</ST.Alert.Red.HediffDesc>
 
-  <YASTM.Settings.TricorderCooldown>Geteilter Tricorder-Cooldown (Sekunden): {0}</YASTM.Settings.TricorderCooldown>
+  <!-- Promotion 2.0 – UI / Letters -->
+  <ST.Promo.Objectives.Header>Erfülle Folgendes, um die Beförderungsfreigabe zu erhalten:</ST.Promo.Objectives.Header>
+  <ST.Promo.Objectives.Item.MedOrScience>[ ] Ein medizinischer ODER wissenschaftlicher Scan</ST.Promo.Objectives.Item.MedOrScience>
+  <ST.Promo.Objectives.Item.Security>[ ] Sicherheits-Sweep</ST.Promo.Objectives.Item.Security>
+  <ST.Promo.Objectives.Item.Diplomacy>[ ] Beziehungen per Diplomatie verbessern</ST.Promo.Objectives.Item.Diplomacy>
+  <ST.Promo.Ceremony.Scheduled>Eine Beförderungszeremonie für {PAWN_nameDef} wurde angesetzt.</ST.Promo.Ceremony.Scheduled>
+  <ST.Promo.RankUp>{PAWN_nameDef} befördert zum Rang: {0}</ST.Promo.RankUp>
 
-  <YASTM.Settings.TransporterRange>Transporterbake – Max-Reichweite (Felder): {0}</YASTM.Settings.TransporterRange>
-  <YASTM.Settings.TransporterCooldown>Transporter – globaler Cooldown (Sekunden): {0}</YASTM.Settings.TransporterCooldown>
+  <!-- Transporter Beacon -->
+  <ST.Transporter.Gizmo.BeamToLinked>Beam to linked beacon</ST.Transporter.Gizmo.BeamToLinked>
+  <ST.Transporter.Gizmo.BeamToLinked.Desc>Wähle eine Zielperson in der Nähe dieses Beacons und beame sie zum verlinkten Beacon.</ST.Transporter.Gizmo.BeamToLinked.Desc>
+  <ST.Transporter.Disabled.NoTarget>Deaktiviert: kein gültiger Ziel-Beacon.</ST.Transporter.Disabled.NoTarget>
+  <ST.Transporter.Disabled.NoLink>Deaktiviert: kein Beacon verlinkt.</ST.Transporter.Disabled.NoLink>
+  <ST.Transporter.Disabled.Power>Deaktiviert: benötigt Strom.</ST.Transporter.Disabled.Power>
+  <ST.Transporter.Cooldown>Abklingzeit aktiv ({0}).</ST.Transporter.Cooldown>
+  <ST.Transporter.OutOfRange>Außer Reichweite (max. {0} Felder).</ST.Transporter.OutOfRange>
 
-  <YASTM.Settings.AlertVolume>Alarm-Lautstärke: {0}</YASTM.Settings.AlertVolume>
-  <YASTM.Settings.PromoMaxConcurrent>Max. gleichzeitige Beförderungskandidaten: {0}</YASTM.Settings.PromoMaxConcurrent>
+  <!-- Diplomacy/Comms -->
+  <ST.Diplomacy.Call.Label>Diplomatischer Kontakt</ST.Diplomacy.Call.Label>
+  <ST.Diplomacy.NoEligibleFaction>Keine passende Fraktion erreichbar.</ST.Diplomacy.NoEligibleFaction>
 
-  <YASTM.Settings.AidCooldown>Sternenflotten-Hilfe — Abklingzeit (Tage): {0}</YASTM.Settings.AidCooldown>
-  <YASTM.Settings.AidSilver>Sternenflotten-Hilfe — Silberkosten: {0}</YASTM.Settings.AidSilver>
-  <YASTM.Settings.AidGoodwill>Sternenflotten-Hilfe — Rufkosten: {0}</YASTM.Settings.AidGoodwill>
-  <YASTM.Settings.AidMinGoodwill>Sternenflotten-Hilfe — Mindest-Ruf: {0}</YASTM.Settings.AidMinGoodwill>
+  <!-- Mod Settings -->
+  <ST.Mod.Title>YASTM – Star Trek</ST.Mod.Title>
+  <ST.Mod.Transporter.Section>Transporter</ST.Mod.Transporter.Section>
+  <ST.Mod.Transporter.MaxDistance>Max. Beam-Distanz</ST.Mod.Transporter.MaxDistance>
+  <ST.Mod.Transporter.Cooldown>Abklingzeit (Ticks)</ST.Mod.Transporter.Cooldown>
+  <ST.Mod.Transporter.RankReq>Rangvoraussetzung prüfen</ST.Mod.Transporter.RankReq>
+  <ST.Mod.Alert.Section>Alert Panel</ST.Mod.Alert.Section>
+  <ST.Mod.Alert.YellowMood>-Mood bei Yellow Alert</ST.Mod.Alert.YellowMood>
+  <ST.Mod.Alert.RedMood>-Mood bei Red Alert</ST.Mod.Alert.RedMood>
 
+  <!-- Fallback / Misc -->
+  <ST.Common.RequirementsNotMet>Voraussetzungen nicht erfüllt.</ST.Common.RequirementsNotMet>
 </LanguageData>

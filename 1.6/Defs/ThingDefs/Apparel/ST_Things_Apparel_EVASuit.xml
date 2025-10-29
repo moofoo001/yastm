@@ -8,7 +8,9 @@
     <techLevel>Spacer</techLevel>
     <graphicData>
       <texPath>Things/Item/Apparel/EVSuit/Starfleet_EVS</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+     <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>1,1</drawSize>
     </graphicData>
     <apparel>
       <wornGraphicPath>Things/Item/Apparel/EVSuit/Starfleet_EVS</wornGraphicPath>
@@ -41,8 +43,9 @@
     </equippedStatOffsets>
     <costList>
       <Cloth>50</Cloth>
-      <ComponentIndustrial>4</ComponentIndustrial>
-      <Plasteel>20</Plasteel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
+      <Plasteel>30</Plasteel>
     </costList>
   </ThingDef>
 
@@ -52,7 +55,9 @@
     <label>EVA helmet</label>
     <graphicData>
       <texPath>Things/Item/Apparel/EVSuit/Starfleet_EV_Helmet</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>1,1</drawSize>
     </graphicData>
     <apparel>
       <wornGraphicPath>Things/Item/Apparel/EVSuit/Starfleet_EV_Helmet</wornGraphicPath>
@@ -75,6 +80,7 @@
     <costList>
       <Cloth>20</Cloth>
       <ComponentIndustrial>2</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
       <Plasteel>8</Plasteel>
     </costList>
   </ThingDef>
@@ -88,7 +94,6 @@
 
     <techLevel>Spacer</techLevel>
     <graphicData>
-
       <texPath>Things/Item/Apparel/EVSuit/Starfleet_EVS</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
@@ -124,8 +129,9 @@
     </equippedStatOffsets>
     <costList>
       <Cloth>60</Cloth>
-	    <Plasteel>100</Plasteel>
+	    <Plasteel>40</Plasteel>
       <ComponentIndustrial>10</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <apparel>
       <wornGraphicPath>Things/Item/Apparel/EVSuit/Starfleet_EVS</wornGraphicPath>
@@ -210,8 +216,9 @@
     </equippedStatOffsets>
     <costList>
       <Cloth>25</Cloth>
-	    <Plasteel>40</Plasteel>
+	    <Plasteel>20</Plasteel>
       <ComponentIndustrial>6</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <apparel>
       <wornGraphicPath>Things/Item/Apparel/EVSuit/Starfleet_EV_Helmet</wornGraphicPath>
@@ -295,6 +302,7 @@
       <Steel>20</Steel>
 	    <Plasteel>20</Plasteel>
       <ComponentIndustrial>2</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <apparel>
       <wornGraphicPath>Things/Item/Apparel/EVSuit/Klingon_EV_Helmet</wornGraphicPath>
@@ -377,6 +385,7 @@
       <Steel>20</Steel>
 	    <Plasteel>20</Plasteel>
       <ComponentIndustrial>2</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <apparel>
       <wornGraphicPath>Things/Item/Apparel/EVSuit/Romulan_EV_Helmet</wornGraphicPath>
@@ -459,6 +468,7 @@
       <Steel>20</Steel>
 	    <Plasteel>20</Plasteel>
       <ComponentIndustrial>2</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <apparel>
       <wornGraphicPath>Things/Item/Apparel/EVSuit/Ferengi_EV_Helmet</wornGraphicPath>

@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <!-- 
-  Red Alert
-  <ST.RedAlert.EngageButton>Engage Red Alert</ST.RedAlert.EngageButton>
-  <ST.RedAlert.ButtonDesc>Trigger a colony-wide red alert with siren and full readiness.</ST.RedAlert.ButtonDesc>
-  <ST.RedAlert.NeedsPower>Needs power.</ST.RedAlert.NeedsPower>
-  <ST.RedAlert.Recharging>Red Alert recharging: {0}</ST.RedAlert.Recharging>
-  <ST.RedAlert.Engaged>Red Alert engaged.</ST.RedAlert.Engaged>
-  <ST.RedAlert.MissingHediff>Missing hediff: ST_RedAlert</ST.RedAlert.MissingHediff>
-  <ST.Alert.Red.Toggle>Red Alert</ST.Alert.Red.Toggle>
-  <ST.Alert.Red.Desc>All hands to battle stations.</ST.Alert.Red.Desc>
 
- Yellow Alert
-  <ST.YellowAlert.EngageButton>Engage Yellow Alert</ST.YellowAlert.EngageButton>
-  <ST.YellowAlert.ButtonDesc>Trigger a colony-wide caution alert with a short cooldown.</ST.YellowAlert.ButtonDesc>
-  <ST.YellowAlert.NeedsPower>Needs power.</ST.YellowAlert.NeedsPower>
-  <ST.YellowAlert.Recharging>Yellow Alert recharging: {0}</ST.YellowAlert.Recharging>
-  <ST.YellowAlert.Engaged>Yellow Alert engaged.</ST.YellowAlert.Engaged>
-  <ST.YellowAlert.MissingHediff>Missing hediff: ST_YellowAlert</ST.YellowAlert.MissingHediff>
-  <ST.Alert.Yellow.Toggle>Yellow Alert</ST.Alert.Yellow.Toggle>
-  <ST.Alert.Yellow.Desc>Heightened readiness.</ST.Alert.Yellow.Desc>
- -->
+
 
  
   <!-- Alert Panel messages -->

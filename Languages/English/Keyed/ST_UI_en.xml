@@ -22,12 +22,53 @@
   <ST.Transporter.SameMapOnly>Beaming only works on the same map.</ST.Transporter.SameMapOnly>
   <ST.Transporter.TooFar>Target is beyond range ({0} tiles max).</ST.Transporter.TooFar>
   <ST.Transporter.Warmup>Energizing…</ST.Transporter.Warmup>
--- Alert Panel gizmos -->
-  <ST_AlertPanel_ToggleRed_Label>Red alert</ST_AlertPanel_ToggleRed_Label>
-  <ST_AlertPanel_ToggleRed_Desc>Trigger a shipwide red alert. Colonists gain combat focus but suffer stress over time.</ST_AlertPanel_ToggleRed_Desc>
+  
+  
+  <!-- Alert Panel gizmos -->
+  <!-- Alert Panel -->
+  <ST.AlertPanel.Red.Label>Red Alert</ST.AlertPanel.Red.Label>
 
-  <ST_AlertPanel_ToggleYellow_Label>Yellow alert</ST_AlertPanel_ToggleYellow_Label>
-  <ST_AlertPanel_ToggleYellow_Desc>Raise readiness without full combat posture. Moderate buffs, lower stress.</ST_AlertPanel_ToggleYellow_Desc>
+  <ST.AlertPanel.Red.EngageButton>Engage Red Alert</ST.AlertPanel.Red.EngageButton>
+  <ST.AlertPanel.Red.EngageButton.On>Red Alert (ON)</ST.AlertPanel.Red.EngageButton.On>
+  <ST.AlertPanel.Red.EngageButton.Off>Red Alert (OFF)</ST.AlertPanel.Red.EngageButton.Off>
+
+  <ST.AlertPanel.Yellow.Label>Yellow Alert</ST.AlertPanel.Yellow.Label>
+
+  <ST.AlertPanel.Yellow.EngageButton>Engage Yellow Alert</ST.AlertPanel.Yellow.EngageButton>
+  <ST.AlertPanel.Yellow.EngageButton.On>Yellow Alert (ON)</ST.AlertPanel.Yellow.EngageButton.On>
+  <ST.AlertPanel.Yellow.EngageButton.Off>Yellow Alert (OFF)</ST.AlertPanel.Yellow.EngageButton.Off>
+
+  
+  <!-- gleiche Keys auch mit Unterstrich-Variante -->
+  <ST_AlertPanel_Red_Label>Red Alert</ST_AlertPanel_Red_Label>
+  <ST_AlertPanel_Red_EngageButton>Engage Red Alert</ST_AlertPanel_Red_EngageButton>
+  <ST_AlertPanel_Red_EngageButton_On>Red Alert (ON)</ST_AlertPanel_Red_EngageButton_On>
+  <ST_AlertPanel_Red_EngageButton_Off>Red Alert (OFF)</ST_AlertPanel_Red_EngageButton_Off>
+
+  <ST_AlertPanel_Yellow_Label>Yellow Alert</ST_AlertPanel_Yellow_Label>
+  <ST_AlertPanel_Yellow_EngageButton>Engage Yellow Alert</ST_AlertPanel_Yellow_EngageButton>
+  <ST_AlertPanel_Yellow_EngageButton_On>Yellow Alert (ON)</ST_AlertPanel_Yellow_EngageButton_On>
+  <ST_AlertPanel_Yellow_EngageButton_Off>Yellow Alert (OFF)</ST_AlertPanel_Yellow_EngageButton_Off>
+
+
+
+  <ST.RedAlert.EngageButton>Engage Red Alert</ST.RedAlert.EngageButton>
+  <ST.RedAlert.ButtonDesc>Trigger a colony-wide red alert with siren and full readiness.</ST.RedAlert.ButtonDesc>
+  <ST.RedAlert.NeedsPower>Needs power.</ST.RedAlert.NeedsPower>
+  <ST.RedAlert.Engaged>Red Alert engaged.</ST.RedAlert.Engaged>
+  <ST.RedAlert.MissingHediff>Missing hediff: ST_RedAlert</ST.RedAlert.MissingHediff>
+  <ST.Alert.Red.Toggle>Red Alert</ST.Alert.Red.Toggle>
+  <ST.AlertPanel.Red.Desc>All hands to battle stations.</ST.AlertPanel.Red.Desc>
+
+  <ST.YellowAlert.EngageButton>Engage Yellow Alert</ST.YellowAlert.EngageButton>
+  <ST.YellowAlert.ButtonDesc>Trigger a colony-wide caution alert with a short cooldown.</ST.YellowAlert.ButtonDesc>
+  <ST.YellowAlert.NeedsPower>Needs power.</ST.YellowAlert.NeedsPower>
+  <ST.YellowAlert.Engaged>Yellow Alert engaged.</ST.YellowAlert.Engaged>
+  <ST.YellowAlert.MissingHediff>Missing hediff: ST_YellowAlert</ST.YellowAlert.MissingHediff>
+  <ST.Alert.Yellow.Toggle>Yellow Alert</ST.Alert.Yellow.Toggle>
+  <ST.AlertPanel.Yellow.Desc>Heightened readiness.</ST.AlertPanel.Yellow.Desc>
+
+  <ST.AlertPanel.Cooldown>Alert recharging: {0}</ST.AlertPanel.Cooldown>
 
   <!-- Transporter Beacon -->
   <ST_Transporter_Energize_Label>Energize</ST_Transporter_Energize_Label>

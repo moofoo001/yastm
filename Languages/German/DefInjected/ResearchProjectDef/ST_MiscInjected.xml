@@ -28,4 +28,16 @@
   <!-- Promotion -->
   <ST_PromotionHonored.stages.0.label>durch Beförderung geehrt</ST_PromotionHonored.stages.0.label>
   
+    <ST_YellowAlert.label>Yellow Alert</ST_YellowAlert.label>
+  <ST_YellowAlert.description>Erhöhte Bereitschaft. Leichte Stressreaktion, aber konzentrierteres Arbeiten.</ST_YellowAlert.description>
+
+  <ST_RedAlert.label>Red Alert</ST_RedAlert.label>
+  <ST_RedAlert.description>Volle Gefechtsbereitschaft. Hoher Stress, aber maximale Reaktionsbereitschaft.</ST_RedAlert.description>
+  <ST_PromotionHonored.label>Geehrt durch Beförderung</ST_PromotionHonored.label>
+  <ST_PromotionHonored.description>{PAWN_nameDef} fühlt sich durch die offizielle Zeremonie geehrt.</ST_PromotionHonored.description>
+  <STQ_Promotion_LJG.label>Beförderungsangebot (LtJG)</STQ_Promotion_LJG.label>
+  <STQ_Promotion_LJG.letterLabel>Beförderungsziele verfügbar</STQ_Promotion_LJG.letterLabel>
+  <STQ_Promotion_LJG.letterText>Starfleet hat Beförderungsziele für geeignete Offiziere freigegeben. Erledige die Aufgaben, um die Autorisierung zu erhalten.</STQ_Promotion_LJG.letterText>
+
+
 </LanguageData>
