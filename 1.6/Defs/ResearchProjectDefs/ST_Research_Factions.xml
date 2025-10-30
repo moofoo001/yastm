@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===========================
+       Ferengi – Commerce Protocols
+       =========================== -->
+  <ResearchProjectDef>
+    <defName>Ferengi_Commerce</defName>
+    <label>Ferengi commerce protocols</label>
+    <description>Standardisierte Handels-, Buchungs- und Logistikprotokolle der Ferengi. Öffnet Wege für ferengische Ausrüstung und Infrastruktur.</description>
+
+    <!-- Vanilla baseline -->
+    <techLevel>Spacer</techLevel>
+    <baseCost>1600</baseCost>
+    <prerequisites>
+      <li>MicroelectronicsBasics</li>
+    </prerequisites>
+
+    <!-- Bench/Facilities -->
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+
+    <!-- Map-Position im Research-Fenster -->
+    <researchViewX>7</researchViewX>
+    <researchViewY>5</researchViewY>
+
+    <!-- Gruppierung -->
+    <tags>
+      <li>YASTM_Faction_Ferengi</li>
+    </tags>
+  </ResearchProjectDef>
+
+  <!-- ===========================
+       Klingon – Warfare Doctrine
+       =========================== -->
+  <ResearchProjectDef>
+    <defName>Klingon_Warfare</defName>
+    <label>Klingon warfare doctrine</label>
+    <description>Taktiken, Disziplin und Material der Klingonischen Flotte. Dient als Grundlage für klingonische Waffen, Rüstungen und Gefechtsausrüstung.</description>
+
+    <techLevel>Spacer</techLevel>
+    <baseCost>1800</baseCost>
+    <prerequisites>
+      <li>MicroelectronicsBasics</li>
+      <li>Gunsmithing</li>
+    </prerequisites>
+
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+
+    <researchViewX>8</researchViewX>
+    <researchViewY>6</researchViewY>
+
+    <tags>
+      <li>YASTM_Faction_Klingon</li>
+    </tags>
+  </ResearchProjectDef>
+
+  <!-- ===========================
+       Romulan – Tech Doctrine
+       =========================== -->
+  <ResearchProjectDef>
+    <defName>Romulan_TechDoctrine</defName>
+    <label>Romulan technological doctrine</label>
+    <description>Romulanische Systemarchitektur, Tarnmuster und Energiedisziplin. Voraussetzung für romulanische Ausrüstung und fortgeschrittene Elektronik.</description>
+
+    <techLevel>Spacer</techLevel>
+    <baseCost>2000</baseCost>
+    <prerequisites>
+      <li>MicroelectronicsBasics</li>
+    </prerequisites>
+
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+
+    <researchViewX>9</researchViewX>
+    <researchViewY>7</researchViewY>
+
+    <tags>
+      <li>YASTM_Faction_Romulan</li>
+    </tags>
+  </ResearchProjectDef>
+
+</Defs>

@@ -11,6 +11,7 @@
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <uiIconScale>2</uiIconScale>
+    <uiIconPath>Things/Item/Apparel/Ferengi_Tunic/FerengiTunic</uiIconPath>
     <statBases>
       <WorkToMake>2000</WorkToMake>
       <Mass>0.5</Mass>
@@ -78,6 +79,7 @@
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <uiIconScale>2</uiIconScale>
+    <uiIconPath>Things/Item/Apparel/Ferengi_Vest/Ferengi_Vest</uiIconPath>
     <thingCategories><li>Apparel</li></thingCategories>
     <statBases>
       <WorkToMake>4200</WorkToMake>

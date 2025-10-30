@@ -56,8 +56,10 @@
     </li>
   </modExtensions>
   <projectile>
+    <flyOverhead>false</flyOverhead>
     <damageDef>Burn</damageDef>
-    <damageAmountBase>12</damageAmountBase>
+    <damageAmountBase>11</damageAmountBase>
+    <armorPenetrationBase>0.14</armorPenetrationBase>
     <speed>120</speed>
   </projectile>
 </ThingDef>
@@ -74,9 +76,10 @@
     </graphicData>
 
     <projectile>
+      <flyOverhead>false</flyOverhead>
       <damageDef>Burn</damageDef>
-      <damageAmountBase>16</damageAmountBase>
-      <armorPenetrationBase>0.28</armorPenetrationBase>
+      <damageAmountBase>12</damageAmountBase>
+      <armorPenetrationBase>0.18</armorPenetrationBase>
       <stoppingPower>0.35</stoppingPower>
       <speed>100</speed>
     </projectile>
@@ -121,8 +124,8 @@
     <projectile>
     	<flyOverhead>false</flyOverhead>
       <damageDef>Burn</damageDef>
-      <damageAmountBase>24</damageAmountBase>
-      <armorPenetrationBase>0.45</armorPenetrationBase>
+      <damageAmountBase>16</damageAmountBase>
+      <armorPenetrationBase>0.25</armorPenetrationBase>
       <speed>90</speed>
     </projectile>
   </ThingDef>

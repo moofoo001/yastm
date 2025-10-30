@@ -120,4 +120,12 @@
   <YASTM.Settings.AidGoodwill>Starfleet Aid — goodwill cost: {0}</YASTM.Settings.AidGoodwill>
   <YASTM.Settings.AidMinGoodwill>Starfleet Aid — minimum goodwill required: {0}</YASTM.Settings.AidMinGoodwill>
 
+  <YASTM.Settings.Alert.ShowTimer>Show remaining time in gizmo</YASTM.Settings.Alert.ShowTimer>
+  <YASTM.Settings.Alert.BlinkSec>Blink seconds (visual hint)</YASTM.Settings.Alert.BlinkSec>
+  <YASTM.Settings.Alert.RedCD>Red alert cooldown (sec)</YASTM.Settings.Alert.RedCD>
+  <YASTM.Settings.Alert.YellowCD>Yellow alert cooldown (sec)</YASTM.Settings.Alert.YellowCD>
+  <YASTM.Settings.Alert.RedDur>Red alert duration (sec, 0 = infinite)</YASTM.Settings.Alert.RedDur>
+  <YASTM.Settings.Alert.YellowDur>Yellow alert duration (sec, 0 = infinite)</YASTM.Settings.Alert.YellowDur>
+
+
 </LanguageData>

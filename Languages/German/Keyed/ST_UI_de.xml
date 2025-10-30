@@ -87,4 +87,12 @@
 
   <!-- Fallback / Misc -->
   <ST.Common.RequirementsNotMet>Voraussetzungen nicht erfüllt.</ST.Common.RequirementsNotMet>
+
+  <YASTM.Settings.Alert.ShowTimer>Restzeit im Gizmo anzeigen</YASTM.Settings.Alert.ShowTimer>
+  <YASTM.Settings.Alert.BlinkSec>Blink-Dauer (Sekunden)</YASTM.Settings.Alert.BlinkSec>
+  <YASTM.Settings.Alert.RedCD>Roter Alarm – Cooldown (Sek.)</YASTM.Settings.Alert.RedCD>
+  <YASTM.Settings.Alert.YellowCD>Gelber Alarm – Cooldown (Sek.)</YASTM.Settings.Alert.YellowCD>
+  <YASTM.Settings.Alert.RedDur>Roter Alarm – Dauer (Sek., 0 = unendlich)</YASTM.Settings.Alert.RedDur>
+  <YASTM.Settings.Alert.YellowDur>Gelber Alarm – Dauer (Sek., 0 = unendlich)</YASTM.Settings.Alert.YellowDur>
+
 </LanguageData>

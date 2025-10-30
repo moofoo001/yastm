@@ -86,19 +86,19 @@
         <hasStandardCommand>true</hasStandardCommand>
         <burstShotCount>1</burstShotCount>
         <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
-        <warmupTime>0.28</warmupTime>
-        <range>22</range>
+        <warmupTime>0.40</warmupTime>
+        <range>26</range>
         <soundCast>Phaser_T1</soundCast>
         <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
       </li>
     </verbs>
     <statBases>
-      <Mass>0.6</Mass>
-      <RangedWeapon_Cooldown>1.45</RangedWeapon_Cooldown>
+  <Mass>0.6</Mass>
+      <RangedWeapon_Cooldown>1.60</RangedWeapon_Cooldown>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.53</AccuracyMedium>
+      <AccuracyLong>0.26</AccuracyLong>
       <AccuracyTouch>0.85</AccuracyTouch>
-      <AccuracyShort>0.75</AccuracyShort>
-      <AccuracyMedium>0.55</AccuracyMedium>
-      <AccuracyLong>0.35</AccuracyLong>
       <WorkToMake>3000</WorkToMake>
       <MarketValue>750</MarketValue>
     </statBases>
@@ -108,8 +108,8 @@
         <projectileKill>Bullet_PhaserPulse_TypeI</projectileKill>
         <projectileStun>Bullet_PhaserPulse_Stun</projectileStun>
         <projectileOvercharge>Bullet_PhaserPulse_Overcharge</projectileOvercharge>
-        <overchargeMisfireChance>0.15</overchargeMisfireChance>
-        <overchargeExplosionRadius>1.9</overchargeExplosionRadius>
+        <overchargeMisfireChance>0.02</overchargeMisfireChance>
+        <overchargeExplosionRadius>0.9</overchargeExplosionRadius>
         <overchargeExplosionDamage>Flame</overchargeExplosionDamage>
       </li>
     </comps>
@@ -156,8 +156,8 @@
         <defaultProjectile>Bullet_PhaserPulse_TypeII</defaultProjectile>
         <hasStandardCommand>true</hasStandardCommand>
         <burstShotCount>1</burstShotCount>
-        <warmupTime>0.4</warmupTime>
-        <range>26</range>
+        <warmupTime>0.50</warmupTime>
+        <range>27</range>
         <soundCast>Phaser_T2</soundCast>
         <muzzleFlashScale>0.6</muzzleFlashScale>
         <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
@@ -165,10 +165,10 @@
     </verbs>
     <statBases>
       <AccuracyTouch>0.80</AccuracyTouch>
-      <AccuracyShort>0.75</AccuracyShort>
-      <AccuracyMedium>0.65</AccuracyMedium>
-      <AccuracyLong>0.45</AccuracyLong>
-      <RangedWeapon_Cooldown>1.60</RangedWeapon_Cooldown>
+      <AccuracyShort>0.83</AccuracyShort>
+      <AccuracyMedium>0.55</AccuracyMedium>
+      <AccuracyLong>0.30</AccuracyLong>
+      <RangedWeapon_Cooldown>1.80</RangedWeapon_Cooldown>
       <Mass>1.1</Mass>
       <WorkToMake>5000</WorkToMake>
       <MarketValue>540</MarketValue>
@@ -228,8 +228,8 @@
     <defaultProjectile>Bullet_PhaserRifle</defaultProjectile>
     <burstShotCount>3</burstShotCount>
     <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-    <warmupTime>0.7</warmupTime>
-    <range>34.9</range>
+    <warmupTime>0.60</warmupTime>
+    <range>30</range>
     <soundCast>Phaser_Rifle</soundCast>
     <targetParams>
       <canTargetLocations>true</canTargetLocations>
@@ -248,11 +248,11 @@
     </tools>
     <statBases>
       <Mass>4.8</Mass>
-      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>1.9</RangedWeapon_Cooldown>
       <AccuracyTouch>0.88</AccuracyTouch>
-      <AccuracyShort>0.92</AccuracyShort>
-      <AccuracyMedium>0.85</AccuracyMedium>
-      <AccuracyLong>0.7</AccuracyLong>
+      <AccuracyShort>0.87</AccuracyShort>
+      <AccuracyMedium>0.67</AccuracyMedium>
+      <AccuracyLong>0.42</AccuracyLong>
       <WorkToMake>7000</WorkToMake>
       <MarketValue>1800</MarketValue>
     </statBases>

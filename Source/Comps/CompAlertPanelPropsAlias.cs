@@ -1,36 +1,47 @@
 // Source/Comps/CompAlertPanelPropsAlias.cs
+using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace YASTM
 {
     /// <summary>
-    /// Alias für alte XMLs: <li Class="YASTM.CompProperties_AlertPanel"> ... </li>
-    /// Mappt Tick-Felder automatisch auf Sekunden-Felder der Basisklasse.
+    /// XML-Alias: Erlaubt Tick-basierte Eingaben im Building-Def
+    /// und mappt sie auf die Sekunden-/Tick-Felder des eigentlichen Gizmo-Comps.
     /// </summary>
     public class CompProperties_AlertPanel : CompProperties_AlertPanelGizmo
     {
-        // Legacy-Felder aus XML (Ticks)
-        public int redDurationTicks     = -1;
-        public int redCooldownTicks     = -1;
-        public int yellowDurationTicks  = -1;
-        public int yellowCooldownTicks  = -1;
+        // -- TICK-basierte Eingaben aus XML (nur hier definiert) --
+        public int redCooldownTicks = 0;
+        public int yellowCooldownTicks = 0;
 
-        // Legacy-Flag (wird aktuell nicht zwingend benötigt, behalten für Zukunft)
-        public bool playRedSirenLoop    = true;
+        // Wichtig:
+        // KEINE erneute Deklaration von redDurationTicks / yellowDurationTicks / blinkSeconds!
+        // Diese Felder sind bereits in CompProperties_AlertPanelGizmo vorhanden
+        // und werden direkt aus dem XML befüllt.
+
+        public CompProperties_AlertPanel()
+        {
+            // Der tatsächliche Comp ist der Gizmo-Comp:
+            compClass = typeof(CompAlertPanelGizmo);
+        }
 
         public override void ResolveReferences(ThingDef parentDef)
         {
             base.ResolveReferences(parentDef);
+            redCooldownSeconds    = Mathf.Max(0, Mathf.RoundToInt(redCooldownTicks    / 60f));
+            yellowCooldownSeconds = Mathf.Max(0, Mathf.RoundToInt(yellowCooldownTicks / 60f));
 
-            // Ticks -> Sekunden übertragen, wenn in XML gesetzt
-            if (redCooldownTicks >= 0)
-                redCooldownSeconds = Mathf.Max(1, Mathf.RoundToInt(redCooldownTicks / 60f));
+            // Defaults aus Mod-Settings verwenden, falls XML 0 liefert
+            var S = YASTM_Mod.Settings;
 
-            if (yellowCooldownTicks >= 0)
-                yellowCooldownSeconds = Mathf.Max(1, Mathf.RoundToInt(yellowCooldownTicks / 60f));
+            if (redCooldownSeconds == 0)    redCooldownSeconds    = S?.defaultRedCooldownSeconds    ?? 0;
+            if (yellowCooldownSeconds == 0) yellowCooldownSeconds = S?.defaultYellowCooldownSeconds ?? 0;
 
+            if (redDurationTicks <= 0)      redDurationTicks      = S?.DefaultRedDurationTicks      ?? 0;
+            if (yellowDurationTicks <= 0)   yellowDurationTicks   = S?.DefaultYellowDurationTicks   ?? 0;
 
+            if (blinkSeconds <= 0)          blinkSeconds          = S?.defaultBlinkSeconds          ?? 0;
         }
     }
 }

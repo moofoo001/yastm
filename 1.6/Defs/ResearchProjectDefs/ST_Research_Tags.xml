@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ResearchProjectTagDef>
+    <defName>YASTM_Faction_Ferengi</defName>
+    <label>ferengi</label>
+  </ResearchProjectTagDef>
+
+  <ResearchProjectTagDef>
+    <defName>YASTM_Faction_Klingon</defName>
+    <label>klingon</label>
+  </ResearchProjectTagDef>
+
+  <ResearchProjectTagDef>
+    <defName>YASTM_Faction_Romulan</defName>
+    <label>romulan</label>
+  </ResearchProjectTagDef>
+
+</Defs>

@@ -19,6 +19,7 @@
       <drawSize>(3,3)</drawSize>
     </graphicData>
     <uiIconScale>1</uiIconScale>
+    <uiIconPath>Things/Building/ST_TransportBeacon</uiIconPath>
 
     <costList>
       <Steel>60</Steel>

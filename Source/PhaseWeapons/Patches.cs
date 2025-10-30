@@ -70,13 +70,13 @@ namespace ST.PhaseWeapons
                     SetOcVisuals();
                     ocCmd.action = () =>
                     {
-                        Log.Message($"[Phaser2Btn][CLICK-OC] {gear.def.defName} {gear.ThingID} pre={comp.mode}");
+                        //Log.Message($"[Phaser2Btn][CLICK-OC] {gear.def.defName} {gear.ThingID} pre={comp.mode}");
                         comp.ToggleOvercharge();
 
                         if (comp.mode == PhaserFireMode.Overcharge) { /* nichts weiter nötig */ }
                         SetOcVisuals();
                         SoundDefOf.Click.PlayOneShot(SoundInfo.OnCamera());
-                        Log.Message($"[Phaser2Btn][CLICK-OC] post={comp.mode}");
+                        //Log.Message($"[Phaser2Btn][CLICK-OC] post={comp.mode}");
                     };
                     yield return ocCmd;
                 }

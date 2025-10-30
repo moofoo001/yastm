@@ -11,6 +11,7 @@
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <uiIconScale>2</uiIconScale>
+    <uiIconPath>Things/Item/Apparel/Romulan_Tunic/RomulanTunic</uiIconPath>
     <statBases>
       <WorkToMake>2300</WorkToMake>
       <Mass>0.6</Mass>
@@ -78,6 +79,7 @@
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <uiIconScale>2</uiIconScale>
+    <uiIconPath>Things/Item/Apparel/Romulan_Vest/Romulan_Vest</uiIconPath>
     <thingCategories><li>Apparel</li></thingCategories>
     <statBases>
       <WorkToMake>4600</WorkToMake>

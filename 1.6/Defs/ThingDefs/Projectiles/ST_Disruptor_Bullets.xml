@@ -11,8 +11,8 @@
     </graphicData>
     <projectile>
       <damageDef>Burn</damageDef>
-      <damageAmountBase>18</damageAmountBase>
-      <armorPenetrationBase>0.30</armorPenetrationBase>
+      <damageAmountBase>13</damageAmountBase>
+      <armorPenetrationBase>0.20</armorPenetrationBase>
       <stoppingPower>0.30</stoppingPower>
       <speed>100</speed>
     </projectile>
@@ -28,8 +28,8 @@
     </graphicData>
     <projectile>
       <damageDef>Burn</damageDef>
-      <damageAmountBase>26</damageAmountBase>
-      <armorPenetrationBase>0.48</armorPenetrationBase>
+      <damageAmountBase>18</damageAmountBase>
+      <armorPenetrationBase>0.27</armorPenetrationBase>
       <stoppingPower>0.35</stoppingPower>
       <speed>95</speed>
     </projectile>
@@ -46,8 +46,8 @@
     </graphicData>
     <projectile>
       <damageDef>Burn</damageDef>
-      <damageAmountBase>18</damageAmountBase>
-      <armorPenetrationBase>0.27</armorPenetrationBase>
+      <damageAmountBase>14</damageAmountBase>
+      <armorPenetrationBase>0.20</armorPenetrationBase>
       <stoppingPower>0.30</stoppingPower>
       <speed>110</speed>
     </projectile>
@@ -63,8 +63,8 @@
     </graphicData>
     <projectile>
       <damageDef>Burn</damageDef>
-      <damageAmountBase>25</damageAmountBase>
-      <armorPenetrationBase>0.30</armorPenetrationBase>
+      <damageAmountBase>19</damageAmountBase>
+      <armorPenetrationBase>0.27</armorPenetrationBase>
       <stoppingPower>0.3</stoppingPower>
       <speed>100</speed>
     </projectile>
@@ -81,8 +81,8 @@
     </graphicData>
     <projectile>
       <damageDef>Burn</damageDef>
-      <damageAmountBase>16</damageAmountBase>
-      <armorPenetrationBase>0.3</armorPenetrationBase>
+      <damageAmountBase>13</damageAmountBase>
+      <armorPenetrationBase>0.20</armorPenetrationBase>
       <stoppingPower>0.30</stoppingPower>
       <speed>120</speed>
     </projectile>
@@ -98,8 +98,8 @@
     </graphicData>
     <projectile>
       <damageDef>Burn</damageDef>
-      <damageAmountBase>25</damageAmountBase>
-      <armorPenetrationBase>0.40</armorPenetrationBase>
+      <damageAmountBase>18</damageAmountBase>
+      <armorPenetrationBase>0.27</armorPenetrationBase>
       <stoppingPower>0.35</stoppingPower>
       <speed>100</speed>
     </projectile>

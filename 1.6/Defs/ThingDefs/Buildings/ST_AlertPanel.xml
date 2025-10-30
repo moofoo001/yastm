@@ -42,23 +42,16 @@
     </costList>
 
     <comps>
-      <!-- Alias-Props (Ticks werden intern auf Sekunden gemappt) -->
       <li Class="YASTM.CompProperties_AlertPanel">
-      <!--
-        <redCooldownTicks>600</redCooldownTicks>       
-        <yellowCooldownTicks>600</yellowCooldownTicks>  
-        -->
-        <redDurationTicks>18000</redDurationTicks>         <!-- ~5h -->
-        <redCooldownTicks>90000</redCooldownTicks>         <!-- ~1.5 Tage -->
-        <yellowDurationTicks>9000</yellowDurationTicks>    <!-- ~2.5h -->
-        <yellowCooldownTicks>45000</yellowCooldownTicks> 
+        <redDurationTicks>18000</redDurationTicks>
+        <redCooldownTicks>90000</redCooldownTicks>
+        <yellowDurationTicks>9000</yellowDurationTicks>
+        <yellowCooldownTicks>45000</yellowCooldownTicks>
         <blinkSeconds>3</blinkSeconds>
       </li>
       <li Class="CompProperties_Glower">
         <glowRadius>5</glowRadius>
-        <glowColor>(100,100,1,0)</glowColor>  
-        <colorPickerEnabled>false</colorPickerEnabled>
-        <darklightToggle>false</darklightToggle>
+        <glowColor>(100,100,1,0)</glowColor>
       </li>
     </comps>
 

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <!-- Red Alert -->
-  <ST.RedAlert.EngageButton>Rotalarm aktivieren</ST.RedAlert.EngageButton>
-  <ST.RedAlert.ButtonDesc>Löst einen kolonieweiten Rotalarm mit Sirene und voller Gefechtsbereitschaft aus.</ST.RedAlert.ButtonDesc>
-  <ST.RedAlert.NeedsPower>Benötigt Strom.</ST.RedAlert.NeedsPower>
-  <ST.RedAlert.Recharging>Rotalarm lädt auf: {0}</ST.RedAlert.Recharging>
-  <ST.RedAlert.Engaged>Rotalarm aktiviert.</ST.RedAlert.Engaged>
-  <ST.RedAlert.MissingHediff>Fehlender Hediff: ST_RedAlert</ST.RedAlert.MissingHediff>
 
+  <ST.AlertPanel.Cooldown>Alarmsteuerung befindet sich in Abkühlphase.</ST.AlertPanel.Cooldown>
 
-  <!-- Yellow Alert -->
-  <ST.YellowAlert.EngageButton>Gelbalarm aktivieren</ST.YellowAlert.EngageButton>
-  <ST.YellowAlert.ButtonDesc>Löst einen kolonieweiten Gelbalarm mit kurzer Abklingzeit aus.</ST.YellowAlert.ButtonDesc>
-  <ST.YellowAlert.NeedsPower>Benötigt Strom.</ST.YellowAlert.NeedsPower>
-  <ST.YellowAlert.Recharging>Gelbalarm lädt auf: {0}</ST.YellowAlert.Recharging>
-  <ST.YellowAlert.Engaged>Gelbalarm aktiviert.</ST.YellowAlert.Engaged>
-  <ST.YellowAlert.MissingHediff>Fehlender Hediff: ST_YellowAlert</ST.YellowAlert.MissingHediff>
+  <ST.AlertPanel.Red.Label>Roter Alarm</ST.AlertPanel.Red.Label>
+  <ST.AlertPanel.Red.Desc>Alle Hände auf Gefechtsstationen.</ST.AlertPanel.Red.Desc>
+  <ST.AlertPanel.Red.LetterLabel>Roter Alarm</ST.AlertPanel.Red.LetterLabel>
+  <ST.AlertPanel.Red.LetterText>Alle Hände auf Station. Taktische Bereitschaft erhöht.</ST.AlertPanel.Red.LetterText>
+  <ST.AlertPanel.RedOff.LetterLabel>Roter Alarm aufgehoben</ST.AlertPanel.RedOff.LetterLabel>
+  <ST.AlertPanel.RedOff.LetterText>Gefechtsstationen verlassen. Normalbetrieb aufnehmen.</ST.AlertPanel.RedOff.LetterText>
+
+  <ST.AlertPanel.Yellow.Label>Gelber Alarm</ST.AlertPanel.Yellow.Label>
+  <ST.AlertPanel.Yellow.Desc>Erhöhte Bereitschaft im gesamten Schiff.</ST.AlertPanel.Yellow.Desc>
+  <ST.AlertPanel.Yellow.LetterLabel>Gelber Alarm</ST.AlertPanel.Yellow.LetterLabel>
+  <ST.AlertPanel.Yellow.LetterText>Schiffsweite Bereitschaft erhöht. Auf den Posten bleiben.</ST.AlertPanel.Yellow.LetterText>
+  <ST.AlertPanel.YellowOff.LetterLabel>Gelber Alarm aufgehoben</ST.AlertPanel.YellowOff.LetterLabel>
+  <ST.AlertPanel.YellowOff.LetterText>Gelber Alarm aufgehoben. Normale Wachrotationen laufen an.</ST.AlertPanel.YellowOff.LetterText>
 
   <!-- Starfleet Aid -->
   <ST.Aid.Button>Sternenflottenhilfe anfordern</ST.Aid.Button>

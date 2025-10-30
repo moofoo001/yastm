@@ -12,15 +12,20 @@ namespace ST.PhaseWeapons
     {
         public bool allowOvercharge = false;
 
+        // Optional: explizite Projektile je Modus (wenn nicht gesetzt, bleibt defaultProjectile aktiv)
         public ThingDef projectileKill;
         public ThingDef projectileStun;
-        public ThingDef projectileOvercharge;
+        public ThingDef projectileOvercharge;   // von Verb_PhaserShoot/PhaserUtil erwartet
 
-        public float overchargeMisfireChance = 0f;
+        // Optional: Overcharge-Nebenwirkungen / Backfire (werden von Verb_PhaserShoot genutzt)
+        public float overchargeMisfireChance = 0f; // 0 = aus
         public float overchargeExplosionRadius = 0f;
         public DamageDef overchargeExplosionDamage;
 
-        public CompProperties_PhaserMode() => compClass = typeof(CompPhaserMode);
+        public CompProperties_PhaserMode()
+        {
+            compClass = typeof(CompPhaserMode);
+        }
     }
 
     public class CompPhaserMode : ThingComp
@@ -33,81 +38,97 @@ namespace ST.PhaseWeapons
             get
             {
                 if (parent?.ParentHolder is Pawn_EquipmentTracker eq) return eq.pawn;
-                if (parent?.ParentHolder is Pawn_InventoryTracker inv)  return inv.pawn;
+                if (parent?.ParentHolder is Pawn_InventoryTracker inv) return inv.pawn;
                 return parent?.TryGetComp<CompEquippable>()?.PrimaryVerb?.CasterPawn;
             }
         }
 
-        public override void PostExposeData() =>
-            Scribe_Values.Look(ref mode, "phaserMode", PhaserFireMode.Kill);
-
-            public override IEnumerable<Gizmo> CompGetGizmosExtra()
-            {
-
-                yield break;
-            }
-            public void ToggleStun()
-                {
-                    mode = (mode == PhaserFireMode.Stun) ? PhaserFireMode.Kill : PhaserFireMode.Stun;
-                    Log.Message($"[Phaser2Btn] {parent?.def?.defName} {parent?.ThingID} -> {mode} (StunToggle)");
-                }
-
-            public void ToggleOvercharge()
-            {
-                if (!(Props?.allowOvercharge ?? false)) return;
-                mode = (mode == PhaserFireMode.Overcharge) ? PhaserFireMode.Kill : PhaserFireMode.Overcharge;
-                Log.Message($"[Phaser2Btn] {parent?.def?.defName} {parent?.ThingID} -> {mode} (OverchargeToggle)");
-            }
-        private Command_Action BuildCycleGizmo()
+        public override void PostExposeData()
         {
-            var cmd = new Command_Action { hotKey = KeyBindingDefOf.Misc1 };
-            void ApplyVisuals()
-            {
-                cmd.defaultLabel = mode switch
-                {
-                    PhaserFireMode.Stun => "Mode: Stun",
-                    PhaserFireMode.Overcharge => "Mode: Overcharge",
-                    _ => "Mode: Lethal"
-                };
-                string next = mode switch
-                {
-                    PhaserFireMode.Kill => "Stun",
-                    PhaserFireMode.Stun => (Props?.allowOvercharge ?? false) ? "Overcharge" : "Lethal",
-                    _ => "Lethal"
-                };
-                cmd.defaultDesc = $"Click to cycle to {next} mode.";
-                cmd.icon = mode switch
-                {
-                    PhaserFireMode.Stun => ContentFinder<Texture2D>.Get("Things/Projectile/PhaserPulse_Stun", false),
-                    PhaserFireMode.Overcharge => ContentFinder<Texture2D>.Get("Things/Projectile/PhaserPulse_Overcharge", false),
-                    _ => ContentFinder<Texture2D>.Get("Things/Projectile/PhaserPulse", false)
-                };
-            }
-            ApplyVisuals();
-
-            cmd.action = () =>
-            {
-                Log.Message($"[PhaserMode] CLICK {parent.def.defName} {parent.ThingID} pre={mode}");
-                CycleMode();
-                Log.Message($"[PhaserMode] CLICK post={mode}");
-                ApplyVisuals();
-                SoundDefOf.Click.PlayOneShot(SoundInfo.OnCamera());
-            };
-
-            return cmd;
+            Scribe_Values.Look(ref mode, "phaserMode", PhaserFireMode.Kill);
         }
 
-        public void CycleMode()
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            Log.Message($"[PhaserMode][cycle] {parent?.def?.defName} {parent?.ThingID} pre={mode}");
-            if (Props?.allowOvercharge ?? false)
-                mode = mode switch { PhaserFireMode.Kill => PhaserFireMode.Stun, PhaserFireMode.Stun => PhaserFireMode.Overcharge, _ => PhaserFireMode.Kill };
-            else
-                mode = (mode == PhaserFireMode.Stun) ? PhaserFireMode.Kill : PhaserFireMode.Stun;
+            // Falls andere Mods/Comps eigene Gizmos liefern, zuerst durchreichen
+            foreach (var g in base.CompGetGizmosExtra() ?? System.Array.Empty<Gizmo>())
+                yield return g;
 
             var pawn = Wielder;
-            Log.Message($"[PhaserMode] {parent?.def?.defName} {parent?.ThingID} -> {mode} (pawn={pawn?.LabelShort ?? "null"})");
-            Log.Message($"[PhaserMode][cycle] post={mode}");
+            if (pawn == null || pawn.Faction != Faction.OfPlayer)
+                yield break;
+
+            // Helper: exklusiver Toggle (erneutes Klicken -> Kill/Normal)
+            Command_Toggle Make(string labelKey, string descKey, string iconPath,
+                                PhaserFireMode targetMode, KeyBindingDef hotkey)
+            {
+                var cmd = new Command_Toggle
+                {
+                    defaultLabel = labelKey.Translate(),
+                    defaultDesc  = descKey.Translate(),
+                    icon         = ContentFinder<Texture2D>.Get(iconPath, true),
+                    hotKey       = hotkey,
+                    isActive     = () => mode == targetMode,
+                    toggleAction = () =>
+                    {
+                        mode = (mode == targetMode) ? PhaserFireMode.Kill : targetMode;
+                        SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+                    }
+                };
+                return cmd;
+            }
+
+            // STUN (immer verfügbar)
+            yield return Make("ST.Phaser.Mode.Stun",
+                              "ST.Phaser.Mode.Stun.Desc",
+                              "Things/Projectile/PhaserPulse_Stun",
+                              PhaserFireMode.Stun,
+                              KeyBindingDefOf.Misc1);
+
+            // OVERCHARGE (nur wenn erlaubt)
+            if (Props?.allowOvercharge ?? false)
+            {
+                yield return Make("ST.Phaser.Mode.Overcharge",
+                                  "ST.Phaser.Mode.Overcharge.Desc",
+                                  "Things/Projectile/PhaserPulse_Overcharge",
+                                  PhaserFireMode.Overcharge,
+                                  KeyBindingDefOf.Misc2);
+            }
+        }
+
+        // Abwärts-kompatibel (wird evtl. aus Patches/Jobs aufgerufen)
+        public void ToggleStun()
+        {
+            mode = (mode == PhaserFireMode.Stun) ? PhaserFireMode.Kill : PhaserFireMode.Stun;
+            SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+        }
+
+        // Von Patches.cs erwartet (Fehler zuvor)
+        public void ToggleOvercharge()
+        {
+            if (!(Props?.allowOvercharge ?? false))
+                return;
+
+            mode = (mode == PhaserFireMode.Overcharge) ? PhaserFireMode.Kill : PhaserFireMode.Overcharge;
+            SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+        }
+
+        // Optionaler Modus-Zyklus (für Alt-Code erhalten)
+        public void CycleMode()
+        {
+            if (Props?.allowOvercharge ?? false)
+            {
+                mode = mode switch
+                {
+                    PhaserFireMode.Kill        => PhaserFireMode.Stun,
+                    PhaserFireMode.Stun        => PhaserFireMode.Overcharge,
+                    _                          => PhaserFireMode.Kill
+                };
+            }
+            else
+            {
+                mode = (mode == PhaserFireMode.Stun) ? PhaserFireMode.Kill : PhaserFireMode.Stun;
+            }
         }
     }
 }

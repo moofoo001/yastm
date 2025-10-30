@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
+  <ST.AlertPanel.Cooldown>Alert controls are cooling down.</ST.AlertPanel.Cooldown>
 
+  <ST.AlertPanel.Red.Label>Red Alert</ST.AlertPanel.Red.Label>
+  <ST.AlertPanel.Red.Desc>All hands to battle stations.</ST.AlertPanel.Red.Desc>
+  <ST.AlertPanel.Red.LetterLabel>Red Alert</ST.AlertPanel.Red.LetterLabel>
+  <ST.AlertPanel.Red.LetterText>All hands to stations. Tactical readiness is raised.</ST.AlertPanel.Red.LetterText>
+  <ST.AlertPanel.RedOff.LetterLabel>Red Alert cleared</ST.AlertPanel.RedOff.LetterLabel>
+  <ST.AlertPanel.RedOff.LetterText>Stand down from battle stations. Resume normal operations.</ST.AlertPanel.RedOff.LetterText>
+
+  <ST.AlertPanel.Yellow.Label>Yellow Alert</ST.AlertPanel.Yellow.Label>
+  <ST.AlertPanel.Yellow.Desc>Heightened readiness across the ship.</ST.AlertPanel.Yellow.Desc>
+  <ST.AlertPanel.Yellow.LetterLabel>Yellow Alert</ST.AlertPanel.Yellow.LetterLabel>
+  <ST.AlertPanel.Yellow.LetterText>Shipwide readiness increased. Remain at your posts.</ST.AlertPanel.Yellow.LetterText>
+  <ST.AlertPanel.YellowOff.LetterLabel>Yellow Alert cleared</ST.AlertPanel.YellowOff.LetterLabel>
+  <ST.AlertPanel.YellowOff.LetterText>Stand down from Yellow Alert. Normal watch rotations resume.</ST.AlertPanel.YellowOff.LetterText>
 
  
   <!-- Alert Panel messages -->
@@ -9,6 +23,7 @@
   <ST_AlertPanel_Red_Off>Red alert disengaged.</ST_AlertPanel_Red_Off>
   <ST_AlertPanel_Yellow_On>Yellow alert engaged.</ST_AlertPanel_Yellow_On>
   <ST_AlertPanel_Yellow_Off>Yellow alert disengaged.</ST_AlertPanel_Yellow_Off>
+  
 
   <!-- Hediffs from alerts -->
   <ST_RedAlert_Pumped_label>combat adrenaline</ST_RedAlert_Pumped_label>
