@@ -6,7 +6,7 @@
     <description>A secretive power preferring subterfuge and calculated strikes.</description>
 
     <factionNameMaker>ST_NamerRomulanFaction</factionNameMaker>
-    <settlementNameMaker>ST_NamerRomulanBase</settlementNameMaker>
+    <settlementNameMaker>ST_SettlementName_Romulan</settlementNameMaker>
     <factionIconPath>UI/Icons/Factions/Romulan</factionIconPath>
 
     <listOrderPriority>47</listOrderPriority>
@@ -41,9 +41,15 @@
     </backstoryFilters>
 
     <!-- TraderKinds -->
-    <caravanTraderKinds><li>Trader_Romulan_BlackOps</li></caravanTraderKinds>
+    <caravanTraderKinds>
+      <li>Trader_Romulan_BlackOps</li>
+      <li>ST_Romulan_IntelligenceBroker</li>
+    </caravanTraderKinds>
     <visitorTraderKinds><li>Trader_Romulan_BlackOps</li></visitorTraderKinds>
-    <baseTraderKinds><li>Trader_Romulan_BlackOps</li></baseTraderKinds>
+    <baseTraderKinds>
+      <li>Trader_Romulan_BlackOps</li>
+      <li>ST_Romulan_IntelligenceBroker</li>
+    </baseTraderKinds>
 
     <maxPawnCostPerTotalPointsCurve>
       <points>

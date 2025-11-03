@@ -108,7 +108,10 @@
       <ComponentIndustrial>10</ComponentIndustrial>
     </costList>
     <stuffCategories/>
-    <tradeTags><li>ClothingArmor</li></tradeTags>
+    <tradeTags>
+     <li>ClothingArmor</li>
+     <li>ST_KlingonArms</li>
+    </tradeTags>
     <recipeMaker>
       <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
       <workSkill>Crafting</workSkill>

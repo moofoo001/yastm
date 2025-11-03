@@ -98,6 +98,7 @@
     <tradeTags>
       <li>Medicine</li>
       <li>ExoticMisc</li>
+      <li>ST_Ferengi_CommerceExchange</li>
     </tradeTags>
     <thingSetMakerTags>
       <li>RewardStandardLowTech</li>
@@ -143,7 +144,9 @@
     </comps>
     <tradeTags>
       <li>Medicine</li>       
-      <li>ExoticMisc</li>     
+      <li>ExoticMisc</li>
+      <li>ST_Ferengi_CommerceExchange</li> 
+      <li>ST_StarfleetSupply</li>  
     </tradeTags>
     <thingSetMakerTags>
       <li>RewardStandardMidTech</li>

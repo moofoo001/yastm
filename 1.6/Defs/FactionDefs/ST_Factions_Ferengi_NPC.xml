@@ -6,7 +6,7 @@
     <description>Profit-driven traders with flexible morals and sharp deals.</description>
 
     <factionNameMaker>ST_NamerFerengiFaction</factionNameMaker>
-    <settlementNameMaker>ST_NamerFerengiBase</settlementNameMaker>
+    <settlementNameMaker>ST_SettlementName_Ferengi</settlementNameMaker>
     <factionIconPath>UI/Icons/Factions/Ferengi</factionIconPath>
 
     <listOrderPriority>48</listOrderPriority>
@@ -44,6 +44,7 @@
     <caravanTraderKinds>
       <li>Trader_Ferengi_CommerceGuild</li>
       <li>Trader_Ferengi_Exotics</li>
+      <li>ST_Ferengi_CommerceExchange</li>
     </caravanTraderKinds>
     <visitorTraderKinds>
       <li>Trader_Ferengi_CommerceGuild</li>
@@ -52,6 +53,7 @@
     <baseTraderKinds>
       <li>Trader_Ferengi_CommerceGuild</li>
       <li>Trader_Ferengi_Exotics</li>
+      <li>ST_Ferengi_CommerceExchange</li>
     </baseTraderKinds>
 
     <!-- Pawn-Budget-Curve -->

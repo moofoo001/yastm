@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <ST.AlertPanel.Cooldown>Alarmsteuerung befindet sich in Abkühlphase.</ST.AlertPanel.Cooldown>
+  <!-- Storyteller -->
+  <YASTM.Storyteller.April.Tagline>„Wir handeln nach Vorschrift – mit offenem Herzen.“</YASTM.Storyteller.April.Tagline>
+  <YASTM.Storyteller.April.Fluff1>Admiral April bevorzugt Erkundung, Rettungsaufträge und ehrlichen Handel. Der Druck steigt mit euren Fähigkeiten.</YASTM.Storyteller.April.Fluff1>
+  <YASTM.Storyteller.April.Fluff2>Das Red/Yellow-Alert-System passt zu Aprils Takt: in der Ruhe vorbereiten, in der Krise diszipliniert handeln.</YASTM.Storyteller.April.Fluff2>
 
+  <!-- Alert Panel -->
+  <ST.AlertPanel.Cooldown>Alarmsteuerung befindet sich in Abkühlphase.</ST.AlertPanel.Cooldown>
   <ST.AlertPanel.Red.Label>Roter Alarm</ST.AlertPanel.Red.Label>
   <ST.AlertPanel.Red.Desc>Alle Hände auf Gefechtsstationen.</ST.AlertPanel.Red.Desc>
   <ST.AlertPanel.Red.LetterLabel>Roter Alarm</ST.AlertPanel.Red.LetterLabel>
   <ST.AlertPanel.Red.LetterText>Alle Hände auf Station. Taktische Bereitschaft erhöht.</ST.AlertPanel.Red.LetterText>
   <ST.AlertPanel.RedOff.LetterLabel>Roter Alarm aufgehoben</ST.AlertPanel.RedOff.LetterLabel>
   <ST.AlertPanel.RedOff.LetterText>Gefechtsstationen verlassen. Normalbetrieb aufnehmen.</ST.AlertPanel.RedOff.LetterText>
-
   <ST.AlertPanel.Yellow.Label>Gelber Alarm</ST.AlertPanel.Yellow.Label>
   <ST.AlertPanel.Yellow.Desc>Erhöhte Bereitschaft im gesamten Schiff.</ST.AlertPanel.Yellow.Desc>
   <ST.AlertPanel.Yellow.LetterLabel>Gelber Alarm</ST.AlertPanel.Yellow.LetterLabel>
   <ST.AlertPanel.Yellow.LetterText>Schiffsweite Bereitschaft erhöht. Auf den Posten bleiben.</ST.AlertPanel.Yellow.LetterText>
   <ST.AlertPanel.YellowOff.LetterLabel>Gelber Alarm aufgehoben</ST.AlertPanel.YellowOff.LetterLabel>
   <ST.AlertPanel.YellowOff.LetterText>Gelber Alarm aufgehoben. Normale Wachrotationen laufen an.</ST.AlertPanel.YellowOff.LetterText>
+  <ST.AlertPanel.Cooldown>Abklingzeit: {0}s</ST.AlertPanel.Cooldown>
+  <ST.AlertPanel.ActiveBuffRed>Rotalarm aktiv</ST.AlertPanel.ActiveBuffRed>
+  <ST.AlertPanel.ActiveBuffYellow>Gelbalarm aktiv</ST.AlertPanel.ActiveBuffYellow>
 
   <!-- Starfleet Aid -->
   <ST.Aid.Button>Sternenflottenhilfe anfordern</ST.Aid.Button>
@@ -119,6 +126,9 @@
   <ST.Diplo.Requirements.Improve>Erfordert einen/eine {1} mit Sozial {0}+ auf dieser Karte.</ST.Diplo.Requirements.Improve>
   <ST.Diplo.Requirements.Ceasefire>Erfordert einen/eine {1} mit Sozial {0}+ auf dieser Karte.</ST.Diplo.Requirements.Ceasefire>
 
+  <ST.Diplomacy.OpenChannel>Rufe offen.</ST.Diplomacy.OpenChannel>
+  <ST.Diplomacy.ClosedChannel>Rufe geschlossen.</ST.Diplomacy.ClosedChannel>
+  <ST.Diplomacy.TradeOffer>Wir sind bereit, Konditionen zu verhandeln.</ST.Diplomacy.TradeOffer>
 
 
   <!-- Ktarian Game -->
@@ -151,11 +161,11 @@
   <ST.Tricorder.Sec.Applied>Kampfwahrnehmung bei {PAWN_labelShort} verbessert.</ST.Tricorder.Sec.Applied>
 
   <!--Transporter -->
-  <ST.Transporter.BeamIn>Logistik herbeamen</ST.Transporter.BeamIn>
-  <ST.Transporter.BeamIn.Desc>Materialisiert ein kleines Versorgungspaket am Beacon.</ST.Transporter.BeamIn.Desc>
-  <ST.Transporter.BeamOut>Notfall-Beam-out</ST.Transporter.BeamOut>
-  <ST.Transporter.BeamOut.Desc>Teleportiert einen Kolonisten zum Beacon. Verursacht kurz Übelkeit.</ST.Transporter.BeamOut.Desc>
-  <ST.Transporter.BeamIn.Done>Logistik herbegebeamt.</ST.Transporter.BeamIn.Done>
+  <ST.Transporter.BeamIn>Notfall beam-in.</ST.Transporter.BeamIn>
+  <ST.Transporter.BeamIn.Desc>Teleportiert einen Kolonisten zu deinem Standort.</ST.Transporter.BeamIn.Desc>
+  <ST.Transporter.BeamOut>Kurzstrecken Beam-out</ST.Transporter.BeamOut>
+  <ST.Transporter.BeamOut.Desc>Teleportiert einen Kolonisten zum naechstgelegenen Beacon. Verursacht kurz Übelkeit.</ST.Transporter.BeamOut.Desc>
+  <ST.Transporter.BeamIn.Done>Notfalltransport von {PAWN_labelShort} durchgefuehrt.</ST.Transporter.BeamIn.Done>
   <ST.Transporter.BeamOut.Done>{PAWN_labelShort} wurde herausgebeamt.</ST.Transporter.BeamOut.Done>
   <ST.Transporter.BeamOut.TooFar>Ziel ist außer Reichweite.</ST.Transporter.BeamOut.TooFar>
   <ST.Common.RequiresPower>Benötigt Strom.</ST.Common.RequiresPower>
@@ -175,4 +185,15 @@
   <ST.Transporter.NoPawns>Keine geeigneten Pawns in Beacon-Nähe.</ST.Transporter.NoPawns>
   <ST.Transporter.NoValidDest>Kein gültiges Ankunftsfeld gefunden.</ST.Transporter.NoValidDest>
   <ST.Transporter.Moved>{0} Pawn(s) transportiert.</ST.Transporter.Moved>
+
+  <!-- Traders -->
+  <YASTM.Trader.Ferengi.Label>Ferengi-Handelsbörse</YASTM.Trader.Ferengi.Label>
+  <YASTM.Trader.Ferengi.Fluff>„Erwerbsregel Nr. 1: Hast du ihr Geld, gib es nie zurück.“</YASTM.Trader.Ferengi.Fluff>
+  <YASTM.Trader.Klingon.Label>Klingonischer Waffendealer</YASTM.Trader.Klingon.Label>
+  <YASTM.Trader.Klingon.Fluff>„Waffen beweisen sich im Gefecht – nicht am Marktstand.“</YASTM.Trader.Klingon.Fluff>
+  <YASTM.Trader.Romulan.Label>Romulanischer Informationsmakler</YASTM.Trader.Romulan.Label>
+  <YASTM.Trader.Romulan.Fluff>„Information ist mehr wert als Latinum – richtig eingesetzt.“</YASTM.Trader.Romulan.Fluff>
+  <YASTM.Trader.Starfleet.Label>Starfleet-Versorgungskonvoi</YASTM.Trader.Starfleet.Label>
+  <YASTM.Trader.Starfleet.Fluff>„Humanitäre Hilfe und Standard-Nachschub gemäß Vorschrift.“</YASTM.Trader.Starfleet.Fluff>
+
 </LanguageData>

@@ -5,7 +5,7 @@
     <label>Klingon Empire</label>
     <description>A proud warrior culture valuing honor and combat prowess.</description>
     <factionNameMaker>ST_NamerKlingonFaction</factionNameMaker>
-    <settlementNameMaker>ST_NamerKlingonBase</settlementNameMaker>
+    <settlementNameMaker>ST_SettlementName_Klingon</settlementNameMaker>
     <factionIconPath>UI/Icons/Factions/Klingon</factionIconPath>
     <listOrderPriority>46</listOrderPriority>
     <settlementGenerationWeight>0.25</settlementGenerationWeight>
@@ -39,9 +39,15 @@
     </backstoryFilters>
 
     <!-- TraderKinds -->
-    <caravanTraderKinds><li>Trader_Klingon_Armory</li></caravanTraderKinds>
+    <caravanTraderKinds>
+    <li>Trader_Klingon_Armory</li>
+    <li>ST_Klingon_ArmsDealer</li>
+    </caravanTraderKinds>
     <visitorTraderKinds><li>Trader_Klingon_Armory</li></visitorTraderKinds>
-    <baseTraderKinds><li>Trader_Klingon_Armory</li></baseTraderKinds>
+    <baseTraderKinds>
+        <li>Trader_Klingon_Armory</li>
+        <li>ST_Klingon_ArmsDealer</li>
+    </baseTraderKinds>
 
     <maxPawnCostPerTotalPointsCurve>
       <points>

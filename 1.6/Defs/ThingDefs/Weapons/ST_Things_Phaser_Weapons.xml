@@ -129,8 +129,7 @@
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <tradeTags>
-      <li>Gun</li>
-      <li>Ultra</li>
+      <li>ST_StarfleetSupply</li>
     </tradeTags>
   <alwaysHaulable>true</alwaysHaulable>
   </ThingDef>
@@ -200,8 +199,7 @@
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <tradeTags>
-      <li>Gun</li>
-      <li>Ultra</li>
+      <li>ST_StarfleetSupply</li>
     </tradeTags>
   </ThingDef>
 
@@ -278,7 +276,10 @@
 	    <Steel>800</Steel>
       <ComponentIndustrial>4</ComponentIndustrial>
     </costList>
-  <alwaysHaulable>true</alwaysHaulable>
+   <alwaysHaulable>true</alwaysHaulable>
+    <tradeTags>
+      <li>ST_StarfleetSupply</li>
+    </tradeTags>
   </ThingDef>
 
 

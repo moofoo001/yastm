@@ -36,8 +36,10 @@
       <MarketValue>180</MarketValue>
     </statBases>
     <tradeTags>
-        <li>ExoticMisc</li>        <!-- Exotic goods & orbital exotic -->
-        <li>OutlanderStandard</li> <!-- Outlander general (falls verwendet) -->
+        <li>ExoticMisc</li> 
+        <li>OutlanderStandard</li>
+        <li>ST_FerengiGoods</li>
+        <li>ST_StarfleetSupply</li>
     </tradeTags>
     <thingSetMakerTags>
       <li>RewardStandardMidTech</li>

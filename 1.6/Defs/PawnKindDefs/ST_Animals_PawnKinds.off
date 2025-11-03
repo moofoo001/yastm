@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>ST_PawnKind_Tribble</defName>
+    <label>tribble</label>
+    <race>ST_Animal_Tribble</race>
+    <combatPower>10</combatPower>
+    <ecoSystemWeight>0.05</ecoSystemWeight>
+    <wildGroupSize>2~5</wildGroupSize>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>ST_PawnKind_Targ</defName>
+    <label>targ</label>
+    <race>ST_Animal_Targ</race>
+    <combatPower>120</combatPower>
+    <ecoSystemWeight>0.10</ecoSystemWeight>
+    <wildGroupSize>1~3</wildGroupSize>
+    <canArriveManhunter>true</canArriveManhunter>
+  </PawnKindDef>
+
+</Defs>

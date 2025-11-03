@@ -9,14 +9,15 @@
   <category>Building</category>
   <selectable>true</selectable>
   <description>Starship-grade hull section. Extremely durable and airtight.</description>
-
   <graphicData>
     <texPath>Things/Building/Ship/HullWall</texPath>
     <graphicClass>Graphic_Single</graphicClass>
     <linkType>CornerFiller</linkType>
-    <linkFlags><li>Wall</li></linkFlags>
+    <linkFlags>
+    <li>Wall</li>
+    <li>Rock</li>
+    </linkFlags>
   </graphicData>
-
   <uiIconPath>Things/Building/Ship/HullWall_MenuIcon</uiIconPath>
   <altitudeLayer>Building</altitudeLayer>
   <passability>Impassable</passability>
@@ -24,25 +25,20 @@
   <coversFloor>true</coversFloor>
   <useHitPoints>true</useHitPoints>
   <rotatable>false</rotatable>
-
   <statBases>
     <MaxHitPoints>900</MaxHitPoints>
     <WorkToBuild>3000</WorkToBuild>
     <Flammability>0</Flammability>
-    <Beauty>-1</Beauty>
+    <Beauty>1</Beauty>
   </statBases>
-
   <building>
     <isEdifice>true</isEdifice>
     <deconstructible>true</deconstructible>
     <canPlaceOverWall>false</canPlaceOverWall>
   </building>
-
   <designationCategory>Structure</designationCategory>
   <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-  
   <researchPrerequisites><li>ST_UFP_Structures</li></researchPrerequisites>
-
   <costList>
     <Steel>40</Steel>
     <Plasteel>10</Plasteel>
@@ -57,14 +53,12 @@
   <category>Building</category>
   <selectable>true</selectable>
   <description>Transparent duraglass panel rated for hull pressure.</description>
-
   <graphicData>
     <texPath>Things/Building/Ship/HullGlass</texPath>
     <graphicClass>Graphic_Single</graphicClass>
     <linkType>CornerFiller</linkType>
     <linkFlags><li>Wall</li></linkFlags>
   </graphicData>
-
   <uiIconPath>Things/Building/Ship/HullGlass_MenuIcon</uiIconPath>
   <altitudeLayer>Building</altitudeLayer>
   <passability>Impassable</passability>
@@ -72,29 +66,67 @@
   <coversFloor>true</coversFloor>
   <useHitPoints>true</useHitPoints>
   <rotatable>false</rotatable>
-
   <statBases>
     <MaxHitPoints>550</MaxHitPoints>
     <WorkToBuild>2800</WorkToBuild>
     <Flammability>0</Flammability>
     <Beauty>1</Beauty>
   </statBases>
-
   <building>
     <isEdifice>true</isEdifice>
     <deconstructible>true</deconstructible>
   </building>
-
   <designationCategory>Structure</designationCategory>
   <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-
   <researchPrerequisites><li>ST_UFP_Structures</li></researchPrerequisites>
-
   <costList>
     <Plasteel>6</Plasteel>
     <Steel>20</Steel>
     <Gold>2</Gold>
   </costList>
 </ThingDef>
+
+<ThingDef ParentName="DoorBase">
+    <defName>ST_HullDoor</defName>
+    <label>armored hull door</label>
+    <description>Divides rooms. Armored doors must be manually opened, which slows people down. Armored doors are nearly entirely blast resistant and barely take damage from breaching methods.</description>
+    <statBases>
+      <WorkToBuild>1685</WorkToBuild>
+	  <MaxHitPoints>450</MaxHitPoints>
+    <DoorOpenSpeed>0.75</DoorOpenSpeed>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Building/Ship/ST_HullDoor_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>Things/Building/Ship/ST_HullDoor_MenuIcon</uiIconPath>
+    <building>
+      <blueprintGraphicData>
+        <texPath>Things/Building/Ship/ST_HullDoor_Blueprint</texPath>
+      </blueprintGraphicData>
+      <paintable>true</paintable>
+	   <isStuffableAirtight>true</isStuffableAirtight>
+    </building>
+    <stuffCategories Inherit="False">
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>50</costStuffCount>
+    <damageMultipliers>
+      <li>
+        <damageDef>Bomb</damageDef>
+        <multiplier>0.05</multiplier>
+      </li>
+      <li>
+        <damageDef>Thump</damageDef>
+        <multiplier>0.05</multiplier>
+      </li>
+    </damageMultipliers>
+    <researchPrerequisites>
+      <li>ST_UFP_Structures</li>
+    </researchPrerequisites>
+  </ThingDef>
 
 </Defs>

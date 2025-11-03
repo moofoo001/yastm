@@ -140,7 +140,7 @@
     <defName>ST_Medical_diagnostics</defName>
     <label>Medical Diagnostics</label>
     <description>Portable medical diagnostic and treatment support harness.</description>
-    <tab>ST_Research</tab>
+     <tab>ST_Research</tab>
     <baseCost>500</baseCost>
     <prerequisites>
       <li>DrugProduction</li>   
@@ -228,6 +228,21 @@
       <li>Machining</li>
     </prerequisites>
     <researchViewX>5</researchViewX>
+    <researchViewY>3</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+  </ResearchProjectDef>
+
+ <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_UFP_Interior</defName>
+    <label>UFP standard interior</label>
+    <description>UFP standard interior for homes and ships.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>Federation_Standard</li>
+      <li>Machining</li>
+    </prerequisites>
+    <researchViewX>6</researchViewX>
     <researchViewY>3</researchViewY>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
   </ResearchProjectDef>

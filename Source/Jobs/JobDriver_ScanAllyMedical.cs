@@ -58,8 +58,10 @@ namespace YASTM
                         var disp = h.TryGetComp<HediffComp_Disappears>();
                         if (disp != null)
                         {
-                            var dur = compMed != null ? compMed.HediffDuration : new IntRange(30000, 45000);
-                            disp.ticksToDisappear = Rand.RangeInclusive(dur.min, dur.max);
+                        int durationTicks = (comp.HediffDuration > 0)
+                            ? Mathf.Max(0, comp.HediffDuration)
+                            : new IntRange(comp.Props.hediffMinTicks, comp.Props.hediffMaxTicks).RandomInRange;
+                        disp.ticksToDisappear = durationTicks;
                         }
                         Messages.Message("ST.Tricorder.Med.Applied".Translate(TargetPawn.Named("PAWN")),
                             TargetPawn, MessageTypeDefOf.PositiveEvent);

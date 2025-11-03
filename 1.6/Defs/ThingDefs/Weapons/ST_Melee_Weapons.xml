@@ -72,6 +72,7 @@
         <chanceFactor>0.2</chanceFactor>
       </li>
     </tools>
+    <tradeTags><li>ST_StarfleetSupply</li></tradeTags>
   </ThingDef>
 
   <!-- ===== FEDERATION: Stun Baton (blunt, control tool) ===== -->
@@ -121,6 +122,7 @@
             <chance>1.0</chance>               
         </li>
     </comps>
+    <tradeTags><li>ST_StarfleetSupply</li></tradeTags>
   </ThingDef>
 
   <!-- KLINGON Bat'leth -->
@@ -175,6 +177,9 @@
         <chanceFactor>0.15</chanceFactor>
       </li>
     </tools>
+    <tradeTags>
+     <li>ST_KlingonArms</li> 
+    </tradeTags>
   </ThingDef>
 
   <!-- KLINGON D'k tahg -->
@@ -229,6 +234,9 @@
         <chanceFactor>0.2</chanceFactor>
       </li>
     </tools>
+    <tradeTags>
+     <li>ST_KlingonArms</li> 
+    </tradeTags>
   </ThingDef>
 
   <!-- ROMULAN Dirhja Dagger  -->
@@ -283,6 +291,7 @@
         <chanceFactor>0.25</chanceFactor>
       </li>
     </tools>
+    <tradeTags><li>ST_RomulanIntel</li></tradeTags>
   </ThingDef>
 
 
@@ -336,6 +345,9 @@
         <chanceFactor>0.15</chanceFactor>
       </li>
     </tools>
+    <tradeTags>
+      <li>ST_FerengiGoods</li>    <!-- Ferengi Exchange verkauft/kauft das -->
+    </tradeTags>
   </ThingDef>
 
 </Defs>

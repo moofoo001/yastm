@@ -72,8 +72,7 @@
       <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <tradeTags>
-      <li>Gun</li>
-      <li>Ultra</li>
+      <li>ST_KlingonArms</li> 
     </tradeTags>
   </ThingDef>
 
@@ -122,8 +121,7 @@
       <ComponentIndustrial>4</ComponentIndustrial>
     </costList>
     <tradeTags>
-      <li>Gun</li>
-      <li>Ultra</li>
+      <li>ST_KlingonArms</li> 
     </tradeTags>
   </ThingDef>
 
@@ -172,8 +170,7 @@
       <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <tradeTags>
-      <li>Gun</li>
-      <li>Ultra</li>
+      <li>ST_RomulanIntel</li>
     </tradeTags>
   </ThingDef>
 
@@ -222,8 +219,7 @@
       <ComponentIndustrial>5</ComponentIndustrial>
     </costList>
     <tradeTags>
-      <li>Gun</li>
-      <li>Ultra</li>
+      <li>ST_RomulanIntel</li>
     </tradeTags>
   </ThingDef>
 
@@ -273,8 +269,7 @@
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <tradeTags>
-      <li>Gun</li>
-      <li>Ultra</li>
+      <li>ST_FerengiGoods</li>
     </tradeTags>  
   </ThingDef>
 
@@ -328,8 +323,7 @@
       <ComponentIndustrial>5</ComponentIndustrial>  
     </costList>
     <tradeTags>
-      <li>Gun</li>
-      <li>Ultra</li>
+      <li>ST_FerengiGoods</li>
     </tradeTags>
   </ThingDef>
 

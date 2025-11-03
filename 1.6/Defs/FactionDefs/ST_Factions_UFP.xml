@@ -50,7 +50,7 @@
       <li>Starfleet_Security</li>
       <li>Starfleet_Science</li>
       <li>Starfleet_Medical</li>
-      <li>FederationPawn_Command</li>
+      <li>FStarfleet_Command</li>
     </backstoryCategories>
 
     <startingResearchTags>

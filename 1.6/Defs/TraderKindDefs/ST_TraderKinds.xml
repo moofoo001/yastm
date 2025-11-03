@@ -297,4 +297,125 @@
   </TraderKindDef>
 
 
+  <!-- ========================= -->
+  <!-- Ferengi Commerce Exchange -->
+  <!-- ========================= -->
+  <TraderKindDef>
+    <defName>ST_Ferengi_CommerceExchange</defName>
+    <label>Ferengi commerce exchange</label>
+    <requestable>true</requestable>
+    <stockGenerators>
+      <!-- Luxus & Konsum -->
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Chocolate</thingDef><countRange>20~60</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Beer</thingDef><countRange>18~50</countRange></li>
+
+      <!-- Drogen (Profit) -->
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Yayo</thingDef><countRange>10~30</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Flake</thingDef><countRange>10~30</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>GoJuice</thingDef><countRange>4~10</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>WakeUp</thingDef><countRange>8~18</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>SmokeleafJoint</thingDef><countRange>12~40</countRange></li>
+
+      <!-- Exoten/teures Kleinzeug -->
+      <li Class="RimWorld.StockGenerator_Tag"><tradeTag>ExoticMisc</tradeTag><countRange>2~6</countRange></li>
+
+      <!-- Komponenten / Technik -->
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>ComponentIndustrial</thingDef><countRange>10~24</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>ComponentSpacer</thingDef><countRange>2~6</countRange></li>
+
+      <!-- Medizin -->
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>MedicineIndustrial</thingDef><countRange>8~20</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>MedicineUltratech</thingDef><countRange>2~6</countRange></li>
+
+      <!-- Rohstoffe / Edelmetalle -->
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Gold</thingDef><countRange>6~20</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Uranium</thingDef><countRange>10~28</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Plasteel</thingDef><countRange>16~48</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Steel</thingDef><countRange>80~200</countRange></li>
+
+      <!-- Kunst (optional, Vanilla) -->
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>SculptureSmall</thingDef><countRange>1~3</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>SculptureLarge</thingDef><countRange>0~2</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>SculptureGrand</thingDef><countRange>0~1</countRange></li>
+
+      <!-- Hook für Trek-Güter -->
+      <li Class="RimWorld.StockGenerator_Tag"><tradeTag>ST_FerengiGoods</tradeTag><countRange>2~6</countRange></li>
+    </stockGenerators>
+  </TraderKindDef>
+
+  <!-- ====================== -->
+  <!-- Klingonischer Waffendealer -->
+  <!-- ====================== -->
+  <TraderKindDef>
+    <defName>ST_Klingon_ArmsDealer</defName>
+    <label>klingon arms dealer</label>
+    <requestable>true</requestable>
+    <stockGenerators>
+      <!-- Nahkampf (korrekte Vanilla-DefNames) -->
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>MeleeWeapon_Knife</thingDef><countRange>1~3</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>MeleeWeapon_Mace</thingDef><countRange>1~3</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>MeleeWeapon_LongSword</thingDef><countRange>1~2</countRange></li>
+
+      <!-- Fernkampf -->
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Gun_Autopistol</thingDef><countRange>1~3</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Gun_HeavySMG</thingDef><countRange>1~2</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Gun_BoltActionRifle</thingDef><countRange>1~2</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Gun_AssaultRifle</thingDef><countRange>1~2</countRange></li>
+
+      <!-- Explosives & Basis-Rüstung -->
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Shell_HighExplosive</thingDef><countRange>2~6</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Apparel_FlakVest</thingDef><countRange>1~3</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Apparel_FlakJacket</thingDef><countRange>1~2</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Apparel_FlakPants</thingDef><countRange>1~2</countRange></li>
+
+      <!-- Hook für Trek-Waffen/Rüstungen -->
+      <li Class="RimWorld.StockGenerator_Tag"><tradeTag>ST_KlingonArms</tradeTag><countRange>2~5</countRange></li>
+    </stockGenerators>
+  </TraderKindDef>
+
+  <!-- ======================= -->
+  <!-- Romulan Intelligence Broker -->
+  <!-- ======================= -->
+  <TraderKindDef>
+    <defName>ST_Romulan_IntelligenceBroker</defName>
+    <label>romulan intelligence broker</label>
+    <requestable>true</requestable>
+    <stockGenerators>
+      <!-- Kleine Mengen High-Tech & Rare -->
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>ComponentSpacer</thingDef><countRange>1~3</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>MedicineUltratech</thingDef><countRange>1~3</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Uranium</thingDef><countRange>6~18</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Plasteel</thingDef><countRange>12~30</countRange></li>
+      <li Class="RimWorld.StockGenerator_Tag"><tradeTag>ExoticMisc</tradeTag><countRange>1~3</countRange></li>
+
+      <!-- Hook für Trek-Spionage/Tech -->
+      <li Class="RimWorld.StockGenerator_Tag"><tradeTag>ST_RomulanIntel</tradeTag><countRange>1~3</countRange></li>
+    </stockGenerators>
+  </TraderKindDef>
+
+  <!-- ======================= -->
+  <!-- Starfleet Logistics Convoy -->
+  <!-- ======================= -->
+  <TraderKindDef>
+    <defName>ST_Starfleet_LogisticsConvoy</defName>
+    <label>starfleet logistics convoy</label>
+    <requestable>true</requestable>
+    <stockGenerators>
+      <!-- Medizin & Versorgung -->
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>MedicineHerbal</thingDef><countRange>12~36</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>MedicineIndustrial</thingDef><countRange>12~28</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>MedicineUltratech</thingDef><countRange>2~6</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>MealSurvivalPack</thingDef><countRange>24~64</countRange></li>
+
+      <!-- Bauteile & Grundstoffe -->
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>ComponentIndustrial</thingDef><countRange>10~24</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Steel</thingDef><countRange>80~200</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>Plasteel</thingDef><countRange>12~40</countRange></li>
+      <li Class="RimWorld.StockGenerator_SingleDef"><thingDef>ComponentSpacer</thingDef><countRange>1~3</countRange></li>
+
+      <!-- Hook für Starfleet-Supplies -->
+      <li Class="RimWorld.StockGenerator_Tag"><tradeTag>ST_StarfleetSupply</tradeTag><countRange>2~6</countRange></li>
+    </stockGenerators>
+  </TraderKindDef>
+
 </Defs>

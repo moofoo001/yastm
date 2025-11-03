@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Tribble (kleines Tier, zaehmbar -->
+  <ThingDef ParentName="AnimalThingBase">
+    <defName>ST_Animal_Tribble</defName>
+    <label>tribble</label>
+    <description>Soft, purring and astonishingly prolific.</description>
+    <statBases>
+      <MarketValue>50</MarketValue>
+      <LeatherAmount>1</LeatherAmount>
+      <MeatAmount>0</MeatAmount>
+      <MoveSpeed>2.3</MoveSpeed>
+      <Wildness>0.30</Wildness>
+    </statBases>
+    <race>
+      <herdAnimal>true</herdAnimal>
+      <canBePredatorPrey>false</canBePredatorPrey>
+      <body>QuadrupedAnimalWithPaws</body>
+      <baseBodySize>0.18</baseBodySize>
+      <baseHealthScale>0.25</baseHealthScale>
+      <baseHungerRate>0.30</baseHungerRate>
+      <foodType>VegetarianAnimal</foodType>
+      <trainability>None</trainability>
+      <lifeExpectancy>6</lifeExpectancy>
+      <useMeatFrom>Rat</useMeatFrom>
+      <leatherDef>Leather_Light</leatherDef>
+      <gestationPeriodDays>0.1</gestationPeriodDays>
+      <executionRange>4</executionRange>
+      <soundEating>Rodent_Eat</soundEating>
+      <lifeStageAges>
+        <li><def>AnimalBaby</def><minAge>0</minAge></li>
+        <li><def>AnimalJuvenile</def><minAge>0.20</minAge></li>
+        <li>
+        <def>AnimalAdult</def>
+        <minAge>0.40</minAge>
+        	<soundWounded>Pawn_Rodent_Wounded</soundWounded>
+					<soundDeath>Pawn_Rodent_Death</soundDeath>
+					<soundCall>Pawn_Rodent_Call</soundCall>
+					<soundAngry>Pawn_Rodent_Angry</soundAngry>
+        </li>
+      </lifeStageAges>
+<!--
+      <wildBiomes>
+				<BorealForest>0.05</BorealForest>
+				<TemperateForest>0.5</TemperateForest>
+				<AridShrubland>0.25</AridShrubland>
+				<Desert>0.07</Desert>
+				<ExtremeDesert>0.05</ExtremeDesert>
+			  <Grasslands MayRequire="Ludeon.RimWorld.Odyssey">0.25</Grasslands>
+			</wildBiomes>
+-->
+    </race>
+    <tradeTags>
+			<li>AnimalUncommon</li>
+		</tradeTags>
+  </ThingDef>
+
+
+  <PawnKindDef>
+    <defName>ST_PawnKind_Tribble</defName>
+    <label>tribble</label>
+    <race>ST_Animal_Tribble</race>
+    <combatPower>5</combatPower>
+    <!--ecoSystemWeight>0.01</ecoSystemWeight-->
+    <lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Animals/Tribble_east</texPath>
+					<drawSize>0.2</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Animals/Dessicated_Tribble_east</texPath>
+					<drawSize>0.2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Animals/Tribble_east</texPath>
+					<drawSize>0.4</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Animals/Dessicated_Tribble_east</texPath>
+					<drawSize>0.4</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Animals/Tribble_east</texPath>
+					<drawSize>0.6</drawSize>
+					<shadowData>
+						<volume>(0.25, 0.3, 0.25)</volume>
+						<offset>(0,0,0)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Animals/Dessicated_Tribble_east</texPath>
+					<drawSize>0.6</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+
+  </PawnKindDef>
+
+  <!-- Klingonischer Targ (einfaches Wildtier/Haustier-Grundgerüst) -->
+  <ThingDef ParentName="AnimalThingBase">
+    <defName>ST_Animal_Targ</defName>
+    <label>targ</label>
+    <description>A tusked, boar-like creature favored by Klingons for hunting and herding.</description>
+    <statBases>
+      <MarketValue>280</MarketValue>
+      <MoveSpeed>4.5</MoveSpeed>
+      <LeatherAmount>35</LeatherAmount>
+      <MeatAmount>80</MeatAmount>
+      <FilthRate>4</FilthRate>
+      <Wildness>0.70</Wildness>
+    </statBases>
+		<tools>
+			<li>
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<chanceFactor>0.3</chanceFactor>
+			</li>
+			<li>
+				<label>tusk</label>
+				<capacities>
+          <li>Scratch</li>
+          <li>Stab</li>
+				</capacities>
+				<power>10</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>TuskAttackTool</linkedBodyPartsGroup>
+				<chanceFactor>0.7</chanceFactor>
+			</li>
+      <li>
+				<label>spikes</label>
+				<capacities>
+          <li>Scratch</li>
+          <li>Stab</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>4</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.4</chanceFactor>
+			</li>
+		</tools>
+    <race>
+      <body>QuadrupedAnimalWithHoovesTusksAndTrunk</body>
+      <baseBodySize>1.2</baseBodySize>
+      <baseHealthScale>1.1</baseHealthScale>
+      <baseHungerRate>0.6</baseHungerRate>
+      <foodType>OmnivoreRoughAnimal</foodType>
+      <leatherDef>Leather_Pig</leatherDef>
+      <trainability>Intermediate</trainability>
+      <herdAnimal>true</herdAnimal>
+      <gestationPeriodDays>10</gestationPeriodDays>
+      <manhunterOnTameFailChance>0.1</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>0.50</manhunterOnDamageChance>
+      <litterSizeCurve>
+				<points>
+					<li>(0.5, 0)</li>
+					<li>(1, 1)</li>
+					<li>(1.7, 1)</li>
+					<li>(2.0, 0)</li>
+				</points>
+			</litterSizeCurve>
+      <lifeExpectancy>18</lifeExpectancy>
+      <useMeatFrom>Pig</useMeatFrom>
+      <roamMtbDays>3</roamMtbDays>
+      <lifeStageAges>
+        <li><def>AnimalBaby</def><minAge>0</minAge></li>
+        <li><def>AnimalJuvenile</def><minAge>0.35</minAge></li>     
+        <li>
+					<def>AnimalAdult</def>
+					<minAge>0.80</minAge>
+					<soundWounded>Pawn_Wildboar_Wounded</soundWounded>
+					<soundDeath>Pawn_Wildboar_Death</soundDeath>
+					<soundCall>Pawn_Wildboar_Call</soundCall>
+					<soundAngry>Pawn_Wildboar_Angry</soundAngry>
+				</li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+      <soundEating>Herbivore_Eat</soundEating>
+      <wildBiomes>
+  			<TemperateForest>0.2</TemperateForest>
+				<AridShrubland>0.25</AridShrubland>
+			  <Grasslands MayRequire="Ludeon.RimWorld.Odyssey">0.45</Grasslands>
+			</wildBiomes>
+    </race>
+    <tradeTags>
+      <li>AnimalFighter</li>
+      <li>AnimalExotic</li>
+    </tradeTags>
+  </ThingDef>
+
+  <PawnKindDef>
+    <defName>ST_PawnKind_Targ</defName>
+    <label>targ</label>
+    <race>ST_Animal_Targ</race>
+    <combatPower>90</combatPower>
+    <ecoSystemWeight>0.2</ecoSystemWeight>
+    <wildGroupSize>3~7</wildGroupSize>
+    <lifeStages>
+			<li>
+      <label>targ piglet</label>
+      <labelPlural>targ piglets</labelPlural>
+				<bodyGraphicData>
+					<texPath>Things/Animals/Targ</texPath>
+					<drawSize>0.5</drawSize>
+					<color>(65,65,65)</color>
+					<shadowData>
+						<volume>(0.25, 0.25, 0.25)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Animals/Dessicated_Targ_east</texPath>
+					<drawSize>0.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Animals/Targ</texPath>
+					<drawSize>0.8</drawSize>
+					<color>(65,65,65)</color>
+					<shadowData>
+						<volume>(0.375, 0.375, 0.375)</volume>
+						<offset>(0,0,0)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Animals/Dessicated_Targ_east</texPath>
+					<drawSize>0.8</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Animals/Targ</texPath>
+					<drawSize>1.2</drawSize>
+					<color>(65,65,65)</color>
+					<shadowData>
+						<volume>(0.5, 0.5, 0.5)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Animals/Dessicated_Targ_east</texPath>
+					<drawSize>1.2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+  </PawnKindDef>
+
+  <!-- =========================
+     MUGATO – ThingDef + PawnKind
+     ========================= -->
+
+  <ThingDef ParentName="AnimalThingBase">
+  <defName>ST_Mugato</defName>
+  <label>mugato</label>
+  <description>A large, spike-backed primate from Neural. Extremely aggressive and territorial.</description>
+
+  <statBases>
+    <MoveSpeed>4.0</MoveSpeed>
+    <MarketValue>600</MarketValue>
+    <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+    <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+    <ComfyTemperatureMin>10</ComfyTemperatureMin>
+    <ComfyTemperatureMax>60</ComfyTemperatureMax>
+    <Wildness>0.95</Wildness>
+  </statBases>
+
+  <tools>
+    <li>
+      <label>horn</label>
+      <capacities><li>Stab</li></capacities>
+      <power>17</power>
+      <cooldownTime>2.5</cooldownTime>
+      <linkedBodyPartsGroup>Horns</linkedBodyPartsGroup>
+    </li>
+    <li>
+      <capacities><li>Bite</li></capacities>
+      <power>14</power>
+      <cooldownTime>2.0</cooldownTime>
+      <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+      <chanceFactor>0.6</chanceFactor>
+    </li>
+    <li>
+      <label>head</label>
+      <capacities><li>Blunt</li></capacities>
+      <power>8</power>
+      <cooldownTime>2.0</cooldownTime>
+      <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+      <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+      <chanceFactor>0.2</chanceFactor>
+    </li>
+  </tools>
+
+  <race>
+    <body>QuadrupedAnimalWithPaws</body>
+    <herdAnimal>false</herdAnimal>
+    <baseBodySize>1.6</baseBodySize>
+    <baseHealthScale>1.5</baseHealthScale>
+    <baseHungerRate>0.45</baseHungerRate>
+    <foodType>OmnivoreRoughAnimal</foodType>
+    <trainability>None</trainability>
+    <gestationPeriodDays>6.0</gestationPeriodDays>
+    <manhunterOnDamageChance>0.35</manhunterOnDamageChance>
+    <manhunterOnTameFailChance>0.7</manhunterOnTameFailChance>
+    <litterSizeCurve>
+      <points>
+        <li>(0.5, 0)</li>
+        <li>(1, 1)</li>
+        <li>(1.5, 1)</li>
+        <li>(2.0, 0)</li>
+      </points>
+    </litterSizeCurve>
+    <lifeExpectancy>20</lifeExpectancy>
+
+    <lifeStageAges>
+      <li>
+        <def>AnimalBaby</def>
+        <minAge>0</minAge>
+      </li>
+      <li>
+        <def>AnimalJuvenile</def>
+        <minAge>0.15</minAge>
+      </li>
+      <li>
+        <def>AnimalAdult</def>
+        <minAge>0.3333</minAge>
+        <!-- sichere Vanilla-Sounds -->
+        <soundWounded>Pawn_Bear_Wounded</soundWounded>
+        <soundDeath>Pawn_Bear_Death</soundDeath>
+        <soundCall>Pawn_Bear_Call</soundCall>
+        <soundAngry>Pawn_Bear_Angry</soundAngry>
+      </li>
+    </lifeStageAges>
+
+    <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+    <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+    <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    <wildBiomes>
+				<TropicalSwamp>0.15</TropicalSwamp>
+				<TropicalRainforest>0.20</TropicalRainforest>
+		</wildBiomes>
+  </race>
+  <tradeTags>
+    <li>AnimalExotic</li>
+  </tradeTags>
+</ThingDef>
+
+<PawnKindDef ParentName="AnimalKindBase">
+  <defName>ST_Mugato</defName>
+  <label>mugato</label>
+  <race>ST_Mugato</race>
+  <combatPower>180</combatPower>
+  <wildGroupSize>1~2</wildGroupSize>
+  <ecoSystemWeight>0.10</ecoSystemWeight>
+  <lifeStages>
+    <li>
+      <label>young mugato</label>
+      <labelPlural>young mugatos</labelPlural>
+      <bodyGraphicData>
+        <texPath>Things/Pawn/Animal/ST/Mugato/Mugato</texPath>
+        <drawSize>1.25</drawSize>
+      </bodyGraphicData>
+      <dessicatedBodyGraphicData>
+        <texPath>Things/Pawn/Animal/ST/Mugato/Dessicated_Mugato</texPath>
+        <drawSize>1.25</drawSize>
+      </dessicatedBodyGraphicData>
+    </li>
+    <li>
+      <bodyGraphicData>
+        <texPath>Things/Pawn/Animal/ST/Mugato/Mugato</texPath>
+        <drawSize>1.7</drawSize>
+        <shadowData>
+          <volume>(0.25, 0.35, 0.25)</volume>
+          <offset>(0,0,-0.15)</offset>
+        </shadowData>
+      </bodyGraphicData>
+      <dessicatedBodyGraphicData>
+        <texPath>Things/Pawn/Animal/ST/Mugato/Dessicated_Mugato</texPath>
+        <drawSize>1.7</drawSize>
+      </dessicatedBodyGraphicData>
+    </li>
+    <li>
+      <bodyGraphicData>
+        <texPath>Things/Pawn/Animal/ST/Mugato/Mugato</texPath>
+        <drawSize>2.0</drawSize>
+        <shadowData>
+          <volume>(0.3, 0.45, 0.3)</volume>
+          <offset>(0,0,-0.15)</offset>
+        </shadowData>
+      </bodyGraphicData>
+      <dessicatedBodyGraphicData>
+        <texPath>Things/Pawn/Animal/ST/Mugato/Dessicated_Mugato</texPath>
+        <drawSize>2.0</drawSize>
+      </dessicatedBodyGraphicData>
+    </li>
+  </lifeStages>
+</PawnKindDef>
+
+<!-- =========================
+     SEHLAT – ThingDef + PawnKind
+     ========================= -->
+<ThingDef ParentName="AnimalThingBase">
+  <defName>ST_Sehlat</defName>
+  <label>sehlat</label>
+  <description>A large, tusked Vulcan mammal. Intelligent and bond-forming; can be trained as a companion.</description>
+
+  <statBases>
+    <MoveSpeed>4.2</MoveSpeed>
+    <MarketValue>350</MarketValue>
+    <ArmorRating_Blunt>0.16</ArmorRating_Blunt>
+    <ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+    <ComfyTemperatureMin>15</ComfyTemperatureMin>
+    <ComfyTemperatureMax>80</ComfyTemperatureMax>
+    <Wildness>0.35</Wildness>
+  </statBases>
+
+  <tools>
+    <li>
+      <capacities><li>Bite</li></capacities>
+      <power>12</power>
+      <cooldownTime>1.9</cooldownTime>
+      <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+      <chanceFactor>0.7</chanceFactor>
+    </li>
+    <li>
+      <label>foreclaw</label>
+      <labelNoLocation>claw</labelNoLocation>
+      <capacities><li>Scratch</li></capacities>
+      <power>9</power>
+      <cooldownTime>1.8</cooldownTime>
+      <linkedBodyPartsGroup>FrontPaws</linkedBodyPartsGroup>
+      <chanceFactor>0.4</chanceFactor>
+    </li>
+    <li>
+      <label>head</label>
+      <capacities><li>Blunt</li></capacities>
+      <power>6</power>
+      <cooldownTime>2.0</cooldownTime>
+      <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+      <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+      <chanceFactor>0.2</chanceFactor>
+    </li>
+  </tools>
+
+  <race>
+    <body>QuadrupedAnimalWithPaws</body>
+    <herdAnimal>false</herdAnimal>
+    <baseBodySize>1.1</baseBodySize>
+    <baseHealthScale>1.0</baseHealthScale>
+    <baseHungerRate>0.30</baseHungerRate>
+    <foodType>OmnivoreAnimal</foodType>
+    <trainability>Advanced</trainability>
+    <nuzzleMtbHours>12</nuzzleMtbHours>
+    <gestationPeriodDays>5.661</gestationPeriodDays>
+    <manhunterOnDamageChance>0.10</manhunterOnDamageChance>
+    <manhunterOnTameFailChance>0.05</manhunterOnTameFailChance>
+    <litterSizeCurve>
+      <points>
+        <li>(0.5, 0)</li>
+        <li>(1, 1)</li>
+        <li>(1.6, 1)</li>
+        <li>(2.2, 0)</li>
+      </points>
+    </litterSizeCurve>
+    <lifeExpectancy>22</lifeExpectancy>
+
+    <lifeStageAges>
+      <li>
+        <def>AnimalBaby</def>
+        <minAge>0</minAge>
+      </li>
+      <li>
+        <def>AnimalJuvenile</def>
+        <minAge>0.15</minAge>
+      </li>
+      <li>
+        <def>AnimalAdult</def>
+        <minAge>0.3333</minAge>
+        <!-- freundlicher, aber tief – Warg-Sounds sind solide Vanilla-Basis -->
+        <soundWounded>Pawn_Warg_Wounded</soundWounded>
+        <soundDeath>Pawn_Warg_Death</soundDeath>
+        <soundCall>Pawn_Warg_Call</soundCall>
+        <soundAngry>Pawn_Warg_Angry</soundAngry>
+      </li>
+    </lifeStageAges>
+
+    <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+    <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+    <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+    <wildBiomes>
+				<AridShrubland>0.22</AridShrubland>
+        <Desert>0.18</Desert>
+				<ExtremeDesert>0.10</ExtremeDesert>
+		</wildBiomes>
+  </race>
+  <tradeTags>
+    <li>AnimalUncommon</li>
+  </tradeTags>
+</ThingDef>
+
+<PawnKindDef ParentName="AnimalKindBase">
+  <defName>ST_Sehlat</defName>
+  <label>sehlat</label>
+  <race>ST_Sehlat</race>
+  <combatPower>120</combatPower>
+  <wildGroupSize>1~3</wildGroupSize>
+  <ecoSystemWeight>0.18</ecoSystemWeight>
+  <lifeStages>
+    <li>
+      <label>sehlat cub</label>
+      <labelPlural>sehlat cubs</labelPlural>
+      <bodyGraphicData>
+        <texPath>Things/Pawn/Animal/ST/Sehlat/Sehlat</texPath>
+        <drawSize>1.05</drawSize>
+      </bodyGraphicData>
+      <dessicatedBodyGraphicData>
+        <texPath>Things/Pawn/Animal/ST/Sehlat/Dessicated_Sehlat</texPath>
+        <drawSize>1.05</drawSize>
+      </dessicatedBodyGraphicData>
+    </li>
+    <li>
+      <bodyGraphicData>
+        <texPath>Things/Pawn/Animal/ST/Sehlat/Sehlat</texPath>
+        <drawSize>1.45</drawSize>
+        <shadowData>
+          <volume>(0.22, 0.3, 0.22)</volume>
+          <offset>(0,0,-0.12)</offset>
+        </shadowData>
+      </bodyGraphicData>
+      <dessicatedBodyGraphicData>
+        <texPath>Things/Pawn/Animal/ST/Sehlat/Dessicated_Sehlat</texPath>
+        <drawSize>1.45</drawSize>
+      </dessicatedBodyGraphicData>
+    </li>
+    <li>
+      <bodyGraphicData>
+        <texPath>Things/Pawn/Animal/ST/Sehlat/Sehlat</texPath>
+        <drawSize>1.7</drawSize>
+        <shadowData>
+          <volume>(0.28, 0.38, 0.28)</volume>
+          <offset>(0,0,-0.14)</offset>
+        </shadowData>
+      </bodyGraphicData>
+      <dessicatedBodyGraphicData>
+        <texPath>Things/Pawn/Animal/ST/Sehlat/Dessicated_Sehlat</texPath>
+        <drawSize>1.7</drawSize>
+      </dessicatedBodyGraphicData>
+    </li>
+  </lifeStages>
+</PawnKindDef>
+
+
+</Defs>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="TableGatherSpotBase">
+		<defName>ST_ShipTable</defName>
+		<label>UFP standard table</label>
+		<description>A standard mid-sized UFP table. For home and Starfleet Ship interioirs</description>
+		<size>(2,1)</size>
+		<graphicData>
+			<texPath>Things/Building/Furnitur/ST_table_mid</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<uiIconScale>1</uiIconScale>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<WorkToBuild>200</WorkToBuild>
+			<Mass>25</Mass>
+			<Flammability>1.0</Flammability>
+			<Beauty>5</Beauty>
+		</statBases>
+		<size>(3,6)</size>
+		<costStuffCount>50</costStuffCount>
+		<costList>
+			<Gold>10</Gold>
+		</costList>
+		<building>
+			<buildingSizeCategory>Medium</buildingSizeCategory>
+			<paintable>true</paintable>
+		</building>
+		<researchPrerequisites>
+			<li>ST_UFP_Interior</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+	<ThingDef ParentName="ArtableFurnitureBase">
+		<defName>ST_ShipChair</defName>
+		<label>UFP standard chair</label>
+		<description>A comfortable and elegant chair. For home and Starfleet Ship interioirs</description>
+		<graphicData>
+			<texPath>Things/Building/Furnitur/ST_chair</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<damageData>
+				<rectN>(0,0,1,0.703125)</rectN>
+				<rectS>(0.09375,0,0.84375,1)</rectS>
+				<rectE>(0,0,0.84375,0.625)</rectE>
+				<rectW>(0.15625,0,0.84375,0.625)</rectW>
+			</damageData>
+			<shadowData>
+				<volume>(0.25, 0.28, 0.25)</volume>
+			</shadowData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<uiIconScale>1</uiIconScale>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<WorkToBuild>150</WorkToBuild>
+			<Mass>8</Mass>
+			<Flammability>1.0</Flammability>
+			<Beauty>5</Beauty>
+			<Comfort>0.70</Comfort>
+		</statBases>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<pathCost>30</pathCost>
+		<fillPercent>0.35</fillPercent>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<uiIconOffset>0,0.15</uiIconOffset>
+		<building>
+			<isSittable>true</isSittable>
+			<paintable>true</paintable>
+		</building>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>ST_UFP_Interior</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+</Defs>

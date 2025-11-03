@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Federation settlements -->
+  <RulePackDef>
+    <defName>ST_SettlementName_Federation</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_name->[prefix] [term]</li>
+        <li>prefix->Federation|Starfleet|UFP|Science|Research|Operations|Explorer</li>
+        <li>term->Outpost|Station|Base|Relay|Depot|Observation Post|Field Lab|Colony</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <!-- Klingon settlements -->
+  <RulePackDef>
+    <defName>ST_SettlementName_Klingon</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_name->[term] of [valor]</li>
+        <li>term->Stronghold|Garrison|War Camp|Fortress|Honor Hold|Blade Keep</li>
+        <li>valor->Kahless|the Empire|Glory|Honor|Warriors|Qo'noS</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <!-- Romulan settlements -->
+  <RulePackDef>
+    <defName>ST_SettlementName_Romulan</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_name->[prefix] [term]</li>
+        <li>prefix->Romulan|Tal Shiar|Imperial|Galae|Border|Listening</li>
+        <li>term->Outpost|Station|Complex|Listening Post|Operations Node|Supply Point</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <!-- Ferengi settlements -->
+  <RulePackDef>
+    <defName>ST_SettlementName_Ferengi</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_name->[prefix] [term]</li>
+        <li>prefix->Ferengi|Commerce|Acquisition|Profit|Exchange|Contract</li>
+        <li>term->Hub|Bazaar|Trade Post|Depot|Auction House|Ledger Office</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+</Defs>

@@ -107,7 +107,10 @@
       <ComponentIndustrial>6</ComponentIndustrial>
     </costList>
     <stuffCategories/>
-    <tradeTags><li>ClothingArmor</li></tradeTags>
+    <tradeTags>
+    <li>ClothingArmor</li>
+     <li>ST_FerengiGoods</li>  
+    </tradeTags>
     <recipeMaker>
       <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
       <workSkill>Crafting</workSkill>

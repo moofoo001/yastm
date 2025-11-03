@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <ST.AlertPanel.Cooldown>Alert controls are cooling down.</ST.AlertPanel.Cooldown>
+  <!-- Storyteller -->
+  <YASTM.Storyteller.April.Tagline>“We proceed by the book — but keep our hearts open.”</YASTM.Storyteller.April.Tagline>
+  <YASTM.Storyteller.April.Fluff1>Admiral April favors exploration beats, rescue opportunities, and honest trade. Expect pressure to rise with your capabilities.</YASTM.Storyteller.April.Fluff1>
+  <YASTM.Storyteller.April.Fluff2>Red and Yellow Alert systems pair well with April’s cadence: prepare in the quiet, act with discipline when crisis strikes.</YASTM.Storyteller.April.Fluff2>
 
+  <!-- Alert Panel -->
+  <ST.AlertPanel.Cooldown>Alert controls are cooling down.</ST.AlertPanel.Cooldown>
   <ST.AlertPanel.Red.Label>Red Alert</ST.AlertPanel.Red.Label>
   <ST.AlertPanel.Red.Desc>All hands to battle stations.</ST.AlertPanel.Red.Desc>
   <ST.AlertPanel.Red.LetterLabel>Red Alert</ST.AlertPanel.Red.LetterLabel>
   <ST.AlertPanel.Red.LetterText>All hands to stations. Tactical readiness is raised.</ST.AlertPanel.Red.LetterText>
   <ST.AlertPanel.RedOff.LetterLabel>Red Alert cleared</ST.AlertPanel.RedOff.LetterLabel>
   <ST.AlertPanel.RedOff.LetterText>Stand down from battle stations. Resume normal operations.</ST.AlertPanel.RedOff.LetterText>
-
   <ST.AlertPanel.Yellow.Label>Yellow Alert</ST.AlertPanel.Yellow.Label>
   <ST.AlertPanel.Yellow.Desc>Heightened readiness across the ship.</ST.AlertPanel.Yellow.Desc>
   <ST.AlertPanel.Yellow.LetterLabel>Yellow Alert</ST.AlertPanel.Yellow.LetterLabel>
@@ -23,7 +27,10 @@
   <ST_AlertPanel_Red_Off>Red alert disengaged.</ST_AlertPanel_Red_Off>
   <ST_AlertPanel_Yellow_On>Yellow alert engaged.</ST_AlertPanel_Yellow_On>
   <ST_AlertPanel_Yellow_Off>Yellow alert disengaged.</ST_AlertPanel_Yellow_Off>
-  
+  <ST.AlertPanel.Cooldown>Cooldown: {0}s</ST.AlertPanel.Cooldown>
+  <ST.AlertPanel.ActiveBuffRed>Red Alert active</ST.AlertPanel.ActiveBuffRed>
+  <ST.AlertPanel.ActiveBuffYellow>Yellow Alert active</ST.AlertPanel.ActiveBuffYellow>
+
 
   <!-- Hediffs from alerts -->
   <ST_RedAlert_Pumped_label>combat adrenaline</ST_RedAlert_Pumped_label>
@@ -209,11 +216,11 @@
   <ST_Hypo_UseLabel>Use hypospray</ST_Hypo_UseLabel>
 
   <!--Transporter -->
-  <ST.Transporter.BeamIn>Beam-in logistics</ST.Transporter.BeamIn>
-  <ST.Transporter.BeamIn.Desc>Materialize a small care package at the beacon.</ST.Transporter.BeamIn.Desc>
-  <ST.Transporter.BeamOut>Emergency beam-out</ST.Transporter.BeamOut>
-  <ST.Transporter.BeamOut.Desc>Teleport a colonist to the beacon. Causes brief nausea.</ST.Transporter.BeamOut.Desc>
-  <ST.Transporter.BeamIn.Done>Logistics beamed in.</ST.Transporter.BeamIn.Done>
+  <ST.Transporter.BeamIn>Emergency Beam-in</ST.Transporter.BeamIn>
+  <ST.Transporter.BeamIn.Desc>Executes an emergency transport of one colonist to your current location.</ST.Transporter.BeamIn.Desc>
+  <ST.Transporter.BeamOut>Short range beam-out</ST.Transporter.BeamOut>
+  <ST.Transporter.BeamOut.Desc>Teleports a colonist to an nearby beacon. Causes brief nausea.</ST.Transporter.BeamOut.Desc>
+  <ST.Transporter.BeamIn.Done>Emergency beamed in {PAWN_labelShort}.</ST.Transporter.BeamIn.Done>
   <ST.Transporter.BeamOut.Done>Beamed out {PAWN_labelShort}.</ST.Transporter.BeamOut.Done>
   <ST.Transporter.BeamOut.TooFar>Target is out of range.</ST.Transporter.BeamOut.TooFar>
   <ST.Common.RequiresPower>Requires power.</ST.Common.RequiresPower>
@@ -239,5 +246,15 @@
   <ST_Transporter_SelectPawn>Choose a colonist to beam.</ST_Transporter_SelectPawn>
   <ST_Transporter_BeamComplete>Transport complete.</ST_Transporter_BeamComplete>
 
+  <!-- Traders -->
+  <YASTM.Trader.Ferengi.Label>Ferengi Commerce Exchange</YASTM.Trader.Ferengi.Label>
+  <YASTM.Trader.Ferengi.Fluff>"Rule of Acquisition #1: Once you have their money, never give it back."</YASTM.Trader.Ferengi.Fluff>
+  <YASTM.Trader.Klingon.Label>Klingon Arms Dealer</YASTM.Trader.Klingon.Label>
+  <YASTM.Trader.Klingon.Fluff>"Weapons should be tested on the battlefield, not the market stall."</YASTM.Trader.Klingon.Fluff>
+  <YASTM.Trader.Romulan.Label>Romulan Intelligence Broker</YASTM.Trader.Romulan.Label>
+  <YASTM.Trader.Romulan.Fluff>"Information is worth more than latinum—if used correctly."</YASTM.Trader.Romulan.Fluff>
+  <YASTM.Trader.Starfleet.Label>Starfleet Logistics Convoy</YASTM.Trader.Starfleet.Label>
+  <YASTM.Trader.Starfleet.Fluff>"Humanitarian aid and standard resupply, per regulations."</YASTM.Trader.Starfleet.Fluff>
+  
   
 </LanguageData>

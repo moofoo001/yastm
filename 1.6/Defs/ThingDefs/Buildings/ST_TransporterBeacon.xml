@@ -9,6 +9,7 @@
     <size>(3,1)</size>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
     <rotatable>true</rotatable>
+    <defaultPlacingRot>South</defaultPlacingRot>
     <selectable>true</selectable>
     <passability>PassThroughOnly</passability>
 

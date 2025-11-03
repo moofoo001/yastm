@@ -80,12 +80,14 @@
     <!-- trader caravan visitor -->
     <caravanTraderKinds>
       <li>ST_Trader_Starfleet_Supplies</li>
+      <li>ST_Starfleet_LogisticsConvoy</li>
     </caravanTraderKinds>
     <visitorTraderKinds>
       <li>ST_Trader_Starfleet_Supplies</li>
     </visitorTraderKinds>
     <baseTraderKinds>
       <li>ST_Trader_Starfleet_Supplies</li>
+      <li>ST_Starfleet_LogisticsConvoy</li>
     </baseTraderKinds>
     <allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
 

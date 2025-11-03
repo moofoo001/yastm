@@ -6,7 +6,7 @@
   <description>Field scanner that can lock and read faint subspace signatures. Must be powered and placed near the target obelisks to enable scans.</description>
   <thingClass>Building</thingClass>
   <uiIconScale>1</uiIconScale>
-  <size>(2,2)</size>
+  <size>(1,1)</size>
   <rotatable>false</rotatable>
   <useHitPoints>true</useHitPoints>
   <costList>
@@ -28,7 +28,7 @@
   <graphicData>
     <texPath>Things/Building/ST_AnomalySensor</texPath>
     <graphicClass>Graphic_Single</graphicClass>
-    <drawSize>(2,2)</drawSize>
+    <drawSize>(1,1)</drawSize>
   </graphicData>
   <comps>
     <li Class="CompProperties_Power">
