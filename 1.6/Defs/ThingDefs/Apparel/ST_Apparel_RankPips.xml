@@ -27,6 +27,18 @@
     <tradeability>Sellable</tradeability>
   </ThingDef>
 
+    <!-- Ensign -->
+  <ThingDef ParentName="ST_RankPip_ApparelBase">
+    <defName>ST_RankPips_Cadet</defName>
+    <label>rank pips (cadet)</label>
+    <description>The initial rank held by Starfleet Academy cadets during their training period.</description>
+    <graphicData>
+      <texPath>Things/Item/Accessory/pip/pip_cadet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+
+
   <!-- Ensign -->
   <ThingDef ParentName="ST_RankPip_ApparelBase">
     <defName>ST_RankPips_Ensign</defName>

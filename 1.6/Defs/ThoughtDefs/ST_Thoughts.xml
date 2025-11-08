@@ -66,4 +66,51 @@
       </li>
     </stages>
   </ThoughtDef>
+
+  <!-- Tribble purr comfort -->
+  <ThoughtDef>
+    <defName>ST_Tribbles_Purr</defName>
+    <durationDays>0.08</durationDays> <!-- ~4800 Ticks -->
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stages>
+      <li>
+        <label>comforted by tribble</label>
+        <description>The gentle purring of a tribble soothes the mind.</description>
+        <baseMoodEffect>+3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Tribble Tribble Tribble Tribble Tribble Tribble Tribble Tribble !!!!! -->
+  <ThoughtDef>
+    <defName>ST_Tribbles_Overrun</defName>
+    <durationDays>0.2</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stages>
+      <li>
+        <label>overrun by tribbles</label>
+        <description>They are everywhere…</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Positiver Moodlet, wenn verehrtes Tier in der Nähe -->
+  <ThoughtDef>
+    <defName>ST_VeneratedAnimal_Presence</defName>
+    <durationDays>0.05</durationDays>           <!-- ~3000 Ticks -->
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stages>
+      <li>
+        <label>near a venerated animal</label>
+        <description>The presence of a venerated animal soothes the spirit.</description>
+        <baseMoodEffect>+4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+
 </Defs>

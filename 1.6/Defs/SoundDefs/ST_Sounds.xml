@@ -242,8 +242,6 @@
   </subSounds>
 </SoundDef>
 
-
-
   <SoundDef>
     <defName>ST_Door_Sound</defName>
     <context>MapOnly</context>
@@ -260,5 +258,75 @@
     </subSounds>  
   </SoundDef>
 
+  <SoundDef>
+    <defName>Pawn_Tribble_Angry</defName>  
+    <context>MapOnly</context>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/tribble_angry</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>15~15</volumeRange>      
+        <pitchRange>0.8852941~1.275294</pitchRange>      
+        <distRange>0~70</distRange>      
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Pawn_Tribble_Call</defName>  
+    <context>MapOnly</context>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/tribble_coos</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>10~12</volumeRange>      
+        <pitchRange>0.9311765~1.128235</pitchRange>      
+        <distRange>0~50</distRange>      
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+
+  <SoundDef>
+    <defName>Pawn_Tribble_Wounded</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/tribble_coos</clipPath>
+          </li>
+        </grains>
+        <volumeRange>10~10</volumeRange>
+        <pitchRange>1.298236~1.61</pitchRange>
+        <distRange>0~70</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Pawn_Tribble_Death</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Pawn/Animal/Rodent/Rodent_Death</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>10~10</volumeRange>
+        <pitchRange>1.39~1.573529</pitchRange>
+        <distRange>0~70</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
 
 </Defs>

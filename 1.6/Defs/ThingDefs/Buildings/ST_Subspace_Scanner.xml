@@ -29,7 +29,7 @@
   <graphicData>
     <texPath>Things/Building/ST_AnomalySensor</texPath>
     <graphicClass>Graphic_Multi</graphicClass>
-    <drawSize>(1.5,1.5)</drawSize>
+    <drawSize>(1.5,1.6)</drawSize>
   </graphicData>
   <comps>
     <li Class="CompProperties_Power">

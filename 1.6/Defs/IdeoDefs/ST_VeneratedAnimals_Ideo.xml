@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <IssueDef>
+    <defName>ST_Issue_AnimalVeneration</defName>
+    <label>animal veneration</label>
+    <description>Reverence for specific animals.</description>
+    <iconPath>UI/Issues/AnimalVeneration</iconPath>
+  </IssueDef>
+
+  <!-- TRIBBLES -->
+  <PreceptDef>
+    <defName>ST_Venerate_Tribbles</defName>
+    <label>tribbles are venerated</label>
+    <issue>ST_Issue_AnimalVeneration</issue>
+    <impact>Low</impact>
+    <description>Tribbles are considered sacred companions. Colonists feel comfort when near them.</description>
+    <displayOrderInIssue>10</displayOrderInIssue>
+    <modExtensions>
+      <li Class="YASTM.ST_VeneratedAnimalsExtension">
+        <animals>
+          <li>ST_Animal_Tribble</li>
+        </animals>
+        <auraRadius>8</auraRadius>
+        <presenceThoughtDef>ST_VeneratedAnimal_Presence</presenceThoughtDef>
+      </li>
+    </modExtensions>
+  </PreceptDef>
+
+  <!-- SEHLAT -->
+  <PreceptDef>
+    <defName>ST_Venerate_Sehlat</defName>
+    <label>sehlats are venerated</label>
+    <issue>ST_Issue_AnimalVeneration</issue>
+    <impact>Low</impact>
+    <description>Sehlats are revered. Their presence brings calm and pride.</description>
+    <displayOrderInIssue>20</displayOrderInIssue>
+    <modExtensions>
+      <li Class="YASTM.ST_VeneratedAnimalsExtension">
+        <animals>
+          <li>ST_Animal_Sehlat</li>
+        </animals>
+        <auraRadius>8</auraRadius>
+        <presenceThoughtDef>ST_VeneratedAnimal_Presence</presenceThoughtDef>
+      </li>
+    </modExtensions>
+  </PreceptDef>
+
+  <!-- TARG -->
+  <PreceptDef>
+    <defName>ST_Venerate_Targ</defName>
+    <label>targs are venerated</label>
+    <issue>ST_Issue_AnimalVeneration</issue>
+    <impact>Low</impact>
+    <description>Targs are honored companions. Being near one uplifts believers.</description>
+    <displayOrderInIssue>30</displayOrderInIssue>
+    <modExtensions>
+      <li Class="YASTM.ST_VeneratedAnimalsExtension">
+        <animals>
+          <li>ST_Animal_Targ</li>
+        </animals>
+        <auraRadius>8</auraRadius>
+        <presenceThoughtDef>ST_VeneratedAnimal_Presence</presenceThoughtDef>
+      </li>
+    </modExtensions>
+  </PreceptDef>
+
+</Defs>

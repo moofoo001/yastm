@@ -84,9 +84,9 @@
     <fleckSystemClass>FleckSystemStatic</fleckSystemClass>
     <altitudeLayer>MoteOverhead</altitudeLayer>
     <realTime>false</realTime>
-    <fadeInTime>6</fadeInTime>
-    <solidTime>28</solidTime>
-    <fadeOutTime>12</fadeOutTime>
+    <fadeInTime>0.5</fadeInTime>
+    <solidTime>2</solidTime>
+    <fadeOutTime>1</fadeOutTime>
   </FleckDef>
 
 <!-- effect on Pawn  -->
@@ -100,9 +100,9 @@
     <fleckSystemClass>FleckSystemStatic</fleckSystemClass>
     <altitudeLayer>MoteOverhead</altitudeLayer>
     <realTime>false</realTime>
-    <fadeInTime>6</fadeInTime>
-    <solidTime>28</solidTime>
-    <fadeOutTime>12</fadeOutTime>
+    <fadeInTime>0.5</fadeInTime>
+    <solidTime>3</solidTime>
+    <fadeOutTime>0.5</fadeOutTime>
   </FleckDef>
 
 </Defs>

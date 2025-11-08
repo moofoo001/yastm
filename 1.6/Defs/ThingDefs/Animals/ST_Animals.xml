@@ -5,22 +5,28 @@
   <ThingDef ParentName="AnimalThingBase">
     <defName>ST_Animal_Tribble</defName>
     <label>tribble</label>
-    <description>Soft, purring and astonishingly prolific.</description>
+    <description>A small, gentle ball of purring fluff. Adorable… and prolific.</description>
     <statBases>
       <MarketValue>50</MarketValue>
       <LeatherAmount>1</LeatherAmount>
-      <MeatAmount>0</MeatAmount>
-      <MoveSpeed>2.3</MoveSpeed>
+      <MeatAmount>2</MeatAmount>
+      <MoveSpeed>1.6</MoveSpeed>
       <Wildness>0.30</Wildness>
+      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+      <ComfyTemperatureMax>45</ComfyTemperatureMax>
+
     </statBases>
     <race>
       <herdAnimal>true</herdAnimal>
       <canBePredatorPrey>false</canBePredatorPrey>
+      <petness>1</petness>
+      <herdMigrationAllowed>true</herdMigrationAllowed>
       <body>QuadrupedAnimalWithPaws</body>
       <baseBodySize>0.18</baseBodySize>
       <baseHealthScale>0.25</baseHealthScale>
       <baseHungerRate>0.30</baseHungerRate>
       <foodType>VegetarianAnimal</foodType>
+      <makesFootprints>false</makesFootprints>
       <trainability>None</trainability>
       <lifeExpectancy>6</lifeExpectancy>
       <useMeatFrom>Rat</useMeatFrom>
@@ -28,6 +34,16 @@
       <gestationPeriodDays>0.1</gestationPeriodDays>
       <executionRange>4</executionRange>
       <soundEating>Rodent_Eat</soundEating>
+      <litterSizeCurve>
+        <points>
+          <li>(0,0)</li>
+          <li>(1,0.1)</li>
+          <li>(2,0.35)</li>
+          <li>(3,0.35)</li>
+          <li>(4,0.15)</li>
+          <li>(5,0.05)</li>
+        </points>
+      </litterSizeCurve>
       <lifeStageAges>
         <li><def>AnimalBaby</def><minAge>0</minAge></li>
         <li><def>AnimalJuvenile</def><minAge>0.20</minAge></li>
@@ -41,6 +57,14 @@
         </li>
       </lifeStageAges>
     </race>
+      <comps>
+      <li Class="YASTM.CompProperties_Tribbles">
+        <purrRadius>7</purrRadius>
+        <overrunCountRoom>12</overrunCountRoom>
+        <reproMTBHours>12</reproMTBHours>   <!-- mittlere Zeit bis „ein Tribble mehr“ -->
+        <maxNearby>30</maxNearby>           <!-- Hard-Limiter im 12-Tile-Umkreis -->
+      </li>
+    </comps>
     <tradeTags>
 			<li>AnimalUncommon</li>
       <li>AnimalPet</li>
@@ -98,6 +122,7 @@
     <label>targ</label>
     <description>A tusked, boar-like creature favored by Klingons for hunting and herding.</description>
     <statBases>
+      <CarryingCapacity>55</CarryingCapacity>
       <MarketValue>280</MarketValue>
       <MoveSpeed>4.5</MoveSpeed>
       <LeatherAmount>35</LeatherAmount>
@@ -151,6 +176,8 @@
       <gestationPeriodDays>10</gestationPeriodDays>
       <manhunterOnTameFailChance>0.1</manhunterOnTameFailChance>
       <manhunterOnDamageChance>0.50</manhunterOnDamageChance>
+      <packAnimal>true</packAnimal>
+      <trainability>Intermediate</trainability>
       <litterSizeCurve>
 				<points>
 					<li>(0.5, 0)</li>
@@ -450,6 +477,7 @@
     <ComfyTemperatureMin>15</ComfyTemperatureMin>
     <ComfyTemperatureMax>80</ComfyTemperatureMax>
     <Wildness>0.35</Wildness>
+    <CarryingCapacity>80</CarryingCapacity> 
   </statBases>
 
   <tools>
@@ -517,6 +545,8 @@
     <gestationPeriodDays>5.661</gestationPeriodDays>
     <manhunterOnDamageChance>0.10</manhunterOnDamageChance>
     <manhunterOnTameFailChance>0.05</manhunterOnTameFailChance>
+    <packAnimal>true</packAnimal> 
+    <trainability>Intermediate</trainability>
     <litterSizeCurve>
       <points>
         <li>(0.5, 0)</li>

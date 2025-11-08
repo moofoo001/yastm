@@ -39,6 +39,7 @@
     <selectable>true</selectable>
     <description>Starfleet subspace communication node. Works as a comms console for contacting factions/orbital traders and can transmit a Starfleet subspace ping to initiate missions.</description>
     <minifiedDef>MinifiedThing</minifiedDef>
+    <rotatable>true</rotatable>
     <thingCategories>
         <li>BuildingsMisc</li>
     </thingCategories>
@@ -50,13 +51,14 @@
     </statBases>
     <graphicData>
       <texPath>Things/Building/ST_ComBeacon</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
       <drawSize>(2,2)</drawSize>
       <damageData>
         <rect>(0.2,0.2,0.6,0.6)</rect>
       </damageData>
     </graphicData>
-    <uiIconScale>0.5</uiIconScale>
+    <uiIconScale>1</uiIconScale>
     <costList>
         <Steel>50</Steel>
         <ComponentIndustrial>2</ComponentIndustrial>

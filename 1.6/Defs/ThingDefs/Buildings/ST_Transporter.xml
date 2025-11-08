@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+
+  <!-- old transporter console+pad 
   <ThingDef ParentName="BuildingBase">
     <defName>ST_TransporterBeacon</defName>
     <label>transporter beacon</label>
     <description>Pairs with other transporter beacons. Use “Beam out” to send a selected pawn from this beacon to a linked beacon within range; use “Beam in” to bring a selected pawn here. Requires power.</description>
-
     <thingClass>Building</thingClass>
     <size>(3,1)</size>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
@@ -12,7 +13,6 @@
     <defaultPlacingRot>South</defaultPlacingRot>
     <selectable>true</selectable>
     <passability>PassThroughOnly</passability>
-
     <graphicData>
       <texPath>Things/Building/ST_TransportBeacon</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -21,7 +21,6 @@
     </graphicData>
     <uiIconScale>1</uiIconScale>
     <uiIconPath>Things/Building/ST_TransportBeacon</uiIconPath>
-
     <costList>
       <Steel>60</Steel>
       <ComponentIndustrial>3</ComponentIndustrial>
@@ -30,27 +29,19 @@
       <MaxHitPoints>180</MaxHitPoints>
       <Flammability>0.2</Flammability>
     </statBases>
-
     <comps>
-      <!-- Power -->
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>200</basePowerConsumption>
         <shortCircuitInRain>false</shortCircuitInRain>
       </li>
-
-      <!-- Flick & Breakdown -->
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
-
-      <!-- Beacon-Logic -->
       <li Class="YASTM.CompProperties_TransporterBeacon">
         <energyCostPerUse>1200</energyCostPerUse>
         <warmupTicks>60</warmupTicks>
         <cooldownTicks>120000</cooldownTicks>
         <maxLinkDistance>100</maxLinkDistance>
-
-        <!-- Mindest-Rang für BEAM OUT (vom aktiven Beacon weg) -->
         <requiredRankTraitsBeamOut>
           <li>ST_Rank_LieutenantJG</li>
           <li>ST_Rank_Lieutenant</li>
@@ -58,8 +49,6 @@
           <li>ST_Rank_Commander</li>
           <li>ST_Rank_Captain</li>
         </requiredRankTraitsBeamOut>
-
-        <!-- Mindest-Rang für BEAM IN (zum aktiven Beacon her) -->
         <requiredRankTraitsBeamIn>
           <li>ST_Rank_LieutenantJG</li>
           <li>ST_Rank_Lieutenant</li>
@@ -68,20 +57,18 @@
           <li>ST_Rank_Captain</li>
         </requiredRankTraitsBeamIn>
       </li>
-
-      <!-- Sichtbares LCARS-Glühen -->
       <li Class="CompProperties_Glower">
         <glowRadius>8</glowRadius>
         <glowColor>(0,218,255,255)</glowColor>
       </li>
     </comps>
-
-    <designationCategory>ST_Designation</designationCategory>
+   <designationCategory>ST_Designation</designationCategory>
     <researchPrerequisites>
       <li>Electricity</li>
       <li>ST_TransporterTech</li>
     </researchPrerequisites>
   </ThingDef>
+  -->
 
     <ThingDef ParentName="BuildingBase">
     <defName>ST_TransporterPad</defName>
@@ -140,10 +127,11 @@
     <size>(2,1)</size>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
     <rotatable>true</rotatable>
+    <defaultPlacingRot>South</defaultPlacingRot>
     <graphicData>
       <texPath>Things/Building/Transporter/ST_Console</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2,1)</drawSize>
+      <drawSize>(2.5,3)</drawSize>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <uiIconPath>Things/Building/Transporter/ST_Console</uiIconPath>
@@ -157,26 +145,45 @@
       <Flammability>0.2</Flammability>
     </statBases>
     <comps>
-      <!-- schwerer Stromverbrauch -->
+      <!-- Power -->
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>300</basePowerConsumption>
       </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>8</glowRadius>
+        <glowColor>(0,218,255,255)</glowColor>
+      </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
-
-      <!-- Console „sieht“ verlinkte Pads -->
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
           <li>ST_TransporterPad</li>
         </linkableFacilities>
       </li>
-
-      <!-- deine bestehende Steuer-Comp (früher Beacon) -->
       <li Class="YASTM.CompProperties_TransporterConsole">
+        <energyCostPerUse>1200</energyCostPerUse>
         <warmupTicks>60</warmupTicks>
         <cooldownTicks>120000</cooldownTicks>
         <maxLinkDistance>100</maxLinkDistance>
+
+        <!-- Mindest-Rang für BEAM OUT -->
+        <requiredRankTraitsBeamOut>
+          <li>ST_Rank_LieutenantJG</li>
+          <li>ST_Rank_Lieutenant</li>
+          <li>ST_Rank_LtCommander</li>
+          <li>ST_Rank_Commander</li>
+          <li>ST_Rank_Captain</li>
+        </requiredRankTraitsBeamOut>
+
+        <!-- Mindest-Rang für BEAM IN -->
+        <requiredRankTraitsBeamIn>
+          <li>ST_Rank_LieutenantJG</li>
+          <li>ST_Rank_Lieutenant</li>
+          <li>ST_Rank_LtCommander</li>
+          <li>ST_Rank_Commander</li>
+          <li>ST_Rank_Captain</li>
+        </requiredRankTraitsBeamIn>
       </li>
     </comps>
     <placeWorkers>

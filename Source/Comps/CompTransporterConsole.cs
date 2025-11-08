@@ -323,25 +323,20 @@ namespace YASTM
                 return;
             }
 
-            // Warmup (opt.)
-            int warmup = Math.Max(0, Props.warmupTicks);
-            if (warmup > 0)
-                MoteMaker.ThrowText(parent.TrueCenter(), parent.Map, "ST.Transporter.Warmup".Translate(), 2f);
+            // --- NEU: Warmup/Dematerialisieren am QUELL-Pawn ---
+            int warmup = Props.warmupTicks > 0 ? Props.warmupTicks : 60;
 
-            // Start-VFX
-            TransporterVFX.PlayBeam(map, fromCell);
+            // Textfeedback (optional)
+            MoteMaker.ThrowText(parent.TrueCenter(), parent.Map, "ST.Transporter.Warmup".Translate(), 2f);
 
-            // Teleport
-            pawn.DeSpawn();
-            var safeTo = CellFinder.StandableCellNear(toCell, map, 1);
-            GenSpawn.Spawn(pawn, safeTo, map);
+            // Pawn sofort „einfrieren“ und überlappende Beam-Säulen-Bursts starten
+            map.GetComponent<MapComponent_TransporterFX>()?.StartRematerialize(pawn, warmup);
 
-            // Ziel-VFX + 3s Rematerialisierung
-            TransporterVFX.PlayBeam(map, toCell);
-            TransporterVFX.BeginRematerialize(pawn, 180);
+            // Teleport nach Warmup-Zeit planen
+            map.GetComponent<MapComponent_TransporterOps>()?.ScheduleTeleport(pawn, toCell, warmup);
 
-            // Cooldown
-            nextUsableTick = Find.TickManager.TicksGame + Math.Max(Props.cooldownTicks, 60);
+            // Cooldown sofort setzen (oder erst nach Teleport, Geschmackssache)
+            nextUsableTick = Find.TickManager.TicksGame + System.Math.Max(Props.cooldownTicks, 60);
         }
     }
 }
