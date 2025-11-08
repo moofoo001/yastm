@@ -40,19 +40,10 @@
 					<soundAngry>Pawn_Rodent_Angry</soundAngry>
         </li>
       </lifeStageAges>
-<!--
-      <wildBiomes>
-				<BorealForest>0.05</BorealForest>
-				<TemperateForest>0.5</TemperateForest>
-				<AridShrubland>0.25</AridShrubland>
-				<Desert>0.07</Desert>
-				<ExtremeDesert>0.05</ExtremeDesert>
-			  <Grasslands MayRequire="Ludeon.RimWorld.Odyssey">0.25</Grasslands>
-			</wildBiomes>
--->
     </race>
     <tradeTags>
 			<li>AnimalUncommon</li>
+      <li>AnimalPet</li>
 		</tradeTags>
   </ThingDef>
 
@@ -62,7 +53,6 @@
     <label>tribble</label>
     <race>ST_Animal_Tribble</race>
     <combatPower>5</combatPower>
-    <!--ecoSystemWeight>0.01</ecoSystemWeight-->
     <lifeStages>
 			<li>
 				<bodyGraphicData>
@@ -70,7 +60,7 @@
 					<drawSize>0.2</drawSize>
 				</bodyGraphicData>
 				<dessicatedBodyGraphicData>
-					<texPath>Things/Animals/Dessicated_Tribble_east</texPath>
+					<texPath>Things/Animals/Dessicated_Tribble</texPath>
 					<drawSize>0.2</drawSize>
 				</dessicatedBodyGraphicData>
 			</li>
@@ -80,7 +70,7 @@
 					<drawSize>0.4</drawSize>
 				</bodyGraphicData>
 				<dessicatedBodyGraphicData>
-					<texPath>Things/Animals/Dessicated_Tribble_east</texPath>
+					<texPath>Things/Animals/Dessicated_Tribble</texPath>
 					<drawSize>0.4</drawSize>
 				</dessicatedBodyGraphicData>
 			</li>
@@ -94,7 +84,7 @@
 					</shadowData>
 				</bodyGraphicData>
 				<dessicatedBodyGraphicData>
-					<texPath>Things/Animals/Dessicated_Tribble_east</texPath>
+					<texPath>Things/Animals/Dessicated_Tribble</texPath>
 					<drawSize>0.6</drawSize>
 				</dessicatedBodyGraphicData>
 			</li>
@@ -198,6 +188,9 @@
       <li>AnimalFighter</li>
       <li>AnimalExotic</li>
     </tradeTags>
+    <butcherProducts>
+			<ST_Targ_Tusk>1</ST_Targ_Tusk>
+		</butcherProducts>
   </ThingDef>
 
   <PawnKindDef>
@@ -221,7 +214,7 @@
 					</shadowData>
 				</bodyGraphicData>
 				<dessicatedBodyGraphicData>
-					<texPath>Things/Animals/Dessicated_Targ_east</texPath>
+					<texPath>Things/Animals/Dessicated_Targ</texPath>
 					<drawSize>0.5</drawSize>
 				</dessicatedBodyGraphicData>
 			</li>
@@ -236,7 +229,7 @@
 					</shadowData>
 				</bodyGraphicData>
 				<dessicatedBodyGraphicData>
-					<texPath>Things/Animals/Dessicated_Targ_east</texPath>
+					<texPath>Things/Animals/Dessicated_Targ</texPath>
 					<drawSize>0.8</drawSize>
 				</dessicatedBodyGraphicData>
 			</li>
@@ -251,7 +244,7 @@
 					</shadowData>
 				</bodyGraphicData>
 				<dessicatedBodyGraphicData>
-					<texPath>Things/Animals/Dessicated_Targ_east</texPath>
+					<texPath>Things/Animals/Dessicated_Targ</texPath>
 					<drawSize>1.2</drawSize>
 				</dessicatedBodyGraphicData>
 			</li>
@@ -278,29 +271,59 @@
   </statBases>
 
   <tools>
-    <li>
-      <label>horn</label>
-      <capacities><li>Stab</li></capacities>
-      <power>17</power>
-      <cooldownTime>2.5</cooldownTime>
-      <linkedBodyPartsGroup>Horns</linkedBodyPartsGroup>
-    </li>
-    <li>
-      <capacities><li>Bite</li></capacities>
-      <power>14</power>
-      <cooldownTime>2.0</cooldownTime>
-      <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
-      <chanceFactor>0.6</chanceFactor>
-    </li>
-    <li>
-      <label>head</label>
-      <capacities><li>Blunt</li></capacities>
-      <power>8</power>
-      <cooldownTime>2.0</cooldownTime>
-      <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
-      <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
-      <chanceFactor>0.2</chanceFactor>
-    </li>
+			<li>
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>1.0</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>12</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>1.0</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>12</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+      <li>
+        <label>venomous bit</label>
+        <capacities>
+          <li>ToxicBite</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>0.6</chanceFactor>
+      </li>
+      <li>
+        <label>horn</label>
+        <capacities><li>Stab</li></capacities>
+        <power>12</power>
+        <cooldownTime>2.0</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
   </tools>
 
   <race>
@@ -337,7 +360,7 @@
         <def>AnimalAdult</def>
         <minAge>0.3333</minAge>
         <!-- sichere Vanilla-Sounds -->
-        <soundWounded>Pawn_Bear_Wounded</soundWounded>
+        <soundWounded>Pawn_Bear_Injured</soundWounded>
         <soundDeath>Pawn_Bear_Death</soundDeath>
         <soundCall>Pawn_Bear_Call</soundCall>
         <soundAngry>Pawn_Bear_Angry</soundAngry>
@@ -355,6 +378,9 @@
   <tradeTags>
     <li>AnimalExotic</li>
   </tradeTags>
+    <butcherProducts>
+			<ST_Mugato_VenomSac>1</ST_Mugato_VenomSac>
+		</butcherProducts>
 </ThingDef>
 
 <PawnKindDef ParentName="AnimalKindBase">
@@ -369,17 +395,17 @@
       <label>young mugato</label>
       <labelPlural>young mugatos</labelPlural>
       <bodyGraphicData>
-        <texPath>Things/Pawn/Animal/ST/Mugato/Mugato</texPath>
+        <texPath>Things/Animals/Mugato</texPath>
         <drawSize>1.25</drawSize>
       </bodyGraphicData>
       <dessicatedBodyGraphicData>
-        <texPath>Things/Pawn/Animal/ST/Mugato/Dessicated_Mugato</texPath>
+        <texPath>Things/Animals/Dessicated_Mugato</texPath>
         <drawSize>1.25</drawSize>
       </dessicatedBodyGraphicData>
     </li>
     <li>
       <bodyGraphicData>
-        <texPath>Things/Pawn/Animal/ST/Mugato/Mugato</texPath>
+        <texPath>Things/Animals/Mugato</texPath>
         <drawSize>1.7</drawSize>
         <shadowData>
           <volume>(0.25, 0.35, 0.25)</volume>
@@ -387,21 +413,21 @@
         </shadowData>
       </bodyGraphicData>
       <dessicatedBodyGraphicData>
-        <texPath>Things/Pawn/Animal/ST/Mugato/Dessicated_Mugato</texPath>
+        <texPath>Things/Animals/Dessicated_Mugato</texPath>
         <drawSize>1.7</drawSize>
       </dessicatedBodyGraphicData>
     </li>
     <li>
       <bodyGraphicData>
-        <texPath>Things/Pawn/Animal/ST/Mugato/Mugato</texPath>
-        <drawSize>2.0</drawSize>
+        <texPath>Things/Animals/Mugato</texPath>
+        <drawSize>2.5</drawSize>
         <shadowData>
           <volume>(0.3, 0.45, 0.3)</volume>
           <offset>(0,0,-0.15)</offset>
         </shadowData>
       </bodyGraphicData>
       <dessicatedBodyGraphicData>
-        <texPath>Things/Pawn/Animal/ST/Mugato/Dessicated_Mugato</texPath>
+        <texPath>Things/Animals/Dessicated_Mugato</texPath>
         <drawSize>2.0</drawSize>
       </dessicatedBodyGraphicData>
     </li>
@@ -434,15 +460,40 @@
       <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
       <chanceFactor>0.7</chanceFactor>
     </li>
-    <li>
-      <label>foreclaw</label>
-      <labelNoLocation>claw</labelNoLocation>
-      <capacities><li>Scratch</li></capacities>
-      <power>9</power>
-      <cooldownTime>1.8</cooldownTime>
-      <linkedBodyPartsGroup>FrontPaws</linkedBodyPartsGroup>
-      <chanceFactor>0.4</chanceFactor>
-    </li>
+			<li>
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>1.0</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>12</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>1.0</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>12</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
     <li>
       <label>head</label>
       <capacities><li>Blunt</li></capacities>
@@ -488,7 +539,6 @@
       <li>
         <def>AnimalAdult</def>
         <minAge>0.3333</minAge>
-        <!-- freundlicher, aber tief – Warg-Sounds sind solide Vanilla-Basis -->
         <soundWounded>Pawn_Warg_Wounded</soundWounded>
         <soundDeath>Pawn_Warg_Death</soundDeath>
         <soundCall>Pawn_Warg_Call</soundCall>
@@ -506,8 +556,12 @@
 		</wildBiomes>
   </race>
   <tradeTags>
+    <li>AnimalExotic</li>
     <li>AnimalUncommon</li>
   </tradeTags>
+  	<butcherProducts>
+			<ST_Sehlat_Tusk>1</ST_Sehlat_Tusk>
+		</butcherProducts>
 </ThingDef>
 
 <PawnKindDef ParentName="AnimalKindBase">
@@ -522,39 +576,39 @@
       <label>sehlat cub</label>
       <labelPlural>sehlat cubs</labelPlural>
       <bodyGraphicData>
-        <texPath>Things/Pawn/Animal/ST/Sehlat/Sehlat</texPath>
-        <drawSize>1.05</drawSize>
+        <texPath>Things/Animals/Sehlat</texPath>
+        <drawSize>1.5</drawSize>
       </bodyGraphicData>
       <dessicatedBodyGraphicData>
-        <texPath>Things/Pawn/Animal/ST/Sehlat/Dessicated_Sehlat</texPath>
-        <drawSize>1.05</drawSize>
+        <texPath>Things/Animals/Dessicated_Sehlat</texPath>
+        <drawSize>1.5</drawSize>
       </dessicatedBodyGraphicData>
     </li>
     <li>
       <bodyGraphicData>
-        <texPath>Things/Pawn/Animal/ST/Sehlat/Sehlat</texPath>
-        <drawSize>1.45</drawSize>
+        <texPath>Things/Animals/Sehlat</texPath>
+        <drawSize>1</drawSize>
         <shadowData>
           <volume>(0.22, 0.3, 0.22)</volume>
           <offset>(0,0,-0.12)</offset>
         </shadowData>
       </bodyGraphicData>
       <dessicatedBodyGraphicData>
-        <texPath>Things/Pawn/Animal/ST/Sehlat/Dessicated_Sehlat</texPath>
-        <drawSize>1.45</drawSize>
+        <texPath>Things/Animals/Dessicated_Sehlat</texPath>
+        <drawSize>1.75</drawSize>
       </dessicatedBodyGraphicData>
     </li>
     <li>
       <bodyGraphicData>
-        <texPath>Things/Pawn/Animal/ST/Sehlat/Sehlat</texPath>
-        <drawSize>1.7</drawSize>
+        <texPath>Things/Animals/Sehlat</texPath>
+        <drawSize>2.5</drawSize>
         <shadowData>
           <volume>(0.28, 0.38, 0.28)</volume>
           <offset>(0,0,-0.14)</offset>
         </shadowData>
       </bodyGraphicData>
       <dessicatedBodyGraphicData>
-        <texPath>Things/Pawn/Animal/ST/Sehlat/Dessicated_Sehlat</texPath>
+        <texPath>Things/Animals/Dessicated_Sehlat</texPath>
         <drawSize>1.7</drawSize>
       </dessicatedBodyGraphicData>
     </li>

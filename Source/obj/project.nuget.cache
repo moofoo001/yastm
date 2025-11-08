@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "R79Ln9hEJ2k=",
+  "dgSpecHash": "ZCjKaoUreoY=",
   "success": true,
-  "projectFilePath": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
+  "projectFilePath": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\moofoo\\.nuget\\packages\\krafs.rimworld.ref\\1.6.4566\\krafs.rimworld.ref.1.6.4566.nupkg.sha512",
+    "C:\\Users\\moofoo\\.nuget\\packages\\krafs.rimworld.ref\\1.6.4633\\krafs.rimworld.ref.1.6.4633.nupkg.sha512",
     "C:\\Users\\moofoo\\.nuget\\packages\\lib.harmony\\2.2.2\\lib.harmony.2.2.2.nupkg.sha512",
     "C:\\Users\\moofoo\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.3\\microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
     "C:\\Users\\moofoo\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.3\\microsoft.netframework.referenceassemblies.net472.1.0.3.nupkg.sha512"

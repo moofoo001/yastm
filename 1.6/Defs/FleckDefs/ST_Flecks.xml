@@ -73,4 +73,36 @@
     </graphicData>
   </FleckDef>
 
+<!-- transporter beam effects -->
+  <FleckDef>
+    <defName>ST_Fleck_TransporterColumn_Static</defName>
+    <graphicData>
+      <texPath>Things/Effects/ST_beamfx</texPath>
+      <graphicClass>Graphic_Fleck</graphicClass>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+    <fleckSystemClass>FleckSystemStatic</fleckSystemClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <realTime>false</realTime>
+    <fadeInTime>6</fadeInTime>
+    <solidTime>28</solidTime>
+    <fadeOutTime>12</fadeOutTime>
+  </FleckDef>
+
+<!-- effect on Pawn  -->
+  <FleckDef>
+    <defName>ST_Fleck_TransporterColumn_Attached</defName>
+    <graphicData>
+      <texPath>Things/Effects/ST_beamfx</texPath>
+      <graphicClass>Graphic_Fleck</graphicClass>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+    <fleckSystemClass>FleckSystemStatic</fleckSystemClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <realTime>false</realTime>
+    <fadeInTime>6</fadeInTime>
+    <solidTime>28</solidTime>
+    <fadeOutTime>12</fadeOutTime>
+  </FleckDef>
+
 </Defs>

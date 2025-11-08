@@ -12,7 +12,7 @@ namespace YASTM
 
         // --- Tricorder / Transporter ---
         public int   tricorderCooldownSeconds = 30;        // 0..600 (60 ticks = 1 s)
-        public int   transporterMaxRange = 15;             // 3..100 tiles
+        public int   transporterMaxRange = 150;             // 3..100 tiles
         public int   transporterCooldownSeconds = 10;      // 0..300
 
         // --- Alerts ---

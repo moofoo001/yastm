@@ -7,8 +7,10 @@
   <label>hull wall</label>
   <thingClass>Building</thingClass>
   <category>Building</category>
-  <selectable>true</selectable>
   <description>Starship-grade hull section. Extremely durable and airtight.</description>
+    <replaceTags>
+      <li>Wall</li>
+    </replaceTags>
   <graphicData>
     <texPath>Things/Building/Ship/HullWall</texPath>
     <graphicClass>Graphic_Single</graphicClass>
@@ -17,67 +19,180 @@
     <li>Wall</li>
     <li>Rock</li>
     </linkFlags>
-  </graphicData>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+        <edgeTop>Damage/Edge</edgeTop>
+        <edgeBot>Damage/Edge</edgeBot>
+        <edgeLeft>Damage/Edge</edgeLeft>
+        <edgeRight>Damage/Edge</edgeRight>
+      </damageData>
+   </graphicData>
   <uiIconPath>Things/Building/Ship/HullWall_MenuIcon</uiIconPath>
-  <altitudeLayer>Building</altitudeLayer>
-  <passability>Impassable</passability>
-  <fillPercent>1</fillPercent>
-  <coversFloor>true</coversFloor>
-  <useHitPoints>true</useHitPoints>
-  <rotatable>false</rotatable>
   <statBases>
     <MaxHitPoints>900</MaxHitPoints>
-    <WorkToBuild>3000</WorkToBuild>
+    <WorkToBuild>900</WorkToBuild>
     <Flammability>0</Flammability>
-    <Beauty>1</Beauty>
+    <MeditationFocusStrength>0.22</MeditationFocusStrength>
   </statBases>
-  <building>
-    <isEdifice>true</isEdifice>
-    <deconstructible>true</deconstructible>
-    <canPlaceOverWall>false</canPlaceOverWall>
-  </building>
-  <designationCategory>Structure</designationCategory>
-  <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+  <costStuffCount>10</costStuffCount>
+   <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <coversFloor>true</coversFloor>
+    <drawStyleCategory>Walls</drawStyleCategory>
+    <tickerType>Never</tickerType>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <useStuffTerrainAffordance>true</useStuffTerrainAffordance>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded> <!-- Best affordance needed for stone -->
+    <holdsRoof>true</holdsRoof>
+    <designationCategory>Structure</designationCategory>
+    <uiOrder>2000</uiOrder>
+    <staticSunShadowHeight>1.0</staticSunShadowHeight>
+    <blockLight>true</blockLight>
+    <canOverlapZones>false</canOverlapZones>
+    <fertility>0</fertility>
+    <stuffCategories>
+      <li>Metallic</li>
+  </stuffCategories>
+   <building>
+      <paintable>true</paintable>
+      <isInert>true</isInert>
+      <isWall>true</isWall>
+      <isPlaceOverableWall>true</isPlaceOverableWall>
+      <ai_chillDestination>false</ai_chillDestination>
+      <supportsWallAttachments>true</supportsWallAttachments>
+      <isStuffableAirtight>true</isStuffableAirtight>
+      <relatedBuildCommands>
+        <li>Door</li>
+        <li>Autodoor</li>
+        <li MayRequire="Ludeon.RimWorld.Anomaly">SecurityDoor</li>
+        <li MayRequire="Ludeon.RimWorld.Odyssey">VacBarrier</li>
+        <li>Cooler</li>
+        <li>Vent</li>
+      </relatedBuildCommands>
+    </building>
+    <comps>
+      <li Class="CompProperties_MeditationFocus">
+        <statDef>MeditationFocusStrength</statDef>
+        <focusTypes>
+          <li>Minimal</li>
+        </focusTypes>
+      </li>
+    </comps>
   <researchPrerequisites><li>ST_UFP_Structures</li></researchPrerequisites>
+    <damageMultipliers>
+      <li>
+        <damageDef>Bomb</damageDef>
+        <multiplier>0.02</multiplier>
+      </li>
+      <li>
+        <damageDef>Thump</damageDef>
+        <multiplier>0.02</multiplier>
+      </li>
+    </damageMultipliers>
   <costList>
     <Steel>40</Steel>
     <Plasteel>10</Plasteel>
   </costList>
 </ThingDef>
 
-  <!-- Starship Hull Glass -->
+  <!-- Starship Hull Glass  -->
 <ThingDef ParentName="BuildingBase">
   <defName>ST_HullGlass</defName>
   <label>hull viewport</label>
   <thingClass>Building</thingClass>
   <category>Building</category>
-  <selectable>true</selectable>
+    <replaceTags>
+      <li>Wall</li>
+    </replaceTags>
   <description>Transparent duraglass panel rated for hull pressure.</description>
-  <graphicData>
+   <graphicData>
     <texPath>Things/Building/Ship/HullGlass</texPath>
     <graphicClass>Graphic_Single</graphicClass>
     <linkType>CornerFiller</linkType>
-    <linkFlags><li>Wall</li></linkFlags>
+    <linkFlags>
+    <li>Wall</li>
+    <li>Rock</li>
+    </linkFlags>
+    <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+        <edgeTop>Damage/Edge</edgeTop>
+        <edgeBot>Damage/Edge</edgeBot>
+        <edgeLeft>Damage/Edge</edgeLeft>
+        <edgeRight>Damage/Edge</edgeRight>
+    </damageData>
   </graphicData>
   <uiIconPath>Things/Building/Ship/HullGlass_MenuIcon</uiIconPath>
-  <altitudeLayer>Building</altitudeLayer>
-  <passability>Impassable</passability>
-  <fillPercent>1</fillPercent> 
-  <coversFloor>true</coversFloor>
-  <useHitPoints>true</useHitPoints>
-  <rotatable>false</rotatable>
-  <statBases>
-    <MaxHitPoints>550</MaxHitPoints>
-    <WorkToBuild>2800</WorkToBuild>
-    <Flammability>0</Flammability>
-    <Beauty>1</Beauty>
-  </statBases>
-  <building>
-    <isEdifice>true</isEdifice>
-    <deconstructible>true</deconstructible>
-  </building>
-  <designationCategory>Structure</designationCategory>
-  <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <statBases>
+      <MaxHitPoints>550</MaxHitPoints>
+      <WorkToBuild>2800</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Beauty>1</Beauty>
+    </statBases>
+  <stuffCategories>
+      <li>Metallic</li>
+  </stuffCategories>
+  <costStuffCount>10</costStuffCount>
+   <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <coversFloor>true</coversFloor>
+    <drawStyleCategory>Walls</drawStyleCategory>
+    <tickerType>Never</tickerType>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <useStuffTerrainAffordance>true</useStuffTerrainAffordance>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded> <!-- Best affordance needed for stone -->
+    <holdsRoof>true</holdsRoof>
+    <designationCategory>Structure</designationCategory>
+    <uiOrder>2000</uiOrder>
+    <staticSunShadowHeight>1.0</staticSunShadowHeight>
+    <blockLight>false</blockLight>
+    <canOverlapZones>false</canOverlapZones>
+    <fertility>0</fertility>
+    <stuffCategories>
+      <li>Metallic</li>
+  </stuffCategories>
+   <building>
+      <paintable>true</paintable>
+      <isInert>true</isInert>
+      <isWall>true</isWall>
+      <isPlaceOverableWall>true</isPlaceOverableWall>
+      <ai_chillDestination>false</ai_chillDestination>
+      <supportsWallAttachments>true</supportsWallAttachments>
+      <isStuffableAirtight>true</isStuffableAirtight>
+      <relatedBuildCommands>
+        <li>Door</li>
+        <li>Autodoor</li>
+        <li MayRequire="Ludeon.RimWorld.Anomaly">SecurityDoor</li>
+        <li MayRequire="Ludeon.RimWorld.Odyssey">VacBarrier</li>
+        <li>Cooler</li>
+        <li>Vent</li>
+      </relatedBuildCommands>
+    </building>
+    <comps>
+      <li Class="CompProperties_MeditationFocus">
+        <statDef>MeditationFocusStrength</statDef>
+        <focusTypes>
+          <li>Minimal</li>
+        </focusTypes>
+      </li>
+    </comps>
   <researchPrerequisites><li>ST_UFP_Structures</li></researchPrerequisites>
   <costList>
     <Plasteel>6</Plasteel>
@@ -90,10 +205,13 @@
     <defName>ST_HullDoor</defName>
     <label>armored hull door</label>
     <description>Divides rooms. Armored doors must be manually opened, which slows people down. Armored doors are nearly entirely blast resistant and barely take damage from breaching methods.</description>
+    <category>Building</category>
+    <thingClass>Building_Door</thingClass>
+    <altitudeLayer>DoorMoveable</altitudeLayer>
     <statBases>
-      <WorkToBuild>1685</WorkToBuild>
-	  <MaxHitPoints>450</MaxHitPoints>
-    <DoorOpenSpeed>0.75</DoorOpenSpeed>
+        <WorkToBuild>1685</WorkToBuild>
+        <MaxHitPoints>450</MaxHitPoints>
+        <DoorOpenSpeed>0.75</DoorOpenSpeed>
     </statBases>
     <graphicData>
       <texPath>Things/Building/Ship/ST_HullDoor_Mover</texPath>
@@ -109,6 +227,10 @@
       </blueprintGraphicData>
       <paintable>true</paintable>
 	   <isStuffableAirtight>true</isStuffableAirtight>
+      <soundDoorOpenPowered>ST_Door_Sound</soundDoorOpenPowered>
+      <soundDoorClosePowered>ST_Door_Sound</soundDoorClosePowered>
+      <soundDoorOpenManual>ST_Door_Sound</soundDoorOpenManual>
+      <soundDoorCloseManual>ST_Door_Sound</soundDoorCloseManual>
     </building>
     <stuffCategories Inherit="False">
       <li>Metallic</li>

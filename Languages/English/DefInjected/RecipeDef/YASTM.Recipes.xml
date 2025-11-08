@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- MedBooster -->
+  <ST_Recipe_Brew_MedBooster.label>brew medical booster</ST_Recipe_Brew_MedBooster.label>
+  <ST_Recipe_Brew_MedBooster.description>Refine a mugato venom sac with reagents into a short-lived medical performance booster.</ST_Recipe_Brew_MedBooster.description>
+  <ST_Recipe_Brew_MedBooster.jobString>brewing medical booster.</ST_Recipe_Brew_MedBooster.jobString>
+
+  <!-- Medicine from Venom -->
+  <ST_Recipe_MedicineFromVenom.label>refine medicine (venom sac)</ST_Recipe_MedicineFromVenom.label>
+  <ST_Recipe_MedicineFromVenom.description>Use a mugato venom sac with reagents and sterile textiles to produce a dose of industrial medicine.</ST_Recipe_MedicineFromVenom.description>
+  <ST_Recipe_MedicineFromVenom.jobString>refining medical supplies.</ST_Recipe_MedicineFromVenom.jobString>
+</LanguageData>

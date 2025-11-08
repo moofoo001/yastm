@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
+ <!-- Med Booster  -->
+ 
+  <HediffDef>
+    <defName>ST_Hediff_MedBooster</defName>
+    <label>medical booster</label>
+    <description>Temporary improvement in medical focus and coordination.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.55, 0.95, 0.85)</defaultLabelColor>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <MedicalTendSpeed>0.30</MedicalTendSpeed>
+          <SurgerySuccessChanceFactor>0.05</SurgerySuccessChanceFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
     <!-- transporter nausea -->
     <HediffDef>
     <defName>ST_TransporterNausea</defName>

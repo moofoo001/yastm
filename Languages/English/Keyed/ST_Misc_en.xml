@@ -212,8 +212,19 @@
   <ST.Tricorder.RequirementsFail>Requirements not met.</ST.Tricorder.RequirementsFail>
   <ST.Tricorder.NeedTarget>No valid target selected.</ST.Tricorder.NeedTarget>
 
-  
+  <!-- Med Stuff -->
+  <ST.MedBooster.label>medical booster</ST.MedBooster.label>
+  <ST.MedBooster.desc>A fast-acting pharmacological booster that briefly improves tending and surgical performance.</ST.MedBooster.desc>
+
+  <ST.MedBooster.Recipe.label>brew medical booster</ST.MedBooster.Recipe.label>
+  <ST.MedBooster.Recipe.desc>Refine a mugato venom sac with reagents into a short-lived medical performance booster.</ST.MedBooster.Recipe.desc>
+
+  <ST.MedBooster.Hediff.label>medical booster</ST.MedBooster.Hediff.label>
+  <ST.MedBooster.Hediff.desc>Improved medical focus and coordination. Tending is faster; surgeries are slightly safer.</ST.MedBooster.Hediff.desc>
   <ST_Hypo_UseLabel>Use hypospray</ST_Hypo_UseLabel>
+
+  <ST.MedFromVenom.Recipe.label>refine medicine (venom sac)</ST.MedFromVenom.Recipe.label>
+  <ST.MedFromVenom.Recipe.desc>Use a mugato venom sac with reagents and sterile textiles to produce a dose of industrial medicine.</ST.MedFromVenom.Recipe.desc>
 
   <!--Transporter -->
   <ST.Transporter.BeamIn>Emergency Beam-in</ST.Transporter.BeamIn>

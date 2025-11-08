@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+  <!-- recipe -->
+  <!-- Analgesic -->
+<RecipeDef>
+  <defName>Make_ST_Hypospray_Analgesic</defName>
+  <label>mix hypospray (analgesic)</label>
+  <jobString>compounding a hypospray (analgesic).</jobString>
+  <workAmount>1200</workAmount>
+  <workSkill>Medicine</workSkill>
+  <skillRequirements>
+      <Crafting>2</Crafting>
+      <Medicine>4</Medicine>
+  </skillRequirements>
+  <ingredients>
+    <li>
+      <filter><thingDefs><li>Neutroamine</li></thingDefs></filter>
+      <count>1</count>
+    </li>
+    <li>
+      <filter><thingDefs><li>MedicineHerbal</li></thingDefs></filter>
+      <count>1</count>
+    </li>
+    <li>
+      <filter><thingDefs><li>Steel</li></thingDefs></filter>
+      <count>2</count>
+    </li>
+  </ingredients>
+  <products>
+    <ST_Hypospray_Analgesic>1</ST_Hypospray_Analgesic>
+  </products>
+  <recipeUsers>
+    <li>DrugLab</li>
+  </recipeUsers>
+  <researchPrerequisite>ST_Medical_diagnostics</researchPrerequisite>
+</RecipeDef>
+
+  <!-- Stimulant -->
+<RecipeDef>
+  <defName>Make_ST_Hypospray_Stimulant</defName>
+  <label>mix hypospray (stimulant)</label>
+  <jobString>compounding a hypospray (stimulant).</jobString>
+  <workAmount>1400</workAmount>
+  <workSkill>Medicine</workSkill>
+  <skillRequirements>
+      <Crafting>2</Crafting>
+      <Medicine>4</Medicine>
+  </skillRequirements>
+  <ingredients>
+    <li><filter><thingDefs><li>Neutroamine</li></thingDefs></filter><count>2</count></li>
+    <li><filter><thingDefs><li>Chemfuel</li></thingDefs></filter><count>10</count></li>
+    <li><filter><thingDefs><li>Steel</li></thingDefs></filter><count>2</count></li>
+  </ingredients>
+  <products><ST_Hypospray_Stimulant>1</ST_Hypospray_Stimulant></products>
+  <recipeUsers><li>DrugLab</li></recipeUsers>
+  <researchPrerequisite>ST_Medical_diagnostics</researchPrerequisite>
+</RecipeDef>
+
+<!--Medical Booster-->
+
+  <RecipeDef>
+    <defName>ST_Recipe_Brew_MedBooster</defName>
+    <label>brew medical booster</label>
+    <description>Refine a mugato venom sac with reagents into a short-lived medical performance booster.</description>
+    <jobString>brewing medical booster.</jobString>
+    <workAmount>2000</workAmount>
+    <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <recipeUsers>
+      <li>DrugLab</li>
+    </recipeUsers>
+    <researchPrerequisite>ST_Medical_diagnostics</researchPrerequisite>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>ST_Mugato_VenomSac</li></thingDefs></filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter><thingDefs><li>Neutroamine</li></thingDefs></filter>
+        <count>2</count>
+      </li>
+      <li>
+        <filter><thingDefs><li>MedicineHerbal</li></thingDefs></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <ST_MedicalBooster>2</ST_MedicalBooster>
+    </products>
+  </RecipeDef>
+
+ <RecipeDef>
+    <defName>ST_Recipe_MedicineFromVenom</defName>
+    <label>Keyed:ST.MedFromVenom.Recipe.label</label>
+    <description>Use a mugato venom sac with reagents and sterile textiles to produce a dose of industrial medicine.</description>
+    <jobString>refining medical supplies.</jobString>
+    <workAmount>2200</workAmount>
+    <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <recipeUsers>
+      <li>DrugLab</li>
+    </recipeUsers>
+    <researchPrerequisite>MedicineProduction</researchPrerequisite>
+    <researchPrerequisites>
+      <li>ST_Medical_diagnostics</li>
+    </researchPrerequisites>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>ST_Mugato_VenomSac</li></thingDefs></filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter><thingDefs><li>Neutroamine</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter><categories><li>Textiles</li></categories></filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+    <products>
+      <MedicineIndustrial>1</MedicineIndustrial>
+    </products>
+  </RecipeDef>
+
+
+  <!--item -->
+  <!-- Analgesic -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_Hypospray_Analgesic</defName>
+    <label>hypospray (analgesic)</label>
+    <description>Starfleet analgesic. Reduces pain for a short time.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Utilities/Hypospray_pain</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.7,0.7)</drawSize>
+    </graphicData>
+    <uiIconScale>1.5</uiIconScale>
+    <thingCategories>
+      <li>Medicine</li>
+      <li>ST_StarfleetMedical</li>
+    </thingCategories>
+    <statBases>
+      <Mass>0.05</Mass>
+      <MarketValue>45</MarketValue>
+    </statBases>
+    <tradeability>Sellable</tradeability>
+    <useHitPoints>false</useHitPoints>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Use hypospray (painkiller)</useLabel>
+      </li>
+      <li Class="YASTM.CompProperties_UseHediffTimed">
+        <hediffDef>ST_Hypo_Analgesic</hediffDef>
+        <minTicks>12000</minTicks>
+        <maxTicks>24000</maxTicks>
+        <severity>0</severity>
+        <minMedicalSkill>2</minMedicalSkill>
+        <requireTalking>true</requireTalking>
+        <destroyOnUse>true</destroyOnUse>  
+      </li>
+    </comps>
+    <tradeTags>
+      <li>Medicine</li>
+      <li>ExoticMisc</li>
+      <li>ST_Ferengi_CommerceExchange</li>
+    </tradeTags>
+    <thingSetMakerTags>
+      <li>RewardStandardLowTech</li>
+      <li>RewardStandardMidTech</li>
+    </thingSetMakerTags>
+  </ThingDef>
+
+  <!-- Stimulant -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_Hypospray_Stimulant</defName>
+    <label>hypospray (stimulant)</label>
+    <description>Short burst of energy and coordination.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Utilities/Hypospray_stim</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.7,0.7)</drawSize>
+    </graphicData>
+    <uiIconScale>1.5</uiIconScale>
+    <thingCategories>
+      <li>Medicine</li>
+      <li>ST_StarfleetMedical</li>
+    </thingCategories>
+    <statBases>
+      <Mass>0.05</Mass>
+      <MarketValue>55</MarketValue>
+    </statBases>
+    <tradeability>Sellable</tradeability>
+    <useHitPoints>false</useHitPoints>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Use hypospray (stimulant)</useLabel>
+      </li>
+      <li Class="YASTM.CompProperties_UseHediffTimed">
+        <hediffDef>ST_Hypo_Stimulant</hediffDef>
+        <minTicks>6000</minTicks>
+        <maxTicks>15000</maxTicks>
+        <severity>0</severity>
+        <minMedicalSkill>2</minMedicalSkill>
+        <requireTalking>true</requireTalking>
+        <destroyOnUse>true</destroyOnUse>  
+      </li>
+    </comps>
+    <tradeTags>
+      <li>Medicine</li>       
+      <li>ExoticMisc</li>
+      <li>ST_Ferengi_CommerceExchange</li> 
+      <li>ST_StarfleetSupply</li>  
+    </tradeTags>
+    <thingSetMakerTags>
+      <li>RewardStandardMidTech</li>
+    </thingSetMakerTags>
+  </ThingDef>
+
+
+<!-- Medical Booster -->
+   <ThingDef ParentName="DrugBase">
+    <defName>ST_MedicalBooster</defName>
+    <label>medical booster</label>
+    <description>A fast-acting pharmacological booster that briefly improves tending and surgical performance.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Item/Equipment/Utilities/ST_MedBooster</texPath>
+      <drawSize>(0.60,0.60)</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>52</MarketValue>
+      <Mass>0.03</Mass>
+      <SellPriceFactor>1.0</SellPriceFactor>
+    </statBases>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <preferability>NeverForNutrition</preferability>
+      <foodType>Fluid</foodType>
+      <ingestSound>Ingest_Drink</ingestSound>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>ST_Hediff_MedBooster</hediffDef>
+          <severity>1.0</severity>
+        </li>
+      </outcomeDoers>
+      <chairSearchRadius>8</chairSearchRadius>
+      <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+      <defaultNumToIngestAtOnce>1</defaultNumToIngestAtOnce>
+    </ingestible>
+  </ThingDef>
+
+
+  
+</Defs>

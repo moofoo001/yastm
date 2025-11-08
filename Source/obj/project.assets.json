@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.7.2": {
-      "Krafs.Rimworld.Ref/1.6.4566": {
+      "Krafs.Rimworld.Ref/1.6.4633": {
         "type": "package",
         "compile": {
           "ref/net472/Assembly-CSharp-firstpass.dll": {},
@@ -141,17 +141,17 @@
     }
   },
   "libraries": {
-    "Krafs.Rimworld.Ref/1.6.4566": {
-      "sha512": "lL2q5+XwA6xR4qcOHEVxoPrVxQqJLL1fTbmi2QI17qSlwobNBnhawxJqFMisbOYGA9EeAuIGhSkBrYLsPsFAuw==",
+    "Krafs.Rimworld.Ref/1.6.4633": {
+      "sha512": "wbUZCLBFHnNJ9IT4ighta1wrsBI9i/gRrfixPNfsMLlPvd/lksz+yv8H3Os7EIpT3O3wOkXgN3LGt8UHncWpzQ==",
       "type": "package",
-      "path": "krafs.rimworld.ref/1.6.4566",
+      "path": "krafs.rimworld.ref/1.6.4633",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
         "README.md",
         "icon.png",
-        "krafs.rimworld.ref.1.6.4566.nupkg.sha512",
+        "krafs.rimworld.ref.1.6.4633.nupkg.sha512",
         "krafs.rimworld.ref.nuspec",
         "ref/net472/Assembly-CSharp-firstpass.dll",
         "ref/net472/Assembly-CSharp.dll",
@@ -695,11 +695,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
+      "projectUniqueName": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
       "projectName": "YASTM",
-      "projectPath": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
+      "projectPath": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
       "packagesPath": "C:\\Users\\moofoo\\.nuget\\packages\\",
-      "outputPath": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\obj\\",
+      "outputPath": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\moofoo\\AppData\\Roaming\\NuGet\\NuGet.Config"

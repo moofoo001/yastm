@@ -160,6 +160,19 @@
   <ST.Tricorder.Sec.SkillReq>Erfordert Schusswaffen {0}+ oder Nahkampf {1}+.</ST.Tricorder.Sec.SkillReq>
   <ST.Tricorder.Sec.Applied>Kampfwahrnehmung bei {PAWN_labelShort} verbessert.</ST.Tricorder.Sec.Applied>
 
+  <!-- Med Stuff -->
+  <ST.MedBooster.label>Medizin-Booster</ST.MedBooster.label>
+  <ST.MedBooster.desc>Ein schnell wirkender pharmakologischer Booster, der die Versorgungs- und OP-Leistung kurzzeitig verbessert.</ST.MedBooster.desc>
+
+  <ST.MedBooster.Recipe.label>Medizin-Booster brauen</ST.MedBooster.Recipe.label>
+  <ST.MedBooster.Recipe.desc>Veredelt einen Mugato-Venomsack mit Reagenzien zu einem kurzlebigen medizinischen Leistungsbooster.</ST.MedBooster.Recipe.desc>
+
+  <ST.MedBooster.Hediff.label>Medizin-Booster</ST.MedBooster.Hediff.label>
+  <ST.MedBooster.Hediff.desc>Verbesserter medizinischer Fokus und Koordination. Verbände schneller; Operationen etwas sicherer.</ST.MedBooster.Hediff.desc>
+
+  <ST.MedFromVenom.Recipe.label>Medizin veredeln (Venomsack)</ST.MedFromVenom.Recipe.label>
+  <ST.MedFromVenom.Recipe.desc>Verwende einen Mugato-Venomsack mit Reagenzien und sterilen Textilien, um eine Dosis Industrie-Medizin herzustellen.</ST.MedFromVenom.Recipe.desc>
+
   <!--Transporter -->
   <ST.Transporter.BeamIn>Notfall beam-in.</ST.Transporter.BeamIn>
   <ST.Transporter.BeamIn.Desc>Teleportiert einen Kolonisten zu deinem Standort.</ST.Transporter.BeamIn.Desc>

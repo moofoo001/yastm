@@ -7,7 +7,8 @@
   <thingClass>Building</thingClass>
   <uiIconScale>1</uiIconScale>
   <size>(1,1)</size>
-  <rotatable>false</rotatable>
+  <rotatable>true</rotatable>
+  <defaultPlacingRot>South</defaultPlacingRot>
   <useHitPoints>true</useHitPoints>
   <costList>
     <Steel>40</Steel>
@@ -27,8 +28,8 @@
   </statBases>
   <graphicData>
     <texPath>Things/Building/ST_AnomalySensor</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-    <drawSize>(1,1)</drawSize>
+    <graphicClass>Graphic_Multi</graphicClass>
+    <drawSize>(1.5,1.5)</drawSize>
   </graphicData>
   <comps>
     <li Class="CompProperties_Power">

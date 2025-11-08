@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj": {}
+    "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj": {}
   },
   "projects": {
-    "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj": {
+    "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
+        "projectUniqueName": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
         "projectName": "YASTM",
-        "projectPath": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
+        "projectPath": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
         "packagesPath": "C:\\Users\\moofoo\\.nuget\\packages\\",
-        "outputPath": "G:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\obj\\",
+        "outputPath": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\moofoo\\AppData\\Roaming\\NuGet\\NuGet.Config"

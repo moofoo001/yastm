@@ -8,3 +8,13 @@ G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.cspr
 G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.sourcelink.json
 G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.dll
 G:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.pdb
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\bin\YASTM\Release\YASTM.dll
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\bin\YASTM\Release\YASTM.pdb
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.csproj.AssemblyReference.cache
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.GeneratedMSBuildEditorConfig.editorconfig
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.AssemblyInfoInputs.cache
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.AssemblyInfo.cs
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.csproj.CoreCompileInputs.cache
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.sourcelink.json
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.dll
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.pdb

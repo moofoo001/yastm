@@ -5,6 +5,7 @@
   <defName>ST_Transporter_Beam</defName>
   <maxSimultaneous>2</maxSimultaneous>
   <priorityMode>PrioritizeNearest</priorityMode>
+  <context>MapOnly</context>
   <subSounds>
     <li>
       <grains>
@@ -12,8 +13,9 @@
           <clipPath>Things/transporter</clipPath> <!-- pfad anpassen -->
         </li>
       </grains>
-      <onCamera>true</onCamera>
-      <volumeRange>1.0~1.1</volumeRange>
+      <onCamera>false</onCamera>
+      <volumeRange>1.55~1.75</volumeRange>
+      <pitchRange>0.98~1.02</pitchRange>
     </li>
   </subSounds>
 </SoundDef>
@@ -239,5 +241,24 @@
     </li>
   </subSounds>
 </SoundDef>
+
+
+
+  <SoundDef>
+    <defName>ST_Door_Sound</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/door</clipPath>
+          </li>
+        </grains>
+        <volumeRange>23.91304~23.91304</volumeRange>      
+        <pitchRange>0.9576087~1.084783</pitchRange>
+      </li>
+    </subSounds>  
+  </SoundDef>
+
 
 </Defs>

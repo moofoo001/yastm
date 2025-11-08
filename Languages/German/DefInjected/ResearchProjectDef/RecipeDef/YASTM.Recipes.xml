@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- MedBooster -->
+  <ST_Recipe_Brew_MedBooster.label>Medizin-Booster brauen</ST_Recipe_Brew_MedBooster.label>
+  <ST_Recipe_Brew_MedBooster.description>Veredelt einen Mugato-Venomsack mit Reagenzien zu einem kurzlebigen medizinischen Leistungsbooster.</ST_Recipe_Brew_MedBooster.description>
+  <ST_Recipe_Brew_MedBooster.jobString>braut einen Medizin-Booster.</ST_Recipe_Brew_MedBooster.jobString>
+
+  <!-- Medizin aus Venomsack -->
+  <ST_Recipe_MedicineFromVenom.label>Medizin veredeln (Venomsack)</ST_Recipe_MedicineFromVenom.label>
+  <ST_Recipe_MedicineFromVenom.description>Verwende einen Mugato-Venomsack mit Reagenzien und sterilen Textilien, um eine Dosis Industrie-Medizin herzustellen.</ST_Recipe_MedicineFromVenom.description>
+  <ST_Recipe_MedicineFromVenom.jobString>veredelt Medizin.</ST_Recipe_MedicineFromVenom.jobString>
+</LanguageData>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_Mugato_VenomSac</defName>
+    <label>mugato venom sac</label>
+    <description>A harvested venom sac from a mugato. Valuable for medical research and synthesis.</description>
+    <graphicData>
+      <texPath>Things/Item/Special/ST_Mugato_VenomSac</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.70,0.70)</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>55</MarketValue>
+      <Mass>0.15</Mass>
+    </statBases>
+    <stackLimit>50</stackLimit>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <tradeTags>
+      <li>ExoticMisc</li>
+      <li>HuntTrophy</li> 
+    </tradeTags>
+  </ThingDef>
+
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_Sehlat_Tusk</defName>
+    <label>sehlat tusk</label>
+    <description>A robust tusk from a sehlat. Popular as a trophy and raw crafting material.</description>
+    <graphicData>
+      <texPath>Things/Item/Special/MastodonTusk</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.70,0.70)</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>35</MarketValue>
+      <Mass>0.25</Mass>
+    </statBases>
+    <stackLimit>50</stackLimit>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <tradeTags>
+      <li>ExoticMisc</li>
+      <li>HuntTrophy</li>
+    </tradeTags>
+  </ThingDef>
+
+ <ThingDef ParentName="ResourceBase">
+    <defName>ST_Targ_Tusk</defName>
+    <label>targ tusk</label>
+    <description>A sturdy tusk taken from a klingon targ. Kept as a hunting trophy or used as raw crafting material.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Item/Special/MastodonTusk</texPath>
+      <drawSize>(0.70,0.70)</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>28</MarketValue>
+      <Mass>0.28</Mass>
+    </statBases>
+    <stackLimit>50</stackLimit>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <tradeTags>
+      <li>ExoticMisc</li>
+      <li>HuntTrophy</li>
+    </tradeTags>
+  </ThingDef>
+
+</Defs>
