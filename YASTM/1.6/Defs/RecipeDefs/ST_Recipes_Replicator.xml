@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <RecipeDef>
+    <defName>ST_Replicate_SimpleMeal</defName>
+    <label>replicate simple meal</label>
+    <jobString>replicating a meal.</jobString>
+    <workAmount>1200</workAmount>
+    <workSkill>Cooking</workSkill>
+    <skillRequirements>
+      <li>
+        <skill>Cooking</skill>
+        <minLevel>0</minLevel>
+      </li>
+    </skillRequirements>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <recipeUsers>
+      <li>ST_Replicator</li>
+    </recipeUsers>
+    <products>
+      <MealSimple>1</MealSimple>
+    </products>
+  </RecipeDef>
+</Defs>

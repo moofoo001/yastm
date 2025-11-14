@@ -76,6 +76,7 @@
 
     <building>
     <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+          <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
       <uninstallWork>1800</uninstallWork>
       <isMealSource>true</isMealSource>
       <paintable>true</paintable>

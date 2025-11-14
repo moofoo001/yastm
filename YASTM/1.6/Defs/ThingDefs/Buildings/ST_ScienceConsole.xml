@@ -92,15 +92,7 @@
         <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
         <maxSimultaneous>2</maxSimultaneous>
       </li>
-
-      <!-- Platzhalter-Gizmo bis euer Scan-Flow aktiv ist  
-      <li Class="YASTM.CompProperties_PlaceholderGizmo">
-        <label>Initiate scan</label>
-        <desc>Initiate a subspace anomaly scan via linked sensor.</desc>
-        <texPath>UI/Icons/Gizmos/ScienceScan</texPath>
-      </li>
-      -->
-
+    <li Class="YASTM.CompScienceConsole"/>
     </comps>
 
     <modExtensions>
