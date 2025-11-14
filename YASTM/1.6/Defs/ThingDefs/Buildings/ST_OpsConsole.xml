@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+<!-- SECURITY / TACTICAL Ops CONSOLE -->
+  <ThingDef ParentName="BenchBase">
+    <defName>ST_SecurityConsole</defName>
+    <label>security console</label>
+    <description>LCARS security console. Controls local force-field emitters and shipwide alerts.</description>
+
+    <graphicData>
+      <texPath>Things/Building/OpsSecurity/ST_OpsConsole</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2.2,2.8)</drawSize>
+      <shadowData>
+        <volume>(2.2, 0.6, 0.35)</volume>
+      </shadowData>
+    </graphicData>
+
+    <altitudeLayer>Building</altitudeLayer>
+    <size>(2,1)</size>
+    <selectable>true</selectable>
+    <tickerType>Normal</tickerType>
+    <rotatable>true</rotatable>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.5</fillPercent>
+    <interactionCellOffset>(1,0,1)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <surfaceType>Item</surfaceType>
+
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Flammability>0.3</Flammability>
+      <WorkToBuild>1200</WorkToBuild>
+    </statBases>
+
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>1200</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+
+      <!-- Link zu Force-Field Emittern -->
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>ST_ForceFieldEmitter</li>
+        </linkableFacilities>
+      </li>
+
+      <!-- Forcefield-Gizmos -->
+      <li Class="YASTM.CompProperties_ForceFieldConsole"/>
+
+      <li Class="YASTM.CompProperties_AlertPanelGizmo">
+        <redDurationTicks>18000</redDurationTicks>
+        <redCooldownTicks>90000</redCooldownTicks>
+        <yellowDurationTicks>9000</yellowDurationTicks>
+        <yellowCooldownTicks>45000</yellowCooldownTicks>
+        <blinkSeconds>3</blinkSeconds>
+      </li>
+    </comps>
+
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+
+    <soundInteract>ST_SFX_LCARS_Click</soundInteract>
+    <designationCategory>ST_Designation</designationCategory>
+    <researchPrerequisites>
+      <li>ST_ForceField_Tech</li>
+    </researchPrerequisites>
+
+    <costList>
+      <Steel>80</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+  </ThingDef>
+
+  <!-- FORCE FIELD EMITTER (linked to Ops console) -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_ForceFieldEmitter</defName>
+    <label>force-field emitter</label>
+    <description>Projects a localized force field that slows movement and mitigates ranged attacks.</description>
+    <graphicData>
+      <texPath>Things/Building/OpsSecurity/ST_ForceFieldEmitter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(1.5,1.5)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <size>(1,1)</size>
+    <selectable>true</selectable>
+    <tickerType>Normal</tickerType>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.15</fillPercent>
+    <statBases>
+      <MaxHitPoints>160</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>200</basePowerConsumption>
+        <shortCircuitInRain>false</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Facility">
+        <linkableBuildings>
+          <li>ST_SecurityConsole</li>
+        </linkableBuildings>
+        <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
+        <maxSimultaneous>6</maxSimultaneous>
+        <requiresLOS>false</requiresLOS>
+      </li>
+      <!-- Emitter-Logik -->
+      <li Class="YASTM.CompProperties_ForceFieldEmitter">
+        <effectRadius>8</effectRadius>
+        <refreshTicks>60</refreshTicks>
+        <hediffDefName>ST_Hediff_ForceFieldDrag</hediffDefName>
+        <fleckDefName>ST_Fleck_ForceSpark</fleckDefName>
+      </li>
+        <li Class="CompProperties_Glower">
+          <glowRadius>4</glowRadius>
+          <glowColor>(120,180,255,0)</glowColor>
+        </li>
+    </comps>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+  <designationCategory>ST_Designation</designationCategory>
+    <researchPrerequisites>
+      <li>ST_ForceField_Tech</li>
+    </researchPrerequisites>
+    <costList>
+      <Steel>45</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <constructEffect>ConstructMetal</constructEffect>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- =========================================================
+       STAR TREK COMMS BEACON (Facility)
+       ========================================================= -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_ComBeacon</defName>
+    <label>comms beacon</label>
+    <description>Subspace communications node that links to a nearby Starfleet comms console.</description>
+
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <selectable>true</selectable>
+
+    <graphicData>
+      <texPath>Things/Building/Comms/ST_ComBeacon</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2.5,2.5)</drawSize>
+    </graphicData>
+
+    <altitudeLayer>Building</altitudeLayer>
+    <holdsRoof>false</holdsRoof>
+    <size>(1,1)</size>
+    <rotatable>true</rotatable>
+    <defaultPlacingRot>South</defaultPlacingRot>
+
+    <!-- FIX: richtiger PlaceWorker -->
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+
+    <costList>
+      <Steel>40</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+
+    <statBases>
+      <WorkToBuild>800</WorkToBuild>
+      <MaxHitPoints>160</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Mass>15</Mass>
+    </statBases>
+
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>ST_Designation</designationCategory>
+
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>100</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
+      <li Class="YASTM.CompProperties_ConsoleLink">
+        <linkTag>CommsBeacon</linkTag>
+
+      </li>
+      <li Class="CompProperties_Facility">
+        <linkableBuildings>
+          <li>ST_CommsConsole</li>
+          <li>ST_ScienceConsole</li>
+        </linkableBuildings>
+        <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
+        <maxSimultaneous>4</maxSimultaneous>
+        <!-- StatOffsets optional; wir lassen 0 -->
+      </li>
+    </comps>
+  </ThingDef>
+
+
+  <!-- =========================================================
+       STAR TREK COMMS CONSOLE (Bedienung & Gizmos)
+       ========================================================= -->
+  <ThingDef ParentName="BenchBase">
+    <defName>ST_CommsConsole</defName>
+    <label>comms console</label>
+    <description>Starfleet communications console. Requires a linked subspace comms beacon to operate aid, diplomacy and mission control.</description>
+
+    <thingClass>Building_CommsConsole</thingClass>
+    <category>Building</category>
+    <selectable>true</selectable>
+    <rotatable>true</rotatable>
+    <defaultPlacingRot>South</defaultPlacingRot>
+
+    <graphicData>
+      <texPath>Things/Building/Comms/ST_ComConsole</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2.2,2.8)</drawSize>
+      <shadowData>
+        <volume>(2.2, 0.6, 0.35)</volume>
+      </shadowData>
+    </graphicData>
+
+    <altitudeLayer>Building</altitudeLayer>
+    <holdsRoof>false</holdsRoof>
+    <size>(2,1)</size>
+    <rotatable>true</rotatable>
+
+    <!-- FIX: IntVec3, nicht "0,-1" -->
+    <interactionCellOffset>(0.5,0,1)</interactionCellOffset>
+    <passability>PassThroughOnly</passability>
+
+    <costList>
+      <Steel>70</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+
+    <statBases>
+      <WorkToBuild>1800</WorkToBuild>
+      <MaxHitPoints>220</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Mass>45</Mass>
+    </statBases>
+
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>ST_Designation</designationCategory>
+
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+
+    <soundInteract>ST_SFX_LCARS_Click</soundInteract>
+
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>250</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
+      <li Class="YASTM.CompProperties_ConsoleLink">
+        <linkTag>ST_Link_Comms</linkTag>
+      </li>
+      <li Class="YASTM.CompProperties_CommsGizmo">
+        <cooldownDays>7</cooldownDays>
+        <requiredRankTraits>
+          <li>ST_Rank_Commander</li>
+          <li>ST_Rank_Captain</li>
+        </requiredRankTraits>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

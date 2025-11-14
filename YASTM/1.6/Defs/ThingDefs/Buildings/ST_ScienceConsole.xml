@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- =========================================================
+       STAR TREK – SCIENCE CONSOLE (LCARS)
+       - Konsolen-Funktion (künftige Scan-Gizmos möglich)
+       - PLUS: Facility, die Research-Benches in Reichweite boostet
+       - Zeigt beim Platzieren Verbindungs-Linien
+       ========================================================= -->
+
+  <ThingDef ParentName="BenchBase">
+    <defName>ST_ScienceConsole</defName>
+    <label>science console</label>
+    <description>Science LCARS console for analysis and monitoring. Provides a research speed boost to nearby research benches.</description>
+
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <selectable>true</selectable>
+    <defaultPlacingRot>South</defaultPlacingRot>
+
+    <graphicData>
+      <texPath>Things/Building/Science/ST_ScienceConsole</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2.2,2.8)</drawSize>
+      <shadowData>
+        <volume>(2.0, 0.6, 0.3)</volume>
+      </shadowData>
+    </graphicData>
+
+    <altitudeLayer>Building</altitudeLayer>
+    <size>(2,1)</size>
+    <rotatable>true</rotatable>
+    <passability>PassThroughOnly</passability>
+    <useHitPoints>True</useHitPoints>
+    <blockWind>true</blockWind>
+    <fillPercent>0.5</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(1,0,1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+
+    <!-- Zeige Facility-Verbindungen beim Platzieren/Selektieren -->
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+
+    <costList>
+      <Steel>60</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+
+    <statBases>
+      <WorkToBuild>1400</WorkToBuild>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Mass>40</Mass>
+    </statBases>
+
+    <soundInteract>ST_SFX_LCARS_Click</soundInteract>
+    <designationCategory>ST_Designation</designationCategory>
+
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+      <li>ST_SubspaceTelemetry</li>
+    </researchPrerequisites>
+
+    <comps>
+      <!-- Strom/Flick/Breakdown -->
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>200</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
+
+      <!-- *** NEU: Facility-Boost für Research-Benches ***
+           - ResearchSpeedFactor +8% (balancingfreundlich; adjustierbar)
+           - Linkt auf Vanilla-Bänke; mehr hier ergänzbar
+      -->
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <!-- additiv; 0.08 = +8% -->
+          <ResearchSpeedFactor>0.08</ResearchSpeedFactor>
+        </statOffsets>
+        <linkableBuildings>
+          <li>SimpleResearchBench</li>
+          <li>HiTechResearchBench</li>
+          <!-- falls ihr eigene Bänke habt, hier ergänzen:
+          <li>ST_ResearchBench</li>
+          -->
+        </linkableBuildings>
+        <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
+        <maxSimultaneous>2</maxSimultaneous>
+      </li>
+
+      <!-- Platzhalter-Gizmo bis euer Scan-Flow aktiv ist  
+      <li Class="YASTM.CompProperties_PlaceholderGizmo">
+        <label>Initiate scan</label>
+        <desc>Initiate a subspace anomaly scan via linked sensor.</desc>
+        <texPath>UI/Icons/Gizmos/ScienceScan</texPath>
+      </li>
+      -->
+
+    </comps>
+
+    <modExtensions>
+      <li Class="YASTM.DefModExt_LinkTags">
+        <tags>
+          <li>science-console</li>
+        </tags>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+</Defs>

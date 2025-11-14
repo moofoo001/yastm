@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="ApparelBase" Name="ST_RankPip_ApparelBase" Abstract="True">
+    <defName>ST_RankPip_ApparelBase</defName>
+    <label>rank pips (base)</label>
+    <description>Rank pips worn on the uniform to denote officer rank.</description>
+    <smeltable>false</smeltable>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <apparel>
+        <layers>
+          <li>ST_RankPipLayer</li>
+        </layers>
+        <bodyPartGroups>
+          <li>Neck</li>
+        </bodyPartGroups>
+    </apparel>
+    <statBases>
+      <Mass>0.05</Mass>
+    </statBases>
+    <comps>
+      <li Class="YASTM.CompProperties_StarfleetCareer" />
+    </comps>
+    <tradeability>Sellable</tradeability>
+  </ThingDef>
+
+    <!-- Ensign -->
+  <ThingDef ParentName="ST_RankPip_ApparelBase">
+    <defName>ST_RankPips_Cadet</defName>
+    <label>rank pips (cadet)</label>
+    <description>The initial rank held by Starfleet Academy cadets during their training period.</description>
+    <graphicData>
+      <texPath>Things/Item/Accessory/pip/pip_cadet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+
+
+  <!-- Ensign -->
+  <ThingDef ParentName="ST_RankPip_ApparelBase">
+    <defName>ST_RankPips_Ensign</defName>
+    <label>rank pips (ensign)</label>
+   <description>The most junior officer rank. Rank bestowed on newly-commissioned officers when they graduated from Starfleet Academy</description>
+    <graphicData>
+      <texPath>Things/Item/Accessory/pip/pip_ensign</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+
+  <!-- Lieutenant (jg) -->
+  <ThingDef ParentName="ST_RankPip_ApparelBase">
+    <defName>ST_RankPips_LJG</defName>
+    <label>rank pips (lieutenant jg)</label>
+    <description>Junior grade officer rank. Rank bestowed on officers with some years of service and experience.</description>
+    <graphicData>
+      <texPath>Things/Item/Accessory/pip/pip_ltjg</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+
+  <!-- Lieutenant -->
+  <ThingDef ParentName="ST_RankPip_ApparelBase">
+    <defName>ST_RankPips_Lieutenant</defName>
+    <label>rank pips (lieutenant)</label>
+    <description>Standard officer rank. Rank bestowed on officers with considerable service time and leadership experience.</description>    
+    <graphicData>
+      <texPath>Things/Item/Accessory/pip/pip_lt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+
+  <!-- Lieutenant Commander -->
+  <ThingDef ParentName="ST_RankPip_ApparelBase">
+    <defName>ST_RankPips_LtCommander</defName>
+    <label>rank pips (lieutenant commander)</label>
+    <description>Senior officer rank. Rank bestowed on officers with significant leadership experience and command potential.</description>    
+    <graphicData>
+      <texPath>Things/Item/Accessory/pip/pip_ltcmdr</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+
+  <!-- Commander -->
+  <ThingDef ParentName="ST_RankPip_ApparelBase">
+    <defName>ST_RankPips_Commander</defName>
+    <label>rank pips (commander)</label>
+    <description>High-ranking officer. Rank bestowed on officers with extensive command experience and strategic acumen.</description>    
+    <graphicData>
+      <texPath>Things/Item/Accessory/pip/pip_cmdr</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+
+  <!-- Captain -->
+  <ThingDef ParentName="ST_RankPip_ApparelBase">
+    <defName>ST_RankPips_Captain</defName>
+    <label>rank pips (captain)</label>
+    <description>Senior command officer. Rank bestowed on officers with exceptional leadership and command capabilities.</description>    
+    <graphicData>
+      <texPath>Things/Item/Accessory/pip/pip_cpt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Storyteller -->
+  <YASTM.Storyteller.April.Tagline>“We proceed by the book — but keep our hearts open.”</YASTM.Storyteller.April.Tagline>
+  <YASTM.Storyteller.April.Fluff1>Admiral April favors exploration beats, rescue opportunities, and honest trade. Expect pressure to rise with your capabilities.</YASTM.Storyteller.April.Fluff1>
+  <YASTM.Storyteller.April.Fluff2>Red and Yellow Alert systems pair well with April’s cadence: prepare in the quiet, act with discipline when crisis strikes.</YASTM.Storyteller.April.Fluff2>
+
+  <!-- Alert Panel -->
+  <ST.AlertPanel.Cooldown>Alert controls are cooling down.</ST.AlertPanel.Cooldown>
+  <ST.AlertPanel.Red.Label>Red Alert</ST.AlertPanel.Red.Label>
+  <ST.AlertPanel.Red.Desc>All hands to battle stations.</ST.AlertPanel.Red.Desc>
+  <ST.AlertPanel.Red.LetterLabel>Red Alert</ST.AlertPanel.Red.LetterLabel>
+  <ST.AlertPanel.Red.LetterText>All hands to stations. Tactical readiness is raised.</ST.AlertPanel.Red.LetterText>
+  <ST.AlertPanel.RedOff.LetterLabel>Red Alert cleared</ST.AlertPanel.RedOff.LetterLabel>
+  <ST.AlertPanel.RedOff.LetterText>Stand down from battle stations. Resume normal operations.</ST.AlertPanel.RedOff.LetterText>
+  <ST.AlertPanel.Yellow.Label>Yellow Alert</ST.AlertPanel.Yellow.Label>
+  <ST.AlertPanel.Yellow.Desc>Heightened readiness across the ship.</ST.AlertPanel.Yellow.Desc>
+  <ST.AlertPanel.Yellow.LetterLabel>Yellow Alert</ST.AlertPanel.Yellow.LetterLabel>
+  <ST.AlertPanel.Yellow.LetterText>Shipwide readiness increased. Remain at your posts.</ST.AlertPanel.Yellow.LetterText>
+  <ST.AlertPanel.YellowOff.LetterLabel>Yellow Alert cleared</ST.AlertPanel.YellowOff.LetterLabel>
+  <ST.AlertPanel.YellowOff.LetterText>Stand down from Yellow Alert. Normal watch rotations resume.</ST.AlertPanel.YellowOff.LetterText>
+
+ 
+  <!-- Alert Panel messages -->
+  <ST_AlertPanel_Red_On>Red alert engaged.</ST_AlertPanel_Red_On>
+  <ST_AlertPanel_Red_Off>Red alert disengaged.</ST_AlertPanel_Red_Off>
+  <ST_AlertPanel_Yellow_On>Yellow alert engaged.</ST_AlertPanel_Yellow_On>
+  <ST_AlertPanel_Yellow_Off>Yellow alert disengaged.</ST_AlertPanel_Yellow_Off>
+  <ST.AlertPanel.Cooldown>Cooldown: {0}s</ST.AlertPanel.Cooldown>
+  <ST.AlertPanel.ActiveBuffRed>Red Alert active</ST.AlertPanel.ActiveBuffRed>
+  <ST.AlertPanel.ActiveBuffYellow>Yellow Alert active</ST.AlertPanel.ActiveBuffYellow>
+
+
+  <!-- Hediffs from alerts -->
+  <ST_RedAlert_Pumped_label>combat adrenaline</ST_RedAlert_Pumped_label>
+  <ST_RedAlert_Pumped_description>On edge and ready for a fight. Increased combat performance, but rising stress.</ST_RedAlert_Pumped_description>
+
+  <ST_YellowAlert_Focus_label>heightened readiness</ST_YellowAlert_Focus_label>
+  <ST_YellowAlert_Focus_description>Prepared for trouble. Mild performance boost with limited strain.</ST_YellowAlert_Focus_description>
+
+
+  <!-- Starfleet Aid -->
+  <ST.Aid.Button>Request Starfleet Aid</ST.Aid.Button>
+  <ST.Aid.ButtonDesc>Request a limited Starfleet resupply drop (global cooldown).</ST.Aid.ButtonDesc>
+  <ST.Aid.NeedsCommander>Requires a Commander or Captain on this map.</ST.Aid.NeedsCommander>
+  <ST.Aid.RejectNoCommander>Aid request requires a Commander or Captain present.</ST.Aid.RejectNoCommander>
+  <ST.Aid.Recharging>Uplink recharging: {0}</ST.Aid.Recharging>
+  <ST.Aid.GoodwillMissing>Requires goodwill ≥ {0} with {1}. (Current: {2})</ST.Aid.GoodwillMissing>
+
+  <!-- Rank / Promotion -->
+
+  <ST.Promotion.NotEligible>This pawn is not eligible for promotion.</ST.Promotion.NotEligible>
+  <ST.Promotion.AlreadyHasRank>Already holds this rank.</ST.Promotion.AlreadyHasRank>
+  <ST.Promotion.Cooldown>Promotion systems recharging ({0}).</ST.Promotion.Cooldown>
+  <ST.Promotion.Done>{PAWN_labelShort} has been promoted to {0}.</ST.Promotion.Done>
+  <ST.Promotion.RequiresFaction>Requires a Starfleet career path.</ST.Promotion.RequiresFaction>
+  <ST.Promotion.RequiresGoodwill>Requires goodwill ≥ {0} with {0}.</ST.Promotion.RequiresGoodwill>
+  <ST.Promotion.RequiresQuests>Requires {0} completed promotion quest(s).</ST.Promotion.RequiresQuests>
+  <ST.Promotion.RequiresDays>Must wait {0} more days since the last promotion.</ST.Promotion.RequiresDays>
+  <ST.Promotion.UniqueRoleTaken>Only one Captain per colony is allowed.</ST.Promotion.UniqueRoleTaken>
+
+  <ST.Rank.Promoted>{0} promoted to {1}.</ST.Rank.Promoted>
+  <ST.Pip.Use.Ensign>Promote to Ensign</ST.Pip.Use.Ensign>
+  <ST.Pip.Use.LJG>Promote to Lieutenant (jg)</ST.Pip.Use.LJG>
+  <ST.Pip.Use.Lieutenant>Promote to Lieutenant</ST.Pip.Use.Lieutenant>
+  <ST.Pip.Use.LtCommander>Promote to Lieutenant Commander</ST.Pip.Use.LtCommander>
+  <ST.Pip.Use.Commander>Promote to Commander</ST.Pip.Use.Commander>
+  <ST.Pip.Use.Captain>Promote to Captain</ST.Pip.Use.Captain>
+
+  <ST.Promo.Accept>Accept commendation</ST.Promo.Accept>
+  <ST.Promo.Decline>Decline</ST.Promo.Decline>
+
+  <ST.Promo.Ensign.Offer>Starfleet Command offers a performance review. Acceptance will result in a field promotion to **Ensign** and delivery of a commission pip.</ST.Promo.Ensign.Offer>
+  <ST.Promo.Ensign.LetterLabelOffer>Starfleet performance review</ST.Promo.Ensign.LetterLabelOffer>
+  <ST.Promo.Ensign.LetterLabel>Commendation granted</ST.Promo.Ensign.LetterLabel>
+  <ST.Promo.Ensign.LetterText>A commission pip to **Ensign** has been delivered by supply drop.</ST.Promo.Ensign.LetterText>
+
+  <ST.Promo.LJG.Offer>Performance review indicates readiness for promotion to **Lieutenant (jg)**. Accept to receive the commission pip.</ST.Promo.LJG.Offer>
+  <ST.Promo.LJG.LetterLabelOffer>Performance review: Lieutenant (jg)</ST.Promo.LJG.LetterLabelOffer>
+  <ST.Promo.LJG.LetterLabel>Promotion approved</ST.Promo.LJG.LetterLabel>
+  <ST.Promo.LJG.LetterText>A commission pip to **Lieutenant (jg)** has been delivered.</ST.Promo.LJG.LetterText>
+
+  <ST.Promo.Lieutenant.Offer>Operational record supports promotion to **Lieutenant**. Accept to receive the commission pip.</ST.Promo.Lieutenant.Offer>
+  <ST.Promo.Lieutenant.LetterLabelOffer>Performance review: Lieutenant</ST.Promo.Lieutenant.LetterLabelOffer>
+  <ST.Promo.Lieutenant.LetterLabel>Promotion approved</ST.Promo.Lieutenant.LetterLabel>
+  <ST.Promo.Lieutenant.LetterText>A commission pip to **Lieutenant** has been delivered.</ST.Promo.Lieutenant.LetterText>
+
+  <ST.Promo.LtCommander.Offer>Leadership assessment suggests promotion to **Lieutenant Commander**. Accept to receive the commission pip.</ST.Promo.LtCommander.Offer>
+  <ST.Promo.LtCommander.LetterLabelOffer>Performance review: Lieutenant Commander</ST.Promo.LtCommander.LetterLabelOffer>
+  <ST.Promo.LtCommander.LetterLabel>Promotion approved</ST.Promo.LtCommander.LetterLabel>
+  <ST.Promo.LtCommander.LetterText>A commission pip to **Lieutenant Commander** has been delivered.</ST.Promo.LtCommander.LetterText>
+
+  <ST.Promo.Commander.Offer>Command fitness review recommends promotion to **Commander**. Accept to receive the commission pip.</ST.Promo.Commander.Offer>
+  <ST.Promo.Commander.LetterLabelOffer>Performance review: Commander</ST.Promo.Commander.LetterLabelOffer>
+  <ST.Promo.Commander.LetterLabel>Promotion approved</ST.Promo.Commander.LetterLabel>
+  <ST.Promo.Commander.LetterText>A commission pip to **Commander** has been delivered.</ST.Promo.Commander.LetterText>
+
+  <ST.Promo.Captain.Offer>Command authority review recommends promotion to **Captain**. Accept to receive the commission pip.</ST.Promo.Captain.Offer>
+  <ST.Promo.Captain.LetterLabelOffer>Performance review: Captain</ST.Promo.Captain.LetterLabelOffer>
+  <ST.Promo.Captain.LetterLabel>Promotion approved</ST.Promo.Captain.LetterLabel>
+  <ST.Promo.Captain.LetterText>A commission pip to **Captain** has been delivered.</ST.Promo.Captain.LetterText>
+
+  <ST.Promo.Fail.Goodwill>Requires goodwill ≥ {0} with {1}.</ST.Promo.Fail.Goodwill>
+  <ST.Promo.Fail.Quests>Requires at least {0} completed quests.</ST.Promo.Fail.Quests>
+  <ST.Promo.Fail.Time>Requires more time ({0} remaining).</ST.Promo.Fail.Time>
+  <ST.Promo.Fail.Unique>Only one colonist may hold this rank.</ST.Promo.Fail.Unique>
+  <ST.Promo.Success>{PAWN_labelShort} promoted to {1}.</ST.Promo.Success>
+
+  <ST.Promo.Ceremony.Started>Promotion ceremony for {PAWN_labelShort} is starting.</ST.Promo.Ceremony.Started>
+  <ST.Promo.Ceremony.Obligation>A promotion ceremony for {PAWN_labelShort} has been scheduled.</ST.Promo.Ceremony.Obligation>
+
+ <!-- Promotion 2.0 (Lite Tracker) -->
+  <STQ.Promo.Start>{PAWN_labelShort} has been assigned objectives for promotion to {1}.</STQ.Promo.Start>
+  <STQ.Promo.Complete>{PAWN_labelShort} completed promotion objectives for {1}. A pip has been authorized.</STQ.Promo.Complete>
+
+  <STQ.Promo.Alert.Label>Promotion objectives</STQ.Promo.Alert.Label>
+  <STQ.Promo.Alert.Desc>Complete the following per candidate to receive authorization for promotion:</STQ.Promo.Alert.Desc>
+  <STQ.Promo.Task.Scan>Medical/Science scans: {0}/{1}</STQ.Promo.Task.Scan>
+  <STQ.Promo.Task.Sweep>Security sweeps: {0}/{1}</STQ.Promo.Task.Sweep>
+  <STQ.Promo.Task.Diplo>Diplomacy improvements: {0}/{1}</STQ.Promo.Task.Diplo>
+
+  <ST.Promotion.Error.NoTarget>No target rank defined on this pip.</ST.Promotion.Error.NoTarget>
+  <ST.Promotion.Error.NoReqs>No promotion requirements are defined for {0}.</ST.Promotion.Error.NoReqs>
+  <ST.Promotion.Error.WrongFromRank>{PAWN_labelShort} does not meet the previous rank requirement.</ST.Promotion.Error.WrongFromRank>
+  <ST.Promotion.Error.ObjectivesMissing>{PAWN_labelShort} has not completed the promotion objectives yet.</ST.Promotion.Error.ObjectivesMissing>
+  <ST.Promotion.Error.Unique>Only one {0} is allowed in the colony.</ST.Promotion.Error.Unique>
+
+  <STQ.Promo.ChooseTitle>Promotion objectives</STQ.Promo.ChooseTitle>
+  <STQ.Promo.ChooseCandidate>Select a candidate to receive promotion objectives.</STQ.Promo.ChooseCandidate>
+
+   <!-- Promotion ceremony -->
+  <ST_Promo_Ceremony_Started>A promotion ceremony for {PAWN_nameShortDef} has been scheduled.</ST_Promo_Ceremony_Started>
+
+
+  <!-- Research -->
+  <ST.Research.RedAlert.Label>red alert protocols</ST.Research.RedAlert.Label>
+  <ST.Research.RedAlert.Desc>Implements colony-wide alert routing and EPS priority to enable the Red Alert panel.</ST.Research.RedAlert.Desc>
+
+
+  <!-- Diplomacy -->
+
+  <ST.Diplo.Improve.Button>Improve relations…</ST.Diplo.Improve.Button>
+  <ST.Diplo.Improve.Desc>Pay {0} silver to improve goodwill by +{1} with a non-hostile faction.</ST.Diplo.Improve.Desc>
+  <ST.Diplo.Improve.None>No eligible factions.</ST.Diplo.Improve.None>
+  <ST.Diplo.Improve.Confirm>Transmit cultural exchange package to {0} for {1} silver?\n\nExpected goodwill change: +{2}.</ST.Diplo.Improve.Confirm>
+  <ST.Diplo.Improve.Maxed>{0} already have maximum goodwill.</ST.Diplo.Improve.Maxed>
+  <ST.Diplo.Improve.Success>Relations with {0} improved.</ST.Diplo.Improve.Success>
+
+  <ST.Diplo.Ceasefire.Button>Request ceasefire…</ST.Diplo.Ceasefire.Button>
+  <ST.Diplo.Ceasefire.Desc>Pay {0} silver to negotiate a ceasefire with a hostile faction.</ST.Diplo.Ceasefire.Desc>
+  <ST.Diplo.Ceasefire.None>No hostile factions available.</ST.Diplo.Ceasefire.None>
+  <ST.Diplo.Ceasefire.Confirm>Attempt ceasefire with {0} for {1} silver?\n\nIf successful, status will become neutral.</ST.Diplo.Ceasefire.Confirm>
+  <ST.Diplo.Ceasefire.Success>Ceasefire established with {0}.</ST.Diplo.Ceasefire.Success>
+  
+  <ST.Diplo.Requirements.Improve>Requires a {1} with Social {0}+ on this map.</ST.Diplo.Requirements.Improve>
+  <ST.Diplo.Requirements.Ceasefire>Requires a {1} with Social {0}+ on this map.</ST.Diplo.Requirements.Ceasefire>
+
+  <ST.Diplomacy.OpenChannel>Open diplomacy channel</ST.Diplomacy.OpenChannel>
+  <ST.Diplomacy.OpenChannel.Desc>Contact a faction representative.</ST.Diplomacy.OpenChannel.Desc>
+  <ST.Diplomacy.ImproveRelations>Improve relations</ST.Diplomacy.ImproveRelations>
+  <ST.Diplomacy.ImproveRelations.Desc>Spend silver to improve goodwill.</ST.Diplomacy.ImproveRelations.Desc>
+  <ST.Diplomacy.NoTargets>No valid target factions.</ST.Diplomacy.NoTargets>
+  <ST.Diplomacy.Costs>Costs {0} silver.</ST.Diplomacy.Costs>
+  <ST.Diplomacy.Result>Relations with {FACTION_name} improved by {0}.</ST.Diplomacy.Result>
+  <ST.Diplomacy.FailCooldown>Channel is busy ({0}).</ST.Diplomacy.FailCooldown>
+
+  <!-- Common / shared -->
+  <ST.Common.NeedsPower>Requires power.</ST.Common.NeedsPower>
+  <ST.Common.Recharging>Recharging ({0}).</ST.Common.Recharging>
+  <ST.Common.NotEnoughSilver>Not enough silver ({0} required).</ST.Common.NotEnoughSilver>
+  
+  <!-- Ktarian Game -->
+  <ST.Ktarian.Play.Button>Play Ktarian Game</ST.Ktarian.Play.Button>
+  <ST.Ktarian.Play.Desc>Start a short neural-interface game session.</ST.Ktarian.Play.Desc>
+  <ST.Ktarian.Play.BlockedState>Pawn is unable to focus right now.</ST.Ktarian.Play.BlockedState>
+  <ST.Ktarian.Play.NeedsTalking>Pawn must be able to talk.</ST.Ktarian.Play.NeedsTalking>
+  <ST.Thought.KtarianCraving.Label>ktarian craving</ST.Thought.KtarianCraving.Label>
+  <ST.Thought.KtarianCraving.Desc>A lingering urge to return to the Ktarian game.</ST.Thought.KtarianCraving.Desc>
+  <ST.Ktarian.Use>Play Ktarian game</ST.Ktarian.Use>
+  <ST.Ktarian.Use.Desc>Immerse in a holographic puzzle experience.</ST.Ktarian.Use.Desc>
+  <ST.Ktarian.AddictionWarning>Careful: prolonged use may cause obsessive focus.</ST.Ktarian.AddictionWarning>
+
+  <!-- Tricorder Medical Scan -->
+  <ST.Tricorder.Med.Scan>Scan patient</ST.Tricorder.Med.Scan>
+  <ST.Tricorder.Med.Scan.Desc>Perform a quick medical tricorder scan to improve recovery.</ST.Tricorder.Med.Scan.Desc>
+  <ST.Tricorder.Med.OutOfRange>Target is out of range.</ST.Tricorder.Med.OutOfRange>
+  <ST.Tricorder.Med.SkillReq>Requires Medicine {0}+.</ST.Tricorder.Med.SkillReq>
+  <ST.Tricorder.Med.Applied>Tricorder scan applied to {PAWN_labelShort}.</ST.Tricorder.Med.Applied>
+  <ST.Tricorder.MedScanApplied>Applied medical tricorder scan to {PAWN_labelShort}.</ST.Tricorder.MedScanApplied>
+
+  <!-- Tricorder Scientific Scan -->
+  <ST.Tricorder.Sci.Scan>Scan area (science)</ST.Tricorder.Sci.Scan>
+  <ST.Tricorder.Sci.Scan.Desc>Geological/environmental scan. Highlights resources and grants insight.</ST.Tricorder.Sci.Scan.Desc>
+  <ST.Tricorder.Sci.OutOfRange>Target cell is out of range.</ST.Tricorder.Sci.OutOfRange>
+  <ST.Tricorder.Sci.SkillReq>Requires Intellectual {0}+.</ST.Tricorder.Sci.SkillReq>
+  <ST.Tricorder.Sci.Applied>Scientific insight gained by {PAWN_labelShort}.</ST.Tricorder.Sci.Applied>
+  <ST.Tricorder.SciScanApplied>Applied science tricorder scan to {PAWN_labelShort}.</ST.Tricorder.SciScanApplied>
+
+  <!-- Tricorder Security Scan -->
+  <ST.Tricorder.Sec.Scan>Tactical sweep (security)</ST.Tricorder.Sec.Scan>
+  <ST.Tricorder.Sec.Scan.Desc>Scan area for threats and gain combat awareness.</ST.Tricorder.Sec.Scan.Desc>
+  <ST.Tricorder.Sec.SkillReq>Requires Shooting {0}+ or Melee {1}+.</ST.Tricorder.Sec.SkillReq>
+  <ST.Tricorder.Sec.Applied>Combat awareness gained by {PAWN_labelShort}.</ST.Tricorder.Sec.Applied>
+  <ST.Security.Sweep.Label>Security sweep</ST.Security.Sweep.Label>
+  <ST.Security.Sweep.Desc>Perform a short-range security sweep of the area.</ST.Security.Sweep.Desc>
+  <ST.Security.Sweep.Started>Security sweep initiated.</ST.Security.Sweep.Started>
+  <ST.Security.Sweep.Completed>Security sweep completed.</ST.Security.Sweep.Completed>
+
+
+  <ST.Tricorder.Cooldown>Tricorder is recalibrating ({0}).</ST.Tricorder.Cooldown>
+  <ST.Tricorder.RequirementsFail>Requirements not met.</ST.Tricorder.RequirementsFail>
+  <ST.Tricorder.NeedTarget>No valid target selected.</ST.Tricorder.NeedTarget>
+
+  <!-- Med Stuff -->
+  <ST.MedBooster.label>medical booster</ST.MedBooster.label>
+  <ST.MedBooster.desc>A fast-acting pharmacological booster that briefly improves tending and surgical performance.</ST.MedBooster.desc>
+
+  <ST.MedBooster.Recipe.label>brew medical booster</ST.MedBooster.Recipe.label>
+  <ST.MedBooster.Recipe.desc>Refine a mugato venom sac with reagents into a short-lived medical performance booster.</ST.MedBooster.Recipe.desc>
+
+  <ST.MedBooster.Hediff.label>medical booster</ST.MedBooster.Hediff.label>
+  <ST.MedBooster.Hediff.desc>Improved medical focus and coordination. Tending is faster; surgeries are slightly safer.</ST.MedBooster.Hediff.desc>
+  <ST_Hypo_UseLabel>Use hypospray</ST_Hypo_UseLabel>
+
+  <ST.MedFromVenom.Recipe.label>refine medicine (venom sac)</ST.MedFromVenom.Recipe.label>
+  <ST.MedFromVenom.Recipe.desc>Use a mugato venom sac with reagents and sterile textiles to produce a dose of industrial medicine.</ST.MedFromVenom.Recipe.desc>
+
+  <!--Transporter -->
+  <ST.Transporter.BeamIn>Emergency Beam-in</ST.Transporter.BeamIn>
+  <ST.Transporter.BeamIn.Desc>Executes an emergency transport of one colonist to your current location.</ST.Transporter.BeamIn.Desc>
+  <ST.Transporter.BeamOut>Short range beam-out</ST.Transporter.BeamOut>
+  <ST.Transporter.BeamOut.Desc>Teleports a colonist to an nearby beacon. Causes brief nausea.</ST.Transporter.BeamOut.Desc>
+  <ST.Transporter.BeamIn.Done>Emergency beamed in {PAWN_labelShort}.</ST.Transporter.BeamIn.Done>
+  <ST.Transporter.BeamOut.Done>Beamed out {PAWN_labelShort}.</ST.Transporter.BeamOut.Done>
+  <ST.Transporter.BeamOut.TooFar>Target is out of range.</ST.Transporter.BeamOut.TooFar>
+  <ST.Common.RequiresPower>Requires power.</ST.Common.RequiresPower>
+  
+  <ST.Transporter.NearGravEngine.Required>A gravity engine (or its blueprint) must exist on this map.</ST.Transporter.NearGravEngine.Required>
+  <ST.Transporter.NearGravEngine.TooFar>Must be placed within {0} tiles of the gravity engine.</ST.Transporter.NearGravEngine.TooFar>
+  
+  <ST.Transporter.Cooldown>Cooldown: {0}s</ST.Transporter.Cooldown>
+  <ST.Transporter.NeedsPower>Needs power.</ST.Transporter.NeedsPower>
+  <ST.Transporter.SwitchedOff>Switch is off.</ST.Transporter.SwitchedOff>
+
+  <ST.Transporter.Energize.Label>Energize</ST.Transporter.Energize.Label>
+  <ST.Transporter.Energize.Desc>Beam nearby colonists to the linked beacon.</ST.Transporter.Energize.Desc>
+  <ST.Transporter.NoTarget>No valid target beacon.</ST.Transporter.NoTarget>
+  <ST.Transporter.OutOfRange>Target out of range ({0} tiles).</ST.Transporter.OutOfRange>
+  <ST.Transporter.NoOperator>No qualified operator adjacent.</ST.Transporter.NoOperator>
+  <ST.Transporter.NoPawns>No eligible pawns near the beacon.</ST.Transporter.NoPawns>
+  <ST.Transporter.NoValidDest>No valid destination cell found.</ST.Transporter.NoValidDest>
+  <ST.Transporter.Moved>Transported {0} pawn(s).</ST.Transporter.Moved>
+
+    <!-- Transporter messages -->
+  <ST_Transporter_NoTarget>Disabled: No valid target beacon.</ST_Transporter_NoTarget>
+  <ST_Transporter_SelectPawn>Choose a colonist to beam.</ST_Transporter_SelectPawn>
+  <ST_Transporter_BeamComplete>Transport complete.</ST_Transporter_BeamComplete>
+
+  <!-- Traders -->
+  <YASTM.Trader.Ferengi.Label>Ferengi Commerce Exchange</YASTM.Trader.Ferengi.Label>
+  <YASTM.Trader.Ferengi.Fluff>"Rule of Acquisition #1: Once you have their money, never give it back."</YASTM.Trader.Ferengi.Fluff>
+  <YASTM.Trader.Klingon.Label>Klingon Arms Dealer</YASTM.Trader.Klingon.Label>
+  <YASTM.Trader.Klingon.Fluff>"Weapons should be tested on the battlefield, not the market stall."</YASTM.Trader.Klingon.Fluff>
+  <YASTM.Trader.Romulan.Label>Romulan Intelligence Broker</YASTM.Trader.Romulan.Label>
+  <YASTM.Trader.Romulan.Fluff>"Information is worth more than latinum—if used correctly."</YASTM.Trader.Romulan.Fluff>
+  <YASTM.Trader.Starfleet.Label>Starfleet Logistics Convoy</YASTM.Trader.Starfleet.Label>
+  <YASTM.Trader.Starfleet.Fluff>"Humanitarian aid and standard resupply, per regulations."</YASTM.Trader.Starfleet.Fluff>
+  
+  <!-- Force Field Emitter -->  
+  <ST.ForceField.Toggle>Toggle force field</ST.ForceField.Toggle>
+  <ST.ForceField.Toggle.Desc>Activates or deactivates all linked force-field emitters.</ST.ForceField.Toggle.Desc>
+  <ST.Common.NeedsPower>Needs power</ST.Common.NeedsPower>
+
+  <YASTM.Settings.ForceField.Radius>Force-field radius: {0}</YASTM.Settings.ForceField.Radius>
+  <YASTM.Settings.ForceField.Refresh>Force-field refresh (ticks): {0}</YASTM.Settings.ForceField.Refresh>
+  <YASTM.Settings.ForceField.HostilesOnly>Force-field affects hostiles only</YASTM.Settings.ForceField.HostilesOnly>
+
+</LanguageData>

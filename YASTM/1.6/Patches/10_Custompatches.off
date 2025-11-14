@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Patch>
+
+  <!-- Beispiel: Euer Venom -> Medical Booster Rezept am Replicator nutzbar machen -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/RecipeDef[defName="ST_MedFromVenom"]/recipeUsers</xpath>
+    <value>
+      <li>ST_Replicator</li>
+    </value>
+  </Operation>
+
+  <!-- weitere Rezepte nach Bedarf:
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/RecipeDef[defName="SomeOtherRecipe"]/recipeUsers</xpath>
+    <value>
+      <li>ST_Replicator</li>
+    </value>
+  </Operation>
+  -->
+
+</Patch>

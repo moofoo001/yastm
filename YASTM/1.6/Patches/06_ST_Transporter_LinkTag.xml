@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+  <!-- Pad markiert sich als Link-Ziel -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>*/ThingDef[defName="ST_TransporterPad"]</xpath>
+    <value>
+      <modExtensions>
+        <li Class="YASTM.DefModExt_LinkTags"><tags><li>transporter-pad</li></tags></li>
+      </modExtensions>
+    </value>
+  </Operation>
+
+  <!-- Konsole verlangt Pad in Reichweite -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>*/ThingDef[defName="ST_TransporterConsole"]/comps</xpath>
+    <value>
+      <li Class="YASTM.CompProperties_ConsoleLink">
+        <linkTag>transporter-pad</linkTag>
+        <maxDistance>40</maxDistance>
+      </li>
+    </value>
+  </Operation>
+</Patch>

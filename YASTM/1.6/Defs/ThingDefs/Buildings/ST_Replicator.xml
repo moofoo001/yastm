@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="BenchBase">
+    <defName>ST_Replicator</defName>
+    <label>replicator</label>
+    <description>LCARS matter synthesizer capable of producing basic goods via bills.</description>
+
+    <thingClass>Building_WorkTable</thingClass>
+    <selectable>true</selectable>
+
+    <graphicData>
+      <texPath>Things/Building/Replicator/ST_Replicator</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <shadowData>
+        <volume>(2.2, 0.6, 0.35)</volume>
+      </shadowData>
+      <drawSize>(2.5,2)</drawSize>
+    </graphicData>
+
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <altitudeLayer>Building</altitudeLayer>
+    <size>(2,1)</size>
+    <rotatable>true</rotatable>
+    <interactionCellOffset>(1,0,1)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <fillPercent>0.5</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <surfaceType>Item</surfaceType>
+    <recipes>
+      <li>CookMealSimple</li>
+      <li>CookMealFine</li>
+      <li>CookMealFine_Veg</li>
+      <li>CookMealFine_Meat</li>
+      <li>CookMealLavish</li>
+      <li>CookMealLavish_Veg</li>
+      <li>CookMealLavish_Meat</li>
+      <li>CookMealSurvival</li>
+      <li>CookMealSimpleBulk</li>
+      <li>CookMealFineBulk</li>
+      <li>CookMealFineBulk_Veg</li>
+      <li>CookMealFineBulk_Meat</li>
+      <li>CookMealLavishBulk</li>
+      <li>CookMealLavishBulk_Veg</li>
+      <li>CookMealLavishBulk_Meat</li>
+      <li>CookMealSurvivalBulk</li>
+      <li>Make_Pemmican</li>
+      <li>Make_PemmicanBulk</li>
+      <li>ST_Recipe_MedicineFromVenom</li>
+      <li MayRequire="Ludeon.RimWorld.Biotech">Make_BabyFood</li>
+      <li MayRequire="Ludeon.RimWorld.Biotech">Make_BabyFoodBulk</li>
+    </recipes>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+
+    <costList>
+      <Steel>70</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+
+    <statBases>
+      <WorkTableWorkSpeedFactor>1</WorkTableWorkSpeedFactor>
+      <WorkToBuild>1600</WorkToBuild>
+      <MaxHitPoints>220</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Mass>45</Mass>
+    </statBases>
+
+    <building>
+    <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+      <uninstallWork>1800</uninstallWork>
+      <isMealSource>true</isMealSource>
+      <paintable>true</paintable>
+      <workTableRoomRole>Workshop</workTableRoomRole>
+      <buildingTags>
+        <li>Production</li>
+      </buildingTags>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+
+    </building>
+
+    <soundInteract>ST_SFX_LCARS_Click</soundInteract>
+    <designationCategory>ST_Designation</designationCategory>
+
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>300</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
+      <li Class="CompProperties_AffectedByFacilities" />
+      <li Class="CompProperties_ReportWorkSpeed">
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      </li>
+    </comps>
+
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+  </ThingDef>
+</Defs>
+
+
+

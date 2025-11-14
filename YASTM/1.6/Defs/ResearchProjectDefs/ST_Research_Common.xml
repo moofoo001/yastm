@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ResearchTabDef>
+    <defName>ST_Research</defName>
+    <label>YASTM Research</label>
+  </ResearchTabDef>
+
+    <!-- Abstract base for all UFP projects -->
+  <ResearchProjectDef Name="ST_Base_Research" Abstract="True">
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+  </ResearchProjectDef>
+
+  <!-- common base for all ST Factions -->
+  <ResearchProjectDef Parent="ST_Base_Research" Name="Pre_Warp">
+    <defName>Pre_Warp</defName>
+    <description>Fundamentals of pre-warp civilizations: metallurgy, textiles, and basic engineering.</description> 
+    <label>Pre-Warp Technology</label>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <baseCost>500</baseCost>
+    <prerequisites>
+      <li>Electricity</li>
+    </prerequisites>
+    <researchViewX>0</researchViewX>
+    <researchViewY>0</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- common issue Gear -->
+  <ResearchProjectDef Parent="ST_Base_Research" Name="ST_Common_Issue_Gear">
+    <defName>ST_Common_Issue_Gear</defName>
+    <description>Basic field-issue equipment: utility harnesses, durable casings, and power fittings.</description>
+    <label>Common Issue Gear</label>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <baseCost>500</baseCost>
+    <prerequisites>
+      <li>Pre_Warp</li>
+    </prerequisites>
+    <researchViewX>0</researchViewX>
+    <researchViewY>2</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- Federation standard -->
+  <ResearchProjectDef Parent="ST_Base_Research" Name="Federation_Standard">
+    <defName>Federation_Standard</defName>
+    <description>Standardized Starfleet issue gear and fittings.</description>
+    <label>Federation standard</label>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <baseCost>300</baseCost>
+    <prerequisites>
+      <li>ST_Common_Issue_Gear</li>
+    </prerequisites>
+    <researchViewX>0</researchViewX>
+    <researchViewY>3</researchViewY>
+  </ResearchProjectDef>
+
+
+  <!-- Klingon standard -->
+  <ResearchProjectDef Parent="ST_Base_Research" Name="Klingon_Standard">
+    <defName>Klingon_Standard</defName>
+    <description>Standardized Klingon issue gear and fittings.</description>
+    <label>Klingon standard</label>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <baseCost>300</baseCost>
+    <prerequisites>
+      <li>ST_Common_Issue_Gear</li>
+    </prerequisites>
+    <researchViewX>0</researchViewX>
+    <researchViewY>4</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- Romulan standard -->
+  <ResearchProjectDef Parent="ST_Base_Research" Name="Romulan_Standard">
+    <defName>Romulan_Standard</defName>
+    <description>Standardized Romulan issue gear and fittings.</description>
+    <label>Romulan standard</label>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <baseCost>300</baseCost>
+    <prerequisites>
+      <li>ST_Common_Issue_Gear</li>
+    </prerequisites>
+    <researchViewX>0</researchViewX>
+    <researchViewY>5</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- Ferengi standard -->
+  <ResearchProjectDef Parent="ST_Base_Research" Name="Ferengi_Standard">
+    <defName>Ferengi_Standard</defName>
+    <description>Standardized Ferengi issue gear and fittings.</description>
+    <label>Ferengi standard</label>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <baseCost>300</baseCost>
+    <prerequisites>
+      <li>ST_Common_Issue_Gear</li>
+    </prerequisites>
+    <researchViewX>0</researchViewX>
+    <researchViewY>6</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- Common Gear -->
+
+  <!-- Common EV Suit -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+  <defName>ST_EVSuits</defName>
+  <label>EV suits</label>
+  <description>Protective standard-issue Extra-Vehicular suit and helmet for hazardous environments and field operations.</description>
+  <techLevel>Spacer</techLevel>
+  <tab>ST_Research</tab>
+  <baseCost>1000</baseCost>
+  <prerequisites>
+    <li>ST_Common_Issue_Gear</li>
+    <li>Electricity</li>
+  </prerequisites>
+  <researchViewX>1</researchViewX>
+  <researchViewY>1</researchViewY>
+</ResearchProjectDef>
+
+  <!-- Scanner / Tricorder etc -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Scanning_technology</defName>
+    <label>Tricorder Technology</label>
+    <description>Portable multispectral scanners and data processing modules.</description>
+    <tab>ST_Research</tab>
+    <baseCost>800</baseCost>
+    <prerequisites>
+      <li>ST_Common_Issue_Gear</li>
+    </prerequisites>
+    <researchViewX>2</researchViewX>
+    <researchViewY>2</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- Medical sash / support harness > hypospray etc -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Medical_diagnostics</defName>
+    <label>Medical Diagnostics</label>
+    <description>Portable medical diagnostic and treatment support harness.</description>
+     <tab>ST_Research</tab>
+    <baseCost>500</baseCost>
+    <prerequisites>
+      <li>DrugProduction</li>   
+      <li>MedicineProduction</li>
+      <li>ST_Common_Issue_Gear</li>
+  </prerequisites>
+    <researchViewX>1</researchViewX>
+    <researchViewY>2</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_RecreationalInterfaces</defName>
+    <label>recreational interfaces</label>
+    <description>Neurale Interface-Spielgeräte (Headsets) in Standardfertigung.</description>
+    <tab>ST_Research</tab>
+    <baseCost>600</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>MicroelectronicsBasics</li>
+       <li>ST_Common_Issue_Gear</li>
+    </prerequisites>
+    <researchViewX>3</researchViewX>
+    <researchViewY>2</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- Buildings -->
+
+
+  <!-- Alert Protocols -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_AlertProtocols</defName>
+    <label>alert protocols</label>
+    <description>Implements colony-wide alert routing and EPS priority to enable the Alert panel.</description>
+    <baseCost>400</baseCost>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>Pre_Warp</li>
+      <li>Electricity</li>
+    </prerequisites>
+    <researchViewX>2</researchViewX>
+    <researchViewY>0</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- Subspace telemetry to unlock advanced commsgear -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_SubspaceTelemetry</defName>
+    <label>Subspace Telemetry</label>
+    <baseCost>500</baseCost>
+    <techLevel>Spacer</techLevel>
+    <researchViewX>4</researchViewX>
+    <researchViewY>2</researchViewY>
+    <description>Fundamentals of detecting and amplifying weak subspace signals.</description>
+      <prerequisites>
+        <li>MicroelectronicsBasics</li>
+        <li>ST_Scanning_technology</li>
+      </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+  </ResearchProjectDef>
+
+  <!-- Structures Hull Wall and Glass -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_UFP_Structures</defName>
+    <label>UFP structural engineering</label>
+    <description>Starfleet-grade hull construction and pressure-rated viewports.</description>
+    <baseCost>1200</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>Federation_Standard</li>
+      <li>MicroelectronicsBasics</li>
+      <li>Machining</li>
+    </prerequisites>
+    <researchViewX>5</researchViewX>
+    <researchViewY>3</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+  </ResearchProjectDef>
+
+  <!-- Interior fittings -->
+ <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_UFP_Interior</defName>
+    <label>UFP standard interior</label>
+    <description>UFP standard interior for homes and ships.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>Federation_Standard</li>
+      <li>Machining</li>
+    </prerequisites>
+    <researchViewX>6</researchViewX>
+    <researchViewY>3</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+  </ResearchProjectDef>
+
+  <!-- Transporter Technology -->
+ <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_TransporterTech</defName>
+    <label>transporter systems</label>
+    <description>Enables the Transporter Beacon for short-range beam operations.</description>
+    <baseCost>2000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>AdvancedFabrication</li>
+      <li>AdvancedGravtech</li>
+      <li>ST_SubspaceTelemetry</li>  
+    </prerequisites>
+    <researchViewX>4</researchViewX>
+    <researchViewY>0</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- Force Field tech  -->
+ <ResearchProjectDef>
+    <defName>ST_ForceField_Tech</defName>
+    <label>force-field emitters</label>
+    <description>Projected barrier fields for perimeter control and tactical mitigation.</description>
+    <tab>ST_Research</tab>
+    <baseCost>1600</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>Electricity</li>
+      <li>MicroelectronicsBasics</li>
+      <li>ST_Common_Issue_Gear</li>
+    </prerequisites>
+    <researchViewX>3</researchViewX>
+    <researchViewY>0</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+  </ResearchProjectDef>
+
+  <!-- Replicator Technology -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Replicator_Tech</defName>
+    <label>Replicator systems</label>
+    <description>Energy-to-matter synthesis for food and basic goods. High power cost.</description>
+    <tab>ST_Research</tab>
+    <baseCost>1200</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>Electricity</li>
+      <li>MicroelectronicsBasics</li>
+      <li>ST_Common_Issue_Gear</li>
+    </prerequisites>
+    <researchViewX>5</researchViewX>
+    <researchViewY>0</researchViewY>
+    <tags>
+      <li>YASTM_Faction_UFP</li>
+    </tags>
+  </ResearchProjectDef>
+
+</Defs>

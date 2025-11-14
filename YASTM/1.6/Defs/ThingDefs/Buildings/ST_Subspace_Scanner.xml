@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_AnomalySensor</defName>
+    <label>subspace anomaly sensor</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <selectable>true</selectable>
+
+    <graphicData>
+      <texPath>Things/Building/Science/ST_AnomalySensor</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+
+    <altitudeLayer>Building</altitudeLayer>
+    <size>(1,1)</size>
+    <rotatable>true</rotatable>
+    <defaultPlacingRot>South</defaultPlacingRot>
+
+    <!-- FIX: richtiger PlaceWorker -->
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>150</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
+
+      <!-- Facility-Verknüpfung zu den Obelisken -->
+      <li Class="CompProperties_Facility">
+        <linkableBuildings>
+          <li>ST_Obelisk_A</li>
+          <li>ST_Obelisk_B</li>
+        </linkableBuildings>
+        <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
+        <maxSimultaneous>2</maxSimultaneous>
+      </li>
+    </comps>
+
+    <modExtensions>
+      <li Class="YASTM.DefModExt_LinkTags">
+        <tags>
+          <li>science-scanner</li>
+        </tags>
+      </li>
+    </modExtensions>
+
+    <costList>
+      <Steel>60</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+
+    <statBases>
+      <WorkToBuild>1200</WorkToBuild>
+      <MaxHitPoints>160</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Mass>20</Mass>
+    </statBases>
+
+    <designationCategory>ST_Designation</designationCategory>
+    <researchPrerequisites>
+      <li>ST_SubspaceTelemetry</li>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+</Defs>
