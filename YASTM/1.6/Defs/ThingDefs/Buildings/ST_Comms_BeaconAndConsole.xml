@@ -3,7 +3,7 @@
 
   <!-- =========================================================
        STAR TREK COMMS BEACON (Facility)
-       ========================================================= -->
+       ========================================================= 
   <ThingDef ParentName="BuildingBase">
     <defName>ST_ComBeacon</defName>
     <label>comms beacon</label>
@@ -25,11 +25,11 @@
     <rotatable>true</rotatable>
     <defaultPlacingRot>South</defaultPlacingRot>
 
-    <!-- FIX: richtiger PlaceWorker -->
     <placeWorkers>
       <li>PlaceWorker_ShowFacilitiesConnections</li>
+      <li>PlaceWorker_ShowTradeBeaconRadius</li>
     </placeWorkers>
-
+    
     <costList>
       <Steel>40</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
@@ -67,11 +67,84 @@
         </linkableBuildings>
         <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
         <maxSimultaneous>4</maxSimultaneous>
-        <!-- StatOffsets optional; wir lassen 0 -->
       </li>
+      <li Class="StarTrekFactions.Comps.CompProperties_UseEffect_SpawnFarAndSignal">
+        <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
+        <minDist>42</minDist>
+        <maxDist>72</maxDist>
+        <outsideHome>true</outsideHome>
+        <requirePowerOn>true</requirePowerOn>  
+        <thingA>ST_Obelisk_A</thingA>
+        <thingB>ST_Obelisk_B</thingB>
+        <questDefToEnsure>STQ_VE_Obelisks_I_II_Setup</questDefToEnsure>
+      </li>
+        <li Class="CompProperties_TradeBeacon"/>
     </comps>
-  </ThingDef>
+  </ThingDef> -->
 
+<ThingDef ParentName="BuildingBase">
+  <defName>ST_ComBeacon</defName>
+  <label>Starfleet comm beacon</label>
+  <thingClass>Building_OrbitalTradeBeacon</thingClass>
+  <category>Building</category>
+  <description>Subspace relay for Starfleet communications. Also acts as an orbital trade beacon.</description>
+  <altitudeLayer>Item</altitudeLayer>
+  <selectable>true</selectable>
+  <rotatable>true</rotatable>
+  <size>(1,1)</size>
+  <useHitPoints>true</useHitPoints>
+  <tickerType>Normal</tickerType>
+  <pathCost>10</pathCost>
+  <fillPercent>0.0</fillPercent>
+
+    <graphicData>
+      <texPath>Things/Building/Comms/ST_ComBeacon</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2.5,2.5)</drawSize>
+    </graphicData>
+  <defaultPlacingRot>South</defaultPlacingRot>
+
+  <statBases>
+    <Mass>15</Mass>
+    <MaxHitPoints>120</MaxHitPoints>
+    <Flammability>0.2</Flammability>
+    <WorkToBuild>2000</WorkToBuild>
+  </statBases>
+  <costList>
+    <Steel>40</Steel>
+    <ComponentIndustrial>2</ComponentIndustrial>
+  </costList>
+
+  <comps>
+    <li Class="CompProperties_Power">
+      <compClass>CompPowerTrader</compClass>
+      <basePowerConsumption>40</basePowerConsumption>
+    </li>
+    <li Class="CompProperties_Flickable"/>
+    <li Class="CompProperties_Breakdownable"/>
+
+    <li Class="YASTM.CompProperties_ConsoleLink">
+      <linkTags>
+        <li>ST_Link_Comms</li>
+      </linkTags>
+      <maxLinkDistance>25</maxLinkDistance>
+    </li>
+
+    <!-- Optional: als Facility (nur falls du es nutzt) -->
+    <li Class="CompProperties_Facility">
+      <linkableBuildings>
+        <li>ST_CommsConsole</li>
+      </linkableBuildings>
+      <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
+      <maxSimultaneous>1</maxSimultaneous>
+    </li>
+  </comps>
+  <designationCategory>ST_Designation</designationCategory>
+  <building>
+    <isEdifice>false</isEdifice>
+  </building>
+  <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+</ThingDef>
 
   <!-- =========================================================
        STAR TREK COMMS CONSOLE (Bedienung & Gizmos)
@@ -102,7 +175,7 @@
     <rotatable>true</rotatable>
 
     <!-- FIX: IntVec3, nicht "0,-1" -->
-    <interactionCellOffset>(0.5,0,1)</interactionCellOffset>
+    <interactionCellOffset>(0,0,1)</interactionCellOffset>
     <passability>PassThroughOnly</passability>
 
     <costList>
@@ -135,14 +208,50 @@
       <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Breakdownable" />
       <li Class="YASTM.CompProperties_ConsoleLink">
-        <linkTag>ST_Link_Comms</linkTag>
+        <linkTags>
+          <li>ST_Link_Comms</li>
+        </linkTags>
+        <maxLinkDistance>25</maxLinkDistance>
       </li>
       <li Class="YASTM.CompProperties_CommsGizmo">
-        <cooldownDays>7</cooldownDays>
+        <aidCooldownDays>7</aidCooldownDays>
+        <contactCooldownDays>7</contactCooldownDays>
+        <maxActiveStarfleetQuests>2</maxActiveStarfleetQuests>
+        <questPrefix>STQ_</questPrefix>
         <requiredRankTraits>
+          <li>ST_Rank_LieutenantJG</li>
+          <li>ST_Rank_Lieutenant</li>
+          <li>ST_Rank_LtCommander</li>
           <li>ST_Rank_Commander</li>
           <li>ST_Rank_Captain</li>
         </requiredRankTraits>
+      </li>
+      <!-- Diplomacy -->
+      <li Class="YASTM.CompProperties_DiplomacyComms">
+        <improveCost>300</improveCost>
+        <improveGoodwill>10</improveGoodwill>
+        <ceasefireCost>800</ceasefireCost>
+        <cooldownDaysImprove>1</cooldownDaysImprove>
+        <cooldownDaysCeasefire>2</cooldownDaysCeasefire>
+        <minSocialImprove>6</minSocialImprove>
+        <requiredTraitsImprove>
+          <li>*ANY_COMMISSIONED*</li> 
+        </requiredTraitsImprove>
+        <requiredApparelsImprove>
+          <li>*ANY_PIP*</li>  
+        </requiredApparelsImprove>
+        <rankLabelImprove>Ensign+</rankLabelImprove>
+        <!-- Ceasefire: Commander+ mit Social 10+ -->
+        <minSocialCeasefire>10</minSocialCeasefire>
+        <requiredTraitsCeasefire>
+          <li>ST_Rank_Commander</li>
+          <li>ST_Rank_Captain</li>
+        </requiredTraitsCeasefire>
+        <requiredApparelsCeasefire>
+          <li>ST_RankPips_Commander</li>
+          <li>ST_RankPips_Captain</li>
+        </requiredApparelsCeasefire>
+        <rankLabelCeasefire>Commander+</rankLabelCeasefire>
       </li>
     </comps>
   </ThingDef>

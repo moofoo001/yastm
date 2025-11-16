@@ -132,7 +132,7 @@
     <graphicData>
       <texPath>Things/Building/Transporter/ST_Console</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2.5,3)</drawSize>
+      <drawSize>(2.5,2.6)</drawSize>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <uiIconPath>Things/Building/Transporter/ST_Console</uiIconPath>

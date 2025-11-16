@@ -34,8 +34,8 @@ namespace YASTM
             yield return new Command_Action
             {
                 defaultLabel = mc != null && mc.IsRedOnCooldown ? $"Red Alert (CD {mc.ArmRedCooldownSeconds()}s)" : "Red Alert",
-                defaultDesc  = "Colony-weiter roter Alarm – Sirene, Buffs und Timer.",
-                icon         = ContentFinder<Texture2D>.Get("Things/UI/Icons/Gizmos/RedAlert", false),
+                defaultDesc  = "Colony-wide red alert – sirene, buffs and timer.",
+                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/RedAlert", false),
                 action       = () =>
                     map.GetComponent<MapComponent_AlertPanel>()
                        .StartRedAlert(Props.redDurationTicks, Props.redCooldownTicks, Props.blinkSeconds)
@@ -45,8 +45,8 @@ namespace YASTM
             yield return new Command_Action
             {
                 defaultLabel = mc != null && mc.IsYellowOnCooldown ? $"Yellow Alert (CD {mc.ArmYellowCooldownSeconds()}s)" : "Yellow Alert",
-                defaultDesc  = "Erhöhter Bereitschaftsstatus – Sirene, Buffs und Timer.",
-                icon         = ContentFinder<Texture2D>.Get("Things/UI/Icons/Gizmos/YellowAlert", false),
+                defaultDesc  = "Heightened awareness– sirene, buffs and timer.",
+                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/YellowAlert", false),
                 action       = () =>
                     map.GetComponent<MapComponent_AlertPanel>()
                        .StartYellowAlert(Props.yellowDurationTicks, Props.yellowCooldownTicks, Props.blinkSeconds)

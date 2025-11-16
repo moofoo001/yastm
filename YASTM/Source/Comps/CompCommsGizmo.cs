@@ -1,166 +1,160 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using UnityEngine;
+using UnityEngine;                 // Texture2D
 using Verse;
 using RimWorld;
+using RimWorld.QuestGen;          // Slate, QuestUtility
 
 namespace YASTM
 {
-    public class CompProperties_CommsGizmo : CompProperties
-    {
-        public int cooldownDays = 7; // Aid-Cooldown in Tagen
-        public CompProperties_CommsGizmo() { compClass = typeof(CompCommsGizmo); }
-    }
-
     public class CompCommsGizmo : ThingComp
     {
-        public CompProperties_CommsGizmo Props => (CompProperties_CommsGizmo)props;
+        private const int MaxActiveQuestsFromButton = 2;   // hard limit
+        private const int ContactCooldownTicks = 30000;    // ~0.5 day; tune as you like
+        private const int AidCooldownTicks = 600000;       // 10 days; you used 5–10d earlier
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            if (parent.Faction != Faction.OfPlayer) yield break;
+            if (!parent.Spawned || parent.Map == null) yield break;
 
-            // Contact Starfleet (max. 2 aktive ST-Quests)
-            yield return new Command_Action
-            {
-                defaultLabel = "Contact Starfleet Command",
-                defaultDesc  = "Initiiert eine neue Missionsübertragung (max. 2 aktive ST-Quests).",
-                icon         = ContentFinder<Texture2D>.Get("Things/UI/Icons/Gizmos/CallInSupply", false),
-                action       = TryContactStarfleet
-            };
-
-            // Request Aid (mit Map-weitem Cooldown)
-            var mc = parent.Map?.GetComponent(MapComponentResolver.ResolveType());
-            int now = Find.TickManager.TicksGame;
-            int next = CommsProgressAccessor.GetNextAidAllowedTick(parent.Map);
-            bool onCd = now < next;
-
-            var cmdAid = new Command_Action
-            {
-                defaultLabel = onCd ? $"Request Starfleet Aid (CD { (next - now).ToStringTicksToPeriod() })" : "Request Starfleet Aid",
-                defaultDesc  = "Fordert Unterstützung an (Cooldown).",
-                icon         = ContentFinder<Texture2D>.Get("Things/UI/Icons/Gizmos/CallInSupply", false),
-                action       = TryRequestAid
-            };
-            if (onCd) cmdAid.Disable($"Cooldown aktiv: { (next - now).ToStringTicksToPeriod() }");
-            yield return cmdAid;
+            yield return MakeContactStarfleetGizmo();
+            yield return MakeRequestAidGizmo();
         }
 
-        void TryContactStarfleet()
-        {
-            if (ActiveStarfleetQuests() >= 2)
-            {
-                Messages.Message("Starfleet ist ausgelastet – max. 2 aktive Missionen gleichzeitig.", MessageTypeDefOf.RejectInput);
-                return;
-            }
-
-            var map = parent.Map;
-            var parms = StorytellerUtility.DefaultParmsNow(IncidentCategoryDefOf.Misc, map);
-
-            // Nimm deinen bestehenden Incident für Queststart – Fallbacks möglich
-            var def = DefDatabase<IncidentDef>.GetNamedSilentFail("ST_StartObeliskQuest")
-                   ?? DefDatabase<IncidentDef>.AllDefs.FirstOrDefault(d => d.defName.StartsWith("GiveQuest_", StringComparison.OrdinalIgnoreCase));
-            if (def == null || !def.Worker.CanFireNow(parms))
-            {
-                Messages.Message("Keine Antwort vom Sternenflottenkommando.", MessageTypeDefOf.RejectInput);
-                return;
-            }
-
-            def.Worker.TryExecute(parms);
-            Messages.Message("Subspace-Kontakt hergestellt. Missionsdaten werden übertragen …", MessageTypeDefOf.PositiveEvent);
-        }
-
-        void TryRequestAid()
+        // -------------------------------
+        // Contact Starfleet Command
+        // -------------------------------
+        private Command_Action MakeContactStarfleetGizmo()
         {
             var map = parent.Map;
+            var mc = map.GetComponent<MapComponent_CommsProgress>() ?? new MapComponent_CommsProgress(map);
+            int activeQuests = MapComponent_CommsProgress.CountActiveQuestsAllSources();
+
             int now = Find.TickManager.TicksGame;
-            int next = CommsProgressAccessor.GetNextAidAllowedTick(map);
-            if (now < next)
+            int cdRemain = mc.NextContactAllowedTick > now ? (mc.NextContactAllowedTick - now) : 0;
+
+            var cmd = new Command_Action
             {
-                Messages.Message($"Aid-Cooldown aktiv ({(next - now).ToStringTicksToPeriod()}).", MessageTypeDefOf.RejectInput);
-                return;
-            }
+                defaultLabel = cdRemain > 0
+                    ? $"Contact Starfleet Command ({cdRemain.ToStringTicksToPeriod()}) [{Mathf.Min(activeQuests, MaxActiveQuestsFromButton)}/{MaxActiveQuestsFromButton}]"
+                    : $"Contact Starfleet Command [{Mathf.Min(activeQuests, MaxActiveQuestsFromButton)}/{MaxActiveQuestsFromButton}]",
+                defaultDesc = "Open a channel to Starfleet Command and request a mission.",
+                icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/STCommand", true),
+                action = () =>
+                {
+                    int nowInner = Find.TickManager.TicksGame;
 
-            // Beispiel: Trader Arrival (wähle hier deinen Aid-Event)
-            var def = DefDatabase<IncidentDef>.GetNamedSilentFail("OrbitalTraderArrival")
-                   ?? DefDatabase<IncidentDef>.GetNamedSilentFail("ResourcePodCrash")
-                   ?? DefDatabase<IncidentDef>.AllDefs.FirstOrDefault(d => d.category == IncidentCategoryDefOf.Misc);
+                    // global limit: any active quests count
+                    int active = MapComponent_CommsProgress.CountActiveQuestsAllSources();
+                    if (active >= MaxActiveQuestsFromButton)
+                    {
+                        Messages.Message("Too many active quests. Complete some before contacting Starfleet again.",
+                            MessageTypeDefOf.RejectInput);
+                        return;
+                    }
 
-            if (def == null)
+                    // local contact cooldown
+                    if (mc.NextContactAllowedTick > nowInner)
+                    {
+                        Messages.Message($"You must wait { (mc.NextContactAllowedTick - nowInner).ToStringTicksToPeriod() } before contacting Starfleet again.",
+                            MessageTypeDefOf.RejectInput);
+                        return;
+                    }
+
+                    Quest q = TryStartStarfleetQuest(map);
+                    if (q != null)
+                    {
+                        mc.RegisterStarfleetQuest(q);
+                        mc.NextContactAllowedTick = nowInner + ContactCooldownTicks;
+                        Messages.Message("A new mission from Starfleet Command is available.",
+                            MessageTypeDefOf.PositiveEvent);
+                    }
+                    else
+                    {
+                        mc.NextContactAllowedTick = nowInner + (ContactCooldownTicks / 2); // short fail cooldown
+                        Messages.Message("No response from Starfleet Command.",
+                            MessageTypeDefOf.NeutralEvent);
+                    }
+                }
+            };
+
+            if (activeQuests >= MaxActiveQuestsFromButton || cdRemain > 0)
+                cmd.Disable(cdRemain > 0
+                    ? $"Cooling down for {cdRemain.ToStringTicksToPeriod()}."
+                    : $"Too many active quests (max {MaxActiveQuestsFromButton}).");
+
+            return cmd;
+        }
+
+        /// <summary>
+        /// Tries to start any available Starfleet quest script (your STQ_* scripts).
+        /// Adjust the pick logic if you need a specific chain first.
+        /// </summary>
+        private static Quest TryStartStarfleetQuest(Map map)
+        {
+            // Prefer your "STQ_" scripts
+            var all = DefDatabase<QuestScriptDef>.AllDefsListForReading;
+            var candidates = all.Where(d => d.defName.StartsWith("STQ_")).ToList();
+            if (candidates.Count == 0) return null;
+
+            // Simple pick: first not currently ongoing by tag (tweak to your liking)
+            QuestScriptDef script = candidates.RandomElement();
+
+            var slate = new Slate();
+            slate.Set("map", map);
+
+            Quest q = QuestUtility.GenerateQuestAndMakeAvailable(script, slate);
+            if (q != null) QuestUtility.SendLetterQuestAvailable(q);
+            return q;
+        }
+
+        // -------------------------------
+        // Request Aid
+        // -------------------------------
+        private Command_Action MakeRequestAidGizmo()
+        {
+            var map = parent.Map;
+            var mc = map.GetComponent<MapComponent_CommsProgress>() ?? new MapComponent_CommsProgress(map);
+
+            int now = Find.TickManager.TicksGame;
+            int cdRemain = mc.NextAidAllowedTick > now ? (mc.NextAidAllowedTick - now) : 0;
+
+            var cmd = new Command_Action
             {
-                Messages.Message("Kein Aid-Incident definiert.", MessageTypeDefOf.RejectInput);
-                return;
-            }
+                defaultLabel = cdRemain > 0
+                    ? $"Request aid ({cdRemain.ToStringTicksToPeriod()})"
+                    : "Request aid",
+                defaultDesc = "Request a single aid package from Starfleet (cooldown applies).",
+                icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/CallInSupply", true),
+                action = () =>
+                {
+                    int nowInner = Find.TickManager.TicksGame;
 
-            var parms = StorytellerUtility.DefaultParmsNow(def.category, map);
-            if (def.Worker.TryExecute(parms))
-            {
-                CommsProgressAccessor.SetNextAidAllowedTick(map, now + Props.cooldownDays * 60000);
-                Messages.Message("Starfleet-Unterstützung eingeleitet.", MessageTypeDefOf.PositiveEvent);
-            }
-            else
-            {
-                Messages.Message("Aid-Übertragung fehlgeschlagen.", MessageTypeDefOf.RejectInput);
-            }
-        }
+                    if (mc.NextAidAllowedTick > nowInner)
+                    {
+                        Messages.Message($"Aid channel is cooling down for { (mc.NextAidAllowedTick - nowInner).ToStringTicksToPeriod() }.",
+                            MessageTypeDefOf.RejectInput);
+                        return;
+                    }
 
-        int ActiveStarfleetQuests()
-        {
-            return Find.QuestManager.QuestsListForReading
-                .Count(q => q != null && q.root != null && !string.IsNullOrEmpty(q.root.defName) && q.root.defName.StartsWith("STQ_", StringComparison.OrdinalIgnoreCase));
-        }
-    }
+                    // Your existing aid logic (pods/goodwill/etc.) can go here; we keep it simple and safe:
+                    // A small goodwill bump with a random non-hostile faction.
+                    var fac = Find.FactionManager.AllFactionsVisible
+                        .Where(f => !f.IsPlayer && !f.HostileTo(Faction.OfPlayer))
+                        .RandomElementWithFallback();
 
-    // ---------- Reflection-Helfer für MapComponent_CommsProgress ----------
-    static class MapComponentResolver
-    {
-        static Type cached;
-        public static Type ResolveType()
-        {
-            if (cached != null) return cached;
-            // suche nach "YASTM.MapComponent_CommsProgress"
-            cached = GenTypes.AllTypes.FirstOrDefault(t =>
-                t != null && t.Namespace == "YASTM" && t.Name == "MapComponent_CommsProgress");
-            return cached ?? typeof(MapComponent); // fallback (wird nie instanziiert)
-        }
-    }
+                    if (fac != null) fac.TryAffectGoodwillWith(Faction.OfPlayer, 5);
 
-    static class CommsProgressAccessor
-    {
-        static FieldInfo fiLower;   // nextAidAllowedTick
-        static PropertyInfo piUpper; // NextAidAllowedTick
-        static bool triedResolve;
+                    mc.NextAidAllowedTick = nowInner + AidCooldownTicks;
+                    Messages.Message("Starfleet has acknowledged your request. Aid is being processed.",
+                        MessageTypeDefOf.PositiveEvent);
+                }
+            };
 
-        static void EnsureResolved(object instance)
-        {
-            if (triedResolve || instance == null) return;
-            var t = instance.GetType();
-            piUpper = t.GetProperty("NextAidAllowedTick", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            fiLower = t.GetField("nextAidAllowedTick", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            triedResolve = true;
-        }
+            if (cdRemain > 0)
+                cmd.Disable($"Cooling down for {cdRemain.ToStringTicksToPeriod()}.");
 
-        public static int GetNextAidAllowedTick(Map map)
-        {
-            if (map == null) return 0;
-            var mc = map.GetComponent(MapComponentResolver.ResolveType());
-            if (mc == null) return 0;
-            EnsureResolved(mc);
-            if (piUpper != null) return (int)piUpper.GetValue(mc);
-            if (fiLower != null) return (int)fiLower.GetValue(mc);
-            return 0;
-        }
-
-        public static void SetNextAidAllowedTick(Map map, int value)
-        {
-            if (map == null) return;
-            var mc = map.GetComponent(MapComponentResolver.ResolveType());
-            if (mc == null) return;
-            EnsureResolved(mc);
-            if (piUpper != null) { piUpper.SetValue(mc, value); return; }
-            if (fiLower != null) { fiLower.SetValue(mc, value); return; }
+            return cmd;
         }
     }
 }

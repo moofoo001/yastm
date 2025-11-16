@@ -40,8 +40,8 @@ namespace YASTM
             BlinkUntilTickRed = now + blinkSeconds * 60;
 
             // Effekte
-            PlayOneShotOnMap("ST_SFX_RedAlert"); // fallback-OneShot
-            TryStartSustainer(ref redSirenSustainer, "ST_SFX_RedAlertSiren");
+            PlayOneShotOnMap("ST_RedAlert_Chirp"); // fallback-OneShot
+            TryStartSustainer(ref redSirenSustainer, "ST_Siren_RedLoop");
 
             Messages.Message("Red Alert aktiviert!", MessageTypeDefOf.ThreatBig, historical:false);
             ApplyAlertHediff("ST_Alert_RedState");
@@ -68,8 +68,8 @@ namespace YASTM
             NextAllowedTickYellow = YellowEndTick + cooldownTicks;
             BlinkUntilTickYellow = now + blinkSeconds * 60;
 
-            PlayOneShotOnMap("ST_SFX_YellowAlert");
-            TryStartSustainer(ref yellowSirenSustainer, "ST_SFX_YellowAlertSiren");
+            PlayOneShotOnMap("ST_YellowAlert_Chirp");
+            TryStartSustainer(ref yellowSirenSustainer, "ST_Siren_YellowLoop");
 
             Messages.Message("Yellow Alert aktiviert!", MessageTypeDefOf.NeutralEvent, historical:false);
             ApplyAlertHediff("ST_Alert_YellowState");

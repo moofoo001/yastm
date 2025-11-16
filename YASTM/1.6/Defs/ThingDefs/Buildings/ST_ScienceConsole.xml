@@ -21,7 +21,7 @@
     <graphicData>
       <texPath>Things/Building/Science/ST_ScienceConsole</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2.2,2.8)</drawSize>
+      <drawSize>(2.5,2.6)</drawSize>
       <shadowData>
         <volume>(2.0, 0.6, 0.3)</volume>
       </shadowData>
@@ -92,7 +92,7 @@
         <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
         <maxSimultaneous>2</maxSimultaneous>
       </li>
-    <li Class="YASTM.CompScienceConsole"/>
+     <li Class="YASTM.CompProperties_ScienceConsole"/>
     </comps>
 
     <modExtensions>

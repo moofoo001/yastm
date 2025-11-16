@@ -16,7 +16,7 @@
     <value>
       <li Class="YASTM.CompProperties_ConsoleLink">
         <linkTag>transporter-pad</linkTag>
-        <maxDistance>40</maxDistance>
+        <maxLinkDistance>40</maxLinkDistance>
       </li>
     </value>
   </Operation>

@@ -1,12 +1,12 @@
-// File: Source/Comps/CompScienceConsole.cs
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
-using RimWorld; // <- wichtig für MessageTypeDefOf
+using RimWorld;
 
 namespace YASTM
 {
+    // Simple status gizmo; LCARS research boost is handled via facilities/links in XML.
     public class CompScienceConsole : ThingComp
     {
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
@@ -20,10 +20,10 @@ namespace YASTM
             yield return new Command_Action
             {
                 defaultLabel = $"Linked scanners: {linkedSensors}",
-                defaultDesc  = "Scanner in Reichweite dieser Konsole.",
+                defaultDesc  = "Number of anomaly scanners in range of this console.",
                 icon         = ContentFinder<Texture2D>.Get("UI/Commands/DesirePower", true),
                 action       = () =>
-                    Messages.Message($"Science Console: {linkedSensors} Scanner in Reichweite.",
+                    Messages.Message($"Science console: {linkedSensors} scanner(s) in range.",
                         MessageTypeDefOf.NeutralEvent, historical: false)
             };
         }

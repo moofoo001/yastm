@@ -54,7 +54,7 @@ namespace YASTM
             {
                 defaultLabel = "ST.Diplo.Improve.Button".Translate(),
                 defaultDesc  = "ST.Diplo.Improve.Desc".Translate(Props.improveCost, Props.improveGoodwill),
-                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/CallAid", false),
+                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/Diplomacy", false),
                 action       = OpenImproveMenu
             };
             if (!powered)

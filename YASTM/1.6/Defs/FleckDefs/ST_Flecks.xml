@@ -77,18 +77,18 @@
   <FleckDef>
     <defName>ST_Fleck_TransporterColumn_Static</defName>
     <graphicData>
-      <texPath>Things/Effects/ST_beamfx</texPath>
+      <texPath>Things/Effects/ST_beamfx2</texPath>
       <graphicClass>Graphic_Fleck</graphicClass>
       <shaderType>Transparent</shaderType>
       <drawSize>1.0</drawSize>
-      <color>(0.65,0.85,1.0,0.75)</color>    
+      <color>(0.65,0.85,1.0,0.75)</color>    <!-- light blue, semi-transparent -->
     </graphicData>
     <fleckSystemClass>FleckSystemStatic</fleckSystemClass>
     <altitudeLayer>MoteOverhead</altitudeLayer>
     <realTime>false</realTime>
     <fadeInTime>0.10</fadeInTime>
     <solidTime>1.00</solidTime>
-    <fadeOutTime>1.00</fadeOutTime>
+    <fadeOutTime>0.50</fadeOutTime>
   </FleckDef>
 
   <!-- effect attached to Pawn -->
@@ -98,7 +98,7 @@
       <texPath>Things/Effects/ST_beamfx</texPath>
       <graphicClass>Graphic_Fleck</graphicClass>
       <shaderType>Transparent</shaderType>
-          <color>(0.65,0.85,1.0,0.75)</color>    
+          <color>(0.65,0.85,1.0,0.75)</color>     <!-- light blue, semi-transparent -->
       <drawSize>1.0</drawSize>
     </graphicData>
     <fleckSystemClass>FleckSystemStatic</fleckSystemClass>

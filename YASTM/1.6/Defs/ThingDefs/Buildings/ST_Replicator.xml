@@ -30,32 +30,14 @@
     <fillPercent>0.5</fillPercent>
     <canOverlapZones>false</canOverlapZones>
     <surfaceType>Item</surfaceType>
-    <recipes>
-      <li>CookMealSimple</li>
-      <li>CookMealFine</li>
-      <li>CookMealFine_Veg</li>
-      <li>CookMealFine_Meat</li>
-      <li>CookMealLavish</li>
-      <li>CookMealLavish_Veg</li>
-      <li>CookMealLavish_Meat</li>
-      <li>CookMealSurvival</li>
-      <li>CookMealSimpleBulk</li>
-      <li>CookMealFineBulk</li>
-      <li>CookMealFineBulk_Veg</li>
-      <li>CookMealFineBulk_Meat</li>
-      <li>CookMealLavishBulk</li>
-      <li>CookMealLavishBulk_Veg</li>
-      <li>CookMealLavishBulk_Meat</li>
-      <li>CookMealSurvivalBulk</li>
-      <li>Make_Pemmican</li>
-      <li>Make_PemmicanBulk</li>
-      <li>ST_Recipe_MedicineFromVenom</li>
-      <li MayRequire="Ludeon.RimWorld.Biotech">Make_BabyFood</li>
-      <li MayRequire="Ludeon.RimWorld.Biotech">Make_BabyFoodBulk</li>
-    </recipes>
+
     <inspectorTabs>
       <li>ITab_Bills</li>
     </inspectorTabs>
+    
+    <recipes>
+        <li>ST_Recipe_MedicineFromVenom</li>
+    </recipes>
 
     <placeWorkers>
       <li>PlaceWorker_ShowFacilitiesConnections</li>
@@ -75,8 +57,8 @@
     </statBases>
 
     <building>
-    <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
-          <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+      <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
       <uninstallWork>1800</uninstallWork>
       <isMealSource>true</isMealSource>
       <paintable>true</paintable>
@@ -85,7 +67,6 @@
         <li>Production</li>
       </buildingTags>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
-
     </building>
 
     <soundInteract>ST_SFX_LCARS_Click</soundInteract>
@@ -99,6 +80,7 @@
       <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Breakdownable" />
       <li Class="CompProperties_AffectedByFacilities" />
+      <li Class="YASTM.CompProperties_ReplicatorRunner" />
       <li Class="CompProperties_ReportWorkSpeed">
         <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
       </li>
