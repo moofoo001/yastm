@@ -4,6 +4,11 @@
   <!-- YASTM – Obelisk Questline (v1.6) -->
   <QuestScriptDef>
     <defName>STQ_VE_Obelisks_I_II_Setup</defName>
+    <modExtensions>
+      <li Class="YASTM.DefModExt_StarfleetComms">
+        <selectionWeight>0.1</selectionWeight>
+      </li>
+    </modExtensions>
     <questNameRules>
       <rulesStrings>
         <li>questName->Obelisk Survey</li>

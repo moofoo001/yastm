@@ -5,7 +5,7 @@
   <JobDef>
     <defName>ST_ScanObelisk</defName>
     <label>scan obelisk</label>
-    <driverClass>StarTrekFactions.Work.JobDriver_ScanObelisk</driverClass>
+    <driverClass>YASTM.Jobs.JobDriver_ScanObelisk</driverClass>
     <reportString>scanning the obelisk TargetA.</reportString>
     <playerInterruptible>true</playerInterruptible>
     <casualInterruptible>true</casualInterruptible>
@@ -13,7 +13,7 @@
    <checkOverrideOnDamage>OnlyIfInstigatorNotJobTarget</checkOverrideOnDamage>
   </JobDef>
 
-  <WorkGiverDef>
+  <!--WorkGiverDef>
     <defName>ST_WorkGiver_ScanObelisk</defName>
     <label>scan obelisks</label>
     <giverClass>StarTrekFactions.Work.WorkGiver_ScanObelisk</giverClass>
@@ -30,7 +30,7 @@
     <scanThings>true</scanThings>
     <emergency>false</emergency>
   </WorkGiverDef>
-
+--> 
   <!-- Med Tricorder -->
 
  <WorkGiverDef>

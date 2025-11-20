@@ -76,3 +76,4 @@ namespace YASTM.IdeoFix
         }
     }
 }
+

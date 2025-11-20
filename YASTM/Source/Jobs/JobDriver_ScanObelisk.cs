@@ -3,43 +3,32 @@ using RimWorld;
 using Verse;
 using Verse.AI;
 
-namespace StarTrekFactions.Work
+namespace YASTM.Jobs
 {
+    /// <summary>
+    /// Legacy job that previously made pawns walk to obelisks and scan.
+    /// Scanning is now operated from the Science Console; this job aborts immediately
+    /// with a player-facing message, to prevent old queued jobs from running.
+    /// </summary>
     public class JobDriver_ScanObelisk : JobDriver
     {
-        private Thing TargetThing => job.targetA.Thing;
-        private StarTrekFactions.Comps.CompScanWork Comp
-            => TargetThing?.TryGetComp<StarTrekFactions.Comps.CompScanWork>();
-
-        public override bool TryMakePreToilReservations(bool errorOnFailed)
-        {
-            return pawn.Reserve(job.targetA, job, 1, -1, null, errorOnFailed);
-        }
+        public override bool TryMakePreToilReservations(bool errorOnFailed) => true;
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            this.FailOnDestroyedOrNull(TargetIndex.A);
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
-
-
-            this.FailOn(() => Comp == null);
-            this.FailOn(() => Comp.Completed);
-            this.FailOn(() => !Comp.PoweredSensorNearby());
-
-
-            int workTicks = Comp?.Props.workTicksBase ?? 6000;
-            var work = Toils_General.Wait(workTicks);
-            work.WithProgressBarToilDelay(TargetIndex.A);
-            work.FailOn(() => Comp == null || !Comp.PoweredSensorNearby());
-            yield return work;
-
-
-            var finish = new Toil
+            var cancel = new Toil
             {
-                initAction = () => { Comp?.OnScanFinished(pawn); },
+                initAction = () =>
+                {
+                    Messages.Message(
+                        "Obelisk scanning has moved to the Science Console. Use the console to begin a scan.",
+                        pawn, MessageTypeDefOf.RejectInput, historical: false);
+                    EndJobWith(JobCondition.Incompletable);
+                },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
-            yield return finish;
+            yield return cancel;
         }
     }
 }
+

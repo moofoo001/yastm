@@ -1,39 +1,64 @@
-using System.Collections.Generic;
+using System;
 using System.Linq;
-using Verse;
 using RimWorld;
+using Verse;
 
-namespace YASTM
+namespace YASTM.MapSystems
 {
+    /// <summary>
+    /// Tracks comms cooldowns and provides helpers for labels + active quest count.
+    /// </summary>
     public class MapComponent_CommsProgress : MapComponent
     {
-        // Cooldowns we use from gizmos
-        public int NextAidAllowedTick = -1;
-        public int NextContactAllowedTick = -1;
-
-        // (optional book-keeping; kept for save-compat even if not strictly needed)
-        private HashSet<int> starfleetQuestIds = new HashSet<int>();
+        // Cooldowns (game ticks)
+        private int nextAidAllowedTick;
+        private int nextContactAllowedTick;
 
         public MapComponent_CommsProgress(Map map) : base(map) { }
 
+        // Ready flags (properties — not methods)
+        public bool AidReady => Find.TickManager.TicksGame >= nextAidAllowedTick;
+        public bool ContactReady => Find.TickManager.TicksGame >= nextContactAllowedTick;
+        public void RegisterScan(bool atA)
+        {
+            var flow = map.GetComponent<YASTM.MapSystems.MapComponent_ObeliskFlow>();
+            flow?.RegisterScan(atA);
+        }
+        public void ArmAidCooldown(float days)
+        {
+            int add = (int)Math.Ceiling(days * GenDate.TicksPerDay);
+            nextAidAllowedTick = Find.TickManager.TicksGame + add;
+        }
+
+        public void ArmContactCooldown(float days)
+        {
+            int add = (int)Math.Ceiling(days * GenDate.TicksPerDay);
+            nextContactAllowedTick = Find.TickManager.TicksGame + add;
+        }
+
+        public string AidCooldownLabel(Map _)      => FormatCooldown(nextAidAllowedTick);
+        public string ContactCooldownLabel(Map _)  => FormatCooldown(nextContactAllowedTick);
+
+        public int ActiveQuestCount()
+        {
+            // Count ALL ongoing quests (any source).
+            return Find.QuestManager.QuestsListForReading.Count(q => q.State == QuestState.Ongoing);
+        }
+
+        private static string FormatCooldown(int untilTick)
+        {
+            int now = Find.TickManager.TicksGame;
+            int remaining = untilTick - now;
+            if (remaining <= 0) return "Ready";
+            // Use RimWorld's built-in formatter (handles days/hours/mins text)
+            return remaining.ToStringTicksToPeriod();
+        }
+
         public override void ExposeData()
         {
-            Scribe_Values.Look(ref NextAidAllowedTick, "NextAidAllowedTick", -1);
-            Scribe_Values.Look(ref NextContactAllowedTick, "NextContactAllowedTick", -1);
-            Scribe_Collections.Look(ref starfleetQuestIds, "starfleetQuestIds", LookMode.Value);
-            if (Scribe.mode == LoadSaveMode.PostLoadInit && starfleetQuestIds == null)
-                starfleetQuestIds = new HashSet<int>();
-        }
-
-        public void RegisterStarfleetQuest(Quest q)
-        {
-            if (q != null) starfleetQuestIds.Add(q.id);
-        }
-
-        /// <summary>Counts ALL ongoing quests regardless of source.</summary>
-        public static int CountActiveQuestsAllSources()
-        {
-            return Find.QuestManager.QuestsListForReading.Count(q => q.State == QuestState.Ongoing);
+            base.ExposeData();
+            Scribe_Values.Look(ref nextAidAllowedTick, "nextAidAllowedTick", 0);
+            Scribe_Values.Look(ref nextContactAllowedTick, "nextContactAllowedTick", 0);
         }
     }
 }

@@ -8,3 +8,4 @@ namespace StarTrekFactions.Systems
         public GameComponent_SignalDelay(World world) : base(world) { }
     }
 }
+

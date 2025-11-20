@@ -33,3 +33,4 @@ namespace YASTM
         public string pipApparelDefName = null;
     }
 }
+

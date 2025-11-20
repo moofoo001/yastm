@@ -36,3 +36,4 @@ namespace StarTrekFactions.Comps
         void Send(string tag) => Find.SignalManager.SendSignal(new Signal(tag, parent.Named("SUBJECT")));
     }
 }
+

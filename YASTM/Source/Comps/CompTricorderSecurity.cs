@@ -109,3 +109,4 @@ namespace YASTM
         public IntRange HediffDuration => new IntRange(Props.hediffMinTicks, Props.hediffMaxTicks);
     }
 }
+

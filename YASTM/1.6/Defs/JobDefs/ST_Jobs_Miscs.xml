@@ -37,4 +37,12 @@
     <playerInterruptible>true</playerInterruptible>
   </JobDef>
 
+  <!-- science console scan operation -->
+  <JobDef>
+    <defName>YASTM_OperateScienceConsoleScan</defName>
+    <driverClass>YASTM.Jobs.JobDriver_OperateScienceConsoleScan</driverClass>
+    <reportString>operating the science console.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
+
 </Defs>

@@ -12,7 +12,7 @@
       <li>Wall</li>
     </replaceTags>
   <graphicData>
-    <texPath>Things/Building/Ship/HullWall</texPath>
+    <texPath>Things/Building/Ship/HullWall2</texPath>
     <graphicClass>Graphic_Single</graphicClass>
     <linkType>CornerFiller</linkType>
     <linkFlags>
@@ -104,102 +104,77 @@
   </costList>
 </ThingDef>
 
-  <!-- Starship Hull Glass  -->
-<ThingDef ParentName="BuildingBase">
-  <defName>ST_HullGlass</defName>
-  <label>hull viewport</label>
-  <thingClass>Building</thingClass>
-  <category>Building</category>
-    <replaceTags>
-      <li>Wall</li>
-    </replaceTags>
-  <description>Transparent duraglass panel rated for hull pressure.</description>
-   <graphicData>
-    <texPath>Things/Building/Ship/HullGlass</texPath>
-    <graphicClass>Graphic_Single</graphicClass>
-    <linkType>CornerFiller</linkType>
+  <!-- Starship Hull Window  -->
+      
+ <ThingDef ParentName="LampBase">
+    <defName>ST_HullWindows</defName>
+    <label>hull viewport</label>
+    <description>Transparent duraglass panel rated for hull pressure.</description>
+    <rotatable>true</rotatable> 
+    <graphicData> 
+      <texPath>Things/Building/Ship/STHull_Window</texPath>
+      <graphicClass>Graphic_Multi</graphicClass> 
+	  <shaderType>CutoutComplex</shaderType> 
+      <drawOffsetNorth>(0,0,1)</drawOffsetNorth> 
+      <drawOffsetSouth>(0,0,-1)</drawOffsetSouth> 
+      <drawOffsetWest>(-1,0,0)</drawOffsetWest>
+      <drawOffsetEast>(1,0,0)</drawOffsetEast> 
+	  <drawSize>(1.1,1.1)</drawSize> 
+      <damageData> 
+        <enabled>false</enabled>
+      </damageData>
     <linkFlags>
-    <li>Wall</li>
-    <li>Rock</li>
+      <li>Wall</li>
+       <li>Rock</li>
     </linkFlags>
-    <damageData>
-        <cornerTL>Damage/Corner</cornerTL>
-        <cornerTR>Damage/Corner</cornerTR>
-        <cornerBL>Damage/Corner</cornerBL>
-        <cornerBR>Damage/Corner</cornerBR>
-        <edgeTop>Damage/Edge</edgeTop>
-        <edgeBot>Damage/Edge</edgeBot>
-        <edgeLeft>Damage/Edge</edgeLeft>
-        <edgeRight>Damage/Edge</edgeRight>
-    </damageData>
-  </graphicData>
-  <uiIconPath>Things/Building/Ship/HullGlass_MenuIcon</uiIconPath>
-    <statBases>
-      <MaxHitPoints>550</MaxHitPoints>
-      <WorkToBuild>2800</WorkToBuild>
-      <Flammability>0</Flammability>
-      <Beauty>1</Beauty>
-    </statBases>
-  <stuffCategories>
-      <li>Metallic</li>
-  </stuffCategories>
-  <costStuffCount>10</costStuffCount>
-   <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>Impassable</passability>
-    <blockWind>true</blockWind>
-    <castEdgeShadows>true</castEdgeShadows>
+    </graphicData>
     <fillPercent>1</fillPercent>
-    <coversFloor>true</coversFloor>
-    <drawStyleCategory>Walls</drawStyleCategory>
-    <tickerType>Never</tickerType>
-    <rotatable>false</rotatable>
-    <selectable>true</selectable>
-    <neverMultiSelect>true</neverMultiSelect>
-    <useStuffTerrainAffordance>true</useStuffTerrainAffordance>
-    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded> <!-- Best affordance needed for stone -->
-    <holdsRoof>true</holdsRoof>
-    <designationCategory>Structure</designationCategory>
-    <uiOrder>2000</uiOrder>
-    <staticSunShadowHeight>1.0</staticSunShadowHeight>
-    <blockLight>false</blockLight>
-    <canOverlapZones>false</canOverlapZones>
-    <fertility>0</fertility>
-    <stuffCategories>
-      <li>Metallic</li>
-  </stuffCategories>
-   <building>
-      <paintable>true</paintable>
-      <isInert>true</isInert>
-      <isWall>true</isWall>
-      <isPlaceOverableWall>true</isPlaceOverableWall>
-      <ai_chillDestination>false</ai_chillDestination>
-      <supportsWallAttachments>true</supportsWallAttachments>
+    <uiIconPath>Things/Building/Ship/STHull_Window</uiIconPath> 
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <costList> 
+      <Steel>15</Steel>
+    </costList>
+    <statBases>
+      <WorkToBuild>330</WorkToBuild> 
+      <MaxHitPoints>35</MaxHitPoints> 
+      <Mass>2</Mass> 
+	  <Beauty>5</Beauty> 
+	  <Flammability>0.5</Flammability>
+    </statBases>
+	<constructionSkillPrerequisite>3</constructionSkillPrerequisite> 
+    <uiOrder>2061</uiOrder> 
+    <passability>Standable</passability> 
+    <terrainAffordanceNeeded IsNull="True" />
+    <pathCost>0</pathCost> 
+    <overrideMinifiedRot>North</overrideMinifiedRot> 
+    <minifiedDrawOffset>(0, 0, 0.2)</minifiedDrawOffset> 
+          <passability>Impassable</passability>
+    <building> 
+      <isEdifice>true</isEdifice> 
+      <isAttachment>true</isAttachment> 
+	    <paintable>true</paintable> 
+      <supportsWallAttachments>true</supportsWallAttachments> 
       <isStuffableAirtight>true</isStuffableAirtight>
-      <relatedBuildCommands>
-        <li>Door</li>
-        <li>Autodoor</li>
-        <li MayRequire="Ludeon.RimWorld.Anomaly">SecurityDoor</li>
-        <li MayRequire="Ludeon.RimWorld.Odyssey">VacBarrier</li>
-        <li>Cooler</li>
-        <li>Vent</li>
-      </relatedBuildCommands>
+
+
     </building>
-    <comps>
-      <li Class="CompProperties_MeditationFocus">
-        <statDef>MeditationFocusStrength</statDef>
-        <focusTypes>
-          <li>Minimal</li>
-        </focusTypes>
+    <placeWorkers> 
+      <li>Placeworker_AttachedToWall</li> 
+    </placeWorkers>
+    <comps> 
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius> 
+        <glowColor>(255,237,221,0)</glowColor>  <!-- Soft warm light -->
+        <overlightRadius>0</overlightRadius>
+        <colorPickerEnabled>true</colorPickerEnabled> 
+        <darklightToggle>true</darklightToggle> 
       </li>
     </comps>
-  <researchPrerequisites><li>ST_UFP_Structures</li></researchPrerequisites>
-  <costList>
-    <Plasteel>6</Plasteel>
-    <Steel>20</Steel>
-    <Gold>2</Gold>
-  </costList>
-</ThingDef>
+	<designationCategory>Structure</designationCategory> 
+	<researchPrerequisites> 
+      <li>ST_UFP_Structures</li>
+    </researchPrerequisites>
+  </ThingDef>
 
 <ThingDef ParentName="DoorBase">
     <defName>ST_HullDoor</defName>
@@ -215,12 +190,13 @@
     </statBases>
     <graphicData>
       <texPath>Things/Building/Ship/ST_HullDoor_Mover</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>CutoutComplex</shaderType>
       <damageData>
         <enabled>false</enabled>
       </damageData>
     </graphicData>
-    <uiIconPath>Things/Building/Ship/ST_HullDoor_MenuIcon</uiIconPath>
+    <uiIconPath>Things/Building/Ship/ST_HullDoor</uiIconPath>
     <building>
       <blueprintGraphicData>
         <texPath>Things/Building/Ship/ST_HullDoor_Blueprint</texPath>
@@ -232,6 +208,9 @@
       <soundDoorOpenManual>ST_Door_Sound</soundDoorOpenManual>
       <soundDoorCloseManual>ST_Door_Sound</soundDoorCloseManual>
     </building>
+    <placeWorkers>
+      <li>PlaceWorker_MultiCellDoor</li>
+    </placeWorkers>
     <stuffCategories Inherit="False">
       <li>Metallic</li>
     </stuffCategories>

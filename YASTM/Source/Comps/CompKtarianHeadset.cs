@@ -82,3 +82,4 @@ namespace YASTM
         public float ObsessionChance => Props.obsessionChance;
     }
 }
+

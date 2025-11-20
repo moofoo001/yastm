@@ -1,31 +1,32 @@
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 using Verse;
-using RimWorld;
 
 namespace YASTM
 {
-    // Simple status gizmo; LCARS research boost is handled via facilities/links in XML.
+    // Simple properties holder (XML: <compClass>YASTM.CompScienceConsole</compClass>)
+    public class CompProperties_ScienceConsole : CompProperties
+    {
+        // purely informational; the actual boost is handled by your CompProperties_Facility in XML
+        public float researchSpeedFactor = 0.04f;   // +4%
+        public int maxLinkedPerBuilding = 2;
+
+        public CompProperties_ScienceConsole()
+        {
+            compClass = typeof(CompScienceConsole);
+        }
+    }
+
+    // Lightweight comp that only provides inspect info; no AllComps/ThingWithComps needed
     public class CompScienceConsole : ThingComp
     {
-        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        public CompProperties_ScienceConsole Props => (CompProperties_ScienceConsole)props;
+
+        public override string CompInspectStringExtra()
         {
-            var map = parent.Map;
-            if (map == null || parent.Faction != Faction.OfPlayer) yield break;
-
-            int linkedSensors = map.listerThings.AllThings
-                .Count(t => t.def?.defName == "ST_AnomalySensor" && parent.Position.InHorDistOf(t.Position, 60f));
-
-            yield return new Command_Action
-            {
-                defaultLabel = $"Linked scanners: {linkedSensors}",
-                defaultDesc  = "Number of anomaly scanners in range of this console.",
-                icon         = ContentFinder<Texture2D>.Get("UI/Commands/DesirePower", true),
-                action       = () =>
-                    Messages.Message($"Science console: {linkedSensors} scanner(s) in range.",
-                        MessageTypeDefOf.NeutralEvent, historical: false)
-            };
+            // We just show what the XML facility would provide; showing "(inactive)" keeps parity with your screenshot.
+            // If you want live status later, we'll add a tiny radius/link probe that doesn't rely on AllComps.
+            string pct = (Props.researchSpeedFactor * 100f).ToString("0.#");
+            return $"Research speed factor: +{pct}% (inactive)\nMax connected per building: {Props.maxLinkedPerBuilding}";
         }
     }
 }
+

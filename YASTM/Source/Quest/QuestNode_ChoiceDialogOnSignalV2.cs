@@ -49,3 +49,4 @@ namespace StarTrekFactions.QuestNodes
             => !inSignal.NullOrEmpty() && !optionASignal.NullOrEmpty() && !optionBSignal.NullOrEmpty();
     }
 }
+

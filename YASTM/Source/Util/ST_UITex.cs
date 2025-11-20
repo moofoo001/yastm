@@ -20,3 +20,4 @@ namespace YASTM
         public static readonly Texture2D ForceField  = Load("UI/Icons/Gizmos/ForceField");
     }
 }
+

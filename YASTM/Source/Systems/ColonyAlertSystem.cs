@@ -10,3 +10,4 @@ namespace YASTM
         public MapComponent_ColonyAlert(Map map) : base(map) { }
     }
 }
+

@@ -1,39 +1,56 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <ThingDef ParentName="BuildingBase">
-    <defName>ST_AnomalySensor</defName>
-    <label>subspace anomaly sensor</label>
-    <thingClass>Building</thingClass>
-    <category>Building</category>
-    <selectable>true</selectable>
+ <ThingDef ParentName="BuildingBase">
+    <defName>ST_Subspace_Scanner</defName>
+    <label>subspace scanner</label>
+    <description>Wide-area subspace sweep emitter. Must be linked to a science console to initiate scans.</description>
 
+    <!-- Graphics (add a PNG at this path) -->
     <graphicData>
-      <texPath>Things/Building/Science/ST_AnomalySensor</texPath>
+      <texPath>Things/Building/Science/ST_SubspaceScanner</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2,2)</drawSize>
+      <drawSize>(2.5,2.6)</drawSize>
+      <shaderType>CutoutComplex</shaderType>
     </graphicData>
 
-    <altitudeLayer>Building</altitudeLayer>
-    <size>(1,1)</size>
-    <rotatable>true</rotatable>
-    <defaultPlacingRot>South</defaultPlacingRot>
 
-    <!-- FIX: richtiger PlaceWorker -->
-    <placeWorkers>
-      <li>PlaceWorker_ShowFacilitiesConnections</li>
-    </placeWorkers>
+    <!-- Placement / interaction -->
+    <size>(2,2)</size>
+    <rotatable>true</rotatable>
+    <passability>PassThroughOnly</passability>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Building</altitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    
+    <statBases>
+      <WorkToBuild>1200</WorkToBuild>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Mass>30</Mass>
+    </statBases>
+    <thingClass>Building</thingClass>
+
 
     <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>150</basePowerConsumption>
+      <li Class="RimWorld.CompProperties_Power">
+        <compClass>RimWorld.CompPowerTrader</compClass>
+        <basePowerConsumption>350</basePowerConsumption>
+        <shortCircuitInRain>true</shortCircuitInRain>
       </li>
-      <li Class="CompProperties_Flickable" />
-      <li Class="CompProperties_Breakdownable" />
 
-      <!-- Facility-Verknüpfung zu den Obelisken -->
-      <li Class="CompProperties_Facility">
+      <li Class="YASTM.CompProperties_SubspaceScanner"/>
+
+      <!-- Accepts the science console as facility/controller -->
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>ST_ScienceConsole</li>
+        </linkableFacilities>
+      </li>
+
+      <!-- Proximity link to both obelisks -->
+      <li Class="RimWorld.CompProperties_Facility">
         <linkableBuildings>
           <li>ST_Obelisk_A</li>
           <li>ST_Obelisk_B</li>
@@ -42,32 +59,32 @@
         <maxSimultaneous>2</maxSimultaneous>
       </li>
     </comps>
-
+    
     <modExtensions>
       <li Class="YASTM.DefModExt_LinkTags">
         <tags>
-          <li>science-scanner</li>
+          <li>ST_Link_Science</li>
         </tags>
       </li>
     </modExtensions>
 
+    <placeWorkers>
+      <li>RimWorld.PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+    
+    <soundInteract>ST_SFX_LCARS_Click</soundInteract>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>120</costStuffCount>
+    
     <costList>
-      <Steel>60</Steel>
-      <ComponentIndustrial>3</ComponentIndustrial>
+      <ComponentIndustrial>6</ComponentIndustrial>
+      <Plasteel>30</Plasteel>
     </costList>
-
-    <statBases>
-      <WorkToBuild>1200</WorkToBuild>
-      <MaxHitPoints>160</MaxHitPoints>
-      <Flammability>0.2</Flammability>
-      <Mass>20</Mass>
-    </statBases>
-
     <designationCategory>ST_Designation</designationCategory>
-    <researchPrerequisites>
-      <li>ST_SubspaceTelemetry</li>
-      <li>MicroelectronicsBasics</li>
-    </researchPrerequisites>
+
+
   </ThingDef>
 
 </Defs>

@@ -88,7 +88,7 @@
   <thingClass>Building_OrbitalTradeBeacon</thingClass>
   <category>Building</category>
   <description>Subspace relay for Starfleet communications. Also acts as an orbital trade beacon.</description>
-  <altitudeLayer>Item</altitudeLayer>
+  <altitudeLayer>Building</altitudeLayer>
   <selectable>true</selectable>
   <rotatable>true</rotatable>
   <size>(1,1)</size>
@@ -129,8 +129,6 @@
       </linkTags>
       <maxLinkDistance>25</maxLinkDistance>
     </li>
-
-    <!-- Optional: als Facility (nur falls du es nutzt) -->
     <li Class="CompProperties_Facility">
       <linkableBuildings>
         <li>ST_CommsConsole</li>
@@ -138,7 +136,31 @@
       <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
       <maxSimultaneous>1</maxSimultaneous>
     </li>
+      <li Class="StarTrekFactions.Comps.CompProperties_UseEffect_SpawnFarAndSignal">
+        <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
+        <minDist>42</minDist>
+        <maxDist>72</maxDist>
+        <outsideHome>true</outsideHome>
+        <requirePowerOn>true</requirePowerOn>  
+        <thingA>ST_Obelisk_A</thingA>
+        <thingB>ST_Obelisk_B</thingB>
+        <questDefToEnsure>STQ_VE_Obelisks_I_II_Setup</questDefToEnsure>
+      </li>
+
   </comps>
+  
+    <modExtensions>
+      <li Class="YASTM.DefModExt_LinkTags">
+        <tags>
+          <li>ST_Link_Comms</li>
+        </tags>
+      </li>
+    </modExtensions>
+  <placeWorkers>
+    <li>PlaceWorker_ShowFacilitiesConnections</li>
+    <li>PlaceWorker_ShowTradeBeaconRadius</li>
+  </placeWorkers>
+  
   <designationCategory>ST_Designation</designationCategory>
   <building>
     <isEdifice>false</isEdifice>
@@ -207,25 +229,35 @@
       </li>
       <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Breakdownable" />
+      
+      <!-- Console Link to Comms Beacon -->
       <li Class="YASTM.CompProperties_ConsoleLink">
         <linkTags>
           <li>ST_Link_Comms</li>
         </linkTags>
         <maxLinkDistance>25</maxLinkDistance>
       </li>
-      <li Class="YASTM.CompProperties_CommsGizmo">
-        <aidCooldownDays>7</aidCooldownDays>
+      
+      <li Class="YASTM.Comps.CompProperties_CommsGizmo">
         <contactCooldownDays>7</contactCooldownDays>
-        <maxActiveStarfleetQuests>2</maxActiveStarfleetQuests>
-        <questPrefix>STQ_</questPrefix>
-        <requiredRankTraits>
+        <aidCooldownDays>7</aidCooldownDays>
+        <maxActiveQuests>2</maxActiveQuests>
+
+        <!-- Rang-Voraussetzungen: Feldname heißt jetzt requiredOfficerTraits -->
+        <requiredOfficerTraits>
           <li>ST_Rank_LieutenantJG</li>
           <li>ST_Rank_Lieutenant</li>
           <li>ST_Rank_LtCommander</li>
           <li>ST_Rank_Commander</li>
           <li>ST_Rank_Captain</li>
-        </requiredRankTraits>
+        </requiredOfficerTraits>
+
+        <!-- Welche STQ-Skripte der Button überhaupt anfragen darf -->
+        <questPool>
+          <li>STQ_VE_Obelisks_I_II_Setup</li>
+        </questPool>
       </li>
+      
       <!-- Diplomacy -->
       <li Class="YASTM.CompProperties_DiplomacyComms">
         <improveCost>300</improveCost>

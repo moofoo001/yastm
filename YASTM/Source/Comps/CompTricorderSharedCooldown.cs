@@ -42,3 +42,4 @@ namespace YASTM
         public int Remaining(int now) => nextAllowedTick - now;
     }
 }
+

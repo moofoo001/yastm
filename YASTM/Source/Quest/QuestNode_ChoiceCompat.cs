@@ -80,3 +80,4 @@ namespace StarTrekFactions.QuestNodes
         protected override bool TestRunInt(Slate s) => true;
     }
 }
+

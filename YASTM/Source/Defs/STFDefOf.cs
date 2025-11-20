@@ -10,7 +10,7 @@ namespace StarTrekFactions
         public static ThingDef ST_Obelisk_A;
         public static ThingDef ST_Obelisk_B;
         public static ThingDef ST_ComBeacon;
-        public static ThingDef ST_AnomalySensor; 
+        public static ThingDef ST_Subspace_Scanner; 
         // Job
           public static JobDef ST_ScanObelisk;
 
@@ -26,3 +26,4 @@ namespace StarTrekFactions
         }
     }
 }
+

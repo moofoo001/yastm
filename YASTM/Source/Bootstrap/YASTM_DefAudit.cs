@@ -27,7 +27,7 @@ namespace StarTrekFactions.Debug
 
             
             var sensors = DefDatabase<ThingDef>.AllDefsListForReading
-                .Where(d => d.defName == "ST_AnomalySensor").ToList();
+                .Where(d => d.defName == "ST_Subspace_Scanner").ToList();
 
             foreach (var s in sensors)
             {
@@ -39,3 +39,4 @@ namespace StarTrekFactions.Debug
         }
     }
 }
+

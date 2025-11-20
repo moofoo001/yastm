@@ -12,3 +12,4 @@ namespace YASTM
         public string pipApparelDefName;
     }
 }
+

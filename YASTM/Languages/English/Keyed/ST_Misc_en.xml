@@ -276,4 +276,11 @@
   <YASTM.Settings.ForceField.Refresh>Force-field refresh (ticks): {0}</YASTM.Settings.ForceField.Refresh>
   <YASTM.Settings.ForceField.HostilesOnly>Force-field affects hostiles only</YASTM.Settings.ForceField.HostilesOnly>
 
+  <!-- Subspace Scanner -->
+  <ST.Sci.ScanStart.Label>Begin subspace scan</ST.Sci.ScanStart.Label>
+  <ST.Sci.ScanStart.Desc>Operate the linked subspace scanner. Requires a powered scanner within link range.</ST.Sci.ScanStart.Desc>
+  <ST.Sci.NoScanner>No linked scanner in range.</ST.Sci.NoScanner>
+  <ST.Sci.ScanStarting>Starting subspace scan…</ST.Sci.ScanStarting>
+  <ST.Sci.ScanComplete>Subspace scan complete.</ST.Sci.ScanComplete>
+
 </LanguageData>

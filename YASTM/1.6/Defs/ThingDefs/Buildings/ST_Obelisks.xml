@@ -31,17 +31,10 @@
 
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
-          <li>ST_AnomalySensor</li>
+          <li>ST_Subspace_Scanner</li>
         </linkableFacilities>
       </li>
 
-      <li Class="StarTrekFactions.Comps.CompProperties_ScanWork">
-        <successSignal>STQ.Obelisks.ScanA.Completed</successSignal>
-        <workTicksBase>6000</workTicksBase> 
-        <skill>Intellectual</skill>
-        <requiresPoweredSensor>true</requiresPoweredSensor>
-        <sensorRadius>25</sensorRadius>
-      </li>
     </comps>
   </ThingDef>
 
@@ -74,16 +67,10 @@
       </li>
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
-          <li>ST_AnomalySensor</li>
+          <li>ST_Subspace_Scanner</li>
         </linkableFacilities>
       </li>
-      <li Class="StarTrekFactions.Comps.CompProperties_ScanWork">
-        <successSignal>STQ.Obelisks.ScanB.Completed</successSignal>
-        <workTicksBase>6000</workTicksBase>
-        <skill>Intellectual</skill>
-        <requiresPoweredSensor>true</requiresPoweredSensor>
-        <sensorRadius>25</sensorRadius>
-      </li>
+
     </comps>
   </ThingDef>
 
