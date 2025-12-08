@@ -9,10 +9,8 @@ namespace ST.PhaseWeapons
     {
         static Startup()
         {
-
             var h = new Harmony("ST.PhaseWeapons");
-
+            h.PatchAll();
         }
     }
 }
-

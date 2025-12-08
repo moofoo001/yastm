@@ -94,5 +94,12 @@
   <YASTM.Settings.Alert.YellowCD>Gelber Alarm – Cooldown (Sek.)</YASTM.Settings.Alert.YellowCD>
   <YASTM.Settings.Alert.RedDur>Roter Alarm – Dauer (Sek., 0 = unendlich)</YASTM.Settings.Alert.RedDur>
   <YASTM.Settings.Alert.YellowDur>Gelber Alarm – Dauer (Sek., 0 = unendlich)</YASTM.Settings.Alert.YellowDur>
+ 
+  <!-- Phaser fire mode gizmos -->
+  <ST.Phaser.Mode.Stun>Betäuben</ST.Phaser.Mode.Stun>
+  <ST.Phaser.Mode.Stun.Desc>Stellt den Phaser auf Betäubung. Nicht tödlich, aber sehr überzeugend.</ST.Phaser.Mode.Stun.Desc>
+
+  <ST.Phaser.Mode.Overcharge>Überladung</ST.Phaser.Mode.Overcharge>
+  <ST.Phaser.Mode.Overcharge.Desc>Leitet zusätzliche Energie in den Emitter für einen hochenergetischen tödlichen Schuss. Risiko von Rückkopplung bei Fehlfunktion.</ST.Phaser.Mode.Overcharge.Desc>
 
 </LanguageData>

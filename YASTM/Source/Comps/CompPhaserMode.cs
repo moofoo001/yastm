@@ -48,53 +48,64 @@ namespace ST.PhaseWeapons
             Scribe_Values.Look(ref mode, "phaserMode", PhaserFireMode.Kill);
         }
 
-        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+public override IEnumerable<Gizmo> CompGetGizmosExtra()
+{
+    // Yield base gizmos first
+    foreach (var g in base.CompGetGizmosExtra() ?? System.Array.Empty<Gizmo>())
+        yield return g;
+
+    var pawn = Wielder;
+    if (pawn == null || pawn.Faction != Faction.OfPlayer)
+        yield break;
+
+    // Local helper to build our toggle commands
+    Command_Toggle Make(string labelKey, string descKey, string iconPath,
+                        PhaserFireMode targetMode, KeyBindingDef hotkey)
+    {
+        var cmd = new Command_Toggle
         {
-
-            foreach (var g in base.CompGetGizmosExtra() ?? System.Array.Empty<Gizmo>())
-                yield return g;
-
-            var pawn = Wielder;
-            if (pawn == null || pawn.Faction != Faction.OfPlayer)
-                yield break;
-
-
-            Command_Toggle Make(string labelKey, string descKey, string iconPath,
-                                PhaserFireMode targetMode, KeyBindingDef hotkey)
+            defaultLabel = labelKey.Translate(),
+            defaultDesc  = descKey.Translate(),
+            icon         = ContentFinder<Texture2D>.Get(iconPath, true),
+            hotKey       = hotkey,
+            isActive     = () => mode == targetMode,
+            toggleAction = () =>
             {
-                var cmd = new Command_Toggle
-                {
-                    defaultLabel = labelKey.Translate(),
-                    defaultDesc  = descKey.Translate(),
-                    icon         = ContentFinder<Texture2D>.Get(iconPath, true),
-                    hotKey       = hotkey,
-                    isActive     = () => mode == targetMode,
-                    toggleAction = () =>
-                    {
-                        mode = (mode == targetMode) ? PhaserFireMode.Kill : targetMode;
-                        SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-                    }
-                };
-                return cmd;
+                var old = mode;
+                mode = (mode == targetMode) ? PhaserFireMode.Kill : targetMode;
+                SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+
+                // Debug logging – safe, no interpolated string
+                string wielderName = Wielder != null ? Wielder.LabelShort : "(no wielder)";
+                Log.Message("[YASTM][PHASER] " + wielderName
+                            + " switched " + parent.Label
+                            + " from " + old + " to " + mode);
             }
+        };
+        return cmd;
+    }
 
+    // Stun mode
+    yield return Make(
+        "ST.Phaser.Mode.Stun",
+        "ST.Phaser.Mode.Stun.Desc",
+        "Things/Projectile/PhaserPulse_Stun",
+        PhaserFireMode.Stun,
+        KeyBindingDefOf.Misc1
+    );
 
-            yield return Make("ST.Phaser.Mode.Stun",
-                              "ST.Phaser.Mode.Stun.Desc",
-                              "Things/Projectile/PhaserPulse_Stun",
-                              PhaserFireMode.Stun,
-                              KeyBindingDefOf.Misc1);
-
-
-            if (Props?.allowOvercharge ?? false)
-            {
-                yield return Make("ST.Phaser.Mode.Overcharge",
-                                  "ST.Phaser.Mode.Overcharge.Desc",
-                                  "Things/Projectile/PhaserPulse_Overcharge",
-                                  PhaserFireMode.Overcharge,
-                                  KeyBindingDefOf.Misc2);
-            }
-        }
+    // Overcharge mode (optional)
+    if (Props != null && Props.allowOvercharge)
+    {
+        yield return Make(
+            "ST.Phaser.Mode.Overcharge",
+            "ST.Phaser.Mode.Overcharge.Desc",
+            "Things/Projectile/PhaserPulse_Overcharge",
+            PhaserFireMode.Overcharge,
+            KeyBindingDefOf.Misc2
+        );
+    }
+}
 
 
         public void ToggleStun()

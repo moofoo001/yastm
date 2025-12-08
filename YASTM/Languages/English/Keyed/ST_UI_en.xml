@@ -127,5 +127,11 @@
   <YASTM.Settings.Alert.RedDur>Red alert duration (sec, 0 = infinite)</YASTM.Settings.Alert.RedDur>
   <YASTM.Settings.Alert.YellowDur>Yellow alert duration (sec, 0 = infinite)</YASTM.Settings.Alert.YellowDur>
 
+  <!-- Phaser fire mode gizmos -->
+  <ST.Phaser.Mode.Stun>Stun</ST.Phaser.Mode.Stun>
+  <ST.Phaser.Mode.Stun.Desc>Set the phaser to stun. Non-lethal, but still very persuasive.</ST.Phaser.Mode.Stun.Desc>
+
+  <ST.Phaser.Mode.Overcharge>Overcharge</ST.Phaser.Mode.Overcharge>
+  <ST.Phaser.Mode.Overcharge.Desc>Route extra power into the emitter for a high-energy kill shot. Risk of feedback on misfire.</ST.Phaser.Mode.Overcharge.Desc>
 
 </LanguageData>
