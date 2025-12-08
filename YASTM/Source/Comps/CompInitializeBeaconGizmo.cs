@@ -28,7 +28,7 @@ namespace StarTrekFactions.Comps
             {
                 defaultLabel = Props.useLabel,
                 defaultDesc  = "Initialize the subspace relay and start the obelisk survey.",
-                icon         = ContentFinder<UnityEngine.Texture2D>.Get("UI/Commands/DesirePower"), // ToDo: custom icon
+                icon         = ContentFinder<UnityEngine.Texture2D>.Get("UI/Icons/Gizmos/PowerOn"), // ToDo: custom icon
                 action       = OnClick
             };
         }

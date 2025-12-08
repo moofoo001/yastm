@@ -9,11 +9,7 @@ using Verse;
 
 namespace YASTM.Systems
 {
-    /// <summary>
-    /// Robustheits-Layer gegen Null-Einträge in DrugPolicy-Listen.
-    /// - Patcht (falls vorhanden) interne Init/Factory-Methoden mit Finalizer/Postfix.
-    /// - Zusätzlich GameComponent-Fallback: saniert Policies beim NewGame/Load.
-    /// </summary>
+
     [StaticConstructorOnStartup]
     public static class DrugPolicyInitializeGuard
     {
@@ -21,13 +17,13 @@ namespace YASTM.Systems
         {
             var h = new Harmony("YASTM.Systems.DrugPolicyInitializeGuard");
 
-            // 1) Versuche mehrere Kandidaten in DrugPolicy zu finalizen (abhängig von RW-Version/Modset)
+          
             TryFinalizer(h, typeof(DrugPolicy), "InitializeIfNeeded", new[] { typeof(bool) });
             TryFinalizer(h, typeof(DrugPolicy), "Initialize",         new[] { typeof(bool) });
-            TryFinalizer(h, typeof(DrugPolicy), "InitializeIfNeeded", null); // ohne Param-Signatur probieren
+            TryFinalizer(h, typeof(DrugPolicy), "InitializeIfNeeded", null); 
             TryFinalizer(h, typeof(DrugPolicy), "Initialize",         null);
 
-            // 2) Versuche Erzeuger in DrugPolicyDatabase zu hooken (Postfix = neue Policies sofort säubern)
+          
             TryPostfix(h, typeof(DrugPolicyDatabase), "MakeNewDrugPolicy", null);
             TryPostfix(h, typeof(DrugPolicyDatabase), "MakePolicy",        null);
             TryPostfix(h, typeof(DrugPolicyDatabase), "GenerateStartingDrugPolicies", null);
@@ -63,7 +59,7 @@ namespace YASTM.Systems
 
         // ---- Harmony hooks ----
 
-        // Finalizer: fängt Exceptions ab und saniert die Policy-Liste
+        
         public static Exception Finalizer(object __instance, Exception __exception)
         {
             try
@@ -73,11 +69,11 @@ namespace YASTM.Systems
             }
             catch { /* nichts tun – wichtiger ist: keine harten Crashes */ }
 
-            // Exception unterdrücken: wir haben repariert (oder beste Mühe gegeben)
+          
             return null;
         }
 
-        // Postfix auf Factory/Erzeuger: frisch erstellte Policies säubern
+       
         public static void PostfixSanitizeFactory(object __result)
         {
             try
@@ -86,7 +82,7 @@ namespace YASTM.Systems
                     SanitizePolicy(dp);
                 else
                 {
-                    // Manche Factorys geben Liste zurück → jede Policy anfassen
+                  
                     if (__result is IEnumerable enumerable)
                     {
                         foreach (var obj in enumerable)
@@ -103,7 +99,7 @@ namespace YASTM.Systems
         {
             if (policy == null) return;
 
-            // Nicht auf konkrete Feldnamen verlassen – suche Feld vom Typ List<DrugPolicyEntry>
+           
             List<DrugPolicyEntry> typed = null;
             IList untyped = null;
 
@@ -124,9 +120,9 @@ namespace YASTM.Systems
 
             if (typed != null)
             {
-                // Entferne Nulls / Einträge ohne Drug
+             
                 typed.RemoveAll(e => e == null || e.drug == null);
-                // Sortiere wie Vanilla: nach drug.label (case-insensitive)
+           
                 typed.Sort((a, b) =>
                 {
                     string la = a?.drug?.label ?? string.Empty;
@@ -138,14 +134,14 @@ namespace YASTM.Systems
 
             if (untyped != null)
             {
-                // Fallback ohne starken Typ
+             
                 var keep = new List<object>(untyped.Count);
                 for (int i = 0; i < untyped.Count; i++)
                 {
                     var entry = untyped[i];
                     if (entry == null) continue;
 
-                    // entry.drug via Reflection holen
+                  
                     var drugField = entry.GetType().GetField("drug", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                     var drug = drugField?.GetValue(entry);
                     if (drug == null) continue;
@@ -153,7 +149,7 @@ namespace YASTM.Systems
                     keep.Add(entry);
                 }
 
-                // Sortieren nach drug.label
+              
                 keep = keep
                     .OrderBy(e =>
                     {
@@ -171,9 +167,7 @@ namespace YASTM.Systems
         }
     }
 
-    /// <summary>
-    /// Fallback-Ebene: saniert ALLE Policies beim neuen Spiel und beim Laden eines Saves.
-    /// </summary>
+
     public class GameComponent_DrugPolicySanitizer : GameComponent
     {
         public GameComponent_DrugPolicySanitizer(Game game) { }
@@ -197,7 +191,7 @@ namespace YASTM.Systems
                 var db = Current.Game?.drugPolicyDatabase;
                 if (db == null) return;
 
-                // Versuche, Liste aller Policies zu finden (Feld vom Typ List<DrugPolicy> oder Property AllPolicies)
+              
                 List<DrugPolicy> list = null;
 
                 var prop = db.GetType().GetProperty("AllPolicies", BindingFlags.Instance | BindingFlags.Public);
@@ -223,7 +217,7 @@ namespace YASTM.Systems
             catch { /* ignore */ }
         }
 
-        // Isolierter Call – falls Harmony-Klasse mal nicht geladen ist
+        
         private static void DrugPolicyInitializeGuard_SafeSanitize(DrugPolicy dp)
         {
             try { DrugPolicyInitializeGuard_SanitizeShim(dp); } catch { /* ignore */ }
@@ -231,7 +225,7 @@ namespace YASTM.Systems
 
         private static void DrugPolicyInitializeGuard_SanitizeShim(DrugPolicy dp)
         {
-            // Call in die gleiche Logik wie oben
+       
             var mi = typeof(DrugPolicyInitializeGuard).GetMethod("SanitizePolicy", BindingFlags.NonPublic | BindingFlags.Static);
             mi?.Invoke(null, new object[] { dp });
         }

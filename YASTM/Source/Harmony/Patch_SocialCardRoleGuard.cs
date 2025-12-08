@@ -1,4 +1,4 @@
-// YASTM.SafeUI — Social-Tab Guard (RW 1.6, inkl. Culture-Check)
+// Mods/YASTM/Source/Harmony/Patch_SocialCardRoleGuard.cs
 using HarmonyLib;
 using RimWorld;
 using UnityEngine;

@@ -24,7 +24,7 @@ namespace YASTM
     {
         public CompProperties_TricorderSecurity Props => (CompProperties_TricorderSecurity)props;
 
-        // Fallback (falls Shared-Comp fehlt)
+       
         private int nextAllowedTick;
 
         public override void PostExposeData()
@@ -50,13 +50,13 @@ namespace YASTM
                 action = t => TryStartScan(wearer, t.Cell)
             };
 
-            // Cooldown-Anzeige (Shared bevorzugt)
+           
             var cd = parent.GetComp<CompTricorderSharedCooldown>();
             if (cd != null && !cd.IsReady(now))
             {
                 cmd.Disable("Cooldown: " + Mathf.CeilToInt(cd.Remaining(now)/60f) + " s");
             }
-            // Skill-Gate: Shooting ODER Melee
+            
             int shoot = wearer.skills?.GetSkill(SkillDefOf.Shooting)?.Level ?? 0;
             int melee = wearer.skills?.GetSkill(SkillDefOf.Melee)?.Level ?? 0;
             if (shoot < Props.minShooting && melee < Props.minMelee)
@@ -70,7 +70,7 @@ namespace YASTM
             int now = Find.TickManager.TicksGame;
             var shared = parent.TryGetComp<CompTricorderSharedCooldown>();
 
-            // Cooldown-Gate
+        
             if (shared != null)
             {
                 if (!shared.IsReady(now))
@@ -97,12 +97,12 @@ namespace YASTM
             var job = new Job(jobDef, cell);
             user.jobs.TryTakeOrderedJob(job);
 
-            // Cooldown START (Shared bevorzugt)
+           
             if (shared != null) shared.StartCooldown(now, Props.cooldownTicks);
             else nextAllowedTick = now + Props.cooldownTicks;
         }
 
-        // Für den Job:
+       
         public int ScanTicks => Props.scanTicks;
         public float ScanRange => Props.range;
         public string HediffDefName => Props.hediffDef;

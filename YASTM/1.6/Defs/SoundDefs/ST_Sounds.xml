@@ -217,7 +217,7 @@
           <clipPath>Things/red_alert_fix</clipPath>
         </li>
       </grains>
-      <volumeRange>10~12</volumeRange>
+      <volumeRange>25~30</volumeRange>
       <pitchRange>0.98~1.02</pitchRange>
     </li>
   </subSounds>
@@ -236,7 +236,7 @@
           <clipPath>Things/yellow_alert_fix</clipPath>
         </li>
       </grains>
-      <volumeRange>12~15</volumeRange>
+      <volumeRange>20~25</volumeRange>
       <pitchRange>0.98~1.02</pitchRange>
     </li>
   </subSounds>

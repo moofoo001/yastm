@@ -5,18 +5,16 @@ using Verse;
 
 namespace YASTM.MapSystems
 {
-    /// <summary>
-    /// Tracks comms cooldowns and provides helpers for labels + active quest count.
-    /// </summary>
+
     public class MapComponent_CommsProgress : MapComponent
     {
-        // Cooldowns (game ticks)
+ 
         private int nextAidAllowedTick;
         private int nextContactAllowedTick;
 
         public MapComponent_CommsProgress(Map map) : base(map) { }
 
-        // Ready flags (properties — not methods)
+
         public bool AidReady => Find.TickManager.TicksGame >= nextAidAllowedTick;
         public bool ContactReady => Find.TickManager.TicksGame >= nextContactAllowedTick;
         public void RegisterScan(bool atA)
@@ -41,7 +39,7 @@ namespace YASTM.MapSystems
 
         public int ActiveQuestCount()
         {
-            // Count ALL ongoing quests (any source).
+
             return Find.QuestManager.QuestsListForReading.Count(q => q.State == QuestState.Ongoing);
         }
 
@@ -50,7 +48,7 @@ namespace YASTM.MapSystems
             int now = Find.TickManager.TicksGame;
             int remaining = untilTick - now;
             if (remaining <= 0) return "Ready";
-            // Use RimWorld's built-in formatter (handles days/hours/mins text)
+
             return remaining.ToStringTicksToPeriod();
         }
 

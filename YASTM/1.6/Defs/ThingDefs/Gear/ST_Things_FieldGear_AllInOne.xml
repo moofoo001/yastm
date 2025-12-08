@@ -54,7 +54,9 @@
     <skillRequirements>
       <Crafting>6</Crafting>
       </skillRequirements>
-    <researchPrerequisite>ST_Medical_diagnostics</researchPrerequisite>
+    <researchPrerequisite>
+    <li>ST_Common_MedicalCore</li>
+    </researchPrerequisite>
     <recipeUsers>
       <li>TableMachining</li>
       </recipeUsers>

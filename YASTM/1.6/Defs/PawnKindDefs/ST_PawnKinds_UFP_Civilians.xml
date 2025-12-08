@@ -168,7 +168,7 @@
     <initialResistanceRange>4~8</initialResistanceRange>
     <initialWillRange>6~10</initialWillRange>
     <apparelMoney>400~800</apparelMoney>
-    <weaponMoney>500~1000</weaponMoney>
+    <weaponMoney>600~1000</weaponMoney>
     <weaponTags>
       <li>FederationMelee</li>
       <li>ST_Phaser_T2</li>

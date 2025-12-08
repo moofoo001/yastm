@@ -118,6 +118,7 @@
     <researchPrerequisites>
       <li>ST_TransporterTech</li>
     </researchPrerequisites>
+    <uiOrder>2007</uiOrder>
   </ThingDef>
 
     <ThingDef ParentName="BenchBase">
@@ -128,7 +129,6 @@
     <size>(2,1)</size>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
     <rotatable>true</rotatable>
-    <defaultPlacingRot>South</defaultPlacingRot>
     <graphicData>
       <texPath>Things/Building/Transporter/ST_Console</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -194,6 +194,7 @@
     <researchPrerequisites>
       <li>ST_TransporterTech</li>
     </researchPrerequisites>
+    <uiOrder>2006</uiOrder>
   </ThingDef>
   
 </Defs>

@@ -46,9 +46,10 @@
       <li>IndustrialBasic</li>
       <li>Spacer</li>
     </apparelTags>
-    <weaponMoney>300~900</weaponMoney>
+    <weaponMoney>460~900</weaponMoney>
     <weaponTags>
       <li>KlingonMelee</li>
+      <li>KlingonDisruptor</li>
       <li>KlingonDisruptor_Pistol</li>
     </weaponTags>
     <gearHealthRange>0.75~1</gearHealthRange>
@@ -77,9 +78,11 @@
       <li>IndustrialBasic</li>
       <li>Spacer</li>
     </apparelTags>
-    <weaponMoney>300~1000</weaponMoney>
+    <weaponMoney>460~1000</weaponMoney>
     <weaponTags>
       <li>KlingonMelee</li>
+      <li>KlingonDisruptor</li>
+      <li>KlingonDisruptor_Pistol</li>
       <li>KlingonDisruptor_Rifle</li>
     </weaponTags>
     <gearHealthRange>0.8~1</gearHealthRange>
@@ -111,6 +114,8 @@
     <weaponMoney>450~1500</weaponMoney>
     <weaponTags>
       <li>KlingonMelee</li>
+      <li>KlingonDisruptor</li>
+      <li>KlingonDisruptor_Pistol</li>
       <li>KlingonDisruptor_Rifle</li>
     </weaponTags>
     <gearHealthRange>0.85~1</gearHealthRange>

@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+  <!-- ==================================================
+       Starfleet / UFP Melee Line
+       ================================================== -->
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Starfleet_Melee_I</defName>
+    <label>starfleet close combat training</label>
+    <description>Standard Starfleet close-combat instruction for security officers and away teams:
+      disarming techniques, basic baton drills and unarmed restraint maneuvers.
+      Unlocks: Smithing</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1200</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>Federation_Standard</li>
+      <li>ST_UFP_Engineering_I</li>
+    </prerequisites>
+    <researchViewX>2</researchViewX>
+    <researchViewY>2.2</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>Smithing</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Starfleet_Melee_II</defName>
+    <label>advanced away team tactics</label>
+    <description>Advanced Starfleet close-quarters tactics, including coordinated team maneuvers,
+      enhanced baton techniques and emergency defensive responses for boarding and extraction.
+      Unlocks: LongBlades</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1800</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Starfleet_Melee_I</li>
+      <li>ST_UFP_Engineering_II</li>
+    </prerequisites>
+    <researchViewX>5</researchViewX>
+    <researchViewY>2</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>LongBlades</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+   <!-- ==================================================
+       Federation Phaser Line
+       ================================================== -->
+
+  <!-- Phaser Basic (Type I) -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Federation_Phaser_I</defName>
+    <label>phaser technology I</label>
+    <description>Starfleet Type I phaser technology: low-output sidearms for personal defense and away missions.
+    Unlocks: Greatbow, GasOperation</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1400</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_UFP_Engineering_I</li>
+      <li>ST_Starfleet_Melee_I</li>
+    </prerequisites>
+    <researchViewX>2</researchViewX>
+    <researchViewY>1.7</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>GasOperation</li>
+          </projects>
+        </li>
+      </researchMods>    
+  </ResearchProjectDef>
+
+  <!-- Phaser Advanced (Type II) -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Federation_Phaser_II</defName>
+    <label>phaser technology II</label>
+    <description>Starfleet Type II phaser emitters and variable power modules for standard issue sidearms.
+    Unlocks: TurretPack, PrecisionRifling, MultibarrelWeapons</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>4000</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Federation_Phaser_I</li>
+      <li>ST_UFP_Engineering_II</li>
+    </prerequisites>
+    <researchViewX>6</researchViewX>
+    <researchViewY>1.7</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>TurretPack</li>
+            <li>PrecisionRifling</li>
+            <li>MultibarrelWeapons</li>
+          </projects>
+        </li>
+      </researchMods>  
+  </ResearchProjectDef>
+
+  <!-- Phaser Rifle -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Federation_Phaser_Rifle</defName>
+    <label>phaser rifle technology</label>
+    <description>Heavy phaser rifle systems with enhanced power cells and precision targeting optics.
+    Unlocks: BeamWeapons</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>8000</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Federation_Phaser_II</li>
+      <li>ST_UFP_Engineering_III</li>
+    </prerequisites>
+    <researchViewX>8</researchViewX>
+    <researchViewY>2
+    </researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>BeamWeapons</li>
+          </projects>
+        </li>
+      </researchMods>  
+  </ResearchProjectDef>
+
+  <!-- ST personel armor -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Research_StarfleetArmor</defName>
+    <label>Starfleet personal armor</label>
+    <description>Advanced composite armor systems used by Starfleet security and away teams.
+      Unlocks the Starfleet armored vest, FlakArmor</description>
+    <baseCost>2000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_UFP_Engineering_I</li>
+      <li>ST_ForceField_Tech</li>
+    </prerequisites>
+    <researchViewX>6</researchViewX>
+    <researchViewY>2.2</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>FlakArmor</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+
+  <!-- ==================================================
+       Klingon Melee Line
+       ================================================== -->
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Klingon_Melee_I</defName>
+    <label>klingon melee doctrine I</label>
+    <description>Traditional Klingon edged weapons such as the D'k tahg, Bat'leth and basic bladed combat techniques.
+    Unlocks: PlateArmor, LongBlades</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1200</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>Klingon_Warfare</li>
+      <li>ST_Klingon_Engineering_I</li>
+    </prerequisites>
+    <researchViewX>3</researchViewX>
+    <researchViewY>2.6</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>PlateArmor</li>
+            <li>LongBlades</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Klingon_Melee_II</defName>
+    <label>klingon melee doctrine II</label>
+    <description>Advanced Klingon bladed weapons including the Mek'leth, Gint'ak and enhanced warrior combat techniques.
+    Unlocks: FlakArmor, CompactWeaponry</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2500</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Klingon_Melee_I</li>
+      <li>ST_Klingon_Engineering_II</li>
+    </prerequisites>
+    <researchViewX>5</researchViewX>
+    <researchViewY>2.6</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>FlakArmor</li>
+            <li>CompactWeaponry</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Klingon_Melee_III</defName>
+    <label>klingon honor blades</label>
+    <description>High-grade ceremonial and battle-proven Klingon blades including Gon'dok or the legendary Sword of Kahless,
+    manufactured with advanced alloys and heat-folding techniques.
+    Unlocks: ShieldBelt</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>8000</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Klingon_Melee_II</li>
+      <li>ST_Klingon_Engineering_III</li>
+    </prerequisites>
+    <researchViewX>7</researchViewX>
+    <researchViewY>2.6</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>ShieldBelt</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+
+  <!-- ==================================================
+       Klingon Disruptor Line
+       ================================================== -->
+
+  <!-- Disruptor Basic -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Klingon_Disruptor_I</defName>
+    <label>disruptor technology I</label>
+    <description>Standard Klingon disruptor emitters using coherent nadion bursts for reliable battlefield performance.
+    Unlocks: Greatbow, BlowbackOperation</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1500</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Klingon_Engineering_I</li>
+      <li>Klingon_Warfare</li>
+    </prerequisites>
+    <researchViewX>3</researchViewX>
+    <researchViewY>3.2</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>Greatbow</li>
+            <li>GasOperation</li>
+          </projects>
+        </li>
+      </researchMods>    
+  </ResearchProjectDef>
+
+  <!-- Disruptor Rifle -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Klingon_Disruptor_II</defName>
+    <label>disruptor rifle technology</label>
+    <description>Enhanced Klingon disruptor rifles featuring tri-phase emitters and rapid-cooling energy capacitors.
+    Unlocks: MultibarrelWeapons, HeavyTurrets</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>4500</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>Klingon_AdvancedWarfare</li>
+      <li>ST_Klingon_Disruptor_I</li>
+      <li>ST_Klingon_Engineering_II</li>
+    </prerequisites>
+    <researchViewX>5</researchViewX>
+    <researchViewY>3.2</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>MultibarrelWeapons</li>
+            <li>HeavyTurrets</li>
+          </projects>
+        </li>
+      </researchMods>  
+  </ResearchProjectDef>
+
+  <!-- Disruptor Heavy -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Klingon_Disruptor_Heavy</defName>
+    <label>heavy disruptor systems</label>
+    <description>Large-scale disruptor emitters mounted on heavy platforms or turrets. High energy output, brutal efficiency.
+    Unlocks: RocketswarmLauncher, BeamWeapons</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>12000</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Klingon_Disruptor_II</li>
+      <li>ST_Klingon_Engineering_III</li>
+    </prerequisites>
+    <researchViewX>7</researchViewX>
+    <researchViewY>3.2</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>RocketswarmLauncher</li>
+            <li>BeamWeapons</li>
+          </projects>
+        </li>
+      </researchMods>
+  </ResearchProjectDef>
+
+
+
+ <!-- ==================================================
+       Romulan Plasma Line
+       ================================================== -->
+
+  <!-- Plasma Emitter Basic -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Romulan_Plasma_I</defName>
+    <label>plasma weaponry I</label>
+    <description>Basic Romulan plasma emitter principles and containment field harmonics. Unlocks simple handheld plasma weapons.
+    Unlocks: Greatbow, GasOperation, ToxGas</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1600</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Romulan_Engineering_I</li>
+      <li>Romulan_TechDoctrine</li>
+    </prerequisites>
+    <researchViewX>3</researchViewX>
+    <researchViewY>3.8</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>Greatbow</li>
+            <li>GasOperation</li>
+            <li>ToxGas</li>
+          </projects>
+        </li>
+      </researchMods>  
+  </ResearchProjectDef>
+
+  <!-- Plasma Rifle -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Romulan_Plasma_II</defName>
+    <label>plasma weaponry II</label>
+    <description>Advanced plasma containment and heat dissipation enabling powerful, precise Romulan plasma rifles.
+    Unlocks: TurretPack, PrecisionRifling, HunterDrones</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2200</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Romulan_Plasma_I</li>
+      <li>ST_Romulan_Engineering_II</li>
+    </prerequisites>
+    <researchViewX>5</researchViewX>
+    <researchViewY>3.8</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>TurretPack</li>
+            <li>PrecisionRifling</li>
+            <li>HunterDrones</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+  <!-- Plasma Heavy -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Romulan_Plasma_III</defName>
+    <label>heavy plasma systems</label>
+    <description>Starship-grade plasma focusing adapted for heavy infantry and fixed defenses.
+    Unlocks: SniperTurret, BeamWeapons</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>10000</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Romulan_Plasma_II</li>
+      <li>ST_Romulan_Engineering_III</li>
+    </prerequisites>
+    <researchViewX>7</researchViewX>
+    <researchViewY>4</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+          <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>SniperTurret</li>
+            <li>BeamWeapons</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+  <!-- ==================================================
+       Romulan Melee Line
+       ================================================== -->
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Romulan_Melee_I</defName>
+    <label>romulan close-combat techniques</label>
+    <description>Basic Romulan close-combat blades including the TanQalanq.
+    Unlocks: LongBlades</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1200</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>Romulan_TechDoctrine</li>
+      <li>ST_Romulan_Engineering_I</li>
+    </prerequisites>
+    <researchViewX>3</researchViewX>
+    <researchViewY>4.2</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>LongBlades</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Romulan_Melee_II</defName>
+    <label>romulan plasma-forged blades</label>
+    <description>Advanced Romulan blade technology designed for stealth and precision strikes, improved penetration and lethality.
+    Unlocks: ShieldBelt, CompactWeaponry</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>4000</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Romulan_Melee_I</li>
+      <li>ST_Romulan_Engineering_II</li>
+    </prerequisites>
+    <researchViewX>5</researchViewX>
+    <researchViewY>4.2</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>CompactWeaponry</li>
+            <li>ShieldBelt</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+
+
+ <!-- ==================================================
+       Ferengi Security Implements
+       ================================================== -->
+
+  <!-- Ferengi handheld weapons (profit enforcers) -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Ferengi_Security_I</defName>
+    <label>ferengi security implements</label>
+    <description>Compact Ferengi energy pistols and nonlethal tools designed for asset protection and commercial enforcement.
+    Unlocks: Greatbow, GasOperation, ToxGas</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1500</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Ferengi_Engineering_I</li>
+      <li>Ferengi_Commerce</li>
+    </prerequisites>
+    <researchViewX>3</researchViewX>
+    <researchViewY>5.5</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>Greatbow</li>
+            <li>GasOperation</li>
+            <li>ToxGas</li>
+          </projects>
+        </li>
+      </researchMods>  
+  </ResearchProjectDef>
+
+  <!-- Ferengi heavy guard gear -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Ferengi_Security_II</defName>
+    <label>ferengi guard equipment</label>
+    <description>Improved Ferengi defense systems including energy nets and portable stun fields.
+    Unlocks: PrecisionRifling, FoamTurret, ShieldBelt, SecurityDoor</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>3200</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Ferengi_Security_I</li>
+      <li>ST_Ferengi_Engineering_II</li>
+    </prerequisites>
+    <researchViewX>5</researchViewX>
+    <researchViewY>5.5</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>FoamTurret</li>
+            <li>PrecisionRifling</li>
+            <li>ShieldBelt</li>
+            <li>SecurityDoor</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+   <!-- ==================================================
+       Ferengi Melee (Security Tools)
+       ================================================== -->
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Ferengi_Melee_I</defName>
+    <label>ferengi security tools</label>
+    <description>Energy-whip and energy-net tools for asset protection and crowd management.
+    Unlocks: Smithing</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1100</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Ferengi_Engineering_II</li>
+    </prerequisites>
+    <researchViewX>3</researchViewX>
+    <researchViewY>5</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>Smithing</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+</Defs>

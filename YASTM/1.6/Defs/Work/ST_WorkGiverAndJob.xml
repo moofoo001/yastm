@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <!-- Obelisk scan -->
+  <JobDef>
+    <defName>ST_ScanObelisk</defName>
+    <label>scan obelisk</label>
+    <driverClass>YASTM.Jobs.JobDriver_ScanObelisk</driverClass>
+    <reportString>scanning the obelisk TargetA.</reportString>
+    <playerInterruptible>true</playerInterruptible>
+    <casualInterruptible>true</casualInterruptible>
+    <alwaysShowWeapon>false</alwaysShowWeapon>
+   <checkOverrideOnDamage>OnlyIfInstigatorNotJobTarget</checkOverrideOnDamage>
+  </JobDef>
+
+ <WorkGiverDef>
+    <defName>ST_UseMedicalTricorder</defName>
+    <label>use medical tricorder</label>
+    <giverClass>YASTM.WorkGiver_UseMedicalTricorder</giverClass>
+    <workType>Doctor</workType>
+    <priorityInType>9999</priorityInType>
+    <emergency>true</emergency>
+    <verb>scan</verb>
+    <gerund>scanning</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>DoBill_ST_MatterConverter</defName>
+    <label>operate matter converter</label>
+    <giverClass>WorkGiver_DoBill</giverClass>       
+    <workType>Crafting</workType>
+    <priorityInType>80</priorityInType>
+    <fixedBillGiverDefs>
+      <li>ST_MatterConverter</li>
+    </fixedBillGiverDefs>
+    <verb>operate matter converter</verb>
+    <gerund>extracting from</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>DoBill_ST_Replicator</defName>
+		<label>replicate anything ...</label>
+		<giverClass>WorkGiver_DoBill</giverClass>
+		<workType>Cooking</workType>
+		<priorityInType>100</priorityInType>
+		<fixedBillGiverDefs>
+			<li>ST_Replicator</li>
+		</fixedBillGiverDefs>
+		<verb>cook</verb>
+		<gerund>replicating at</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
+
+</Defs>

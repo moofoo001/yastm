@@ -12,8 +12,8 @@ namespace YASTM
 
     public class CompStarfleetCareer : ThingComp
     {
-        public int lastPromotionTick;          // Wann zuletzt befördert
-        public int completedPromotionQuests;   // Zähler für relevante Quests
+        public int lastPromotionTick;        
+        public int completedPromotionQuests;  
 
         public override void PostExposeData()
         {
@@ -27,8 +27,8 @@ namespace YASTM
             get
             {
                 int now = Find.TickManager.TicksGame;
-                const float TicksPerDay = 60000f; // 1 Tag
-                if (lastPromotionTick <= 0) return 9999f; // nie befördert = "lange her"
+                const float TicksPerDay = 60000f; 
+                if (lastPromotionTick <= 0) return 9999f; 
                 return (now - lastPromotionTick) / TicksPerDay;
             }
         }

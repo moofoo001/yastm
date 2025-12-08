@@ -86,9 +86,9 @@
     <fleckSystemClass>FleckSystemStatic</fleckSystemClass>
     <altitudeLayer>MoteOverhead</altitudeLayer>
     <realTime>false</realTime>
-    <fadeInTime>0.10</fadeInTime>
-    <solidTime>1.00</solidTime>
-    <fadeOutTime>0.50</fadeOutTime>
+    <fadeInTime>0.30</fadeInTime>
+    <solidTime>0.50</solidTime>
+    <fadeOutTime>0.20</fadeOutTime>
   </FleckDef>
 
   <!-- effect attached to Pawn -->
@@ -109,7 +109,7 @@
     <fadeOutTime>0.50</fadeOutTime>
   </FleckDef>
 
-  <!-- Force field spark (FIX: richtiger Shader, drawSize = float, sichere Graphic) -->
+
   <FleckDef>
     <defName>ST_Fleck_ForceSpark</defName>
     <graphicData>
@@ -126,7 +126,7 @@
     <realTime>false</realTime>
   </FleckDef>
 
-  <!-- NEU: sanfte Randwellen, damit das Feld sichtbar ist -->
+
   <FleckDef>
     <defName>ST_Fleck_FieldRipple</defName>
     <graphicData>

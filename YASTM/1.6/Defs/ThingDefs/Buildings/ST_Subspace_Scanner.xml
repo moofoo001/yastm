@@ -23,7 +23,9 @@
     <tickerType>Normal</tickerType>
     <altitudeLayer>Building</altitudeLayer>
     <fillPercent>0.5</fillPercent>
-    
+
+    <selectable>true</selectable>
+
     <statBases>
       <WorkToBuild>1200</WorkToBuild>
       <MaxHitPoints>250</MaxHitPoints>
@@ -40,7 +42,7 @@
         <shortCircuitInRain>true</shortCircuitInRain>
       </li>
 
-      <li Class="YASTM.CompProperties_SubspaceScanner"/>
+      <li Class="YASTM.Comps.CompProperties_SubspaceScanner" />
 
       <!-- Accepts the science console as facility/controller -->
       <li Class="CompProperties_AffectedByFacilities">
@@ -49,7 +51,7 @@
         </linkableFacilities>
       </li>
 
-      <!-- Proximity link to both obelisks -->
+      <!-- Proximity link to both obelisks 
       <li Class="RimWorld.CompProperties_Facility">
         <linkableBuildings>
           <li>ST_Obelisk_A</li>
@@ -58,6 +60,7 @@
         <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
         <maxSimultaneous>2</maxSimultaneous>
       </li>
+      -->
     </comps>
     
     <modExtensions>
@@ -67,6 +70,8 @@
         </tags>
       </li>
     </modExtensions>
+    
+    <uiOrder>2001</uiOrder>
 
     <placeWorkers>
       <li>RimWorld.PlaceWorker_ShowFacilitiesConnections</li>

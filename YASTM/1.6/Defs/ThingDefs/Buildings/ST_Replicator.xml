@@ -18,11 +18,10 @@
       <drawSize>(2.5,2)</drawSize>
     </graphicData>
 
-    <defaultPlacingRot>South</defaultPlacingRot>
     <altitudeLayer>Building</altitudeLayer>
     <size>(2,1)</size>
     <rotatable>true</rotatable>
-    <interactionCellOffset>(1,0,1)</interactionCellOffset>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
     <hasInteractionCell>true</hasInteractionCell>
     <passability>PassThroughOnly</passability>
     <pathCost>42</pathCost>
@@ -30,19 +29,13 @@
     <fillPercent>0.5</fillPercent>
     <canOverlapZones>false</canOverlapZones>
     <surfaceType>Item</surfaceType>
+    <clearBuildingArea>true</clearBuildingArea>
+    <tickerType>Normal</tickerType>
 
     <inspectorTabs>
       <li>ITab_Bills</li>
     </inspectorTabs>
     
-    <recipes>
-        <li>ST_Recipe_MedicineFromVenom</li>
-    </recipes>
-
-    <placeWorkers>
-      <li>PlaceWorker_ShowFacilitiesConnections</li>
-    </placeWorkers>
-
     <costList>
       <Steel>70</Steel>
       <ComponentIndustrial>4</ComponentIndustrial>
@@ -75,20 +68,26 @@
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>300</basePowerConsumption>
+        <basePowerConsumption>200</basePowerConsumption>
       </li>
-      <li Class="CompProperties_Flickable" />
-      <li Class="CompProperties_Breakdownable" />
-      <li Class="CompProperties_AffectedByFacilities" />
-      <li Class="YASTM.CompProperties_ReplicatorRunner" />
+      <li Class="CompProperties_FacilityInUse">
+        <inUsePowerConsumption>1000</inUsePowerConsumption>
+      </li>
       <li Class="CompProperties_ReportWorkSpeed">
         <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
       </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
+
+            <!--li Class="YASTM.CompProperties_ReplicatorRunner" /-->
+            
     </comps>
 
     <researchPrerequisites>
-      <li>MicroelectronicsBasics</li>
+      <li>ST_Replicator_Tech</li>
     </researchPrerequisites>
+    
+    <uiOrder>2000</uiOrder>
   </ThingDef>
 </Defs>
 

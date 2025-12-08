@@ -9,11 +9,11 @@ namespace YASTM
     {
         public override IEnumerable<Gizmo> GetGizmos()
         {
-            // 1) Vanilla + alle Comp-Gizmos (u.a. aus CompCommsGizmo)
+
             foreach (var g in base.GetGizmos())
                 yield return g;
 
-            // 2) Unser optionaler Zusatz-Button ("Open communication")
+
             var link = GetComp<CompConsoleLink>();
             string reason = null;
             bool linked = link != null && link.HasLink(out reason);
@@ -29,7 +29,7 @@ namespace YASTM
                 {
                     if (!linked) return;
                     Messages.Message("Subspace channel open.", MessageTypeDefOf.PositiveEvent);
-                    // TODO: If you want to open a custom float menu/window, do it here.
+
                 }
             };
             if (!linked) cmdOpen.Disable(reason ?? "No linked beacon.");

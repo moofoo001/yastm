@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
   <!-- melee base -->
@@ -10,7 +11,6 @@
     <costStuffCount>60</costStuffCount>
     <stuffCategories>
       <li>Metallic</li>
- 
     </stuffCategories>
     <recipeMaker>
       <workAmount>8000</workAmount>
@@ -46,7 +46,7 @@
         <workAmount>7000</workAmount>
         <skillRequirements><Crafting>6</Crafting></skillRequirements>
         <recipeUsers><li>ElectricSmithy</li></recipeUsers>
-        <researchPrerequisite>ST_UFP_Melee</researchPrerequisite>
+        <researchPrerequisite>ST_Starfleet_Melee_I</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Plasteel>2</Plasteel>
@@ -97,7 +97,7 @@
     <workAmount>7000</workAmount>
         <skillRequirements><Crafting>6</Crafting></skillRequirements>
         <recipeUsers><li>ElectricSmithy</li></recipeUsers>
-        <researchPrerequisite>ST_UFP_Melee</researchPrerequisite>
+        <researchPrerequisite>ST_Starfleet_Melee_II</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Plasteel>3</Plasteel>
@@ -125,73 +125,19 @@
     <tradeTags><li>ST_StarfleetSupply</li></tradeTags>
   </ThingDef>
 
-  <!-- KLINGON Bat'leth -->
-  <ThingDef ParentName="ST_MeleeBase">
-    <defName>KL_Weapon_Batleth</defName>
-    <label>bat'leth</label>
-    <graphicData>
-      <texPath>Things/Item/Equipment/Klingon_weapons/Batleth</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>1.5</drawSize>
-    </graphicData>
-    <uiIconScale>1.1</uiIconScale>
-    <weaponTags>
-      <li>KlingonMelee_Batleth</li>
-      <li>KlingonMelee</li>
-    </weaponTags>
-    <statBases>
-      <Mass>3.2</Mass>
-      <MarketValue>380</MarketValue>
-    </statBases>
-    <recipeMaker>
-        <workAmount>8000</workAmount>
-        <skillRequirements><Crafting>7</Crafting></skillRequirements>
-        <recipeUsers><li>ElectricSmithy</li></recipeUsers>
-        <researchPrerequisite>ST_Klingon_MeleeTraditions</researchPrerequisite>
-    </recipeMaker>
-    <costList>
-      <Plasteel>4</Plasteel>
-      <Steel>25</Steel>
-      <Gold>15</Gold>
-      <ComponentIndustrial>1</ComponentIndustrial>
-    </costList>
-    <tools>
-      <li>
-        <label>edge</label>
-        <capacities>
-          <li>Cut</li>
-        </capacities>
-        <power>16</power>
-        <cooldownTime>2.1</cooldownTime>
-        <armorPenetration>0.33</armorPenetration>
-        <chanceFactor>1.0</chanceFactor>
-      </li>
-      <li>
-        <label>pommel</label>
-        <capacities>
-          <li>Blunt</li>
-        </capacities>
-        <power>10</power>
-        <cooldownTime>2.1</cooldownTime>
-        <armorPenetration>0.20</armorPenetration>
-        <chanceFactor>0.15</chanceFactor>
-      </li>
-    </tools>
-    <tradeTags>
-     <li>ST_KlingonArms</li> 
-    </tradeTags>
-  </ThingDef>
+  <!-- ===== KLINGON MELEE WEAPONS ===== -->
 
   <!-- KLINGON D'k tahg -->
   <ThingDef ParentName="ST_MeleeBase">
     <defName>KL_Weapon_DkTahg</defName>
     <label>d'k tahg</label>
+    <description>Traditional Klingon ritual dagger with three serrated blades, used in close combat and ceremonial contexts.</description>
     <graphicData>
       <texPath>Things/Item/Equipment/Klingon_weapons/DkTahg</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>0.6</drawSize>
+      <drawSize>0.7</drawSize>
     </graphicData>
-    <uiIconScale>1.4</uiIconScale>
+    <uiIconScale>1.5</uiIconScale>
     <weaponTags>
       <li>KlingonMelee_DkTahg</li>
       <li>KlingonMelee</li>
@@ -204,7 +150,7 @@
         <workAmount>8000</workAmount>
         <skillRequirements><Crafting>7</Crafting></skillRequirements>
         <recipeUsers><li>ElectricSmithy</li></recipeUsers>
-        <researchPrerequisite>ST_Klingon_MeleeTraditions</researchPrerequisite>
+        <researchPrerequisite>ST_Klingon_Melee_I</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Plasteel>2</Plasteel>
@@ -239,14 +185,135 @@
     </tradeTags>
   </ThingDef>
 
-  <!-- ROMULAN Dirhja Dagger  -->
+  <!-- KLINGON Bat'leth -->
   <ThingDef ParentName="ST_MeleeBase">
-    <defName>RO_Weapon_RomulanDagger</defName>
-    <label>Dirhja</label>
+    <defName>KL_Weapon_Batleth</defName>
+    <label>bat'leth</label>
+    <description>The bat'leth is a traditional Klingon curved blade weapon, symbolizing honor and combat prowess in Klingon culture.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Klingon_weapons/Batleth</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </graphicData>
+    <uiIconScale>1</uiIconScale>
+    <weaponTags>
+      <li>KlingonMelee_Batleth</li>
+      <li>KlingonMelee</li>
+    </weaponTags>
+    <statBases>
+      <Mass>3.2</Mass>
+      <MarketValue>380</MarketValue>
+    </statBases>
+    <recipeMaker>
+        <workAmount>8000</workAmount>
+        <skillRequirements><Crafting>7</Crafting></skillRequirements>
+        <recipeUsers><li>ElectricSmithy</li></recipeUsers>
+        <researchPrerequisite>ST_Klingon_Melee_I</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Plasteel>4</Plasteel>
+      <Steel>25</Steel>
+      <Gold>15</Gold>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <tools>
+      <li>
+        <label>edge</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>16</power>
+        <cooldownTime>2.1</cooldownTime>
+        <armorPenetration>0.33</armorPenetration>
+        <chanceFactor>1.0</chanceFactor>
+      </li>
+      <li>
+        <label>pommel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2.1</cooldownTime>
+        <armorPenetration>0.20</armorPenetration>
+        <chanceFactor>0.15</chanceFactor>
+      </li>
+    </tools>
+    <tradeTags>
+     <li>ST_KlingonArms</li> 
+    </tradeTags>
+  </ThingDef>
+
+  <!-- KLINGON Haf'leth -->
+  <ThingDef ParentName="ST_MeleeBase">
+    <defName>KL_Weapon_HafLeth</defName>
+    <label>Haf'leth</label>
+    <description>The haf'leth a Klingon pole weapon with a bat'leth like blade and superior range.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Klingon_weapons/HafLeth</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.3</drawSize>
+    </graphicData>
+    <uiIconScale>1</uiIconScale>
+    <weaponTags>
+      <li>KlingonMelee_Hafleth</li>
+      <li>KlingonMelee</li>
+    </weaponTags>
+    <statBases>
+      <Mass>3.2</Mass>
+      <MarketValue>380</MarketValue>
+    </statBases>
+    <recipeMaker>
+        <workAmount>12000</workAmount>
+        <skillRequirements><Crafting>8</Crafting></skillRequirements>
+        <recipeUsers><li>ElectricSmithy</li></recipeUsers>
+        <researchPrerequisite>ST_Klingon_Melee_II</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Plasteel>4</Plasteel>
+      <Steel>25</Steel>
+      <Gold>15</Gold>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <tools>
+      <li>
+        <label>edge</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>19</power>
+        <cooldownTime>2</cooldownTime>
+        <armorPenetration>0.33</armorPenetration>
+        <chanceFactor>1.0</chanceFactor>
+      </li>
+      <li>
+        <label>pole</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>13</power>
+        <cooldownTime>1.8</cooldownTime>
+        <armorPenetration>0.20</armorPenetration>
+        <chanceFactor>0.15</chanceFactor>
+      </li>
+    </tools>
+    <tradeTags>
+     <li>ST_KlingonArms</li> 
+    </tradeTags>
+  </ThingDef>
+
+
+  <!-- ===== ROMULAN MELEE WEAPONS ===== -->
+  <!-- ROMULAN Tan Qalanq  -->
+
+  <ThingDef ParentName="ST_MeleeBase">
+    <defName>RO_Weapon_TanQalanq</defName>
+    <label>Tan Qalanq</label>
+    <description>A tan qalanq a type of straight, single-edged Romulan sword wielded by the Qowat Milat, a group of Romulan warrior nuns</description>
     <graphicData>
       <texPath>Things/Item/Equipment/Romulan_weapons/TanQalanq</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>0.6</drawSize>
+      <drawSize>0.8</drawSize>
     </graphicData>
     <uiIconScale>1.4</uiIconScale>
     <weaponTags>
@@ -259,9 +326,64 @@
     </statBases>
     <recipeMaker>
         <workAmount>8000</workAmount>
+        <skillRequirements><Crafting>4</Crafting></skillRequirements>
+        <recipeUsers><li>ElectricSmithy</li></recipeUsers>
+        <researchPrerequisite>ST_Romulan_Melee_I</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Steel>20</Steel>
+      <Gold>5</Gold>
+    </costList>
+    <tools>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.45</cooldownTime>
+        <armorPenetration>0.22</armorPenetration>
+        <chanceFactor>0.65</chanceFactor>
+      </li>
+      <li>
+        <label>edge</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>11</power>
+        <cooldownTime>1.55</cooldownTime>
+        <armorPenetration>0.15</armorPenetration>
+        <chanceFactor>0.25</chanceFactor>
+      </li>
+    </tools>
+    <tradeTags><li>ST_RomulanIntel</li></tradeTags>
+  </ThingDef>
+
+
+  <!-- ROMULAN Shinzon Dagger  -->
+  <ThingDef ParentName="ST_MeleeBase">
+    <defName>RO_Weapon_ShinzonDagger</defName>
+    <label>Shinzon Dagger</label>
+    <description>A sleek Romulan dagger with a sharp, curved blade designed for swift and silent strikes.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Romulan_weapons/ShinzonDagger</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.8</drawSize>
+    </graphicData>
+    <uiIconScale>1.4</uiIconScale>
+    <weaponTags>
+      <li>RomulanMelee_Dagger</li>
+      <li>RomulanMelee</li>
+    </weaponTags>
+    <statBases>
+      <Mass>0.8</Mass>
+      <MarketValue>270</MarketValue>
+    </statBases>
+    <recipeMaker>
+        <workAmount>9500</workAmount>
         <skillRequirements><Crafting>6</Crafting></skillRequirements>
         <recipeUsers><li>ElectricSmithy</li></recipeUsers>
-        <researchPrerequisite>ST_Romulan_Bladecraft</researchPrerequisite>
+        <researchPrerequisite>ST_Romulan_Melee_II</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Plasteel>2</Plasteel>
@@ -293,12 +415,12 @@
     </tools>
     <tradeTags><li>ST_RomulanIntel</li></tradeTags>
   </ThingDef>
-
-
+  
   <!-- ===== FERENGI: Energy Whip (fast, slicing) ===== -->
   <ThingDef ParentName="ST_MeleeBase">
     <defName>FE_Weapon_EnergyWhip</defName>
     <label>energy whip</label>
+    <description>A Ferengi energy whip that emits a blade of focused energy, capable of slicing through most materials with ease.</description>
     <graphicData>
       <texPath>Things/Item/Equipment/Ferengi_weapons/EnergyWhip</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -317,7 +439,7 @@
         <workAmount>7000</workAmount>
         <skillRequirements><Crafting>6</Crafting></skillRequirements>
         <recipeUsers><li>ElectricSmithy</li></recipeUsers>
-        <researchPrerequisite>ST_Ferengi_SecurityImplements</researchPrerequisite>
+        <researchPrerequisite>ST_Ferengi_Melee_I</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Plasteel>3</Plasteel>
@@ -326,7 +448,6 @@
       <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
     <tools>
-      <!-- primary lash (Cut) -->
       <li>
         <label>lash</label>
         <capacities><li>Cut</li></capacities>
@@ -335,7 +456,6 @@
         <armorPenetration>0.22</armorPenetration>
         <chanceFactor>0.85</chanceFactor>
       </li>
-      <!-- secondary crack (Blunt) -->
       <li>
         <label>crack</label>
         <capacities><li>Blunt</li></capacities>
@@ -346,7 +466,7 @@
       </li>
     </tools>
     <tradeTags>
-      <li>ST_FerengiGoods</li>    <!-- Ferengi Exchange verkauft/kauft das -->
+      <li>ST_FerengiGoods</li>
     </tradeTags>
   </ThingDef>
 

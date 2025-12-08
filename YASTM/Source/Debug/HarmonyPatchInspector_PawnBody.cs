@@ -1,6 +1,4 @@
-// Source/Diagnostics/HarmonyPatchInspector_PawnBody.cs
-// Listet alle Harmony-Patches auf Verse.PawnRenderNode_Body.GraphicFor(Pawn)
-// Kompatibel mit Harmony 2.x (Prefixes/Postfixes = ReadOnlyCollection<Patch>)
+
 
 using System;
 using System.Collections.Generic;

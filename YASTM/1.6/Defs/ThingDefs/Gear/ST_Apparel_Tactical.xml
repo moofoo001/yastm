@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="ApparelBase">
+    <defName>ST_PersonalShieldEmitter</defName>
+    <label>personal shield emitter</label>
+    <description>A compact belt-mounted projector that creates a defensive energy field
+      around the wearer. Based on Starfleet starship shield technology, tuned
+      for personal combat and away missions.</description>
+    <thingClass>Apparel</thingClass>
+    <tickerType>Normal</tickerType>
+    <techLevel>Spacer</techLevel>
+
+    <graphicData>
+      <texPath>Things/Item/Apparel/PersonalShieldEmitter/ST_FFEmitter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>1.0</drawSize>
+    </graphicData>
+    
+    <statBases>
+      <Mass>3</Mass>
+      <MaxHitPoints>240</MaxHitPoints>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>3</EquipDelay>
+      <EnergyShieldRechargeRate>0.22</EnergyShieldRechargeRate>
+      <EnergyShieldEnergyMax>1.75</EnergyShieldEnergyMax>
+    </statBases>
+
+    <costList>
+      <Steel>40</Steel>
+      <Plasteel>25</Plasteel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+
+    <recipeMaker>
+      <workAmount>26000</workAmount>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>ST_ForceField_Tech</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>10</Crafting>
+      </skillRequirements>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+    </recipeMaker>
+
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+
+      <apparel>
+       <wornGraphicPath>Things/Item/Apparel/PersonalShieldEmitter/ST_FFEmitter</wornGraphicPath>
+       <wornGraphicData>
+      <renderUtilityAsPack>true</renderUtilityAsPack>
+      <north>
+        <offset>(0,-0.25)</offset>
+        <hulk><offset>(0 ,-0.1)</offset></hulk>
+        <fat><offset>(0,-0.05)</offset></fat>
+        <thin><offset>(0,0)</offset></thin>
+      </north>
+      <south>
+        <offset>(0,-0.25)</offset>
+        <hulk><offset>(0,-0.1)</offset></hulk>
+        <fat><offset>(0,-0.05)</offset></fat>
+        <thin><offset>(0,0)</offset></thin>
+      </south>
+      <east>
+        <offset>(-0.1,-0.25)</offset>
+        <hulk><offset>(-0.1,-0.1)</offset></hulk>
+        <fat><offset>(0,-0.10)</offset></fat>
+      </east>
+      <west>
+        <offset>(+0.1,-0.25)</offset>
+        <hulk><offset>(+0.1,-0.1)</offset></hulk>
+        <fat><offset>(0,-0.10)</offset></fat>
+      </west>
+      <male>  <scale>(0.4,0.5)</scale></male>
+      <female><scale>(0.5,0.5)</scale></female>
+      <thin>  <scale>(0.3,0.4)</scale></thin>
+      <hulk>  <scale>(0.6,0.6)</scale></hulk>
+      <fat>   <scale>(0.8,0.6)</scale></fat>
+    </wornGraphicData>
+    
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+        <layers>
+          <li>Belt</li>
+        </layers>
+        <tags>
+          <li>BeltDefense</li>
+        </tags>
+    </apparel>
+
+    <comps>
+      <li Class="CompProperties_Shield" />
+     </comps>
+
+    <tradeTags>
+      <li>ST_RomulanIntel</li>
+      <li>ST_StarfleetSupply</li>
+    </tradeTags>
+
+  </ThingDef>
+
+</Defs>

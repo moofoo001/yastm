@@ -56,7 +56,13 @@
           <letterDef>NeutralEvent</letterDef>
         </li>
 
-  
+        <li Class="QuestNode_Letter">
+          <inSignal>STQ.Obelisks.ScanComplete</inSignal>
+          <label>STQ.Obelisks.ScanComplete.LetterTitle</label>
+          <text>STQ.Obelisks.ScanComplete.LetterText</text>
+          <letterDef>NeutralEvent</letterDef>
+        </li>
+
         <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
           <inSignal>STQ.Obelisks.DataTransmitted</inSignal>
           <incident>ManhunterPack</incident>

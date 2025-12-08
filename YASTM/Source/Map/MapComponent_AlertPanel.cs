@@ -20,7 +20,7 @@ namespace YASTM
         public int RedEndTick;
         public int YellowEndTick;
 
-        // Optional: Sustain-Sirenen aus ST_Sounds.xml, falls vorhanden
+     
         private Sustainer redSirenSustainer;
         private Sustainer yellowSirenSustainer;
 
@@ -39,8 +39,8 @@ namespace YASTM
             NextAllowedTickRed = RedEndTick + cooldownTicks;
             BlinkUntilTickRed = now + blinkSeconds * 60;
 
-            // Effekte
-            PlayOneShotOnMap("ST_RedAlert_Chirp"); // fallback-OneShot
+            
+            PlayOneShotOnMap("ST_RedAlert_Chirp"); 
             TryStartSustainer(ref redSirenSustainer, "ST_Siren_RedLoop");
 
             Messages.Message("Red Alert aktiviert!", MessageTypeDefOf.ThreatBig, historical:false);
@@ -91,7 +91,7 @@ namespace YASTM
 
         public override void MapComponentTick()
         {
-            if ((Find.TickManager.TicksGame % 60) != 0) return; // 1x/Sek.
+            if ((Find.TickManager.TicksGame % 60) != 0) return; 
 
             int now = Find.TickManager.TicksGame;
             if (IsRedAlertOn && now >= RedEndTick) StopRedAlert();

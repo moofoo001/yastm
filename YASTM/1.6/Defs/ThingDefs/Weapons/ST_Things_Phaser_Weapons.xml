@@ -119,7 +119,7 @@
       <recipeUsers>
         <li>ElectricSmithy</li>
       </recipeUsers>
-      <researchPrerequisite>ST_UFP_Phasers</researchPrerequisite>
+      <researchPrerequisite>ST_Federation_Phaser_I</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Silver>100</Silver>
@@ -189,7 +189,7 @@
       <recipeUsers>
         <li>ElectricSmithy</li>
       </recipeUsers>
-      <researchPrerequisite>ST_UFP_Phasers</researchPrerequisite>
+      <researchPrerequisite>ST_Federation_Phaser_II</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Silver>100</Silver>
@@ -267,7 +267,7 @@
       <recipeUsers>
         <li>ElectricSmithy</li>
       </recipeUsers>
-      <researchPrerequisite>ST_UFP_Phasers</researchPrerequisite>
+      <researchPrerequisite>ST_Federation_Phaser_Rifle</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Silver>200</Silver>

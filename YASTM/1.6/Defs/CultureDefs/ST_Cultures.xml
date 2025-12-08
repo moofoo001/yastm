@@ -63,7 +63,8 @@
     <allowedPlaceTags>
       <li>OriginSpacer</li>
     </allowedPlaceTags>
-    <iconPath>UI/Icons/IdeoIcons/ps_society</iconPath>
+    <iconPath>UI/Icons/IdeoIcons/FederationCulture</iconPath>
+
     <styleItemTags>
       <li>
         <tag>Urban</tag>
@@ -98,7 +99,7 @@
     <deityNameMaker>NamerDeity_Klingon</deityNameMaker>
     <deityTypeMaker>DeityTypeMaker_Klingon</deityTypeMaker>
     <festivalNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerFestivalAstropolitan</festivalNameMaker>  
-    <iconPath>UI/Icons/IdeoIcons/Placeholder</iconPath>
+    <iconPath>UI/Icons/IdeoIcons/KlingonCulture</iconPath>
     <allowedPlaceTags>
       <li>OriginSpacer</li>
     </allowedPlaceTags>
@@ -147,7 +148,7 @@
     <deityNameMaker>NamerDeity_Romulan</deityNameMaker>
     <deityTypeMaker>DeityTypeMaker_Romulan</deityTypeMaker>
     <festivalNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerFestivalAstropolitan</festivalNameMaker>
-    <iconPath>UI/Icons/IdeoIcons/Placeholder</iconPath>
+    <iconPath>UI/Icons/IdeoIcons/RomulanCulture</iconPath>
     <allowedPlaceTags>
       <li>OriginSpacer</li>
     </allowedPlaceTags>
@@ -186,7 +187,7 @@
     <deityNameMaker>NamerDeity_Ferengi</deityNameMaker>
     <deityTypeMaker>DeityTypeMaker_Ferengi</deityTypeMaker>
     <festivalNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerFestivalAstropolitan</festivalNameMaker>
-    <iconPath>UI/Icons/IdeoIcons/Placeholder</iconPath>   
+    <iconPath>UI/Icons/IdeoIcons/FerengiCulture</iconPath>   
     <allowedPlaceTags>
       <li>OriginSpacer</li>
     </allowedPlaceTags>

@@ -25,10 +25,7 @@ namespace YASTM
         }
     }
 
-    /// <summary>
-    /// XML-Alias für alte Einträge (Class="YASTM.CompProperties_TransporterBeacon").
-    /// Nutzt intern dieselbe Comp.
-    /// </summary>
+
     public class CompProperties_TransporterBeacon : CompProperties_TransporterConsole
     {
         public CompProperties_TransporterBeacon()
@@ -70,7 +67,7 @@ namespace YASTM
             }
         }
 
-        // 1.6: PostDeSpawn(Map) gibt es nicht mehr -> PostDestroy verwenden
+
         public override void PostDestroy(DestroyMode mode, Map previousMap)
         {
             base.PostDestroy(mode, previousMap);
@@ -323,19 +320,19 @@ namespace YASTM
                 return;
             }
 
-            // --- NEU: Warmup/Dematerialisieren am QUELL-Pawn ---
+
             int warmup = Props.warmupTicks > 0 ? Props.warmupTicks : 60;
 
-            // Textfeedback (optional)
+
             MoteMaker.ThrowText(parent.TrueCenter(), parent.Map, "ST.Transporter.Warmup".Translate(), 2f);
 
-            // Pawn sofort „einfrieren“ und überlappende Beam-Säulen-Bursts starten
+ 
             map.GetComponent<MapComponent_TransporterFX>()?.StartRematerialize(pawn, warmup);
 
-            // Teleport nach Warmup-Zeit planen
+
             map.GetComponent<MapComponent_TransporterOps>()?.ScheduleTeleport(pawn, toCell, warmup);
 
-            // Cooldown sofort setzen (oder erst nach Teleport, Geschmackssache)
+
             nextUsableTick = Find.TickManager.TicksGame + System.Math.Max(Props.cooldownTicks, 60);
         }
     }

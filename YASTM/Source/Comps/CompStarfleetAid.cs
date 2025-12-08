@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using RimWorld;
-using RimWorld.Planet;      // für WorldComponent
+using RimWorld.Planet;     
 using UnityEngine;
 using Verse;
 using System.Linq;

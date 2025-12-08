@@ -6,7 +6,7 @@ namespace YASTM
 {
     public static class TransporterPadUtil
     {
-        /// <summary>Findet ein verlinktes, eingeschaltetes Pad einer Console.</summary>
+      
         public static bool TryGetLinkedPad(Building console, out Building pad)
         {
             pad = null;
@@ -29,7 +29,7 @@ namespace YASTM
             return false;
         }
 
-        /// <summary>Interaktionszelle oder Zentrum des Pads.</summary>
+      
         public static IntVec3 GetPadCell(Building pad)
         {
             if (pad == null) return IntVec3.Invalid;

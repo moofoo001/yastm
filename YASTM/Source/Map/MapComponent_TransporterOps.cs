@@ -4,11 +4,6 @@ using RimWorld;
 
 namespace YASTM
 {
-    /// <summary>
-    /// Plant verzögerte Teleports nach Warmup ein:
-    /// - Pawn bleibt während Warmup gestunnt (durch MapComponent_TransporterFX).
-    /// - Nach Ablauf: DeSpawn -> Spawn am Zielpad -> Pad-VFX + Rematerialisieren.
-    /// </summary>
     public class MapComponent_TransporterOps : MapComponent
     {
         private struct Pending
@@ -22,7 +17,7 @@ namespace YASTM
 
         public MapComponent_TransporterOps(Map map) : base(map) { }
 
-        /// <summary>Teleport in delayTicks Ticks an toCell planen.</summary>
+   
         public void ScheduleTeleport(Pawn pawn, IntVec3 toCell, int delayTicks)
         {
             if (pawn == null || pawn.Map != map || !toCell.IsValid) return;
@@ -47,14 +42,13 @@ namespace YASTM
                 var map = pawn.Map ?? this.map;
                 var toCell = p.toCell.IsValid ? p.toCell : pawn.Position;
 
-                // Sicherheitszelle suchen
+            
                 var safeTo = CellFinder.StandableCellNear(toCell, map, 1);
 
-                // DeSpawn -> Spawn am Ziel
                 if (pawn.Spawned) pawn.DeSpawn();
                 GenSpawn.Spawn(pawn, safeTo, map);
 
-                // Ziel-VFX: Pad-Effekt + 3s Rematerialisieren
+             
                 TransporterVFX.PlayBeam(map, safeTo);
                 TransporterVFX.BeginRematerialize(pawn, 180);
 

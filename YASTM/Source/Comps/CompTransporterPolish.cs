@@ -8,7 +8,7 @@ namespace YASTM
     {
         public CompProperties_TransporterPolish()
         {
-            // 🔧 WICHTIG: immer auf die richtige Comp setzen!
+           
             this.compClass = typeof(CompTransporterPolish);
         }
     }

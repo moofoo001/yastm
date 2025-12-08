@@ -20,7 +20,7 @@ namespace YASTM
         {
             base.GameComponentTick();
             if (didSync) return;
-            if (Find.TickManager.TicksGame < 1) return;           // warte 1 Tick bis alle Pawns gespawnt sind
+            if (Find.TickManager.TicksGame < 1) return;         
             if (Current.Game?.Maps == null || Current.Game.Maps.Count == 0) return;
 
             SyncAllPlayerPawns();
@@ -38,7 +38,7 @@ namespace YASTM
         {
             if (pawn?.apparel == null || pawn.story?.traits == null) return;
 
-            // Finde den ersten ST_Rank_* Trait (falls mehrere, nimm den neuesten/obersten)
+           
             Trait rankTrait = null;
             var all = pawn.story.traits.allTraits;
             for (int i = 0; i < all.Count; i++)
@@ -49,7 +49,7 @@ namespace YASTM
             }
             if (rankTrait == null) return;
 
-            // Alte Pips runter
+          
             var worn = pawn.apparel.WornApparel;
             for (int i = worn.Count - 1; i >= 0; i--)
             {
@@ -61,7 +61,7 @@ namespace YASTM
                 }
             }
 
-            // Neue Pips gemäß RankVisualExtension
+   
             var ext = rankTrait.def.GetModExtension<RankVisualExtension>();
             if (ext == null || string.IsNullOrEmpty(ext.pipApparelDefName)) return;
 

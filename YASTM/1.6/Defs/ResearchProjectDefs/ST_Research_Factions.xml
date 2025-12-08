@@ -1,84 +1,657 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- ===========================
-       Ferengi – Commerce Protocols
-       =========================== -->
-  <ResearchProjectDef>
-    <defName>Ferengi_Commerce</defName>
-    <label>Ferengi commerce protocols</label>
-    <description>Standardisierte Handels-, Buchungs- und Logistikprotokolle der Ferengi. Öffnet Wege für ferengische Ausrüstung und Infrastruktur.</description>
-
-    <!-- Vanilla baseline -->
+  <!-- Federation standard -->
+  <ResearchProjectDef Parent="ST_Base_Research" Name="Federation_Standard">
+    <defName>Federation_Standard</defName>
+    <description>Standardized Starfleet issue gear and fittings.</description>
+    <label>Federation standard</label>
     <techLevel>Spacer</techLevel>
-    <baseCost>1600</baseCost>
+    <tab>ST_Research</tab>
+    <baseCost>300</baseCost>
     <prerequisites>
-      <li>MicroelectronicsBasics</li>
+      <li>ST_Common_Issue_Gear</li>
     </prerequisites>
-
-    <!-- Bench/Facilities -->
-    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-
-    <!-- Map-Position im Research-Fenster -->
-    <researchViewX>7</researchViewX>
-    <researchViewY>5</researchViewY>
-
-    <!-- Gruppierung -->
-    <tags>
-      <li>YASTM_Faction_Ferengi</li>
-    </tags>
+    <researchViewX>0</researchViewX>
+    <researchViewY>2</researchViewY>
+      <modExtensions>
+     <li Class="YASTM.Research.ResearchRequiresMemeExtension">
+          <requiredMemes>
+            <li>ST_Meme_Starfleet</li>
+          </requiredMemes>
+        </li>
+      </modExtensions>
   </ResearchProjectDef>
-
-  <!-- ===========================
-       Klingon – Warfare Doctrine
-       =========================== -->
-  <ResearchProjectDef>
-    <defName>Klingon_Warfare</defName>
-    <label>Klingon warfare doctrine</label>
-    <description>Taktiken, Disziplin und Material der Klingonischen Flotte. Dient als Grundlage für klingonische Waffen, Rüstungen und Gefechtsausrüstung.</description>
-
-    <techLevel>Spacer</techLevel>
-    <baseCost>1800</baseCost>
-    <prerequisites>
-      <li>MicroelectronicsBasics</li>
-      <li>Gunsmithing</li>
-    </prerequisites>
-
-    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-
-    <researchViewX>8</researchViewX>
-    <researchViewY>6</researchViewY>
-
-    <tags>
-      <li>YASTM_Faction_Klingon</li>
-    </tags>
-  </ResearchProjectDef>
-
-  <!-- ===========================
-       Romulan – Tech Doctrine
-       =========================== -->
-  <ResearchProjectDef>
-    <defName>Romulan_TechDoctrine</defName>
-    <label>Romulan technological doctrine</label>
-    <description>Romulanische Systemarchitektur, Tarnmuster und Energiedisziplin. Voraussetzung für romulanische Ausrüstung und fortgeschrittene Elektronik.</description>
-
+  
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_UFP_Engineering_I</defName>
+    <label>Starfleet engineering I</label>
+    <description>Foundational Starfleet engineering practices: EPS routing, standardized power taps
+      and structural field coupling. Unlocks basic Starfleet support structures and fittings.
+      Unlocks: Batteries, SolarPanels, NutrientPaste, AirConditioning</description>
     <techLevel>Spacer</techLevel>
     <baseCost>2000</baseCost>
+    <tab>ST_Research</tab>
     <prerequisites>
-      <li>MicroelectronicsBasics</li>
+      <li>Federation_Standard</li>
     </prerequisites>
+    <researchViewX>1</researchViewX>
+    <researchViewY>2</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>Batteries</li>
+            <li>SolarPanels</li>
+            <li>NutrientPaste</li>
+            <li>AirConditioning</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
 
+  <!-- Starfleet Engineering II: advanced field control -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_UFP_Engineering_II</defName>
+    <label>Starfleet engineering II</label>
+    <description>Advanced knowledge of structural integrity fields, grav plating and EPS priority routing.
+      Improves access to high-capacity power distribution and defensive systems.
+      Unlocks: GeothermalPower, Firefoam, BasicMechtech, HeavyBridges</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2000</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_UFP_Engineering_I</li>
+      <li>ST_SubspaceTelemetry</li>
+    </prerequisites>
+    <researchViewX>4</researchViewX>
+    <researchViewY>2</researchViewY>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
     <requiredResearchFacilities>
       <li>MultiAnalyzer</li>
     </requiredResearchFacilities>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>GeothermalPower</li>
+            <li>Firefoam</li>
+            <li>BasicMechtech</li>
+            <li>HeavyBridges</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
 
-    <researchViewX>9</researchViewX>
-    <researchViewY>7</researchViewY>
+  <!-- Starfleet Engineering III: starship-grade infrastructure -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_UFP_Engineering_III</defName>
+    <label>Starfleet engineering III</label>
+    <description>Starship-grade engineering competence: high-density EPS manifolds, structural field harmonics
+      and full integration with transporter and replicator grids. Serves as a gateway for the
+      most advanced Starfleet infrastructure.
+      Unlocks: OrbitalTech, StandardGravtech</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>3200</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_UFP_Engineering_II</li>
+      <li>ST_TransporterTech</li>
+      <li>ST_Replicator_Tech</li>
+    </prerequisites>
+    <researchViewX>7</researchViewX>
+    <researchViewY>2</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>OrbitalTech</li>
+            <li>StandardGravtech</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
 
+  <ResearchProjectDef ParentName="ST_Base_Research">
+      <defName>ST_UFP_Interior</defName>
+      <label>UFP standard interior</label>
+      <description>UFP standard interior for homes and ships.</description>
+      <baseCost>500</baseCost>
+      <techLevel>Spacer</techLevel>
+      <prerequisites>
+        <li>ST_UFP_Engineering_I</li>
+        <li>Machining</li>
+      </prerequisites>
+      <researchViewX>3</researchViewX>
+      <researchViewY>2</researchViewY>
+      <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+            <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>GeothermalPower</li>
+            <li>Firefoam</li>
+            <li>BasicMechtech</li>
+          </projects>
+        </li>
+      </researchMods> 
+    </ResearchProjectDef>
+  
+  <!-- ===========================
+       Klingon – Warfare Doctrine
+       =========================== -->
+
+    <ResearchProjectDef Parent="ST_Base_Research" Name="Klingon_Standard">
+      <defName>Klingon_Standard</defName>
+      <description>Standardized Klingon issue gear and fittings.</description>
+      <label>Klingon standard</label>
+      <techLevel>Spacer</techLevel>
+      <tab>ST_Research</tab>
+      <baseCost>300</baseCost>
+      <prerequisites>
+        <li>ST_Common_Issue_Gear</li>
+      </prerequisites>
+      <researchViewX>0</researchViewX>
+      <researchViewY>3</researchViewY>
+        <modExtensions>
+          <li Class="YASTM.Research.ResearchRequiresMemeExtension">
+          <requiredMemes>
+            <li>ST_Meme_KlingonHonor</li>
+          </requiredMemes>
+        </li>
+      </modExtensions>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Klingon_Engineering_I</defName>
+    <label>Klingon engineering I</label>
+    <description>Baseline Klingon structural engineering: heavy hull plating, redundant power couplings and rugged support systems. Unlocks basic Klingon support structures and fittings.
+    Unlocks: Batteries, SolarPanels, NutrientPaste, AirConditioning</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1200</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>Klingon_Standard</li>
+    </prerequisites>
+    <researchViewX>1</researchViewX>
+    <researchViewY>3</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>Batteries</li>
+            <li>SolarPanels</li>
+            <li>NutrientPaste</li>
+            <li>AirConditioning</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Klingon_Engineering_II</defName>
+    <label>Klingon engineering II</label>
+    <description>Advanced Klingon field conduits, reinforced bulkheads and high-capacity power manifolds. Improves access to heavier Klingon defenses and support infrastructure.
+    Unlocks: ToxifierGenerator, Firefoam, BasicMechtech, ComplexFurniture, HeavyBridges</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2000</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Klingon_Engineering_I</li>
+      <li>ST_SubspaceTelemetry</li>
+    </prerequisites>
+    <researchViewX>4</researchViewX>
+    <researchViewY>3.2</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>ToxifierGenerator</li>
+            <li>Firefoam</li>
+            <li>BasicMechtech</li>
+            <li>ComplexFurniture</li>
+            <li>HeavyBridges</li>
+          </projects>
+        </li>
+      </researchMods>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Klingon_Engineering_III</defName>
+    <label>Klingon engineering III</label>
+    <description>Warship-grade Klingon engineering: hardened EPS trunks, deep redundancy and battle-ready structural supports. Serves as a gateway for the most advanced Klingon infrastructure.
+    Unlocks: OrbitalTech, StandardGravtech, StandardMechtech</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>3200</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Klingon_Engineering_II</li>
+      <li>ST_MatterConversion_Tech</li>
+    </prerequisites>
+    <researchViewX>6</researchViewX>
+    <researchViewY>3</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>OrbitalTech</li>
+            <li>StandardGravtech</li>
+            <li>StandardMechtech</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>Klingon_Warfare</defName>
+    <label>Klingon warfare doctrine</label>
+    <description>Fundamental Klingon combat doctrines, honor codes, and battlefield strategies.
+      Provides access to basic Klingon weaponry, armor, and training facilities.
+      Unlocks: Mortars, FlakArmor</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2500</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>MicroelectronicsBasics</li>
+      <li>ST_Klingon_Engineering_I</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <researchViewX>2</researchViewX>
+    <researchViewY>3</researchViewY>
+    <tags>
+      <li>YASTM_Faction_Klingon</li>
+    </tags>
+    <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>Mortars</li>
+            <li>FlakArmor</li>
+          </projects>
+        </li>
+    </researchMods> 
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>Klingon_AdvancedWarfare</defName>
+    <label>klingon advanced warfare</label>
+    <description>Refined Klingon combat doctrines, logistics and battle-group organization.
+      Serves as a gateway for elite Klingon weapons, armor and training facilities.
+      Unlocks: GunTurrets, FoamTurret</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2400</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>Klingon_Warfare</li>
+      <li>ST_Klingon_Melee_I</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <researchViewX>4</researchViewX>
+    <researchViewY>2.6</researchViewY>
+    <tags>
+      <li>YASTM_Faction_Klingon</li>
+    </tags>
+    <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>GunTurrets</li>
+            <li>FoamTurret</li>
+          </projects>
+        </li>
+    </researchMods> 
+  </ResearchProjectDef>
+
+
+  <!-- ===========================
+       Romulan – Tech Doctrine
+       =========================== -->
+
+
+  <ResearchProjectDef Parent="ST_Base_Research" Name="Romulan_Standard">
+    <defName>Romulan_Standard</defName>
+    <description>Standardized Romulan issue gear and fittings.</description>
+    <label>Romulan standard</label>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <baseCost>300</baseCost>
+    <prerequisites>
+      <li>ST_Common_Issue_Gear</li>
+    </prerequisites>
+    <researchViewX>0</researchViewX>
+    <researchViewY>4</researchViewY>
+      <modExtensions>
+       <li Class="YASTM.Research.ResearchRequiresMemeExtension">
+          <requiredMemes>
+            <li>ST_Meme_RomulanCommand</li>
+          </requiredMemes>
+        </li>
+      </modExtensions>
+  </ResearchProjectDef>
+
+ <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Romulan_Engineering_I</defName>
+    <label>Romulan engineering I</label>
+    <description>Foundational Romulan system architecture: compact power routing, compartmentalized hulls and secure control systems. Unlocks basic Romulan support structures and fittings.
+    Unlocks: Batteries, SolarPanels, NutrientPaste, AirConditioning</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1200</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>Romulan_Standard</li>
+    </prerequisites>
+    <researchViewX>1</researchViewX>
+    <researchViewY>4</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>Batteries</li>
+            <li>SolarPanels</li>
+            <li>NutrientPaste</li>
+            <li>AirConditioning</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Romulan_Engineering_II</defName>
+    <label>Romulan engineering II</label>
+    <description>Advanced Romulan containment systems, power isolation and stealth-friendly hull integration. Improves access to more sophisticated Romulan systems.
+    Unlocks: ToxifierGenerator, Firefoam, BasicMechtech, ComplexFurniture, HeavyBridges</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2000</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Romulan_Engineering_I</li>
+      <li>ST_SubspaceTelemetry</li>
+    </prerequisites>
+    <researchViewX>4</researchViewX>
+    <researchViewY>4.2</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>ToxifierGenerator</li>
+            <li>Firefoam</li>
+            <li>BasicMechtech</li>
+            <li>ComplexFurniture</li>
+            <li>HeavyBridges</li>
+          </projects>
+        </li>
+      </researchMods>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Romulan_Engineering_III</defName>
+    <label>Romulan engineering III</label>
+    <description>High-tier Romulan warp infrastructure, subspace field control and cloaking-ready hull integration. Serves as a gateway for the most advanced Romulan infrastructure.
+    Unlocks: OrbitalTech, StandardGravtech, StandardMechtech</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>3200</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Romulan_Engineering_II</li>
+      <li>ST_WarpFieldTheory</li>
+    </prerequisites>
+    <researchViewX>6</researchViewX>
+    <researchViewY>4</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>OrbitalTech</li>
+            <li>StandardGravtech</li>
+            <li>StandardMechtech</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>Romulan_TechDoctrine</defName>
+    <label>Romulan technological doctrine</label>
+    <description>Core Romulan technological principles, engineering philosophies, and scientific methodologies.
+      Unlocks access to Romulan-themed infrastructure and basic stealth-support equipment.
+      Unlocks: NeuralSupercharger, BrainWiring</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2000</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>MicroelectronicsBasics</li>
+      <li>ST_Romulan_Engineering_I</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+    <researchViewX>2</researchViewX>
+    <researchViewY>4</researchViewY>
     <tags>
       <li>YASTM_Faction_Romulan</li>
     </tags>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>NeuralSupercharger</li>
+            <li>BrainWiring</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>Romulan_CloakingSystems</defName>
+    <label>Romulan cloaking systems</label>
+    <description>Advanced Romulan cloaking architectures, power cycling disciplines and emission suppression.
+      Enables access to cloaking-related infrastructure and stealth-support equipment.
+      Unlocks: ReconArmor</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>3000</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Romulan_Engineering_III</li>
+      <li>ST_WarpFieldTheory</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+    <researchViewX>8</researchViewX>
+    <researchViewY>4</researchViewY>
+    <tags>
+      <li>YASTM_Faction_Romulan</li>
+    </tags>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>ReconArmor</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+  <!-- ===========================
+       Ferengi 
+       =========================== -->
+
+  <ResearchProjectDef Parent="ST_Base_Research" Name="Ferengi_Standard">
+    <defName>Ferengi_Standard</defName>
+    <description>Standardized Ferengi issue gear and fittings.</description>
+    <label>Ferengi standard</label>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <baseCost>300</baseCost>
+    <prerequisites>
+      <li>ST_Common_Issue_Gear</li>
+    </prerequisites>
+    <researchViewX>0</researchViewX>
+    <researchViewY>5</researchViewY>
+      <modExtensions>
+      <li Class="YASTM.Research.ResearchRequiresMemeExtension">
+          <requiredMemes>
+            <li>ST_Meme_FerengiCommerce</li>
+          </requiredMemes>
+          </li>
+      </modExtensions>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Ferengi_Engineering_I</defName>
+    <label>Ferengi engineering I</label>
+    <description>Utility-focused Ferengi engineering: modular cargo spaces, profit-driven redundancy and efficient station fittings. Unlocks basic Ferengi support structures and fittings.
+    Unlocks: Batteries, SolarPanels, NutrientPaste, AirConditioning</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1200</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>Ferengi_Standard</li>
+    </prerequisites>
+    <researchViewX>1</researchViewX>
+    <researchViewY>5</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>Batteries</li>
+            <li>SolarPanels</li>
+            <li>NutrientPaste</li>
+            <li>AirConditioning</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Ferengi_Engineering_II</defName>
+    <label>Ferengi engineering II</label>
+    <description>Expanded Ferengi power routing, vault-grade bulkheads and optimized commercial hubs. Improves access to Ferengi trade infrastructure and defensive systems.
+    Unlocks: ToxifierGenerator, Firefoam, BasicMechtech, ComplexFurniture, HeavyBridges</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2000</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Ferengi_Engineering_I</li>
+      <li>ST_RecreationalInterfaces</li>
+    </prerequisites>
+    <researchViewX>4</researchViewX>
+    <researchViewY>5</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>ToxifierGenerator</li>
+            <li>Firefoam</li>
+            <li>BasicMechtech</li>
+            <li>ComplexFurniture</li>
+            <li>HeavyBridges</li>
+          </projects>
+        </li>
+      </researchMods>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Ferengi_Engineering_III</defName>
+    <label>Ferengi engineering III</label>
+    <description>High-capacity trade hubs, hardened profit vaults and fully integrated station-grade power systems. Serves as a gateway for the most advanced Ferengi infrastructure.
+    Unlocks: OrbitalTech, StandardGravtech, StandardMechtech</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>3200</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Ferengi_Engineering_II</li>
+      <li>Ferengi_Commerce</li>
+    </prerequisites>
+    <researchViewX>6</researchViewX>
+    <researchViewY>5</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>OrbitalTech</li>
+            <li>StandardGravtech</li>
+            <li>StandardMechtech</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>Ferengi_Commerce</defName>
+    <label>Ferengi commerce protocols</label>
+    <description>Comprehensive study of Ferengi trade practices, market manipulation techniques, and profit maximization strategies.
+      Enables access to Ferengi trading infrastructure and profit-oriented equipment.
+      Unlocks: CarpetMaking, NobleApparel, PsychiteRefining, WakeUpProduction, GoJuiceProduction, SmokepopBelt</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1600</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>MicroelectronicsBasics</li>
+      <li>ST_Ferengi_Engineering_I</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <researchViewX>2</researchViewX>
+    <researchViewY>5</researchViewY>
+    <tags>
+      <li>YASTM_Faction_Ferengi</li>
+    </tags>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>CarpetMaking</li>
+            <li>NobleApparel</li>
+            <li>PsychiteRefining</li>
+            <li>WakeUpProduction</li>
+            <li>GoJuiceProduction</li>
+            <li>SmokepopBelt</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+   <ResearchProjectDef>
+    <defName>Ferengi_AdvancedCommerce</defName>
+    <label>Ferengi advanced commerce</label>
+    <description>High-volume Ferengi trade architecture, warehousing and risk-optimized profit structures.
+      Unlocks advanced trading infrastructure and Ferengi-themed production chains.
+      Unlocks: FlatscreenTelevision, DeepDrilling, BrainWiring</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2200</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>Ferengi_Commerce</li>
+      <li>MicroelectronicsBasics</li>
+      <li>ST_Ferengi_Engineering_II</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <researchViewX>5</researchViewX>
+    <researchViewY>5</researchViewY>
+    <tags>
+      <li>YASTM_Faction_Ferengi</li>
+    </tags>
+          <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>FlatscreenTelevision</li>
+            <li>DeepDrilling</li>
+            <li>BrainWiring</li>
+          </projects>
+        </li>
+      </researchMods> 
   </ResearchProjectDef>
 
 </Defs>

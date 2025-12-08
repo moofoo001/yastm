@@ -3,7 +3,7 @@ using Verse;
 
 namespace YASTM
 {
-    /// Zentrale Loader für UI/Gizmo-Icons (getrennt vom ST.PhaseWeapons.ST_Tex).
+    
     [StaticConstructorOnStartup]
     public static class ST_UITex
     {

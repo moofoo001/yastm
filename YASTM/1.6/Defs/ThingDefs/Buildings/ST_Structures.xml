@@ -87,7 +87,7 @@
         </focusTypes>
       </li>
     </comps>
-  <researchPrerequisites><li>ST_UFP_Structures</li></researchPrerequisites>
+  <researchPrerequisites><li>ST_UFP_Engineering_I</li></researchPrerequisites>
     <damageMultipliers>
       <li>
         <damageDef>Bomb</damageDef>
@@ -155,8 +155,6 @@
 	    <paintable>true</paintable> 
       <supportsWallAttachments>true</supportsWallAttachments> 
       <isStuffableAirtight>true</isStuffableAirtight>
-
-
     </building>
     <placeWorkers> 
       <li>Placeworker_AttachedToWall</li> 
@@ -172,7 +170,7 @@
     </comps>
 	<designationCategory>Structure</designationCategory> 
 	<researchPrerequisites> 
-      <li>ST_UFP_Structures</li>
+      <li>ST_UFP_Engineering_I</li>
     </researchPrerequisites>
   </ThingDef>
 
@@ -181,8 +179,7 @@
     <label>armored hull door</label>
     <description>Divides rooms. Armored doors must be manually opened, which slows people down. Armored doors are nearly entirely blast resistant and barely take damage from breaching methods.</description>
     <category>Building</category>
-    <thingClass>Building_Door</thingClass>
-    <altitudeLayer>DoorMoveable</altitudeLayer>
+    <thingClass>Building_MultiTileDoor</thingClass>
     <statBases>
         <WorkToBuild>1685</WorkToBuild>
         <MaxHitPoints>450</MaxHitPoints>
@@ -190,19 +187,37 @@
     </statBases>
     <graphicData>
       <texPath>Things/Building/Ship/ST_HullDoor_Mover</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-          <shaderType>CutoutComplex</shaderType>
+      <graphicClass>Graphic_Single</graphicClass>
+      	  <shaderType>CutoutComplex</shaderType>
       <damageData>
         <enabled>false</enabled>
       </damageData>
     </graphicData>
     <uiIconPath>Things/Building/Ship/ST_HullDoor</uiIconPath>
+    <costList>
+      <Plasteel>20</Plasteel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
     <building>
       <blueprintGraphicData>
         <texPath>Things/Building/Ship/ST_HullDoor_Blueprint</texPath>
+        <drawSize>(2,2)</drawSize>
       </blueprintGraphicData>
       <paintable>true</paintable>
-	   <isStuffableAirtight>true</isStuffableAirtight>
+      <isSupportDoor>true</isSupportDoor>
+      <isAirtight>true</isAirtight>
+      <doorTopGraphic>
+        <texPath>Things/Building/Ship/ST_HullDoor_Top</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <drawSize>(2.4,2)</drawSize>
+        <color>(105,105,105)</color>
+      </doorTopGraphic>
+      <doorSupportGraphic>
+        <texPath>Things/Building/Ship/ST_HullDoor_Support</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <drawSize>(2,2.4)</drawSize>
+        <color>(105,105,105)</color>
+      </doorSupportGraphic>
       <soundDoorOpenPowered>ST_Door_Sound</soundDoorOpenPowered>
       <soundDoorClosePowered>ST_Door_Sound</soundDoorClosePowered>
       <soundDoorOpenManual>ST_Door_Sound</soundDoorOpenManual>
@@ -226,7 +241,7 @@
       </li>
     </damageMultipliers>
     <researchPrerequisites>
-      <li>ST_UFP_Structures</li>
+      <li>ST_UFP_Engineering_I</li>
     </researchPrerequisites>
   </ThingDef>
 

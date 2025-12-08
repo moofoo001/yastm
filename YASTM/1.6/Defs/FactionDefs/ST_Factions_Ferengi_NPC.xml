@@ -17,12 +17,20 @@
     <displayInFactionSelection>true</displayInFactionSelection>
 
     <allowedCultures><li>ST_Culture_Ferengi</li></allowedCultures>
+
+    <forcedMemes>
+      <li>ST_Meme_FerengiCommerce</li>
+    </forcedMemes>
+
     <techLevel>Spacer</techLevel>
     <permanentEnemy>false</permanentEnemy>
     <leaderTitle>liquidator</leaderTitle>
     <fixedLeaderKinds>
       <li>FRG_Leader</li>
     </fixedLeaderKinds>
+    <disallowedMemes>
+      <li>Cannibal</li>
+    </disallowedMemes>
 
     <colorSpectrum>
       <li>(0.90, 0.70, 0.20)</li>

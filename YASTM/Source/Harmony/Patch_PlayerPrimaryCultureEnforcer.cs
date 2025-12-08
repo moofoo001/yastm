@@ -1,4 +1,4 @@
-// YASTM.IdeoFix — erzwingt Player-Primary-Kultur & füllt Start-Kolonisten ohne Ideo
+// Mods/YASTM/Source/Harmony/Patch_PlayerPrimaryCultureEnforcer.cs
 using RimWorld;
 using System.Linq;
 using System.Reflection;

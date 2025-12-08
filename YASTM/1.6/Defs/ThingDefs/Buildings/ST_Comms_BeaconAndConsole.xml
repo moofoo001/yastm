@@ -4,83 +4,7 @@
   <!-- =========================================================
        STAR TREK COMMS BEACON (Facility)
        ========================================================= 
-  <ThingDef ParentName="BuildingBase">
-    <defName>ST_ComBeacon</defName>
-    <label>comms beacon</label>
-    <description>Subspace communications node that links to a nearby Starfleet comms console.</description>
-
-    <thingClass>Building</thingClass>
-    <category>Building</category>
-    <selectable>true</selectable>
-
-    <graphicData>
-      <texPath>Things/Building/Comms/ST_ComBeacon</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2.5,2.5)</drawSize>
-    </graphicData>
-
-    <altitudeLayer>Building</altitudeLayer>
-    <holdsRoof>false</holdsRoof>
-    <size>(1,1)</size>
-    <rotatable>true</rotatable>
-    <defaultPlacingRot>South</defaultPlacingRot>
-
-    <placeWorkers>
-      <li>PlaceWorker_ShowFacilitiesConnections</li>
-      <li>PlaceWorker_ShowTradeBeaconRadius</li>
-    </placeWorkers>
-    
-    <costList>
-      <Steel>40</Steel>
-      <ComponentIndustrial>2</ComponentIndustrial>
-    </costList>
-
-    <statBases>
-      <WorkToBuild>800</WorkToBuild>
-      <MaxHitPoints>160</MaxHitPoints>
-      <Flammability>0.2</Flammability>
-      <Mass>15</Mass>
-    </statBases>
-
-    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-    <designationCategory>ST_Designation</designationCategory>
-
-    <researchPrerequisites>
-      <li>MicroelectronicsBasics</li>
-    </researchPrerequisites>
-
-    <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>100</basePowerConsumption>
-      </li>
-      <li Class="CompProperties_Flickable" />
-      <li Class="CompProperties_Breakdownable" />
-      <li Class="YASTM.CompProperties_ConsoleLink">
-        <linkTag>CommsBeacon</linkTag>
-
-      </li>
-      <li Class="CompProperties_Facility">
-        <linkableBuildings>
-          <li>ST_CommsConsole</li>
-          <li>ST_ScienceConsole</li>
-        </linkableBuildings>
-        <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
-        <maxSimultaneous>4</maxSimultaneous>
-      </li>
-      <li Class="StarTrekFactions.Comps.CompProperties_UseEffect_SpawnFarAndSignal">
-        <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
-        <minDist>42</minDist>
-        <maxDist>72</maxDist>
-        <outsideHome>true</outsideHome>
-        <requirePowerOn>true</requirePowerOn>  
-        <thingA>ST_Obelisk_A</thingA>
-        <thingB>ST_Obelisk_B</thingB>
-        <questDefToEnsure>STQ_VE_Obelisks_I_II_Setup</questDefToEnsure>
-      </li>
-        <li Class="CompProperties_TradeBeacon"/>
-    </comps>
-  </ThingDef> -->
+   -->
 
 <ThingDef ParentName="BuildingBase">
   <defName>ST_ComBeacon</defName>
@@ -96,6 +20,10 @@
   <tickerType>Normal</tickerType>
   <pathCost>10</pathCost>
   <fillPercent>0.0</fillPercent>
+  <minifiedDef>MinifiedThing</minifiedDef>
+  <thingCategories>
+    <li>BuildingsMisc</li>
+  </thingCategories>
 
     <graphicData>
       <texPath>Things/Building/Comms/ST_ComBeacon</texPath>
@@ -136,18 +64,26 @@
       <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
       <maxSimultaneous>1</maxSimultaneous>
     </li>
-      <li Class="StarTrekFactions.Comps.CompProperties_UseEffect_SpawnFarAndSignal">
-        <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
-        <minDist>42</minDist>
-        <maxDist>72</maxDist>
-        <outsideHome>true</outsideHome>
-        <requirePowerOn>true</requirePowerOn>  
-        <thingA>ST_Obelisk_A</thingA>
-        <thingB>ST_Obelisk_B</thingB>
-        <questDefToEnsure>STQ_VE_Obelisks_I_II_Setup</questDefToEnsure>
-      </li>
 
+
+    <li Class="StarTrekFactions.Comps.CompProperties_InitializeBeaconGizmo">
+      <useLabel>Initialize beacon</useLabel>            
+      <requirePowerOn>true</requirePowerOn>          
+    </li>
+
+
+    <li Class="StarTrekFactions.Comps.CompProperties_UseEffect_SpawnFarAndSignal">
+      <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
+      <minDist>42</minDist>
+      <maxDist>72</maxDist>
+      <outsideHome>true</outsideHome>
+      <requirePowerOn>true</requirePowerOn>  
+      <thingA>ST_Obelisk_A</thingA>
+      <thingB>ST_Obelisk_B</thingB>
+      <questDefToEnsure>STQ_VE_Obelisks_I_II_Setup</questDefToEnsure>
+    </li>
   </comps>
+
   
     <modExtensions>
       <li Class="YASTM.DefModExt_LinkTags">
@@ -160,16 +96,18 @@
     <li>PlaceWorker_ShowFacilitiesConnections</li>
     <li>PlaceWorker_ShowTradeBeaconRadius</li>
   </placeWorkers>
-  
+  <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+
+  <uiOrder>2002</uiOrder>
   <designationCategory>ST_Designation</designationCategory>
   <building>
     <isEdifice>false</isEdifice>
   </building>
-  <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+
 </ThingDef>
 
   <!-- =========================================================
-       STAR TREK COMMS CONSOLE (Bedienung & Gizmos)
+       STAR TREK COMMS CONSOLE 
        ========================================================= -->
   <ThingDef ParentName="BenchBase">
     <defName>ST_CommsConsole</defName>
@@ -180,7 +118,6 @@
     <category>Building</category>
     <selectable>true</selectable>
     <rotatable>true</rotatable>
-    <defaultPlacingRot>South</defaultPlacingRot>
 
     <graphicData>
       <texPath>Things/Building/Comms/ST_ComConsole</texPath>
@@ -196,8 +133,7 @@
     <size>(2,1)</size>
     <rotatable>true</rotatable>
 
-    <!-- FIX: IntVec3, nicht "0,-1" -->
-    <interactionCellOffset>(0,0,1)</interactionCellOffset>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
     <passability>PassThroughOnly</passability>
 
     <costList>
@@ -219,6 +155,7 @@
     <researchPrerequisites>
       <li>MicroelectronicsBasics</li>
     </researchPrerequisites>
+    <uiOrder>2005</uiOrder>
 
     <soundInteract>ST_SFX_LCARS_Click</soundInteract>
 
@@ -237,7 +174,8 @@
         </linkTags>
         <maxLinkDistance>25</maxLinkDistance>
       </li>
-      
+
+
       <li Class="YASTM.Comps.CompProperties_CommsGizmo">
         <contactCooldownDays>7</contactCooldownDays>
         <aidCooldownDays>7</aidCooldownDays>
@@ -257,7 +195,16 @@
           <li>STQ_VE_Obelisks_I_II_Setup</li>
         </questPool>
       </li>
-      
+      <li Class="StarTrekFactions.Comps.CompProperties_UseEffect_SpawnFarAndSignal">
+        <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
+        <minDist>42</minDist>
+        <maxDist>72</maxDist>
+        <outsideHome>true</outsideHome>
+        <requirePowerOn>true</requirePowerOn>  
+        <thingA>ST_Obelisk_A</thingA>
+        <thingB>ST_Obelisk_B</thingB>
+        <questDefToEnsure>STQ_VE_Obelisks_I_II_Setup</questDefToEnsure>
+      </li>
       <!-- Diplomacy -->
       <li Class="YASTM.CompProperties_DiplomacyComms">
         <improveCost>300</improveCost>
@@ -286,6 +233,8 @@
         <rankLabelCeasefire>Commander+</rankLabelCeasefire>
       </li>
     </comps>
+
+      <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
   </ThingDef>
 
 </Defs>

@@ -12,7 +12,7 @@ namespace YASTM
         private static FleckDef FleckAttached =>
             DefDatabase<FleckDef>.GetNamedSilentFail("ST_Fleck_TransporterColumn_Attached");
 
-        // Tile-VFX (Start/Ziel)
+      
         public static void PlayBeam(Map map, IntVec3 pos)
         {
             if (map == null) return;
@@ -32,7 +32,7 @@ namespace YASTM
             FleckMaker.Static(center, map, FleckDefOf.PsycastAreaEffect, 1.50f);
         }
 
-        // Startet die 3s-Rematerialisierungssequenz mit Bursts am Pawn
+     
         public static void BeginRematerialize(Pawn pawn, int durationTicks = 180)
         {
             if (pawn?.Map == null) return;
@@ -40,7 +40,7 @@ namespace YASTM
                 .StartRematerialize(pawn, durationTicks);
         }
 
-        // Falls du außerhalb der Sequenz einmalig einen Overlay willst:
+      
         public static void AttachBeamOverlayToPawn(Pawn pawn, float scale = 1.2f)
         {
             if (pawn == null || pawn.Map == null) return;

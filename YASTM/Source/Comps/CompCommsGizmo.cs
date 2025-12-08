@@ -6,6 +6,7 @@ using RimWorld.QuestGen;
 using UnityEngine;
 using Verse;
 using YASTM.MapSystems;
+/// using StarTrekFactions;
 
 namespace YASTM.Comps
 {
@@ -15,15 +16,24 @@ namespace YASTM.Comps
         public bool enableRequestAid = true;
         public bool enableTransmitScanData = true;
 
-        // Optional: which traits qualify a pawn as "commissioned officer"
         public List<TraitDef> requiredOfficerTraits = new List<TraitDef>();
 
         public float contactCooldownDays = 5f;
         public float aidCooldownDays = 8f;
+
         public int maxActiveQuests = 2;
 
-        // Pool of quest scripts to pick from (falls back to STQ_Obelisks_I)
+        /// <summary>
+        /// Optional explicit quest pool for Starfleet-style assignments.
+        /// If empty, a suitable fallback will be chosen.
+        /// </summary>
         public List<QuestScriptDef> questPool = new List<QuestScriptDef>();
+
+        /// <summary>
+        /// Chance that a Starfleet quest (from questPool) will be chosen
+        /// instead of a generic vanilla root quest.
+        /// </summary>
+        public float starfleetQuestChance = 0.4f;
 
         public CompProperties_CommsGizmo()
         {
@@ -42,7 +52,6 @@ namespace YASTM.Comps
             if (progress == null)
                 yield break;
 
-            // ---------- helpers ----------
             bool PowerOk()
             {
                 var pwr = parent.TryGetComp<CompPowerTrader>();
@@ -58,21 +67,22 @@ namespace YASTM.Comps
                 return true;
             }
 
+            bool IsCommissioned(Pawn p)
+            {
+                if (p == null || p.Dead || p.Downed) return false;
+                if (!p.health.capacities.CapableOf(PawnCapacityDefOf.Talking)) return false;
+
+                if (Props.requiredOfficerTraits == null || Props.requiredOfficerTraits.Count == 0)
+                    return true;
+
+                return Props.requiredOfficerTraits.Any(td => p.story?.traits?.HasTrait(td) == true);
+            }
+
             IEnumerable<Pawn> ValidOperators()
             {
-                // RimWorld-style: spawned, conscious, can talk, (optional) required traits
                 foreach (var p in map.mapPawns.FreeColonistsSpawned)
-                {
-                    if (p.Dead || p.Downed) continue;
-                    if (!p.health.capacities.CapableOf(PawnCapacityDefOf.Talking)) continue;
-
-                    if (Props.requiredOfficerTraits != null && Props.requiredOfficerTraits.Count > 0)
-                    {
-                        bool hasAny = Props.requiredOfficerTraits.Any(td => p.story?.traits?.HasTrait(td) == true);
-                        if (!hasAny) continue;
-                    }
-                    yield return p;
-                }
+                    if (IsCommissioned(p))
+                        yield return p;
             }
 
             void ChooseOperatorAndRun(string failMsg, Action<Pawn> withPawn)
@@ -94,7 +104,6 @@ namespace YASTM.Comps
 
             int CountAllActiveOrOfferedQuests()
             {
-                // Count *any* active/offered quests to throttle Starfleet contact
                 return Find.QuestManager.QuestsListForReading.Count(q =>
                     q.State == QuestState.Ongoing || q.State == QuestState.NotYetAccepted);
             }
@@ -119,6 +128,7 @@ namespace YASTM.Comps
                             Messages.Message(linkReason ?? "A Starfleet comm beacon must be linked.", MessageTypeDefOf.RejectInput);
                             return;
                         }
+
                         int active = CountAllActiveOrOfferedQuests();
                         if (active >= Props.maxActiveQuests)
                         {
@@ -126,13 +136,71 @@ namespace YASTM.Comps
                             return;
                         }
 
-                        ChooseOperatorAndRun("No commissioned operator available.", pawn =>
+                        ChooseOperatorAndRun("A commissioned Starfleet officer must operate the console.", pawn =>
                         {
-                            // pick quest from pool (fallback to STQ_Obelisks_I)
-                            var pool = Props.questPool?.Where(q => q != null).ToList() ?? new List<QuestScriptDef>();
-                            var chosen = pool.Any()
-                                ? pool.RandomElement()
-                                : DefDatabase<QuestScriptDef>.GetNamedSilentFail("STQ_Obelisks_I");
+                            var watcher = StarTrekFactions.GameComponent_QuestWatchers.Instance;
+
+                            // Build Starfleet pool from explicit questPool
+                            var starfleetPool = (Props.questPool ?? new List<QuestScriptDef>())
+                                .Where(q => q != null)
+                                .Distinct()
+                                .ToList();
+
+                            // If Obelisk assignment was already used, remove all Obelisk quests from the Starfleet pool
+                            if (watcher != null && watcher.ObeliskAssignmentUsed)
+                            {
+                                starfleetPool = starfleetPool
+                                    .Where(q => q.defName == null || !q.defName.Contains("Obelisks"))
+                                    .ToList();
+                            }
+
+                            // Build vanilla pool from all root-capable quest scripts not in the Starfleet pool
+                            var vanillaPool = DefDatabase<QuestScriptDef>.AllDefs
+                                .Where(q =>
+                                    !q.isRootSpecial &&
+                                    q.rootSelectionWeight > 0f &&
+                                    !starfleetPool.Contains(q))
+                                .ToList();
+
+                            if (starfleetPool.Count == 0 && vanillaPool.Count == 0)
+                            {
+                                Messages.Message("No suitable assignments available.", MessageTypeDefOf.RejectInput);
+                                return;
+                            }
+
+                            QuestScriptDef chosen = null;
+
+                            bool useStarfleet =
+                                starfleetPool.Count > 0 &&
+                                Rand.Chance(Props.starfleetQuestChance <= 0f || Props.starfleetQuestChance >= 1f
+                                    ? 0.4f
+                                    : Props.starfleetQuestChance);
+
+                            if (useStarfleet)
+                            {
+                                if (starfleetPool.Count > 0)
+                                {
+                                    chosen = starfleetPool.RandomElement();
+                                }
+                            }
+                            else
+                            {
+                                if (vanillaPool.Count > 0)
+                                {
+                                    chosen = vanillaPool.RandomElementByWeight(q => q.rootSelectionWeight);
+                                }
+                                else if (starfleetPool.Count > 0)
+                                {
+                                    // fallback if vanilla is empty
+                                    chosen = starfleetPool.RandomElement();
+                                }
+                            }
+
+                            // Final fallback: if still nothing chosen, try the old hardcoded STQ quest
+                            if (chosen == null)
+                            {
+                                chosen = DefDatabase<QuestScriptDef>.GetNamedSilentFail("STQ_Obelisks_I");
+                            }
 
                             if (chosen == null)
                             {
@@ -142,8 +210,15 @@ namespace YASTM.Comps
 
                             var slate = new Slate();
                             var quest = QuestUtility.GenerateQuestAndMakeAvailable(chosen, slate);
+
                             if (quest != null)
                             {
+                                // Mark Obelisk assignment as used if we just picked an Obelisk quest
+                                if (watcher != null && chosen.defName != null && chosen.defName.Contains("Obelisks"))
+                                {
+                                    watcher.ObeliskAssignmentUsed = true;
+                                }
+
                                 Messages.Message("Starfleet has transmitted an assignment.", MessageTypeDefOf.NeutralEvent);
                                 progress.ArmContactCooldown(Props.contactCooldownDays);
                             }
@@ -181,11 +256,12 @@ namespace YASTM.Comps
                             return;
                         }
 
-                        ChooseOperatorAndRun("No commissioned operator available.", pawn =>
+                        ChooseOperatorAndRun("A commissioned Starfleet officer must operate the console.", pawn =>
                         {
+                            // resolve drop spot
                             IntVec3 dropSpot = DropCellFinder.RandomDropSpot(map);
 
-                            // robust def resolution across RW versions/modlists
+                            // resolve defs across different modlists
                             ThingDef mealDef =
                                 DefDatabase<ThingDef>.GetNamedSilentFail("PackagedSurvivalMeal")
                                 ?? DefDatabase<ThingDef>.GetNamedSilentFail("PackageSurvivalMeal")
@@ -203,11 +279,14 @@ namespace YASTM.Comps
                                 return;
                             }
 
-                            var things = new List<Thing>();
+                            // create actual Thing instances
                             var meal = ThingMaker.MakeThing(mealDef);
-                            meal.stackCount = 24; things.Add(meal);
-                            var med = ThingMaker.MakeThing(medDef);
-                            med.stackCount = 12; things.Add(med);
+                            meal.stackCount = 24;
+
+                            var meds = ThingMaker.MakeThing(medDef);
+                            meds.stackCount = 12;
+
+                            var things = new List<Thing> { meal, meds };
 
                             DropPodUtility.DropThingsNear(dropSpot, map, things, 110,
                                 canInstaDropDuringInit: false, leaveSlag: false);
@@ -251,7 +330,7 @@ namespace YASTM.Comps
                             return;
                         }
 
-                        ChooseOperatorAndRun("No commissioned operator available.", pawn =>
+                        ChooseOperatorAndRun("A commissioned Starfleet officer must operate the console.", pawn =>
                         {
                             flow.OnTransmit();
                             Messages.Message("Telemetry uplink complete.", MessageTypeDefOf.PositiveEvent);

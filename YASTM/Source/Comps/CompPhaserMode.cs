@@ -12,12 +12,12 @@ namespace ST.PhaseWeapons
     {
         public bool allowOvercharge = false;
 
-        // Optional: explizite Projektile je Modus (wenn nicht gesetzt, bleibt defaultProjectile aktiv)
+
         public ThingDef projectileKill;
         public ThingDef projectileStun;
-        public ThingDef projectileOvercharge;   // von Verb_PhaserShoot/PhaserUtil erwartet
+        public ThingDef projectileOvercharge;
 
-        // Optional: Overcharge-Nebenwirkungen / Backfire (werden von Verb_PhaserShoot genutzt)
+
         public float overchargeMisfireChance = 0f; // 0 = aus
         public float overchargeExplosionRadius = 0f;
         public DamageDef overchargeExplosionDamage;
@@ -50,7 +50,7 @@ namespace ST.PhaseWeapons
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            // Falls andere Mods/Comps eigene Gizmos liefern, zuerst durchreichen
+
             foreach (var g in base.CompGetGizmosExtra() ?? System.Array.Empty<Gizmo>())
                 yield return g;
 
@@ -58,7 +58,7 @@ namespace ST.PhaseWeapons
             if (pawn == null || pawn.Faction != Faction.OfPlayer)
                 yield break;
 
-            // Helper: exklusiver Toggle (erneutes Klicken -> Kill/Normal)
+
             Command_Toggle Make(string labelKey, string descKey, string iconPath,
                                 PhaserFireMode targetMode, KeyBindingDef hotkey)
             {
@@ -78,14 +78,14 @@ namespace ST.PhaseWeapons
                 return cmd;
             }
 
-            // STUN (immer verfügbar)
+
             yield return Make("ST.Phaser.Mode.Stun",
                               "ST.Phaser.Mode.Stun.Desc",
                               "Things/Projectile/PhaserPulse_Stun",
                               PhaserFireMode.Stun,
                               KeyBindingDefOf.Misc1);
 
-            // OVERCHARGE (nur wenn erlaubt)
+
             if (Props?.allowOvercharge ?? false)
             {
                 yield return Make("ST.Phaser.Mode.Overcharge",
@@ -96,14 +96,14 @@ namespace ST.PhaseWeapons
             }
         }
 
-        // Abwärts-kompatibel (wird evtl. aus Patches/Jobs aufgerufen)
+
         public void ToggleStun()
         {
             mode = (mode == PhaserFireMode.Stun) ? PhaserFireMode.Kill : PhaserFireMode.Stun;
             SoundDefOf.Tick_Low.PlayOneShotOnCamera();
         }
 
-        // Von Patches.cs erwartet (Fehler zuvor)
+
         public void ToggleOvercharge()
         {
             if (!(Props?.allowOvercharge ?? false))
@@ -113,7 +113,7 @@ namespace ST.PhaseWeapons
             SoundDefOf.Tick_Low.PlayOneShotOnCamera();
         }
 
-        // Optionaler Modus-Zyklus (für Alt-Code erhalten)
+       
         public void CycleMode()
         {
             if (Props?.allowOvercharge ?? false)

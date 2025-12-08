@@ -17,21 +17,16 @@ namespace YASTM.MapSystems
             Scribe_Values.Look(ref transmitted, "transmitted", false);
         }
 
-        // --- Register scans ---------------------------------------------------
 
-        // Legacy shim (keeps old call sites compiling)
         public void RegisterScan() => RegisterScan(true);
 
-        // Preferred overload: true = Obelisk A, false = Obelisk B
         public void RegisterScan(bool atA)
         {
             if (atA) scanA = true;
             else     scanB = true;
         }
 
-        // --- State & gating ---------------------------------------------------
 
-        // How many obelisks have been scanned (0..2)
         public int ScannedCount => (scanA ? 1 : 0) + (scanB ? 1 : 0);
 
         public bool BothScanned => scanA && scanB;

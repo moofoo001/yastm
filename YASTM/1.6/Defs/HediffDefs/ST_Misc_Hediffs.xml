@@ -330,4 +330,129 @@
     </comps>
   </HediffDef>
 
+  <!-- STARFLEET – Duty Focus-->
+  <HediffDef>
+    <defName>ST_Hediff_Starfleet_DutyFocus</defName>
+    <label>duty focus</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <description>This pawn has recently reaffirmed their duty to Starfleet and the Federation.
+      Their sense of responsibility sharpens their focus and work ethic for a limited time.</description>
+    <initialSeverity>1</initialSeverity>
+    <isBad>false</isBad>
+
+    <stages>
+      <li>
+        <label>duty-focused</label>
+        <statFactors>
+          <WorkSpeedGlobal>1.10</WorkSpeedGlobal>
+        </statFactors>
+        <statOffsets>
+          <MentalBreakThreshold>-0.03</MentalBreakThreshold>
+        </statOffsets>
+      </li>
+    </stages>
+
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>45000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+
+  <!-- KLINGON – Battle Oath Focus -->
+  <HediffDef>
+    <defName>ST_Hediff_Klingon_BattleFocus</defName>
+    <label>battle focus</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <description>This warrior has recently sworn or renewed a blood oath.
+      Honor and battle are at the center of their thoughts, sharpening their combat focus.</description>
+    <initialSeverity>1</initialSeverity>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <label>oathbound</label>
+        <statFactors>
+          <MoveSpeed>1.08</MoveSpeed>
+        </statFactors>
+        <statOffsets>
+          <MeleeHitChance>0.10</MeleeHitChance>
+          <MeleeDodgeChance>0.05</MeleeDodgeChance>
+        </statOffsets>
+      </li>
+    </stages>
+
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>30000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+
+  <!-- ROMULAN – Analysis Trance -->
+  <HediffDef>
+    <defName>ST_Hediff_Romulan_AnalysisFocus</defName>
+    <label>analysis focus</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <description>This pawn is in a state of intense, controlled analytical focus,
+      shutting out distractions to process data, plots and intelligence.</description>
+    <initialSeverity>1</initialSeverity>
+    <isBad>false</isBad>
+
+    <stages>
+      <li>
+        <label>deep analysis</label>
+        <statFactors>
+          <ResearchSpeed>1.20</ResearchSpeed>
+          <GlobalLearningFactor>1.10</GlobalLearningFactor>
+        </statFactors>
+        <statOffsets>
+          <MoveSpeed>-0.08</MoveSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>60000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+
+  <!-- FERENGI – Profit High -->
+  <HediffDef>
+    <defName>ST_Hediff_Ferengi_ProfitHigh</defName>
+    <label>profit high</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <description>This Ferengi has recently concluded a profitable deal or profit ceremony.
+      Latinum dreams sharpen their bargaining and business instincts.</description>
+    <initialSeverity>1</initialSeverity>
+    <isBad>false</isBad>
+
+    <stages>
+      <li>
+        <label>profit-inspired</label>
+        <statFactors>
+          <TradePriceImprovement>1.15</TradePriceImprovement>
+        </statFactors>
+        <statOffsets>
+          <WorkSpeedGlobal>0.05</WorkSpeedGlobal>
+        </statOffsets>
+      </li>
+    </stages>
+
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+
+        <disappearsAfterTicks>30000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
 </Defs>

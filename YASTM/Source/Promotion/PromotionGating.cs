@@ -12,9 +12,9 @@ namespace YASTM
             if (pawn == null || targetRankTrait == null) return false;
 
             var ext = targetRankTrait.GetModExtension<PromotionRequirementsExtension>();
-            if (ext == null) return true; // keine Anforderungen hinterlegt
+            if (ext == null) return true; 
 
-            // 1) Einzigartigkeit (z.B. Captain)
+           
             if (ext.uniqueColonyWide)
             {
                 bool someoneElse = PawnsFinder.AllMaps_FreeColonistsSpawned
@@ -26,14 +26,14 @@ namespace YASTM
                 }
             }
 
-            // 2) Goodwill gegen Ziel-Fraktion
+           
             if (!ext.factionDefName.NullOrEmpty())
             {
                 var facDef = DefDatabase<FactionDef>.GetNamedSilentFail(ext.factionDefName);
                 var fac = Find.FactionManager?.AllFactions?.FirstOrDefault(f => f.def == facDef);
                 if (fac != null)
                 {
-                    // FIX: API heißt GoodwillWith(..), nicht GetGoodwillWith
+                  
                     int goodwill = Faction.OfPlayer.GoodwillWith(fac);
                     if (goodwill < ext.goodwillMin)
                     {
@@ -43,7 +43,7 @@ namespace YASTM
                 }
             }
 
-            // 3) Mindestanzahl abgeschlossener Quests (fallback ohne Tag-Filter)
+           
             if (ext.requiredCompletedQuests > 0)
             {
                 int done = 0;
@@ -53,8 +53,7 @@ namespace YASTM
                     var q = qs[i];
                     if (q != null && q.State == QuestState.EndedSuccess)
                     {
-                        // Hinweis: In dieser RW-Version ist q.root.tags nicht verfügbar.
-                        // Wenn Tag-Filter nötig ist, bitte später alternative Heuristik ergänzen.
+                      
                         done++;
                     }
                 }
@@ -65,12 +64,12 @@ namespace YASTM
                 }
             }
 
-            // 4) Mindestzeit seit letzter Beförderung
+       
             if (ext.minDaysSinceLastPromotion > 0)
             {
                 var tracker = WorldComponent_PromotionTracker.Get();
                 int ticks = tracker?.TicksSinceLastPromotion(pawn) ?? int.MaxValue;
-                int needTicks = ext.minDaysSinceLastPromotion * 60000; // 1 Tag = 60k Ticks
+                int needTicks = ext.minDaysSinceLastPromotion * 60000; 
                 if (ticks < needTicks)
                 {
                     var remain = needTicks - ticks;

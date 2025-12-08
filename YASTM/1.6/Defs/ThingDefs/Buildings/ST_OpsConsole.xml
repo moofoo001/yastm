@@ -65,7 +65,7 @@
     <placeWorkers>
       <li>PlaceWorker_ShowFacilitiesConnections</li>
     </placeWorkers>
-
+    <uiOrder>2006</uiOrder>
     <soundInteract>ST_SFX_LCARS_Click</soundInteract>
     <designationCategory>ST_Designation</designationCategory>
     <researchPrerequisites>
@@ -130,6 +130,7 @@
     <placeWorkers>
       <li>PlaceWorker_ShowFacilitiesConnections</li>
     </placeWorkers>
+    <uiOrder>2002</uiOrder>
   <designationCategory>ST_Designation</designationCategory>
     <researchPrerequisites>
       <li>ST_ForceField_Tech</li>

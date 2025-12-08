@@ -59,6 +59,7 @@
 		  <isEdifice>false</isEdifice>
 		  <isAttachment>true</isAttachment>
 		</building>
+    <uiOrder>2000</uiOrder>
     <placeWorkers>
 			<li>Placeworker_AttachedToWall</li>
 		</placeWorkers>

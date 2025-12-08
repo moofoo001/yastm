@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<IdeoStoryPatternDef>
+  <defName>ST_UFP_IdeologicalFounder</defName>
+  <segments>
+    <li>setup</li>
+    <li>story</li>
+    <li>story</li>
+  </segments>
+  <rules>
+    <include>
+      <li>IdeoDescriptionGlobal</li>
+    </include>
+    <rulesStrings>
+
+      <!-- Low-priority generic fallback so pattern never fails -->
+      <li>story(priority=-999)->The movement grew slowly, as small crews carried its values between the stars.</li>
+
+      <!-- Starfleet / UFP specific setup -->
+      <li>setup(tag=meme_ST_UFP) ->
+        In an age of border skirmishes and mistrust, [founderName] saw that lasting security would only come
+        from cooperation, science, and clear principles.
+      </li>
+      <li>setup(tag=meme_ST_UFP) ->
+        While serving on the [place_summary] [place_name], [founderName] watched one crisis after another and
+        realized that power without ethics would destroy the Federation from within.
+      </li>
+
+      <!-- Starfleet / UFP specific stories -->
+      <li>story(uses=1,tag=meme_ST_UFP) ->
+        On a frontier station, [founderName] refused to fire the first shot during a tense standoff, buying
+        time to negotiate a fragile but lasting treaty.
+      </li>
+      <li>story(uses=1,tag=meme_ST_UFP) ->
+        When a disaster struck a neutral world, [founderName] diverted ships from a strategic position to
+        lead a relief effort, proving that compassion could deter enemies better than any show of force.
+      </li>
+      <li>story(uses=1,tag=meme_ST_UFP) ->
+        During a mission beyond known space, [founderName] enforced the principle of non-interference, even
+        when intervention would have brought the Federation an easy advantage.
+      </li>
+      <li>story(uses=1,tag=meme_ST_UFP) ->
+        Before the Council, [founderName] argued that exploration fleets must answer first to a code of
+        conduct, not to fear, and swore to uphold that standard on every assignment.
+      </li>
+
+    </rulesStrings>
+  </rules>
+</IdeoStoryPatternDef>
+
+<IdeoStoryPatternDef>
+  <defName>ST_Klingon_HonorSaga</defName>
+  <segments>
+    <li>creation</li>
+    <li>episode</li>
+    <li>episode</li>
+  </segments>
+  <rules>
+    <include>
+      <li>IdeoDescriptionGlobal</li>
+    </include>
+    <rulesStrings>
+
+      <!-- Allow zero or more episodes as fallback -->
+      <li>episode(priority=-1)-></li>
+
+      <!-- Klingon-style "creation" of the creed -->
+      <li>creation(tag=meme_ST_Klingon) ->
+        In the first age of steel and blood, warriors on the [place_summary] [place_name] swore that a life
+        without worthy battle was no life at all.
+      </li>
+      <li>creation(tag=meme_ST_Klingon) ->
+        When the houses were weak and divided, a circle of warriors carved their oaths into the blades of
+        their fathers and vowed that honor would outlive any empire.
+      </li>
+
+      <!-- Klingon episodes: battles, oaths, consequences -->
+      <li>episode(uses=1,tag=meme_ST_Klingon) ->
+        At the great hall, [founderName] demanded that cowards be named and cast out, so that no dishonored
+        blood would weaken the line of warriors.
+      </li>
+      <li>episode(uses=1,tag=meme_ST_Klingon) ->
+        When a rival house gained power through deceit instead of combat, [founderName] challenged its leader
+        before the assembled warriors and defeated [foeLeader_objective] in single combat.
+      </li>
+      <li>episode(uses=1,tag=meme_ST_Klingon) ->
+        In the fires of a captured stronghold, [founderName] ordered the enemy banners burned, swearing that
+        only the stories of honored foes would be remembered in song.
+      </li>
+      <li>episode(uses=1,tag=meme_ST_Klingon) ->
+        After losing a campaign through treachery, [founderName] chose to live and bear the shame, so that
+        future warriors could learn never to trust an enemy who fears open battle.
+      </li>
+
+    </rulesStrings>
+  </rules>
+</IdeoStoryPatternDef>
+
+<IdeoStoryPatternDef>
+  <defName>ST_Romulan_CommandPattern</defName>
+  <segments>
+    <li>intro</li>
+    <li>conflict</li>
+    <li>founderJoin</li>
+    <li>victory</li>
+  </segments>
+  <rules>
+    <include>
+      <li>IdeoDescriptionGlobal</li>
+    </include>
+    <rulesStrings>
+
+      <!-- Intro: calm, controlled, already hierarchical -->
+      <li>intro(tag=meme_ST_Romulan) ->
+        The people of the [place_summary] [place_name] lived behind carefully guarded borders, trusting
+        only in the quiet strength of their command structure.
+      </li>
+      <li>intro(tag=meme_ST_Romulan) ->
+        On the [place_summary] [place_name], orders flowed from hidden chambers to distant outposts, and
+        loyalty to the state mattered more than any single life.
+      </li>
+
+      <!-- Conflict: external and internal threats test secrecy & hierarchy -->
+      <li>conflict(tag=meme_ST_Romulan) ->
+        A [foeLeader] sought to expose classified operations to foreign powers, using [foeLeader_possessive]
+        [foeSoldiers] and stolen archives.
+      </li>
+      <li>conflict(tag=meme_ST_Romulan) ->
+        Factions within the government turned information into a weapon, and border captains no longer knew
+        whose orders could be trusted.
+      </li>
+
+      <!-- FounderJoin: the doctrine crystallizes -->
+      <li>founderJoin(tag=meme_ST_Romulan) ->
+        A strategist named [founderName] mapped every border incident and uncovered the patterns of betrayal,
+        proving that only centralized, disciplined command could keep the empire secure.
+      </li>
+      <li>founderJoin(tag=meme_ST_Romulan) ->
+        After intercepting a secret transmission, [founderName] revealed how careless speech and divided
+        loyalties had nearly invited an invasion.
+      </li>
+
+      <!-- Victory: control is reasserted, secrecy becomes doctrine -->
+      <li>victory(tag=meme_ST_Romulan) ->
+        With the conspirators removed and their networks dismantled, [founderName] established new codes
+        and protocols, ensuring that information would flow only along trusted lines.
+      </li>
+      <li>victory(tag=meme_ST_Romulan) ->
+        The borders held firm, enemies saw only silence beyond the neutral zone, and the people learned
+        that survival depended on obedience and discretion.
+      </li>
+
+    </rulesStrings>
+  </rules>
+</IdeoStoryPatternDef>
+
+<IdeoStoryPatternDef>
+  <defName>ST_Ferengi_CommerceLesson</defName>
+  <segments>
+    <li>lessonIntro</li>
+    <li>lesson</li>
+    <li>lessonReinforcement</li>
+  </segments>
+  <noCapitalizeFirstSentence>
+    <li>lesson</li>
+  </noCapitalizeFirstSentence>
+  <rules>
+    <include>
+      <li>IdeoDescriptionGlobal</li>
+    </include>
+    <rulesStrings>
+
+      <!-- Ferengi-style intros: anecdotes and deals -->
+      <li>lessonIntro(tag=meme_ST_Ferengi) ->
+        On my first day at the exchange, I learned something that every poor fool around me had missed:
+      </li>
+      <li>lessonIntro(tag=meme_ST_Ferengi) ->
+        When a cousin tried to cheat me out of a contract, I finally understood this:
+      </li>
+      <li>lessonIntro(tag=meme_ST_Ferengi) ->
+        After losing three fortunes and making four, I realized one simple rule:
+      </li>
+      <li>lessonIntro(tag=meme_ST_Ferengi) ->
+        While others prayed to distant powers, I watched the flow of latinum and saw the real truth:
+      </li>
+
+      <!-- Core Ferengi lessons -->
+      <li>lesson(tag=meme_ST_Ferengi) ->
+        profit is not an accident, it is the result of noticing opportunities that everyone else is too polite to take
+      </li>
+      <li>lesson(tag=meme_ST_Ferengi) ->
+        a promise without collateral is just noise, and noise has no market value
+      </li>
+      <li>lesson(tag=meme_ST_Ferengi) ->
+        if both sides walk away happy, you mispriced something
+      </li>
+      <li>lesson(tag=meme_ST_Ferengi) ->
+        family is important, but only a fool forgets to charge them interest
+      </li>
+
+      <!-- Reinforcement / punchlines -->
+      <li>lessonReinforcement(tag=meme_ST_Ferengi) ->
+        That is why every deal, every smile, and every favor must be counted in strips of latinum.
+      </li>
+      <li>lessonReinforcement(tag=meme_ST_Ferengi) ->
+        Remember this the next time someone offers you a friendship discount.
+      </li>
+      <li>lessonReinforcement(tag=meme_ST_Ferengi) ->
+        Those who forget it end up working for those who do not.
+      </li>
+      <li>lessonReinforcement(tag=meme_ST_Ferengi) ->
+        Write it down as a new rule, and make sure you collect interest on the lesson.
+      </li>
+
+    </rulesStrings>
+  </rules>
+</IdeoStoryPatternDef>
+
+</Defs>

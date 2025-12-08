@@ -22,9 +22,9 @@ namespace YASTM
             Scribe_Values.Look(ref nextAllowedTick, "ST_TricorderShared_next", 0);
         }
 
-        // NEW: Settings-gekoppelter Wert
+        
         public static int CurrentCooldownTicks =>
-            YASTM_Mod.Settings?.TricorderCooldownTicks ?? (30 * 60); // fallback 30s
+            YASTM_Mod.Settings?.TricorderCooldownTicks ?? (30 * 60); 
 
         public bool IsReady(int now) => now >= nextAllowedTick;
 
@@ -33,7 +33,7 @@ namespace YASTM
             nextAllowedTick = now + cooldownTicks;
         }
 
-        // NEW: Komfort-Helper
+      
         public void StartCooldownNow()
         {
             StartCooldown(Find.TickManager.TicksGame, CurrentCooldownTicks);

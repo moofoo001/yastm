@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ROMULAN: Intelligence Briefing -->
+  <RitualPatternDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Romulan_IntelBriefing_Pattern</defName>
+    <shortDescOverride>intelligence briefing</shortDescOverride>
+    <descOverride>Senior officials and operatives gather to quietly review reports, threats and covert opportunities.
+      Information is sifted, and orders are issued in measured tones.</descOverride>
+    <iconPathOverride>UI/Icons/IdeoIcons/Rom4</iconPathOverride>
+    <ritualBehavior>LeaderSpeech</ritualBehavior>
+    <ritualObligationTargetFilter>AnyIdeoBuildingOrRitualSpot</ritualObligationTargetFilter>
+    <ritualTargetFilter>IdeoBuildingOrRitualSpot</ritualTargetFilter>
+    <ritualOnlyForIdeoMembers>true</ritualOnlyForIdeoMembers>
+
+  </RitualPatternDef>
+
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Romulan_IntelBriefing</defName>
+    <label>intelligence briefing</label>
+    <description>A formal intelligence briefing where sensitive information is shared only with those who need to know.
+      Loyalty and secrecy are reinforced while new directives are issued.</description>
+    <issue>Ritual</issue>
+    <impact>Medium</impact>
+    <ritualPatternBase>ST_Romulan_IntelBriefing_Pattern</ritualPatternBase>
+    <requiredMemes>
+      <li>ST_Meme_RomulanCommand</li>
+    </requiredMemes>
+  </PreceptDef>
+
+</Defs>

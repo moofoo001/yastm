@@ -24,7 +24,7 @@ namespace YASTM
 
         public CompProperties_ForceFieldEmitter Props => (CompProperties_ForceFieldEmitter)props;
 
-        // --- Settings-übersteuerbar ---
+
         public int EffectiveRadius =>
             (YASTM_Mod.Settings?.forceFieldRadius ?? Props.effectRadius) > 0
                 ? (YASTM_Mod.Settings?.forceFieldRadius ?? Props.effectRadius)

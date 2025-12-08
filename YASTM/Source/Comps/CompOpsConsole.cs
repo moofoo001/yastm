@@ -1,5 +1,4 @@
-// Source/Comps/CompOpsConsole.cs  (ersetzt bestehende Datei)
-// 1.6-kompatibel: SoundInfo.InMap, Sustainer.Maintain, Facility-Link zu Emittern
+// Source/Comps/CompOpsConsole.cs 
 
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +38,7 @@ namespace YASTM
             foreach (var g in base.CompGetGizmosExtra())
                 yield return g;
 
-            // Icon zuerst aus deinem Pfad, sonst Fallback
+
             var icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/ForceField", false)
                        ?? ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/ST_ForceField_Toggle", false);
 
@@ -56,7 +55,7 @@ namespace YASTM
                 cmd.Disable(reason);
 
             yield return cmd;
-            yield break; // <--- garantiert, dass der Iterator immer sauber endet
+            yield break; 
         }
 
         private bool CanUseNow(out string reason)
@@ -72,7 +71,7 @@ namespace YASTM
                 return false;
             }
 
-            // Muss mit mind. einem Emitter verlinkt sein
+
             var af = parent.GetComp<CompAffectedByFacilities>();
             if (af == null || af.LinkedFacilitiesListForReading.Count == 0)
             {
@@ -94,11 +93,11 @@ namespace YASTM
         {
             fieldOn = !fieldOn;
 
-            // LCARS-Klick
+
             SoundDef.Named("ST_SFX_LCARS_Click")?
                 .PlayOneShot(new TargetInfo(parent.Position, parent.Map));
 
-            // Alle verlinkten Emitter schalten
+
             var af = parent.GetComp<CompAffectedByFacilities>();
             if (af != null)
             {
@@ -106,7 +105,7 @@ namespace YASTM
                     t.TryGetComp<CompForceFieldEmitter>()?.SetActive(fieldOn, this);
             }
 
-            // Sustainer an/aus (1.6: InMap)
+
             if (fieldOn)
             {
                 if (humSustainer == null)

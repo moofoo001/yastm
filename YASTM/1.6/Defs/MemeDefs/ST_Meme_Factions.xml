@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <MemeGroupDef>
+    <defName>Spacefarer</defName>
+    <drawOffset>(0.65, 0.23)</drawOffset> 
+    <maxRows>1</maxRows>
+    <renderOrder>1000</renderOrder>
+  </MemeGroupDef>
+
+  <!-- =======================
+       Starfleet Meme
+       ======================= -->
+
+  <MemeDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Meme_Starfleet</defName>
+    <label>Starfleet doctrine</label>
+    <description>Paramilitary exploration, chain of command, and Federation values.</description>
+    <iconPath>UI/Icons/Starfleet/Precept_Federation_Doctrine</iconPath>
+    <worshipRoomLabel>Briefing Room</worshipRoomLabel>
+    <category>Structure</category>
+    <deityCount>0~1</deityCount>
+    <allowSymbolsFromDeity>true</allowSymbolsFromDeity>
+    <groupDef>Spacefarer</groupDef>
+
+    <renderOrder>50</renderOrder>
+    <impact>0</impact>
+
+    <requireOne>
+      <li>
+        <li>IdeoDiversity_Exalted</li>
+        <li>IdeoDiversity_Respected</li>
+      </li>
+      <li>
+        <li>Slavery_Horrible</li>
+      </li>
+      <li>
+        <li>Apostasy_Despicable</li>
+      </li>
+      <li>
+        <li>Scarification_Horrible</li>
+      </li>
+      <li>
+        <li>Execution_Abhorrent</li>
+        <li>Execution_Horrible</li>
+      </li>
+      <li>
+        <li>Cannibalism_Abhorrent</li>
+        <li>Cannibalism_Horrible</li>
+      </li>
+      <li MayRequire="erdelf.HumanoidAlienRaces">
+        <li>HAR_EatingAliens_Abhorrent</li>
+        <li>HAR_EatingAliens_Disapproved</li>
+      </li>
+      <li MayRequire="erdelf.HumanoidAlienRaces">
+        <li>HAR_AlienRaces_Exalted</li>
+        <li>HAR_AlienRaces_Respected</li>
+      </li>
+    </requireOne>
+    
+    <generalRules>
+      <rulesStrings>
+        <li>memeAdjective->Starfleet</li>
+        <li>memeAdjective->disciplined</li>
+        <li>memeAdjective->exploratory</li>
+        <li>memeHyphenPrefix->Prime-Directive</li>
+        <li>memeConcept->exploration</li>
+        <li>memeConcept->science</li>
+        <li>memeConcept->diplomacy</li>
+        <li>memeLeaderNoun->commanding officer</li>
+        <li>memeLeaderNoun->captain</li>
+        <li>memeLeaderNoun->admiral</li>
+        <li>memeMoralist->counselor</li>
+        <li>memeMoralist->academic</li>
+        <li>memeMoralist->ethicist</li>
+        <li>chosenIdeoName->United Federation of Planets</li>
+        <li>chosenIdeoName->Starfleet Charter</li>
+      </rulesStrings>
+    </generalRules>
+
+    <descriptionMaker>
+      <patterns>
+        <li>
+          <def>ST_UFP_IdeologicalFounder</def>
+        </li>
+      </patterns>
+      
+      <constants>
+        <li>
+          <key>structure_ideological</key>
+          <value>true</value>
+        </li>
+      </constants>
+
+      <rules>
+        <rulesStrings>
+          <li>creation(tag=meme_ST_UFP)           ->In an age of chaos, a charter for exploration was signed to seek understanding among the stars.</li>
+          <li>episode(uses=1,tag=meme_ST_UFP)     ->Crews ventured outward, meeting the unknown with restraint and reason.</li>
+          <li>intro(tag=meme_ST_UFP)              ->On the [place_summary] [place_name], a tradition formed at the briefing room where officers aligned purpose with principle.</li>
+          <li>conflict(tag=meme_ST_UFP)           ->Ambition and fear tempted some to break the code, yet the chain of command held firm.</li>
+          <li>founderJoin(tag=meme_ST_UFP)        ->Guided by a clear duty, the first captains pledged to protect life and uphold the Prime Directive.</li>
+          <li>victory(tag=meme_ST_UFP)            ->By choosing restraint over conquest, they earned trust and forged lasting accords.</li>
+          <li>setup(tag=meme_ST_UFP)              ->Discipline, science, and diplomacy became the tools of a new frontier.</li>
+          <li>story(uses=1,tag=meme_ST_UFP)       ->Thus the doctrine spread: explore boldly, interfere lightly, act with honor.</li>
+          <li>lessonIntro(tag=meme_ST_UFP)        ->First, we survived by force alone.</li>
+          <li>lesson(tag=meme_ST_UFP)             ->Then we learned that understanding secures more than fear ever could.</li>
+          <li>lessonReinforcement(tag=meme_ST_UFP)->Hold to principle; let curiosity guide, not aggression.</li>
+          <li>archistBasis(tag=meme_ST_UFP)       ->When minds touched distant knowledge, we saw that reason must govern power.</li>
+          <li>archistFact(tag=meme_ST_UFP)        ->Technology without ethics invites catastrophe; thus doctrine restrains the hand.</li>
+          <li>archistProphecy(tag=meme_ST_UFP)    ->In the end, those who balance security with compassion will endure.</li>
+          <li>animistFact(tag=meme_ST_UFP)        ->Every world carries its own spirit; respect it and learn before you act.</li>
+        </rulesStrings>
+      </rules>
+
+    </descriptionMaker>
+      <symbolPacks>
+        <li>
+          <ideoName>Explorers' Ethos</ideoName>
+          <theme>exploration</theme>
+          <adjective>exploratory</adjective>
+          <member>explorer</member>
+        </li>
+        <li>
+          <ideoName>Federation Charter</ideoName>
+          <theme>charter</theme>
+          <adjective>chartered</adjective>
+          <member>charter-signatory</member>
+        </li>
+      </symbolPacks>
+    <requiredRituals>
+      <li>
+        <precept>Precept_Ritual_Starfleet_ShoreLeave</precept>
+        <pattern>ST_RitualPattern_ShoreLeave</pattern>
+      </li>
+    </requiredRituals>
+    <factionWhitelist>
+      <li>Federation_Of_Planets_NPC</li>
+      <li>Federation_Of_Planets</li>
+    </factionWhitelist>
+    <startingResearchProjects>
+      <li>Pre_Warp</li>
+    </startingResearchProjects>
+    <agreeableTraits>
+      <li>Kind</li>
+    </agreeableTraits>
+    <disagreeableTraits>
+      <li>Cannibal</li>
+    </disagreeableTraits>
+  </MemeDef>
+
+  <!-- =======================
+       Klingon Honor Meme
+       ======================= -->
+
+  <MemeDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Meme_KlingonHonor</defName>
+    <label>klingon honor</label>
+    <description>A warrior code that places honor, personal courage, and glorious battle above comfort or safety. A life without worthy enemies or the chance to die in combat is considered empty and without song.</description>
+    <iconPath>UI/Icons/IdeoIcons/KlingonHonor</iconPath>
+    <renderOrder>651</renderOrder>
+    <worshipRoomLabel>great hall</worshipRoomLabel>
+    <category>Structure</category>
+    <deityCount>0~2</deityCount>
+    <allowSymbolsFromDeity>true</allowSymbolsFromDeity>
+    <groupDef>Spacefarer</groupDef>
+
+    <impact>0</impact>
+
+    <requireOne>
+      <li>
+        <li>IdeoDiversity_Disapproved</li>
+      </li>
+      <li>
+        <li>Slavery_Acceptable</li>
+      </li>
+      <li>
+        <li>Apostasy_Abhorrent</li>
+      </li>
+      <li>
+        <li>Scarification_Minor</li>
+      </li>
+      <li>
+        <li>Execution_DontCare</li>
+        <li>Execution_RespectedIfGuilty</li>
+      </li>
+      <li>
+        <li>Cannibalism_Abhorrent</li>
+        <li>Cannibalism_Horrible</li>
+      </li>
+      <li MayRequire="erdelf.HumanoidAlienRaces">
+        <li>HAR_EatingAliens_Acceptable</li>
+
+      </li>
+      <li MayRequire="erdelf.HumanoidAlienRaces">
+        <li>HAR_AlienRaces_Standard</li>
+      </li>
+    </requireOne>
+
+    <generalRules>
+      <rulesStrings>
+        <li>memeAdjective->honor-bound</li>
+        <li>memeAdjective->warlike</li>
+        <li>memeConcept->battle</li>
+        <li>memeConcept->glory</li>
+        <li>memeConcept->blood-oath</li>
+        <li>memeLeaderNoun->warrior-chieftain</li>
+        <li>memeLeaderNoun->house leader</li>
+        <li>memeLeaderNoun->battle captain</li>
+        <li>memeMoralist->keeper of stories</li>
+        <li>memeMoralist->battle priest</li>
+        <li>memeMoralist->songmaster</li>
+        <li>chosenIdeoName->Klingon Empire</li>
+        <li>chosenIdeoName->High Council Creed</li>
+          </rulesStrings>
+    </generalRules>
+
+    <descriptionMaker>
+      <patterns>
+        <li>
+          <def>ST_Klingon_HonorSaga</def>
+          <weight>1</weight>
+        </li>
+      </patterns>
+      <rules>
+        <rulesStrings>
+          <li>creation(tag=meme_ST_Klingon)        ->In the first age of steel, warriors swore that only a glorious death was worthy of song.</li>
+          <li>episode(uses=1,tag=meme_ST_Klingon)  ->Blood-oaths were carved into blades, binding houses together in war and vengeance.</li>
+          <li>intro(tag=meme_ST_Klingon)           ->In the great hall, stories of battle shaped every child’s first dreams.</li>
+          <li>conflict(tag=meme_ST_Klingon)        ->Cowards and traitors were cast out, their names never spoken again.</li>
+          <li>founderJoin(tag=meme_ST_Klingon)     ->The first warlords pledged that honor would stand above life itself.</li>
+          <li>victory(tag=meme_ST_Klingon)         ->When the enemy fell, songs rose to the rafters and bloodwine flowed.</li>
+          <li>setup(tag=meme_ST_Klingon)           ->Thus the creed formed: fight bravely, die well, and bring no shame upon your house.</li>
+        </rulesStrings>
+      </rules>
+    </descriptionMaker>
+    
+    <symbolPacks>
+      <li>
+        <ideoName>Song of Honor</ideoName>
+        <theme>honor</theme>
+        <adjective>honor-bound</adjective>
+        <member>warrior</member>
+      </li>
+      <li>
+        <ideoName>Blade Creed</ideoName>
+        <theme>battle-rites</theme>
+        <adjective>blooded</adjective>
+        <member>blade-bearer</member>
+      </li>
+      <li>
+        <ideoName>House of Glory</ideoName>
+        <theme>house-glory</theme>
+        <adjective>glorious</adjective>
+        <member>champion</member>
+      </li>
+    </symbolPacks>
+
+    <factionWhitelist>
+      <li>Klingon_Empire</li>
+    </factionWhitelist>
+    <startingResearchProjects>
+      <li>Pre_Warp</li>
+    </startingResearchProjects>
+    <agreeableTraits>
+      <li>Bloodlust</li>
+      <li>Tough</li>
+    </agreeableTraits>
+    <disagreeableTraits>
+      <li>Wimp</li>
+    </disagreeableTraits>
+  </MemeDef>
+
+  <!-- =======================
+       Romulan Command / Secrecy Meme
+       ======================= -->
+
+  <MemeDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Meme_RomulanCommand</defName>
+    <label>imperial command</label>
+    <description>An imperial doctrine of strict hierarchy, secrecy, and absolute loyalty to the state. Information is power, obedience is survival, and borders are guarded through patience, intrigue, and quiet displays of strength.</description>  
+    <iconPath>UI/Icons/IdeoIcons/RomulanCommand</iconPath>
+    <worshipRoomLabel>command chamber</worshipRoomLabel>
+    <category>Structure</category>
+    <deityCount>0~1</deityCount>
+    <allowSymbolsFromDeity>true</allowSymbolsFromDeity>
+    <groupDef>Spacefarer</groupDef>
+
+    <impact>0</impact>
+
+    <requireOne>
+      <li>
+        <li>IdeoDiversity_Disapproved</li>
+      </li>
+      <li>
+        <li>Slavery_Acceptable</li>
+      </li>
+      <li>
+        <li>Apostasy_Despicable</li>
+      </li>
+      <li>
+        <li>Scarification_Minor</li>
+      </li>
+      <li>
+        <li>Execution_DontCare</li>
+        <li>Execution_RespectedIfGuilty</li>
+        <li>Execution_Required</li>
+      </li>
+      <li>
+        <li>Cannibalism_Horrible</li>
+      </li>
+      <li MayRequire="erdelf.HumanoidAlienRaces">
+        <li>HAR_EatingAliens_Disapproved</li>
+      </li>
+      <li MayRequire="erdelf.HumanoidAlienRaces">
+        <li>HAR_AlienRaces_Horrible</li>
+      </li>
+    </requireOne>
+
+    <generalRules>
+      <rulesStrings>
+        <li>memeAdjective->secretive</li>
+        <li>memeAdjective->calculating</li>
+        <li>memeConcept->state-security</li>
+        <li>memeConcept->surveillance</li>
+        <li>memeConcept->border-watch</li>
+        <li>memeLeaderNoun->proconsul</li>
+        <li>memeLeaderNoun->commander</li>
+        <li>memeLeaderNoun->operative</li>
+        <li>memeMoralist->order prefect</li>
+        <li>memeMoralist->security auditor</li>
+        <li>memeMoralist->intelligence censor</li>
+        <li>chosenIdeoName->Star Empire Command Doctrine</li>
+        <li>chosenIdeoName->Imperial Security Charter</li>
+      </rulesStrings>
+    </generalRules>
+
+    <descriptionMaker>
+      <patterns>
+        <li>
+          <def>ST_Romulan_CommandPattern</def>
+          <weight>1</weight>
+        </li>
+      </patterns>
+      <rules>
+        <rulesStrings>
+          <li>creation(tag=meme_ST_Romulan)       ->An empire rose from exile, vowing never again to show weakness to the galaxy.</li>
+          <li>episode(uses=1,tag=meme_ST_Romulan)->Whispers in council chambers shaped wars long before the first shot was fired.</li>
+          <li>intro(tag=meme_ST_Romulan)          ->In shadowed command chambers, maps were drawn not for trade, but for control.</li>
+          <li>conflict(tag=meme_ST_Romulan)       ->Those who questioned the edicts vanished, leaving only caution in their wake.</li>
+          <li>founderJoin(tag=meme_ST_Romulan)    ->Officials pledged that the state would know every secret and reveal none.</li>
+          <li>victory(tag=meme_ST_Romulan)        ->Borders held, and rivals learned to fear the patient silence of the empire.</li>
+          <li>setup(tag=meme_ST_Romulan)          ->Thus the doctrine formed: trust the state, conceal the self, and watch the horizon.</li>
+        </rulesStrings>
+      </rules>
+    </descriptionMaker>
+
+    <symbolPacks>
+      <li>
+        <ideoName>Silent Command</ideoName>
+        <theme>command</theme>
+        <adjective>silent</adjective>
+        <member>operative</member>
+      </li>
+      <li>
+        <ideoName>Shadow Edict</ideoName>
+        <theme>secrecy</theme>
+        <adjective>secretive</adjective>
+        <member>agent</member>
+      </li>
+      <li>
+        <ideoName>Imperial Watch</ideoName>
+        <theme>border-watch</theme>
+        <adjective>watchful</adjective>
+        <member>watcher</member>
+      </li>
+    </symbolPacks>
+
+    <startingResearchProjects>
+      <li>Pre_Warp</li>
+    </startingResearchProjects>
+    <agreeableTraits>
+      <li>Ascetic</li>
+    </agreeableTraits>
+    <disagreeableTraits>
+      <li>Wimp</li>
+    </disagreeableTraits>
+    <factionWhitelist>
+      <li>Romulan_Star_Empire</li>
+    </factionWhitelist>
+  </MemeDef>
+
+  <!-- =======================
+       Ferengi Commerce Meme
+       ======================= -->
+
+  <MemeDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Meme_FerengiCommerce</defName>
+    <label>commerce faith</label>
+    <description>A profit-centered faith where trade is sacred, the Rules of Acquisition are holy text, and every deal is a test of wit and opportunity. Wealth is seen as proof of wisdom and divine favor, while a life without profit is considered wasted.</description>
+    <iconPath>UI/Icons/IdeoIcons/FerengiCommerce</iconPath>
+    <worshipRoomLabel>exchange floor</worshipRoomLabel>
+    <category>Structure</category>
+    <deityCount>0</deityCount>
+    <allowSymbolsFromDeity>true</allowSymbolsFromDeity>
+    <groupDef>Spacefarer</groupDef>
+    <impact>0</impact>
+
+    <requireOne>
+      <li>
+        <li>IdeoDiversity_Disapproved</li>
+      </li>
+      <li>
+        <li>Slavery_Acceptable</li>
+      </li>
+      <li>
+        <li>Apostasy_Despicable</li>
+      </li>
+      <li>
+        <li>Scarification_Minor</li>
+      </li>
+      <li>
+        <li>Execution_DontCare</li>
+        <li>Execution_RespectedIfGuilty</li>
+        <li>Execution_Required</li>
+      </li>
+      <li>
+        <li>Cannibalism_Horrible</li>
+      </li>
+      <li MayRequire="erdelf.HumanoidAlienRaces">
+        <li>HAR_EatingAliens_Disapproved</li>
+      </li>
+      <li MayRequire="erdelf.HumanoidAlienRaces">
+        <li>HAR_AlienRaces_Horrible</li>
+      </li>
+    </requireOne>
+
+    <generalRules>
+      <rulesStrings>
+        <li>memeAdjective->profitable</li>
+        <li>memeAdjective->opportunistic</li>
+        <li>memeConcept->trade</li>
+        <li>memeConcept->contracts</li>
+        <li>memeConcept->acquisition</li>
+        <li>memeLeaderNoun->chief executive</li>
+        <li>memeLeaderNoun->negotiator</li>
+        <li>memeLeaderNoun->chairman</li>
+        <li>memeMoralist->profit adviser</li>
+        <li>memeMoralist->accountant of the Rules</li>
+        <li>memeMoralist->market arbiter</li>
+        <li>chosenIdeoName->Rules of Acquisition</li>
+        <li>chosenIdeoName->Grand Exchange Charter</li>
+      </rulesStrings>
+    </generalRules>
+
+    <descriptionMaker>
+      <patterns>
+        <li>
+          <def>ST_Ferengi_CommerceLesson</def>
+          <weight>1</weight>
+        </li>
+      </patterns>
+
+      <rules>
+        <rulesStrings>
+          <li>creation(tag=meme_ST_Ferengi)       ->In crowded markets, the first rules of acquisition were whispered over ledgers.</li>
+          <li>episode(uses=1,tag=meme_ST_Ferengi)->Fortunes rose and fell, but those who read the rules carefully always landed on top.</li>
+          <li>intro(tag=meme_ST_Ferengi)          ->Deal tables became altars where profit was weighed like sacred offerings.</li>
+          <li>conflict(tag=meme_ST_Ferengi)       ->When partners betrayed contracts, the lesson was simple: never trust without collateral.</li>
+          <li>founderJoin(tag=meme_ST_Ferengi)    ->Founders taught that a life without profit was a life wasted.</li>
+          <li>victory(tag=meme_ST_Ferengi)        ->By treating opportunity as divine favor, they prospered where others starved.</li>
+          <li>setup(tag=meme_ST_Ferengi)          ->Thus the faith spread: hear the rules, sign the deal, and count the latinum twice.</li>
+        </rulesStrings>
+      </rules>
+    </descriptionMaker>
+    
+    <symbolPacks>
+      <li>
+        <ideoName>Commerce Code</ideoName>
+        <theme>trade</theme>
+        <adjective>profitable</adjective>
+        <member>trader</member>
+      </li>
+      <li>
+        <ideoName>Rules of Profit</ideoName>
+        <theme>acquisition</theme>
+        <adjective>acquisitive</adjective>
+        <member>merchant</member>
+      </li>
+      <li>
+        <ideoName>Latinum Faith</ideoName>
+        <theme>latinum</theme>
+        <adjective>latinum-bound</adjective>
+        <member>investor</member>
+      </li>
+    </symbolPacks>
+
+    <startingResearchProjects>
+      <li>Pre_Warp</li>
+    </startingResearchProjects>
+    <factionWhitelist>
+      <li>Ferengi_Alliance</li>
+      <li>TradersGuild</li> 
+    </factionWhitelist>
+    <agreeableTraits>
+      <li>Greedy</li>
+      <li>Industriousness</li>
+    </agreeableTraits>
+    <disagreeableTraits>
+      <li>Undergrounder</li>
+    </disagreeableTraits>
+  </MemeDef>
+
+</Defs>

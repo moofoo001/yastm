@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_Starfleet_Biobed</defName>
+    <label>Starfleet biobed</label>
+    <description>A medically optimized Starfleet biobed equipped with advanced sensors,
+      passive monitoring fields and structural micro-shielding. 
+      Greatly improves treatment outcomes and patient survival.</description>
+    <thingClass>Building_Bed</thingClass>
+    <selectable>true</selectable>
+    <graphicData>
+      <texPath>Things/Building/Medical/ST_BioBed</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+    <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2.4, 2.4)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <size>(1,2)</size>
+    <rotatable>true</rotatable>
+    <pathCost>25</pathCost>
+    <statBases>
+      <MaxHitPoints>240</MaxHitPoints>
+      <Mass>40</Mass>
+      <Flammability>0.1</Flammability>
+      <WorkToBuild>28000</WorkToBuild>
+      <Beauty>6</Beauty>
+			<BedRestEffectiveness>1</BedRestEffectiveness>
+			<Comfort>0.8</Comfort>
+			<ImmunityGainSpeedFactor>1.15</ImmunityGainSpeedFactor>
+			<MedicalTendQualityOffset>0.07</MedicalTendQualityOffset>
+			<SurgerySuccessChanceFactor>1.2</SurgerySuccessChanceFactor>
+			<BirthRitualQualityOffset MayRequire="Ludeon.RimWorld.Biotech">2</BirthRitualQualityOffset>
+    </statBases>
+    <costList>
+      <Steel>80</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+      <Plasteel>20</Plasteel>
+    </costList>
+    <building>
+      <bed_maxBodySize>999</bed_maxBodySize>
+      <bed_showSleeperBody>false</bed_showSleeperBody>
+      <bed_healPerDay>5</bed_healPerDay>
+        <bed_defaultMedical>true</bed_defaultMedical>
+	    <buildingSizeCategory>Small</buildingSizeCategory>
+    </building>
+
+        <comps>
+        <li Class="CompProperties_AssignableToPawn">
+            <compClass>CompAssignableToPawn_Bed</compClass>
+        </li>
+
+        <li Class="CompProperties_Glower">
+            <glowRadius>1.3</glowRadius>
+            <glowColor>(0.3,0.8,1,0.8)</glowColor>
+        </li>
+
+        <li Class="CompProperties_Facility">
+            <statOffsets>
+            <MedicalTendQualityOffset>0.08</MedicalTendQualityOffset>
+            </statOffsets>
+            <maxSimultaneous>2</maxSimultaneous>
+        </li>
+        </comps>
+
+    <tickerType>Rare</tickerType>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <fillPercent>0.4</fillPercent>
+    <pathCost>42</pathCost>
+	<staticSunShadowHeight>0.17</staticSunShadowHeight>
+	<constructionSkillPrerequisite>9</constructionSkillPrerequisite>
+
+    <designationCategory>ST_Designation</designationCategory>
+    <researchPrerequisites>
+      <li>ST_Federation_AdvancedMedic</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+
+</Defs>

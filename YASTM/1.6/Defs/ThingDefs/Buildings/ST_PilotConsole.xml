@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  <ThingDef ParentName="GravshipComponentBase">
+    <defName>ST_PilotConsole</defName>
+    <label>Pilot Console</label>
+    <description>Starfleet gravitic pilot console used to control a gravship's movement and navigation systems.</description>
+
+    <graphicData>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <texPath>Things/Building/HelmNav/ST_HelmConsole</texPath>
+      <drawSize>(4, 3.8)</drawSize>
+    </graphicData>
+
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Mass>200</Mass>
+      <Flammability>0</Flammability>
+      <Beauty>0</Beauty>
+      <WorkToBuild>2500</WorkToBuild>
+    </statBases>
+
+    <size>(3, 2)</size>
+    <rotatable>true</rotatable>
+    <fillPercent>0.4</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>14</pathCost>
+    <canOverlapZones>false</canOverlapZones>
+    <costList>
+      <Steel>140</Steel>
+      <Plasteel>60</Plasteel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <designationCategory>ST_Designation</designationCategory>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <researchPrerequisites>
+      <li>BasicGravtech</li>
+    </researchPrerequisites>
+    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+    <comps>
+      <li Class="CompProperties_GravshipFacility">
+        <compClass>CompPilotConsole</compClass>
+        <componentTypeDef>Controls</componentTypeDef>
+        <requiresLOS>false</requiresLOS>
+        <showMaxSimultaneous>false</showMaxSimultaneous>
+        <maxSimultaneous>1</maxSimultaneous>
+        <maxDistance>200</maxDistance>
+      </li>
+      <li Class="CompProperties_Breakdownable" />
+    </comps>
+    <uiOrder>2100</uiOrder>
+  </ThingDef>
+</Defs>

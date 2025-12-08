@@ -5,17 +5,7 @@ using Verse;
 
 namespace StarTrekFactions.QuestNodes
 {
-    /// Compat-Choice-Node für Umgebungen, in denen QuestNode_Choice nicht auflösbar ist.
-    /// XML:
-    /// <li Class="StarTrekFactions.QuestNodes.QuestNode_ChoiceCompat">
-    ///   <choices>
-    ///     <li>
-    ///       <label>OptionalDocOnly.Key</label>
-    ///       <node Class="QuestNode_Sequence"> ... </node>
-    ///     </li>
-    ///     <li> ... </li>
-    ///   </choices>
-    /// </li>
+
     public class QuestNode_ChoiceCompat : QuestNode
     {
         public List<Option> choices = new List<Option>();

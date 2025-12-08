@@ -15,6 +15,11 @@
     <displayInFactionSelection>true</displayInFactionSelection>
 
     <allowedCultures><li>ST_Culture_Klingon</li></allowedCultures>
+
+    <forcedMemes>
+      <li>ST_Meme_KlingonHonor</li>
+    </forcedMemes>
+
     <techLevel>Spacer</techLevel>
     <permanentEnemy>false</permanentEnemy>
     <leaderTitle>commander</leaderTitle>

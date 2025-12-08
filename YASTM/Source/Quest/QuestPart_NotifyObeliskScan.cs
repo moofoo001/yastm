@@ -19,7 +19,7 @@ namespace YASTM.QuestParts
 
             try
             {
-                var args = signal.args;  // struct, never null
+                var args = signal.args; 
                 Map map = args.GetArg<Map>("SUBJECT")
                          ?? args.GetArg<Map>("map")
                          ?? args.GetArg<Thing>("SUBJECT")?.Map

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- KLINGON: Blood Oath -->
+  <RitualPatternDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Klingon_BloodOath_Pattern</defName>
+    <shortDescOverride>blood oath</shortDescOverride>
+    <descOverride>Warriors gather to swear a blood oath before witnesses, binding themselves to vengeance or shared glory.
+      The ritual affirms honor and house loyalty.</descOverride>
+    <iconPathOverride>UI/Icons/IdeoIcons/Kli5</iconPathOverride>
+    <ritualObligationTargetFilter>RitualFireSpot</ritualObligationTargetFilter>
+    <ritualOnlyForIdeoMembers>true</ritualOnlyForIdeoMembers>
+    <ritualBehavior>GladiatorDuel</ritualBehavior>
+    <ritualOutcomeEffect>GladiatorDuel</ritualOutcomeEffect>
+    <tags Inherit="False" />
+    <playsIdeoMusic>false</playsIdeoMusic>
+  </RitualPatternDef>
+
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Klingon_BloodOath</defName>
+    <label>blood oath</label>
+    <description>A solemn blood oath is sworn before witnesses. To break such an oath is to invite eternal dishonor
+      on oneself and one’s house.</description>
+    <issue>Ritual</issue>
+    <impact>High</impact>
+    <ritualPatternBase>ST_Klingon_BloodOath_Pattern</ritualPatternBase>
+    <requiredMemes>
+      <li>ST_Meme_KlingonHonor</li>
+    </requiredMemes>
+  </PreceptDef>
+
+
+</Defs>

@@ -7,7 +7,7 @@
   <YASTM.Storyteller.April.Fluff2>Red and Yellow Alert systems pair well with April’s cadence: prepare in the quiet, act with discipline when crisis strikes.</YASTM.Storyteller.April.Fluff2>
 
   <!-- Alert Panel -->
-  <ST.AlertPanel.Cooldown>Alert controls are cooling down.</ST.AlertPanel.Cooldown>
+
   <ST.AlertPanel.Red.Label>Red Alert</ST.AlertPanel.Red.Label>
   <ST.AlertPanel.Red.Desc>All hands to battle stations.</ST.AlertPanel.Red.Desc>
   <ST.AlertPanel.Red.LetterLabel>Red Alert</ST.AlertPanel.Red.LetterLabel>
@@ -27,7 +27,7 @@
   <ST_AlertPanel_Red_Off>Red alert disengaged.</ST_AlertPanel_Red_Off>
   <ST_AlertPanel_Yellow_On>Yellow alert engaged.</ST_AlertPanel_Yellow_On>
   <ST_AlertPanel_Yellow_Off>Yellow alert disengaged.</ST_AlertPanel_Yellow_Off>
-  <ST.AlertPanel.Cooldown>Cooldown: {0}s</ST.AlertPanel.Cooldown>
+
   <ST.AlertPanel.ActiveBuffRed>Red Alert active</ST.AlertPanel.ActiveBuffRed>
   <ST.AlertPanel.ActiveBuffYellow>Yellow Alert active</ST.AlertPanel.ActiveBuffYellow>
 
@@ -270,7 +270,7 @@
   <!-- Force Field Emitter -->  
   <ST.ForceField.Toggle>Toggle force field</ST.ForceField.Toggle>
   <ST.ForceField.Toggle.Desc>Activates or deactivates all linked force-field emitters.</ST.ForceField.Toggle.Desc>
-  <ST.Common.NeedsPower>Needs power</ST.Common.NeedsPower>
+
 
   <YASTM.Settings.ForceField.Radius>Force-field radius: {0}</YASTM.Settings.ForceField.Radius>
   <YASTM.Settings.ForceField.Refresh>Force-field refresh (ticks): {0}</YASTM.Settings.ForceField.Refresh>

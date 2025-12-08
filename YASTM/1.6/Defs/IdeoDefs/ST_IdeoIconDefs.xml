@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- UFP -->
+	<IdeoIconDef>
+		<defName>ST_Ideo_Fed1</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fed1</iconPath>
+        <memes>
+        <li>ST_Meme_Starfleet</li>
+        </memes>
+	</IdeoIconDef>
+	
+    <IdeoIconDef>
+		<defName>ST_Ideo_Fed2</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fed2</iconPath>
+        <memes>
+        <li>ST_Meme_Starfleet</li>
+        </memes>
+	</IdeoIconDef>
+
+    <IdeoIconDef>
+		<defName>ST_Ideo_Fed3</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fed3</iconPath>
+        <memes>
+        <li>ST_Meme_Starfleet</li>
+        </memes>
+	</IdeoIconDef>
+
+        <IdeoIconDef>
+		<defName>ST_Ideo_Fed4</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fed4</iconPath>
+        <memes>
+        <li>ST_Meme_Starfleet</li>
+        </memes>
+	</IdeoIconDef>
+
+    <IdeoIconDef>
+		<defName>ST_Ideo_Fed5</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fed5</iconPath>
+        <memes>
+        <li>ST_Meme_Starfleet</li>
+        </memes>
+	</IdeoIconDef>
+
+    <IdeoIconDef>
+		<defName>ST_Ideo_Fed6</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fed6</iconPath>
+        <memes>
+        <li>ST_Meme_Starfleet</li>
+        </memes>
+	</IdeoIconDef>
+
+    <IdeoIconDef>
+		<defName>ST_Ideo_Fed7</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fed7</iconPath>
+        <memes>
+        <li>ST_Meme_Starfleet</li>
+        </memes>
+	</IdeoIconDef>
+
+        <IdeoIconDef>
+		<defName>ST_Ideo_Fed8</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fed8</iconPath>
+        <memes>
+        <li>ST_Meme_Starfleet</li>
+        </memes>
+	</IdeoIconDef>
+
+    <!-- Klingon -->
+	
+    <IdeoIconDef>
+		<defName>ST_Ideo_Kli1</defName>
+		<iconPath>UI/Icons/IdeoIcons/Kli1</iconPath>
+        <memes>
+        <li>ST_Meme_KlingonHonor</li>
+        </memes>
+	</IdeoIconDef>
+
+    <IdeoIconDef>
+		<defName>ST_Ideo_Kli2</defName>
+		<iconPath>UI/Icons/IdeoIcons/Kli2</iconPath>
+        <memes>
+        <li>ST_Meme_KlingonHonor</li>
+        </memes>
+	</IdeoIconDef>
+
+    <IdeoIconDef>
+		<defName>ST_Ideo_Kli3</defName>
+		<iconPath>UI/Icons/IdeoIcons/Kli3</iconPath>
+        <memes>
+        <li>ST_Meme_KlingonHonor</li>
+        </memes>
+	</IdeoIconDef>
+
+    <IdeoIconDef>
+		<defName>ST_Ideo_Kli4</defName>
+		<iconPath>UI/Icons/IdeoIcons/Kli4</iconPath>
+        <memes>
+        <li>ST_Meme_KlingonHonor</li>
+        </memes>
+	</IdeoIconDef>
+
+    <IdeoIconDef>
+		<defName>ST_Ideo_Kli5</defName>
+		<iconPath>UI/Icons/IdeoIcons/Kli5</iconPath>
+        <memes>
+        <li>ST_Meme_KlingonHonor</li>
+        </memes>
+	</IdeoIconDef>
+
+    <IdeoIconDef>
+		<defName>ST_Ideo_Kli6</defName>
+		<iconPath>UI/Icons/IdeoIcons/Kli6</iconPath>
+        <memes>
+        <li>ST_Meme_KlingonHonor</li>
+        </memes>
+	</IdeoIconDef>
+
+    <IdeoIconDef>
+		<defName>ST_Ideo_Kli7</defName>
+		<iconPath>UI/Icons/IdeoIcons/Kli7</iconPath>
+        <memes>
+        <li>ST_Meme_KlingonHonor</li>
+        </memes>
+	</IdeoIconDef>
+
+    <IdeoIconDef>
+		<defName>ST_Ideo_Kli8</defName>
+		<iconPath>UI/Icons/IdeoIcons/Kli8</iconPath>
+        <memes>
+        <li>ST_Meme_KlingonHonor</li>
+        </memes>
+	</IdeoIconDef>
+
+    <IdeoIconDef>
+		<defName>ST_Ideo_Kli9</defName>
+		<iconPath>UI/Icons/IdeoIcons/Kli9</iconPath>
+        <memes>
+        <li>ST_Meme_KlingonHonor</li>
+        </memes>
+	</IdeoIconDef>
+
+    <!-- Romulan -->
+	<IdeoIconDef>
+		<defName>ST_Ideo_Rom1</defName>
+		<iconPath>UI/Icons/IdeoIcons/Rom1</iconPath>
+        <memes>
+        <li>ST_Meme_RomulanCommand</li>
+        </memes>
+	</IdeoIconDef>
+
+    	<IdeoIconDef>
+		<defName>ST_Ideo_Rom2</defName>
+		<iconPath>UI/Icons/IdeoIcons/Rom2</iconPath>
+        <memes>
+        <li>ST_Meme_RomulanCommand</li>
+        </memes>
+	</IdeoIconDef>
+
+	<IdeoIconDef>
+		<defName>ST_Ideo_Rom3</defName>
+		<iconPath>UI/Icons/IdeoIcons/Rom3</iconPath>
+        <memes>
+        <li>ST_Meme_RomulanCommand</li>
+        </memes>
+	</IdeoIconDef>
+
+	<IdeoIconDef>
+		<defName>ST_Ideo_Rom4</defName>
+		<iconPath>UI/Icons/IdeoIcons/Rom4</iconPath>
+        <memes>
+        <li>ST_Meme_RomulanCommand</li>
+        </memes>
+	</IdeoIconDef>
+
+	<IdeoIconDef>
+		<defName>ST_Ideo_Rom5</defName>
+		<iconPath>UI/Icons/IdeoIcons/Rom5</iconPath>
+        <memes>
+        <li>ST_Meme_RomulanCommand</li>
+        </memes>
+	</IdeoIconDef>
+
+	<IdeoIconDef>
+		<defName>ST_Ideo_Rom6</defName>
+		<iconPath>UI/Icons/IdeoIcons/Rom6</iconPath>
+        <memes>
+        <li>ST_Meme_RomulanCommand</li>
+        </memes>
+	</IdeoIconDef>
+
+	<IdeoIconDef>
+		<defName>ST_Ideo_Rom7</defName>
+		<iconPath>UI/Icons/IdeoIcons/Rom7</iconPath>
+        <memes>
+        <li>ST_Meme_RomulanCommand</li>
+        </memes>
+	</IdeoIconDef>
+
+	<IdeoIconDef>
+		<defName>ST_Ideo_Rom8</defName>
+		<iconPath>UI/Icons/IdeoIcons/Rom8</iconPath>
+        <memes>
+        <li>ST_Meme_RomulanCommand</li>
+        </memes>
+	</IdeoIconDef>
+
+	<IdeoIconDef>
+		<defName>ST_Ideo_Rom9</defName>
+		<iconPath>UI/Icons/IdeoIcons/Rom9</iconPath>
+        <memes>
+        <li>ST_Meme_RomulanCommand</li>
+        </memes>
+	</IdeoIconDef>
+
+
+    <!-- Ferengi -->
+	<IdeoIconDef>
+		<defName>ST_Ideo_Fer1</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fer1</iconPath>
+        <memes>
+        <li>ST_Meme_FerengiCommerce</li>
+        </memes>
+	</IdeoIconDef>
+
+	<IdeoIconDef>
+		<defName>ST_Ideo_Fer2</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fer2</iconPath>
+        <memes>
+        <li>ST_Meme_FerengiCommerce</li>
+        </memes>
+	</IdeoIconDef>
+
+    	<IdeoIconDef>
+		<defName>ST_Ideo_Fer3</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fer3</iconPath>
+        <memes>
+        <li>ST_Meme_FerengiCommerce</li>
+        </memes>
+	</IdeoIconDef>
+
+    <IdeoIconDef>
+		<defName>ST_Ideo_Fer4</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fer4</iconPath>
+        <memes>
+        <li>ST_Meme_FerengiCommerce</li>
+        </memes>
+	</IdeoIconDef>
+
+    <IdeoIconDef>
+		<defName>ST_Ideo_Fer5</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fer5</iconPath>
+        <memes>
+        <li>ST_Meme_FerengiCommerce</li>
+        </memes>
+	</IdeoIconDef>
+
+    <IdeoIconDef>
+		<defName>ST_Ideo_Fer6</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fer6</iconPath>
+        <memes>
+        <li>ST_Meme_FerengiCommerce</li>
+        </memes>
+	</IdeoIconDef>
+    	<IdeoIconDef>
+		<defName>ST_Ideo_Fer7</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fer7</iconPath>
+        <memes>
+        <li>ST_Meme_FerengiCommerce</li>
+        </memes>
+	</IdeoIconDef>
+    <IdeoIconDef>
+		<defName>ST_Ideo_Fer8</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fer8</iconPath>
+        <memes>
+        <li>ST_Meme_FerengiCommerce</li>
+        </memes>
+	</IdeoIconDef>
+     <IdeoIconDef>
+		<defName>ST_Ideo_Fer9</defName>
+		<iconPath>UI/Icons/IdeoIcons/Fer9</iconPath>
+        <memes>
+        <li>ST_Meme_FerengiCommerce</li>
+        </memes>
+	</IdeoIconDef>
+</Defs>

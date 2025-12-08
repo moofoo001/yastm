@@ -1,14 +1,11 @@
 using System.Collections.Generic;
-using System.Linq;                    // <<--- LINQ für Where/OrderBy
+using System.Linq;                   
 using Verse;
 using RimWorld;
 
 namespace YASTM
 {
-    /// <summary>
-    /// Wendet periodisch den Hediff auf Pawns im Radius aktiver Emitter an
-    /// und erzeugt optional Rand-Flecks.
-    /// </summary>
+
     public class MapComponent_ForceFieldSystem : MapComponent
     {
         private static readonly Dictionary<Map, HashSet<CompForceFieldEmitter>> ActiveEmitters = new();

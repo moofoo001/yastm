@@ -6,8 +6,8 @@ namespace StarTrekFactions.Comps
 {
     public class CompProperties_UseEffect_DeployBeacon : CompProperties_UseEffect
     {
-        public ThingDef buildingDef;      // z.B. ST_ComBeacon
-        public bool placeNearUser = true; // Placement-Modus
+        public ThingDef buildingDef;      
+        public bool placeNearUser = true; 
 
         public CompProperties_UseEffect_DeployBeacon()
         {

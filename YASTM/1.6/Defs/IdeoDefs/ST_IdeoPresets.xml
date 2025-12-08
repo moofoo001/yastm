@@ -9,10 +9,13 @@
     <categoryDef>Mild</categoryDef>
     <iconPath>UI/Icons/IdeoIcons/Federation_Doctrine</iconPath>
     <memes>
-      <li>VME_Egalitarian</li>
       <li>ST_Meme_Starfleet</li>
+      <li>VME_Egalitarian</li>
+      <!--
+      <li>Structure_TheistAbstract</li>
       <li>Individualist</li>
       <li>HAR_Xenophilia</li>
+      -->
     </memes>
     </IdeoPresetDef>
 
@@ -24,9 +27,12 @@
     <categoryDef>Mild</categoryDef>
     <iconPath>UI/Icons/IdeoIcons/KlingonHonor</iconPath>
     <memes>
+      <li>ST_Meme_KlingonHonor</li>
       <li MayRequire="Ludeon.RimWorld.Ideology">Supremacist</li>
+      <!--
       <li>VME_Bushido</li>
       <li>Raider</li>
+      -->
     </memes>
     </IdeoPresetDef>
 
@@ -38,11 +44,14 @@
     <categoryDef>Mild</categoryDef>
     <iconPath>UI/Icons/IdeoIcons/RomulanCommand</iconPath>
     <memes>
+      <li>ST_Meme_RomulanCommand</li>
+      <li>Collectivist</li>
+      <!--
       <li>Structure_TheistAbstract</li>
       <li>VME_Structure_Authoritarianism</li>
-      <li>Collectivist</li>
       <li>VFEA_Isolationist</li>
       <li>VME_Anonymity</li>
+      -->
     </memes>
     </IdeoPresetDef>
 
@@ -54,10 +63,13 @@
     <categoryDef>Mild</categoryDef>
     <iconPath>UI/Icons/IdeoIcons/FerengiCommerce</iconPath>
     <memes>
+      <li>ST_Meme_FerengiCommerce</li>
       <li>VME_Trader</li>
       <li>VME_Structure_Corporate</li>
+      <!--
       <li>Loyalist</li>
       <li>Structure_Ideological</li>
+      -->
     </memes>
     </IdeoPresetDef>
 

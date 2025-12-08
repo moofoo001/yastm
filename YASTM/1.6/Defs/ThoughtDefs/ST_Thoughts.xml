@@ -112,5 +112,92 @@
     </stages>
   </ThoughtDef>
 
+<!-- Simple replicated meal: okay but synthetic -->
+  <ThoughtDef>
+    <defName>ST_Thought_AteReplicatedSimpleMeal</defName>
+    <label>ate replicated meal</label>
+    <durationDays>0.4</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <validWhileDespawned>false</validWhileDespawned>
+    <stages>
+      <li>
+        <label>ate a replicated meal</label>
+        <description>A meal straight from the replicator. Efficient and consistent, but the taste is a little too perfect.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Emergency ration: keeps you alive, not happy -->
+  <ThoughtDef>
+    <defName>ST_Thought_AteEmergencyRation</defName>
+    <label>ate emergency ration</label>
+    <durationDays>0.8</durationDays>
+    <stackLimit>2</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <validWhileDespawned>false</validWhileDespawned>
+    <stages>
+      <li>
+        <label>ate an emergency ration</label>
+        <description>I had to rely on an emergency ration. Functional, but hardly enjoyable.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Luxury replicated meal: base fine-meal feeling, Ferengi get extra -->
+  <ThoughtDef>
+    <defName>ST_Thought_AteReplicatedLuxuryMeal</defName>
+    <label>enjoyed replicated luxury meal</label>
+    <description>A carefully patterned luxury dish from the replicator. Almost indistinguishable from the real thing.</description>
+    <durationDays>0.9</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>StarTrekFactions.Thoughts.Thought_Memory_ReplicatedLuxuryMeal</thoughtClass>
+    <validWhileDespawned>false</validWhileDespawned>
+    <stages>
+      <li>
+        <label>enjoyed a replicated luxury meal</label>
+        <description>A carefully patterned luxury dish from the replicator. Almost indistinguishable from the real thing.</description>
+        <!-- baseline, Ferengi get extra in C# -->
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Raktajino: small universal buff, big buff for Starfleet -->
+  <ThoughtDef>
+    <defName>ST_Thought_DrankRaktajino</defName>
+    <label>drank raktajino</label>
+    <description>A strong cup of raktajino. Perfect for staying alert on duty.</description>
+    <durationDays>0.35</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>StarTrekFactions.Thoughts.Thought_Memory_Raktajino</thoughtClass>
+    <validWhileDespawned>false</validWhileDespawned>
+    <stages>
+      <li>
+        <label>drank raktajino</label>
+        <description>A strong cup of raktajino. Perfect for staying alert on duty.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Ferengi profit blessing -->
+  <ThoughtDef>
+    <defName>ST_Thought_Ferengi_ProfitBlessing</defName>
+    <label>profit blessing</label>
+    <description>I am blessed by the Rules of Acquisition. Prosperity will follow me.</description>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stackLimit>1</stackLimit>
+    <durationDays>2</durationDays>
+    <stages>
+      <li>
+        <label>profit-blessed</label>
+        <description>I am blessed by the Rules of Acquisition. Prosperity will follow me.</description>
+        <baseMoodEffect>+6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
 
 </Defs>

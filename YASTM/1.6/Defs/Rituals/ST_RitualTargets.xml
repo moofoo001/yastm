@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <RitualObligationTargetFilterDef>
+    <defName>RitualFireSpot</defName>
+    <workerClass>RitualObligationTargetWorker_CampfireParty</workerClass>
+    <maxDrumDistance>12</maxDrumDistance>
+    <thingDefs>
+      <li>Campfire</li>
+      <li>Brazier</li>
+    </thingDefs>
+  </RitualObligationTargetFilterDef>
+</Defs>

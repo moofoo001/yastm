@@ -7,10 +7,7 @@ using RimWorld;
 
 namespace YASTM
 {
-    /// <summary>
-    /// Adds a gizmo to work tables (e.g., ST_Replicator) to run the first active bill:
-    /// "Run first bill now" → choose pawn → starts DoBill job.
-    /// </summary>
+
     public class CompReplicatorRunner : ThingComp
     {
         private Building_WorkTable Table => parent as Building_WorkTable;
@@ -34,7 +31,7 @@ namespace YASTM
             var map = parent.Map;
             if (map == null) return;
 
-            // First non-suspended bill; JobDriver will validate details (ingredients, power, etc.)
+        
             var bill = Table.BillStack.Bills.FirstOrDefault(b => b != null && !b.suspended);
             if (bill == null)
             {

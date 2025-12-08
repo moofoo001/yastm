@@ -24,7 +24,7 @@
     <tickerType>Normal</tickerType>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
     <fillPercent>0.4</fillPercent>
-    <defaultPlacingRot>South</defaultPlacingRot>
+
     
     <statBases>
       <WorkToBuild>1000</WorkToBuild>
@@ -60,9 +60,13 @@
           <li>ST_Subspace_Scanner</li>
         </linkableBuildings>
         <maxSimultaneous>2</maxSimultaneous>
-
       </li>
 
+    <li Class="StarTrekFactions.Comps.CompProperties_ScienceConsoleSubspaceScan">
+      <requiredResearch>ST_SubspaceTelemetry</requiredResearch>
+      <questSignalOnScanStarted>STQ.Obelisks.ScanStarted</questSignalOnScanStarted>
+      <questSignalOnScanCompleted>STQ.Obelisks.DataTransmitted</questSignalOnScanCompleted>
+    </li>
     </comps>
 
     <placeWorkers>
@@ -88,6 +92,7 @@
     <researchPrerequisites>
       <li>ST_SubspaceTelemetry</li>
     </researchPrerequisites>
+    <uiOrder>2006</uiOrder>
   </ThingDef>
 
 </Defs>

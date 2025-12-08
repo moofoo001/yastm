@@ -19,6 +19,14 @@
     <allowedCultures>
       <li>ST_Culture_UFP</li>
     </allowedCultures>
+
+    <forcedMemes>
+      <li>ST_Meme_Starfleet</li>
+    </forcedMemes>
+    <disallowedMemes>
+      <li>Cannibal</li>
+    </disallowedMemes>
+    
     <techLevel>Spacer</techLevel>
     <permanentEnemy>false</permanentEnemy>
 

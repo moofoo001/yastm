@@ -26,7 +26,7 @@ namespace YASTM
                 base.DoEffect(usedBy);
                 if (usedBy == null || usedBy.Dead) return;
 
-                // Ziel-Rang & Extension ermitteln
+            
                 var targetTrait = !Props.targetRankTraitDefName.NullOrEmpty()
                     ? DefDatabase<TraitDef>.GetNamedSilentFail(Props.targetRankTraitDefName)
                     : null;
@@ -44,7 +44,7 @@ namespace YASTM
                     return;
                 }
 
-                // 1) Vor-Rang prüfen
+        
                 bool hasFromRank = usedBy.story?.traits?.HasTrait(DefDatabase<TraitDef>.GetNamedSilentFail(ext.fromRankTraitDefName)) ?? false;
                 if (!hasFromRank)
                 {
@@ -52,7 +52,7 @@ namespace YASTM
                     return;
                 }
 
-                // 2) Objectives abgeschlossen?
+         
                 var wc = Find.World.GetComponent<YASTM.WorldComponent_PromotionObjectives>();
                 var pr = wc?.ActiveFor(usedBy, targetTrait);
                 if (pr == null || !pr.Completed)
@@ -61,7 +61,7 @@ namespace YASTM
                     return;
                 }
 
-                // 3) Captain-Unique check (falls über Extension gefordert)
+           
                 if (ext.uniqueColonyWide)
                 {
                     bool someoneHasTarget = PawnsFinder.AllMaps_FreeColonists.Any(c => c?.story?.traits?.HasTrait(targetTrait) == true);
@@ -72,24 +72,24 @@ namespace YASTM
                     }
                 }
 
-                // ==== Ab hier: Beförderung durchführen ====
+           
 
-                // alten ST_Rank_* Trait entfernen
+           
                 var oldRank = usedBy.story?.traits?.allTraits?
                     .FirstOrDefault(t => t.def?.defName != null && t.def.defName.StartsWith("ST_Rank_"));
                 if (oldRank != null)
                     usedBy.story.traits.RemoveTrait(oldRank);
 
-                // Ziel-Rang vergeben
+            
                 usedBy.story?.traits?.GainTrait(new Trait(targetTrait));
 
-                // Karriere-Timestamp setzen
+           
                 usedBy.GetComp<YASTM.CompStarfleetCareer>()?.MarkPromotedNow();
 
-                // Progress-Eintrag als „rewarded“ markieren (falls vorhanden)
+            
                 if (pr != null) pr.rewardGiven = true;
 
-                // Pip-Apparel auto-anlegen (falls eingetragen & vorhanden)
+          
                 if (!Props.pipApparelDefName.NullOrEmpty())
                 {
                     var pipDef = DefDatabase<ThingDef>.GetNamedSilentFail(Props.pipApparelDefName);
@@ -110,7 +110,7 @@ namespace YASTM
                 }
                 if (Props.consumeOnUse && !(parent is Apparel))
                 {
-                    // genau 1 Stück verbrauchen – funktioniert auch bei Stacks
+               
                     var one = parent.SplitOff(1);
                     one.Destroy(DestroyMode.Vanish);
                 }

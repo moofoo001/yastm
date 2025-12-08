@@ -34,7 +34,7 @@ namespace YASTM
             if (candidates.Count == 1)
                 return wc.StartForPawn(candidates[0]);
 
-            // Mehrere Kandidaten -> Dialog zur Auswahl
+          
             var root = new DiaNode("STQ.Promo.ChooseCandidate".Translate());
             foreach (var p in candidates)
             {

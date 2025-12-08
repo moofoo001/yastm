@@ -22,7 +22,7 @@
     <label>phaser pulse (stun)</label>
     <thingClass>ST.PhaseWeapons.Projectile_Phaser</thingClass>
     <projectile>
-      <damageDef>Blunt</damageDef>
+      <damageDef>ST_PhaserStun</damageDef>
       <damageAmountBase>1</damageAmountBase> 
       <armorPenetrationBase>0</armorPenetrationBase>
       <stoppingPower>0.1</stoppingPower>

@@ -46,7 +46,7 @@
       <AccuracyShort>0.75</AccuracyShort>
       <AccuracyMedium>0.48</AccuracyMedium>
       <AccuracyLong>0.22</AccuracyLong>
-      <MarketValue>550</MarketValue>
+      <MarketValue>450</MarketValue>
     </statBases>
     <verbs>
       <li>
@@ -64,7 +64,7 @@
      <workAmount>5500</workAmount>
      <skillRequirements><Crafting>7</Crafting></skillRequirements>
      <recipeUsers><li>ElectricSmithy</li></recipeUsers>
-     <researchPrerequisite>ST_Klingon_Disruptors</researchPrerequisite>
+     <researchPrerequisite>ST_Klingon_Disruptor_I</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Plasteel>12</Plasteel>
@@ -112,7 +112,7 @@
      <workAmount>10000</workAmount>
      <skillRequirements><Crafting>7</Crafting></skillRequirements>
      <recipeUsers><li>ElectricSmithy</li></recipeUsers>
-     <researchPrerequisite>ST_Klingon_Disruptors</researchPrerequisite>
+     <researchPrerequisite>ST_Klingon_Disruptor_II</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Silver>100</Silver>
@@ -161,7 +161,7 @@
         <workAmount>6000</workAmount>
         <skillRequirements><Crafting>7</Crafting></skillRequirements>
         <recipeUsers><li>ElectricSmithy</li></recipeUsers>
-        <researchPrerequisite>ST_Romulan_Disruptors</researchPrerequisite>
+        <researchPrerequisite>ST_Romulan_Plasma_I</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Silver>20</Silver>
@@ -210,7 +210,7 @@
      <workAmount>11000</workAmount>
      <skillRequirements><Crafting>7</Crafting></skillRequirements>
      <recipeUsers><li>ElectricSmithy</li></recipeUsers>
-     <researchPrerequisite>ST_Romulan_Disruptors</researchPrerequisite>
+     <researchPrerequisite>ST_Romulan_Plasma_II</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Silver>100</Silver>
@@ -260,7 +260,7 @@
        <workAmount>5000</workAmount>
        <skillRequirements><Crafting>7</Crafting></skillRequirements>
        <recipeUsers><li>ElectricSmithy</li></recipeUsers>
-       <researchPrerequisite>ST_Ferengi_Disruptors</researchPrerequisite>
+       <researchPrerequisite>ST_Ferengi_Security_I</researchPrerequisite>
     </recipeMaker>  
     <costList>
       <Silver>50</Silver>
@@ -314,7 +314,7 @@
        <workAmount>9000</workAmount>
        <skillRequirements><Crafting>7</Crafting></skillRequirements>
        <recipeUsers><li>ElectricSmithy</li></recipeUsers>
-       <researchPrerequisite>ST_Ferengi_Disruptors</researchPrerequisite>
+       <researchPrerequisite>ST_Ferengi_Security_II</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Silver>100</Silver>

@@ -39,89 +39,35 @@
       <li>Pre_Warp</li>
     </prerequisites>
     <researchViewX>0</researchViewX>
-    <researchViewY>2</researchViewY>
+    <researchViewY>1</researchViewY>
   </ResearchProjectDef>
 
-  <!-- Federation standard -->
-  <ResearchProjectDef Parent="ST_Base_Research" Name="Federation_Standard">
-    <defName>Federation_Standard</defName>
-    <description>Standardized Starfleet issue gear and fittings.</description>
-    <label>Federation standard</label>
-    <techLevel>Spacer</techLevel>
-    <tab>ST_Research</tab>
-    <baseCost>300</baseCost>
-    <prerequisites>
-      <li>ST_Common_Issue_Gear</li>
-    </prerequisites>
-    <researchViewX>0</researchViewX>
-    <researchViewY>3</researchViewY>
-  </ResearchProjectDef>
+    <!-- Alert Protocols -->
+    <ResearchProjectDef ParentName="ST_Base_Research">
+      <defName>ST_AlertProtocols</defName>
+      <label>alert protocols</label>
+      <description>Implements colony-wide alert routing and EPS priority to enable the Alert panel.
+      Unlocks: SecurityDoor, ColoredLights</description>
+      <baseCost>1500</baseCost>
+      <techLevel>Spacer</techLevel>
+      <tab>ST_Research</tab>
+      <prerequisites>
+        <li>ST_Common_Issue_Gear</li>
+        <li>Electricity</li>
+      </prerequisites>
+      <researchViewX>1</researchViewX>
+      <researchViewY>0</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>SecurityDoor</li>
+            <li>ColoredLights</li>
+          </projects>
+        </li>
+      </researchMods>
+    </ResearchProjectDef>
 
-
-  <!-- Klingon standard -->
-  <ResearchProjectDef Parent="ST_Base_Research" Name="Klingon_Standard">
-    <defName>Klingon_Standard</defName>
-    <description>Standardized Klingon issue gear and fittings.</description>
-    <label>Klingon standard</label>
-    <techLevel>Spacer</techLevel>
-    <tab>ST_Research</tab>
-    <baseCost>300</baseCost>
-    <prerequisites>
-      <li>ST_Common_Issue_Gear</li>
-    </prerequisites>
-    <researchViewX>0</researchViewX>
-    <researchViewY>4</researchViewY>
-  </ResearchProjectDef>
-
-  <!-- Romulan standard -->
-  <ResearchProjectDef Parent="ST_Base_Research" Name="Romulan_Standard">
-    <defName>Romulan_Standard</defName>
-    <description>Standardized Romulan issue gear and fittings.</description>
-    <label>Romulan standard</label>
-    <techLevel>Spacer</techLevel>
-    <tab>ST_Research</tab>
-    <baseCost>300</baseCost>
-    <prerequisites>
-      <li>ST_Common_Issue_Gear</li>
-    </prerequisites>
-    <researchViewX>0</researchViewX>
-    <researchViewY>5</researchViewY>
-  </ResearchProjectDef>
-
-  <!-- Ferengi standard -->
-  <ResearchProjectDef Parent="ST_Base_Research" Name="Ferengi_Standard">
-    <defName>Ferengi_Standard</defName>
-    <description>Standardized Ferengi issue gear and fittings.</description>
-    <label>Ferengi standard</label>
-    <techLevel>Spacer</techLevel>
-    <tab>ST_Research</tab>
-    <baseCost>300</baseCost>
-    <prerequisites>
-      <li>ST_Common_Issue_Gear</li>
-    </prerequisites>
-    <researchViewX>0</researchViewX>
-    <researchViewY>6</researchViewY>
-  </ResearchProjectDef>
-
-  <!-- Common Gear -->
-
-  <!-- Common EV Suit -->
-  <ResearchProjectDef ParentName="ST_Base_Research">
-  <defName>ST_EVSuits</defName>
-  <label>EV suits</label>
-  <description>Protective standard-issue Extra-Vehicular suit and helmet for hazardous environments and field operations.</description>
-  <techLevel>Spacer</techLevel>
-  <tab>ST_Research</tab>
-  <baseCost>1000</baseCost>
-  <prerequisites>
-    <li>ST_Common_Issue_Gear</li>
-    <li>Electricity</li>
-  </prerequisites>
-  <researchViewX>1</researchViewX>
-  <researchViewY>1</researchViewY>
-</ResearchProjectDef>
-
-  <!-- Scanner / Tricorder etc -->
+    <!-- Scanner / Tricorder etc -->
   <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>ST_Scanning_technology</defName>
     <label>Tricorder Technology</label>
@@ -132,113 +78,171 @@
       <li>ST_Common_Issue_Gear</li>
     </prerequisites>
     <researchViewX>2</researchViewX>
-    <researchViewY>2</researchViewY>
+    <researchViewY>0</researchViewY>
   </ResearchProjectDef>
+
+  <!-- Medic Common  -->
 
   <!-- Medical sash / support harness > hypospray etc -->
   <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>ST_Medical_diagnostics</defName>
     <label>Medical Diagnostics</label>
-    <description>Portable medical diagnostic and treatment support harness.</description>
-     <tab>ST_Research</tab>
-    <baseCost>500</baseCost>
+    <description>Portable medical diagnostic and treatment support harness.
+    Unlocks: DrugProduction, PenoxycylineProduction</description>
+    <tab>ST_Research</tab>
+    <baseCost>1000</baseCost>
     <prerequisites>
-      <li>DrugProduction</li>   
-      <li>MedicineProduction</li>
       <li>ST_Common_Issue_Gear</li>
-  </prerequisites>
-    <researchViewX>1</researchViewX>
-    <researchViewY>2</researchViewY>
+   </prerequisites>
+    <researchViewX>3</researchViewX>
+    <researchViewY>1</researchViewY>
+    <researchMods>
+    <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+      <projects>
+        <li>DrugProduction</li>
+        <li>PenoxycylineProduction</li>
+      </projects>
+    </li>
+  </researchMods>
   </ResearchProjectDef>
 
+  <!-- Medical Core: baseline for advanced med tech -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Common_MedicalCore</defName>
+     <label>medical core systems</label>
+    <description>Standard medical core for diagnostic and treatment support.
+      Required for advanced medical treatments and biobed operation.
+      Unlocks: MedicineProduction, Prosthetics, SterileMaterials</description>  
+    <techLevel>Spacer</techLevel>
+    <baseCost>1800</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Medical_diagnostics</li>
+      <li>ST_Scanning_technology</li>
+    </prerequisites>
+    <researchViewX>4</researchViewX>
+    <researchViewY>1</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <researchMods>
+    <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+        <projects>
+          <li>MedicineProduction</li>
+          <li>Prosthetics</li>
+          <li>SterileMaterials</li>
+        </projects>
+      </li>
+    </researchMods>
+  </ResearchProjectDef>
+
+  <!-- Advanced Medical Treatments: biobeds, dermal regenerators etc -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Federation_AdvancedMedic</defName>
+    <label>advanced medical treatments</label>
+    <description>Advanced  medical treatments including dermal regenerators and biobeds.
+    Requires a Federaion medical core to research and utilize.
+    Unlocks: Xenogermination, HospitalBed</description>
+    <tab>ST_Research</tab>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2200</baseCost>
+    <prerequisites>
+    <li>ST_Common_MedicalCore</li>
+    <li>ST_Scanning_technology</li>
+    </prerequisites>
+    <researchViewX>5</researchViewX>
+    <researchViewY>1</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+      <researchMods>
+          <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>Xenogermination</li>
+            <li>HospitalBed</li>
+          </projects>
+        </li>
+      </researchMods>
+  </ResearchProjectDef>
+
+  <!-- Recreational Interfaces  -->  
   <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>ST_RecreationalInterfaces</defName>
     <label>recreational interfaces</label>
-    <description>Neurale Interface-Spielgeräte (Headsets) in Standardfertigung.</description>
+    <description>Neurale Interface-Spielgeräte (Headsets) in Standardfertigung.
+    Unlocks: Harpsichord, TubeTelevision</description>
     <tab>ST_Research</tab>
-    <baseCost>600</baseCost>
+    <baseCost>1200</baseCost>
     <techLevel>Spacer</techLevel>
     <prerequisites>
       <li>MicroelectronicsBasics</li>
        <li>ST_Common_Issue_Gear</li>
     </prerequisites>
-    <researchViewX>3</researchViewX>
-    <researchViewY>2</researchViewY>
+    <researchViewX>1</researchViewX>
+    <researchViewY>1</researchViewY>
+      <researchMods>
+          <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+            <projects>
+              <li>Harpsichord</li>
+              <li>TubeTelevision</li>
+            </projects>
+          </li>
+      </researchMods>
   </ResearchProjectDef>
-
-  <!-- Buildings -->
-
-
-  <!-- Alert Protocols -->
+  
+  <!-- EV Suits  -->
   <ResearchProjectDef ParentName="ST_Base_Research">
-    <defName>ST_AlertProtocols</defName>
-    <label>alert protocols</label>
-    <description>Implements colony-wide alert routing and EPS priority to enable the Alert panel.</description>
-    <baseCost>400</baseCost>
+    <defName>ST_EVSuits</defName>
+    <label>EV suits</label>
+    <description>Protective standard-issue Extra-Vehicular suit and helmet for hazardous environments and field operations.
+    Unlocks: ComplexClothing</description>
     <techLevel>Spacer</techLevel>
     <tab>ST_Research</tab>
+    <baseCost>1000</baseCost>
     <prerequisites>
-      <li>Pre_Warp</li>
+      <li>ST_Common_Issue_Gear</li>
       <li>Electricity</li>
     </prerequisites>
     <researchViewX>2</researchViewX>
-    <researchViewY>0</researchViewY>
+    <researchViewY>1</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>ComplexClothing</li>
+          </projects>
+        </li>
+      </researchMods>
   </ResearchProjectDef>
-
+ 
   <!-- Subspace telemetry to unlock advanced commsgear -->
   <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>ST_SubspaceTelemetry</defName>
     <label>Subspace Telemetry</label>
-    <baseCost>500</baseCost>
+    <baseCost>2000</baseCost>
     <techLevel>Spacer</techLevel>
-    <researchViewX>4</researchViewX>
-    <researchViewY>2</researchViewY>
-    <description>Fundamentals of detecting and amplifying weak subspace signals.</description>
+    <researchViewX>3</researchViewX>
+    <researchViewY>0</researchViewY>
+    <description>Fundamentals of detecting and amplifying weak subspace signals.
+    Unlocks: LongRangeMineralScanner</description>
       <prerequisites>
         <li>MicroelectronicsBasics</li>
         <li>ST_Scanning_technology</li>
       </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-  </ResearchProjectDef>
-
-  <!-- Structures Hull Wall and Glass -->
-  <ResearchProjectDef ParentName="ST_Base_Research">
-    <defName>ST_UFP_Structures</defName>
-    <label>UFP structural engineering</label>
-    <description>Starfleet-grade hull construction and pressure-rated viewports.</description>
-    <baseCost>1200</baseCost>
-    <techLevel>Spacer</techLevel>
-    <prerequisites>
-      <li>Federation_Standard</li>
-      <li>MicroelectronicsBasics</li>
-      <li>Machining</li>
-    </prerequisites>
-    <researchViewX>5</researchViewX>
-    <researchViewY>3</researchViewY>
-    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-  </ResearchProjectDef>
-
-  <!-- Interior fittings -->
- <ResearchProjectDef ParentName="ST_Base_Research">
-    <defName>ST_UFP_Interior</defName>
-    <label>UFP standard interior</label>
-    <description>UFP standard interior for homes and ships.</description>
-    <baseCost>500</baseCost>
-    <techLevel>Spacer</techLevel>
-    <prerequisites>
-      <li>Federation_Standard</li>
-      <li>Machining</li>
-    </prerequisites>
-    <researchViewX>6</researchViewX>
-    <researchViewY>3</researchViewY>
-    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>LongRangeMineralScanner</li>
+          </projects>
+        </li>
+      </researchMods>
   </ResearchProjectDef>
 
   <!-- Transporter Technology -->
  <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>ST_TransporterTech</defName>
     <label>transporter systems</label>
-    <description>Enables the Transporter Beacon for short-range beam operations.</description>
+    <description>Enables the Transporter Beacon for short-range beam operations.
+    Unlocks: TransportPod</description>
     <baseCost>2000</baseCost>
     <techLevel>Spacer</techLevel>
     <prerequisites>
@@ -248,47 +252,123 @@
     </prerequisites>
     <researchViewX>4</researchViewX>
     <researchViewY>0</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>TransportPod</li>
+          </projects>
+        </li>
+      </researchMods>
   </ResearchProjectDef>
 
-  <!-- Force Field tech  -->
+    <!-- Force Field tech  -->
  <ResearchProjectDef>
     <defName>ST_ForceField_Tech</defName>
     <label>force-field emitters</label>
-    <description>Projected barrier fields for perimeter control and tactical mitigation.</description>
+    <description>Projected barrier fields for perimeter control and tactical mitigation.
+    Unlocks: ShieldBelt</description>
     <tab>ST_Research</tab>
     <baseCost>1600</baseCost>
     <techLevel>Spacer</techLevel>
     <prerequisites>
       <li>Electricity</li>
       <li>MicroelectronicsBasics</li>
-      <li>ST_Common_Issue_Gear</li>
     </prerequisites>
-    <researchViewX>3</researchViewX>
+    <researchViewX>5</researchViewX>
     <researchViewY>0</researchViewY>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
     <requiredResearchFacilities>
       <li>MultiAnalyzer</li>
     </requiredResearchFacilities>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>ShieldBelt</li>
+          </projects>
+        </li>
+      </researchMods>    
   </ResearchProjectDef>
 
-  <!-- Replicator Technology -->
+ <!-- Replicator Technology -->
   <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>ST_Replicator_Tech</defName>
-    <label>Replicator systems</label>
-    <description>Energy-to-matter synthesis for food and basic goods. High power cost.</description>
+    <label>matter replication protocols</label>
+    <description>Advanced Federation protocols for pattern storage, energy–matter conversion and safety interlocks.
+      Unlocks: GrowthVats and replicator and basic matter conversion technology.</description>
     <tab>ST_Research</tab>
-    <baseCost>1200</baseCost>
+    <baseCost>3000</baseCost>
     <techLevel>Spacer</techLevel>
     <prerequisites>
-      <li>Electricity</li>
+      <li>MultiAnalyzer</li>
       <li>MicroelectronicsBasics</li>
-      <li>ST_Common_Issue_Gear</li>
+      <li>AdvancedFabrication</li>
+      <li>PackagedSurvivalMeal</li>    
     </prerequisites>
-    <researchViewX>5</researchViewX>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <researchViewX>6</researchViewX>
     <researchViewY>0</researchViewY>
-    <tags>
-      <li>YASTM_Faction_UFP</li>
-    </tags>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>GrowthVats</li>
+          </projects>
+        </li>
+      </researchMods>  
+  </ResearchProjectDef>
+
+  <!-- Matter Conversion Technology -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_MatterConversion_Tech</defName>
+    <label>matter reclamation systems</label>
+    <description>Federation-grade recycling systems capable of breaking down waste and raw materials into replicator-grade feedstock.
+      Unlocks:  Matter converter and more efficient feedstock production aswell as GroundPenetratingScanner, MoisturePump</description>
+    <tab>ST_Research</tab>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2500</baseCost>
+    <prerequisites>
+      <li>ST_Replicator_Tech</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <researchViewX>7</researchViewX>
+    <researchViewY>0</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>GroundPenetratingScanner</li>
+            <li>MoisturePump</li>          
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+
+  <!-- Warp Field Theory: high-tier common gateway -->
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_WarpFieldTheory</defName>
+    <label>warp field theory</label>
+    <description>Theoretical and practical mastery of warp field geometry, subspace stress tolerances
+      and field harmonics. Required for any serious work on warp-capable infrastructure.
+      Unlocks: AdvancedGravtech, ChargedShot</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>3500</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_SubspaceTelemetry</li>
+      <li>ShipBasics</li>
+    </prerequisites>
+    <researchViewX>8</researchViewX>
+    <researchViewY>0</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>AdvancedGravtech</li>
+            <li>ChargedShot</li>          
+          </projects>
+        </li>
+      </researchMods> 
   </ResearchProjectDef>
 
 </Defs>

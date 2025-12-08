@@ -7,14 +7,13 @@ namespace YASTM
 {
     public class CompProperties_ConsoleLink : CompProperties
     {
-        // Preferred XML: <linkTags><li>ST_Link_Comms</li></linkTags>
+
         public List<string> linkTags = new List<string>();
 
-        // Back-compat variants accepted from XML
-        public string linkTag;       // <linkTag>value</linkTag>
-        public List<string> tags;    // <tags><li>...</li></tags>
+        public string linkTag;    
+        public List<string> tags;   
 
-        // Range in cells (tiles)
+
         public int maxLinkDistance = 25;
 
         public CompProperties_ConsoleLink()
@@ -22,19 +21,18 @@ namespace YASTM
             compClass = typeof(CompConsoleLink);
         }
 
-        // 1.6-safe post-XML hook
+
         public override void ResolveReferences(ThingDef def)
         {
             base.ResolveReferences(def);
 
-            // Merge single tag
+
             if (!string.IsNullOrEmpty(linkTag))
             {
                 if (!linkTags.Contains(linkTag)) linkTags.Add(linkTag);
                 linkTag = null;
             }
 
-            // Merge legacy list
             if (tags != null && tags.Count > 0)
             {
                 foreach (var t in tags)
@@ -45,7 +43,7 @@ namespace YASTM
                 tags = null;
             }
 
-            // De-dup + sanitize
+
             linkTags = linkTags.Where(t => !string.IsNullOrEmpty(t)).Distinct().ToList();
         }
     }
@@ -57,7 +55,7 @@ namespace YASTM
         IEnumerable<Building> AllColonistBuildings(Map map)
             => map?.listerBuildings?.allBuildingsColonist ?? Enumerable.Empty<Building>();
 
-        // Pure integer, cell-based Chebyshev distance (no float conversions)
+
         static int CellDistance(IntVec3 a, IntVec3 b)
         {
             int dx = Mathf.Abs(a.x - b.x);

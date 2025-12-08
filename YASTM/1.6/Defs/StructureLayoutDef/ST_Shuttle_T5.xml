@@ -8,24 +8,24 @@
   <spawnConduits>false</spawnConduits>
   <layouts>
     <li>
-      <li>GravshipHull_ST_MetalColor_OffWhite,.,SmallThruster_North,GravshipHull_ST_MetalColor_OffWhite,GravshipHull_ST_MetalColor_OffWhite,Autodoor_ST_MetalColor_OffWhite,GravshipHull_ST_MetalColor_OffWhite,GravshipHull_ST_MetalColor_OffWhite,SmallThruster_North,.,GravshipHull_ST_MetalColor_OffWhite</li>
-      <li>GravshipHull_ST_MetalColor_OffWhite,.,.,ChemfuelTank,.,.,ChemfuelTank,.,.,.,GravshipHull_ST_MetalColor_OffWhite</li>
-      <li>GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_OffWhite,.,.,.,.,.,GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_OffWhite</li>
-      <li>GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_GlassBlue,Table1x2c_Plasteel_North,Stool_Plasteel_North,.,Stool_Plasteel_North,.,GravshipHull_ST_MetalColor_GlassBlue,.,GravshipHull_ST_MetalColor_OffWhite</li>
-      <li>GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_OffWhite,.,Stool_Plasteel_North,.,Stool_Plasteel_North,FueledStove_East,GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_OffWhite</li>
-      <li>GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_GlassBlue,BookcaseSmall_Jade_East,Stool_Plasteel_North,.,Stool_Plasteel_North,.,GravshipHull_ST_MetalColor_GlassBlue,.,GravshipHull_ST_MetalColor_OffWhite</li>
-      <li>GravshipHull_ST_MetalColor_Gold,.,GravshipHull_ST_MetalColor_OffWhite,MealSurvivalPack,.,PilotConsole_North,.,ComponentIndustrial,GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_Gold</li>
-      <li>GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_OffWhite,MealSurvivalPack,.,.,.,MedicineIndustrial,GravshipHull_ST_MetalColor_OffWhite,.,GravshipHull_ST_MetalColor_OffWhite</li>
-      <li>.,.,GravshipHull_ST_MetalColor_OffWhite,Steel,.,.,.,Steel,GravshipHull_ST_MetalColor_OffWhite,.,.</li>
-      <li>.,.,GravshipHull_ST_MetalColor_OffWhite,Steel,.,GravEngine,.,Steel,GravshipHull_ST_MetalColor_OffWhite,.,.</li>
-      <li>.,.,.,GravshipHull_ST_MetalColor_OffWhite,.,.,.,GravshipHull_ST_MetalColor_OffWhite,.,.,.</li>
-      <li>.,.,.,GravshipHull_ST_MetalColor_OffWhite,GravshipHull_ST_MetalColor_GlassDark,GravshipHull_ST_MetalColor_GlassDark,GravshipHull_ST_MetalColor_GlassDark,GravshipHull_ST_MetalColor_OffWhite,.,.,.</li>
+      <li>ST_HullWall_Steel,.,SmallThruster_North,ST_HullWall_Steel,ST_HullWall_Steel,ST_HullDoor_Silver,ST_HullWall_Steel,ST_HullWall_Steel,SmallThruster_North,.,ST_HullWall_Steel</li>
+      <li>ST_HullWall_Steel,.,.,ChemfuelTank_North_Fuel100,.,.,ChemfuelTank_North_Fuel100,.,.,ChunkSandstone,ST_HullWall_Steel</li>
+      <li>ST_HullWall_Steel,.,ST_HullWall_Steel,.,.,.,.,.,ST_HullWall_Steel,.,ST_HullWall_Steel</li>
+      <li>ST_HullWall_Steel,.,ST_HullWall_Steel,ST_ShipTable_Steel_West,ST_ShipChair_Plasteel_East,.,ChunkSandstone,.,ST_HullWall_Steel,.,ST_HullWall_Steel</li>
+      <li>ST_HullWall_Steel,ST_HullWindows_East,ST_HullWall_Steel,.,ST_ShipChair_Plasteel_East,.,ST_ShipChair_Plasteel_East,ST_CommsConsole_East,ST_HullWall_Steel,ST_HullWindows_West,ST_HullWall_Steel</li>
+      <li>ST_HullWall_Steel,.,ST_HullWall_Steel,BookcaseSmall_Jade_East,ST_ShipChair_Plasteel_East,.,ST_ShipChair_Plasteel_East,.,ST_HullWall_Steel,ChunkLimestone,ST_HullWall_Steel</li>
+      <li>ST_HullWall_Gold,.,ST_HullWall_Steel,MealSurvivalPack,.,ST_PilotConsole_North,.,ComponentIndustrial,ST_HullWall_Steel,ChunkLimestone,ST_HullWall_Gold</li>
+      <li>ST_HullWall_Steel,.,ST_HullWall_Steel,MealSurvivalPack,.,.,.,MedicineIndustrial,ST_HullWall_Steel,.,ST_HullWall_Steel</li>
+      <li>.,.,ST_HullWall_Steel,Steel,.,.,.,Steel,ST_HullWall_Steel,.,.</li>
+      <li>.,.,ST_HullWall_Silver,Steel,.,GravEngine,.,Steel,ST_HullWall_Silver,.,.</li>
+      <li>.,.,ST_HullWall_Silver,ST_HullWall_Silver,.,.,.,ST_HullWall_Silver,ST_HullWall_Silver,.,.</li>
+      <li>.,.,.,ST_HullWall_Silver,ST_HullWall_Silver,ST_HullWall_Silver,ST_HullWall_Silver,ST_HullWall_Silver,ChunkSlate,.,.</li>
     </li>
     <li>
       <li>.,.,.,.,.,.,.,.,.,.,.</li>
       <li>.,.,.,.,.,.,.,.,.,.,.</li>
-      <li>.,.,.,.,.,.,.,.,.,.,.</li>
-      <li>.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,ChunkSandstone,.,.,.</li>
+      <li>.,.,.,.,.,.,ST_ShipChair_Plasteel_East,.,.,.,.</li>
       <li>.,.,.,.,.,.,.,.,.,.,.</li>
       <li>.,.,.,.,.,.,.,.,.,.,.</li>
       <li>.,.,.,.,.,.,.,Shelf_Plasteel_West,.,.,.</li>
@@ -36,6 +36,20 @@
       <li>.,.,.,.,.,.,.,.,.,.,.</li>
     </li>
   </layouts>
+  <roofGrid>
+    <li>.,.,.,1,1,1,1,1,1,.,.</li>
+    <li>.,.,1,1,1,1,1,1,1,.,.</li>
+    <li>.,.,1,1,1,1,1,1,1,.,.</li>
+    <li>.,.,1,1,1,1,1,1,1,.,.</li>
+    <li>.,.,1,1,1,1,1,1,1,.,.</li>
+    <li>.,.,1,1,1,1,1,1,1,.,.</li>
+    <li>.,.,1,1,1,1,1,1,1,.,.</li>
+    <li>.,.,1,1,1,1,1,1,1,.,.</li>
+    <li>.,.,1,1,1,1,1,1,1,.,.</li>
+    <li>.,.,1,1,1,1,1,1,1,.,.</li>
+    <li>.,.,1,1,1,1,1,1,1,.,.</li>
+    <li>.,.,.,1,1,1,1,1,.,.,.</li>
+  </roofGrid>
   <terrainGrid>
     <li>ST_Substructure_Dark,.,Substructure,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,ST_Substructure_Blue,Substructure,.,ST_Substructure_Dark</li>
     <li>Substructure,PackedDirt,Substructure,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,ST_Substructure_Blue,Substructure,.,Substructure</li>
@@ -47,7 +61,7 @@
     <li>ST_Substructure_Dark,.,Substructure,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,ST_Substructure_Blue,Substructure,.,ST_Substructure_Dark</li>
     <li>.,.,Substructure,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,ST_Substructure_Blue,Substructure,.,.</li>
     <li>.,.,Substructure,ST_Substructure_Blue,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,ST_Substructure_Blue,Substructure,.,.</li>
-    <li>.,.,.,Substructure,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,Substructure,.,.,.</li>
+    <li>.,.,Substructure,Substructure,ST_Substructure_Blue,ST_Substructure_Gold,ST_Substructure_Blue,Substructure,Substructure,.,.</li>
     <li>.,.,.,Substructure,Substructure,Substructure,Substructure,Substructure,.,.,.</li>
   </terrainGrid>
   <forceGenerateRoof>true</forceGenerateRoof>
@@ -60,40 +74,66 @@
   </modRequirements>
 
   </KCSG.StructureLayoutDef>
-
+  
 <KCSG.SymbolDef>
-  <defName>GravshipHull_ST_MetalColor_OffWhite</defName>
-  <thing>GravshipHull</thing>
-  <stuff>ST_MetalColor_OffWhite</stuff>
+  <defName>ST_HullWindows</defName>
+  <thing>ST_HullWindows</thing>
+  <rotation>West</rotation>
 </KCSG.SymbolDef>
 
 <KCSG.SymbolDef>
-  <defName>Autodoor_ST_MetalColor_OffWhite</defName>
-  <thing>Autodoor</thing>
-  <stuff>ST_MetalColor_OffWhite</stuff>
+  <defName>ST_HullWall_Steel</defName>
+  <thing>ST_HullWall</thing>
+  <stuff>Steel</stuff>
 </KCSG.SymbolDef>
 
 <KCSG.SymbolDef>
-  <defName>GravshipHull_ST_MetalColor_GlassBlue</defName>
-  <thing>GravshipHull</thing>
-  <stuff>ST_MetalColor_GlassBlue</stuff>
+  <defName>ST_HullDoor_Silver</defName>
+  <thing>ST_HullDoor</thing>
+  <stuff>Silver</stuff>
 </KCSG.SymbolDef>
 
 <KCSG.SymbolDef>
-  <defName>FederationPawn_Command</defName>
-  <pawnKindDef>FederationPawn_Command</pawnKindDef>
+  <defName>ST_CommsConsole</defName>
+  <thing>ST_CommsConsole</thing>
+  <rotation>East</rotation>
 </KCSG.SymbolDef>
 
 <KCSG.SymbolDef>
-  <defName>GravshipHull_ST_MetalColor_Gold</defName>
-  <thing>GravshipHull</thing>
-  <stuff>ST_MetalColor_Gold</stuff>
+  <defName>ST_ShipChair_Plasteel</defName>
+  <thing>ST_ShipChair</thing>
+  <stuff>Plasteel</stuff>
+  <rotation>East</rotation>
 </KCSG.SymbolDef>
 
 <KCSG.SymbolDef>
-  <defName>GravshipHull_ST_MetalColor_GlassDark</defName>
-  <thing>GravshipHull</thing>
-  <stuff>ST_MetalColor_GlassDark</stuff>
+  <defName>ST_ShipTable_Steel</defName>
+  <thing>ST_ShipTable</thing>
+  <stuff>Steel</stuff>
+  <rotation>West</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>ST_PilotConsole</defName>
+  <thing>ST_PilotConsole</thing>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>ST_HullWall_Gold</defName>
+  <thing>ST_HullWall</thing>
+  <stuff>Gold</stuff>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>ST_HullWall_Silver</defName>
+  <thing>ST_HullWall</thing>
+  <stuff>Silver</stuff>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>ChemfuelTank_Fuel100</defName>
+  <thing>ChemfuelTank</thing>
+  <fuelPercent>1</fuelPercent>
 </KCSG.SymbolDef>
 
 </Defs>

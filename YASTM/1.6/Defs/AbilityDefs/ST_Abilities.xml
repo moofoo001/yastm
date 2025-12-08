@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <AbilityDef Name="Ability_BattleCry" Abstract="true">
-    <description>Inspire nearby allies with a cry of honor, boosting melee accuracy and pain resistance.</description>
+  <AbilityDef Name="Ability_TacticalCommand" Abstract="true">
+    <description>Giving tactical command orders</description>
     <cooldownTicksRange>7500</cooldownTicksRange> <!-- 3 hours -->
     <stunTargetWhileCasting>true</stunTargetWhileCasting>
     <targetRequired>false</targetRequired>
@@ -40,10 +40,10 @@
   </AbilityDef>
 
   <HediffDef>
-    <defName>Hediff_BattleCry</defName>
-    <label>Blood Fury</label>
+    <defName>Hediff_Ability_TacticalCommand</defName>
+    <label>tactical command</label>
     <hediffClass>HediffWithComps</hediffClass>
-    <description>Unleash a primal battle cry, boosting nearby allies' melee accuracy and pain resistance.</description>
+    <description>Giving tactical command orders, boosting nearby allies' melee accuracy and pain resistance.</description>
     <defaultLabelColor>(1.0, 0.3, 0.3)</defaultLabelColor>
     <comps>
       <li Class="HediffCompProperties_Disappears">

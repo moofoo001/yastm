@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+<ThingDef ParentName="ResourceBase">
+  <defName>ST_ReplicatorFeedstock</defName>
+  <label>replicator feedstock</label>
+  <description>Processed material condensed into a form suitable for use as feedstock in matter replication systems.</description>
+  <thingClass>ThingWithComps</thingClass>
+  <graphicData>
+      <texPath>Things/Item/Meal/ReplicatorFeedstock</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    <drawSize>1,1</drawSize>
+  </graphicData>
+  <stackLimit>20</stackLimit>
+  <statBases>
+    <MarketValue>2.0</MarketValue>
+    <Mass>2</Mass>
+  </statBases>
+  <thingCategories>
+    <li>ResourcesRaw</li>
+  </thingCategories>
+</ThingDef>
+
+<ThingDef ParentName="MealFineBase">
+  <defName>ST_Replicated_LuxuryMeal</defName>
+  <label>replicated luxury meal</label>
+    <description>A carefully calibrated pattern of gourmet Federation cuisine.
+Nutritionally perfect and beautifully presented, but true chefs
+still claim they can taste the replicator in every bite.</description>
+  <graphicData>
+      <texPath>Things/Item/Meal/ST_LuxuryMeal</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+  </graphicData>
+  <statBases>
+    <MarketValue>24</MarketValue>
+    <WorkToMake>550</WorkToMake>
+    <Nutrition>0.9</Nutrition>
+  </statBases>
+  <ingestible>
+    <preferability>MealFine</preferability>
+    <tasteThought>ST_Thought_AteReplicatedLuxuryMeal</tasteThought>
+    <ingestEffect>EatVegetarian</ingestEffect>
+    <ingestSound>Meal_Eat</ingestSound>
+    <chairSearchRadius>80</chairSearchRadius>
+  </ingestible>
+      <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>40</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+      <li Class="CompProperties_Ingredients">
+        <noIngredientsFoodKind>Meat</noIngredientsFoodKind>
+      </li>
+    </comps>
+</ThingDef>
+
+<ThingDef ParentName="MealBase">
+  <defName>ST_Emergency_Ration</defName>
+  <label>replicated emergency ration</label>
+    <description>A dense, long-life ration block designed for lifeboats,
+away teams, and disaster kits. Keeps you alive and
+operational for a long time, but nobody eats this for fun.</description>
+  <graphicData>
+      <texPath>Things/Item/Meal/ST_EmergencyMeal</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+  </graphicData>
+  <statBases>
+    <MarketValue>25</MarketValue>
+    <WorkToMake>500</WorkToMake>
+    <Nutrition>0.9</Nutrition>
+  </statBases>
+  <ingestible>
+      <preferability>MealSimple</preferability>
+      <optimalityOffsetHumanlikes>2</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-50</optimalityOffsetFeedingAnimals>
+      <tasteThought>ST_Thought_AteEmergencyRation</tasteThought>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>Meal_Eat</ingestSound>
+      <chairSearchRadius>40</chairSearchRadius>
+  </ingestible>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>70</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+      <li Class="CompProperties_Ingredients">
+        <noIngredientsFoodKind>Meat</noIngredientsFoodKind>
+      </li>
+    </comps>
+</ThingDef>
+
+<ThingDef ParentName="MealBase">
+  <defName>ST_Replicated_SimpleMeal</defName>
+  <label>replicated simple meal</label>
+  <description>A basic nutritional meal created via Federation replicator patterns.
+    Its flavor is acceptable, though slightly synthetic compared to real cooking.</description>
+  <graphicData>
+      <texPath>Things/Item/Meal/ST_SimpleMeal</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    <drawSize>(1.0,1.0)</drawSize>
+  </graphicData>
+   <statBases>
+    <MarketValue>10</MarketValue>
+    <WorkToMake>350</WorkToMake>
+    <Nutrition>0.8</Nutrition>
+  </statBases>
+  <ingestible>
+      <preferability>MealSimple</preferability>
+      <tasteThought>ST_Thought_AteReplicatedSimpleMeal</tasteThought>
+      <optimalityOffsetHumanlikes>-3</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-100</optimalityOffsetFeedingAnimals>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>Meal_Eat</ingestSound>
+      <chairSearchRadius>40</chairSearchRadius>
+  </ingestible>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>20</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+      <li Class="CompProperties_Ingredients">
+        <noIngredientsFoodKind>Meat</noIngredientsFoodKind>
+      </li>
+      <li Class="CompProperties_FoodPoisonable" />
+    </comps>
+</ThingDef>
+
+<ThingDef ParentName="MealBase">
+  <defName>ST_Drink_Raktajino</defName>
+  <label>replicated raktajino</label>
+  <description>A strong Klingon coffee blend popular throughout Starfleet.
+Rich, bitter, and heavily caffeinated – ideal for late-shift
+bridge crews and overworked engineers.</description>
+  <graphicData>
+      <texPath>Things/Item/Meal/ST_Drink_Raktajino</texPath>
+    <graphicClass>Graphic_StackCount</graphicClass>
+  </graphicData>
+  <statBases>
+    <MarketValue>12</MarketValue>
+    <WorkToMake>250</WorkToMake>
+    <Nutrition>0.08</Nutrition>
+  </statBases>
+  <ingestible>
+    <preferability>MealSimple</preferability>
+    <joy>0.14</joy>
+    <joyKind>Gluttonous</joyKind>
+    <tasteThought>ST_Thought_DrankRaktajino</tasteThought>
+    <ingestEffect>EatVegetarian</ingestEffect>
+    <ingestSound>Meal_Eat</ingestSound>
+    <chairSearchRadius>40</chairSearchRadius>
+  </ingestible>
+
+</ThingDef>
+</Defs>

@@ -10,11 +10,18 @@ namespace StarTrekFactions
 
         private const bool LogDebug = true;
         private int _lastLogTick;
-
+    
         private readonly List<QuestPart_WaitEnemiesDefeated> waiters =
             new List<QuestPart_WaitEnemiesDefeated>();
         private readonly List<QuestPart_DelayThenSignalOnSignal> timers =
             new List<QuestPart_DelayThenSignalOnSignal>();
+
+        /// <summary>
+        /// True once the special Obelisk/Starfleet assignment has been requested
+        /// via the comms console. Used to ensure this assignment is only offered once
+        /// per game.
+        /// </summary>
+        public bool ObeliskAssignmentUsed;
 
         public GameComponent_QuestWatchers(Game game)
         {
@@ -62,7 +69,6 @@ namespace StarTrekFactions
         {
             int tick = Find.TickManager.TicksGame;
 
-
             if (waiters.Count > 0 && tick % 60 == 0)
             {
                 for (int i = waiters.Count - 1; i >= 0; i--)
@@ -91,13 +97,17 @@ namespace StarTrekFactions
                 }
             }
 
-
             if (LogDebug && tick - _lastLogTick >= 120 && (waiters.Count > 0 || timers.Count > 0))
             {
                 _lastLogTick = tick;
                 Log.Message($"[YASTM][Watcher] tick={tick} waiters={waiters.Count} timers={timers.Count}");
             }
         }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref ObeliskAssignmentUsed, "YASTM_ObeliskAssignmentUsed", false);
+        }
     }
 }
-

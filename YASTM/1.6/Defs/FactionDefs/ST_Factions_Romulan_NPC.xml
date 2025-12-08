@@ -17,15 +17,23 @@
     <displayInFactionSelection>true</displayInFactionSelection>
 
     <allowedCultures><li>ST_Culture_Romulan</li></allowedCultures>
+
+    <forcedMemes>
+      <li>ST_Meme_RomulanCommand</li>
+    </forcedMemes>
+
     <techLevel>Spacer</techLevel>
     <permanentEnemy>false</permanentEnemy>
     <leaderTitle>commander</leaderTitle>
     <fixedLeaderKinds>
       <li>ROM_Leader</li>
     </fixedLeaderKinds>
+    <disallowedMemes>
+      <li>Cannibal</li>
+    </disallowedMemes>
 
     <colorSpectrum>
-      <li>(0.10, 0.60, 0.35)</li>
+      <li>(0.10, 0.60, 0.35)</li> 
       <li>(0.20, 0.90, 0.50)</li>
     </colorSpectrum>
 

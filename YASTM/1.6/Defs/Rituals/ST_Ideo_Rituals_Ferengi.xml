@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <RitualPatternDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Ferengi_ProfitCeremony_Pattern</defName>
+    <shortDescOverride>profit ceremony</shortDescOverride>
+     <descOverride>Ledgers are recited, deals are reviewed and exemplary profits are praised aloud. The Rules of Acquisition
+      are quoted with great enthusiasm.</descOverride>
+    <iconPathOverride>UI/Icons/IdeoIcons/Fer2</iconPathOverride>
+    <canStartAnytime>true</canStartAnytime>
+    <description>Ledgers are recited, deals are reviewed and exemplary profits are praised aloud. The Rules of Acquisition
+      are quoted with great enthusiasm.</description>
+    <patternGroupTag>CelebratedDate</patternGroupTag>
+    <minTechLevel>Spacer</minTechLevel>
+    <ritualBehavior>DancePartyTech</ritualBehavior>
+	  <ritualOutcomeEffect>CelebrationPartyDanceTech</ritualOutcomeEffect>
+    <ritualObligationTargetFilter>RitualSpotIdeogramOrAltar</ritualObligationTargetFilter>
+    <playsIdeoMusic>false</playsIdeoMusic>
+  </RitualPatternDef>
+
+
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Ferengi_ProfitCeremony</defName>
+    <label>profit ceremony</label>
+    <description>A ceremonial review of profits and deals. Those who bring wealth and opportunity are praised, while
+      poor performance is quietly noted for future leverage.</description>
+    <issue>Ritual</issue>
+    <impact>Medium</impact>
+    <ritualPatternBase>ST_Ferengi_ProfitCeremony_Pattern</ritualPatternBase>
+    <requiredMemes>
+      <li>ST_Meme_FerengiCommerce</li>
+    </requiredMemes>
+  </PreceptDef>
+
+</Defs>

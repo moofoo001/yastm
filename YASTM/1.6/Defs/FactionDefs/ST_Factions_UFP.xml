@@ -6,7 +6,7 @@
     <label>The Federation of Planets</label>
     <description>A peaceful and advanced exploratory coalition of worlds, dedicated to the principles of cooperation, exploration, and mutual respect.</description>
     <isPlayer>true</isPlayer>
-    <basicMemberKind>FederationPawn_general</basicMemberKind>
+    <basicMemberKind>Colonist</basicMemberKind>
     <pawnSingular>member</pawnSingular>
     <pawnsPlural>members</pawnsPlural>
     <techLevel>Spacer</techLevel>
@@ -16,10 +16,20 @@
       <li>ST_Culture_UFP</li>
     </allowedCultures>
     
+    <fixedIdeo>true</fixedIdeo>
+    <forcedMemes>
+      <li>ST_Meme_Starfleet</li>
+    </forcedMemes>
+    <disallowedMemes>
+      <li>Cannibal</li>
+    </disallowedMemes>
+
     <factionIconPath>UI/Icons/Factions/UFP</factionIconPath>
     <colorSpectrum>
       <li>(0.20, 0.55, 0.95)</li>
     </colorSpectrum>
+
+
 
     <!-- Faction Xenotyps -->
     <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">

@@ -1,4 +1,4 @@
-// YASTM.IdeoFix — stellt sicher, dass neu erzeugte Humanlikes immer eine Ideo haben
+// Mods/YASTM/Source/Harmony/Patch_EnsureIdeoOnGenerate.cs
 using HarmonyLib;
 using RimWorld;
 using System.Linq;

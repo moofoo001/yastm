@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <DamageDef>
+    <defName>ST_PhaserStun</defName>
+    <workerClass>DamageWorker_Stun</workerClass>
+    <defaultDamage>1</defaultDamage>
+    <armorCategory>Blunt</armorCategory>
+    <makesBlood>false</makesBlood>
+  </DamageDef>
+</Defs>

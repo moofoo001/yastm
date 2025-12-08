@@ -14,7 +14,7 @@ namespace StarTrekFactions.QuestParts
         {
             base.Notify_QuestSignalReceived(signal);
 
-            // accept raw + quest-scoped variants
+         
             string scoped = $"Quest{quest.id}.{inSignalEnableRaw}";
             if (signal.tag != inSignalEnableRaw && signal.tag != scoped) return;
 

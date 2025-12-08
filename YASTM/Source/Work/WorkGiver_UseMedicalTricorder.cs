@@ -30,17 +30,17 @@ namespace YASTM
             var tri = GetTricorder(pawn);
             if (tri == null) return false;
 
-            // Skill-Gate & Reichweite aus den Props
+       
             int med = pawn.skills?.GetSkill(SkillDefOf.Medicine)?.Level ?? 0;
             if (med < tri.Props.minMedicine) return false;
             if (pawn.Position.DistanceTo(patient.Position) > tri.Props.range) return false;
 
-            // Gemeinsamer Cooldown respektieren (falls vorhanden)
+          
             int now = Find.TickManager.TicksGame;
             var shared = tri.parent.TryGetComp<CompTricorderSharedCooldown>();
             if (shared != null && !shared.IsReady(now)) return false;
 
-            // Nicht doppeln: Wenn der Patient den Hediff schon hat, kein Scan
+           
             var hd = DefDatabase<HediffDef>.GetNamedSilentFail(tri.HediffDefName);
             if (hd != null && patient.health.hediffSet.HasHediff(hd)) return false;
 

@@ -5,17 +5,17 @@ using RimWorld;
 
 namespace YASTM
 {
-    // ---- Extension, die an PreceptDefs hängt ----
+    
     public class ST_VeneratedAnimalsExtension : DefModExtension
     {
-        public List<string> animals;          // ThingDef.defName
-        public float auraRadius = 8f;         // Reichweite
+        public List<string> animals;     
+        public float auraRadius = 8f;        
         public string presenceThoughtDef = "ST_VeneratedAnimal_Presence";
     }
 
     public static class VeneratedAnimalsUtility
     {
-        // Liefert alle (Animals, Radius, Thought) Tripel aus den Precepts einer Ideo
+      
         public static IEnumerable<(HashSet<ThingDef> animals, float radius, ThoughtDef thought)> EnumerateVeneration(Ideo ideo)
         {
             if (ideo == null) yield break;
@@ -45,7 +45,7 @@ namespace YASTM
         }
     }
 
-    // ---- Vergibt regelmäßig den Präsenz-Gedanken in Aura-Reichweite ----
+
     public class MapComponent_VeneratedAnimalsAura : MapComponent
     {
         private int nextTick;
@@ -74,7 +74,7 @@ namespace YASTM
                     {
                         colonist.needs?.mood?.thoughts?.memories?
                             .TryGainMemory(triple.thought);
-                        break; // einmal reicht
+                        break; 
                     }
                 }
             }

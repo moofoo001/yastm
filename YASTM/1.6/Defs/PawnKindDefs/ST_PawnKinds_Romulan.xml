@@ -96,9 +96,11 @@
       <li>Apparel_FlakPants</li>
       <li>Apparel_FlakJacket</li>
     </apparelRequired>
-    <weaponMoney>500~1500</weaponMoney>
+    <weaponMoney>700~1500</weaponMoney>
     <weaponTags>
     <li>RomulanMelee</li>
+    <li>RomulanDisruptor</li>
+    <li>RomulanDisruptor_Pistol</li>
     <li>RomulanDisruptor_Rifle</li>
     </weaponTags>
     <apparelTags><li>IndustrialBasic</li><li>Spacer</li></apparelTags>

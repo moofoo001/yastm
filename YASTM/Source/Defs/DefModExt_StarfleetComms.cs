@@ -5,7 +5,7 @@ namespace YASTM
 {
     public class DefModExt_StarfleetComms : DefModExtension
     {
-        public float selectionWeight = 1f;  // per-quest weight
+        public float selectionWeight = 1f; 
     }
 }
 

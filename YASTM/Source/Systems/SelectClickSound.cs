@@ -1,5 +1,4 @@
 // File: Source/Systems/SelectClickSound.cs
-// LCARS-Click beim Selektieren von ST_* Things – 1.6-sicher (ohne harte Selector-Referenz).
 
 using System;
 using HarmonyLib;
@@ -17,14 +16,14 @@ namespace YASTM.UI
             {
                 var h = new Harmony("YASTM.SelectClickSound");
 
-                // Selector-Typ per Name (kann RimWorld.Selector oder Verse.Selector sein)
+           
                 var tSelector =
                     AccessTools.TypeByName("RimWorld.Selector") ??
                     AccessTools.TypeByName("Verse.Selector");
 
                 if (tSelector == null) return;
 
-                // Signatur: Select(object obj, bool playSound, bool forceDesignatorDeselect)
+           
                 var mSelect = AccessTools.Method(tSelector, "Select", new Type[]
                 {
                     typeof(object), typeof(bool), typeof(bool)
@@ -40,7 +39,7 @@ namespace YASTM.UI
             }
         }
 
-        // Postfix bekommt die Original-Argumente mit (Reflection-basiert, kein Selector-Symbol nötig)
+   
         public static void Postfix_Select(object obj, bool playSound)
         {
             try
@@ -59,7 +58,7 @@ namespace YASTM.UI
             }
             catch (Exception e)
             {
-                // Keine harten Fehler bei Auswahl-Sound riskieren
+           
                 Log.Warning($"[YASTM][SelectClickSound] Postfix error: {e}");
             }
         }

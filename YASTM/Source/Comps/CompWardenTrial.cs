@@ -61,7 +61,7 @@ public override void ReceiveCompSignal(string signal)
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             if (parent.Faction != Faction.OfPlayer) yield break;
-            if (!unlocked) yield break;                 // <— neu
+            if (!unlocked) yield break;                
 
             if (!active && !successOrFailSent)
             {
@@ -144,7 +144,7 @@ public override void ReceiveCompSignal(string signal)
             var map = parent.Map;
             float basePts = StorytellerUtility.DefaultThreatPointsNow(map);
             float factor  = cp.pointsFactor <= 0f ? 0.5f : cp.pointsFactor;
-            float points  = Math.Max(35f, basePts * factor); // 1.6: konservative Untergrenze
+            float points  = Math.Max(35f, basePts * factor); 
 
             var parms = StorytellerUtility.DefaultParmsNow(cp.incidentDef.category, map);
             parms.points = points;

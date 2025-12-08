@@ -17,9 +17,7 @@ namespace YASTM.Comps
         }
     }
 
-    /// <summary>
-    /// Simple progress holder on an Obelisk; when complete, registers a scan in MapComponent_ObeliskFlow.
-    /// </summary>
+ 
     public class CompScanWork : ThingComp
     {
         public CompProperties_ScanWork Props => (CompProperties_ScanWork)props;
