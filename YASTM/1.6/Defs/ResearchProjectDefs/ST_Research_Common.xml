@@ -17,12 +17,9 @@
     <defName>Pre_Warp</defName>
     <description>Fundamentals of pre-warp civilizations: metallurgy, textiles, and basic engineering.</description> 
     <label>Pre-Warp Technology</label>
-    <techLevel>Spacer</techLevel>
+    <techLevel>Industrial</techLevel>
     <tab>ST_Research</tab>
     <baseCost>500</baseCost>
-    <prerequisites>
-      <li>Electricity</li>
-    </prerequisites>
     <researchViewX>0</researchViewX>
     <researchViewY>0</researchViewY>
   </ResearchProjectDef>
@@ -353,7 +350,8 @@
     <tab>ST_Research</tab>
     <prerequisites>
       <li>ST_SubspaceTelemetry</li>
-      <li>ShipBasics</li>
+      <li>ST_TransporterTech</li>
+      <li>ST_ForceField_Tech</li>
     </prerequisites>
     <researchViewX>8</researchViewX>
     <researchViewY>0</researchViewY>
@@ -365,7 +363,8 @@
         <li Class="YASTM.ResearchMod_UnlockOtherProjects">
           <projects>
             <li>AdvancedGravtech</li>
-            <li>ChargedShot</li>          
+            <li>ChargedShot</li>
+            <li>ShipBasics</li>
           </projects>
         </li>
       </researchMods> 

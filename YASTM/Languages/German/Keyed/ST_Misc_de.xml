@@ -209,4 +209,7 @@
   <YASTM.Trader.Starfleet.Label>Starfleet-Versorgungskonvoi</YASTM.Trader.Starfleet.Label>
   <YASTM.Trader.Starfleet.Fluff>„Humanitäre Hilfe und Standard-Nachschub gemäß Vorschrift.“</YASTM.Trader.Starfleet.Fluff>
 
+    <!-- Tooltip shown in Ferengi commerce research -->
+  <ST.Ferengi.TradeBonus.Desc>Verbessert außerdem die Handelspreise für ferengi-verbundene Händler.</ST.Ferengi.TradeBonus.Desc>
+
 </LanguageData>

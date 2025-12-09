@@ -64,7 +64,7 @@
     <defName>ST_Federation_Phaser_I</defName>
     <label>phaser technology I</label>
     <description>Starfleet Type I phaser technology: low-output sidearms for personal defense and away missions.
-    Unlocks: Greatbow, GasOperation</description>
+    Unlocks: GasOperation</description>
     <techLevel>Spacer</techLevel>
     <baseCost>1400</baseCost>
     <tab>ST_Research</tab>
@@ -251,7 +251,7 @@
     <defName>ST_Klingon_Disruptor_I</defName>
     <label>disruptor technology I</label>
     <description>Standard Klingon disruptor emitters using coherent nadion bursts for reliable battlefield performance.
-    Unlocks: Greatbow, BlowbackOperation</description>
+    Unlocks: BlowbackOperation</description>
     <techLevel>Spacer</techLevel>
     <baseCost>1500</baseCost>
     <tab>ST_Research</tab>
@@ -264,7 +264,6 @@
       <researchMods>
         <li Class="YASTM.ResearchMod_UnlockOtherProjects">
           <projects>
-            <li>Greatbow</li>
             <li>GasOperation</li>
           </projects>
         </li>
@@ -335,7 +334,7 @@
     <defName>ST_Romulan_Plasma_I</defName>
     <label>plasma weaponry I</label>
     <description>Basic Romulan plasma emitter principles and containment field harmonics. Unlocks simple handheld plasma weapons.
-    Unlocks: Greatbow, GasOperation, ToxGas</description>
+    Unlocks: GasOperation, ToxGas</description>
     <techLevel>Spacer</techLevel>
     <baseCost>1600</baseCost>
     <tab>ST_Research</tab>
@@ -348,7 +347,6 @@
       <researchMods>
         <li Class="YASTM.ResearchMod_UnlockOtherProjects">
           <projects>
-            <li>Greatbow</li>
             <li>GasOperation</li>
             <li>ToxGas</li>
           </projects>
@@ -472,7 +470,7 @@
     <defName>ST_Ferengi_Security_I</defName>
     <label>ferengi security implements</label>
     <description>Compact Ferengi energy pistols and nonlethal tools designed for asset protection and commercial enforcement.
-    Unlocks: Greatbow, GasOperation, ToxGas</description>
+    Unlocks: GasOperation, ToxGas</description>
     <techLevel>Spacer</techLevel>
     <baseCost>1500</baseCost>
     <tab>ST_Research</tab>
@@ -485,7 +483,6 @@
       <researchMods>
         <li Class="YASTM.ResearchMod_UnlockOtherProjects">
           <projects>
-            <li>Greatbow</li>
             <li>GasOperation</li>
             <li>ToxGas</li>
           </projects>

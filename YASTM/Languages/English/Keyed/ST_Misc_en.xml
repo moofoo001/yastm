@@ -267,6 +267,9 @@
   <YASTM.Trader.Starfleet.Label>Starfleet Logistics Convoy</YASTM.Trader.Starfleet.Label>
   <YASTM.Trader.Starfleet.Fluff>"Humanitarian aid and standard resupply, per regulations."</YASTM.Trader.Starfleet.Fluff>
   
+  <!-- Tooltip shown in Ferengi commerce research -->
+  <ST.Ferengi.TradeBonus.Desc>Also improves trade prices for Ferengi-aligned traders.</ST.Ferengi.TradeBonus.Desc>
+
   <!-- Force Field Emitter -->  
   <ST.ForceField.Toggle>Toggle force field</ST.ForceField.Toggle>
   <ST.ForceField.Toggle.Desc>Activates or deactivates all linked force-field emitters.</ST.ForceField.Toggle.Desc>

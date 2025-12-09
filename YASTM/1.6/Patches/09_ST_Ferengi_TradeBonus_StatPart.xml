@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Add Ferengi trade bonus StatPart to TradePriceImprovement -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/StatDef[defName="TradePriceImprovement"]/parts</xpath>
+    <value>
+      <li Class="YASTM.Stats.StatPart_FerengiTradeBonus" />
+    </value>
+  </Operation>
+
+    <!-- Add tooltip line to Ferengi_Commerce -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ResearchProjectDef[defName="Ferengi_Commerce"]/description</xpath>
+    <value>
+      <description>Comprehensive study of Ferengi trade practices, market manipulation techniques,
+      and profit maximization strategies. Also improves trade prices for Ferengi-aligned traders.</description>
+    </value>
+  </Operation>
+
+  <!-- Add tooltip line to Ferengi_AdvancedCommerce -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ResearchProjectDef[defName="Ferengi_AdvancedCommerce"]/description</xpath>
+    <value>
+      <description>High-volume Ferengi trade architecture, warehousing and risk-optimized profit structures.
+      Unlocks advanced trading infrastructure and Ferengi-themed production chains.
+      Also improves trade prices for Ferengi-aligned traders.</description>
+    </value>
+  </Operation>
+
+</Patch>

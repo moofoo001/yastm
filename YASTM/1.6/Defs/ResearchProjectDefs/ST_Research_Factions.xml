@@ -129,9 +129,9 @@
             <researchMods>
         <li Class="YASTM.ResearchMod_UnlockOtherProjects">
           <projects>
-            <li>GeothermalPower</li>
-            <li>Firefoam</li>
-            <li>BasicMechtech</li>
+            <li>ComplexFurniture</li>
+            <li>SterileMaterials</li>
+            <li>CarpetMaking</li>
           </projects>
         </li>
       </researchMods> 
@@ -222,7 +222,7 @@
     <defName>ST_Klingon_Engineering_III</defName>
     <label>Klingon engineering III</label>
     <description>Warship-grade Klingon engineering: hardened EPS trunks, deep redundancy and battle-ready structural supports. Serves as a gateway for the most advanced Klingon infrastructure.
-    Unlocks: OrbitalTech, StandardGravtech, StandardMechtech</description>
+    Unlocks: OrbitalTech, StandardGravtech</description>
     <techLevel>Spacer</techLevel>
     <baseCost>3200</baseCost>
     <tab>ST_Research</tab>
@@ -241,7 +241,6 @@
           <projects>
             <li>OrbitalTech</li>
             <li>StandardGravtech</li>
-            <li>StandardMechtech</li>
           </projects>
         </li>
       </researchMods> 
@@ -392,7 +391,7 @@
     <defName>ST_Romulan_Engineering_III</defName>
     <label>Romulan engineering III</label>
     <description>High-tier Romulan warp infrastructure, subspace field control and cloaking-ready hull integration. Serves as a gateway for the most advanced Romulan infrastructure.
-    Unlocks: OrbitalTech, StandardGravtech, StandardMechtech</description>
+    Unlocks: OrbitalTech, StandardGravtech</description>
     <techLevel>Spacer</techLevel>
     <baseCost>3200</baseCost>
     <tab>ST_Research</tab>
@@ -411,7 +410,6 @@
           <projects>
             <li>OrbitalTech</li>
             <li>StandardGravtech</li>
-            <li>StandardMechtech</li>
           </projects>
         </li>
       </researchMods> 
@@ -565,7 +563,7 @@
     <defName>ST_Ferengi_Engineering_III</defName>
     <label>Ferengi engineering III</label>
     <description>High-capacity trade hubs, hardened profit vaults and fully integrated station-grade power systems. Serves as a gateway for the most advanced Ferengi infrastructure.
-    Unlocks: OrbitalTech, StandardGravtech, StandardMechtech</description>
+    Unlocks: OrbitalTech, StandardGravtech</description>
     <techLevel>Spacer</techLevel>
     <baseCost>3200</baseCost>
     <tab>ST_Research</tab>
@@ -584,7 +582,6 @@
           <projects>
             <li>OrbitalTech</li>
             <li>StandardGravtech</li>
-            <li>StandardMechtech</li>
           </projects>
         </li>
       </researchMods> 
@@ -593,9 +590,9 @@
   <ResearchProjectDef>
     <defName>Ferengi_Commerce</defName>
     <label>Ferengi commerce protocols</label>
-    <description>Comprehensive study of Ferengi trade practices, market manipulation techniques, and profit maximization strategies.
-      Enables access to Ferengi trading infrastructure and profit-oriented equipment.
-      Unlocks: CarpetMaking, NobleApparel, PsychiteRefining, WakeUpProduction, GoJuiceProduction, SmokepopBelt</description>
+    <description>  Comprehensive study of Ferengi trade practices, market manipulation techniques,
+  and profit maximization strategies. Also improves trade prices for Ferengi-aligned traders.
+  Unlocks: CarpetMaking, NobleApparel, PsychiteRefining, WakeUpProduction, GoJuiceProduction, SmokepopBelt</description>
     <techLevel>Spacer</techLevel>
     <baseCost>1600</baseCost>
     <tab>ST_Research</tab>
@@ -626,9 +623,10 @@
    <ResearchProjectDef>
     <defName>Ferengi_AdvancedCommerce</defName>
     <label>Ferengi advanced commerce</label>
-    <description>High-volume Ferengi trade architecture, warehousing and risk-optimized profit structures.
-      Unlocks advanced trading infrastructure and Ferengi-themed production chains.
-      Unlocks: FlatscreenTelevision, DeepDrilling, BrainWiring</description>
+    <description>  High-volume Ferengi trade architecture, warehousing and risk-optimized profit structures.
+  Unlocks advanced trading infrastructure and Ferengi-themed production chains.
+  Also improves trade prices for Ferengi-aligned traders.
+  Unlocks: FlatscreenTelevision, DeepDrilling, BrainWiring</description>
     <techLevel>Spacer</techLevel>
     <baseCost>2200</baseCost>
     <tab>ST_Research</tab>
