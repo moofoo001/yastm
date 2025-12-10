@@ -43,15 +43,63 @@
         <canTargetSelf>true</canTargetSelf>
         <canTargetLocations>false</canTargetLocations>
     </targetParams>
-    </verbProperties>
-    
+    </verbProperties> 
     <comps>
     <li Class="ST.Abilities.CompProperties_SelfBuff">
         <hediffDefName>ST_TacticalOverwatchBuff</hediffDefName>
         <durationTicks>900</durationTicks>
     </li>
     </comps>
+  </AbilityDef>
+
+   <!-- Romulan personal cloaking device ability -->
+  <AbilityDef>
+    <defName>ST_RomulanCloak_Ability</defName>
+    <label>activate cloaking device</label>
+    <description>Activates a personal cloaking field, bending EM and subspace signatures to render
+      the user nearly invisible for a short time.</description>
+    <iconPath>UI/Icons/Gizmos/RomulanCloak</iconPath>
+    <cooldownTicksRange>60000</cooldownTicksRange> 
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <groupAbility>false</groupAbility>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <aiCanUse>false</aiCanUse>
+
+    <statBases>
+      <Ability_Duration>600</Ability_Duration> <!-- 10 seconds -->
+    </statBases>
+
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <soundCast>ST_Romulan_Cloak</soundCast>
+      <warmupTime>0.5</warmupTime>
+      <range>0</range>
+      <violent>false</violent>
+      <targetable>false</targetable>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetPawns>True</canTargetPawns>
+        <canTargetLocations>False</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>PsychicInvisibility</hediffDef>
+        <psychic>false</psychic>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
 
   </AbilityDef>
+
 
 </Defs>

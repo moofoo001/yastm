@@ -348,6 +348,23 @@
     </subSounds>
   </SoundDef>
 
+  <!-- Forcefield  -->
+  <SoundDef>
+    <defName>ST_ForceField_power</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/forcefield</clipPath>
+          </li>
+        </grains>
+        <volumeRange>10.5~15.10</volumeRange>
+        <pitchRange>0.98~1.02</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
   <!-- Force-Field Hum -->
   <SoundDef>
     <defName>ST_SFX_ForceFieldHum</defName>
@@ -366,5 +383,24 @@
       </li>
     </subSounds>
   </SoundDef>
+
+  <!-- Tricorder usage -->
+  <SoundDef>
+    <defName>ST_Tricorder</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/tricorder</clipPath>
+          </li>
+        </grains>
+        <volumeRange>10.5~15.10</volumeRange>
+        <pitchRange>0.98~1.02</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+
 
 </Defs>

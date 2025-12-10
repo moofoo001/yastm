@@ -70,7 +70,7 @@ namespace YASTM
             if (target == null || target.Destroyed) return;
 
        
-            var sdef = SoundDef.Named("ST_MedicalTricorder_Scan");
+            var sdef = SoundDef.Named("ST_Tricorder");
             var info = SoundInfo.InMap(new TargetInfo(target.Position, target.Map), MaintenanceType.None);
             SoundStarter.PlayOneShot(sdef, info);
 

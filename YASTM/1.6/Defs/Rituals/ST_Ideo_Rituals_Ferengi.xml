@@ -24,6 +24,7 @@
     <label>profit ceremony</label>
     <description>A ceremonial review of profits and deals. Those who bring wealth and opportunity are praised, while
       poor performance is quietly noted for future leverage.</description>
+    <preceptClass>Precept_Ritual</preceptClass>
     <issue>Ritual</issue>
     <impact>Medium</impact>
     <ritualPatternBase>ST_Ferengi_ProfitCeremony_Pattern</ritualPatternBase>

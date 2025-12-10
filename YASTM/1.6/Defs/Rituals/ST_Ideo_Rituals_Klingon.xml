@@ -22,6 +22,7 @@
     <description>A solemn blood oath is sworn before witnesses. To break such an oath is to invite eternal dishonor
       on oneself and one’s house.</description>
     <issue>Ritual</issue>
+    <preceptClass>Precept_Ritual</preceptClass>
     <impact>High</impact>
     <ritualPatternBase>ST_Klingon_BloodOath_Pattern</ritualPatternBase>
     <requiredMemes>

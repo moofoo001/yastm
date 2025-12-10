@@ -52,4 +52,21 @@
     </subSounds>
   </SoundDef>
 
+    <SoundDef>
+    <defName>ST_Romulan_Cloak</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Abilities/cloak_romulan</clipPath>
+          </li>
+        </grains>
+        <volumeRange><min>0.8</min><max>0.8</max></volumeRange>
+        <pitchRange><min>0.98</min><max>1.02</max></pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
 </Defs>

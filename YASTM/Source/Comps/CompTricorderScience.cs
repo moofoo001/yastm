@@ -3,6 +3,7 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using Verse.Sound; 
 
 namespace YASTM
 {
@@ -93,6 +94,7 @@ namespace YASTM
                 Messages.Message("Missing JobDef: ST_ScanAreaScience", parent, MessageTypeDefOf.RejectInput);
                 return;
             }
+            
 
             var job = new Job(jobDef, cell);
             user.jobs.TryTakeOrderedJob(job);

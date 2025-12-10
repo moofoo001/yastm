@@ -100,16 +100,123 @@
           <li>BeltDefense</li>
         </tags>
     </apparel>
-
     <comps>
       <li Class="CompProperties_Shield" />
      </comps>
-
     <tradeTags>
       <li>ST_RomulanIntel</li>
       <li>ST_StarfleetSupply</li>
     </tradeTags>
-
   </ThingDef>
+
+<ThingDef ParentName="ApparelBase">
+    <defName>ST_RomulanCloakBelt</defName>
+    <label>Romulan personal cloak</label>
+    <description>A compact personal cloaking device used by Romulan operatives. Bends EM and
+      subspace signatures to render the user nearly invisible for a short time.</description>
+    <thingClass>Apparel</thingClass>
+    <tickerType>Normal</tickerType>
+    <techLevel>Spacer</techLevel>
+
+    <graphicData>
+      <texPath>Things/Item/Apparel/RomulanCloakBelt/ST_RomulanCloakBelt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>1.0</drawSize>
+    </graphicData>
+
+    <statBases>
+      <Mass>1.0</Mass>
+      <ArmorRating_Sharp>0</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0</ArmorRating_Blunt>
+      <ArmorRating_Heat>0</ArmorRating_Heat>
+    </statBases>
+
+    <costList>
+      <Gold>30</Gold>
+      <Plasteel>10</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+
+    <recipeMaker>
+      <workAmount>20000</workAmount>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>Romulan_CloakingSystems</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>12</Crafting>
+      </skillRequirements>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+    </recipeMaker>
+
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+
+    <apparel>
+      <wornGraphicPath>Things/Item/Apparel/RomulanCloakBelt/ST_RomulanCloakBelt</wornGraphicPath>    
+      <wornGraphicData>
+      <renderUtilityAsPack>true</renderUtilityAsPack>
+      <north>
+        <offset>(0,-0.25)</offset>
+        <hulk><offset>(0 ,-0.1)</offset></hulk>
+        <fat><offset>(0,-0.05)</offset></fat>
+        <thin><offset>(0,0)</offset></thin>
+      </north>
+      <south>
+        <offset>(0,-0.25)</offset>
+        <hulk><offset>(0,-0.1)</offset></hulk>
+        <fat><offset>(0,-0.05)</offset></fat>
+        <thin><offset>(0,0)</offset></thin>
+      </south>
+      <east>
+        <offset>(-0.1,-0.25)</offset>
+        <hulk><offset>(-0.1,-0.1)</offset></hulk>
+        <fat><offset>(0,-0.10)</offset></fat>
+      </east>
+      <west>
+        <offset>(+0.1,-0.25)</offset>
+        <hulk><offset>(+0.1,-0.1)</offset></hulk>
+        <fat><offset>(0,-0.10)</offset></fat>
+      </west>
+      <male>  <scale>(0.4,0.5)</scale></male>
+      <female><scale>(0.5,0.5)</scale></female>
+      <thin>  <scale>(0.3,0.4)</scale></thin>
+      <hulk>  <scale>(0.6,0.6)</scale></hulk>
+      <fat>   <scale>(0.8,0.6)</scale></fat>
+    </wornGraphicData>
+
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+        <layers>
+          <li>Belt</li>
+        </layers>
+        <tags>
+          <li>BeltDefense</li>
+        </tags>
+    </apparel>
+
+    <comps>
+      <li Class="YASTM.Comps.CompProperties_CloakingDevice">
+        <abilityDef>ST_RomulanCloak_Ability</abilityDef>
+      </li>
+    </comps>
+
+    <tradeTags>
+      <li>ST_RomulanIntel</li>
+      <li>ST_RomulanSupply</li> 
+    </tradeTags>
+
+    </ThingDef>
 
 </Defs>
