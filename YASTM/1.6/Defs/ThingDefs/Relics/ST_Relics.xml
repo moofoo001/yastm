@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Legendary, unique melee weapon: Sword of Kahless -->
+  <ThingDef ParentName="ST_MeleeBase">
+    <defName>ST_SwordOfKahless</defName>
+    <label>Sword of Kahless</label>
+    <description>The legendary bat'leth of Kahless the Unforgettable. Its return is said to unite
+      all Klingons under one banner and ignite an unstoppable hunger for glorious battle.</description>
+
+    <graphicData>
+      <texPath>Things/Weapons/Melee/SWKahless</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.4, 1.4)</drawSize>
+    </graphicData>
+
+    <category>Weapon</category>
+    <tradeability>Never</tradeability>
+    <techLevel>Spacer</techLevel>
+
+    <weaponTags>
+      <li>MedievalMelee</li>
+      <li>NeolithicMelee</li>
+      <li>KlingonRelic</li>
+    </weaponTags>
+
+    <statBases>
+      <Mass>3.0</Mass>
+      <WorkToMake>0</WorkToMake>
+      <MarketValue>6000</MarketValue>
+      <MeleeWeapon_DamageAmount>30</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>1.7</MeleeWeapon_Cooldown>
+      <MeleeWeapon_ArmorPenetration>0.55</MeleeWeapon_ArmorPenetration>
+      <AccuracyShort>0.08</AccuracyShort>
+      <AccuracyTouch>0.12</AccuracyTouch>
+    </statBases>
+
+    <equippedStatOffsets>
+      <MeleeHitChance>0.08</MeleeHitChance>
+    </equippedStatOffsets>
+
+    <tools>
+      <li>
+        <label>blade edge</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>30</power>
+        <cooldownTime>1.7</cooldownTime>
+        <linkedBodyPartsGroup>Torso</linkedBodyPartsGroup>
+        <chanceFactor>1.0</chanceFactor>
+      </li>
+    </tools>
+
+  </ThingDef>
+
+</Defs>

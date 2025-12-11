@@ -11,6 +11,7 @@ namespace StarTrekFactions
         public static ThingDef ST_Obelisk_B;
         public static ThingDef ST_ComBeacon;
         public static ThingDef ST_Subspace_Scanner; 
+        public static ThingDef ST_SwordOfKahless;
         // Job
           public static JobDef ST_ScanObelisk;
 

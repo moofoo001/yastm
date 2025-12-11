@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Precept: The Sword of Kahless as sacred relic -->
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Precept_Relic_SwordOfKahless</defName>
+    <label>Sword of Kahless</label>
+    <description>
+      The Sword of Kahless is revered as the greatest symbol of Klingon honor and destiny.
+      Possessing it is seen as a sign that glorious battle and unification lie ahead.
+    </description>
+
+    <issue>Relic</issue>
+    <impact>High</impact>
+
+    <relic>ST_Relic_SwordOfKahless</relic>
+    <requiredMemes>
+      <li>ST_Meme_KlingonHonor</li>
+    </requiredMemes>
+    <defClass>RimWorld.Precept_Relic</defClass>
+    <statOffsets>
+      <li>
+        <stat>SocialImpact</stat>
+        <value>0.05</value>
+      </li>
+    </statOffsets>
+  </PreceptDef>
+
+</Defs>

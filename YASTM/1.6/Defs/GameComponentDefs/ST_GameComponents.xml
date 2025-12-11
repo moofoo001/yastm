@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+<GameComponentDef>
+  <defName>ST_GameComponent_KahlessRelic</defName>
+  <componentClass>YASTM.Relics.GameComponent_KahlessRelic</componentClass>
+</GameComponentDef>
+</Defs>

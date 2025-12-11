@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Relic descriptor for the Sword of Kahless -->
+  <RelicDef>
+    <defName>ST_Relic_SwordOfKahless</defName>
+    <label>Sword of Kahless</label>
+    <description>The mythical bat'leth wielded by Kahless himself. Possession of this relic can unite
+      Klingon warriors and drive them to ever greater feats of honor and brutality.</description>
+    <relicThingDef>ST_SwordOfKahless</relicThingDef>
+
+    <generated>false</generated>
+   <!-- ToDo: Optional Story-/Flavor -->
+   </RelicDef>
+
+</Defs>

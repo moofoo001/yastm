@@ -200,4 +200,23 @@
     </stages>
   </ThoughtDef>
 
+  <!-- Sword of Kahless inspiration -->
+    <ThoughtDef>
+    <defName>ST_SwordOfKahless_Inspiration</defName>
+    <label>presence of the Sword of Kahless</label>
+    <description>The legendary Sword of Kahless is in the hands of the House.
+      Every true Klingon feels the call to glorious battle.</description>
+    <thoughtClass>YASTM.Thoughts.ThoughtWorker_SwordOfKahless</thoughtClass>
+    <durationDays>-1</durationDays>   <!-- permanent while held -->
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>inspired by the Sword of Kahless</label>
+        <description>The legendary Sword of Kahless is in the hands of the House.
+          Every true Klingon feels the call to glorious battle. </description>
+        <baseMoodEffect>10</baseMoodEffect> <!-- +10 Mood -->
+      </li>
+    </stages>
+  </ThoughtDef>
+
 </Defs>
