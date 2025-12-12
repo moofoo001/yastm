@@ -467,7 +467,7 @@
   <BackstoryDef>
     <defName>ST_BS_Romulan_Xenobiologist</defName>
     <title>xenobiologist</title>
-    <titleShort>xenobiologist</titledefName>
+    <titleShort>xenobiologist</titleShort>
     <slot>Adulthood</slot>
     <baseDesc>Studies alien life forms to understand—and control—them.</baseDesc>
     <skillGains><Intellectual>2</Intellectual><Medicine>2</Medicine><Animals>2</Animals></skillGains>

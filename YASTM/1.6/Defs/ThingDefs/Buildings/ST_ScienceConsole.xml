@@ -61,6 +61,11 @@
         </linkableBuildings>
         <maxSimultaneous>2</maxSimultaneous>
       </li>
+      
+      <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
+        <role>Science</role>
+        <mannable>true</mannable>
+      </li>
 
     <li Class="StarTrekFactions.Comps.CompProperties_ScienceConsoleSubspaceScan">
       <requiredResearch>ST_SubspaceTelemetry</requiredResearch>

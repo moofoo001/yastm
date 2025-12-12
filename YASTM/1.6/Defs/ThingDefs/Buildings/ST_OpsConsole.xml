@@ -37,6 +37,12 @@
     </statBases>
 
     <comps>
+      
+      <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
+        <role>Tactical</role>
+        <mannable>true</mannable>
+      </li>
+
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>1200</basePowerConsumption>
