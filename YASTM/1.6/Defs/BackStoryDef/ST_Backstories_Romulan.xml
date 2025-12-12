@@ -8,7 +8,14 @@
     <titleShort>adept</titleShort>
     <baseDesc>Groomed in rigorous academies to value precision, posture, and results.</baseDesc>
     <slot>Childhood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Soldier</li>
+      <li>Spacer</li>
+      <li>Romulan_Science</li>
+      <li>Romulan_Engineering</li>
+      <li>Romulan_Medical</li>
+      <li>Romulan_Command</li>
+    </spawnCategories>
     <skillGains><Intellectual>3</Intellectual><Social>1</Social></skillGains>
     <forcedTraits>
       <TooSmart>0</TooSmart>
@@ -24,7 +31,12 @@
     <titleShort>settler</titleShort>
     <baseDesc>Raised on a marginal colony balancing self-reliance with imperial duty.</baseDesc>
     <slot>Childhood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Science</li>
+      <li>Romulan_Engineering</li>
+      <li>Romulan_Operations</li> 
+    </spawnCategories>
     <skillGains><Plants>2</Plants><Construction>1</Construction><Shooting>1</Shooting></skillGains>
     <forcedTraits>
       <Industriousness>1</Industriousness>
@@ -37,7 +49,12 @@
     <titleShort>archivist aide</titleShort>
     <baseDesc>Catalogued shipment logs and edicts; learned to read the subtext in everything.</baseDesc>
     <slot>Childhood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Science</li>
+      <li>Romulan_Engineering</li>
+      <li>Romulan_Medical</li>
+    </spawnCategories>
     <skillGains><Intellectual>2</Intellectual><Crafting>1</Crafting></skillGains>
     <forcedTraits>
       <TooSmart>0</TooSmart>
