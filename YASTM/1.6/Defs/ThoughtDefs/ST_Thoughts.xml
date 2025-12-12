@@ -200,20 +200,21 @@
     </stages>
   </ThoughtDef>
 
-  <!-- Sword of Kahless inspiration -->
-    <ThoughtDef>
+  <!-- Situational mood buff when the colony owns the Sword of Kahless -->
+  <ThoughtDef>
     <defName>ST_SwordOfKahless_Inspiration</defName>
     <label>presence of the Sword of Kahless</label>
-    <description>The legendary Sword of Kahless is in the hands of the House.
-      Every true Klingon feels the call to glorious battle.</description>
-    <thoughtClass>YASTM.Thoughts.ThoughtWorker_SwordOfKahless</thoughtClass>
-    <durationDays>-1</durationDays>   <!-- permanent while held -->
+    <description>The legendary Sword of Kahless is in the hands of the House. Every true Klingon
+      feels the call to glorious battle and unity.</description>
+    <workerClass>YASTM.Thoughts.ThoughtWorker_SwordOfKahless</workerClass>
+    <durationDays>-1</durationDays>
     <stackLimit>1</stackLimit>
+    <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
         <label>inspired by the Sword of Kahless</label>
-        <description>The legendary Sword of Kahless is in the hands of the House.
-          Every true Klingon feels the call to glorious battle. </description>
+        <description>The legendary Sword of Kahless is in the hands of the House. Every true Klingon
+          feels the call to glorious battle and unity. </description>
         <baseMoodEffect>10</baseMoodEffect> <!-- +10 Mood -->
       </li>
     </stages>

@@ -1,7 +1,7 @@
 using System.Linq;
 using RimWorld;
 using Verse;
-using YASTM.Relics;
+using YASTM.Relics;   // for GameComponent_KahlessRelic
 
 namespace YASTM.Thoughts
 {
@@ -27,15 +27,16 @@ namespace YASTM.Thoughts
             if (ideo == null || ideo.memes == null)
                 return ThoughtState.Inactive;
 
-            // Nur Klingon-Ideos
-            if (!ideo.memes.Any(m => m.defName == KlingonMemeDefName))
+            // Only Klingon honor ideology gets the buff
+            bool hasKlingonMeme = ideo.memes.Any(m => m.defName == KlingonMemeDefName);
+            if (!hasKlingonMeme)
                 return ThoughtState.Inactive;
 
             var comp = GameComponent_KahlessRelic.Instance;
             if (comp == null || !comp.swordOfKahlessOwned)
                 return ThoughtState.Inactive;
 
-            // Alles erfüllt → Buff aktiv
+            // All conditions met → buff active
             return ThoughtState.ActiveDefault;
         }
     }

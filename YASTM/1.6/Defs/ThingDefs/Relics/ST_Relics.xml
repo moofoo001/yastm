@@ -8,36 +8,18 @@
     <description>The legendary bat'leth of Kahless the Unforgettable. Its return is said to unite
       all Klingons under one banner and ignite an unstoppable hunger for glorious battle.</description>
 
+    <relicChance>5</relicChance>
+    <smeltable>false</smeltable>
+    <weaponClasses>
+      <li>MeleePiercer</li>
+    </weaponClasses>
+
     <graphicData>
-      <texPath>Things/Weapons/Melee/SWKahless</texPath>
+      <texPath>Things/Item/Equipment/Klingon_weapons/SWKahless</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(1.4, 1.4)</drawSize>
+      <drawSize>(1, 1)</drawSize>
     </graphicData>
-
-    <category>Weapon</category>
-    <tradeability>Never</tradeability>
-    <techLevel>Spacer</techLevel>
-
-    <weaponTags>
-      <li>MedievalMelee</li>
-      <li>NeolithicMelee</li>
-      <li>KlingonRelic</li>
-    </weaponTags>
-
-    <statBases>
-      <Mass>3.0</Mass>
-      <WorkToMake>0</WorkToMake>
-      <MarketValue>6000</MarketValue>
-      <MeleeWeapon_DamageAmount>30</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.7</MeleeWeapon_Cooldown>
-      <MeleeWeapon_ArmorPenetration>0.55</MeleeWeapon_ArmorPenetration>
-      <AccuracyShort>0.08</AccuracyShort>
-      <AccuracyTouch>0.12</AccuracyTouch>
-    </statBases>
-
-    <equippedStatOffsets>
-      <MeleeHitChance>0.08</MeleeHitChance>
-    </equippedStatOffsets>
+    <uiIconScale>1</uiIconScale>
 
     <tools>
       <li>
@@ -49,8 +31,26 @@
         <cooldownTime>1.7</cooldownTime>
         <linkedBodyPartsGroup>Torso</linkedBodyPartsGroup>
         <chanceFactor>1.0</chanceFactor>
+        <armorPenetration>0.7</armorPenetration>
       </li>
     </tools>
+
+    <stackLimit>1</stackLimit>
+    <tradeNeverStack>true</tradeNeverStack>
+    <techLevel>Spacer</techLevel>
+
+    <weaponTags>
+      <li>KlingonRelic</li>
+    </weaponTags>
+
+    <statBases>
+      <Mass>3.0</Mass>
+      <MarketValue>6000</MarketValue>
+    </statBases>
+
+    <equippedStatOffsets>
+      <MeleeHitChance>0.1</MeleeHitChance>
+    </equippedStatOffsets>
 
   </ThingDef>
 

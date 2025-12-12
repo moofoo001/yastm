@@ -26,7 +26,7 @@
 
     <factionIconPath>UI/Icons/Factions/UFP</factionIconPath>
     <colorSpectrum>
-      <li>(0.20, 0.55, 0.95)</li>
+      <li>(0.20, 0.55, 0.95)</li> <!-- Light blue -->
     </colorSpectrum>
 
 

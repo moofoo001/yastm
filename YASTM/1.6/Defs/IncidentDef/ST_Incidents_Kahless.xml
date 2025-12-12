@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Simple incident that gives the Kahless quest -->
+  <IncidentDef>
+    <defName>STQ_Incident_KahlessSwordQuest</defName>
+    <label>rumors of the Sword of Kahless</label>
+    <category>Misc</category>
+    <questScriptDef>STQ_Quest_KahlessSword</questScriptDef>
+    <targetTags>
+        <li>Map_Misc</li>
+        <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>IncidentWorker_GiveQuest</workerClass>
+    <letterLabel>Rumors of the Sword of Kahless</letterLabel>
+    <letterText>
+      A wandering Klingon talespinner speaks of the legendary Sword of Kahless, said to be
+      lost on a nearby world. If the story is true, recovering it would bring great honor.
+    </letterText>
+    <letterDef>PositiveEvent</letterDef>
+    <baseChance>0.02</baseChance>
+  </IncidentDef>
+
+</Defs>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Klingon player faction -->
+  <FactionDef ParentName="PlayerFactionBase">
+    <defName>ST_Player_KlingonHouse</defName>
+    <label>klingon house expedition</label>
+    <description>A frontier expedition of a Klingon Great House. Honor, glory and worthy battles
+      matter more than comfort or survival odds.</description>
+    <isPlayer>true</isPlayer>
+    <basicMemberKind>Colonist</basicMemberKind>
+    <pawnSingular>colonist</pawnSingular>
+    <pawnsPlural>colonists</pawnsPlural>
+    <techLevel>Spacer</techLevel>
+    <factionNameMaker>ST_NamerKlingonFaction</factionNameMaker>
+    <settlementNameMaker>ST_SettlementName_Klingon</settlementNameMaker>
+
+    <factionIconPath>UI/Icons/Factions/Klingon</factionIconPath>
+    <colorSpectrum>
+        <li>(0.70, 0.10, 0.10)</li> <!-- Dark red -->
+        <li>(0.90, 0.25, 0.20)</li> <!-- Lighter red -->
+    </colorSpectrum>
+
+    <allowedCultures>
+      <li>ST_Culture_Klingon</li>
+    </allowedCultures>
+    <forcedMemes>
+      <li>ST_Meme_KlingonHonor</li>
+    </forcedMemes>
+
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances><Ectos_Klingon>0.90</Ectos_Klingon><Baseliner>0.10</Baseliner></xenotypeChances>
+    </xenotypeSet>
+
+    <canMakeRandomly>false</canMakeRandomly>
+    <hidden>false</hidden>
+    <backstoryCategories>
+      <li>Klingon_Operations</li>    
+      <li>Klingon_Engineer</li>
+      <li>Klingon_Science</li>
+      <li>Klingon_Medic</li>
+      <li>Klingon_Warrior</li>
+      <li>Klingon_Command</li>
+    </backstoryCategories>
+
+    <startingResearchTags>
+      <li>ClassicStart</li>
+    </startingResearchTags>
+    <startingTechprintsResearchTags>
+      <li>ClassicStart</li>
+      <li>ClassicStartTechprints</li>
+    </startingTechprintsResearchTags>
+  </FactionDef>
+
+
+  <!-- Romulan player faction -->
+  <FactionDef ParentName="PlayerFactionBase">
+    <defName>ST_Player_RomulanOutpost</defName>
+    <label>romulan frontier outpost</label>
+    <description>A covert Romulan frontier outpost, operating on the edge of known space.
+      Secrecy, control and technological superiority define this colony.</description>
+    <isPlayer>true</isPlayer>
+    <basicMemberKind>Colonist</basicMemberKind>
+    <pawnSingular>colonist</pawnSingular>
+    <pawnsPlural>colonists</pawnsPlural>
+    <techLevel>Spacer</techLevel>
+ 
+    <factionNameMaker>ST_NamerRomulanFaction</factionNameMaker>
+    <settlementNameMaker>ST_SettlementName_Romulan</settlementNameMaker>
+    <factionIconPath>UI/Icons/Factions/Romulan</factionIconPath>
+    <colorSpectrum>
+      <li>(0.10, 0.60, 0.35)</li> 
+      <li>(0.20, 0.90, 0.50)</li>
+    </colorSpectrum>
+
+    <allowedCultures><li>ST_Culture_Romulan</li></allowedCultures>
+
+    <forcedMemes>
+      <li>ST_Meme_RomulanCommand</li>
+    </forcedMemes>
+    <disallowedMemes>
+      <li>Cannibal</li>
+    </disallowedMemes>
+
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances><Ectos_Romulan>0.90</Ectos_Romulan><Baseliner>0.10</Baseliner></xenotypeChances>
+    </xenotypeSet>
+
+    <canMakeRandomly>false</canMakeRandomly>
+    <hidden>false</hidden>
+    <backstoryCategories>
+      <li>Romulan_Operations</li>    
+      <li>Romulan_Engineering</li>
+      <li>Romulan_Science</li>
+      <li>Romulan_Medical</li>
+      <li>Romulan_Command</li>
+    </backstoryCategories>
+
+    <startingResearchTags>
+      <li>ClassicStart</li>
+    </startingResearchTags>
+    <startingTechprintsResearchTags>
+      <li>ClassicStart</li>
+      <li>ClassicStartTechprints</li>
+    </startingTechprintsResearchTags>
+  </FactionDef>
+
+
+  <!-- Ferengi player faction -->
+  <FactionDef ParentName="PlayerFactionBase">
+    <defName>ST_Player_FerengiConsortium</defName>
+    <label>ferengi trade consortium</label>
+    <description>A Ferengi trade consortium, here to turn every natural resource,
+      social contact and subspace anomaly into profit.</description>
+
+    <isPlayer>true</isPlayer>
+    <basicMemberKind>Colonist</basicMemberKind>
+    <pawnSingular>colonist</pawnSingular>
+    <pawnsPlural>colonists</pawnsPlural>
+
+    <techLevel>Industrial</techLevel>
+
+    <factionNameMaker>ST_NamerFerengiFaction</factionNameMaker>
+    <settlementNameMaker>ST_SettlementName_Ferengi</settlementNameMaker>
+    <factionIconPath>UI/Icons/Factions/Ferengi</factionIconPath>
+    <colorSpectrum>
+      <li>(0.90, 0.70, 0.20)</li>
+      <li>(1.00, 0.85, 0.25)</li>
+    </colorSpectrum>
+
+    <allowedCultures>
+      <li>ST_Culture_Ferengi</li>
+    </allowedCultures>
+
+    <forcedMemes>
+      <li>ST_Meme_FerengiCommerce</li>
+    </forcedMemes>
+    <disallowedMemes>
+      <li>Cannibal</li>
+    </disallowedMemes>
+
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances><Ectos_Ferengi>0.90</Ectos_Ferengi><Baseliner>0.10</Baseliner></xenotypeChances>
+    </xenotypeSet>
+    
+    <canMakeRandomly>false</canMakeRandomly>
+    <hidden>false</hidden>
+    <backstoryCategories>
+      <li>Ferengi_Commerce</li>    
+      <li>Ferengi_Exotics</li>
+      <li>Ferengi_Engineering</li>
+      <li>Ferengi_Medical</li>
+      <li>Ferengi_TradeNegotiator</li>
+    </backstoryCategories>
+    
+    <startingResearchTags>
+      <li>ClassicStart</li>
+    </startingResearchTags>
+    <startingTechprintsResearchTags>
+      <li>ClassicStart</li>
+      <li>ClassicStartTechprints</li>
+    </startingTechprintsResearchTags>
+  </FactionDef>
+
+</Defs>
