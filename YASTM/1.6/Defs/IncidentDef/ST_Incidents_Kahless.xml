@@ -5,20 +5,19 @@
   <IncidentDef>
     <defName>STQ_Incident_KahlessSwordQuest</defName>
     <label>rumors of the Sword of Kahless</label>
+    <workerClass>IncidentWorker_GiveQuest</workerClass>
     <category>Misc</category>
     <questScriptDef>STQ_Quest_KahlessSword</questScriptDef>
     <targetTags>
         <li>Map_Misc</li>
         <li>Map_PlayerHome</li>
     </targetTags>
-    <workerClass>IncidentWorker_GiveQuest</workerClass>
-    <letterLabel>Rumors of the Sword of Kahless</letterLabel>
-    <letterText>
-      A wandering Klingon talespinner speaks of the legendary Sword of Kahless, said to be
-      lost on a nearby world. If the story is true, recovering it would bring great honor.
-    </letterText>
-    <letterDef>PositiveEvent</letterDef>
     <baseChance>0.02</baseChance>
+    <minRefireDays>20</minRefireDays>
+    <letterLabel>Rumors of the Sword of Kahless</letterLabel>
+    <letterText>A wandering Klingon talespinner speaks of the legendary Sword of Kahless, said to be
+      lost on a nearby world. If the story is true, recovering it would bring great honor.</letterText>
+    <letterDef>PositiveEvent</letterDef>
   </IncidentDef>
 
 </Defs>

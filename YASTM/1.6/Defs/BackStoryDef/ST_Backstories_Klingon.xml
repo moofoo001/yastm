@@ -573,7 +573,7 @@
       <li>Soldier</li>
       <li>Spacer</li>
       <li>Klingon_Science</li>
-      </li>Klingon_Medic</li>
+      <li>Klingon_Medic</li>
     </spawnCategories>
     <skillGains><Intellectual>1</Intellectual><Plants>2</Plants><Medicine>1</Medicine> <Animals>+1</Animals></skillGains>
     <forcedTraits/>
