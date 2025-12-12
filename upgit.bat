@@ -5,4 +5,4 @@ git add .\
 echo "commiting my presures ....."
 git commit .\ -m "V1.4.5"
 echo "push it to the limit ........."
-git push .\YASTM -u origin rimworld_st_mod
+git push -u origin rimworld_st_mod
