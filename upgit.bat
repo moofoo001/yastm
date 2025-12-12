@@ -3,6 +3,6 @@
 echo "Adding new / changed files"
 git add .\YASTM
 echo "commiting my presures ....."
-git commit .\YASTM -m "V1.4.5"
+git commit .\ -m "V1.4.5"
 echo "push it to the limit ........."
 git push .\YASTM -u origin rimworld_st_mod
