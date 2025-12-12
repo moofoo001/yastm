@@ -1,7 +1,7 @@
 :: Update YASTM git
 
 echo "Adding new / changed files"
-git add .\YASTM
+git add .\
 echo "commiting my presures ....."
 git commit .\ -m "V1.4.5"
 echo "push it to the limit ........."
