@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WorkTypeDef>
+    <defName>ST_WorkType_ShipOps</defName>
+    <labelShort>Bridge</labelShort>
+    <pawnLabel>Officer</pawnLabel>
+    <gerundLabel>manning bridge</gerundLabel>
+    <description>Manning bridge stations to provide tactical and operational bonuses.</description>
+    <naturalPriority>1000</naturalPriority> <relevantSkills>
+      <li>Intellectual</li>
+      <li>Social</li>
+    </relevantSkills>
+    <workTags>
+      <li>Intellectual</li>
+    </workTags>
+  </WorkTypeDef>
+
+  <WorkGiverDef>
+    <defName>ST_WorkGiver_ManBridge</defName>
+    <label>man bridge station</label>
+    <giverClass>YASTM.Source.Work.WorkGiver_ManBridgeStation</giverClass>
+    <workType>ST_WorkType_ShipOps</workType>
+    <priorityInType>100</priorityInType>
+    <verb>man</verb>
+    <gerund>manning</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+  <JobDef>
+    <defName>ST_Job_ManBridgeStation</defName>
+    <driverClass>YASTM.Source.Jobs.JobDriver_ManBridgeStation</driverClass>
+    <reportString>manning TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+</Defs>

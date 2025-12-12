@@ -414,7 +414,10 @@
     <slot>Adulthood</slot>
     <baseDesc>Models failure before it happens. Fixes people last, systems first.</baseDesc>
     <skillGains><Crafting>2</Crafting><Intellectual>2</Intellectual><Construction>1</Construction></skillGains>
-    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Engineering</li>
+    </spawnCategories>
     <forcedTraits>
     <Abrasive>0</Abrasive>
     </forcedTraits>
@@ -430,7 +433,7 @@
     <slot>Adulthood</slot>
     <baseDesc>Stabilizes the wounded under fire, then lets duty decide who lives.</baseDesc>
     <skillGains><Medicine>3</Medicine><Shooting>1</Shooting><Intellectual>1</Intellectual></skillGains>
-    <spawnCategories></spawnCategories>
+    <spawnCategories>
       <li>Civil</li>
       <li>Soldier</li>
       <li>Romulan_Medical</li>
@@ -452,6 +455,7 @@
       <li>Civil</li>
       <li>Soldier</li>
       <li>Romulan_Medical</li>
+    </spawnCategories>
     <forcedTraits>
     <Abrasive>0</Abrasive>
     </forcedTraits>
@@ -507,6 +511,63 @@
     <spawnCategories>
       <li>Civil</li>
       <li>Romulan_Command</li>
+    </spawnCategories>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_WarpCoreSpecialist</defName>
+    <title>warp core specialist</title>
+    <titleShort>warp core</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Maintains the heart of starships, balancing power and peril.</baseDesc>
+    <skillGains><Crafting>3</Crafting><Intellectual>2</Intellectual></skillGains>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Engineering</li>
+    </spawnCategories>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
+  </BackstoryDef>
+
+    <BackstoryDef>
+    <defName>ST_BS_Romulan_HyperwaveOperator</defName>
+    <title>hyperwave operator</title>
+    <titleShort>hyperwave</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Monitors and decodes subspace transmissions across vast distances.</baseDesc>
+    <skillGains><Intellectual>3</Intellectual><Social>2</Social></skillGains>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Science</li>
+    </spawnCategories>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_ConstructionForeman</defName>
+    <title>construction foreman</title>
+    <titleShort>foreman</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Leads teams to build infrastructure swiftly and efficiently.</baseDesc>
+    <skillGains><Construction>3</Construction><Social>2</Social></skillGains>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Engineering</li>
     </spawnCategories>
     <forcedTraits>
     <Abrasive>0</Abrasive>

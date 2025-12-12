@@ -197,7 +197,12 @@
     <slot>Childhood</slot><shuffleable>true</shuffleable>
     <baseDesc>Calls louder than doubt. Sells what’s not yet made.</baseDesc>
     <skillGains><Social>3</Social></skillGains>
-    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Spacer</li>
+      <li>Ferengi_Commerce</li>
+      <li>Ferengi_TradeNegotiator</li>
+    </spawnCategories>
     <forcedTraits><Greedy>0</Greedy></forcedTraits>
     <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
@@ -209,7 +214,12 @@
     <titleShort>liquidator</titleShort>
     <baseDesc>Corporate troubleshooter who turns liabilities into dividends—fast.</baseDesc>
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Spacer</li>
+      <li>Ferengi_Commerce</li>
+      <li>Ferengi_TradeNegotiator</li>    
+    </spawnCategories>
     <skillGains><Social>2</Social><Intellectual>2</Intellectual></skillGains>
     <forcedTraits><Greedy>0</Greedy></forcedTraits>
     <disallowedTraits><Kind>0</Kind></disallowedTraits>
@@ -221,7 +231,12 @@
     <titleShort>agent</titleShort>
     <baseDesc>Locates “motivated sellers” and closes before competitors sniff the deal.</baseDesc>
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Spacer</li>
+      <li>Ferengi_Commerce</li>
+      <li>Ferengi_TradeNegotiator</li>
+    </spawnCategories>
     <skillGains><Social>3</Social><Shooting>1</Shooting></skillGains>
     <forcedTraits><Industriousness>1</Industriousness></forcedTraits>
     <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
@@ -233,7 +248,12 @@
     <titleShort>broker</titleShort>
     <baseDesc>Writes clauses that read fair and pay unfair—on purpose.</baseDesc>
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Spacer</li>
+      <li>Ferengi_Commerce</li>
+      <li>Ferengi_TradeNegotiator</li>
+    </spawnCategories>
     <skillGains><Intellectual>3</Intellectual><Social>1</Social></skillGains>
     <forcedTraits><FastLearner>0</FastLearner></forcedTraits>
     <disallowedTraits><Kind>0</Kind></disallowedTraits>
@@ -245,7 +265,11 @@
     <titleShort>speculator</titleShort>
     <baseDesc>Buys dips, sells peaks, and never admits the difference was luck.</baseDesc>
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Ferengi_Commerce</li>
+      <li>Ferengi_TradeNegotiator</li>
+    </spawnCategories>
     <skillGains><Intellectual>2</Intellectual><Crafting>1</Crafting><Social>1</Social></skillGains>
     <forcedTraits><Abrasive>0</Abrasive></forcedTraits>
     <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
@@ -257,7 +281,11 @@
     <titleShort>liaison</titleShort>
     <baseDesc>Knows which customs officers are underpaid and which captains are over-bold.</baseDesc>
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Spacer</li>
+      <li>Ferengi_Exotics</li>
+      <li>Ferengi_TradeNegotiator</li>
+    </spawnCategories>
     <skillGains><Social>2</Social><Shooting>1</Shooting><Intellectual>1</Intellectual></skillGains>
     <forcedTraits><Greedy>0</Greedy></forcedTraits>
     <disallowedTraits><Kind>0</Kind></disallowedTraits>
@@ -269,7 +297,11 @@
     <titleShort>auditor</titleShort>
     <baseDesc>Audits with a smile and an invoice; finds “fees” where others see errors.</baseDesc>
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Ferengi_Commerce</li>
+      <li>Ferengi_TradeNegotiator</li>
+    </spawnCategories>
     <skillGains><Intellectual>2</Intellectual><Social>2</Social></skillGains>
     <forcedTraits><Greedy>0</Greedy></forcedTraits>
     <disallowedTraits><Kind>0</Kind></disallowedTraits>
@@ -282,7 +314,12 @@
     <slot>Adulthood</slot>
     <baseDesc>Manages stock and staff with an eye for efficiency and profit.</baseDesc>
     <skillGains><Social>4</Social><Intellectual>1</Intellectual></skillGains>
-    <spawnCategories><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Spacer</li>
+      <li>Ferengi_Commerce</li>
+      <li>Ferengi_TradeNegotiator</li>
+    </spawnCategories>
     <forcedTraits><Greedy>0</Greedy></forcedTraits>
     <disallowedTraits><Ascetic>0</Ascetic><Kind>0</Kind></disallowedTraits>
   </BackstoryDef>
@@ -294,7 +331,12 @@
     <slot>Adulthood</slot>
     <baseDesc>Finds value in dents and ash. Knows what a bolt is worth.</baseDesc>
     <skillGains><Crafting>3</Crafting><Social>2</Social></skillGains>
-    <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Spacer</li>
+      <li>Ferengi_Engineering</li>
+      <li>Ferengi_Exotics</li>
+    </spawnCategories>
     <forcedTraits><Greedy>0</Greedy></forcedTraits>
     <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
@@ -306,7 +348,11 @@
     <slot>Adulthood</slot>
     <baseDesc>Moves goods, stories and margins. Sleeps light, sells heavy.</baseDesc>
     <skillGains><Social>3</Social><Shooting>1</Shooting><Plants>1</Plants></skillGains>
-    <spawnCategories><li>Spacer</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Spacer</li>
+      <li>Ferengi_Exotics</li>
+    </spawnCategories>
     <forcedTraits><Greedy>0</Greedy></forcedTraits>
     <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
@@ -318,7 +364,11 @@
     <slot>Adulthood</slot>
     <baseDesc>Knows the route where others see a wall.</baseDesc>
     <skillGains><Social>2</Social><Intellectual>2</Intellectual><Crafting>1</Crafting></skillGains>
-    <spawnCategories><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Spacer</li>
+      <li>Ferengi_Engineering</li>
+    </spawnCategories>
     <forcedTraits><Greedy>0</Greedy></forcedTraits>
     <disallowedTraits><Ascetic>0</Ascetic><Kind>0</Kind></disallowedTraits>
   </BackstoryDef>
@@ -330,7 +380,11 @@
     <slot>Adulthood</slot>
     <baseDesc>Buys doubts, sells certainties.</baseDesc>
     <skillGains><Social>3</Social><Crafting>2</Crafting></skillGains>
-    <spawnCategories><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Spacer</li>
+      <li>Ferengi_Exotics</li>
+    </spawnCategories>
     <forcedTraits><Greedy>0</Greedy></forcedTraits>
     <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
@@ -342,9 +396,94 @@
     <slot>Adulthood</slot>
     <baseDesc>Counts stock like heartbeats. Moves pallets like promises.</baseDesc>
     <skillGains><Social>2</Social><Crafting>2</Crafting><Intellectual>1</Intellectual></skillGains>
-    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Spacer</li>
+      <li>Ferengi_Engineering</li>
+    </spawnCategories>
     <forcedTraits><Greedy>0</Greedy></forcedTraits>
     <disallowedTraits><Ascetic>0</Ascetic></disallowedTraits>
   </BackstoryDef>
+
+  <BackstoryDef>
+      <defName>ST_BS_Ferengi_OrganTrader</defName>
+      <title>organ trader</title>
+      <titleShort>organ trader</titleShort>
+      <slot>Adulthood</slot>
+      <baseDesc>Deals in parts that keep others alive—at a price.</baseDesc>
+      <skillGains><Social>2</Social><Medicine>2</Medicine><Intellectual>1</Intellectual></skillGains>
+      <spawnCategories>
+        <li>Civil</li>
+        <li>Spacer</li>
+        <li>Ferengi_Exotics</li>
+        <li>Ferengi_Medical</li>
+      </spawnCategories>
+      <forcedTraits><Greedy>0</Greedy></forcedTraits>
+      <disallowedTraits>
+        <Ascetic>0</Ascetic>
+        <Kind>0</Kind>
+      </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_BackAlleyPharmacist</defName>
+    <title>back-alley pharmacist</title>
+    <titleShort>pharmacist</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Mixes cures and poisons with equal skill—and profit.</baseDesc>
+    <skillGains><Medicine>3</Medicine><Intellectual>2</Intellectual></skillGains>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Spacer</li>
+      <li>Ferengi_Exotics</li>
+      <li>Ferengi_Medical</li>
+    </spawnCategories>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits>
+      <Ascetic>0</Ascetic>
+      <Kind>0</Kind>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_physician</defName>
+    <title>physician</title>
+    <titleShort>physician</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Heals for profit, but knows when to cut losses.</baseDesc>
+    <skillGains><Medicine>4</Medicine><Intellectual>1</Intellectual></skillGains>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Spacer</li>
+      <li>Ferengi_Medical</li>
+    </spawnCategories>
+    <forcedTraits><Greedy>0</Greedy></forcedTraits>
+    <disallowedTraits>
+      <Ascetic>0</Ascetic>
+      <Kind>0</Kind>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Ferengi_TradeEnforcer</defName>
+    <title>trade enforcer</title>
+    <titleShort>enforcer</titleShort>
+    <baseDesc>Counts breaths, not shots. Strikes from quiet margins.</baseDesc>
+    <slot>Adulthood</slot>
+    <skillGains><Shooting>4</Shooting><Intellectual>1</Intellectual></skillGains>
+    <spawnCategories>
+      <li>Soldier</li>
+      <li>Ferengi_TradeNegotiator</li>
+      <li>Ferengi_Exotics</li>
+    </spawnCategories>
+    <forcedTraits>
+      <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+      <Ascetic>0</Ascetic>
+      <Kind>0</Kind>
+    </disallowedTraits>
+  </BackstoryDef>
+
 
 </Defs>

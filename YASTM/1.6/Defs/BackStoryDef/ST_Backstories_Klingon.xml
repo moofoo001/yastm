@@ -503,6 +503,45 @@
   </BackstoryDef>
 
   <BackstoryDef>
+    <defName>ST_BS_Klingon_QuackMedic</defName>
+    <title>quack medic</title>
+    <titleShort>medic</titleShort>
+    <baseDesc>Uses unorthodox methods to treat wounds and illnesses. Results may vary.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>Soldier</li>
+      <li>Spacer</li>
+      <li>Klingon_Medic</li>
+    </spawnCategories>
+    <skillGains><Medicine>2</Medicine><Social>1</Social><Melee>1</Melee></skillGains>
+    <forcedTraits>
+      <Bloodlust>0</Bloodlust>
+    </forcedTraits>
+    <disallowedTraits>
+      <Wimp>0</Wimp>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Klingon_Physciologist</defName>
+    <title>physciologist</title>
+    <titleShort>physciologist</titleShort>
+    <baseDesc>Studies the physical limits of the body to enhance warrior performance.</baseDesc>
+    <slot>Adulthood</slot><shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>Soldier</li>
+      <li>Spacer</li>
+      <li>Klingon_Medic</li>
+      <li>Klingon_Science</li>
+    </spawnCategories>
+    <skillGains><Medicine>2</Medicine><Intellectual>2</Intellectual><Melee>1</Melee></skillGains>
+    <forcedTraits/>
+    <disallowedTraits>
+      <Wimp>0</Wimp>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
     <defName>ST_BS_Klingon_Pathfinder</defName>
     <title>pathfinder</title>
     <titleShort>pathfinder</titleShort>
