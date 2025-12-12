@@ -67,7 +67,14 @@
     <titleShort>orphan</titleShort>
     <baseDesc>Ward of the state; discipline and subtlety were survival skills.</baseDesc>
     <slot>Childhood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Soldier</li><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Soldier</li>
+      <li>Romulan_Science</li>
+      <li>Romulan_Engineering</li>
+      <li>Romulan_Command</li>
+      <li>Romulan_Operations</li>
+    </spawnCategories>
     <skillGains><Social>1</Social><Shooting>1</Shooting><Intellectual>1</Intellectual></skillGains>
   </BackstoryDef>
 
@@ -77,7 +84,12 @@
     <titleShort>page</titleShort>
     <baseDesc>Served officials, observing the theatre of power from the wings.</baseDesc>
     <slot>Childhood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Soldier</li>
+      <li>Romulan_Command</li>
+      <li>Romulan_Operations</li>
+    </spawnCategories>
     <skillGains><Social>2</Social><Intellectual>1</Intellectual></skillGains>
   </BackstoryDef>
 
@@ -87,7 +99,11 @@
     <titleShort>trainee</titleShort>
     <baseDesc>Took apart training boards and put them back faster, and better, each time.</baseDesc>
     <slot>Childhood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Spacer</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Science</li>
+      <li>Romulan_Engineering</li>
+    </spawnCategories>
     <skillGains><Crafting>2</Crafting><Construction>1</Construction></skillGains>
     <forcedTraits>
       <TorturedArtist />
@@ -104,7 +120,11 @@
     <slot>Childhood</slot><shuffleable>true</shuffleable>
     <baseDesc>Taught restraint and rhetoric behind quiet walls. Listens twice, speaks once.</baseDesc>
     <skillGains><Social>2</Social><Intellectual>1</Intellectual></skillGains>
-    <spawnCategories><li>Spacer</li><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Science</li>
+      <li>Romulan_Command</li>
+    </spawnCategories>
     <forcedTraits>
     <Abrasive>0</Abrasive>
     </forcedTraits>
@@ -120,7 +140,10 @@
     <slot>Childhood</slot><shuffleable>true</shuffleable>
     <baseDesc>Feeding machines, labeling tapes, learning to doubt first reports.</baseDesc>
     <skillGains><Intellectual>2</Intellectual><Crafting>1</Crafting></skillGains>
-    <spawnCategories><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Science</li>
+    </spawnCategories>
     <forcedTraits>
     <Abrasive>0</Abrasive>
     </forcedTraits>
@@ -136,7 +159,11 @@
     <slot>Childhood</slot><shuffleable>true</shuffleable>
     <baseDesc>Carried samples and gossip in equal measure. Learned safety before speed.</baseDesc>
     <skillGains><Intellectual>1</Intellectual><Medicine>1</Medicine><Social>1</Social></skillGains>
-    <spawnCategories><li>Spacer</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Science</li>
+      <li>Romulan_Engineering</li>
+    </spawnCategories>
     <forcedTraits>
     <Abrasive>0</Abrasive>
     </forcedTraits>
@@ -152,7 +179,12 @@
     <slot>Childhood</slot><shuffleable>true</shuffleable>
     <baseDesc>Nights under glass, mapping lights and learning to hide in data.</baseDesc>
     <skillGains><Intellectual>2</Intellectual><Shooting>1</Shooting></skillGains>
-    <spawnCategories><li>Spacer</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Soldier</li>
+      <li>Romulan_Command</li>
+      <li>Romulan_Operations</li>
+    </spawnCategories>
     <forcedTraits>
     <Abrasive>0</Abrasive>
     </forcedTraits>
@@ -168,7 +200,12 @@
     <slot>Childhood</slot><shuffleable>true</shuffleable>
     <baseDesc>Escorted through quiet sectors. Watched scans more than stars.</baseDesc>
     <skillGains><Shooting>1</Shooting><Intellectual>1</Intellectual><Plants>1</Plants></skillGains>
-    <spawnCategories><li>Spacer</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Science</li>
+      <li>Romulan_Command</li>
+      <li>Romulan_Operations</li>
+    </spawnCategories>
     <forcedTraits>
     <Abrasive>0</Abrasive>
     </forcedTraits>
@@ -184,7 +221,11 @@
     <slot>Childhood</slot><shuffleable>true</shuffleable>
     <baseDesc>Learned the mask first, then the smile. Words as precise as blades.</baseDesc>
     <skillGains><Social>2</Social><Intellectual>1</Intellectual></skillGains>
-    <spawnCategories><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Soldier</li>
+      <li>Romulan_Command</li>
+    </spawnCategories>
     <forcedTraits>
     <Abrasive>0</Abrasive>
     </forcedTraits>
@@ -200,7 +241,13 @@
     <titleShort>analyst</titleShort>
     <baseDesc>Reads patterns in noise and motives in faces for the empire’s shadow service.</baseDesc>
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Civil</li><li>Soldier</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Soldier</li>
+      <li>Romulan_Command</li>
+      <li>Romulan_Operations</li>
+      <li>Romulan_Science</li>
+    </spawnCategories>
     <skillGains><Intellectual>3</Intellectual><Social>2</Social></skillGains>
     <forcedTraits>
     <FastLearner>0</FastLearner>
@@ -216,8 +263,16 @@
     <titleShort>helmsman</titleShort>
     <baseDesc>Guided cloaked mass through vacuum with ruthless calm.</baseDesc>
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Spacer</li><li>Soldier</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Soldier</li>
+      <li>Romulan_Command</li>
+      <li>Romulan_Operations</li>
+    </spawnCategories>
     <skillGains><Intellectual>1</Intellectual><Shooting>2</Shooting><Social>1</Social></skillGains>
+    <forcedTraits>
+       <Pilot_Cadet>0</Pilot_Cadet>
+    </forcedTraits>
     <disallowedTraits>
       <Kind>0</Kind>
       <Wimp>0</Wimp>
@@ -230,7 +285,11 @@
     <titleShort>technician</titleShort>
     <baseDesc>Maintained fickle singularity-fed systems—failure was not an option anyone lived with.</baseDesc>
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Spacer</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Soldier</li>
+      <li>Romulan_Engineering</li>
+    </spawnCategories>
     <skillGains><Crafting>3</Crafting><Intellectual>1</Intellectual></skillGains>
     <forcedTraits>
       <FastLearner>0</FastLearner>
@@ -243,7 +302,10 @@
     <titleShort>administrator</titleShort>
     <baseDesc>Balanced quotas, appeased superiors, and kept the ledgers immaculate.</baseDesc>
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Command</li>
+    </spawnCategories>
     <skillGains><Intellectual>2</Intellectual><Social>2</Social></skillGains>
     <disallowedTraits>
     <Abrasive>0</Abrasive>
@@ -256,7 +318,12 @@
     <titleShort>scout</titleShort>
     <baseDesc>Slip-in, slip-out reconnaissance with minimal signatures and maximum insight.</baseDesc>
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Soldier</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Soldier</li>
+      <li>Romulan_Command</li>
+      <li>Romulan_Operations</li>
+    </spawnCategories>
     <skillGains><Shooting>2</Shooting><Intellectual>1</Intellectual><Plants>1</Plants></skillGains>
     <forcedTraits>
       <ShootingAccuracy>1</ShootingAccuracy>
@@ -269,7 +336,10 @@
     <titleShort>engineer</titleShort>
     <baseDesc>Designed infrastructure that lasts—unless politics says otherwise.</baseDesc>
     <slot>Adulthood</slot><shuffleable>true</shuffleable>
-    <spawnCategories><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Engineering</li>
+    </spawnCategories>
     <skillGains><Construction>3</Construction><Crafting>1</Crafting></skillGains>
     <forcedTraits>
       <FastLearner>0</FastLearner>
@@ -284,7 +354,12 @@
     <slot>Adulthood</slot>
     <baseDesc>Reads faces and footnotes, edits truth to fit the day.</baseDesc>
     <skillGains><Social>2</Social><Intellectual>3</Intellectual></skillGains>
-    <spawnCategories><li>Spacer</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Soldier</li>
+      <li>Romulan_Command</li>
+      <li>Romulan_Operations</li>
+    </spawnCategories>
     <forcedTraits>
     <Abrasive>0</Abrasive>
     </forcedTraits>
@@ -300,7 +375,10 @@
     <slot>Adulthood</slot>
     <baseDesc>Packs light, records much. Prefers answers that take time.</baseDesc>
     <skillGains><Intellectual>4</Intellectual><Plants>1</Plants></skillGains>
-    <spawnCategories><li>Spacer</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Science</li>
+    </spawnCategories>
     <forcedTraits>
     <Abrasive>0</Abrasive>
     </forcedTraits>
@@ -316,7 +394,11 @@
     <slot>Adulthood</slot>
     <baseDesc>Counts breaths, not shots. Strikes from quiet margins.</baseDesc>
     <skillGains><Shooting>4</Shooting><Intellectual>1</Intellectual></skillGains>
-    <spawnCategories><li>Spacer</li></spawnCategories>
+    <spawnCategories>
+      <li>Soldier</li>
+      <li>Romulan_Command</li>
+      <li>Romulan_Operations</li>
+    </spawnCategories>
     <forcedTraits>
     <Abrasive>0</Abrasive>
     </forcedTraits>
@@ -341,6 +423,24 @@
     </disallowedTraits>
   </BackstoryDef>
 
+    <BackstoryDef>
+    <defName>ST_BS_Romulan_FieldMedic</defName>
+    <title>field medic</title>
+    <titleShort>medic</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Stabilizes the wounded under fire, then lets duty decide who lives.</baseDesc>
+    <skillGains><Medicine>3</Medicine><Shooting>1</Shooting><Intellectual>1</Intellectual></skillGains>
+    <spawnCategories></spawnCategories>
+      <li>Civil</li>
+      <li>Soldier</li>
+      <li>Romulan_Medical</li>
+    </spawnCategories>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits/>
+  </BackstoryDef>
+
   <BackstoryDef>
     <defName>ST_BS_Romulan_MedicQuiet</defName>
     <title>quiet medic</title>
@@ -348,7 +448,47 @@
     <slot>Adulthood</slot>
     <baseDesc>Steady hands, blank face. Keeps sheets cleaner than conscience.</baseDesc>
     <skillGains><Medicine>4</Medicine><Intellectual>1</Intellectual></skillGains>
-    <spawnCategories><li>Civil</li><li>Spacer</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Soldier</li>
+      <li>Romulan_Medical</li>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits>
+    <Kind>0</Kind>
+    </disallowedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Romulan_Xenobiologist</defName>
+    <title>xenobiologist</title>
+    <titleShort>xenobiologist</titledefName>
+    <slot>Adulthood</slot>
+    <baseDesc>Studies alien life forms to understand—and control—them.</baseDesc>
+    <skillGains><Intellectual>2</Intellectual><Medicine>2</Medicine><Animals>2</Animals></skillGains>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Science</li>
+      <li>Romulan_Medical</li>
+    </spawnCategories>
+    <forcedTraits>
+    <Abrasive>0</Abrasive>
+    </forcedTraits>
+    <disallowedTraits/>
+  </BackstoryDef>
+
+<BackstoryDef>
+    <defName>ST_BS_Romulan_SupplyCoordinator</defName>
+    <title>supply coordinator</title>
+    <titleShort>supply</titleShort>
+    <slot>Adulthood</slot>
+    <baseDesc>Ensures the right gear gets to the right place at the right time.</baseDesc>
+    <skillGains><Social>2</Social><Intellectual>2</Intellectual><Animals>1</Animals></skillGains>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Command</li>
+    </spawnCategories>
     <forcedTraits>
     <Abrasive>0</Abrasive>
     </forcedTraits>
@@ -364,7 +504,10 @@
     <slot>Adulthood</slot>
     <baseDesc>Makes scarcity vanish on paper, then in crates.</baseDesc>
     <skillGains><Social>2</Social><Intellectual>2</Intellectual><Crafting>1</Crafting></skillGains>
-    <spawnCategories><li>Civil</li></spawnCategories>
+    <spawnCategories>
+      <li>Civil</li>
+      <li>Romulan_Command</li>
+    </spawnCategories>
     <forcedTraits>
     <Abrasive>0</Abrasive>
     </forcedTraits>
