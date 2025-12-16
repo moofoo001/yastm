@@ -78,9 +78,11 @@
       </li>
       <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Breakdownable" />
-
-            <!--li Class="YASTM.CompProperties_ReplicatorRunner" /-->
-            
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>ST_MatterConverter</li>
+        </linkableFacilities>
+      </li>
     </comps>
 
     <researchPrerequisites>

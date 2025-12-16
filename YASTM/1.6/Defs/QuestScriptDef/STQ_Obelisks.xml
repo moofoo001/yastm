@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- YASTM – Obelisk Questline (v1.6) -->
   <QuestScriptDef>
     <defName>STQ_VE_Obelisks_I_II_Setup</defName>
     <modExtensions>
@@ -25,8 +24,6 @@
     <root Class="QuestNode_Sequence">
       <nodes>
 
-        <!-- ========= PHASE I ========= -->
-  
         <li Class="QuestNode_Letter">
           <inSignal>QuestAccepted</inSignal>
           <label>STQ.Obelisks.Setup.LetterTitle</label>
@@ -34,16 +31,13 @@
           <letterDef>NeutralEvent</letterDef>
         </li>
 
-  
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
+        <li Class="YASTM.Source.Quest.QuestNode_RenameOnSignal">
           <inSignal>QuestAccepted</inSignal>
           <titleKey>STQ.Obelisks.PhaseI.Title</titleKey>
           <descriptionKey>STQ.Obelisks.PhaseI.Desc</descriptionKey>
         </li>
 
-        <!-- ========= PHASE II ========= -->
-  
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
+        <li Class="YASTM.Source.Quest.QuestNode_RenameOnSignal">
           <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
           <titleKey>STQ.Obelisks.PhaseII.Title</titleKey>
           <descriptionKey>STQ.Obelisks.PhaseII.Desc</descriptionKey>
@@ -63,15 +57,14 @@
           <letterDef>NeutralEvent</letterDef>
         </li>
 
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
+        <li Class="YASTM.Source.Quest.QuestNode_RunIncidentNow">
           <inSignal>STQ.Obelisks.DataTransmitted</inSignal>
           <incident>ManhunterPack</incident>
           <pointsFactor>1.0</pointsFactor>
           <outSignal>STQ.Obelisks.II.ManhuntersSpawned</outSignal>
         </li>
 
-  
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
+        <li Class="YASTM.Source.Quest.QuestNode_WaitEnemiesDefeated">
           <inSignal>STQ.Obelisks.II.ManhuntersSpawned</inSignal>
           <onlyManhunters>true</onlyManhunters>
           <outSignal>STQ.Obelisks.II.Cleared</outSignal>
@@ -85,15 +78,13 @@
           <letterDef>NeutralEvent</letterDef>
         </li>
 
-        <!-- ========= PHASE III (Pressure) ========= -->
-  
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
+        <li Class="YASTM.Source.Quest.QuestNode_RenameOnSignal">
           <inSignal>STQ.Obelisks.II.Cleared</inSignal>
           <titleKey>STQ.Obelisks.PhaseIII.Title</titleKey>
           <descriptionKey>STQ.Obelisks.PhaseIII.Desc</descriptionKey>
         </li>
 
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_DelayThenSignalOnSignal">
+        <li Class="YASTM.Source.Quest.QuestNode_DelayThenSignalOnSignal">
           <inSignal>STQ.Obelisks.II.Cleared</inSignal>
           <delayTicksMin>60000</delayTicksMin>
           <delayTicksMax>120000</delayTicksMax>
@@ -101,14 +92,14 @@
           <debug>true</debug>
         </li>
 
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
+        <li Class="YASTM.Source.Quest.QuestNode_RunIncidentNow">
           <inSignal>STQ.Obelisks.III.DelayDone</inSignal>
           <incident>ManhunterPack</incident>
           <pointsFactor>1.05</pointsFactor>
           <outSignal>STQ.Obelisks.III.ManhuntersSpawned</outSignal>
         </li>
 
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
+        <li Class="YASTM.Source.Quest.QuestNode_WaitEnemiesDefeated">
           <inSignal>STQ.Obelisks.III.ManhuntersSpawned</inSignal>
           <onlyManhunters>true</onlyManhunters>
           <outSignal>STQ.Obelisks.III.Cleared</outSignal>
@@ -121,10 +112,7 @@
           <letterDef>NeutralEvent</letterDef>
         </li>
 
-      <!-- PHASE IV  -->
-      <!-- ====== CHOICE: Warden vs Vault ====== -->
-
-      <li Class="StarTrekFactions.QuestNodes.QuestNode_DelayThenSignalOnSignal">
+      <li Class="YASTM.Source.Quest.QuestNode_DelayThenSignalOnSignal">
         <inSignal>STQ.Obelisks.III.Cleared</inSignal>
         <delayTicksMin>60000</delayTicksMin>
         <delayTicksMax>60000</delayTicksMax>
@@ -133,7 +121,7 @@
         <debug>false</debug>
       </li>
       
-      <li Class="StarTrekFactions.QuestNodes.QuestNode_ChoiceDialogOnSignalV2">
+      <li Class="YASTM.Source.Quest.QuestNode_ChoiceDialogOnSignalV2">
         <inSignal>STQ.Obelisks.III.Cleared</inSignal>
 
         <titleKey>STQ.Obelisks.Choice.Title</titleKey>
@@ -146,9 +134,7 @@
         <optionBSignal>STQ.Obelisks.Path.Vault.Chosen</optionBSignal>
       </li>
 
-      <!-- ====== PFAD IV: WARDEN ====== -->
-
-      <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
+      <li Class="YASTM.Source.Quest.QuestNode_RenameOnSignal">
         <inSignal>STQ.Obelisks.Path.Warden.Chosen</inSignal>
         <titleKey>STQ.Obelisks.PhaseIV.Title</titleKey>
         <descriptionKey>STQ.Obelisks.PhaseIV.Desc</descriptionKey>
@@ -160,7 +146,7 @@
         <letterDef>NeutralEvent</letterDef>
       </li>
 
-      <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
+      <li Class="YASTM.Source.Quest.QuestNode_RunIncidentNow">
         <inSignal>STQ.Obelisks.Path.Warden.Chosen</inSignal>
         <incident>RaidEnemy</incident>
         <forcedFactionDef>Romulan_Star_Empire</forcedFactionDef>
@@ -170,7 +156,7 @@
         <outSignal>STQ.Obelisks.IV.RaidSpawned</outSignal>
       </li>
 
-      <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
+      <li Class="YASTM.Source.Quest.QuestNode_WaitEnemiesDefeated">
         <inSignal>STQ.Obelisks.IV.RaidSpawned</inSignal>
         <onlyManhunters>false</onlyManhunters>
         <outSignal>STQ.Obelisks.IV.Cleared</outSignal>
@@ -190,8 +176,7 @@
         <letterDef>PositiveEvent</letterDef>
       </li>
 
-
-      <li Class="StarTrekFactions.QuestNodes.QuestNode_SpawnRewardsOnSignal">
+      <li Class="YASTM.Source.Quest.QuestNode_SpawnRewardsOnSignal">
         <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
         <dropPod>true</dropPod>
         <rewards>
@@ -203,13 +188,12 @@
         </rewards>
       </li>
 
-      <li Class="StarTrekFactions.QuestNodes.QuestNode_EndOnSignal">
+      <li Class="YASTM.Source.Quest.QuestNode_EndOnSignal">
         <inSignal>STQ.Obelisks.IV.Cleared</inSignal>
         <outcome>Success</outcome>
       </li>
 
-      <!-- ====== PFAD V: VAULT ====== -->
-      <li Class="StarTrekFactions.QuestNodes.QuestNode_RenameOnSignal">
+      <li Class="YASTM.Source.Quest.QuestNode_RenameOnSignal">
         <inSignal>STQ.Obelisks.Path.Vault.Chosen</inSignal>
         <titleKey>STQ.Obelisks.PhaseV.Title</titleKey>
         <descriptionKey>STQ.Obelisks.PhaseV.Desc</descriptionKey>
@@ -221,7 +205,7 @@
         <letterDef>NeutralEvent</letterDef>
       </li>
 
-      <li Class="StarTrekFactions.QuestNodes.QuestNode_RunIncidentNow">
+      <li Class="YASTM.Source.Quest.QuestNode_RunIncidentNow">
         <inSignal>STQ.Obelisks.Path.Vault.Chosen</inSignal>
         <incident>RaidEnemy</incident>
         <forcedFactionDef>Romulan_Star_Empire</forcedFactionDef>
@@ -231,20 +215,12 @@
         <outSignal>STQ.Obelisks.V.RaidSpawned</outSignal>
       </li>
 
-      <li Class="StarTrekFactions.QuestNodes.QuestNode_WaitEnemiesDefeated">
+      <li Class="YASTM.Source.Quest.QuestNode_WaitEnemiesDefeated">
         <inSignal>STQ.Obelisks.V.RaidSpawned</inSignal>
         <onlyManhunters>false</onlyManhunters>
         <outSignal>STQ.Obelisks.V.Cleared</outSignal>
       </li>
 
-<!--
-      <li Class="QuestNode_Letter">
-        <inSignal>STQ.Obelisks.V.RaidSpawned</inSignal>
-        <label>DEBUG: V raid spawned</label>
-        <text>DEBUG</text>
-        <letterDef>NeutralEvent</letterDef>
-      </li>
--->
       <li Class="QuestNode_Letter">
         <inSignal>STQ.Obelisks.V.Cleared</inSignal>
         <label>STQ.Obelisks.PhaseV.DoneTitle</label>
@@ -252,7 +228,7 @@
         <letterDef>PositiveEvent</letterDef>
       </li>
 
-      <li Class="StarTrekFactions.QuestNodes.QuestNode_SpawnRewardsOnSignal">
+      <li Class="YASTM.Source.Quest.QuestNode_SpawnRewardsOnSignal">
         <inSignal>STQ.Obelisks.V.Cleared</inSignal>
         <dropPod>true</dropPod>
         <rewards>
@@ -264,7 +240,7 @@
         </rewards>
       </li>
 
-      <li Class="StarTrekFactions.QuestNodes.QuestNode_EndOnSignal">
+      <li Class="YASTM.Source.Quest.QuestNode_EndOnSignal">
         <inSignal>STQ.Obelisks.V.Cleared</inSignal>
         <outcome>Success</outcome>
       </li>

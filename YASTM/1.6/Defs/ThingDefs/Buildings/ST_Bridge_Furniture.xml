@@ -6,7 +6,7 @@
     <label>Captain's Chair</label>
     <description>The center seat. Assign a high-ranking officer to 'Bridge' work to man this station.</description>
     <graphicData>
-      <texPath>Things/Building/Interiors/ST_chair</texPath> 
+      <texPath>Things/Building/Interiors/ST_CptChair</texPath> 
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(1.2,1.2)</drawSize>
       <damageData>
@@ -34,7 +34,15 @@
     <designationCategory>ST_Designation</designationCategory>
     
     <hasInteractionCell>true</hasInteractionCell>
-    <interactionCellOffset>(0,0,0)</interactionCellOffset> <comps>
+    <interactionCellOffset>(0,0,0)</interactionCellOffset>
+    
+    <building>
+      <bed_showSleeperBody>false</bed_showSleeperBody>
+      <paintable>true</paintable>
+      <buildingSizeCategory>Small</buildingSizeCategory>
+    </building>
+
+    <comps>
         <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
             <role>Command</role>
             <mannable>true</mannable>
@@ -43,6 +51,13 @@
             <compClass>CompPowerTrader</compClass>
             <basePowerConsumption>50</basePowerConsumption>
         </li>
+        <li Class="YASTM.Source.Comps.CompProperties_GraphicOverlay">
+         <altitude>MoteOverhead</altitude> <graphicData>
+           <texPath>Things/Building/Interiors/ST_CptChair_overlay</texPath>
+           <graphicClass>Graphic_Multi</graphicClass>
+           <drawSize>(1.2,1.2)</drawSize>
+         </graphicData>
+       </li>
     </comps>
   </ThingDef>
 

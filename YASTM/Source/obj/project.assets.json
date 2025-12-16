@@ -690,19 +690,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\moofoo\\.nuget\\packages\\": {}
+    "/home/moofoo/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
+      "projectUniqueName": "/run/media/moofoo/WD_Black/SteamLibrary/steamapps/common/RimWorld/Mods/YASTM/Source/YASTM.csproj",
       "projectName": "YASTM",
-      "projectPath": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
-      "packagesPath": "C:\\Users\\moofoo\\.nuget\\packages\\",
-      "outputPath": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\obj\\",
+      "projectPath": "/run/media/moofoo/WD_Black/SteamLibrary/steamapps/common/RimWorld/Mods/YASTM/Source/YASTM.csproj",
+      "packagesPath": "/home/moofoo/.nuget/packages/",
+      "outputPath": "/run/media/moofoo/WD_Black/SteamLibrary/steamapps/common/RimWorld/Mods/YASTM/Source/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\moofoo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/moofoo/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net472"
@@ -726,7 +726,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net472": {
@@ -748,7 +748,7 @@
             "version": "[*, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }

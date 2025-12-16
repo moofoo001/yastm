@@ -2,7 +2,7 @@ using RimWorld;
 using RimWorld.QuestGen;
 using Verse;
 
-namespace StarTrekFactions.QuestNodes
+namespace YASTM.Source.Quest
 {
     public class QuestNode_StartQuestOnSignal : QuestNode
     {

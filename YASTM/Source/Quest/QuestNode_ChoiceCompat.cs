@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using RimWorld;            
 using RimWorld.QuestGen;
 using Verse;
+using YASTM.Source.Systems;
 
 namespace StarTrekFactions.QuestNodes
 {

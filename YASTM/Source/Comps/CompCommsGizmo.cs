@@ -138,7 +138,7 @@ namespace YASTM.Comps
 
                         ChooseOperatorAndRun("A commissioned Starfleet officer must operate the console.", pawn =>
                         {
-                            var watcher = StarTrekFactions.GameComponent_QuestWatchers.Instance;
+                            var watcher = YASTM.Source.Systems.GameComponent_QuestWatchers.Instance;
 
                             // Build Starfleet pool from explicit questPool
                             var starfleetPool = (Props.questPool ?? new List<QuestScriptDef>())

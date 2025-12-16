@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!--  Kahless sword quest: w.i.p. -->
-
   <QuestScriptDef>
     <defName>STQ_Quest_KahlessSword</defName>
     <label>Quest: The Sword of Kahless</label>
 
-    <description>Tales speak of the legendary Sword of Kahless, lost long ago.
-      A contact claims to know where it is hidden and will reveal the location
-      in exchange for a small favor.
-      If the story is true, securing the sword would greatly inspire any Klingon followers.</description>
+    <description>Tales speak of the legendary Sword of Kahless...</description>
 
     <rootSelectionWeight>0</rootSelectionWeight>
     <rootMinPoints>0</rootMinPoints>
@@ -32,14 +27,10 @@
     <questDescriptionRules>
       <rulesStrings>
         <li>questDescription->
-          Tales speak of the legendary Sword of Kahless, lost long ago.
-          A contact claims to know where it is hidden and will reveal the location
-          in exchange for a small favor.\n\n
-          If the story is true, securing the sword would greatly inspire any Klingon followers.
+          Tales speak of the legendary Sword of Kahless...
         </li>
       </rulesStrings>
     </questDescriptionRules>
-
 
     <root Class="QuestNode_Sequence">
       <nodes>
@@ -47,27 +38,19 @@
         <li Class="QuestNode_Letter">
           <inSignal>QuestAccepted</inSignal>
           <label>The Sword of Kahless</label>
-          <text>A Klingon talespinner has given you a lead on the legendary Sword of Kahless.
-            After a series of coded messages and honor-duels by proxy, the contact finally
-            reveals the supposed location.\n\n
-            To your surprise, the sword is not being contested – it has been forgotten here,
-            far from Qo'noS. For now.\n\n
-            Bringing the sword into your house will ignite the spirit of Kahless in any true
-            Klingon under your command.</text>
+          <text>A Klingon talespinner has given you a lead...</text>
           <letterDef>PositiveEvent</letterDef>
         </li>
         
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_KahlessGenerateSite">
-          <inSignal>QuestAccepted</inSignal>
-        </li>
+        <li Class="YASTM.Source.Quest.QuestNode_KahlessGenerateSite">
+           </li>
 
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_EndOnSignal">
+        <li Class="YASTM.Source.Quest.QuestNode_EndOnSignal">
           <inSignal>QuestAccepted</inSignal>
           <outcome>Success</outcome>
         </li>
 
-        <!-- reward -->
-        <li Class="StarTrekFactions.QuestNodes.QuestNode_SpawnRewardsOnSignal">
+        <li Class="YASTM.Source.Quest.QuestNode_SpawnRewardsOnSignal">
             <inSignal>QuestAccepted</inSignal>
             <dropPod>true</dropPod>
             <rewards>
@@ -77,7 +60,5 @@
 
       </nodes>
     </root>
-
   </QuestScriptDef>
-
 </Defs>

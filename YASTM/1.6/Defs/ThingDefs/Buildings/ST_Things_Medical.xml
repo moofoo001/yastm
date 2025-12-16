@@ -41,7 +41,7 @@
       <bed_maxBodySize>999</bed_maxBodySize>
       <bed_showSleeperBody>false</bed_showSleeperBody>
       <bed_healPerDay>5</bed_healPerDay>
-        <bed_defaultMedical>true</bed_defaultMedical>
+      <bed_defaultMedical>true</bed_defaultMedical>
 	    <buildingSizeCategory>Small</buildingSizeCategory>
     </building>
 

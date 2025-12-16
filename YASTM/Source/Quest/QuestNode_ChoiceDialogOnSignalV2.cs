@@ -1,9 +1,8 @@
 using RimWorld.QuestGen;
 using Verse;
 
-namespace StarTrekFactions.QuestNodes
+namespace YASTM.Source.Quest
 {
-
     public class QuestNode_ChoiceDialogOnSignalV2 : QuestNode
     {
         public string inSignal;
@@ -16,7 +15,6 @@ namespace StarTrekFactions.QuestNodes
 
         public string optionBLabel;
         public string optionBSignal;
-
 
         public string choiceMadeSignal = "STQ.Obelisks.Path.ChoiceMade";
 
@@ -49,4 +47,3 @@ namespace StarTrekFactions.QuestNodes
             => !inSignal.NullOrEmpty() && !optionASignal.NullOrEmpty() && !optionBSignal.NullOrEmpty();
     }
 }
-

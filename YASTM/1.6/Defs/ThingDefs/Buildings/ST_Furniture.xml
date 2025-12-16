@@ -197,7 +197,7 @@
     </costList>
 
     <building>
-      <bed_showSleeperBody>true</bed_showSleeperBody>
+      <bed_showSleeperBody>false</bed_showSleeperBody>
       <bed_healPerDay>2</bed_healPerDay>
       <bed_defaultMedical>false</bed_defaultMedical>
       <paintable>true</paintable>

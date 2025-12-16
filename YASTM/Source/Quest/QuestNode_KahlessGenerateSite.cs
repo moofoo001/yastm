@@ -3,7 +3,7 @@ using RimWorld.Planet;       // SitePartDef
 using RimWorld.QuestGen;     // QuestNode, Slate
 using Verse;
 
-namespace StarTrekFactions.QuestNodes
+namespace YASTM.Source.Quest
 {
     /// <summary>
     /// Placeholder quest node for future Kahless world-site generation.

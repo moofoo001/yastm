@@ -66,6 +66,28 @@
     <designationCategory>ST_Designation</designationCategory>
 
     <comps>
+
+    <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0.0</fuelConsumptionRate>
+        <fuelCapacity>100.0</fuelCapacity> <fuelFilter>
+          <thingDefs>
+            <li>ST_ReplicatorFeedstock</li>
+          </thingDefs>
+        </fuelFilter>
+        <showFuelGizmo>true</showFuelGizmo>
+        <initialFuelPercent>0.0</initialFuelPercent>
+        <autoRefuelPercent>0.5</autoRefuelPercent>
+        <fuelLabel>Main Matter Tank</fuelLabel>
+        <fuelGizmoLabel>Converter Tank</fuelGizmoLabel>
+        <outOfFuelMessage>Main buffer empty</outOfFuelMessage>
+      </li>
+
+      <li Class="CompProperties_Facility">
+        <maxSimultaneous>4</maxSimultaneous> <mustBePlacedAdjacent>true</mustBePlacedAdjacent> <maxDistance>10</maxDistance> <linkableBuildings>
+          <li>ST_Replicator</li>
+        </linkableBuildings>
+      </li>
+      
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>200</basePowerConsumption>

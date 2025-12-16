@@ -1,22 +1,25 @@
-using System.Collections.Generic;
 using Verse;
 using RimWorld;
 
 namespace YASTM.Source.Comps
 {
+    // Die Rolle der Station auf der Brücke
     public enum BridgeRole
     {
         None,
-        Command,
-        Tactical,
-        Ops,
-        Science,
-        Conn
+        Command,    // Captain
+        Tactical,   // Worf / Reed
+        Ops,        // Data / Harry Kim
+        Science,    // Spock / Jadzia Dax
+        Conn        // Pilot / Paris / Mayweather
     }
 
     public class CompProperties_BridgeStation : CompProperties
     {
         public BridgeRole role = BridgeRole.None;
+        
+        // FIX: Dieses Feld hat gefehlt und den Fehler verursacht!
+        public bool mannable = true; 
 
         public CompProperties_BridgeStation()
         {
@@ -28,31 +31,27 @@ namespace YASTM.Source.Comps
     {
         public CompProperties_BridgeStation Props => (CompProperties_BridgeStation)props;
 
-        // Prüft, ob die Station aktuell aktiv besetzt ist
+        // Hilfsmethode für den Manager, um zu prüfen, ob hier gerade jemand arbeitet
         public bool IsManned
         {
             get
             {
-                // Nutzt Vanilla CompMannable
+                // Prüfung 1: Vanilla Mannable Comp (z.B. Turrets)
                 CompMannable mannable = parent.TryGetComp<CompMannable>();
-                if (mannable != null && mannable.MannedNow)
+                if (mannable != null && mannable.MannedNow) return true;
+
+                // Prüfung 2: Sitzt jemand drauf und führt unseren Job aus?
+                if (parent is Building building && parent.Map != null)
                 {
-                    return true;
-                }
-                
-                // Fallback: Prüfen ob ein Pawn auf dem InteractionCell steht und arbeitet
-                // (Für Gebäude ohne CompMannable aber mit Interaction)
-                if (parent is Building building)
-                {
-                    // Einfache Logik: Ist ein Colonist auf dem Stuhl/Spot?
-                    IntVec3 spot = parent.InteractionCell;
-                    List<Thing> thingList = spot.GetThingList(parent.Map);
-                    foreach (Thing t in thingList)
+                    // Wir prüfen die InteractionCell
+                    IntVec3 cell = building.InteractionCell;
+                    var things = cell.GetThingList(parent.Map);
+                    for (int i = 0; i < things.Count; i++)
                     {
-                        if (t is Pawn p && p.IsColonist && !p.Downed && !p.Drafted) 
+                        if (things[i] is Pawn p && p.IsColonist)
                         {
-                            // Strengere Logik: Führt er gerade einen Job an diesem Building aus?
-                            if (p.CurJob != null && p.CurJob.targetA.Thing == parent)
+                            // Prüfen, ob der Pawn den spezifischen Bridge-Job macht
+                            if (p.CurJob != null && p.CurJob.def.defName == "ST_Job_ManBridgeStation")
                                 return true;
                         }
                     }

@@ -3,7 +3,8 @@ using RimWorld;
 using RimWorld.QuestGen;
 using Verse;
 
-namespace StarTrekFactions.QuestNodes
+// FIX: Namespace von 'StarTrekFactions.QuestNodes' zu 'YASTM.Source.Quest' geändert
+namespace YASTM.Source.Quest
 {
     public class QuestNode_SpawnRewardsOnSignal : QuestNode
     {
@@ -56,7 +57,8 @@ namespace StarTrekFactions.QuestNodes
             if (signal.tag != inSignalRaw && signal.tag != inSignalScoped) return;
             fired = true;
 
-            Map map = Find.AnyPlayerHomeMap ?? Find.CurrentMap;
+            // FIX: 'Verse.Map' explizit nutzen, um Konflikte zu vermeiden
+            Verse.Map map = Find.AnyPlayerHomeMap ?? Find.CurrentMap;
             if (map == null) return;
 
             var things = new List<Thing>();
@@ -89,4 +91,3 @@ namespace StarTrekFactions.QuestNodes
         }
     }
 }
-

@@ -127,16 +127,18 @@
     <defName>ST_Replicate_SimpleMeal</defName>
     <label>replicate simple meal</label>
     <description>Replicates a basic nutritional meal from prepared feedstock.</description>
-    <workAmount>400</workAmount>
+    <jobString>replicating meal.</jobString>
+    <workAmount>60</workAmount>
     <workSkill>Cooking</workSkill>
     <workSkillLearnFactor>1</workSkillLearnFactor>
     <effectWorking>Cook</effectWorking>
     <soundWorking>ST_SFX_LCARS_Click</soundWorking>
-
     <skillRequirements>
       <Cooking>2</Cooking>
     </skillRequirements>
-    
+    <ingredients/>
+
+    <!-- old ingredients format preserved for reference
     <ingredients>
       <li>
         <filter>
@@ -159,11 +161,11 @@
       <li>ST_ReplicatorFeedstock</li>
     </thingDefs>
   </defaultIngredientFilter>
+  -->
 
     <products>
       <ST_Replicated_SimpleMeal>1</ST_Replicated_SimpleMeal>
     </products>
-
     <recipeUsers>
       <li>ST_Replicator</li>
     </recipeUsers>
@@ -175,37 +177,15 @@
     <defName>ST_Replicate_LuxuryMeal</defName>
     <label>replicate luxury meal</label>
     <description>Replicates a luxury meal from prepared feedstock.</description>
-    <workAmount>1200</workAmount>
+    <workAmount>80</workAmount>
     <workSkill>Cooking</workSkill>
     <workSkillLearnFactor>1.1</workSkillLearnFactor>
     <effectWorking>Cook</effectWorking>
     <soundWorking>ST_SFX_LCARS_Click</soundWorking>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>ST_ReplicatorFeedstock</li>
-          </thingDefs>
-        </filter>
-        <count>2</count>
-      </li>
-    </ingredients>
-
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>ST_ReplicatorFeedstock</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <defaultIngredientFilter>
-      <thingDefs>
-        <li>ST_ReplicatorFeedstock</li>
-      </thingDefs>
-    </defaultIngredientFilter>
-
+    <ingredients/>
     <skillRequirements>
-      <Cooking>6</Cooking>
+      <Cooking>2</Cooking>
     </skillRequirements>
-
     <products>
       <ST_Replicated_LuxuryMeal>1</ST_Replicated_LuxuryMeal>
     </products>
@@ -222,45 +202,21 @@
     <description>Replicates a high-nutrition meal pack designed for survival situations.</description>
     <jobString>*Beep* *Beep* *Beeeeep*</jobString>
     <workSpeedStat>CookSpeed</workSpeedStat>
-    <workAmount>600</workAmount>
+    <workAmount>60</workAmount>
     <workSkill>Cooking</workSkill>
     <workSkillLearnFactor>1</workSkillLearnFactor>
     <effectWorking>Cook</effectWorking>
     <soundWorking>ST_SFX_LCARS_Click</soundWorking>
     <skillRequirements>
-      <Cooking>4</Cooking>
+      <Cooking>2</Cooking>
     </skillRequirements>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>ST_ReplicatorFeedstock</li>
-          </thingDefs>
-        </filter>
-        <count>2</count>
-      </li>
-    </ingredients>
-
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>ST_ReplicatorFeedstock</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-
-    <defaultIngredientFilter>
-      <thingDefs>
-        <li>ST_ReplicatorFeedstock</li>
-      </thingDefs>
-    </defaultIngredientFilter>
-
+    <ingredients/>
     <products>
       <ST_Emergency_Ration>1</ST_Emergency_Ration>
     </products>
-
     <recipeUsers>
       <li>ST_Replicator</li>
     </recipeUsers>
-
     <researchPrerequisite>ST_Replicator_Tech</researchPrerequisite>
   </RecipeDef>
 
@@ -271,45 +227,21 @@
     <description>Replicates a strong, energizing beverage popular among starship crews.</description>
     <jobString>*Beep* *Beep* *Beeeeep*</jobString>
     <workSpeedStat>CookSpeed</workSpeedStat>
-    <workAmount>250</workAmount>
+    <workAmount>30</workAmount>
     <workSkill>Cooking</workSkill>
     <workSkillLearnFactor>1</workSkillLearnFactor>
     <effectWorking>Cook</effectWorking>
     <soundWorking>ST_SFX_LCARS_Click</soundWorking>
     <skillRequirements>
-      <Cooking>3</Cooking>
+      <Cooking>2</Cooking>
     </skillRequirements>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>ST_ReplicatorFeedstock</li>
-          </thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-    </ingredients>
-
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>ST_ReplicatorFeedstock</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-
-    <defaultIngredientFilter>
-      <thingDefs>
-        <li>ST_ReplicatorFeedstock</li>
-      </thingDefs>
-    </defaultIngredientFilter>
-
+    <ingredients/>
     <products>
       <ST_Drink_Raktajino>1</ST_Drink_Raktajino>
     </products>
-
     <recipeUsers>
       <li>ST_Replicator</li>
     </recipeUsers>
-
     <researchPrerequisite>ST_Replicator_Tech</researchPrerequisite>
   </RecipeDef>
 

@@ -1,7 +1,7 @@
 using Verse;
 using RimWorld;
 
-namespace StarTrekFactions.QuestParts
+namespace YASTM.Source.Quest
 {
 
     public class QuestPart_DialogOnSignal : QuestPart

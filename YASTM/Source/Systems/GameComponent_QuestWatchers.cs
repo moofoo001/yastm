@@ -1,13 +1,13 @@
-// File: Source/Quest/GameComponent_QuestWatchers.cs
 using System.Collections.Generic;
 using Verse;
-using StarTrekFactions.QuestNodes;
+// WICHTIG: Hier laden wir unsere Quest-Klassen
+using YASTM.Source.Quest; 
 
-namespace StarTrekFactions
+// FIX: Namespace angepasst (war StarTrekFactions)
+namespace YASTM.Source.Systems
 {
     public class GameComponent_QuestWatchers : GameComponent
     {
-
         private const bool LogDebug = true;
         private int _lastLogTick;
     
@@ -16,18 +16,12 @@ namespace StarTrekFactions
         private readonly List<QuestPart_DelayThenSignalOnSignal> timers =
             new List<QuestPart_DelayThenSignalOnSignal>();
 
-        /// <summary>
-        /// True once the special Obelisk/Starfleet assignment has been requested
-        /// via the comms console. Used to ensure this assignment is only offered once
-        /// per game.
-        /// </summary>
         public bool ObeliskAssignmentUsed;
 
         public GameComponent_QuestWatchers(Game game)
         {
             if (LogDebug) Log.Message("[YASTM][Watcher] GameComponent_QuestWatchers constructed.");
         }
-
 
         public static GameComponent_QuestWatchers Instance
         {

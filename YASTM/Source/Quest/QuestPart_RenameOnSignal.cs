@@ -1,41 +1,31 @@
-// Source/Quest/QuestPart_RenameOnSignal.cs
-using Verse;
 using RimWorld;
+using RimWorld.QuestGen;
+using Verse;
 
-namespace StarTrekFactions.QuestParts
+namespace YASTM.Source.Quest
 {
-
     public class QuestPart_RenameOnSignal : QuestPart
     {
-        public string inSignal;          
-        public string nameKey;          
-        public string descriptionKey;  
+        public string inSignalRaw;
+        public string inSignalScoped;
+        public string title;
+        public string description;
 
         public override void Notify_QuestSignalReceived(Signal signal)
         {
-            if (signal.tag != inSignal && signal.tag != $"Quest{quest.id}.{inSignal}")
-                return;
-
-
-            string newName = quest.name;
-            if (!nameKey.NullOrEmpty())
-                newName = nameKey.Translate().ToString().CapitalizeFirst(); 
-
-            quest.name = newName;
-
-            if (!descriptionKey.NullOrEmpty())
-                quest.description = descriptionKey.Translate().ToString();  
-
-            Log.Message($"[YASTM][RENAME] quest {quest.id} → '{quest.name}' (sig='{signal.tag}')");
+            if (signal.tag != inSignalRaw && signal.tag != inSignalScoped) return;
+            
+            if (!title.NullOrEmpty()) quest.name = title;
+            if (!description.NullOrEmpty()) quest.description = description;
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref inSignal, nameof(inSignal));
-            Scribe_Values.Look(ref nameKey, nameof(nameKey));
-            Scribe_Values.Look(ref descriptionKey, nameof(descriptionKey));
+            Scribe_Values.Look(ref inSignalRaw, "inSignalRaw");
+            Scribe_Values.Look(ref inSignalScoped, "inSignalScoped");
+            Scribe_Values.Look(ref title, "title");
+            Scribe_Values.Look(ref description, "description");
         }
     }
 }
-

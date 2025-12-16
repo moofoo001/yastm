@@ -3,9 +3,9 @@ using Verse;
 using RimWorld;
 using RimWorld.QuestGen;
 
-namespace StarTrekFactions.QuestNodes
-{
 
+namespace YASTM.Source.Quest
+{
     public class QuestNode_FindFarCells : QuestNode
     {
         public SlateRef<int> minDist = 40; 
@@ -14,32 +14,34 @@ namespace StarTrekFactions.QuestNodes
 
         protected override void RunInt()
         {
-            var slate = QuestGen.slate;
-            var map = slate.Get<Map>("map");
+            // FIX: Verse.Map verwenden (hattest du hier schon richtig)
+            Verse.Map map = Find.AnyPlayerHomeMap; 
             if (map == null) return;
 
+            Slate slate = QuestGen.slate;
             IntVec3 a;
+            
+            // Aufruf unserer Hilfsmethode
             if (TryFind(map, minDist.GetValue(slate), maxDist.GetValue(slate), out a))
                 slate.Set("locA", a);
 
             if (findTwo.GetValue(slate))
             {
                 IntVec3 b;
-
+                // Aufruf Hilfsmethode
                 if (TryFind(map, minDist.GetValue(slate), maxDist.GetValue(slate), out b, 18, a))
                     slate.Set("locB", b);
             }
         }
+        
+        protected override bool TestRunInt(Slate slate) => true;
 
-        protected override bool TestRunInt(Slate slate)
-        {
-
-            return slate.Get<Map>("map") != null;
-        }
-
-        private bool TryFind(Map map, int min, int max, out IntVec3 cell, int minFromOther = 0, IntVec3 other = default)
+        // FIX: Hier lag der Fehler! "Map" -> "Verse.Map"
+        private bool TryFind(Verse.Map map, int min, int max, out IntVec3 cell, int minFromOther = 0, IntVec3 other = default)
         {
             var center = map.Center;
+            
+            // Lokale Validierungs-Funktion
             bool Validator(IntVec3 c)
             {
                 if (!c.InBounds(map) || c.Fogged(map)) return false;
@@ -61,9 +63,7 @@ namespace StarTrekFactions.QuestNodes
                 return true;
             }
 
-
             return CellFinder.TryFindRandomCellNear(center, map, max, Validator, out cell);
         }
     }
 }
-

@@ -6,7 +6,7 @@
     <label>subspace scanner</label>
     <description>Wide-area subspace sweep emitter. Must be linked to a science console to initiate scans.</description>
 
-    <!-- Graphics (add a PNG at this path) -->
+
     <graphicData>
       <texPath>Things/Building/Science/ST_SubspaceScanner</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -15,7 +15,6 @@
     </graphicData>
 
 
-    <!-- Placement / interaction -->
     <size>(2,2)</size>
     <rotatable>true</rotatable>
     <passability>PassThroughOnly</passability>
@@ -44,23 +43,11 @@
 
       <li Class="YASTM.Comps.CompProperties_SubspaceScanner" />
 
-      <!-- Accepts the science console as facility/controller -->
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
           <li>ST_ScienceConsole</li>
         </linkableFacilities>
       </li>
-
-      <!-- Proximity link to both obelisks 
-      <li Class="RimWorld.CompProperties_Facility">
-        <linkableBuildings>
-          <li>ST_Obelisk_A</li>
-          <li>ST_Obelisk_B</li>
-        </linkableBuildings>
-        <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
-        <maxSimultaneous>2</maxSimultaneous>
-      </li>
-      -->
     </comps>
     
     <modExtensions>

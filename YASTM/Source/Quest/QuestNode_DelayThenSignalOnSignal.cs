@@ -2,7 +2,8 @@ using RimWorld;
 using RimWorld.QuestGen;
 using Verse;
 
-namespace StarTrekFactions.QuestNodes
+// FIX: Namespace angepasst
+namespace YASTM.Source.Quest
 {
     public class QuestNode_DelayThenSignalOnSignal : QuestNode
     {
@@ -32,7 +33,6 @@ namespace StarTrekFactions.QuestNodes
                 outSignalRaw    = outSignal,
                 outSignalScoped = outSignal.NullOrEmpty() ? null : QuestGenUtility.HardcodedSignalWithQuestID(outSignal),
 
-
                 cancelIfSignalRaw    = cancelIfSignal,
                 cancelIfSignalScoped = cancelIfSignal.NullOrEmpty() ? null : QuestGenUtility.HardcodedSignalWithQuestID(cancelIfSignal),
 
@@ -53,7 +53,6 @@ namespace StarTrekFactions.QuestNodes
         public string outSignalRaw, outSignalScoped;
         public bool debug;
 
-
         public string cancelIfSignalRaw, cancelIfSignalScoped;
 
         private bool active;
@@ -61,7 +60,6 @@ namespace StarTrekFactions.QuestNodes
 
         public override void Notify_QuestSignalReceived(Signal signal)
         {
-
             if (signal.tag == cancelIfSignalRaw || signal.tag == cancelIfSignalScoped)
             {
                 if (active)
@@ -72,17 +70,16 @@ namespace StarTrekFactions.QuestNodes
                 return;
             }
 
-
             if (signal.tag == inSignalRaw || signal.tag == inSignalScoped)
             {
                 active = true;
                 targetTick = Find.TickManager.TicksGame + delayTicks;
-                StarTrekFactions.GameComponent_QuestWatchers.Instance?.Register(this);
+                // HINWEIS: Prüfe, ob dieser Aufruf noch stimmt (Namespace von QuestWatchers)
+                YASTM.Source.Systems.GameComponent_QuestWatchers.Instance?.Register(this);
                 if (debug)
                     Log.Message($"[YASTM][Delay] Registered on '{signal.tag}', delayTicks={delayTicks}, targetTick={targetTick}, now={Find.TickManager.TicksGame}");
             }
         }
-
 
         public bool TickAndMaybeFire(int _ignored = 0)
         {
@@ -111,7 +108,6 @@ namespace StarTrekFactions.QuestNodes
             Scribe_Values.Look(ref outSignalScoped, "outSignalScoped");
             Scribe_Values.Look(ref debug, "debug", false);
 
-
             Scribe_Values.Look(ref cancelIfSignalRaw, "cancelIfSignalRaw");
             Scribe_Values.Look(ref cancelIfSignalScoped, "cancelIfSignalScoped");
 
@@ -119,8 +115,7 @@ namespace StarTrekFactions.QuestNodes
             Scribe_Values.Look(ref targetTick, "targetTick", -1);
 
             if (Scribe.mode == LoadSaveMode.PostLoadInit && active)
-                StarTrekFactions.GameComponent_QuestWatchers.Instance?.Register(this);
+                YASTM.Source.Systems.GameComponent_QuestWatchers.Instance?.Register(this);
         }
     }
 }
-

@@ -1,14 +1,13 @@
-// Source/Quest/QuestNode_EndOnSignal.cs
 using RimWorld;
 using RimWorld.QuestGen;
 using Verse;
 
-namespace StarTrekFactions.QuestNodes
+// FIX: Namespace angepasst
+namespace YASTM.Source.Quest
 {
     public class QuestNode_EndOnSignal : QuestNode
     {
         public string inSignal;
-
         public string outcome = "Success";
 
         protected override void RunInt()
@@ -63,4 +62,3 @@ namespace StarTrekFactions.QuestNodes
         }
     }
 }
-

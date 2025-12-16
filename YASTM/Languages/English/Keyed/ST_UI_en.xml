@@ -134,4 +134,18 @@
   <ST.Phaser.Mode.Overcharge>Overcharge</ST.Phaser.Mode.Overcharge>
   <ST.Phaser.Mode.Overcharge.Desc>Route extra power into the emitter for a high-energy kill shot. Risk of feedback on misfire.</ST.Phaser.Mode.Overcharge.Desc>
 
+  <!-- Bridge Synergy -->
+  <ST_BridgeSynergyOnline>Bridge Synergy Online: Efficiency optimized.</ST_BridgeSynergyOnline>
+  <ST_BridgeSynergyActiveDesc>Bridge Synergy ACTIVE\n\nCaptain and key officers are at their stations.\nEffect: +15% Research Speed, +10% Turret Accuracy.</ST_BridgeSynergyActiveDesc>
+  <ST_BridgeSynergyOfflineDesc>Bridge Synergy OFFLINE\n\nRequire: Captain's Chair + (Ops OR Tactical) occupied.</ST_BridgeSynergyOfflineDesc>
+
+  
+  <!-- Matter Converter feedback -->
+  <ST_ReplicatorNoMatter>Replication failed: Insufficient matter in connected network.</ST_ReplicatorNoMatter>
+  <ST_BridgeSynergyOnline>Bridge Synergy established: Tactical, Ops, and Command online.</ST_BridgeSynergyOnline>
+  <ST_BridgeSynergyActiveDesc>Bridge Synergy Active:\nFull crew complement provides enhanced ship operations.</ST_BridgeSynergyActiveDesc>
+  <ST_BridgeSynergyOfflineDesc>Bridge Synergy Offline:\nRequires Captain, plus Ops or Tactical officers at their stations.</ST_BridgeSynergyOfflineDesc>
+
+</LanguageData>
+
 </LanguageData>
