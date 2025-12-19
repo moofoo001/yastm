@@ -61,6 +61,15 @@
             </statOffsets>
             <maxSimultaneous>2</maxSimultaneous>
         </li>
+
+        <li Class="RimWorld.CompProperties_Power">
+          <compClass>CompPowerTrader</compClass>
+          <basePowerConsumption>150</basePowerConsumption> <shortCircuitInRain>false</shortCircuitInRain>
+        </li>
+
+          <li Class="YASTM.Source.Comps.CompProperties_Biobed">
+            <hediffDef>ST_Biobed_Monitoring</hediffDef>
+          </li>
         </comps>
 
     <tickerType>Rare</tickerType>

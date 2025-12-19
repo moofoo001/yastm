@@ -286,15 +286,15 @@
       </researchMods>    
   </ResearchProjectDef>
 
- <!-- Replicator Technology -->
+  <!-- Matter Conversion Technology -->
   <ResearchProjectDef ParentName="ST_Base_Research">
-    <defName>ST_Replicator_Tech</defName>
-    <label>matter replication protocols</label>
-    <description>Advanced Federation protocols for pattern storage, energy–matter conversion and safety interlocks.
-      Unlocks: GrowthVats and replicator and basic matter conversion technology.</description>
+    <defName>ST_MatterConversion_Tech</defName>
+    <label>matter reclamation systems</label>
+    <description>Federation-grade recycling systems capable of breaking down waste and raw materials into replicator-grade feedstock.
+      Unlocks:  Matter converter and more efficient feedstock production aswell as GroundPenetratingScanner, MoisturePump</description>
     <tab>ST_Research</tab>
-    <baseCost>3000</baseCost>
     <techLevel>Spacer</techLevel>
+    <baseCost>2500</baseCost>
     <prerequisites>
       <li>MultiAnalyzer</li>
       <li>MicroelectronicsBasics</li>
@@ -307,23 +307,24 @@
       <researchMods>
         <li Class="YASTM.ResearchMod_UnlockOtherProjects">
           <projects>
-            <li>GrowthVats</li>
+            <li>GroundPenetratingScanner</li>
+            <li>MoisturePump</li>          
           </projects>
         </li>
-      </researchMods>  
+      </researchMods> 
   </ResearchProjectDef>
-
-  <!-- Matter Conversion Technology -->
+  
+ <!-- Replicator Technology -->
   <ResearchProjectDef ParentName="ST_Base_Research">
-    <defName>ST_MatterConversion_Tech</defName>
-    <label>matter reclamation systems</label>
-    <description>Federation-grade recycling systems capable of breaking down waste and raw materials into replicator-grade feedstock.
-      Unlocks:  Matter converter and more efficient feedstock production aswell as GroundPenetratingScanner, MoisturePump</description>
+    <defName>ST_Replicator_Tech</defName>
+    <label>matter replication protocols</label>
+    <description>Advanced Federation protocols for pattern storage, energy–matter conversion and safety interlocks.
+      Unlocks: GrowthVats and replicator and basic matter conversion technology.</description>
     <tab>ST_Research</tab>
+    <baseCost>3000</baseCost>
     <techLevel>Spacer</techLevel>
-    <baseCost>2500</baseCost>
     <prerequisites>
-      <li>ST_Replicator_Tech</li>
+      <li>ST_MatterConversion_Tech</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
     <researchViewX>7</researchViewX>
@@ -331,11 +332,10 @@
       <researchMods>
         <li Class="YASTM.ResearchMod_UnlockOtherProjects">
           <projects>
-            <li>GroundPenetratingScanner</li>
-            <li>MoisturePump</li>          
+            <li>GrowthVats</li>
           </projects>
         </li>
-      </researchMods> 
+      </researchMods>  
   </ResearchProjectDef>
 
   <!-- Warp Field Theory: high-tier common gateway -->

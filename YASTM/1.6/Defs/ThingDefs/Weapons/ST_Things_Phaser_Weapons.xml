@@ -214,7 +214,7 @@
       <shaderType>CutoutComplex</shaderType>
       <drawSize>(1,1)</drawSize>
     </graphicData>
-    <uiIconScale>1.4</uiIconScale>
+    <uiIconScale>1</uiIconScale>
     <soundInteract>Metal_Drop</soundInteract>
     <weaponTags>
       <li>Starfleet Phasers Security SNW</li>

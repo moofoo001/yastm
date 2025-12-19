@@ -23,10 +23,10 @@
     <thingClass>ST.PhaseWeapons.Projectile_Phaser</thingClass>
     <projectile>
       <damageDef>ST_PhaserStun</damageDef>
-      <damageAmountBase>1</damageAmountBase> 
+      <damageAmountBase>5</damageAmountBase> 
       <armorPenetrationBase>0</armorPenetrationBase>
-      <stoppingPower>0.1</stoppingPower>
-      <speed>100</speed>
+      <stoppingPower>1.5</stoppingPower>
+      <speed>70</speed>
     </projectile>
     <graphicData>
       <texPath>Things/Projectile/PhaserPulse_Stun</texPath>

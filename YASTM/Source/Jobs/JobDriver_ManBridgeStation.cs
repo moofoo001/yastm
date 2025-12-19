@@ -1,59 +1,61 @@
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 using Verse.AI;
-using RimWorld;
 
 namespace YASTM.Source.Jobs
 {
     public class JobDriver_ManBridgeStation : JobDriver
     {
-        // Konstanten
-        private const int TickInterval = 2000; // Wie lange ein "Arbeitsblock" dauert
+        // Zugriff auf das Ziel (die Konsole)
+        protected Thing Station => this.job.GetTarget(TargetIndex.A).Thing;
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            // Reserviere den Stuhl/die Konsole
-            return pawn.Reserve(job.targetA, job, 1, -1, null, errorOnFailed);
+            // Hier war es korrekt ("this.pawn")
+            return this.pawn.Reserve(this.Station, this.job, 1, -1, null, errorOnFailed);
+        }
+
+        private bool CanWork(Pawn pawn, Thing station)
+        {
+            CompPowerTrader compPowerTrader = station.TryGetComp<CompPowerTrader>();
+            return (compPowerTrader == null || compPowerTrader.PowerOn) && !station.IsBrokenDown();
         }
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            // Fehlerbedingungen
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-            this.FailOnBurningImmobile(TargetIndex.A);
+            this.FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
+            
+            // KORREKTUR: "this.pawn" statt "this.Actor"
+            this.FailOn(() => !this.CanWork(this.pawn, this.Station));
 
-            // 1. Gehe zur Station
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
 
-            // 2. Arbeite an der Station
             Toil work = new Toil();
-            work.tickAction = delegate
+            work.tickAction = delegate ()
             {
+                // KORREKTUR: "this.pawn" statt "this.Actor"
                 Pawn actor = this.pawn;
-                Building building = (Building)actor.CurJob.targetA.Thing;
                 
-                // Falls das Gebäude CompMannable hat (z.B. für Turret-Logik), feuern wir das manuell
-                CompMannable mannable = building.GetComp<CompMannable>();
-                if (mannable != null)
-                {
-                    mannable.ManForATick(actor);
-                }
-
-                // Skill-Gain (Intellektuell oder Sozial für Captains?)
-                // Wir nehmen Intellectual als Standard für Brückenoffiziere
-                actor.skills.Learn(SkillDefOf.Intellectual, 0.03f);
+                // Skill gain (Lernen während der Arbeit)
+                actor.skills.Learn(SkillDefOf.Intellectual, 0.035f, false);
                 
-                // Ein bisschen Joy, damit sie nicht durchdrehen, wenn sie den ganzen Tag sitzen
-                actor.needs.joy.GainJoy(0.0001f, JoyKindDefOf.Meditative);
+                // Hier können Sie bei Bedarf weitere Logik einfügen (z.B. Scannen)
             };
-            
-            // Standard: Endlos bis Zeitplan sich ändert oder Bedürfnisse fallen
-            work.defaultCompleteMode = ToilCompleteMode.Never;
-            work.FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
-            
-            // Optional: Visueller Effekt (Sprechen, Tippen)
-            work.WithEffect(EffecterDefOf.Research, TargetIndex.A);
 
+            // --- ANTI-STUCK LOGIK ---
+            // Breche ab, wenn hungrig (unter 25%)
+            work.FailOn(() => pawn.needs.food != null && pawn.needs.food.CurLevelPercentage < 0.25f);
+            // Breche ab, wenn müde (unter 25%)
+            work.FailOn(() => pawn.needs.rest != null && pawn.needs.rest.CurLevelPercentage < 0.25f);
+            // Breche ab, wenn Recreation extrem niedrig (unter 5%)
+            work.FailOn(() => pawn.needs.joy != null && pawn.needs.joy.CurLevelPercentage < 0.05f);
+            // ------------------------
+
+            work.defaultCompleteMode = ToilCompleteMode.Never;
+            work.WithEffect(EffecterDefOf.Research, TargetIndex.A);
+            work.activeSkill = (() => SkillDefOf.Intellectual);
             yield return work;
         }
     }

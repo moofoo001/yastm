@@ -19,14 +19,10 @@
   <WorkGiverDef>
     <defName>ST_WorkGiver_ManBridge</defName>
     <label>man bridge station</label>
-    <giverClass>YASTM.Source.Work.WorkGiver_ManBridgeStation</giverClass>
-    <workType>ST_WorkType_ShipOps</workType>
-    <priorityInType>100</priorityInType>
+    <giverClass>YASTM.Source.WorkGivers.WorkGiver_ManBridgeStation</giverClass>
     <verb>man</verb>
     <gerund>manning</gerund>
-    <requiredCapacities>
-      <li>Manipulation</li>
-    </requiredCapacities>
+    <priorityInType>100</priorityInType>
   </WorkGiverDef>
 
   <JobDef>

@@ -7,15 +7,16 @@ using YASTM.Source.Comps;
 
 namespace YASTM.Source.Map
 {
+    [StaticConstructorOnStartup]
     public class MapComponent_BridgeManager : MapComponent
     {
         private int tickCounter = 0;
         public bool bridgeSynergyActive = false;
-        
-        // FIX: Unbenutztes Feld 'iconSynergyOff' entfernt
+       
         private static Texture2D iconSynergyOn;
 
         // Lazy Loading Property
+
         public static Texture2D IconSynergyOn
         {
             get

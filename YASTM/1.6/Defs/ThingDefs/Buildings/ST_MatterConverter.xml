@@ -3,7 +3,7 @@
 
   <ThingDef ParentName="BenchBase">
     <defName>ST_MatterConverter</defName>
-    <label>atmospheric mater converter</label>
+    <label>atmospheric matter converter</label>
     <description>LCARS atmospheric matter converter that extracts water from the air and prepares it as feedstock for the replicator.</description>
     
     <thingClass>Building_WorkTable</thingClass>
@@ -67,20 +67,9 @@
 
     <comps>
 
-    <li Class="CompProperties_Refuelable">
-        <fuelConsumptionRate>0.0</fuelConsumptionRate>
-        <fuelCapacity>100.0</fuelCapacity> <fuelFilter>
-          <thingDefs>
-            <li>ST_ReplicatorFeedstock</li>
-          </thingDefs>
-        </fuelFilter>
-        <showFuelGizmo>true</showFuelGizmo>
-        <initialFuelPercent>0.0</initialFuelPercent>
-        <autoRefuelPercent>0.5</autoRefuelPercent>
-        <fuelLabel>Main Matter Tank</fuelLabel>
-        <fuelGizmoLabel>Converter Tank</fuelGizmoLabel>
-        <outOfFuelMessage>Main buffer empty</outOfFuelMessage>
-      </li>
+    <li Class="YASTM.Source.Comps.CompProperties_MatterTank">
+            <capacity>100.0</capacity>
+          </li>
 
       <li Class="CompProperties_Facility">
         <maxSimultaneous>4</maxSimultaneous> <mustBePlacedAdjacent>true</mustBePlacedAdjacent> <maxDistance>10</maxDistance> <linkableBuildings>

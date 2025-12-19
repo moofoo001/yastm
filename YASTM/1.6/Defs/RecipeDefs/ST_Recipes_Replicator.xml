@@ -17,7 +17,6 @@
     <recipeUsers>
       <li>ST_MatterConverter</li>
     </recipeUsers>
-
     <ingredients>
       <li>
         <filter>
@@ -72,7 +71,9 @@
   <workSpeedStat>SmeltingSpeed</workSpeedStat>
   <effectWorking>Smelt</effectWorking>
   <soundWorking>Recipe_Smelt</soundWorking>
-
+    <recipeUsers>
+      <li>ST_MatterConverter</li>
+    </recipeUsers>
   
   <ingredients>
     <li>
@@ -111,10 +112,6 @@
   <products>
     <ST_ReplicatorFeedstock>1</ST_ReplicatorFeedstock>
   </products>
-
-  <recipeUsers>
-    <li>ST_MatterConverter</li>
-  </recipeUsers>
 
   <researchPrerequisite>ST_Replicator_Tech</researchPrerequisite>
 </RecipeDef>

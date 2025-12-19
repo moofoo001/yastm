@@ -126,7 +126,69 @@
   </RecipeDef>
 
 
-  <!--item -->
+  <!--item 
+  Hypospray New -->
+  
+<ThingDef ParentName="BaseWeapon"> <defName>ST_Hypospray_Tool</defName>
+    <label>Starfleet Hypospray</label>
+    <description>Advanced medical device. Automatically improves tending quality when carried by a doctor.\n\nCan also inject specific compounds (Analgesic, Stimulant) using internal reserves.</description>
+    <thingClass>ThingWithComps</thingClass>
+
+    <graphicData>
+      <texPath>Things/Item/Equipment/Utilities/Hypospray</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.5</drawSize>
+    </graphicData>
+    <uiIconScale>1.5</uiIconScale>
+    
+    <thingCategories>
+      <li>ST_StarfleetMedical</li>
+      <li>ST_StarfleetEquipment</li>
+    </thingCategories>
+
+    <statBases>
+      <Mass>0.5</Mass>
+      <MarketValue>600</MarketValue>
+      <WorkToMake>4000</WorkToMake>
+    </statBases>
+
+    <techLevel>Spacer</techLevel>
+    <tradeTags>
+      <li>Starfleet_Medical</li>
+    </tradeTags>
+    <equipmentType>Primary</equipmentType> 
+
+    <comps>
+      <li Class="YASTM.Source.Comps.CompProperties_Hypospray">
+        <maxCharges>20</maxCharges>
+        <tendQualityOffset>0.30</tendQualityOffset>
+        <ammoDef>MedicineHerbal</ammoDef> 
+        <analgesicHediff>ST_Hypo_Analgesic</analgesicHediff>
+        <stimulantHediff>ST_Hypo_Stimulant</stimulantHediff> 
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li> </capacities>
+        <power>5</power>
+        <cooldownTime>2.0</cooldownTime>
+      </li>
+      <li>
+        <label>grip</label>
+        <capacities>
+          <li>Poke</li>
+        </capacities>
+        <power>4</power>
+        <cooldownTime>1.5</cooldownTime>
+      </li>
+    </tools>
+
+  </ThingDef>
+
+
+
   <!-- Analgesic -->
   <ThingDef ParentName="ResourceBase">
     <defName>ST_Hypospray_Analgesic</defName>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_Book_VulcanTechniques</defName>
+    <label>Vulcan Neuropressure Manual</label>
+    <description>A complex guide detailing the anatomy of humanoids and the specific nerve clusters required to perform the Vulcan Nerve Pinch.\n\nUse this item to learn the ability.</description>
+    
+    <graphicData>
+      <texPath>Things/Item/Special/ST_Book_VulcanPinch</texPath> 
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(100, 120, 150)</color>
+      <drawSize>0.5</drawSize>
+    </graphicData>
+    <uiIconScale>2</uiIconScale>
+
+    <stackLimit>1</stackLimit>
+    <tradeTags>
+      <li>ExoticMisc</li>
+      <li>Starfleet_Medical</li>
+    </tradeTags>
+    <statBases>
+      <MarketValue>1200</MarketValue>
+      <Mass>0.5</Mass>
+      <WorkToMake>5000</WorkToMake>
+    </statBases>
+    
+    <thingClass>ThingWithComps</thingClass>
+    <comps>
+<li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Study nerve pinch techniques</useLabel>
+        <useDuration>1000</useDuration>
+      </li>
+      
+      <li Class="YASTM.Source.Comps.CompProperties_LearnAbility">
+        <ability>ST_Ability_VulcanNervePinch</ability>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

@@ -1,51 +1,45 @@
+using RimWorld;
 using Verse;
 using Verse.AI;
-using RimWorld;
-using YASTM.Source.Comps; 
 
-namespace YASTM.Source.Work
+namespace YASTM.Source.WorkGivers
 {
     public class WorkGiver_ManBridgeStation : WorkGiver_Scanner
     {
-        public override ThingRequest PotentialWorkThingRequest
+
+        public override ThingRequest PotentialWorkThingRequest => ThingRequest.ForGroup(ThingRequestGroup.BuildingArtificial);
+
+        private static readonly JobDef JobDefName = DefDatabase<JobDef>.GetNamed("ST_Job_ManBridgeStation");
+
+ public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            get
-            {
-                // Wir suchen nach allen Gebäuden
-                return ThingRequest.ForGroup(ThingRequestGroup.BuildingArtificial);
-            }
-        }
-
-        public override PathEndMode PathEndMode => PathEndMode.InteractionCell;
-
-        // Prüft, ob das Gebäude ein Job-Kandidat ist
-        public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
-        {
-            Building building = t as Building;
-            if (building == null) return false;
-
-            // Hat es unsere Brücken-Komponente?
-            var bridgeComp = building.TryGetComp<CompBridgeStation>();
-            if (bridgeComp == null) return false;
-
-            // Ist es "mannable"? (Der Captain's Chair ist mannable, ein Deko-Tisch nicht)
-            if (!bridgeComp.Props.mannable) return false;
-
-            // Standard RimWorld Checks (Reservierbar? Erreichbar? Strom?)
-            if (!pawn.CanReserve(building, 1, -1, null, forced)) return false;
-            if (building.IsForbidden(pawn)) return false;
+            // 1. Standard-Checks
+            if (!t.Spawned || t.IsForbidden(pawn)) return false;
             
-            // Strom-Check
-            var powerComp = building.GetComp<CompPowerTrader>();
-            if (powerComp != null && !powerComp.PowerOn) return false;
+            // 2. Strom & Status Check
+            CompPowerTrader power = t.TryGetComp<CompPowerTrader>();
+            CompBreakdownable breakdown = t.TryGetComp<CompBreakdownable>();
+            
+            if (power != null && !power.PowerOn) return false;
+            if (breakdown != null && breakdown.BrokenDown) return false;
+
+            // 3. Reservierung
+            if (!pawn.CanReserve(t, 1, -1, null, forced)) return false;
+
+
+            if (!forced) 
+            {
+                if (pawn.needs.food != null && pawn.needs.food.CurLevelPercentage < 0.30f) return false;
+                if (pawn.needs.rest != null && pawn.needs.rest.CurLevelPercentage < 0.30f) return false;
+                if (pawn.needs.joy != null && pawn.needs.joy.CurLevelPercentage < 0.10f) return false;
+            }
 
             return true;
         }
 
         public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            // Erstellt den Job, der auf XML verweist
-            return JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("ST_Job_ManBridgeStation"), t);
+            return JobMaker.MakeJob(JobDefName, t);
         }
     }
 }

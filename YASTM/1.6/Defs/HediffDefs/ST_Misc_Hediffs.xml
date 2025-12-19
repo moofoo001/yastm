@@ -20,6 +20,76 @@
     </stages>
   </HediffDef>
 
+    <!-- hypospray effects -->
+    <HediffDef>
+      <defName>ST_Hypo_Analgesic</defName>
+      <label>analgesic sedation</label>
+      <description>Pain receptors are dampened by a hypospray injection.</description>
+      <hediffClass>HediffWithComps</hediffClass>
+      <defaultLabelColor>(0.6, 0.8, 1.0)</defaultLabelColor>
+      <isBad>false</isBad>
+      <comps>
+        <li Class="HediffCompProperties_Disappears">
+          <disappearsAfterTicks>15000~30000</disappearsAfterTicks> <showRemainingTime>true</showRemainingTime>
+        </li>
+      </comps>
+      <stages>
+        <li>
+          <painFactor>0.1</painFactor> </li>
+      </stages>
+    </HediffDef>
+
+    <!-- stimulant effect -->
+    <HediffDef>
+      <defName>ST_Hypo_Stimulant</defName>
+      <label>cortical stimulant</label>
+      <description>Metabolic activity boosted by hypospray injection.</description>
+      <hediffClass>HediffWithComps</hediffClass>
+      <defaultLabelColor>(1.0, 0.8, 0.4)</defaultLabelColor>
+      <isBad>false</isBad>
+      <comps>
+        <li Class="HediffCompProperties_Disappears">
+          <disappearsAfterTicks>10000~20000</disappearsAfterTicks>
+          <showRemainingTime>true</showRemainingTime>
+        </li>
+      </comps>
+      <stages>
+        <li>
+          <restFallFactor>0.5</restFallFactor> <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>0.20</offset>
+            </li>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>0.15</offset>
+            </li>
+          </capMods>
+        </li>
+      </stages>
+    </HediffDef>
+
+    <!-- biobed monitoring -->
+    <HediffDef>
+        <defName>ST_Biobed_Monitoring</defName>
+        <label>bio-monitor active</label>
+        <description>Advanced sensors are actively monitoring vital signs and accelerating cellular regeneration.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0.6, 1.0, 0.6)</defaultLabelColor>
+        <isBad>false</isBad>
+        <stages>
+          <li>
+            <statOffsets>
+              <ImmunityGainSpeed>0.25</ImmunityGainSpeed> <InjuryHealingFactor>0.50</InjuryHealingFactor> </statOffsets>
+          </li>
+        </stages>
+        <comps>
+          <li Class="HediffCompProperties_Disappears">
+            <disappearsAfterTicks>300</disappearsAfterTicks> <showRemainingTime>false</showRemainingTime>
+          </li>
+        </comps>
+      </HediffDef>
+
     <!-- transporter nausea -->
     <HediffDef>
     <defName>ST_TransporterNausea</defName>
@@ -102,31 +172,7 @@
     </stages>
     </HediffDef>
 
-    <!-- Stimulant -->
-    <HediffDef>
-        <defName>ST_Hypo_Stimulant</defName>
-        <label>stimulant</label>
-        <description>Short burst of energy and coordination.</description>
-        <hediffClass>HediffWithComps</hediffClass>
-        <comps>
-        <li Class="HediffCompProperties_Disappears">
-            <disappearsAfterTicks>12000</disappearsAfterTicks>
-        </li>
-        </comps>
-        <stages>
-        <li>
-            <statOffsets>
-            <MoveSpeed>0.20</MoveSpeed>
-            </statOffsets>
-            <capMods>
-            <li>
-                <capacity>Manipulation</capacity>
-                <offset>0.10</offset>
-            </li>
-            </capMods>
-        </li>
-        </stages>
-    </HediffDef>
+
 
     <!-- Field Triage Buff -->
     <HediffDef>
