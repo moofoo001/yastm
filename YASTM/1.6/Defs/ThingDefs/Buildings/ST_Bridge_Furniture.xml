@@ -15,9 +15,10 @@
     </graphicData>
     <altitudeLayer>Building</altitudeLayer>
     <rotatable>true</rotatable>
-    <passability>PassThroughOnly</passability>
+    <passability>Standable</passability>
+    <pathCost>30</pathCost>
     <castEdgeShadows>true</castEdgeShadows>
-    <fillPercent>0.5</fillPercent>
+    <fillPercent>0.4</fillPercent>
     <canOverlapZones>false</canOverlapZones>
     <statBases>
       <MaxHitPoints>200</MaxHitPoints>
@@ -37,16 +38,17 @@
     <interactionCellOffset>(0,0,0)</interactionCellOffset>
     
     <building>
+    	<isSittable>true</isSittable>
       <bed_showSleeperBody>false</bed_showSleeperBody>
       <paintable>true</paintable>
       <buildingSizeCategory>Small</buildingSizeCategory>
     </building>
 
     <comps>
-        <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
-            <role>Command</role>
-            <mannable>true</mannable>
-        </li>
+      <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
+          <role>Command</role>
+          <mannable>true</mannable>
+      </li>
         <li Class="CompProperties_Power">
             <compClass>CompPowerTrader</compClass>
             <basePowerConsumption>50</basePowerConsumption>

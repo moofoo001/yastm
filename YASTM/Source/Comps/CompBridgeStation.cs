@@ -1,9 +1,9 @@
 using Verse;
 using RimWorld;
+using System.Collections.Generic;
 
 namespace YASTM.Source.Comps
 {
-    // Die Rolle der Station auf der Brücke
     public enum BridgeRole
     {
         None,
@@ -11,15 +11,13 @@ namespace YASTM.Source.Comps
         Tactical,   // Worf / Reed
         Ops,        // Data / Harry Kim
         Science,    // Spock / Jadzia Dax
-        Conn        // Pilot / Paris / Mayweather
+        Helm        // Pilot / Paris / Mayweather
     }
 
     public class CompProperties_BridgeStation : CompProperties
     {
         public BridgeRole role = BridgeRole.None;
-        
-        // FIX: Dieses Feld hat gefehlt und den Fehler verursacht!
-        public bool mannable = true; 
+        public bool mannable = true;
 
         public CompProperties_BridgeStation()
         {
@@ -31,28 +29,43 @@ namespace YASTM.Source.Comps
     {
         public CompProperties_BridgeStation Props => (CompProperties_BridgeStation)props;
 
-        // Hilfsmethode für den Manager, um zu prüfen, ob hier gerade jemand arbeitet
         public bool IsManned
         {
             get
             {
-                // Prüfung 1: Vanilla Mannable Comp (z.B. Turrets)
+                // 1. Vanilla Check
                 CompMannable mannable = parent.TryGetComp<CompMannable>();
                 if (mannable != null && mannable.MannedNow) return true;
 
-                // Prüfung 2: Sitzt jemand drauf und führt unseren Job aus?
+                // 2. Advanced Job Check
                 if (parent is Building building && parent.Map != null)
                 {
-                    // Wir prüfen die InteractionCell
-                    IntVec3 cell = building.InteractionCell;
-                    var things = cell.GetThingList(parent.Map);
-                    for (int i = 0; i < things.Count; i++)
+
+                    
+                    List<IntVec3> cellsToCheck = new List<IntVec3>
                     {
-                        if (things[i] is Pawn p && p.IsColonist)
+                        building.InteractionCell,
+                        building.Position
+                    };
+
+                    foreach (IntVec3 cell in cellsToCheck)
+                    {
+                        // Optimization: Check only if cell is valid
+                        if (!cell.InBounds(parent.Map)) continue;
+
+                        List<Thing> things = cell.GetThingList(parent.Map);
+                        for (int i = 0; i < things.Count; i++)
                         {
-                            // Prüfen, ob der Pawn den spezifischen Bridge-Job macht
-                            if (p.CurJob != null && p.CurJob.def.defName == "ST_Job_ManBridgeStation")
-                                return true;
+                            if (things[i] is Pawn p && p.IsColonist)
+                            {
+                                // Verify the pawn is actually doing OUR job targeting THIS building
+                                if (p.CurJob != null && 
+                                    p.CurJob.def.defName == "ST_Job_ManBridgeStation" &&
+                                    p.CurJob.targetA.Thing == parent)
+                                {
+                                    return true;
+                                }
+                            }
                         }
                     }
                 }

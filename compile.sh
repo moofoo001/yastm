@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+set -x
 # Build YASTM
 echo "Cleaning source..."
 dotnet clean ./YASTM/Source

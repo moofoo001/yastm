@@ -12,20 +12,6 @@ namespace YASTM.Source.Map
     {
         private int tickCounter = 0;
         public bool bridgeSynergyActive = false;
-       
-        private static Texture2D iconSynergyOn;
-
-        // Lazy Loading Property
-
-        public static Texture2D IconSynergyOn
-        {
-            get
-            {
-                if (iconSynergyOn == null)
-                    iconSynergyOn = ContentFinder<Texture2D>.Get("UI/Icons/Starfleet/Combadge", true);
-                return iconSynergyOn;
-            }
-        }
 
         public MapComponent_BridgeManager(Verse.Map map) : base(map)
         {
@@ -35,6 +21,7 @@ namespace YASTM.Source.Map
         {
             base.MapComponentTick();
             
+            // Check alle 2 Sekunden (120 Ticks)
             tickCounter++;
             if (tickCounter >= 120) 
             {
@@ -46,22 +33,26 @@ namespace YASTM.Source.Map
         private void CheckBridgeStatus()
         {
             bool hasCommand = false;
-            bool hasOps = false;
-            bool hasTactical = false;
+            bool hasHelm = false;
+            bool hasSupport = false; 
 
-            // Suche optimieren: Nur Gebäude des Spielers
             foreach (Building b in map.listerBuildings.allBuildingsColonist)
             {
                 var comp = b.GetComp<CompBridgeStation>();
-                if (comp != null && comp.IsManned) 
+                if (comp != null && comp.IsManned)
                 {
-                    if (comp.Props.role == BridgeRole.Command) hasCommand = true;
-                    if (comp.Props.role == BridgeRole.Ops) hasOps = true;
-                    if (comp.Props.role == BridgeRole.Tactical) hasTactical = true;
+                    switch (comp.Props.role)
+                    {
+                        case BridgeRole.Command: hasCommand = true; break;
+                        case BridgeRole.Helm:    hasHelm = true; break;
+                        case BridgeRole.Tactical:
+                        case BridgeRole.Science:
+                        case BridgeRole.Ops:     hasSupport = true; break;
+                    }
                 }
             }
 
-            bool newState = hasCommand && (hasOps || hasTactical);
+            bool newState = hasCommand && hasHelm && hasSupport;
 
             if (newState != bridgeSynergyActive)
             {
@@ -70,6 +61,8 @@ namespace YASTM.Source.Map
                 {
                     Messages.Message("ST_BridgeSynergyOnline".Translate(), MessageTypeDefOf.PositiveEvent);
                 }
+                // Optional: Meldung bei Verlust
+                // else { Messages.Message("ST_BridgeSynergyLost".Translate(), MessageTypeDefOf.NegativeEvent); }
             }
         }
 
@@ -78,28 +71,22 @@ namespace YASTM.Source.Map
             base.MapComponentOnGUI();
 
             if (Find.CurrentMap != map) return;
-            // Prüfen ob Weltkarte offen ist
             if (Find.World != null && Find.World.renderer.wantedMode != WorldRenderMode.None) return;
 
-            float iconSize = 48f;
-            Rect rect = new Rect(Verse.UI.screenWidth - 250f, Verse.UI.screenHeight - 140f, iconSize, iconSize);
-
+            // Nur zeichnen, wenn aktiv
             if (bridgeSynergyActive)
             {
-                if (IconSynergyOn != null)
-                    GUI.DrawTexture(rect, IconSynergyOn);
-                
-                TooltipHandler.TipRegion(rect, "ST_BridgeSynergyActiveDesc".Translate());
-            }
-            else
-            {
-                // Wir nutzen das gleiche Icon, aber transparent
-                GUI.color = new Color(1f, 1f, 1f, 0.3f);
-                if (IconSynergyOn != null) 
-                    GUI.DrawTexture(rect, IconSynergyOn); 
-                GUI.color = Color.white;
-                
-                TooltipHandler.TipRegion(rect, "ST_BridgeSynergyOfflineDesc".Translate());
+                // UI Positionierung (Unten rechts)
+                float iconSize = 48f;
+                Rect rect = new Rect(Verse.UI.screenWidth - 250f, Verse.UI.screenHeight - 140f, iconSize, iconSize);
+
+                Texture2D icon = ContentFinder<Texture2D>.Get("UI/Icons/Starfleet/Combadge", true);
+
+                if (icon != null)
+                {
+                    GUI.DrawTexture(rect, icon);
+                    TooltipHandler.TipRegion(rect, "ST_BridgeSynergyActiveDesc".Translate());
+                }
             }
         }
     }

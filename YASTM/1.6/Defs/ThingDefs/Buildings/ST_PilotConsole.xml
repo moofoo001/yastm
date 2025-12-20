@@ -50,6 +50,10 @@
         <maxDistance>200</maxDistance>
       </li>
       <li Class="CompProperties_Breakdownable" />
+      <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
+        <role>Helm</role>
+        <mannable>true</mannable>
+      </li>
     </comps>
     <uiOrder>2100</uiOrder>
   </ThingDef>

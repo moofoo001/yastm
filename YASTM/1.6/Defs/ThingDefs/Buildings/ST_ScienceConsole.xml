@@ -61,10 +61,10 @@
         </linkableBuildings>
         <maxSimultaneous>2</maxSimultaneous>
       </li>
-      
+
       <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
-        <role>Science</role>
-        <mannable>true</mannable>
+          <role>Science</role>
+          <mannable>true</mannable>
       </li>
 
     <li Class="StarTrekFactions.Comps.CompProperties_ScienceConsoleSubspaceScan">
@@ -72,6 +72,11 @@
       <questSignalOnScanStarted>STQ.Obelisks.ScanStarted</questSignalOnScanStarted>
       <questSignalOnScanCompleted>STQ.Obelisks.DataTransmitted</questSignalOnScanCompleted>
     </li>
+
+      <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
+          <role>Science</role>
+          <mannable>true</mannable>
+      </li>
     </comps>
 
     <placeWorkers>

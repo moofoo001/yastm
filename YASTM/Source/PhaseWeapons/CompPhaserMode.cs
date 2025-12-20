@@ -64,7 +64,7 @@ namespace ST.PhaseWeapons
             {
                 defaultLabel = "Kill",
                 defaultDesc = "Lethal setting.",
-                icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/RedAlert"),
+                icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/PhaserLethal"),
                 action = () => SetMode(PhaserFireMode.Kill),
                 groupKey = 3133701
             };
@@ -76,7 +76,7 @@ namespace ST.PhaseWeapons
             {
                 defaultLabel = "Stun",
                 defaultDesc = "Non-lethal setting.",
-                icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/GreenAlert"),
+                icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/PhaserStun"),
                 action = () => SetMode(PhaserFireMode.Stun),
                 groupKey = 3133701
             };
@@ -90,7 +90,7 @@ namespace ST.PhaseWeapons
                 {
                     defaultLabel = "Overcharge",
                     defaultDesc = "Dangerous high energy output.",
-                    icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/YellowAlert"),
+                    icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/PhaserOverload"),
                     action = () => SetMode(PhaserFireMode.Overcharge),
                     groupKey = 3133701
                 };

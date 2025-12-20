@@ -7,55 +7,52 @@ namespace YASTM.Source.Jobs
 {
     public class JobDriver_ManBridgeStation : JobDriver
     {
-        // Zugriff auf das Ziel (die Konsole)
-        protected Thing Station => this.job.GetTarget(TargetIndex.A).Thing;
+        // Hilfseigenschaft
+        protected Thing Station => this.job.targetA.Thing;
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            // Hier war es korrekt ("this.pawn")
             return this.pawn.Reserve(this.Station, this.job, 1, -1, null, errorOnFailed);
-        }
-
-        private bool CanWork(Pawn pawn, Thing station)
-        {
-            CompPowerTrader compPowerTrader = station.TryGetComp<CompPowerTrader>();
-            return (compPowerTrader == null || compPowerTrader.PowerOn) && !station.IsBrokenDown();
         }
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-            this.FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
-            
-            // KORREKTUR: "this.pawn" statt "this.Actor"
-            this.FailOn(() => !this.CanWork(this.pawn, this.Station));
 
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
+            // 1. Hingehen (OnCell)
+            // Wir nutzen GotoCell(InteractionCell), um Pathing-Probleme mit Möbeln zu umgehen
+            yield return Toils_Goto.GotoCell(Station.InteractionCell, PathEndMode.OnCell);
 
+            // 2. Arbeiten
             Toil work = new Toil();
             work.tickAction = delegate ()
             {
-                // KORREKTUR: "this.pawn" statt "this.Actor"
                 Pawn actor = this.pawn;
                 
-                // Skill gain (Lernen während der Arbeit)
-                actor.skills.Learn(SkillDefOf.Intellectual, 0.035f, false);
-                
-                // Hier können Sie bei Bedarf weitere Logik einfügen (z.B. Scannen)
+                // Sicherstellen, dass wir wirklich da sind (gegen Schubsen)
+                if (actor.Position != Station.InteractionCell && actor.Position != Station.Position)
+                {
+                    actor.jobs.EndCurrentJob(JobCondition.Incompletable);
+                    return;
+                }
+
+                actor.rotationTracker.FaceTarget(Station);
+                actor.skills?.Learn(SkillDefOf.Intellectual, 0.035f);
+
+                // Hunger/Schlaf Check (Soft Exit, damit sie Pause machen)
+                if (actor.needs.food != null && actor.needs.food.CurLevelPercentage < 0.25f)
+                {
+                    actor.jobs.EndCurrentJob(JobCondition.Succeeded);
+                    return;
+                }
+                if (actor.needs.rest != null && actor.needs.rest.CurLevelPercentage < 0.25f)
+                {
+                    actor.jobs.EndCurrentJob(JobCondition.Succeeded);
+                    return;
+                }
             };
 
-            // --- ANTI-STUCK LOGIK ---
-            // Breche ab, wenn hungrig (unter 25%)
-            work.FailOn(() => pawn.needs.food != null && pawn.needs.food.CurLevelPercentage < 0.25f);
-            // Breche ab, wenn müde (unter 25%)
-            work.FailOn(() => pawn.needs.rest != null && pawn.needs.rest.CurLevelPercentage < 0.25f);
-            // Breche ab, wenn Recreation extrem niedrig (unter 5%)
-            work.FailOn(() => pawn.needs.joy != null && pawn.needs.joy.CurLevelPercentage < 0.05f);
-            // ------------------------
-
             work.defaultCompleteMode = ToilCompleteMode.Never;
-            work.WithEffect(EffecterDefOf.Research, TargetIndex.A);
-            work.activeSkill = (() => SkillDefOf.Intellectual);
             yield return work;
         }
     }

@@ -232,6 +232,11 @@
         </requiredApparelsCeasefire>
         <rankLabelCeasefire>Commander+</rankLabelCeasefire>
       </li>
+
+      <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
+          <role>Ops</role>
+          <mannable>true</mannable>
+      </li>
     </comps>
 
       <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
