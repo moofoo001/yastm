@@ -72,7 +72,10 @@
           </li>
 
       <li Class="CompProperties_Facility">
-        <maxSimultaneous>4</maxSimultaneous> <mustBePlacedAdjacent>true</mustBePlacedAdjacent> <maxDistance>10</maxDistance> <linkableBuildings>
+        <maxSimultaneous>4</maxSimultaneous>
+        <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
+        <maxDistance>10</maxDistance>
+         <linkableBuildings>
           <li>ST_Replicator</li>
         </linkableBuildings>
       </li>
