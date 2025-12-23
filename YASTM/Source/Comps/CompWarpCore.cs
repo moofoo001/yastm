@@ -11,9 +11,9 @@ namespace YASTM
         public float safeTemperatureMax = 60f; 
         public int damagePerTick = 1; 
         
-        // Neu: Konfiguration für den Puls
-        public int pulseInterval = 180; // Alle 3 Sekunden (bei 60 TPS)
-        public float pulseRadius = 3.5f; // Größe des Effekts
+
+        public int pulseInterval = 180; 
+        public float pulseRadius = 3.5f; 
         
         public CompProperties_WarpCore()
         {
@@ -28,7 +28,7 @@ namespace YASTM
         private bool ejected = false;
         private int instabilityCounter = 0;
         
-        // Timer für den visuellen Effekt
+        // Timer for warp pulse effect
         private int nextPulseTick = 0;
 
         public override void PostExposeData()
@@ -42,17 +42,17 @@ namespace YASTM
         {
             base.CompTick();
             
-            // 1. Ist der Reaktor überhaupt aktiv? (Strom + Fuel)
+            // activity check
             if (!IsActive()) return;
 
-            // 2. Visueller Puls (Logik adaptiert vom Obelisken)
+            // visual warp pulse effect
             if (Find.TickManager.TicksGame >= nextPulseTick)
             {
                 TriggerWarpPulse();
                 nextPulseTick = Find.TickManager.TicksGame + Props.pulseInterval;
             }
 
-            // 3. Temperatur Check (Kernschmelze-Logik)
+            // overheating logic
             float roomTemp = parent.AmbientTemperature;
             if (roomTemp > Props.safeTemperatureMax)
             {
@@ -75,13 +75,13 @@ namespace YASTM
         {
             if (parent.Map == null) return;
 
-            // Wir suchen den FleckDef, den wir im XML definiert haben
+
             FleckDef pulseFleck = DefDatabase<FleckDef>.GetNamedSilentFail("ST_WarpPulse");
             
-            // Fallback: Falls XML fehlt, nutzen wir "PsycastAreaEffect" (ist lila, aber besser als Fehler)
+
             if (pulseFleck == null) pulseFleck = FleckDefOf.PsycastAreaEffect;
 
-            // Effekt abfeuern (ähnlich wie im Obelisk Script)
+            //  Create the fleck effect
             FleckMaker.Static(parent.TrueCenter(), parent.Map, pulseFleck, Props.pulseRadius);
         }
 
@@ -100,7 +100,7 @@ namespace YASTM
                 defaultLabel = "EJECT WARP CORE",
                 defaultDesc = "EMERGENCY: Ejects the core to prevent a breach.",
                 icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/EjectCore", false), 
-                defaultIconColor = Color.red,
+                defaultIconColor = Color.red : Color.white,
                 action = () =>
                 {
                     ejected = true;

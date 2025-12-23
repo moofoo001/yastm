@@ -18,8 +18,8 @@ namespace YASTM
         public int powerCombatMode = 2000;
         public int powerRelaxMode = 500;
         
-        // Neu: Wie oft das Hologramm erneuert wird (passend zur XML solidTime)
-        public int holoRefreshInterval = 240; // Alle 4 Sekunden
+        
+        public int holoRefreshInterval = 240; // tick interval for holo fleck refresh (4 seconds)
 
         public CompProperties_Holodeck()
         {
@@ -45,11 +45,11 @@ namespace YASTM
         {
             base.CompTick();
             
-            // Strom prüfen
+            // power check
             var power = parent.TryGetComp<CompPowerTrader>();
             bool hasPower = (power != null && power.PowerOn);
 
-            // 1. Energie-Verbrauch setzen (Nur selten checken spart CPU)
+            //
             if (parent.IsHashIntervalTick(60)) 
             {
                 if (power != null)
@@ -59,12 +59,11 @@ namespace YASTM
                         : -Props.powerRelaxMode;
                 }
                 
-                // User-Check (Logik bleibt gleich)
+                // User-Check
                 if (hasPower) CheckForUsers();
             }
 
-            // 2. HOLOGRAMM PROJEKTION (Der Fleck)
-            // Wir spawnen es rhythmisch, solange Strom da ist.
+            // 2. Holo fleck refresh
             if (hasPower && Find.TickManager.TicksGame >= nextHoloTick)
             {
                 SpawnHoloFleck();
@@ -82,16 +81,16 @@ namespace YASTM
 
             FleckDef holoDef = DefDatabase<FleckDef>.GetNamedSilentFail(defName);
             
-            // Fallback, falls XML nicht gefunden wird (damit man zumindest irgendwas sieht)
+            // Fallback
             if (holoDef == null)
             {
-                 // Wir nutzen Standard-Flecks als Notlösung
+
                  holoDef = (currentProgram == HoloProgram.BatlethTraining) 
-                    ? FleckDefOf.PsycastAreaEffect // Lila Kreis
-                    : FleckDefOf.Heart; // Herzchen
+                    ? FleckDefOf.PsycastAreaEffect 
+                    : FleckDefOf.Heart; 
             }
 
-            // Wichtig: Spawn exakt in der Mitte
+            // Effect
             FleckMaker.Static(parent.TrueCenter(), parent.Map, holoDef);
         }
 
@@ -127,7 +126,7 @@ namespace YASTM
             }
         }
 
-        // Keine PostDraw Methode mehr nötig! Das macht jetzt der FleckManager.
+        // post draw gizmos
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
@@ -140,7 +139,7 @@ namespace YASTM
                 action = () => 
                 {
                     currentProgram = HoloProgram.RisaVacation;
-                    nextHoloTick = 0; // Sofortiges Update erzwingen
+                    nextHoloTick = 0;   // reset timer
                 }
             };
 
@@ -149,11 +148,11 @@ namespace YASTM
                 defaultLabel = "Program: Combat",
                 defaultDesc = "Combat simulation.",
                 icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/HoloCombat", false),
-                defaultIconColor = currentProgram == HoloProgram.BatlethTraining ? Color.red : Color.white,
+                defaultIconColor = currentProgram == HoloProgram.BatlethTraining ? Color.green : Color.white,
                 action = () => 
                 {
                     currentProgram = HoloProgram.BatlethTraining;
-                    nextHoloTick = 0; // Sofortiges Update erzwingen
+                    nextHoloTick = 0; // reset timer
                 }
             };
         }
