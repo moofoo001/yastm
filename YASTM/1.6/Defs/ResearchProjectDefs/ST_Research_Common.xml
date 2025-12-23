@@ -345,8 +345,8 @@
     <description>Theoretical and practical mastery of warp field geometry, subspace stress tolerances
       and field harmonics. Required for any serious work on warp-capable infrastructure.
       Unlocks: AdvancedGravtech, ChargedShot</description>
-    <techLevel>Spacer</techLevel>
-    <baseCost>3500</baseCost>
+    <techLevel>Ultra</techLevel>
+    <baseCost>4000</baseCost>
     <tab>ST_Research</tab>
     <prerequisites>
       <li>ST_SubspaceTelemetry</li>
@@ -367,7 +367,16 @@
             <li>ShipBasics</li>
           </projects>
         </li>
-      </researchMods> 
+      </researchMods>
+
+    <techprintCount>2</techprintCount> 
+    <heldByFactionCategoryTags>
+      <li>Empire</li>
+      <li>OutlanderRough</li>
+    </heldByFactionCategoryTags>
+    <techprintCommonality>0.5</techprintCommonality>
+    <techprintMarketValue>2500</techprintMarketValue>
+
   </ResearchProjectDef>
 
 </Defs>

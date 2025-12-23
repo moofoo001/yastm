@@ -20,13 +20,12 @@
     <altitudeLayer>Building</altitudeLayer>
     <size>(2,1)</size>
     <selectable>true</selectable>
-    <tickerType>Normal</tickerType>
+
     <rotatable>true</rotatable>
-    <defaultPlacingRot>South</defaultPlacingRot>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
     <fillPercent>0.5</fillPercent>
-    <interactionCellOffset>(1,0,1)</interactionCellOffset>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
     <hasInteractionCell>true</hasInteractionCell>
     <surfaceType>Item</surfaceType>
 
@@ -35,7 +34,8 @@
       <Flammability>0.3</Flammability>
       <WorkToBuild>1200</WorkToBuild>
     </statBases>
-
+    
+    <tickerType>Normal</tickerType>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
@@ -53,7 +53,7 @@
       <!-- Forcefield-Gizmos -->
       <li Class="YASTM.CompProperties_ForceFieldConsole"/>
 
-      <li Class="YASTM.CompProperties_AlertPanelGizmo">
+      <li Class="YASTM.CompProperties_AlertPanel">
         <redDurationTicks>18000</redDurationTicks>
         <redCooldownTicks>90000</redCooldownTicks>
         <yellowDurationTicks>9000</yellowDurationTicks>

@@ -41,15 +41,16 @@
       <Steel>40</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
-
+    
+    <tickerType>Normal</tickerType>
     <comps>
-      <li Class="YASTM.CompProperties_AlertPanel">
-        <redDurationTicks>18000</redDurationTicks>
-        <redCooldownTicks>90000</redCooldownTicks>
-        <yellowDurationTicks>9000</yellowDurationTicks>
-        <yellowCooldownTicks>45000</yellowCooldownTicks>
-        <blinkSeconds>3</blinkSeconds>
-      </li>
+    <li Class="YASTM.CompProperties_AlertPanel">
+      <redDurationTicks>18000</redDurationTicks>
+      <redCooldownTicks>90000</redCooldownTicks>
+      <yellowDurationTicks>9000</yellowDurationTicks>
+      <yellowCooldownTicks>45000</yellowCooldownTicks>
+      <blinkSeconds>3</blinkSeconds>
+    </li>
       <li Class="CompProperties_Glower">
         <glowRadius>5</glowRadius>
         <glowColor>(100,100,1,0)</glowColor>

@@ -1,156 +1,178 @@
-// File: Source/Map/MapComponent_AlertPanel.cs
-using System.Linq;
+using System.Collections.Generic;
+using System.Reflection; 
 using RimWorld;
 using Verse;
-using Verse.Sound; 
+using Verse.Sound;     
+using UnityEngine;
 
 namespace YASTM
 {
     public class MapComponent_AlertPanel : MapComponent
     {
-        public bool IsRedAlertOn;
-        public bool IsYellowAlertOn;
+        public int redAlertTicksLeft;
+        public int yellowAlertTicksLeft;
+        public int redCooldownTicksLeft;
+        public int yellowCooldownTicksLeft;
 
-        public int BlinkUntilTickRed;
-        public int BlinkUntilTickYellow;
+        private Sustainer sirenSustainer;
 
-        public int NextAllowedTickRed;
-        public int NextAllowedTickYellow;
+        public bool IsRedOnCooldown => redCooldownTicksLeft > 0;
+        public bool IsYellowOnCooldown => yellowCooldownTicksLeft > 0;
+        public int ArmRedCooldownSeconds() => redCooldownTicksLeft / 60;
+        public int ArmYellowCooldownSeconds() => yellowCooldownTicksLeft / 60;
+        
+        public int NextAllowedTickRed => Find.TickManager.TicksGame + redCooldownTicksLeft;
+        public int NextAllowedTickYellow => Find.TickManager.TicksGame + yellowCooldownTicksLeft;
 
-        public int RedEndTick;
-        public int YellowEndTick;
+        public bool IsRedAlertActive => redAlertTicksLeft > 0; 
 
-     
-        private Sustainer redSirenSustainer;
-        private Sustainer yellowSirenSustainer;
-
-        public MapComponent_AlertPanel(Map map) : base(map) { }
-
-        public void StartRedAlert(int durationTicks, int cooldownTicks, int blinkSeconds)
+        public MapComponent_AlertPanel(Map map) : base(map)
         {
-            int now = Find.TickManager.TicksGame;
-            if (now < NextAllowedTickRed) {
-                Messages.Message($"Red Alert ist auf Cooldown ({(NextAllowedTickRed - now)/60}s).", MessageTypeDefOf.RejectInput, historical:false);
-                return;
-            }
-
-            IsRedAlertOn = true;
-            RedEndTick = now + durationTicks;
-            NextAllowedTickRed = RedEndTick + cooldownTicks;
-            BlinkUntilTickRed = now + blinkSeconds * 60;
-
-            
-            PlayOneShotOnMap("ST_RedAlert_Chirp"); 
-            TryStartSustainer(ref redSirenSustainer, "ST_Siren_RedLoop");
-
-            Messages.Message("Red Alert aktiviert!", MessageTypeDefOf.ThreatBig, historical:false);
-            ApplyAlertHediff("ST_Alert_RedState");
-        }
-
-        public void StopRedAlert()
-        {
-            IsRedAlertOn = false;
-            RedEndTick = 0;
-            TryStopSustainer(ref redSirenSustainer);
-            RemoveAlertHediff("ST_Alert_RedState");
-        }
-
-        public void StartYellowAlert(int durationTicks, int cooldownTicks, int blinkSeconds)
-        {
-            int now = Find.TickManager.TicksGame;
-            if (now < NextAllowedTickYellow) {
-                Messages.Message($"Yellow Alert ist auf Cooldown ({(NextAllowedTickYellow - now)/60}s).", MessageTypeDefOf.RejectInput, historical:false);
-                return;
-            }
-
-            IsYellowAlertOn = true;
-            YellowEndTick = now + durationTicks;
-            NextAllowedTickYellow = YellowEndTick + cooldownTicks;
-            BlinkUntilTickYellow = now + blinkSeconds * 60;
-
-            PlayOneShotOnMap("ST_YellowAlert_Chirp");
-            TryStartSustainer(ref yellowSirenSustainer, "ST_Siren_YellowLoop");
-
-            Messages.Message("Yellow Alert aktiviert!", MessageTypeDefOf.NeutralEvent, historical:false);
-            ApplyAlertHediff("ST_Alert_YellowState");
-        }
-
-        public void StopYellowAlert()
-        {
-            IsYellowAlertOn = false;
-            YellowEndTick = 0;
-            TryStopSustainer(ref yellowSirenSustainer);
-            RemoveAlertHediff("ST_Alert_YellowState");
-        }
-
-        public bool IsRedOnCooldown    => Find.TickManager.TicksGame < NextAllowedTickRed;
-        public bool IsYellowOnCooldown => Find.TickManager.TicksGame < NextAllowedTickYellow;
-
-        public int ArmRedCooldownSeconds()    => IsRedOnCooldown ? (NextAllowedTickRed    - Find.TickManager.TicksGame) / 60 : 0;
-        public int ArmYellowCooldownSeconds() => IsYellowOnCooldown ? (NextAllowedTickYellow - Find.TickManager.TicksGame) / 60 : 0;
-
-        public override void MapComponentTick()
-        {
-            if ((Find.TickManager.TicksGame % 60) != 0) return; 
-
-            int now = Find.TickManager.TicksGame;
-            if (IsRedAlertOn && now >= RedEndTick) StopRedAlert();
-            if (IsYellowAlertOn && now >= YellowEndTick) StopYellowAlert();
         }
 
         public override void ExposeData()
         {
-            Scribe_Values.Look(ref IsRedAlertOn,        "IsRedAlertOn");
-            Scribe_Values.Look(ref IsYellowAlertOn,     "IsYellowAlertOn");
-            Scribe_Values.Look(ref BlinkUntilTickRed,   "BlinkUntilTickRed");
-            Scribe_Values.Look(ref BlinkUntilTickYellow,"BlinkUntilTickYellow");
-            Scribe_Values.Look(ref NextAllowedTickRed,  "NextAllowedTickRed");
-            Scribe_Values.Look(ref NextAllowedTickYellow,"NextAllowedTickYellow");
-            Scribe_Values.Look(ref RedEndTick,          "RedEndTick");
-            Scribe_Values.Look(ref YellowEndTick,       "YellowEndTick");
+            base.ExposeData();
+            Scribe_Values.Look(ref redAlertTicksLeft, "redAlertTicksLeft");
+            Scribe_Values.Look(ref yellowAlertTicksLeft, "yellowAlertTicksLeft");
+            Scribe_Values.Look(ref redCooldownTicksLeft, "redCooldownTicksLeft");
+            Scribe_Values.Look(ref yellowCooldownTicksLeft, "yellowCooldownTicksLeft");
         }
 
-        // --- helpers ---
-        void ApplyAlertHediff(string defName)
+        public override void MapComponentTick()
         {
-            var hd = DefDatabase<HediffDef>.GetNamedSilentFail(defName);
-            if (hd == null) return;
+            base.MapComponentTick();
 
-            foreach (var p in map.mapPawns.FreeColonistsSpawned)
-                if (!p.health.hediffSet.HasHediff(hd))
-                    p.health.AddHediff(hd);
-        }
-
-        void RemoveAlertHediff(string defName)
-        {
-            var hd = DefDatabase<HediffDef>.GetNamedSilentFail(defName);
-            if (hd == null) return;
-            foreach (var p in map.mapPawns.FreeColonistsSpawned)
+            if (redAlertTicksLeft > 0)
             {
-                var h = p.health.hediffSet.hediffs.FirstOrDefault(x => x.def == hd);
-                if (h != null) p.health.RemoveHediff(h);
+                redAlertTicksLeft--;
+                if (redAlertTicksLeft == 0) EndAlert();
+                
+                if (sirenSustainer != null && !sirenSustainer.Ended)
+                {
+                    sirenSustainer.Maintain();
+                }
+            }
+
+            if (yellowAlertTicksLeft > 0)
+            {
+                yellowAlertTicksLeft--;
+                if (yellowAlertTicksLeft == 0) EndAlert();
+            }
+
+            if (redCooldownTicksLeft > 0) redCooldownTicksLeft--;
+            if (yellowCooldownTicksLeft > 0) yellowCooldownTicksLeft--;
+        }
+
+        public void StartRedAlert(int duration, int cooldown, int blink)
+        {
+            yellowAlertTicksLeft = 0;
+            redAlertTicksLeft = duration;
+            redCooldownTicksLeft = cooldown;
+
+            StartSiren("ST_SFX_RedAlert");
+
+            SetShields(true);
+            SetDoorsLockdown(true);
+            DraftCrew(true);
+            
+            Messages.Message("RED ALERT Engaged!", MessageTypeDefOf.ThreatBig);
+        }
+
+        public void StartYellowAlert(int duration, int cooldown, int blink)
+        {
+            redAlertTicksLeft = 0;
+            yellowAlertTicksLeft = duration;
+            yellowCooldownTicksLeft = cooldown;
+
+            SoundDef.Named("ST_SFX_YellowAlert")?.PlayOneShotOnCamera(map);
+
+            SetShields(true);
+            SetDoorsLockdown(true);
+        }
+
+        public void EndAlert()
+        {
+            redAlertTicksLeft = 0;
+            yellowAlertTicksLeft = 0;
+
+            if (sirenSustainer != null && !sirenSustainer.Ended)
+            {
+                sirenSustainer.End();
+                sirenSustainer = null;
+            }
+
+            SetShields(false);
+            SetDoorsLockdown(false);
+            DraftCrew(false);
+            
+            Messages.Message("Condition Green.", MessageTypeDefOf.PositiveEvent);
+        }
+
+        private void StartSiren(string defName)
+        {
+            if (sirenSustainer != null) sirenSustainer.End();
+
+            SoundDef def = SoundDef.Named(defName);
+            if (def != null && def.sustain)
+            {
+                SoundInfo info = SoundInfo.OnCamera(MaintenanceType.PerTick);
+                sirenSustainer = def.TrySpawnSustainer(info);
+            }
+            else if (def != null)
+            {
+                def.PlayOneShotOnCamera(map);
             }
         }
 
-        void PlayOneShotOnMap(string soundDefName)
+        private void SetDoorsLockdown(bool active)
         {
-            var s = DefDatabase<SoundDef>.GetNamedSilentFail(soundDefName);
-            if (s != null) s.PlayOneShot(SoundInfo.OnCamera(MaintenanceType.None));
+            foreach (Building b in map.listerBuildings.allBuildingsColonist)
+            {
+                if (b is Building_Door door)
+                {
+                    if (active)
+                    {
+                        typeof(Building_Door).GetField("holdOpenInt", BindingFlags.Instance | BindingFlags.NonPublic)
+                            ?.SetValue(door, false);
+                        if (door.Open) door.StartManualCloseBy(null);
+                    }
+                }
+            }
         }
 
-        void TryStartSustainer(ref Sustainer sust, string soundDefName)
+        private void SetShields(bool active)
         {
-            if (sust != null) return;
-            var sDef = DefDatabase<SoundDef>.GetNamedSilentFail(soundDefName);
-            if (sDef != null) sust = sDef.TrySpawnSustainer(SoundInfo.OnCamera(MaintenanceType.PerTick));
+            foreach (Building b in map.listerBuildings.allBuildingsColonist)
+            {
+                // Prüft auf Vanilla Expanded Shields oder ähnliches
+                var shield = b.TryGetComp<CompProjectileInterceptor>();
+                if (shield != null)
+                {
+                    var flick = b.TryGetComp<CompFlickable>();
+                    if (flick != null) 
+                    {
+                        flick.SwitchIsOn = active;
+                        // HIER WURDE DIE FEHLERHAFTE ZEILE ENTFERNT.
+                        // RimWorld erledigt das Grafik-Update automatisch.
+                    }
+                }
+            }
         }
 
-        void TryStopSustainer(ref Sustainer sust)
+        private void DraftCrew(bool active)
         {
-            if (sust == null) return;
-            sust.End();
-            sust = null;
+            foreach (Pawn p in map.mapPawns.FreeColonists)
+            {
+                if (p.drafter != null && !p.WorkTagIsDisabled(WorkTags.Violent))
+                {
+                    if (p.drafter.Drafted != active)
+                    {
+                        if (active && (p.InMentalState || p.Downed)) continue;
+                        p.drafter.Drafted = active;
+                    }
+                }
+            }
         }
     }
 }
-

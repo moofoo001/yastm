@@ -8,12 +8,14 @@ namespace YASTM
     // This partial comp supplies Red/Yellow Alert buttons via the Ops console.
     public partial class CompOpsConsole : ThingComp
     {
-        public CompProperties_AlertPanelGizmo PropsAlerts => props as CompProperties_AlertPanelGizmo;
+
+    public CompProperties_AlertPanel PropsAlerts => props as CompProperties_AlertPanel;
 
         private static int Safe(int val, int fallback) => val > 0 ? val : fallback;
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
+            // Base Gizmos
             foreach (var g in base.CompGetGizmosExtra()) yield return g;
 
             if (parent?.Map == null || parent.Faction != Faction.OfPlayer) yield break;
@@ -22,49 +24,62 @@ namespace YASTM
             var mc  = map.GetComponent<MapComponent_AlertPanel>();
             if (mc == null) yield break;
 
-            // Fallbacks if XML props are missing/zero
-            int redDur     = Safe(PropsAlerts?.redDurationTicks    ?? 0,  9000);  // 2.5 in-game hours
-            int redCd      = Safe(PropsAlerts?.redCooldownTicks    ?? 0, 60000);  // 1 in-game day
-            int yellowDur  = Safe(PropsAlerts?.yellowDurationTicks ?? 0,  6000);  // 1.7 in-game hours
-            int yellowCd   = Safe(PropsAlerts?.yellowCooldownTicks ?? 0, 30000);  // 0.5 in-game day
+            // Fetch Durations
+            int redDur     = Safe(PropsAlerts?.redDurationTicks    ?? 0,  9000);
+            int redCd      = Safe(PropsAlerts?.redCooldownTicks    ?? 0, 60000);
+            int yellowDur  = Safe(PropsAlerts?.yellowDurationTicks ?? 0,  6000);
+            int yellowCd   = Safe(PropsAlerts?.yellowCooldownTicks ?? 0, 30000);
             int blinkSecs  = Safe(PropsAlerts?.blinkSeconds        ?? 0,     10);
 
-            // Red Alert
-            bool redOnCd = Find.TickManager.TicksGame < mc.NextAllowedTickRed;
-            string redLabel = redOnCd
-                ? $"Red Alert (CD {(mc.NextAllowedTickRed - Find.TickManager.TicksGame).ToStringTicksToPeriod()})"
-                : "Red Alert";
-
-            yield return new Command_Action
+            // --- RED ALERT BUTTON ---
+            if (mc.redAlertTicksLeft <= 0) 
             {
-                defaultLabel = redLabel,
-                defaultDesc  = "Colony-wide red alert — siren, buffs, timer.",
-                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/RedAlert", true),
-                action       = () =>
+                bool redOnCd = Find.TickManager.TicksGame < mc.NextAllowedTickRed;
+                string redLabel = redOnCd
+                    ? $"Red Alert (CD {(mc.NextAllowedTickRed - Find.TickManager.TicksGame).ToStringTicksToPeriod()})"
+                    : "Red Alert";
+
+                var cmd = new Command_Action
                 {
-                    mc.StartRedAlert(redDur, redCd, blinkSecs);
-                    Messages.Message("Red Alert engaged.", MessageTypeDefOf.NeutralEvent);
-                }
-            };
+                    defaultLabel = redLabel,
+                    defaultDesc  = "Colony-wide red alert.",
+                    icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/RedAlert", true),
+                    action       = () => mc.StartRedAlert(redDur, redCd, blinkSecs)
+                };
+                if (redOnCd) cmd.Disable("On Cooldown");
+                yield return cmd;
+            }
 
-            // Yellow Alert
-            bool yellowOnCd = Find.TickManager.TicksGame < mc.NextAllowedTickYellow;
-            string yellowLabel = yellowOnCd
-                ? $"Yellow Alert (CD {(mc.NextAllowedTickYellow - Find.TickManager.TicksGame).ToStringTicksToPeriod()})"
-                : "Yellow Alert";
-
-            yield return new Command_Action
+            // --- YELLOW ALERT BUTTON ---
+            if (mc.yellowAlertTicksLeft <= 0 && mc.redAlertTicksLeft <= 0)
             {
-                defaultLabel = yellowLabel,
-                defaultDesc  = "Heightened readiness — siren, buffs, timer.",
-                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/YellowAlert", true),
-                action       = () =>
+                 bool yellowOnCd = Find.TickManager.TicksGame < mc.NextAllowedTickYellow;
+                 string yellowLabel = yellowOnCd
+                    ? $"Yellow Alert (CD {(mc.NextAllowedTickYellow - Find.TickManager.TicksGame).ToStringTicksToPeriod()})"
+                    : "Yellow Alert";
+                
+                var cmd = new Command_Action
                 {
-                    mc.StartYellowAlert(yellowDur, yellowCd, blinkSecs);
-                    Messages.Message("Yellow Alert engaged.", MessageTypeDefOf.NeutralEvent);
-                }
-            };
+                    defaultLabel = yellowLabel,
+                    defaultDesc  = "Heightened readiness.",
+                    icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/YellowAlert", true),
+                    action       = () => mc.StartYellowAlert(yellowDur, yellowCd, blinkSecs)
+                };
+                if (yellowOnCd) cmd.Disable("On Cooldown");
+                yield return cmd;
+            }
+
+            // --- CONDITION GREEN BUTTON (CANCEL) ---
+            if (mc.redAlertTicksLeft > 0 || mc.yellowAlertTicksLeft > 0)
+            {
+                yield return new Command_Action
+                {
+                    defaultLabel = "Condition Green",
+                    defaultDesc  = "Stand down. Cancel alert.",
+                    icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/GreenAlert", true), 
+                    action       = () => mc.EndAlert()
+                };
+            }
         }
     }
 }
-

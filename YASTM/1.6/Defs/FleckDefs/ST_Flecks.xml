@@ -144,4 +144,60 @@
     <realTime>false</realTime>
   </FleckDef>
 
+  <FleckDef ParentName="FleckBase_Thrown">
+      <defName>ST_WarpPulse</defName>
+      <graphicData>
+        <texPath>Things/Mote/BrightFlash</texPath>
+        <shaderType>MoteGlow</shaderType>
+        <color>(0.4, 0.9, 1.0, 0.6)</color>
+        <drawSize>3.5</drawSize> </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>0.2</fadeInTime>
+        <solidTime>0.4</solidTime>
+        <fadeOutTime>0.8</fadeOutTime>
+        <growthRate>1.5</growthRate>
+  </FleckDef>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>ST_RedAlertPulse</defName>
+    <graphicData>
+      <texPath>Things/Mote/BrightFlash</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <color>(1.0, 0.0, 0.0, 0.6)</color> <drawSize>3.0</drawSize> </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <fadeInTime>0.1</fadeInTime> <solidTime>0.2</solidTime>
+    <fadeOutTime>0.5</fadeOutTime>
+    <growthRate>1.0</growthRate>
+  </FleckDef>
+
+<FleckDef ParentName="FleckBase_Thrown">
+    <defName>ST_Holo_Risa</defName>
+    <graphicData>
+      <texPath>Things/Building/Misc/RisaOverlay</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <color>(0.2, 0.9, 1.0, 1)</color>
+      <drawSize>1.8</drawSize>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <fadeInTime>0.5</fadeInTime>
+    <solidTime>2.5</solidTime>
+    <fadeOutTime>1.0</fadeOutTime>
+    <growthRate>0.05</growthRate>
+  </FleckDef>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>ST_Holo_Combat</defName>
+    <graphicData>
+      <texPath>Things/Building/Misc/CombatOverlay</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <color>(1.0, 0.2, 0.2, 0.75)</color>
+      <drawSize>1.8</drawSize>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <fadeInTime>0.2</fadeInTime>
+    <solidTime>2.8</solidTime>
+    <fadeOutTime>1.0</fadeOutTime>
+    <growthRate>0.1</growthRate>
+  </FleckDef>
+
 </Defs>

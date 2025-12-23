@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_HoloEmitter</defName>
+    <label>holographic emitter</label>
+    <description>A projector capable of creating immersive photonic simulations. Can be configured for relaxation (Risa) or combat training (Bat'leth).\n\nWarning: Combat simulations consume high power and carry a risk of physical injury if safety protocols fail.</description>
+    
+    <graphicData>
+      <texPath>Things/Building/Misc/HoloEmitter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <shadowData>
+        <volume>(0.5, 0.5, 0.5)</volume>
+      </shadowData>
+    </graphicData>
+
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <rotatable>false</rotatable>
+    <fillPercent>0.2</fillPercent>
+    
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>2500</WorkToBuild>
+      <Mass>20</Mass>
+      <Flammability>0.5</Flammability>
+      <Beauty>10</Beauty>
+      <Comfort>1</Comfort>
+      <JoyGainFactor>1.5</JoyGainFactor>
+    </statBases>
+
+    <size>(1,1)</size>
+    <tickerType>Normal</tickerType> 
+    <costList>
+      <Steel>100</Steel>
+      <ComponentSpacer>4</ComponentSpacer>
+      <Gold>20</Gold>
+    </costList>
+
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>500</basePowerConsumption> 
+        </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+
+      <li Class="YASTM.CompProperties_Holodeck">
+        <trainingXpPerTick>0.15</trainingXpPerTick>
+        <injuryChance>0.001</injuryChance>
+        <powerCombatMode>2000</powerCombatMode>
+        <powerRelaxMode>400</powerRelaxMode>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(137,207,240,50)</glowColor> <!-- bluish glow -->
+      </li> 
+    </comps>
+
+    <building>
+      <joyKind>Gaming_Cerebral</joyKind> 
+      <watchBuildingStandDistanceRange>1~1</watchBuildingStandDistanceRange>
+      <watchBuildingStandRectWidth>3</watchBuildingStandRectWidth>
+    </building>
+
+    <researchPrerequisites>
+      <li>ST_ForceField_Tech</li>
+      <li>ST_RecreationalInterfaces</li> 
+    </researchPrerequisites>
+    
+    <designationCategory>ST_Designation</designationCategory>
+  </ThingDef>
+
+</Defs>

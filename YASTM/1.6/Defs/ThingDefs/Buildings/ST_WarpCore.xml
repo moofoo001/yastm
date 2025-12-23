@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_WarpCore</defName>
+    <label>warp core</label>
+    <description>A matter/antimatter reaction assembly. Generates massive amounts of power but requires Dilithium crystals and SIGNIFICANT cooling. Warning: Destruction while active will cause a catastrophic explosion.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Power/ST_WarpCore</texPath> 
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <shadowData>
+        <volume>(1.8, 1.0, 1.8)</volume>
+      </shadowData>
+    </graphicData>
+    
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>150</pathCost>
+    <blockWind>true</blockWind>
+    <fillPercent>1.0</fillPercent>
+    <rotatable>false</rotatable>
+    <size>(2,2)</size>
+    <tickerType>Normal</tickerType> <statBases>
+      <MaxHitPoints>1000</MaxHitPoints> <WorkToBuild>8000</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Mass>1000</Mass>
+    </statBases>
+
+
+    <costList>
+      <Steel>500</Steel>
+      <Plasteel>200</Plasteel>
+      <Uranium>50</Uranium>
+      <ComponentSpacer>8</ComponentSpacer>
+      <ST_DilithiumCrystal>10</ST_DilithiumCrystal>
+    </costList>
+    <constructionSkillPrerequisite>14</constructionSkillPrerequisite>
+
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-25000</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>2.0</fuelConsumptionRate>
+        <fuelCapacity>50.0</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>ST_DilithiumCrystal</li>
+          </thingDefs>
+        </fuelFilter>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>
+      
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>200</heatPerSecond>
+        <heatPushMaxTemperature>9999</heatPushMaxTemperature>
+      </li>
+
+      <li Class="YASTM.CompProperties_WarpCore">
+         <explosionRadius>25.0</explosionRadius>
+         <safeTemperatureMax>60.0</safeTemperatureMax>
+         <pulseInterval>180</pulseInterval>
+         <pulseRadius>3.5</pulseRadius>
+       </li>
+
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
+      
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(137,207,240,0)</glowColor> <!-- bluish glow -->
+      </li> 
+      </comps>
+
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>ST_Designation</designationCategory>
+    <uiOrder>3000</uiOrder>
+    <researchPrerequisites>
+      <li>ST_WarpFieldTheory</li> 
+    </researchPrerequisites>
+  </ThingDef>
+
+</Defs>
