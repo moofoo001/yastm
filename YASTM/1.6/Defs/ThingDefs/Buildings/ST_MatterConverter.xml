@@ -66,16 +66,15 @@
     <designationCategory>ST_Designation</designationCategory>
 
     <comps>
-
-    <li Class="YASTM.Source.Comps.CompProperties_MatterTank">
-            <capacity>100.0</capacity>
-          </li>
+      <li Class="CompProperties">
+        <compClass>YASTM.CompMatterTank</compClass>
+      </li>
 
       <li Class="CompProperties_Facility">
         <maxSimultaneous>4</maxSimultaneous>
         <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
         <maxDistance>10</maxDistance>
-         <linkableBuildings>
+        <linkableBuildings>
           <li>ST_Replicator</li>
         </linkableBuildings>
       </li>
@@ -83,12 +82,6 @@
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>200</basePowerConsumption>
-      </li>
-      <li Class="CompProperties_FacilityInUse">
-        <inUsePowerConsumption>1000</inUsePowerConsumption>
-      </li>
-      <li Class="CompProperties_ReportWorkSpeed">
-        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
       </li>
       <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Breakdownable" />

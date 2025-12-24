@@ -2,65 +2,73 @@ using HarmonyLib;
 using RimWorld;
 using Verse;
 using Verse.AI;
-using YASTM.Source.Comps;
+using YASTM; 
 using System.Linq;
 
 namespace YASTM.Source.HarmonyPatches
 {
-    // Dieser Patch kontrolliert, ob ein Job überhaupt angeboten wird
     [HarmonyPatch(typeof(WorkGiver_DoBill), "JobOnThing")]
     public static class Patch_WorkGiver_Control
     {
+        // Wir nutzen einen Timer, um das Log nicht zu fluten (nur alle 100 Aufrufe)
+        private static int debugCounter = 0;
+
         public static void Postfix(Pawn pawn, Thing thing, bool forced, ref Job __result)
         {
-            // Wenn das Spiel schon sagt "Kein Job", sind wir fertig.
+            // Wenn schon kein Job da ist, brauchen wir nichts tun
             if (__result == null) return;
 
-            // 1. Matter Converter: Pause wenn voll
-            if (thing.def.defName == "ST_MatterConverter")
-            {
-                var tank = thing.TryGetComp<CompMatterTank>();
-                // Toleranz von 1.0f, damit er nicht bei 99.9 aufhört
-                if (tank != null && tank.storedMatter >= (tank.Props.capacity - 1.0f))
-                {
-                    // Job blockieren
-                    // JobFailReason.Is("Matter tank is full."); // Optional: Zeigt Grund bei Rechtsklick
-                    __result = null; 
-                }
-            }
-
-            // 2. Replicator: Pause wenn leer
+            // --- REPLIKATOR CHECK ---
             if (thing.def.defName == "ST_Replicator")
             {
-                // Kosten schätzen (Mahlzeit = 1, Item = 5)
-                float cost = 5f;
-                if (__result.bill is Bill_Production billProd && billProd.recipe.defName.Contains("Meal"))
-                {
-                    cost = 1f;
-                }
+                 bool hasFuel = false;
+                 string failReason = "No Link Comp";
 
-                // Verbundenen Tank suchen
-                bool hasEnough = false;
-                var facilityComp = thing.TryGetComp<CompAffectedByFacilities>();
-                if (facilityComp != null)
-                {
-                    foreach (var fac in facilityComp.LinkedFacilitiesListForReading)
-                    {
-                        var tank = fac.TryGetComp<CompMatterTank>();
-                        if (tank != null && tank.storedMatter >= cost)
-                        {
-                            hasEnough = true;
-                            break;
-                        }
-                    }
-                }
+                 var linkComp = thing.TryGetComp<CompAffectedByFacilities>();
+                 
+                 if (linkComp != null)
+                 {
+                     // Debugging alle paar Ticks, damit das Log lesbar bleibt
+                     bool doDebug = (debugCounter++ % 100 == 0) && forced; 
 
-                if (!hasEnough)
-                {
-                    // Job blockieren
-                    JobFailReason.Is("ST_ReplicatorNoMatter".Translate());
-                    __result = null;
-                }
+                     if (doDebug) Log.Message($"[YASTM DEBUG] Replicator Check for {pawn.Name.ToStringShort}: Found {linkComp.LinkedFacilitiesListForReading.Count} facilities.");
+
+                     foreach(var fac in linkComp.LinkedFacilitiesListForReading)
+                     {
+                         var t = fac.TryGetComp<CompMatterTank>();
+                         if (t != null)
+                         {
+                             if (doDebug) Log.Message($"[YASTM DEBUG] - Found Tank. Matter: {t.storedMatter}/{t.MaxCapacity}");
+                             
+                             if (t.storedMatter >= 1.0f) 
+                             {
+                                 hasFuel = true; 
+                                 break; 
+                             }
+                             else
+                             {
+                                 failReason = "Tank Empty";
+                             }
+                         }
+                         else
+                         {
+                             if (doDebug) Log.Message($"[YASTM DEBUG] - Facility {fac.Label} has no CompMatterTank.");
+                         }
+                     }
+                 }
+
+                 if (!hasFuel) 
+                 {
+                     // Job blockieren
+                     __result = null;
+                     
+                     // Dem Spieler sagen, warum (wenn er den Pawn zwingt/Rechtsklick macht)
+                     if (forced)
+                     {
+                         JobFailReason.Is("Replicator Error: " + failReason);
+                         Log.Warning($"[YASTM] Replicator job blocked. Reason: {failReason}");
+                     }
+                 }
             }
         }
     }
