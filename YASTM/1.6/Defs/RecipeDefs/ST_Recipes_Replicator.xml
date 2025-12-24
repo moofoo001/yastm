@@ -134,32 +134,11 @@
       <Cooking>2</Cooking>
     </skillRequirements>
     <ingredients/>
-
-    <!-- old ingredients format preserved for reference
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>ST_ReplicatorFeedstock</li>
-          </thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-    </ingredients>
-    
-  <fixedIngredientFilter>
-    <thingDefs>
-      <li>ST_ReplicatorFeedstock</li>
-    </thingDefs>
-  </fixedIngredientFilter>
-
-  <defaultIngredientFilter>
-    <thingDefs>
-      <li>ST_ReplicatorFeedstock</li>
-    </thingDefs>
-  </defaultIngredientFilter>
-  -->
-
+    <modExtensions>
+          <li Class="YASTM.ReplicatorCostExtension">
+            <cost>5.0</cost>
+          </li>
+    </modExtensions>
     <products>
       <ST_Replicated_SimpleMeal>1</ST_Replicated_SimpleMeal>
     </products>
@@ -180,8 +159,13 @@
     <effectWorking>Cook</effectWorking>
     <soundWorking>ST_SFX_LCARS_Click</soundWorking>
     <ingredients/>
+    <modExtensions>
+        <li Class="YASTM.ReplicatorCostExtension">
+            <cost>10.0</cost>
+          </li>
+    </modExtensions>
     <skillRequirements>
-      <Cooking>2</Cooking>
+      <Cooking>5</Cooking>
     </skillRequirements>
     <products>
       <ST_Replicated_LuxuryMeal>1</ST_Replicated_LuxuryMeal>
@@ -207,6 +191,11 @@
     <skillRequirements>
       <Cooking>2</Cooking>
     </skillRequirements>
+    <modExtensions>
+          <li Class="YASTM.ReplicatorCostExtension">
+            <cost>7.0</cost>
+          </li>
+    </modExtensions>
     <ingredients/>
     <products>
       <ST_Emergency_Ration>1</ST_Emergency_Ration>
@@ -233,6 +222,11 @@
       <Cooking>2</Cooking>
     </skillRequirements>
     <ingredients/>
+    <modExtensions>
+          <li Class="YASTM.ReplicatorCostExtension">
+            <cost>3.0</cost>
+          </li>
+    </modExtensions>
     <products>
       <ST_Drink_Raktajino>1</ST_Drink_Raktajino>
     </products>
