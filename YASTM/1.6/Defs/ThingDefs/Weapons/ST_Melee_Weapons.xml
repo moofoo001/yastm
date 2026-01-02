@@ -127,6 +127,89 @@
     <tradeTags><li>ST_StarfleetSupply</li></tradeTags>
   </ThingDef>
 
+  <ThingDef ParentName="ST_MeleeBase">
+    <defName>ST_VulcanLirpa</defName>
+    <label>Lirpa</label>
+    <description>A traditional Vulcan weapon consisting of a wooden staff with a semicircular blade at one end and a heavy bludgeon at the other. Historically used in the mating ritual known as Kal-if-fee. While ceremonial, in the hands of a Vulcan, it is a deadly instrument of precision and force.</description>
+    
+    <graphicData>
+      <texPath>Things/Item/Equipment/Federation_weapons/VulcanLirpa</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+
+    <weaponTags>
+      <li>FederationMelee</li>
+      <li>VulcanMelee_Lirpa</li>
+    </weaponTags>
+
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <Mass>3.5</Mass>
+      <MarketValue>650</MarketValue>
+      <MeleeWeapon_DamageMultiplier>1.1</MeleeWeapon_DamageMultiplier>
+      <MeleeWeapon_CooldownMultiplier>0.9</MeleeWeapon_CooldownMultiplier>
+    </statBases>
+
+    <equippedStatOffsets>
+      <MeleeHitChance>2.0</MeleeHitChance>
+      <MeleeDodgeChance>1.0</MeleeDodgeChance>
+    </equippedStatOffsets>
+
+    <costList>
+      <Plasteel>60</Plasteel>
+      <WoodLog>30</WoodLog> </costList>
+
+    <recipeMaker>
+      <researchPrerequisite>ST_Starfleet_Melee_II</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <recipeUsers>
+        <li>ElectricSmithy</li>
+      </recipeUsers>
+    </recipeMaker>
+
+    <tools>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+          <li>Scratch</li>
+        </capacities>
+        <power>24</power>
+        <cooldownTime>2.0</cooldownTime>
+        <armorPenetration>0.35</armorPenetration>
+        <chanceFactor>1.2</chanceFactor> </li>
+      <li>
+        <label>counterweight</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.6</cooldownTime>
+        <armorPenetration>0.15</armorPenetration>
+        <chanceFactor>0.8</chanceFactor> <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>14</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>1.2</cooldownTime>
+        <chanceFactor>0.1</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
   <!-- ===== KLINGON MELEE WEAPONS ===== -->
 
   <!-- KLINGON D'k tahg -->
