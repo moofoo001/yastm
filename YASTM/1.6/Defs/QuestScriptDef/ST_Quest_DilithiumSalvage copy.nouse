@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <QuestScriptDef>
+    <defName>ST_Quest_DilithiumSalvage</defName>
+    <rootSelectionWeight>1.0</rootSelectionWeight>
+    <rootMinPoints>350</rootMinPoints>
+    <autoAccept>true</autoAccept>
+    <defaultHidden>false</defaultHidden>
+    
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->Dilithium Salvage Operation</li>
+        <li>questName->Ferengi Crash Site</li>
+        <li>questName->Energy Signature Detected</li>
+      </rulesStrings>
+    </questNameRules>
+    
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>item_label->Dilithium Crystals</li>
+        <li>questDescription->Sensors have detected a crashed Ferengi freighter carrying valuable [item_label] in territory controlled by the unknown bandit forces.\n\nCommand advises caution: The crash site is likely defended by survivors or scavengers.\n\n</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    
+    <root Class="QuestNode_Sequence">
+      <nodes>
+        <li Class="QuestNode_GetSiteTile">
+         <storeAs>siteTile</storeAs>
+          <preferCloserTiles>true</preferCloserTiles>
+          <selectLandmarkChance>0.5</selectLandmarkChance>
+          <allowedLandmarks>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">Oasis</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">Lake</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">LakeWithIsland</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">LakeWithIslands</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">Pond</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">DryLake</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">ToxicLake</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">Wetland</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">HotSprings</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">Archipelago</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">CoastalIsland</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">Peninsula</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">Bay</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">Valley</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">Cavern</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">Chasm</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">Cliffs</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">Hollow</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">TerraformingScar</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">LavaLake</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">Dunes</li>
+            <li MayRequire="Ludeon.RimWorld.Odyssey">AncientHeatVent</li>
+          </allowedLandmarks>
+        </li>
+        
+        <li Class="QuestNode_GetSitePartDefsByTagsAndFaction">
+          <storeAs>sitePartDefs</storeAs>
+          <sitePartsTags>
+            <li><tag>ItemStash</tag></li>
+            <li><tag>BanditCamp</tag></li>
+          </sitePartsTags>
+        </li>
+
+        <li Class="YASTM.QuestNode_GetFactionByDef">
+          <factionDef>Ferengi_Alliance</factionDef>
+          <storeAs>ferengiFaction</storeAs>
+          <allowEnemy>true</allowEnemy>
+        </li>
+
+        <li Class="QuestNode_GetDefaultSitePartsParams">
+          <tile>$siteTile</tile>
+          <faction>$ferengiFaction</faction>
+          <sitePartDefs>$sitePartDefs</sitePartDefs>
+          <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+        </li>
+
+        <li Class="QuestNode_Set">
+          <name>itemCount</name>
+          <value>$(randInt(25, 50))</value>
+        </li>
+
+        <li Class="QuestNode_GenerateThing">
+          <def>ST_DilithiumCrystal</def>
+          <stackCount>$itemCount</stackCount>
+          <storeAs>generatedItem</storeAs>
+        </li>
+
+        <li Class="QuestNode_AddToList">
+          <name>rewardsList</name>
+          <value>$generatedItem</value>
+        </li>
+
+        <li Class="QuestNode_SubScript">
+          <def>Util_GenerateSite</def>
+          <parms>
+            <siteFaction>$ferengiFaction</siteFaction>
+            <tile>$siteTile</tile>
+            <sitePartsParams>$sitePartsParams</sitePartsParams>
+            <hiddenSitePartsPossible>true</hiddenSitePartsPossible>
+          </parms>
+        </li>
+        
+        <li Class="QuestNode_SpawnWorldObjects">
+          <worldObjects><li>$site</li></worldObjects>
+        </li>
+
+        <li Class="QuestNode_Letter">
+          <label>Away Mission: Dilithium</label>
+          <text>Sensors indicate a crash site nearby containing [itemCount]x Dilithium Crystals.\n\nIt is guarded by the [siteFaction]. Prepare your away team.</text>
+          <lookTargets>$site</lookTargets>
+        </li>
+
+        <li Class="QuestNode_AddItemsReward">
+          <items>$rewardsList</items>
+          <inSignalChoiceUsed>site.MapGenerated</inSignalChoiceUsed>
+          <generateQuestParts>false</generateQuestParts>
+        </li>
+
+        <li Class="QuestNode_End">
+          <outcome>Success</outcome>
+          <inSignal>site.Destroyed</inSignal>
+        </li>
+      </nodes>
+    </root>
+  </QuestScriptDef>
+</Defs>

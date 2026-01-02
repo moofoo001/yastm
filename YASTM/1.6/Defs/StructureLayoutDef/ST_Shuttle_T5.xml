@@ -11,9 +11,9 @@
       <li>ST_HullWall_Steel,.,SmallThruster_North,ST_HullWall_Steel,ST_HullWall_Steel,ST_HullDoor_Silver,ST_HullWall_Steel,ST_HullWall_Steel,SmallThruster_North,.,ST_HullWall_Steel</li>
       <li>ST_HullWall_Steel,.,.,ChemfuelTank_North_Fuel100,.,.,ChemfuelTank_North_Fuel100,.,.,ChunkSandstone,ST_HullWall_Steel</li>
       <li>ST_HullWall_Steel,.,ST_HullWall_Steel,.,.,.,.,.,ST_HullWall_Steel,.,ST_HullWall_Steel</li>
-      <li>ST_HullWall_Steel,.,ST_HullWall_Steel,ST_ShipTable_Steel_West,ST_ShipChair_Plasteel_East,.,ChunkSandstone,.,ST_HullWall_Steel,.,ST_HullWall_Steel</li>
-      <li>ST_HullWall_Steel,ST_HullWindows_East,ST_HullWall_Steel,.,ST_ShipChair_Plasteel_East,.,ST_ShipChair_Plasteel_East,ST_CommsConsole_East,ST_HullWall_Steel,ST_HullWindows_West,ST_HullWall_Steel</li>
-      <li>ST_HullWall_Steel,.,ST_HullWall_Steel,BookcaseSmall_Jade_East,ST_ShipChair_Plasteel_East,.,ST_ShipChair_Plasteel_East,.,ST_HullWall_Steel,ChunkLimestone,ST_HullWall_Steel</li>
+      <li>ST_HullWall_Steel,.,ST_HullWall_Steel,ST_ShipTable_Steel_West,ST_ShipChair_Plasteel_West,.,ChunkSandstone,.,ST_HullWall_Steel,.,ST_HullWall_Steel</li>
+      <li>ST_HullWall_Steel,ST_HullWindows_East,ST_HullWall_Steel,.,ST_ShipChair_Plasteel_West,.,ST_ShipChair_Plasteel_East,ST_CommsConsole_East,ST_HullWall_Steel,ST_HullWindows_West,ST_HullWall_Steel</li>
+      <li>ST_HullWall_Steel,.,ST_HullWall_Steel,BookcaseSmall_Jade_East,ST_ShipChair_Plasteel_West,.,ST_ShipChair_Plasteel_East,.,ST_HullWall_Steel,ChunkLimestone,ST_HullWall_Steel</li>
       <li>ST_HullWall_Gold,.,ST_HullWall_Steel,MealSurvivalPack,.,ST_PilotConsole_North,.,ComponentIndustrial,ST_HullWall_Steel,ChunkLimestone,ST_HullWall_Gold</li>
       <li>ST_HullWall_Steel,.,ST_HullWall_Steel,MealSurvivalPack,.,.,.,MedicineIndustrial,ST_HullWall_Steel,.,ST_HullWall_Steel</li>
       <li>.,.,ST_HullWall_Steel,Steel,.,.,.,Steel,ST_HullWall_Steel,.,.</li>

@@ -31,6 +31,7 @@
   <ThingDef ParentName="ST_DisruptorBase">
     <defName>KL_Weapon_Disruptor_Pistol</defName>
     <label>klingon disruptor pistol</label>
+    <description>A compact energy weapon favored by Klingon warriors for its concealability and effectiveness in close-quarters combat. The disruptor pistol delivers powerful energy blasts capable of incapacitating targets quickly.</description> 
     <graphicData>
       <texPath>Things/Item/Equipment/Klingon_weapons/Disruptor_Pistol</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -80,6 +81,7 @@
   <ThingDef ParentName="ST_DisruptorBase">
     <defName>KL_Weapon_Disruptor_Rifle</defName>
     <label>klingon disruptor rifle</label>
+    <description>A high-powered energy weapon commonly used by Klingon warriors and military forces. Known for its reliability and stopping power, the disruptor rifle is a favored choice for front-line combat and tactical engagements.</description>
     <graphicData>
       <texPath>Things/Item/Equipment/Klingon_weapons/Disruptor_Rifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -132,6 +134,7 @@
   <ThingDef ParentName="ST_DisruptorBase">
     <defName>RO_Weapon_Disruptor_Pistol</defName>
     <label>romulan disruptor pistol</label>
+    <description>A compact energy weapon favored by Romulan operatives for its concealability and effectiveness in close-quarters combat. The disruptor pistol delivers powerful energy blasts capable of incapacitating targets quickly.</description>
     <graphicData>
       <texPath>Things/Item/Equipment/Romulan_weapons/Disruptor_Pistol</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -181,6 +184,7 @@
   <ThingDef ParentName="ST_DisruptorBase">
     <defName>RO_Weapon_Disruptor_Rifle</defName>
     <label>romulan disruptor rifle</label>
+    <description>A high-powered energy weapon commonly used by Romulan military forces. Known for its precision and stopping power, the disruptor rifle is a favored choice for marksmen and infantry units in various combat scenarios.</description>  
     <graphicData>
       <texPath>Things/Item/Equipment/Romulan_weapons/Disruptor_Rifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -228,58 +232,12 @@
   </ThingDef>
 
   <!-- FERENGI -->
-  <ThingDef ParentName="ST_DisruptorBase">
-    <defName>FE_Weapon_Disruptor_Pistol</defName>
-    <label>ferengi disruptor pistol</label>
-    <graphicData>
-      <texPath>Things/Item/Equipment/Ferengi_weapons/Disruptor_Pistol</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(0.7,0.7)</drawSize>
-    </graphicData>
-    <weaponTags>
-      <li>FerengiDisruptor</li>
-      <li>FerengiDisruptor_Pistol</li>
-    </weaponTags>
-    <statBases>
-      <Mass>1.5</Mass>
-      <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
-      <AccuracyShort>0.70</AccuracyShort>
-      <AccuracyMedium>0.48</AccuracyMedium>
-      <AccuracyLong>0.22</AccuracyLong>
-      <MarketValue>500</MarketValue>
-    </statBases>
-    <verbs>
-      <li>
-        <verbClass>Verb_Shoot</verbClass>
-        <defaultProjectile>FE_Projectile_Disruptor_Pistol</defaultProjectile>
-        <hasStandardCommand>true</hasStandardCommand>
-        <burstShotCount>1</burstShotCount>
-        <warmupTime>0.50</warmupTime>
-        <range>25</range>
-        <soundCast>Disruptor_Pistol</soundCast>
-        <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
-      </li>
-    </verbs>
-    <recipeMaker>
-       <workAmount>5000</workAmount>
-       <skillRequirements><Crafting>7</Crafting></skillRequirements>
-       <recipeUsers><li>ElectricSmithy</li></recipeUsers>
-       <researchPrerequisite>ST_Ferengi_Security_I</researchPrerequisite>
-    </recipeMaker>  
-    <costList>
-      <Silver>50</Silver>
-      <Plasteel>5</Plasteel>
-      <Steel>40</Steel>
-      <ComponentIndustrial>2</ComponentIndustrial>
-    </costList>
-    <tradeTags>
-      <li>ST_FerengiGoods</li>
-    </tradeTags>  
-  </ThingDef>
+
 
   <ThingDef ParentName="ST_DisruptorBase">
     <defName>FE_Weapon_Disruptor_Rifle</defName>
     <label>ferengi disruptor rifle</label>
+    <description>A high-powered energy weapon commonly used by Ferengi mercenaries and security forces. Known for its rapid-fire capability and devastating impact, the disruptor rifle is a favored choice for those seeking to maximize firepower in combat situations.</description>
     <graphicData>
       <texPath>Things/Item/Equipment/Ferengi_weapons/Disruptor_Rifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>

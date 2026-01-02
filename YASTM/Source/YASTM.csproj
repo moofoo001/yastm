@@ -6,20 +6,17 @@
     <RootNamespace>StarTrekFactions</RootNamespace>
     <LangVersion>latest</LangVersion>
     <Nullable>disable</Nullable>
-
     <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
-
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <OutputPath>$(MSBuildProjectDirectory)\bin\$(MSBuildProjectName)\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>$(MSBuildProjectDirectory)\obj\$(MSBuildProjectName)\</IntermediateOutputPath>
-
     <Deterministic>true</Deterministic>
     <DebugType>portable</DebugType>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <NoWarn>1591;1701;1702</NoWarn>
-
     <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
@@ -31,11 +28,19 @@
     <Optimize>true</Optimize>
   </PropertyGroup>
 
+
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref" Version="*" PrivateAssets="all" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="*" PrivateAssets="all" />
     <PackageReference Include="Lib.Harmony" Version="2.2.2" PrivateAssets="all" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="(MSBuildProjectDirectory)\Debug\CompAudit.cs" />
+    <Compile Remove="(MSBuildProjectDirectory)\Bootstrap\YASTM_DefAudit.cs" />
+  </ItemGroup>
+
+  
 
   <Target Name="PostBuild" AfterTargets="Build">
     <MakeDir Directories="$(MSBuildProjectDirectory)\..\1.6\Assemblies\" />

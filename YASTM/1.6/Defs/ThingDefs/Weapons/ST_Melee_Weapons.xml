@@ -28,6 +28,7 @@
   <ThingDef ParentName="ST_MeleeBase">
     <defName>UFP_Weapon_SurvivalKnife</defName>
     <label>survival knife</label>
+    <description>A versatile survival knife used by Federation explorers and officers. Designed for both utility and combat, it features a sharp blade ideal for close-quarters engagements.</description>  
     <graphicData>
       <texPath>Things/Item/Equipment/Federation_weapons/UFPS_SurvivalKnife</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -79,6 +80,7 @@
   <ThingDef ParentName="ST_MeleeBase">
     <defName>UFP_Weapon_StunBaton</defName>
     <label>stun baton</label>
+    <description>A non-lethal stun baton used by Federation security personnel to incapacitate targets through electric shocks. Ideal for crowd control and subduing hostile individuals without causing permanent harm.</description>  
     <graphicData>
       <texPath>Things/Item/Equipment/Federation_weapons/UFPS_StunBaton</texPath>
       <graphicClass>Graphic_Single</graphicClass>

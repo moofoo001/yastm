@@ -282,5 +282,63 @@
     </tradeTags>
   </ThingDef>
 
+  <!-- FERENGI -->
+  <ThingDef ParentName="ST_DisruptorBase">
+    <defName>FE_Weapon_HandPhaser</defName>
+    <label>ferengi hand phaser</label>
+    <description>The Ferengi hand phaser, or simply Ferengi phaser, was a type of hand phaser classified as a plasma weapon that was used by the Ferengi and their military personnel.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Ferengi_weapons/HandPhaser</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <weaponTags>
+      <li>FerengiDisruptor</li>
+      <li>FerengiPhaser</li>
+    </weaponTags>
+    <statBases>
+      <Mass>1.5</Mass>
+      <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+      <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.48</AccuracyMedium>
+      <AccuracyLong>0.22</AccuracyLong>
+      <MarketValue>500</MarketValue>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>Bullet_PhaserPulse_TypeI</defaultProjectile>
+        <hasStandardCommand>true</hasStandardCommand>
+        <burstShotCount>1</burstShotCount>
+        <warmupTime>0.50</warmupTime>
+        <range>25</range>
+        <soundCast>Disruptor_Pistol</soundCast>
+        <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="ST.PhaseWeapons.CompProperties_PhaserMode">
+        <allowOvercharge>false</allowOvercharge>
+        <projectileKill>Bullet_PhaserPulse_TypeI</projectileKill>
+        <projectileStun>Bullet_PhaserPulse_Stun</projectileStun>
+      </li>
+    </comps>
+    <recipeMaker>
+       <workAmount>5000</workAmount>
+       <skillRequirements><Crafting>7</Crafting></skillRequirements>
+       <recipeUsers><li>ElectricSmithy</li></recipeUsers>
+       <researchPrerequisite>ST_Ferengi_Security_I</researchPrerequisite>
+    </recipeMaker>  
+    <costList>
+      <Silver>50</Silver>
+      <Plasteel>5</Plasteel>
+      <Steel>40</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <tradeTags>
+      <li>ST_FerengiGoods</li>
+    </tradeTags>  
+  </ThingDef>
+
 
 </Defs>
