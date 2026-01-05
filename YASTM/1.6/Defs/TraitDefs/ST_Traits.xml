@@ -220,4 +220,19 @@
     </conflictingTraits>
   </TraitDef>
 
+  <TraitDef>
+    <defName>ST_TransporterEngineer</defName>
+    <label>Transporter Chief</label>
+    <commonality>0.0</commonality>
+    <degreeDatas>
+      <li>
+      <description>This person has completed the advanced subspace geometry protocols. They are qualified to operate transporter buffers safely.</description>
+        <statOffsets>
+          <GeneralLaborSpeed>0.10</GeneralLaborSpeed>
+          <ResearchSpeed>0.05</ResearchSpeed>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
 </Defs>

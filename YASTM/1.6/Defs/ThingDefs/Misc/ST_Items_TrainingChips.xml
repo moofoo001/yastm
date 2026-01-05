@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="ST_BaseIsolinearChip" Abstract="True" ParentName="ResourceBase">
+    <graphicData>
+      <texPath>Things/Item/Resource/ST_IsolinearChip</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </graphicData>
+    <uiIconScale>2</uiIconScale>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <stackLimit>10</stackLimit>
+    <tradeTags>
+      <li>ExoticMisc</li>
+      <li>ST_StarfleetSupply</li>
+    </tradeTags>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <MarketValue>800</MarketValue> <Mass>0.1</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <techLevel>Spacer</techLevel>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseIsolinearChip">
+    <defName>ST_IsoChip_Transporter</defName>
+    <label>isolinear chip (Transporter Protocols)</label>
+    <description>Contains advanced holographic simulation data for transporter certification training.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ST_IsolinearChip</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+      <color>0.4,0.4,0.1,0.8</color>    <!-- Yellowish tint to differentiate -->
+    </graphicData>
+    
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseIsolinearChip">
+    <defName>ST_IsoChip_Pilot</defName>
+    <label>isolinear chip (Shuttle Piloting)</label>
+    <description>Contains flight dynamics and atmospheric entry simulation data.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ST_IsolinearChip</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+      <color>0.4,0.1,0.1,0.8</color>    <!-- Reddish tint to differentiate -->
+    </graphicData>
+    <statBases>
+        <MarketValue>1500</MarketValue>
+    </statBases>
+  </ThingDef>
+
+</Defs>

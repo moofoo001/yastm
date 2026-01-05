@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <YASTM.CareerDef>
+    <defName>ST_Career_Klingon_Warrior</defName>
+    <requiredXenotypes>
+      <li>Ectos_Klingon</li>
+    </requiredXenotypes>
+    <pointCategory>Combat</pointCategory> <ranks>
+      <li>
+        <threshold>5</threshold>
+        <rewardTrait>ST_KlingonRank</rewardTrait>
+        <rewardDegree>1</rewardDegree> <label>Lagh</label>
+      </li>
+      <li>
+        <threshold>20</threshold>
+        <rewardTrait>ST_KlingonRank</rewardTrait>
+        <rewardDegree>2</rewardDegree> <label>Sogh hom</label>
+      </li>
+      </ranks>
+  </YASTM.CareerDef>
+</Defs>

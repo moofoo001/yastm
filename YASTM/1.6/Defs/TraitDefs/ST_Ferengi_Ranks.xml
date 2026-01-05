@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TraitDef>
+    <defName>ST_FerengiRank</defName>
+    <commonality>0.0</commonality> <degreeDatas>
+      <li>
+        <label>Huckster</label>
+        <description>Starting out in the Great Material Continuum.</description>
+        <degree>1</degree>
+        <statOffsets>
+          <TradePriceImprovement>0.05</TradePriceImprovement>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>DaiMon</label>
+        <description>A leader of commerce and trade missions.</description>
+        <degree>2</degree>
+        <statOffsets>
+          <TradePriceImprovement>0.10</TradePriceImprovement>
+          <SocialImpact>0.10</SocialImpact>
+        </statOffsets>
+      </li>
+      
+      <li>
+        <label>Liquidator</label>
+        <description>Enforcer of contracts.</description>
+        <degree>3</degree>
+        <statOffsets>
+          <TradePriceImprovement>0.15</TradePriceImprovement>
+          <NegotiationAbility>0.10</NegotiationAbility>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>GrandNagus</label>
+        <description>The supreme leader of the Ferengi Alliance.</description>
+        <degree>4</degree>
+        <statOffsets>
+          <TradePriceImprovement>0.30</TradePriceImprovement>
+          <SocialImpact>0.50</SocialImpact>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+</Defs>

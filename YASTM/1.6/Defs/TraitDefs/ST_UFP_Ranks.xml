@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <TraitDef>
+    <defName>ST_FederationRank</defName>
+    <commonality>0.0</commonality> <modExtensions>
+      <li Class="YASTM.RankVisualExtension">
+        <rankTexPath>Things/Item/Accessory/pips_federation/</rankTexPath>
+        <ranks>
+          <li><degree>0</degree><texName>Cadet</texName></li>
+          <li><degree>1</degree><texName>Ensign</texName></li>
+          <li><degree>2</degree><texName>LieutenantJG</texName></li>
+          <li><degree>3</degree><texName>Lieutenant</texName></li>
+          <li><degree>4</degree><texName>LtCommander</texName></li>
+          <li><degree>5</degree><texName>Commander</texName></li>
+          <li><degree>6</degree><texName>Captain</texName></li>
+        </ranks>
+      </li>
+    </modExtensions>
+
+    <degreeDatas>
+      <li>
+        <label>Cadet</label>
+        <description>Initial training phase. Adapts quickly to new situations.</description>
+        <degree>0</degree>
+        <statOffsets>
+          <GlobalLearningFactor>0.05</GlobalLearningFactor>
+          <WorkSpeedGlobal>0.02</WorkSpeedGlobal>
+          <SocialImpact>0.02</SocialImpact>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>Ensign</label>
+        <description>Freshly commissioned officer. Learns fast, follows procedure.</description>
+        <degree>1</degree>
+        <statOffsets>
+          <GlobalLearningFactor>0.05</GlobalLearningFactor>
+          <WorkSpeedGlobal>0.03</WorkSpeedGlobal>
+          <SocialImpact>0.02</SocialImpact>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>LieutenantJG</label>
+        <description>Junior officer with growing responsibilities.</description>
+        <degree>2</degree>
+        <statOffsets>
+          <GlobalLearningFactor>0.06</GlobalLearningFactor>
+          <WorkSpeedGlobal>0.04</WorkSpeedGlobal>
+          <SocialImpact>0.03</SocialImpact>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>Lieutenant</label>
+        <description>Experienced line officer. Trusted with section duties.</description>
+        <degree>3</degree>
+        <statOffsets>
+          <WorkSpeedGlobal>0.05</WorkSpeedGlobal>
+          <SocialImpact>0.05</SocialImpact>
+          <ShootingAccuracyPawn>0.02</ShootingAccuracyPawn>
+          <MedicalTendSpeed>0.03</MedicalTendSpeed>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>LtCommander</label>
+        <description>Senior officer; bridges command and line duties.</description>
+        <degree>4</degree>
+        <statOffsets>
+          <WorkSpeedGlobal>0.06</WorkSpeedGlobal>
+          <SocialImpact>0.06</SocialImpact>
+          <NegotiationAbility>0.05</NegotiationAbility>
+          <MentalBreakThreshold>-0.03</MentalBreakThreshold>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>Commander</label>
+        <description>Executive authority. Keeps teams aligned and missions on time.</description>
+        <degree>5</degree>
+        <statOffsets>
+          <WorkSpeedGlobal>0.07</WorkSpeedGlobal>
+          <SocialImpact>0.08</SocialImpact>
+          <NegotiationAbility>0.07</NegotiationAbility>
+          <AimingDelayFactor>-0.03</AimingDelayFactor>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>Captain</label>
+        <description>Commands the mission. Steady hand under pressure.</description>
+        <degree>6</degree>
+        <statOffsets>
+          <WorkSpeedGlobal>0.08</WorkSpeedGlobal>
+          <SocialImpact>0.10</SocialImpact>
+          <NegotiationAbility>0.10</NegotiationAbility>
+          <MentalBreakThreshold>-0.05</MentalBreakThreshold>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+</Defs>

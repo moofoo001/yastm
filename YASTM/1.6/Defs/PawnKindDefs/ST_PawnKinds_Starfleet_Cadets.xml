@@ -36,7 +36,7 @@
 
     <forcedTraits>
       <Pilot_Cadet>0</Pilot_Cadet>
-      <ST_Rank_LieutenantJG>0</ST_Rank_LieutenantJG>
+      <ST_FederationRank>2</ST_FederationRank>
     </forcedTraits>
 
     <weaponTags><li>ST_Phaser_T2</li></weaponTags>
@@ -87,7 +87,7 @@
     </backstoryFiltersOverride>
 
     <forcedTraits>
-      <ST_Rank_Cadet>0</ST_Rank_Cadet>
+      <ST_FederationRank>0</ST_FederationRank>
     </forcedTraits>
 
     <skills>
@@ -137,7 +137,7 @@
     </backstoryFiltersOverride>
 
     <forcedTraits>
-      <ST_Rank_Cadet>0</ST_Rank_Cadet>
+      <ST_FederationRank>0</ST_FederationRank>
     </forcedTraits>
 
     <skills>
@@ -186,7 +186,7 @@
     </backstoryFiltersOverride>
 
     <forcedTraits>
-      <ST_Rank_Cadet>0</ST_Rank_Cadet>
+      <ST_FederationRank>0</ST_FederationRank>
     </forcedTraits>
 
     <skills>
@@ -235,7 +235,7 @@
     </backstoryFiltersOverride>
 
     <forcedTraits>
-      <ST_Rank_Cadet>0</ST_Rank_Cadet>
+      <ST_FederationRank>0</ST_FederationRank>
     </forcedTraits>
 
     <skills>

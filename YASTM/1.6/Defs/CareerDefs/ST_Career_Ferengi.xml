@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <YASTM.CareerDef>
+    <defName>ST_Career_Ferengi_Merchant</defName>
+    <label>Rules of Acquisition</label>
+    
+    <requiredXenotypes>
+      <li>Ectos_Ferengi</li> </requiredXenotypes>
+    
+    <pointCategory>Trade</pointCategory> 
+    
+    <ranks>
+      <li>
+        <threshold>1000</threshold>
+        <rewardTrait>ST_FerengiRank</rewardTrait>
+        <rewardDegree>1</rewardDegree> 
+        <label>Huckster</label>
+      </li>
+      
+      <li>
+        <threshold>10000</threshold>
+        <rewardTrait>ST_FerengiRank</rewardTrait>
+        <rewardDegree>2</rewardDegree>
+        <label>DaiMon</label>
+      </li>
+
+      <li>
+        <threshold>50000</threshold>
+        <rewardTrait>ST_FerengiRank</rewardTrait>
+        <rewardDegree>3</rewardDegree>
+        <label>Liquidator</label>
+      </li>
+      
+      <li>
+        <threshold>200000</threshold>
+        <rewardTrait>ST_FerengiRank</rewardTrait>
+        <rewardDegree>4</rewardDegree>
+        <label>Grand Nagus</label>
+      </li>
+    </ranks>
+  </YASTM.CareerDef>
+
+</Defs>

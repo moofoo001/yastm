@@ -183,11 +183,7 @@
 
         <!-- Rang-Voraussetzungen: Feldname heißt jetzt requiredOfficerTraits -->
         <requiredOfficerTraits>
-          <li>ST_Rank_LieutenantJG</li>
-          <li>ST_Rank_Lieutenant</li>
-          <li>ST_Rank_LtCommander</li>
-          <li>ST_Rank_Commander</li>
-          <li>ST_Rank_Captain</li>
+          <li>ST_FederationRank</li>
         </requiredOfficerTraits>
 
         <!-- Welche STQ-Skripte der Button überhaupt anfragen darf -->

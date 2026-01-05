@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TraitDef>
+    <defName>ST_KlingonRank</defName>
+    <commonality>0.0</commonality>
+    
+    <modExtensions>
+      <li Class="YASTM.RankVisualExtension">
+        <rankTexPath>Things/Item/Accessory/pip/</rankTexPath>
+        <ranks>
+          <li><degree>0</degree><texName>Bekk</texName></li>
+          <li><degree>1</degree><texName>Lagh</texName></li>
+          <li><degree>2</degree><texName>Soghhom</texName></li>
+          <li><degree>3</degree><texName>Sogh</texName></li>
+          <li><degree>4</degree><texName>Lahom</texName></li>
+          <li><degree>5</degree><texName>La</texName></li>
+          <li><degree>6</degree><texName>HoD</texName></li>
+        </ranks>
+      </li>
+    </modExtensions>
+
+    <degreeDatas>
+      <li>
+        <label>Bekk</label>
+        <description>A common soldier of the Empire.</description>
+        <degree>0</degree>
+        <statOffsets>
+          <PainShockThreshold>0.05</PainShockThreshold>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>Lagh</label>
+        <description>A verified warrior who has tasted blood.</description>
+        <degree>1</degree>
+        <statOffsets>
+          <PainShockThreshold>0.08</PainShockThreshold>
+          <MeleeHitChance>0.5</MeleeHitChance>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>Sogh hom</label>
+        <description>A junior officer leading small skirmishes.</description>
+        <degree>2</degree>
+        <statOffsets>
+          <PainShockThreshold>0.12</PainShockThreshold>
+          <MeleeHitChance>1.0</MeleeHitChance>
+          <SocialImpact>0.10</SocialImpact>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>Sogh</label>
+        <description>A respected officer of the Empire.</description>
+        <degree>3</degree>
+        <statOffsets>
+          <PainShockThreshold>0.15</PainShockThreshold>
+          <MeleeHitChance>1.5</MeleeHitChance>
+          <SocialImpact>0.15</SocialImpact>
+          <SuppressionPower>0.1</SuppressionPower>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>La' hom</label>
+        <description>A senior officer, commanding respect.</description>
+        <degree>4</degree>
+        <statOffsets>
+          <PainShockThreshold>0.20</PainShockThreshold>
+          <MeleeHitChance>2.0</MeleeHitChance>
+          <SocialImpact>0.20</SocialImpact>
+          <SuppressionPower>0.2</SuppressionPower>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>La'</label>
+        <description>A commander capable of leading a Bird-of-Prey.</description>
+        <degree>5</degree>
+        <statOffsets>
+          <PainShockThreshold>0.25</PainShockThreshold>
+          <MeleeHitChance>2.5</MeleeHitChance>
+          <SocialImpact>0.30</SocialImpact>
+          <MeleeDodgeChance>1.0</MeleeDodgeChance>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>HoD</label>
+        <description>Captain. The supreme leader of the warband.</description>
+        <degree>6</degree>
+        <statOffsets>
+          <PainShockThreshold>0.40</PainShockThreshold>
+          <MeleeHitChance>4.0</MeleeHitChance>
+          <SocialImpact>0.50</SocialImpact>
+          <TradePriceImprovement>0.10</TradePriceImprovement>
+          <NegotiationAbility>0.20</NegotiationAbility>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+</Defs>

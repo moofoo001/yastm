@@ -1,200 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- old transporter console+pad 
   <ThingDef ParentName="BuildingBase">
-    <defName>ST_TransporterBeacon</defName>
-    <label>transporter beacon</label>
-    <description>Pairs with other transporter beacons. Use “Beam out” to send a selected pawn from this beacon to a linked beacon within range; use “Beam in” to bring a selected pawn here. Requires power.</description>
-    <thingClass>Building</thingClass>
-    <size>(3,1)</size>
-    <altitudeLayer>BuildingOnTop</altitudeLayer>
-    <rotatable>true</rotatable>
-    <defaultPlacingRot>South</defaultPlacingRot>
-    <selectable>true</selectable>
-    <passability>PassThroughOnly</passability>
-    <graphicData>
-      <texPath>Things/Building/ST_TransportBeacon</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <shaderType>CutoutComplex</shaderType>
-      <drawSize>(3,3)</drawSize>
-    </graphicData>
-    <uiIconScale>1</uiIconScale>
-    <uiIconPath>Things/Building/ST_TransportBeacon</uiIconPath>
-    <costList>
-      <Steel>60</Steel>
-      <ComponentIndustrial>3</ComponentIndustrial>
-    </costList>
-    <statBases>
-      <MaxHitPoints>180</MaxHitPoints>
-      <Flammability>0.2</Flammability>
-    </statBases>
-    <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>200</basePowerConsumption>
-        <shortCircuitInRain>false</shortCircuitInRain>
-      </li>
-      <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_Breakdownable"/>
-      <li Class="YASTM.CompProperties_TransporterBeacon">
-        <energyCostPerUse>1200</energyCostPerUse>
-        <warmupTicks>60</warmupTicks>
-        <cooldownTicks>120000</cooldownTicks>
-        <maxLinkDistance>100</maxLinkDistance>
-        <requiredRankTraitsBeamOut>
-          <li>ST_Rank_LieutenantJG</li>
-          <li>ST_Rank_Lieutenant</li>
-          <li>ST_Rank_LtCommander</li>
-          <li>ST_Rank_Commander</li>
-          <li>ST_Rank_Captain</li>
-        </requiredRankTraitsBeamOut>
-        <requiredRankTraitsBeamIn>
-          <li>ST_Rank_LieutenantJG</li>
-          <li>ST_Rank_Lieutenant</li>
-          <li>ST_Rank_LtCommander</li>
-          <li>ST_Rank_Commander</li>
-          <li>ST_Rank_Captain</li>
-        </requiredRankTraitsBeamIn>
-      </li>
-      <li Class="CompProperties_Glower">
-        <glowRadius>8</glowRadius>
-        <glowColor>(0,218,255,255)</glowColor>
-      </li>
-    </comps>
-   <designationCategory>ST_Designation</designationCategory>
-    <researchPrerequisites>
-      <li>Electricity</li>
-      <li>ST_TransporterTech</li>
-    </researchPrerequisites>
-  </ThingDef>
-  -->
-
-    <ThingDef ParentName="BuildingBase">
-    <defName>ST_TransporterPad</defName>
-    <label>transporter pad</label>
-    <description>Landing pad for transporter operations. Must be linked to a transporter console.</description>
-    <thingClass>Building</thingClass>
-    <size>(1,1)</size>
-    <altitudeLayer>BuildingOnTop</altitudeLayer>
-    <rotatable>false</rotatable>
-    <graphicData>
-      <texPath>Things/Building/Transporter/ST_Pad</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(1,1)</drawSize>
-      <shaderType>CutoutComplex</shaderType>
-    </graphicData>
-    <uiIconPath>Things/Building/Transporter/ST_Pad</uiIconPath>
-    <costList>
-      <Steel>25</Steel>
-      <ComponentIndustrial>1</ComponentIndustrial>
-    </costList>
-    <statBases>
-      <WorkToBuild>300</WorkToBuild>
-      <MaxHitPoints>150</MaxHitPoints>
-      <Flammability>0.2</Flammability>
-    </statBases>
-    <comps>
-      <!-- leichter Stromverbrauch -->
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>20</basePowerConsumption>
-      </li>
-      <li Class="CompProperties_Flickable"/>
-      <!-- Facility: verlinkt zu Konsolen -->
-      <li Class="CompProperties_Facility">
-        <linkableBuildings>
-          <li>ST_TransporterConsole</li>
-        </linkableBuildings>
-        <maxSimultaneous>1</maxSimultaneous>
-        <requiresLOS>false</requiresLOS>
-        <statOffsets/>
-      </li>
-    </comps>
-    <placeWorkers>
-      <li>PlaceWorker_ShowFacilitiesConnections</li>
-    </placeWorkers>
-    <designationCategory>ST_Designation</designationCategory>
-    <researchPrerequisites>
-      <li>ST_TransporterTech</li>
-    </researchPrerequisites>
-    <uiOrder>2007</uiOrder>
-  </ThingDef>
-
-    <ThingDef ParentName="BenchBase">
     <defName>ST_TransporterConsole</defName>
-    <label>transporter console</label>
-    <description>Starfleet console controlling beam operations. Must be linked to a transporter pad.</description>
+    <label>Transporter Console</label>
+    <description>A control station for matter transportation. Links to a Transporter Pad. Allows standard pad-to-pad transport and high-energy tactical site-to-site transport.</description>
     <thingClass>Building</thingClass>
-    <size>(2,1)</size>
-    <altitudeLayer>BuildingOnTop</altitudeLayer>
-    <rotatable>true</rotatable>
     <graphicData>
       <texPath>Things/Building/Transporter/ST_Console</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(2.5,2.6)</drawSize>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <uiIconPath>Things/Building/Transporter/ST_Console</uiIconPath>
+    <size>(3,1)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.5</fillPercent>
+    <designationCategory>ST_Designation</designationCategory>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    
     <costList>
-      <Steel>70</Steel>
+      <Steel>120</Steel>
       <ComponentIndustrial>4</ComponentIndustrial>
+      <ST_DilithiumCrystal>2</ST_DilithiumCrystal>
     </costList>
+
     <statBases>
+      <Mass>100</Mass>
       <WorkToBuild>1200</WorkToBuild>
       <MaxHitPoints>220</MaxHitPoints>
       <Flammability>0.2</Flammability>
     </statBases>
+
     <comps>
-      <!-- Power -->
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>300</basePowerConsumption>
-      </li>
-      <li Class="CompProperties_Glower">
-        <glowRadius>8</glowRadius>
-        <glowColor>(0,218,255,255)</glowColor>
+        <basePowerConsumption>350</basePowerConsumption>
+        <shortCircuitInRain>true</shortCircuitInRain>
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
+      
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
           <li>ST_TransporterPad</li>
         </linkableFacilities>
       </li>
+
       <li Class="YASTM.CompProperties_TransporterConsole">
         <energyCostPerUse>1200</energyCostPerUse>
+        <tacticalBeamEnergyCost>2500</tacticalBeamEnergyCost>
+        <maxLinkedPads>5</maxLinkedPads> 
         <warmupTicks>60</warmupTicks>
         <cooldownTicks>120000</cooldownTicks>
-        <maxLinkDistance>100</maxLinkDistance>
-
-        <!-- Mindest-Rang für BEAM OUT -->
-        <requiredRankTraitsBeamOut>
-          <li>ST_Rank_LieutenantJG</li>
-          <li>ST_Rank_Lieutenant</li>
-          <li>ST_Rank_LtCommander</li>
-          <li>ST_Rank_Commander</li>
-          <li>ST_Rank_Captain</li>
-        </requiredRankTraitsBeamOut>
-
-        <!-- Mindest-Rang für BEAM IN -->
-        <requiredRankTraitsBeamIn>
-          <li>ST_Rank_LieutenantJG</li>
-          <li>ST_Rank_Lieutenant</li>
-          <li>ST_Rank_LtCommander</li>
-          <li>ST_Rank_Commander</li>
-          <li>ST_Rank_Captain</li>
-        </requiredRankTraitsBeamIn>
+        <maxLinkDistance>30</maxLinkDistance>
       </li>
     </comps>
+
     <placeWorkers>
       <li>PlaceWorker_ShowFacilitiesConnections</li>
     </placeWorkers>
-    <designationCategory>ST_Designation</designationCategory>
+
     <researchPrerequisites>
       <li>ST_TransporterTech</li>
     </researchPrerequisites>
     <uiOrder>2006</uiOrder>
   </ThingDef>
-  
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_TransporterPad</defName>
+    <label>Transporter Pad</label>
+    <description>The molecular imaging scanner and phase transition coil assembly. Must be linked to a console.</description>
+    <graphicData>
+      <texPath>Things/Building/Transporter/ST_Pad</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <size>(1,1)</size>
+    <rotatable>false</rotatable>
+    <altitudeLayer>FloorEmplacement</altitudeLayer>
+    <passability>Standable</passability>
+    <designationCategory>ST_Designation</designationCategory>
+    <costList>
+      <Steel>25</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <Mass>20</Mass>
+      <WorkToBuild>300</WorkToBuild>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <maxSimultaneous>5</maxSimultaneous> </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>50</basePowerConsumption>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>ST_TransporterTech</li>
+    </researchPrerequisites>
+    <uiOrder>2007</uiOrder>
+  </ThingDef>
+
 </Defs>

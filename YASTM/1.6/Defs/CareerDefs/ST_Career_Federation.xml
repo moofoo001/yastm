@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <YASTM.CareerDef>
+    <defName>ST_Career_Federation_Starfleet</defName>
+    <label>Starfleet Service Record</label>
+    
+    <requiredFactions>
+      <li>ST_Federation_Player</li> </requiredFactions>
+    
+    <pointCategory>Combat</pointCategory> 
+    
+    <ranks>
+      <li>
+        <threshold>0</threshold>
+        <rewardTrait>ST_FederationRank</rewardTrait>
+        <rewardDegree>0</rewardDegree>
+        <label>Cadet</label>
+      </li>
+
+      <li>
+        <threshold>5</threshold>
+        <rewardTrait>ST_FederationRank</rewardTrait>
+        <rewardDegree>1</rewardDegree>
+        <label>Ensign</label>
+      </li>
+      
+      <li>
+        <threshold>15</threshold>
+        <rewardTrait>ST_FederationRank</rewardTrait>
+        <rewardDegree>2</rewardDegree>
+        <label>Lieutenant (JG)</label>
+      </li>
+
+      <li>
+        <threshold>30</threshold>
+        <rewardTrait>ST_FederationRank</rewardTrait>
+        <rewardDegree>3</rewardDegree>
+        <label>Lieutenant</label>
+      </li>
+
+      <li>
+        <threshold>50</threshold>
+        <rewardTrait>ST_FederationRank</rewardTrait>
+        <rewardDegree>4</rewardDegree>
+        <label>Lt. Commander</label>
+      </li>
+
+      <li>
+        <threshold>80</threshold>
+        <rewardTrait>ST_FederationRank</rewardTrait>
+        <rewardDegree>5</rewardDegree>
+        <label>Commander</label>
+      </li>
+
+      <li>
+        <threshold>120</threshold>
+        <rewardTrait>ST_FederationRank</rewardTrait>
+        <rewardDegree>6</rewardDegree>
+        <label>Captain</label>
+      </li>
+    </ranks>
+  </YASTM.CareerDef>
+
+</Defs>

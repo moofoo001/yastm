@@ -237,4 +237,34 @@
   </RecipeDef>
 
 
+  <!--RecipeDef>
+    <defName>ST_Replicate_Bloodwine</defName>
+    <label>replicate klingon bloodwine</label>
+    <description>Replicates a potent alcoholic beverage favored by Klingon warriors.</description>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <workAmount>30</workAmount>
+    <workSkill>Cooking</workSkill>
+    <workSkillLearnFactor>1</workSkillLearnFactor>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>ST_SFX_LCARS_Click</soundWorking>
+    <skillRequirements>
+      <Cooking>2</Cooking>
+    </skillRequirements>
+    <ingredients/>
+    <modExtensions>
+          <li Class="YASTM.ReplicatorCostExtension">
+            <cost>3.0</cost>
+          </li>
+    </modExtensions>
+    <products>
+      <ST_Rep_Bloodwine>1</ST_Rep_Bloodwine>
+    </products>
+    <recipeUsers>
+      <li>ST_Replicator</li>
+    </recipeUsers>
+    <researchPrerequisite>ST_Replicator_Tech</researchPrerequisite>
+  </RecipeDef>
+  -->
+
+
 </Defs>

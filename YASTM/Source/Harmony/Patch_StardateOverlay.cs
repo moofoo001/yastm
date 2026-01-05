@@ -5,6 +5,7 @@ using Verse;
 
 namespace YASTM
 {
+    [StaticConstructorOnStartup]
     [HarmonyPatch(typeof(UIRoot_Play), nameof(UIRoot_Play.UIRootOnGUI))]
     public static class Patch_StardateOverlay
     {

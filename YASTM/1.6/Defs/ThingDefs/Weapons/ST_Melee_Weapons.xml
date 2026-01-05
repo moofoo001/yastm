@@ -127,6 +127,7 @@
     <tradeTags><li>ST_StarfleetSupply</li></tradeTags>
   </ThingDef>
 
+  <!-- ===== FEDERATION: Vulcan Lirpa (balanced, multi-tool) ===== -->
   <ThingDef ParentName="ST_MeleeBase">
     <defName>ST_VulcanLirpa</defName>
     <label>Lirpa</label>

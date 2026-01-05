@@ -27,7 +27,7 @@
     
     <thingClass>ThingWithComps</thingClass>
     <comps>
-<li Class="CompProperties_Usable">
+  <li Class="CompProperties_Usable">
         <useJob>UseItem</useJob>
         <useLabel>Study nerve pinch techniques</useLabel>
         <useDuration>1000</useDuration>

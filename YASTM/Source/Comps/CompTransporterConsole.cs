@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -7,334 +7,227 @@ using Verse.Sound;
 
 namespace YASTM
 {
-    // -------------------- PROPS --------------------
-
     public class CompProperties_TransporterConsole : CompProperties
     {
-        public int energyCostPerUse = 1200;
+        public float energyCostPerUse = 1200f;
+        public float tacticalBeamEnergyCost = 2500f;
+        public int maxLinkedPads = 5;
         public int warmupTicks = 60;
-        public int cooldownTicks = 600;
-        public int maxLinkDistance = 60;
-
-        public List<string> requiredRankTraitsBeamOut;
-        public List<string> requiredRankTraitsBeamIn;
-
+        public int cooldownTicks = 1200;
+        public float maxLinkDistance = 30f;
+        
         public CompProperties_TransporterConsole()
         {
-            compClass = typeof(CompTransporterConsole);
+            this.compClass = typeof(CompTransporterConsole);
         }
     }
-
-
-    public class CompProperties_TransporterBeacon : CompProperties_TransporterConsole
-    {
-        public CompProperties_TransporterBeacon()
-        {
-            compClass = typeof(CompTransporterConsole);
-        }
-    }
-
-    // -------------------- COMP --------------------
 
     public class CompTransporterConsole : ThingComp
     {
-        private static readonly Dictionary<Map, List<CompTransporterConsole>> Registry = new();
+        public CompProperties_TransporterConsole Props => (CompProperties_TransporterConsole)this.props;
 
-        private int nextUsableTick;
-        private int _nextLightCacheTick;
-        private bool _isPoweredCached;
-        private int _nextPruneTick;
-
-        public CompProperties_TransporterConsole Props => (CompProperties_TransporterConsole)props;
-
-        public override void PostExposeData()
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            Scribe_Values.Look(ref nextUsableTick, "ST_nextUsableTick", 0);
+            foreach (Gizmo g in base.CompGetGizmosExtra())
+            {
+                yield return g;
+            }
+
+            if (this.parent.Faction == Faction.OfPlayer)
+            {
+                List<Building> pads = TransporterPadUtil.GetLinkedPads(this.parent as Building, Props.maxLinkedPads);
+                bool systemsOnline = TransporterPadUtil.IsPoweredOn(this.parent) && pads.Count > 0;
+                
+                // --- NEUER CHECK: Transporter Chief ---
+                bool engineerPresent = IsEngineerManning();
+                string engineerStatus = engineerPresent ? "Engineer present" : "Missing Transporter Chief";
+                // --------------------------------------
+
+                string status = systemsOnline ? $"Online ({pads.Count} Pads active)" : "Offline / No Pads";
+
+                // 1. BEAM OUT
+                Command_Action beamOut = new Command_Action();
+                beamOut.defaultLabel = "Tactical Beam Out (Team)";
+                beamOut.defaultDesc = $"Beam targets from pads.\n\nSystem: {status}\nOperator: {engineerStatus}";
+                beamOut.icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/ST_BeamOut");
+                
+                if (!systemsOnline) 
+                    beamOut.Disable("No Power or No Pads linked");
+                else if (!engineerPresent)
+                    beamOut.Disable("Requires a pawn with 'Transporter Chief' trait at the console."); // Sperre
+
+                beamOut.action = delegate { StartTacticalTargeting_Out(pads); };
+                yield return beamOut;
+
+                // 2. BEAM IN
+                Command_Action beamIn = new Command_Action();
+                beamIn.defaultLabel = "Tactical Beam In (Team)";
+                beamIn.defaultDesc = $"Beam targets to pads.\n\nSystem: {status}\nOperator: {engineerStatus}";
+                beamIn.icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/ST_BeamIn");
+                
+                if (!systemsOnline) 
+                    beamIn.Disable("No Power or No Pads linked");
+                else if (!engineerPresent)
+                    beamIn.Disable("Requires a pawn with 'Transporter Chief' trait at the console."); // Sperre
+                
+                beamIn.action = delegate { StartTacticalTargeting_In(pads); };
+                yield return beamIn;
+            }
         }
 
-        public override void PostSpawnSetup(bool respawningAfterLoad)
+        // --- Helper: Prüft ob ein Engineer an der Konsole steht ---
+        private bool IsEngineerManning()
         {
-            base.PostSpawnSetup(respawningAfterLoad);
-            var map = parent.Map;
-            if (map != null)
+            // Die Position, wo man steht, um die Konsole zu bedienen
+            IntVec3 interactionCell = this.parent.InteractionCell;
+            Map map = this.parent.Map;
+
+            if (map == null) return false;
+
+            // Suche alle Dinge auf dieser Zelle
+            List<Thing> thingsOnCell = interactionCell.GetThingList(map);
+            foreach (Thing t in thingsOnCell)
             {
-                if (!Registry.TryGetValue(map, out var list))
+                // Ist es ein Pawn? Gehört er uns?
+                if (t is Pawn p && p.Faction == Faction.OfPlayer)
                 {
-                    list = new List<CompTransporterConsole>();
-                    Registry[map] = list;
+                    // Hat er das Trait?
+                    // Nutzt unser neues DefOf
+                    if (p.story != null && p.story.traits.HasTrait(ST_TraitDefOf.ST_TransporterEngineer))
+                    {
+                        return true;
+                    }
                 }
-                if (!list.Contains(this)) list.Add(this);
-            }
-        }
-
-
-        public override void PostDestroy(DestroyMode mode, Map previousMap)
-        {
-            base.PostDestroy(mode, previousMap);
-            if (previousMap != null && Registry.TryGetValue(previousMap, out var list))
-            {
-                list.Remove(this);
-            }
-        }
-
-        private static void PruneRegistry(Map map)
-        {
-            if (map == null) return;
-            if (!Registry.TryGetValue(map, out var list)) return;
-            for (int i = list.Count - 1; i >= 0; i--)
-            {
-                var c = list[i];
-                if (c == null || c.parent == null || c.parent.Destroyed)
-                    list.RemoveAt(i);
-            }
-        }
-
-        private bool HasPowerCached()
-        {
-            if (Find.TickManager.TicksGame >= _nextLightCacheTick)
-            {
-                _nextLightCacheTick = Find.TickManager.TicksGame + 60;
-                var p = parent.TryGetComp<CompPowerTrader>();
-                var f = parent.TryGetComp<CompFlickable>();
-                _isPoweredCached = (p == null || p.PowerOn) && (f == null || f.SwitchIsOn);
-            }
-            return _isPoweredCached;
-        }
-
-        private int EffectiveMaxLink() => Props.maxLinkDistance;
-
-        private static bool PawnHasAnyRank(Pawn pawn, List<string> traitDefNames)
-        {
-            if (pawn?.story?.traits == null || traitDefNames == null || traitDefNames.Count == 0) return true;
-            foreach (var defName in traitDefNames)
-            {
-                var td = DefDatabase<TraitDef>.GetNamedSilentFail(defName);
-                if (td != null && pawn.story.traits.HasTrait(td))
-                    return true;
             }
             return false;
         }
 
-        private IEnumerable<CompTransporterConsole> TargetConsolesInRange()
+        // ... [Rest der Methoden: StartTacticalTargeting_Out, ExecuteMultiBeam etc. bleiben gleich] ...
+        // ... [Füge hier einfach den Rest deines funktionierenden Codes aus dem vorherigen Schritt ein] ...
+        
+        // Zur Sicherheit hier nochmal die Helper Methoden für Copy-Paste:
+        private void StartTacticalTargeting_Out(List<Building> pads)
         {
-            var map = parent.Map;
-            if (map == null) yield break;
-
-            if (Find.TickManager.TicksGame >= _nextPruneTick)
+            Find.Targeter.BeginTargeting(new TargetingParameters
             {
-                _nextPruneTick = Find.TickManager.TicksGame + 600;
-                PruneRegistry(map);
-            }
-
-            if (!Registry.TryGetValue(map, out var list)) yield break;
-
-            int maxDist = EffectiveMaxLink();
-            float maxDistSq = maxDist * maxDist;
-
-            foreach (var c in list)
+                canTargetLocations = true,
+                validator = (TargetInfo x) => x.Cell.Walkable(this.parent.Map) && !x.Cell.Fogged(this.parent.Map)
+            }, (LocalTargetInfo target) =>
             {
-                if (c == this || c == null || c.parent == null || c.parent.Destroyed) continue;
-                if ((c.parent.Position - parent.Position).LengthHorizontalSquared <= maxDistSq)
-                    yield return c;
-            }
-        }
-
-        private CompTransporterConsole ClosestTargetConsoleWithPad()
-        {
-            CompTransporterConsole best = null;
-            float bestDistSq = float.MaxValue;
-
-            foreach (var c in TargetConsolesInRange())
-            {
-                if (!TransporterPadUtil.TryGetLinkedPad((Building)c.parent, out var pad)) continue;
-                if (!TransporterPadUtil.IsPoweredOn(c.parent)) continue;
-                if (!TransporterPadUtil.IsPoweredOn(pad)) continue;
-
-                float d = (c.parent.Position - parent.Position).LengthHorizontalSquared;
-                if (d < bestDistSq)
-                {
-                    bestDistSq = d;
-                    best = c;
-                }
-            }
-            return best;
-        }
-
-        // -------------------- GIZMOS --------------------
-
-        public override IEnumerable<Gizmo> CompGetGizmosExtra()
-        {
-            // Beam OUT
-            var cmdOut = new Command_Action
-            {
-                defaultLabel = "ST.Transporter.BeamOut".Translate(),
-                defaultDesc  = "ST.Transporter.BeamOut.Desc".Translate(EffectiveMaxLink()),
-                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/ST_BeamOut", false),
-                action       = BeginBeamOutTargeting
-            };
-            if (!CanUseNow(out string reasonOut)) cmdOut.Disable(reasonOut);
-            yield return cmdOut;
-
-            // Beam IN
-            var cmdIn = new Command_Action
-            {
-                defaultLabel = "ST.Transporter.BeamIn".Translate(),
-                defaultDesc  = "ST.Transporter.BeamIn.Desc".Translate(EffectiveMaxLink()),
-                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/ST_BeamIn", false),
-                action       = BeginBeamInTargeting
-            };
-            if (!CanUseNow(out string reasonIn)) cmdIn.Disable(reasonIn);
-            yield return cmdIn;
-        }
-
-        private bool CanUseNow(out string reason)
-        {
-            reason = null;
-            if (!HasPowerCached())
-            {
-                reason = "ST.Common.NeedsPower".Translate();
-                return false;
-            }
-            if (Find.TickManager.TicksGame < nextUsableTick)
-            {
-                reason = "ST.Common.Recharging".Translate(
-                    (nextUsableTick - Find.TickManager.TicksGame).ToStringTicksToPeriod());
-                return false;
-            }
-            if (!TransporterPadUtil.TryGetLinkedPad((Building)parent, out var localPad))
-            {
-                reason = "No linked transporter pad online.";
-                return false;
-            }
-            if (!TransporterPadUtil.IsPoweredOn(localPad))
-            {
-                reason = "Linked pad has no power.";
-                return false;
-            }
-            return true;
-        }
-
-        // -------------------- TARGETING --------------------
-
-        private void BeginBeamOutTargeting()
-        {
-            var tp = new TargetingParameters
-            {
-                canTargetPawns = true, canTargetAnimals = false, canTargetBuildings = false, canTargetSelf = false
-            };
-
-            Find.Targeter.BeginTargeting(tp, target =>
-            {
-                var pawn = target.Thing as Pawn;
-                if (pawn == null || pawn.Dead || pawn.Map != parent.Map) return;
-
-                if (!PawnHasAnyRank(pawn, Props.requiredRankTraitsBeamOut))
-                {
-                    Messages.Message("ST.Transporter.RankTooLow".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.RejectInput);
-                    return;
-                }
-                if (!TransporterPadUtil.TryGetLinkedPad((Building)parent, out var localPad))
-                {
-                    Messages.Message("No linked transporter pad online.", parent, MessageTypeDefOf.RejectInput);
-                    return;
-                }
-
-                var destConsole = ClosestTargetConsoleWithPad();
-                if (destConsole == null)
-                {
-                    Messages.Message("ST.Transporter.NoTargetBeacon".Translate(EffectiveMaxLink()), MessageTypeDefOf.RejectInput);
-                    return;
-                }
-                if (!TransporterPadUtil.TryGetLinkedPad((Building)destConsole.parent, out var destPad))
-                {
-                    Messages.Message("Destination console has no linked pad online.", destConsole.parent, MessageTypeDefOf.RejectInput);
-                    return;
-                }
-
-                var fromCell = TransporterPadUtil.GetPadCell(localPad);
-                var toCell   = TransporterPadUtil.GetPadCell(destPad);
-
-                TryBeam(pawn, fromCell, toCell, parent.Map);
+                ExecuteMultiBeam_Out(pads, target.Cell);
             });
         }
 
-        private void BeginBeamInTargeting()
+        private void ExecuteMultiBeam_Out(List<Building> pads, IntVec3 targetCenter)
         {
-            var tp = new TargetingParameters
+            List<Pawn> pawnsToBeam = new List<Pawn>();
+            foreach(var pad in pads)
             {
-                canTargetPawns = true, canTargetAnimals = false, canTargetBuildings = false, canTargetSelf = false
-            };
+                IntVec3 cell = TransporterPadUtil.GetPadCell(pad);
+                var pawnsHere = cell.GetThingList(pad.Map).OfType<Pawn>().ToList();
+                pawnsToBeam.AddRange(pawnsHere);
+            }
 
-            Find.Targeter.BeginTargeting(tp, target =>
+            if (pawnsToBeam.NullOrEmpty())
             {
-                var pawn = target.Thing as Pawn;
-                if (pawn == null || pawn.Dead) return;
+                Messages.Message("No life signs on any Transporter Pad.", this.parent, MessageTypeDefOf.RejectInput, false);
+                return;
+            }
 
-                if (!PawnHasAnyRank(pawn, Props.requiredRankTraitsBeamIn))
-                {
-                    Messages.Message("ST.Transporter.RankTooLow".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.RejectInput);
-                    return;
-                }
-                if (pawn.Map != parent.Map)
-                {
-                    Messages.Message("ST.Transporter.SameMapOnly".Translate(), MessageTypeDefOf.RejectInput);
-                    return;
-                }
-                if ((pawn.Position - parent.Position).LengthHorizontal > EffectiveMaxLink())
-                {
-                    Messages.Message("ST.Transporter.TooFar".Translate(EffectiveMaxLink()), MessageTypeDefOf.RejectInput);
-                    return;
-                }
-                if (!TransporterPadUtil.TryGetLinkedPad((Building)parent, out var localPad))
-                {
-                    Messages.Message("No linked transporter pad online.", parent, MessageTypeDefOf.RejectInput);
-                    return;
-                }
+            if (!TryDrainPower(Props.tacticalBeamEnergyCost)) return;
 
-                var fromCell = pawn.Position;
-                var toCell   = TransporterPadUtil.GetPadCell(localPad);
+            foreach (Pawn p in pawnsToBeam)
+            {
+                TransporterVFX.PlayBeam(p.Map, p.Position); 
+                p.DeSpawn(DestroyMode.Vanish);
+                IntVec3 validCell = CellFinder.RandomClosewalkCellNear(targetCenter, this.parent.Map, 2, null);
+                GenSpawn.Spawn(p, validCell, this.parent.Map);
+                TransporterVFX.PlayBeam(this.parent.Map, validCell); 
+                ApplyTransporterSickness(p);
+            }
+            Messages.Message($"Tactical transport complete.", new TargetInfo(targetCenter, this.parent.Map), MessageTypeDefOf.PositiveEvent);
+        }
 
-                TryBeam(pawn, fromCell, toCell, parent.Map);
+        private void StartTacticalTargeting_In(List<Building> pads)
+        {
+            Find.Targeter.BeginTargeting(new TargetingParameters
+            {
+                canTargetLocations = true,
+                canTargetPawns = true
+            }, (LocalTargetInfo target) =>
+            {
+                ExecuteMultiBeam_In(pads, target);
             });
         }
 
-        // -------------------- CORE --------------------
-
-        private void TryBeam(Pawn pawn, IntVec3 fromCell, IntVec3 toCell, Map map)
+        private void ExecuteMultiBeam_In(List<Building> pads, LocalTargetInfo target)
         {
-            if (!HasPowerCached())
+            List<Pawn> potentialTargets = new List<Pawn>();
+            if (target.HasThing && target.Thing is Pawn pTarget) potentialTargets.Add(pTarget);
+            foreach (Pawn p in GenRadial.RadialDistinctThingsAround(target.Cell, this.parent.Map, 3.9f, true).OfType<Pawn>())
             {
-                Messages.Message("ST.Common.NeedsPower".Translate(), MessageTypeDefOf.RejectInput);
-                return;
-            }
-            if (Find.TickManager.TicksGame < nextUsableTick)
-            {
-                Messages.Message("ST.Common.Recharging".Translate(
-                    (nextUsableTick - Find.TickManager.TicksGame).ToStringTicksToPeriod()),
-                    MessageTypeDefOf.RejectInput);
-                return;
-            }
-            if (!fromCell.IsValid || !toCell.IsValid)
-            {
-                Messages.Message("Invalid pad cell.", MessageTypeDefOf.RejectInput);
-                return;
+                if (!potentialTargets.Contains(p) && (p.Faction == Faction.OfPlayer || p.IsPrisonerOfColony)) potentialTargets.Add(p);
             }
 
+            int maxCapacity = pads.Count;
+            List<Pawn> finalTargets = potentialTargets.Take(maxCapacity).ToList();
 
-            int warmup = Props.warmupTicks > 0 ? Props.warmupTicks : 60;
+            if (finalTargets.NullOrEmpty())
+            {
+                Messages.Message("No valid targets locked within range.", this.parent, MessageTypeDefOf.RejectInput, false);
+                return;
+            }
 
+            if (!TryDrainPower(Props.tacticalBeamEnergyCost)) return;
 
-            MoteMaker.ThrowText(parent.TrueCenter(), parent.Map, "ST.Transporter.Warmup".Translate(), 2f);
+            for (int i = 0; i < finalTargets.Count; i++)
+            {
+                Pawn p = finalTargets[i];
+                Building pad = pads[i];
+                IntVec3 padCell = TransporterPadUtil.GetPadCell(pad);
 
- 
-            map.GetComponent<MapComponent_TransporterFX>()?.StartRematerialize(pawn, warmup);
+                TransporterVFX.PlayBeam(p.Map, p.Position);
+                p.DeSpawn(DestroyMode.Vanish);
+                GenSpawn.Spawn(p, padCell, this.parent.Map);
+                TransporterVFX.PlayBeam(this.parent.Map, padCell);
+                ApplyTransporterSickness(p);
+            }
+            Messages.Message($"Emergency extraction complete.", this.parent, MessageTypeDefOf.PositiveEvent);
+        }
 
+        private bool TryDrainPower(float amount)
+        {
+            CompPowerTrader consolePower = this.parent.GetComp<CompPowerTrader>();
+            if (consolePower != null && consolePower.PowerNet != null)
+            {
+                if (consolePower.PowerNet.CurrentStoredEnergy() < amount)
+                {
+                    Messages.Message($"Insufficient energy reserves. Required: {amount} Wd", this.parent, MessageTypeDefOf.RejectInput, false);
+                    return false;
+                }
+                DrainPowerFromNet(consolePower.PowerNet, amount);
+                return true;
+            }
+            return false;
+        }
 
-            map.GetComponent<MapComponent_TransporterOps>()?.ScheduleTeleport(pawn, toCell, warmup);
+        private void DrainPowerFromNet(PowerNet net, float amount)
+        {
+            if (net == null || net.batteryComps == null) return;
+            float remaining = amount;
+            foreach (CompPowerBattery battery in net.batteryComps)
+            {
+                if (remaining <= 0f) break;
+                float draw = Mathf.Min(battery.StoredEnergy, remaining);
+                battery.DrawPower(draw);
+                remaining -= draw;
+            }
+        }
 
-
-            nextUsableTick = Find.TickManager.TicksGame + System.Math.Max(Props.cooldownTicks, 60);
+        private void ApplyTransporterSickness(Pawn p)
+        {
+            if (p.stances?.stunner != null)
+                p.stances.stunner.StunFor(120, this.parent);
         }
     }
 }
-

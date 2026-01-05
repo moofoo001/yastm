@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TraitDef>
+    <defName>ST_RomulanRank</defName>
+    <commonality>0.0</commonality>
+    
+    <modExtensions>
+      <li Class="YASTM.RankVisualExtension">
+        <rankTexPath>Things/Item/Accessory/pips_romulan/</rankTexPath>
+        <ranks>
+          <li><degree>0</degree><texName>Uhlan</texName></li>
+          <li><degree>1</degree><texName>SubLieutenant</texName></li>
+          <li><degree>2</degree><texName>Lieutenant</texName></li>
+          <li><degree>3</degree><texName>Centurion</texName></li>
+          <li><degree>4</degree><texName>SubCommander</texName></li>
+          <li><degree>5</degree><texName>Commander</texName></li>
+          <li><degree>6</degree><texName>Admiral</texName></li>
+        </ranks>
+      </li>
+    </modExtensions>
+
+    <degreeDatas>
+      <li>
+        <label>Uhlan</label>
+        <description>A recruit in the Star Navy.</description>
+        <degree>0</degree>
+        <statOffsets>
+          <GlobalLearningFactor>0.05</GlobalLearningFactor>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>Sub-Lieutenant</label>
+        <description>A junior officer.</description>
+        <degree>1</degree>
+        <statOffsets>
+          <ResearchSpeed>0.05</ResearchSpeed>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>Lieutenant</label>
+        <description>An officer of the Empire.</description>
+        <degree>2</degree>
+        <statOffsets>
+          <ResearchSpeed>0.08</ResearchSpeed>
+          <SocialImpact>0.05</SocialImpact>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>Centurion</label>
+        <description>A veteran officer commanding soldiers.</description>
+        <degree>3</degree>
+        <statOffsets>
+          <ResearchSpeed>0.10</ResearchSpeed>
+          <MeleeHitChance>1.0</MeleeHitChance>
+          <SocialImpact>0.10</SocialImpact>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>Sub-Commander</label>
+        <description>Second in command of a Warbird.</description>
+        <degree>4</degree>
+        <statOffsets>
+          <ResearchSpeed>0.12</ResearchSpeed>
+          <SocialImpact>0.15</SocialImpact>
+          <SuppressionPower>0.15</SuppressionPower>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>Commander</label>
+        <description>Captain of a D'deridex Warbird.</description>
+        <degree>5</degree>
+        <statOffsets>
+          <ResearchSpeed>0.15</ResearchSpeed>
+          <SocialImpact>0.25</SocialImpact>
+          <MentalBreakThreshold>-0.05</MentalBreakThreshold>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>Admiral</label>
+        <description>High command of the Romulan Star Empire.</description>
+        <degree>6</degree>
+        <statOffsets>
+          <ResearchSpeed>0.20</ResearchSpeed>
+          <SocialImpact>0.40</SocialImpact>
+          <TradePriceImprovement>0.15</TradePriceImprovement>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+</Defs>

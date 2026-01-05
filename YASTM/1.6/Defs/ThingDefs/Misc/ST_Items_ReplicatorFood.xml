@@ -152,6 +152,6 @@ bridge crews and overworked engineers.</description>
     <ingestSound>Meal_Eat</ingestSound>
     <chairSearchRadius>40</chairSearchRadius>
   </ingestible>
-
 </ThingDef>
+
 </Defs>
