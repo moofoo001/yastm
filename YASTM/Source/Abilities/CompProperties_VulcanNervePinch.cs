@@ -2,7 +2,7 @@ using RimWorld;
 using Verse;
 
 
-namespace ST.Abilities
+namespace YASTM.Abilities
 {
     public class CompProperties_VulcanNervePinch : AbilityCompProperties
     {

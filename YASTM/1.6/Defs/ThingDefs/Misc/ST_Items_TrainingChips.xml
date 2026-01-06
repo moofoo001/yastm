@@ -67,4 +67,34 @@
       </statBases>
     </ThingDef>
 
+<ThingDef ParentName="ST_BaseIsolinearChip">
+    <defName>ST_IsoChip_Science</defName>
+    <label>isolinear chip (Science Protocols)</label>
+    <description>Contains advanced astrophysics, biology, and sensor analysis simulations.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ST_IsolinearChip</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+      <color>(0.2, 0.6, 0.9)</color>  <!-- Cyan tint to differentiate -->
+    </graphicData>
+    <statBases>
+        <MarketValue>900</MarketValue>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseIsolinearChip">
+    <defName>ST_IsoChip_Security</defName>
+    <label>isolinear chip (Tactical/Security)</label>
+    <description>Contains combat tactics, phaser drills, and ship defense protocols.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ST_IsolinearChip</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+      <color>(0.9, 0.7, 0.1)</color> <!-- Orange tint to differentiate -->
+    </graphicData>
+    <statBases>
+        <MarketValue>900</MarketValue>
+    </statBases>
+  </ThingDef>
+
 </Defs>

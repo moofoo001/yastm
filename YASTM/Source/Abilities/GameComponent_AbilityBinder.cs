@@ -1,92 +1,103 @@
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using Verse;
+using RimWorld.Planet; // Wichtig für Caravans
+using YASTM.Abilities; 
 
-namespace ST.Abilities
+namespace YASTM
 {
-    
     public class GameComponent_AbilityBinder : GameComponent
     {
-        private AbilityDef nervePinch;
-        private AbilityDef fieldTriage;
-        private TraitDef traitIDIC;
-        private TraitDef traitStarfleet;
-        private AbilityDef commandPresence;
-        private AbilityDef tacticalOverwatch;
-        private TraitDef traitCommand;
-        private TraitDef traitSecurity;
+        private int tickCounter = 0;
+        private const int CheckInterval = 2000; 
 
-        public GameComponent_AbilityBinder(Game game) { }
-
-        public override void FinalizeInit()
+        public GameComponent_AbilityBinder(Game game)
         {
-            nervePinch   = DefDatabase<AbilityDef>.GetNamedSilentFail("ST_Ability_VulcanNervePinch");
-            fieldTriage  = DefDatabase<AbilityDef>.GetNamedSilentFail("ST_Ability_FieldTriage");
-            traitIDIC    = DefDatabase<TraitDef>.GetNamedSilentFail("ST_Trait_IDICMindset");
-            traitStarfleet = DefDatabase<TraitDef>.GetNamedSilentFail("ST_Trait_StarfleetTraining");
-            commandPresence  = DefDatabase<AbilityDef>.GetNamedSilentFail("ST_Ability_CommandPresence");
-            tacticalOverwatch = DefDatabase<AbilityDef>.GetNamedSilentFail("ST_Ability_TacticalOverwatch");
-            traitCommand     = DefDatabase<TraitDef>.GetNamedSilentFail("ST_Trait_CommandTraining");
-            traitSecurity    = DefDatabase<TraitDef>.GetNamedSilentFail("ST_Trait_SecurityOfficer");
-
-            LongEventHandler.ExecuteWhenFinished(BindAll);
         }
 
         public override void GameComponentTick()
         {
-            if (Find.TickManager.TicksGame % 1200 == 0) BindAll(); 
-        }
-
-        private void BindAll()
-        {
-            foreach (var map in Find.Maps)
+            base.GameComponentTick();
+            
+            tickCounter++;
+            if (tickCounter >= CheckInterval)
             {
-                var pawns = map.mapPawns?.FreeColonistsSpawned;
-                if (pawns == null) continue;
-                foreach (var p in pawns) BindForPawn(p);
+                CheckAndBindAbilities();
+                tickCounter = 0;
             }
         }
 
-        private void BindForPawn(Pawn p)
+        private void CheckAndBindAbilities()
         {
-            if (p?.abilities == null || p.Dead || !(p.RaceProps?.Humanlike ?? false)) return;
-
-            // Nerve Pinch an IDIC
-            if (traitIDIC != null && nervePinch != null)
+            // STRATEGIE FÜR RIMWORLD 1.6:
+            // Die monolithischen Listen wurden entfernt. Wir iterieren über die spezifischen Kategorien.
+            
+            // 1. Kolonisten auf Karten (Das ist die wichtigste Gruppe)
+            // "AllMaps_FreeColonists" existiert stabil in 1.4, 1.5 und 1.6
+            if (PawnsFinder.AllMaps_FreeColonists != null)
             {
-                bool hasTrait = p.story?.traits?.HasTrait(traitIDIC) == true;
-                bool hasAbility = p.abilities.GetAbility(nervePinch) != null;
-                if (hasTrait && !hasAbility) p.abilities.GainAbility(nervePinch);
-                
+                foreach (Pawn pawn in PawnsFinder.AllMaps_FreeColonists)
+                {
+                    TryUpdatePawn(pawn);
+                }
             }
 
-            // Field Triage an Starfleet Training
-            if (traitStarfleet != null && fieldTriage != null)
+            // 2. Gefangene der Kolonie (Auf Karten)
+            if (PawnsFinder.AllMaps_PrisonersOfColony != null)
             {
-                bool hasTrait = p.story?.traits?.HasTrait(traitStarfleet) == true;
-                bool hasAbility = p.abilities.GetAbility(fieldTriage) != null;
-                if (hasTrait && !hasAbility) p.abilities.GainAbility(fieldTriage);
-               
+                foreach (Pawn pawn in PawnsFinder.AllMaps_PrisonersOfColony)
+                {
+                    TryUpdatePawn(pawn);
+                }
             }
 
-            // Command Presence an CommandTraining
-            if (traitCommand != null && commandPresence != null)
+            // 3. Kolonisten in Karawanen und Kapseln (Weltkarte)
+            // Wir nutzen hier die spezifische Liste für mobile Einheiten, statt der globalen Map-Liste.
+            // Falls diese in 1.6 auch umbenannt wurde, nutzen wir sicherheitshalber eine direkte Filterung der Liste "AllCaravans...Alive".
+            if (PawnsFinder.AllCaravansAndTravelingTransportPods_Alive != null)
             {
-                bool hasTrait = p.story?.traits?.HasTrait(traitCommand) == true;
-                bool hasAbility = p.abilities.GetAbility(commandPresence) != null;
-                if (hasTrait && !hasAbility) p.abilities.GainAbility(commandPresence);
-                
+                foreach (Pawn pawn in PawnsFinder.AllCaravansAndTravelingTransportPods_Alive)
+                {
+                    // Hier müssen wir manuell filtern, da diese Liste auch Tiere enthalten kann
+                    if (pawn.RaceProps.Humanlike && pawn.IsColonist)
+                    {
+                        TryUpdatePawn(pawn);
+                    }
+                }
             }
+        }
 
-            // Tactical Overwatch an SecurityOfficer
-            if (traitSecurity != null && tacticalOverwatch != null)
+        // Hilfsmethode, um Code-Duplizierung in den Schleifen zu vermeiden
+        private void TryUpdatePawn(Pawn pawn)
+        {
+            if (pawn == null || pawn.Dead) return;
+
+            if (pawn.story != null && pawn.story.traits != null)
             {
-                bool hasTrait = p.story?.traits?.HasTrait(traitSecurity) == true;
-                bool hasAbility = p.abilities.GetAbility(tacticalOverwatch) != null;
-                if (hasTrait && !hasAbility) p.abilities.GainAbility(tacticalOverwatch);
+                UpdateAbilitiesForPawn(pawn);
+            }
+        }
+
+        public void UpdateAbilitiesForPawn(Pawn pawn)
+        {
+            if (pawn.abilities == null) return;
+
+            foreach (Trait trait in pawn.story.traits.allTraits)
+            {
+                var extension = trait.def.GetModExtension<ST_GrantAbilitiesExtension>();
                 
+                if (extension != null && extension.abilities != null)
+                {
+                    foreach (AbilityDef abilityDef in extension.abilities)
+                    {
+                        if (pawn.abilities.GetAbility(abilityDef) == null)
+                        {
+                            pawn.abilities.GainAbility(abilityDef);
+                        }
+                    }
+                }
             }
         }
     }
 }
-

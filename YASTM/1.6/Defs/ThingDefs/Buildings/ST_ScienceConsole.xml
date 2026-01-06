@@ -73,10 +73,10 @@
       <questSignalOnScanCompleted>STQ.Obelisks.DataTransmitted</questSignalOnScanCompleted>
     </li>
 
-      <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
-          <role>Science</role>
-          <mannable>true</mannable>
-      </li>
+    <li>
+       <compClass>YASTM.CompUsageRestriction</compClass>
+    </li>
+
     </comps>
 
     <placeWorkers>
@@ -97,6 +97,10 @@
           <li>ST_Link_Science</li>
         </tags>
       </li>
+    <li Class="YASTM.UsageRestrictionExtension">
+      <requiredTrainingTrait>ST_Training_Science</requiredTrainingTrait>
+      <failMessage>Access denied. Science certification required.</failMessage>
+    </li>
     </modExtensions>
 
     <researchPrerequisites>

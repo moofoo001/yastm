@@ -2,7 +2,7 @@ using RimWorld;
 using Verse;
 using Verse.Sound;
 
-namespace ST.Abilities
+namespace YASTM.Abilities
 {
     public class CompAbilityEffect_FieldTriage : CompAbilityEffect
     {

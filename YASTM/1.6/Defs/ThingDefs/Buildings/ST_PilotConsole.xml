@@ -54,7 +54,18 @@
         <role>Helm</role>
         <mannable>true</mannable>
       </li>
+    <li>
+       <compClass>YASTM.CompUsageRestriction</compClass>
+    </li>
     </comps>
+      <modExtensions>
+    <li Class="YASTM.UsageRestrictionExtension">
+      <requiredTrainingTrait>Pilot_Cadet</requiredTrainingTrait>
+      <failMessage>Access denied. Pilot certification required.</failMessage>
+    </li>
+  </modExtensions>
     <uiOrder>2100</uiOrder>
   </ThingDef>
+
+
 </Defs>

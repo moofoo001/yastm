@@ -37,12 +37,13 @@
     
     <tickerType>Normal</tickerType>
     <comps>
+
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>1200</basePowerConsumption>
       </li>
       <li Class="CompProperties_Flickable"/>
-
+      <li Class="CompProperties_Breakdownable"/>
       <!-- Link zu Force-Field Emittern -->
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
@@ -60,7 +61,22 @@
         <yellowCooldownTicks>45000</yellowCooldownTicks>
         <blinkSeconds>3</blinkSeconds>
       </li>
+      <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
+        <role>Tactical</role>
+        <mannable>true</mannable>
+      </li>
+
+      <li>
+       <compClass>YASTM.CompUsageRestriction</compClass>
+      </li>
     </comps>
+
+    <modExtensions>
+      <li Class="YASTM.UsageRestrictionExtension">
+        <requiredTrainingTrait>ST_Training_Security</requiredTrainingTrait>
+        <failMessage>Access denied. Security certification required.</failMessage>
+      </li>
+    </modExtensions>
 
     <placeWorkers>
       <li>PlaceWorker_ShowFacilitiesConnections</li>
@@ -69,7 +85,7 @@
     <soundInteract>ST_SFX_LCARS_Click</soundInteract>
     <designationCategory>ST_Designation</designationCategory>
     <researchPrerequisites>
-      <li>ST_ForceField_Tech</li>
+      <li>ST_Emitter_Tech</li>
     </researchPrerequisites>
 
     <costList>
@@ -126,10 +142,6 @@
           <glowRadius>4</glowRadius>
           <glowColor>(120,180,255,0)</glowColor>
         </li>
-        <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
-        <role>Tactical</role>
-        <mannable>true</mannable>
-      </li>
     </comps>
     <placeWorkers>
       <li>PlaceWorker_ShowFacilitiesConnections</li>
@@ -137,7 +149,7 @@
     <uiOrder>2002</uiOrder>
   <designationCategory>ST_Designation</designationCategory>
     <researchPrerequisites>
-      <li>ST_ForceField_Tech</li>
+      <li>ST_Emitter_Tech</li>
     </researchPrerequisites>
     <costList>
       <Steel>45</Steel>

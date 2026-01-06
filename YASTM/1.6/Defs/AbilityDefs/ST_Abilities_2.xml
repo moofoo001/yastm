@@ -21,7 +21,7 @@
     </verbProperties>
     <comps>
       <li Class="RimWorld.CompProperties_AbilityEffect">
-        <compClass>ST.Abilities.CompAbilityEffect_CommandPresence</compClass>
+        <compClass>YASTM.Abilities.CompAbilityEffect_CommandPresence</compClass>
       </li>
     </comps>
   </AbilityDef>
@@ -45,7 +45,7 @@
     </targetParams>
     </verbProperties> 
     <comps>
-    <li Class="ST.Abilities.CompProperties_SelfBuff">
+    <li Class="YASTM.Abilities.CompProperties_SelfBuff">
         <hediffDefName>ST_TacticalOverwatchBuff</hediffDefName>
         <durationTicks>900</durationTicks>
     </li>

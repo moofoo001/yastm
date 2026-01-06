@@ -186,11 +186,11 @@
   </FleckDef>
 
   <FleckDef ParentName="FleckBase_Thrown">
-    <defName>ST_Holo_Combat</defName>
+    <defName>ST_Holo_Training</defName>
     <graphicData>
-      <texPath>Things/Building/Misc/CombatOverlay</texPath>
+      <texPath>Things/Building/Misc/TrainingOverlay</texPath>
       <shaderType>MoteGlow</shaderType>
-      <color>(1.0, 0.2, 0.2, 0.75)</color>
+      <color>(1.0, 0.2, 0.2, 0.75)</color> <!-- red -->
       <drawSize>1.8</drawSize>
     </graphicData>
     <altitudeLayer>MoteOverhead</altitudeLayer>

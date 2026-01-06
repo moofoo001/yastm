@@ -23,27 +23,26 @@
   </TraitDef>
 
   <!-- Security Officer -->
-  <TraitDef>
-    <defName>ST_Trait_SecurityOfficer</defName>
-    <label>security officer</label>
-    <description>Trained for tactical response and overwatch procedures.</description>
-    <commonality>0.7</commonality>
-    <degreeDatas>
-      <li>
+    <TraitDef>
+        <defName>ST_Trait_SecurityOfficer</defName>
         <label>security officer</label>
-        <description>Specialized training in combat tactics and threat assessment.</description>
-        <degree>0</degree>
-        <skillGains>
-          <Shooting>1</Shooting>
-          <Melee>1</Melee>
-        </skillGains>
-        <statOffsets>
-          <AimingDelayFactor>-0.04</AimingDelayFactor>
-          <MoveSpeed>-0.01</MoveSpeed> 
-        </statOffsets>
-      </li>
-    </degreeDatas>
-  </TraitDef>
+        <description>Trained for tactical response and overwatch procedures.</description>
+        <commonality>0.7</commonality>
+        <degreeDatas>
+          <li>
+            <label>security officer</label>
+            <description>Specialized training in combat tactics and threat assessment.</description>
+          </li>
+        </degreeDatas>
+        
+        <modExtensions>
+          <li Class="YASTM.ST_GrantAbilitiesExtension">
+            <abilities>
+              <li>ST_Ability_TacticalAnalysis</li>
+            </abilities>
+          </li>
+        </modExtensions>
+      </TraitDef>
 
 <!-- Pilot (cadet) -->
 <TraitDef>
@@ -247,4 +246,31 @@
       </degreeDatas>
       <commonality>0.0</commonality>
     </TraitDef>
+
+    <TraitDef>
+    <defName>ST_Training_Science</defName>
+    <label>science certification</label>
+    <description>Has completed the Starfleet Science Officer training via Holodeck.</description>
+    <degreeDatas>
+      <li>
+        <label>science officer</label>
+        <description>Certified to operate advanced sensor arrays and lab equipment.</description>
+      </li>
+    </degreeDatas>
+    <commonality>0.0</commonality>
+  </TraitDef>
+
+  <TraitDef>
+    <defName>ST_Training_Security</defName>
+    <label>security certification</label>
+    <description>Has completed the Starfleet Tactical/Security training via Holodeck.</description>
+    <degreeDatas>
+      <li>
+        <label>security officer</label>
+        <description>Certified to operate weapon systems and tactical stations.</description>
+      </li>
+    </degreeDatas>
+    <commonality>0.0</commonality>
+  </TraitDef>
+  
 </Defs>

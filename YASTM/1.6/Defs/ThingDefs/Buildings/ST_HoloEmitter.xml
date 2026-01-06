@@ -65,9 +65,9 @@
 
       <li Class="YASTM.CompProperties_Holodeck">
         <trainingXpPerTick>0.15</trainingXpPerTick>
-        <injuryChance>0.001</injuryChance>
         <powerTrainingMode>2000</powerTrainingMode>
-        <powerRelaxMode>400</powerRelaxMode>
+        <powerRelaxMode>500</powerRelaxMode>
+        <holoRefreshInterval>240</holoRefreshInterval>
       </li>
       
       <li Class="CompProperties_Glower">
@@ -82,7 +82,7 @@
     </building>
     
     <researchPrerequisites>
-      <li>ST_ForceField_Tech</li>
+      <li>ST_Emitter_Tech</li>
       <li>ST_RecreationalInterfaces</li> 
     </researchPrerequisites>
     

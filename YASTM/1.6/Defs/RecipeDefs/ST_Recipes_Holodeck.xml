@@ -104,4 +104,101 @@
     </recipeUsers>
   </RecipeDef>
 
+<RecipeDef>
+    <defName>ST_Program_PilotTraining</defName>
+    <label>run program: Flight School</label>
+    <description>Atmospheric and warp flight simulation. Grants Pilot certification.</description>
+    <jobString>Training flight controls.</jobString>
+    <workAmount>3000</workAmount>
+    <workSpeedStat>ResearchSpeed</workSpeedStat>
+    <soundWorking>Recipe_Machining</soundWorking>
+    
+    <workerClass>YASTM.Recipe_GiveTraitUniversal</workerClass> 
+
+    <modExtensions>
+      <li Class="YASTM.DefModExtension_GiveTrait">
+        <traitDef>Pilot_Cadet</traitDef> 
+        <degree>0</degree> 
+      </li>
+    </modExtensions>
+    
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs><li>ST_IsoChip_Pilot</li></thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>ST_IsoChip_Pilot</li></thingDefs>
+    </fixedIngredientFilter>
+    <recipeUsers><li>ST_HoloEmitter</li></recipeUsers>
+  </RecipeDef>
+
+
+  <RecipeDef>
+    <defName>ST_Program_ScienceTraining</defName>
+    <label>run program: Science Academy</label>
+    <description>Sensor analysis and astrophysics simulation. Grants Science certification.</description>
+    <jobString>Training science protocols.</jobString>
+    <workAmount>3000</workAmount>
+    <workSpeedStat>ResearchSpeed</workSpeedStat>
+    <soundWorking>Recipe_Machining</soundWorking>
+    
+    <workerClass>YASTM.Recipe_GiveTraitUniversal</workerClass> 
+
+    <modExtensions>
+      <li Class="YASTM.DefModExtension_GiveTrait">
+        <traitDef>ST_Training_Science</traitDef>
+      </li>
+    </modExtensions>
+    
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs><li>ST_IsoChip_Science</li></thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>ST_IsoChip_Science</li></thingDefs>
+    </fixedIngredientFilter>
+    <recipeUsers><li>ST_HoloEmitter</li></recipeUsers>
+  </RecipeDef>
+
+
+  <RecipeDef>
+    <defName>ST_Program_SecurityTraining</defName>
+    <label>run program: Tactical Drills</label>
+    <description>Ship defense and weapon systems simulation. Grants Security certification.</description>
+    <jobString>Running tactical drills.</jobString>
+    <workAmount>3000</workAmount>
+    <workSpeedStat>ResearchSpeed</workSpeedStat>
+    <soundWorking>Recipe_Machining</soundWorking>
+    
+    <workerClass>YASTM.Recipe_GiveTraitUniversal</workerClass> 
+
+    <modExtensions>
+      <li Class="YASTM.DefModExtension_GiveTrait">
+        <traitDef>ST_Training_Security</traitDef>
+      </li>
+    </modExtensions>
+    
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs><li>ST_IsoChip_Security</li></thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>ST_IsoChip_Security</li></thingDefs>
+    </fixedIngredientFilter>
+    <recipeUsers><li>ST_HoloEmitter</li></recipeUsers>
+  </RecipeDef>
+  
+
 </Defs>

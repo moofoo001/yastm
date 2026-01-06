@@ -147,7 +147,7 @@
     <tab>ST_Research</tab>
     <prerequisites>
       <li>ST_UFP_Engineering_I</li>
-      <li>ST_ForceField_Tech</li>
+      <li>ST_Emitter_Tech</li>
     </prerequisites>
     <researchViewX>6</researchViewX>
     <researchViewY>2.2</researchViewY>

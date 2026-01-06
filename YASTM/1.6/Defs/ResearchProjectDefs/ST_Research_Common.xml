@@ -260,10 +260,10 @@
 
     <!-- Force Field tech  -->
  <ResearchProjectDef>
-    <defName>ST_ForceField_Tech</defName>
-    <label>force-field emitters</label>
-    <description>Projected barrier fields for perimeter control and tactical mitigation.
-    Unlocks: ShieldBelt</description>
+    <defName>ST_Emitter_Tech</defName>
+    <label>Emitter technology</label>
+    <description>Advanced energy modulation and containment field technology for defensive applications or holographic simulations.\n\n
+      Unlocks: ShieldBelt</description>
     <tab>ST_Research</tab>
     <baseCost>1600</baseCost>
     <techLevel>Spacer</techLevel>
@@ -360,7 +360,7 @@
     <prerequisites>
       <li>ST_SubspaceTelemetry</li>
       <li>ST_TransporterTech</li>
-      <li>ST_ForceField_Tech</li>
+      <li>ST_Emitter_Tech</li>
     </prerequisites>
     <researchViewX>8</researchViewX>
     <researchViewY>0</researchViewY>

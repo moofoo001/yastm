@@ -293,7 +293,7 @@
     <ComfyTemperatureMax>60</ComfyTemperatureMax>
     <Wildness>0.95</Wildness>
   </statBases>
-
+  <size>(2,2)</size>
   <tools>
 			<li>
 				<label>left claw</label>
