@@ -43,14 +43,12 @@
     <description>Intensive flight training simulation. Grants the Pilot trait.</description>
     <jobString>Flying simulation.</jobString>
     <workAmount>6000</workAmount> <workerClass>YASTM.Recipe_GiveTraitUniversal</workerClass> 
-
     <modExtensions>
       <li Class="YASTM.DefModExtension_GiveTrait">
         <traitDef>Pilot_Cadet</traitDef>
         <degree>0</degree>
       </li>
     </modExtensions>
-    
     <ingredients>
       <li>
         <filter>
@@ -61,13 +59,46 @@
         <count>1</count>
       </li>
     </ingredients>
-    
     <fixedIngredientFilter>
       <thingDefs>
         <li>ST_IsoChip_Pilot</li>
       </thingDefs>
     </fixedIngredientFilter>
-    
+    <recipeUsers>
+      <li>ST_HoloEmitter</li>
+    </recipeUsers>
+  </RecipeDef>
+
+<RecipeDef>
+    <defName>ST_Program_CommsTraining</defName>
+    <label>run program: Comms Officer School</label>
+    <description>Run a specialized training simulation for communication protocols and subspace harmonics. Grants the Comms Officer certification.</description>
+    <jobString>Training com-ops.</jobString>
+    <workAmount>3000</workAmount>
+    <workSpeedStat>ResearchSpeed</workSpeedStat>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workerClass>YASTM.Recipe_GiveTraitUniversal</workerClass> 
+    <modExtensions>
+      <li Class="YASTM.DefModExtension_GiveTrait">
+        <traitDef>ST_Training_CommsOfficer</traitDef>
+        <degree>0</degree> 
+      </li>
+    </modExtensions>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ST_IsoChip_Comms</li> 
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>  
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>ST_IsoChip_Comms</li>
+      </thingDefs>
+    </fixedIngredientFilter>
     <recipeUsers>
       <li>ST_HoloEmitter</li>
     </recipeUsers>

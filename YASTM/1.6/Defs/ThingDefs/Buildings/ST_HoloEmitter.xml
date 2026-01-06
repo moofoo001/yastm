@@ -11,11 +11,12 @@
     <graphicData>
       <texPath>Things/Building/Misc/HoloEmitter</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(2,2)</drawSize>
+      <drawSize>(3,3)</drawSize>
       <shadowData>
         <volume>(0.5, 0.5, 0.5)</volume>
       </shadowData>
     </graphicData>
+    <size>(2,2)</size>
 
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
@@ -24,7 +25,14 @@
     <fillPercent>0.2</fillPercent>
     
     <hasInteractionCell>true</hasInteractionCell>
-    <interactionCellOffset>(0,0,0)</interactionCellOffset> <surfaceType>Item</surfaceType> <statBases>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <clearBuildingArea>true</clearBuildingArea>
+    <canOverlapZones>false</canOverlapZones>
+    <selectable>true</selectable>
+    <blockWind>true</blockWind>
+
+    <statBases>
       <MaxHitPoints>300</MaxHitPoints>
       <WorkToBuild>2500</WorkToBuild>
       <Mass>20</Mass>
@@ -32,10 +40,9 @@
       <Beauty>10</Beauty>
       <Comfort>1</Comfort>
       <JoyGainFactor>1.5</JoyGainFactor>
-      <WorkTableWorkSpeedFactor>1.0</WorkTableWorkSpeedFactor> </statBases>
+      <WorkTableWorkSpeedFactor>1.0</WorkTableWorkSpeedFactor>
+    </statBases>
 
-    <size>(1,1)</size>
-    
     <tickerType>Normal</tickerType> 
 
     <costList>

@@ -7,34 +7,39 @@ namespace YASTM
 {
     public class CompUsageRestriction : ThingComp
     {
-        // Wir nutzen FloatMenuOptions, um den Zugriff direkt beim Rechtsklick zu sperren
+        // Klinkt sich in das Rechtsklick-Menü ein
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
         {
-            // Hole die Regeln aus dem XML des Gebäudes
+            // Regeln aus dem XML holen
             var rules = parent.def.GetModExtension<UsageRestrictionExtension>();
-            if (rules == null) yield break; // Keine Regeln = Zugriff erlaubt
+            if (rules == null) yield break; // Keine Regeln -> Zugriff erlaubt
 
             if (!HasAccess(selPawn, rules))
             {
-                yield return new FloatMenuOption(rules.failMessage + $" ({GetReason(selPawn, rules)})", null);
+                // Zeige ausgegraute Option mit Grund
+                string reason = GetReason(selPawn, rules);
+                yield return new FloatMenuOption($"{rules.failMessage} ({reason})", null);
             }
         }
 
         private bool HasAccess(Pawn p, UsageRestrictionExtension rules)
         {
+            if (p.story == null || p.story.traits == null) return false;
+
             // 1. Check Training (Holodisc)
             if (rules.requiredTrainingTrait != null)
             {
-                if (p.story?.traits?.HasTrait(rules.requiredTrainingTrait) == false) return false;
+                if (!p.story.traits.HasTrait(rules.requiredTrainingTrait)) return false;
             }
 
-            // 2. Check Rank
+            // 2. Check Rank (Liste durchgehen)
             if (rules.allowedRanks != null && rules.allowedRanks.Count > 0)
             {
                 bool rankMet = false;
                 foreach (var req in rules.allowedRanks)
                 {
-                    Trait t = p.story?.traits?.GetTrait(req.rankDef);
+                    Trait t = p.story.traits.GetTrait(req.rankDef);
+                    // Hat den Rang-Trait UND der Degree ist hoch genug?
                     if (t != null && t.Degree >= req.minDegree)
                     {
                         rankMet = true;
@@ -50,8 +55,12 @@ namespace YASTM
         private string GetReason(Pawn p, UsageRestrictionExtension rules)
         {
             if (rules.requiredTrainingTrait != null && !p.story.traits.HasTrait(rules.requiredTrainingTrait))
-                return "Training missing";
-            return "Rank insufficient";
+                return "Training Missing";
+            
+            if (rules.allowedRanks != null && rules.allowedRanks.Count > 0)
+                return "Rank Insufficient";
+
+            return "Restricted";
         }
     }
 }

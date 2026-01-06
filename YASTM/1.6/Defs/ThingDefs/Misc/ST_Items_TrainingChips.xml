@@ -34,8 +34,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>1</drawSize>
       <color>0.4,0.4,0.1,0.8</color>    <!-- Yellowish tint to differentiate -->
-    </graphicData>
-    
+    </graphicData>  
   </ThingDef>
 
   <ThingDef ParentName="ST_BaseIsolinearChip">
@@ -52,5 +51,20 @@
         <MarketValue>1500</MarketValue>
     </statBases>
   </ThingDef>
+
+  <ThingDef ParentName="ST_BaseIsolinearChip">
+      <defName>ST_IsoChip_Comms</defName>
+      <label>isolinear chip (Comms Protocols)</label>
+      <description>Contains advanced holographic simulation data for communication officer certification training.</description>
+      <graphicData>
+        <texPath>Things/Item/Resource/ST_IsolinearChip</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize>1</drawSize>
+        <color>0.2,0.6,0.9,0.8</color>   <!-- Bluish tint to differentiate -->
+      </graphicData>
+      <statBases>
+          <MarketValue>800</MarketValue>
+      </statBases>
+    </ThingDef>
 
 </Defs>

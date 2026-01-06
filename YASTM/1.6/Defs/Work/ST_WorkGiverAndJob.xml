@@ -60,4 +60,21 @@
 		<prioritizeSustains>true</prioritizeSustains>
 	</WorkGiverDef>
 
+<WorkGiverDef>
+    <defName>ST_DoBillsHolodeck</defName>
+    <label>train on holodeck</label>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Research</workType> 
+    <priorityInType>100</priorityInType>
+    <fixedBillGiverDefs>
+      <li>ST_HoloEmitter</li>
+    </fixedBillGiverDefs>
+    <verb>training</verb>
+    <gerund>training at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
 </Defs>

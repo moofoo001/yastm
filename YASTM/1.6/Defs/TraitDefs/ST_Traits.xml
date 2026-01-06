@@ -235,4 +235,16 @@
     </degreeDatas>
   </TraitDef>
 
+  <TraitDef>
+      <defName>ST_Training_CommsOfficer</defName>
+      <label>comms officer training</label>
+      <description>Has completed the specialized Holodeck simulation for communication arrays.</description>
+      <degreeDatas>
+        <li>
+          <label>comms officer training</label>
+          <description>Certified to operate high-level communication equipment.</description>
+        </li>
+      </degreeDatas>
+      <commonality>0.0</commonality>
+    </TraitDef>
 </Defs>

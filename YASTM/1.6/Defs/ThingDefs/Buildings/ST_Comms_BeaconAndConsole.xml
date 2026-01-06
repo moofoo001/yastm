@@ -151,7 +151,8 @@
 
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <designationCategory>ST_Designation</designationCategory>
-
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    
     <researchPrerequisites>
       <li>MicroelectronicsBasics</li>
     </researchPrerequisites>
@@ -166,7 +167,11 @@
       </li>
       <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Breakdownable" />
-      
+
+      <li>
+        <compClass>YASTM.CompUsageRestriction</compClass>
+      </li>
+
       <!-- Console Link to Comms Beacon -->
       <li Class="YASTM.CompProperties_ConsoleLink">
         <linkTags>
@@ -175,22 +180,15 @@
         <maxLinkDistance>25</maxLinkDistance>
       </li>
 
-
       <li Class="YASTM.Comps.CompProperties_CommsGizmo">
         <contactCooldownDays>7</contactCooldownDays>
         <aidCooldownDays>7</aidCooldownDays>
         <maxActiveQuests>2</maxActiveQuests>
-
-        <!-- Rang-Voraussetzungen: Feldname heißt jetzt requiredOfficerTraits -->
-        <requiredOfficerTraits>
-          <li>ST_FederationRank</li>
-        </requiredOfficerTraits>
-
-        <!-- Welche STQ-Skripte der Button überhaupt anfragen darf -->
         <questPool>
           <li>STQ_VE_Obelisks_I_II_Setup</li>
         </questPool>
       </li>
+
       <li Class="StarTrekFactions.Comps.CompProperties_UseEffect_SpawnFarAndSignal">
         <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
         <minDist>42</minDist>
@@ -201,6 +199,7 @@
         <thingB>ST_Obelisk_B</thingB>
         <questDefToEnsure>STQ_VE_Obelisks_I_II_Setup</questDefToEnsure>
       </li>
+
       <!-- Diplomacy -->
       <li Class="YASTM.CompProperties_DiplomacyComms">
         <improveCost>300</improveCost>
@@ -209,24 +208,7 @@
         <cooldownDaysImprove>1</cooldownDaysImprove>
         <cooldownDaysCeasefire>2</cooldownDaysCeasefire>
         <minSocialImprove>6</minSocialImprove>
-        <requiredTraitsImprove>
-          <li>*ANY_COMMISSIONED*</li> 
-        </requiredTraitsImprove>
-        <requiredApparelsImprove>
-          <li>*ANY_PIP*</li>  
-        </requiredApparelsImprove>
-        <rankLabelImprove>Ensign+</rankLabelImprove>
-        <!-- Ceasefire: Commander+ mit Social 10+ -->
         <minSocialCeasefire>10</minSocialCeasefire>
-        <requiredTraitsCeasefire>
-          <li>ST_Rank_Commander</li>
-          <li>ST_Rank_Captain</li>
-        </requiredTraitsCeasefire>
-        <requiredApparelsCeasefire>
-          <li>ST_RankPips_Commander</li>
-          <li>ST_RankPips_Captain</li>
-        </requiredApparelsCeasefire>
-        <rankLabelCeasefire>Commander+</rankLabelCeasefire>
       </li>
 
       <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
@@ -235,7 +217,31 @@
       </li>
     </comps>
 
-      <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+<modExtensions>
+    <li Class="YASTM.UsageRestrictionExtension">
+     <requiredTrainingTrait>ST_Training_CommsOfficer</requiredTrainingTrait>
+      <allowedRanks>
+        <li>
+          <rankDef>ST_FederationRank</rankDef>
+          <minDegree>1</minDegree>
+        </li>
+        <li>
+          <rankDef>ST_RomulanRank</rankDef>
+          <minDegree>0</minDegree>
+        </li>
+        <li>
+          <rankDef>ST_KlingonRank</rankDef>
+          <minDegree>1</minDegree>
+        </li>
+        <li>
+          <rankDef>ST_FerengiRank</rankDef>
+          <minDegree>1</minDegree>
+        </li>
+      </allowedRanks>
+      <failMessage>Access Denied</failMessage>
+    </li>
+  </modExtensions>
+
   </ThingDef>
 
 </Defs>
