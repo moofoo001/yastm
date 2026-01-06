@@ -2,8 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using Verse;
-using RimWorld.Planet; // Wichtig für Caravans
-using YASTM.Abilities; 
+using YASTM.Abilities;
 
 namespace YASTM
 {
@@ -28,22 +27,16 @@ namespace YASTM
             }
         }
 
-        private void CheckAndBindAbilities()
+        public void CheckAndBindAbilities()
         {
-            // STRATEGIE FÜR RIMWORLD 1.6:
-            // Die monolithischen Listen wurden entfernt. Wir iterieren über die spezifischen Kategorien.
-            
-            // 1. Kolonisten auf Karten (Das ist die wichtigste Gruppe)
-            // "AllMaps_FreeColonists" existiert stabil in 1.4, 1.5 und 1.6
-            if (PawnsFinder.AllMaps_FreeColonists != null)
+            // FIX: Wir nutzen jetzt unsere sichere Utility-Methode statt PawnsFinder direkt.
+            // Das behebt den CS0117 Fehler zuverlässig.
+            foreach (Pawn pawn in ST_CrewUtility.GetAllActiveCrewMembers())
             {
-                foreach (Pawn pawn in PawnsFinder.AllMaps_FreeColonists)
-                {
-                    TryUpdatePawn(pawn);
-                }
+                TryUpdatePawn(pawn);
             }
 
-            // 2. Gefangene der Kolonie (Auf Karten)
+            // Gefangene (Prisoners) separat, da sie keine CrewMembers sind
             if (PawnsFinder.AllMaps_PrisonersOfColony != null)
             {
                 foreach (Pawn pawn in PawnsFinder.AllMaps_PrisonersOfColony)
@@ -51,24 +44,8 @@ namespace YASTM
                     TryUpdatePawn(pawn);
                 }
             }
-
-            // 3. Kolonisten in Karawanen und Kapseln (Weltkarte)
-            // Wir nutzen hier die spezifische Liste für mobile Einheiten, statt der globalen Map-Liste.
-            // Falls diese in 1.6 auch umbenannt wurde, nutzen wir sicherheitshalber eine direkte Filterung der Liste "AllCaravans...Alive".
-            if (PawnsFinder.AllCaravansAndTravelingTransportPods_Alive != null)
-            {
-                foreach (Pawn pawn in PawnsFinder.AllCaravansAndTravelingTransportPods_Alive)
-                {
-                    // Hier müssen wir manuell filtern, da diese Liste auch Tiere enthalten kann
-                    if (pawn.RaceProps.Humanlike && pawn.IsColonist)
-                    {
-                        TryUpdatePawn(pawn);
-                    }
-                }
-            }
         }
 
-        // Hilfsmethode, um Code-Duplizierung in den Schleifen zu vermeiden
         private void TryUpdatePawn(Pawn pawn)
         {
             if (pawn == null || pawn.Dead) return;

@@ -6,3 +6,5 @@ D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.Asse
 D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.AssemblyInfo.cs
 D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.csproj.CoreCompileInputs.cache
 D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.sourcelink.json
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.dll
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\obj\YASTM\YASTM.pdb

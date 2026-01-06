@@ -39,7 +39,7 @@
       <li>Starfleet_Engineering</li>
       </spawnCategories>
      <forcedTraits>
-       <Pilot_Cadet>0</Pilot_Cadet>
+       <ST_Trait_PilotSkill>0</ST_Trait_PilotSkill>
     </forcedTraits>
     <disallowedTraits />
   </BackstoryDef>

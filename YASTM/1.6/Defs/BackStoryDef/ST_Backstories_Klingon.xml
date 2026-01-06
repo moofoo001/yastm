@@ -36,7 +36,7 @@
     </spawnCategories>
     <skillGains><Construction>2</Construction><Crafting>2</Crafting></skillGains>
     <forcedTraits>
-      <Pilot_Cadet>0</Pilot_Cadet>
+      <ST_Trait_PilotSkill>0</ST_Trait_PilotSkill>
     </forcedTraits>
     <disallowedTraits>
       <Wimp>0</Wimp>
@@ -554,7 +554,7 @@
       <li>Klingon_Operations</li>
     </spawnCategories>
     <forcedTraits>
-      <Pilot_Officer>0</Pilot_Officer> 
+      <ST_Trait_PilotSkill>1</ST_Trait_PilotSkill> 
       <Bloodlust>0</Bloodlust>
     </forcedTraits>
     <disallowedTraits>
@@ -575,7 +575,7 @@
       <li>Klingon_Operations</li>
     </spawnCategories>
     <forcedTraits>
-      <Pilot_Officer>0</Pilot_Officer> 
+      <ST_Trait_PilotSkill>1</ST_Trait_PilotSkill> 
       <Bloodlust>0</Bloodlust>
     </forcedTraits>
     <disallowedTraits>

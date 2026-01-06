@@ -20,7 +20,7 @@
 	    <li>Starfleet_Operations</li>
     </spawnCategories>
     <forcedTraits>
-       <Pilot_Cadet>0</Pilot_Cadet>
+       <ST_Trait_PilotSkill>0</ST_Trait_PilotSkill>
     </forcedTraits>
     <disallowedTraits />
   </BackstoryDef>
@@ -63,7 +63,7 @@
 	      <li>Starfleet_Operations</li>
     </spawnCategories>
     <forcedTraits>
-       <Pilot_Cadet>0</Pilot_Cadet>
+       <ST_Trait_PilotSkill>0</ST_Trait_PilotSkill>
     </forcedTraits>
   </BackstoryDef>
 
@@ -87,7 +87,7 @@
   	  <li>Starfleet_Operations</li>
     </spawnCategories>
     <forcedTraits>
-       <Pilot_Ace>0</Pilot_Ace>
+       <ST_Trait_PilotSkill>2</ST_Trait_PilotSkill>
     </forcedTraits>
     <disallowedTraits />
 
@@ -110,7 +110,7 @@
 	    <li>Starfleet_Operations</li>
     </spawnCategories>
     <forcedTraits>
-       <Pilot_Officer>0</Pilot_Officer>
+       <ST_Trait_PilotSkill>1</ST_Trait_PilotSkill>
     </forcedTraits>
     <disallowedTraits />
 

@@ -42,11 +42,11 @@
     <label>run program: Shuttle Pilot School</label>
     <description>Intensive flight training simulation. Grants the Pilot trait.</description>
     <jobString>Flying simulation.</jobString>
-    <workAmount>6000</workAmount> <workerClass>YASTM.Recipe_GiveTraitUniversal</workerClass> 
+    <workAmount>6000</workAmount>
+    <workerClass>YASTM.Recipe_GiveTraitUniversal</workerClass> 
     <modExtensions>
       <li Class="YASTM.DefModExtension_GiveTrait">
-        <traitDef>Pilot_Cadet</traitDef>
-        <degree>0</degree>
+        <traitDef>ST_Trait_PilotSkill</traitDef>
       </li>
     </modExtensions>
     <ingredients>
@@ -105,37 +105,60 @@
   </RecipeDef>
 
 <RecipeDef>
-    <defName>ST_Program_PilotTraining</defName>
-    <label>run program: Flight School</label>
-    <description>Atmospheric and warp flight simulation. Grants Pilot certification.</description>
-    <jobString>Training flight controls.</jobString>
-    <workAmount>3000</workAmount>
-    <workSpeedStat>ResearchSpeed</workSpeedStat>
-    <soundWorking>Recipe_Machining</soundWorking>
-    
-    <workerClass>YASTM.Recipe_GiveTraitUniversal</workerClass> 
-
+    <defName>ST_Program_PilotBasic</defName>
+    <label>pilot basic training</label>
+    <description>Simulates shuttle flight basics. Grants Pilot Cadet rank.</description>
+    <jobString>Training piloting skills.</jobString>
+    <workAmount>2000</workAmount>
+    <workerClass>YASTM.Recipe_TraitUpgrade</workerClass>
     <modExtensions>
-      <li Class="YASTM.DefModExtension_GiveTrait">
-        <traitDef>Pilot_Cadet</traitDef> 
-        <degree>0</degree> 
-      </li>
+        <li Class="YASTM.ST_RecipeExtension">
+            <requiredTrait>ST_Trait_PilotSkill</requiredTrait>
+            <mustHaveTrait>false</mustHaveTrait> 
+        </li>
     </modExtensions>
-    
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs><li>ST_IsoChip_Pilot</li></thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs><li>ST_IsoChip_Pilot</li></thingDefs>
-    </fixedIngredientFilter>
-    <recipeUsers><li>ST_HoloEmitter</li></recipeUsers>
+    <recipeUsers>
+        <li>ST_HoloEmitter</li>
+    </recipeUsers>
   </RecipeDef>
 
+  <RecipeDef>
+    <defName>ST_Program_PilotAdvanced</defName>
+    <label>pilot advanced training</label>
+    <description>Advanced warp maneuvering simulation. Promotes Cadet to Pilot.</description>
+    <jobString>Training advanced piloting.</jobString>
+    <workAmount>4000</workAmount>
+    <workerClass>YASTM.Recipe_TraitUpgrade</workerClass>
+    <modExtensions>
+        <li Class="YASTM.ST_RecipeExtension">
+            <requiredTrait>ST_Trait_PilotSkill</requiredTrait>
+            <requiredDegree>0</requiredDegree>
+            <mustHaveTrait>true</mustHaveTrait>
+        </li>
+    </modExtensions>
+    <recipeUsers>
+        <li>ST_HoloEmitter</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>ST_Program_PilotAce</defName>
+    <label>ace pilot training</label>
+    <description>The Kobayashi Maru of flight tests. Promotes Pilot to Ace.</description>
+    <jobString>Training elite maneuvers.</jobString>
+    <workAmount>8000</workAmount>
+    <workerClass>YASTM.Recipe_TraitUpgrade</workerClass>
+    <modExtensions>
+        <li Class="YASTM.ST_RecipeExtension">
+            <requiredTrait>ST_Trait_PilotSkill</requiredTrait>
+            <requiredDegree>1</requiredDegree>
+            <mustHaveTrait>true</mustHaveTrait>
+        </li>
+    </modExtensions>
+    <recipeUsers>
+        <li>ST_HoloEmitter</li>
+    </recipeUsers>
+  </RecipeDef>
 
   <RecipeDef>
     <defName>ST_Program_ScienceTraining</defName>

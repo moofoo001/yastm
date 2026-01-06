@@ -60,7 +60,7 @@
     </comps>
       <modExtensions>
     <li Class="YASTM.UsageRestrictionExtension">
-      <requiredTrainingTrait>Pilot_Cadet</requiredTrainingTrait>
+      <requiredTrainingTrait>ST_Trait_PilotSkill</requiredTrainingTrait>
       <failMessage>Access denied. Pilot certification required.</failMessage>
     </li>
   </modExtensions>

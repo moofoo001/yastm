@@ -271,7 +271,7 @@
     </spawnCategories>
     <skillGains><Intellectual>1</Intellectual><Shooting>2</Shooting><Social>1</Social></skillGains>
     <forcedTraits>
-       <Pilot_Cadet>0</Pilot_Cadet>
+       <ST_Trait_PilotSkill>0</ST_Trait_PilotSkill>
     </forcedTraits>
     <disallowedTraits>
       <Kind>0</Kind>

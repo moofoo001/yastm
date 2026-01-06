@@ -35,7 +35,7 @@
     </skills>
 
     <forcedTraits>
-      <Pilot_Cadet>0</Pilot_Cadet>
+      <ST_Trait_PilotSkill>0</ST_Trait_PilotSkill>
       <ST_FederationRank>2</ST_FederationRank>
     </forcedTraits>
 

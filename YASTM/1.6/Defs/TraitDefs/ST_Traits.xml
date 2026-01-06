@@ -20,6 +20,13 @@
         </statOffsets>
       </li>
     </degreeDatas>
+    <modExtensions>
+          <li Class="YASTM.ST_GrantAbilitiesExtension">
+            <abilities>
+              <li>CombatCommand</li>
+            </abilities>
+          </li>
+     </modExtensions>
   </TraitDef>
 
   <!-- Security Officer -->
@@ -34,84 +41,56 @@
             <description>Specialized training in combat tactics and threat assessment.</description>
           </li>
         </degreeDatas>
-        
         <modExtensions>
           <li Class="YASTM.ST_GrantAbilitiesExtension">
             <abilities>
-              <li>ST_Ability_TacticalAnalysis</li>
+              <li>ST_Ability_TacticalOverwatch</li>
             </abilities>
           </li>
         </modExtensions>
       </TraitDef>
 
-<!-- Pilot (cadet) -->
+<!-- Pilot  -->
 <TraitDef>
-  <defName>Pilot_Cadet</defName>
-  <label>pilot (cadet)</label>
-  <description>{PAWN_nameDef} trained the basics of low-grav and craft maneuvering.</description>
-  <commonality>0.12</commonality>
-  <degreeDatas>
-    <li>
-      <label>Pilot Cadet</label>
-      <description>Basic piloting discipline and stress handling.</description>
-      <degree>0</degree>
-      <statOffsets>
-        <PilotingAbility MayRequire="Ludeon.RimWorld.Odyssey">0.15</PilotingAbility>
-        <MentalBreakThreshold>-0.03</MentalBreakThreshold>
-      </statOffsets>
-    </li>
-  </degreeDatas>
-  <conflictingTraits>
-    <li>Wimp</li>
-    <li>Undergrounder</li>
-  </conflictingTraits>
-</TraitDef>
+    <defName>ST_Trait_PilotSkill</defName>
+    <label>pilot skill</label>
+    <description>This person has training in helm operations and shuttlecraft navigation.</description>
+    <commonality>0.4</commonality>
+    <degreeDatas>
+      
+      <li>
+        <label>pilot cadet</label>
+        <description>Currently undergoing flight training. Capable of basic shuttle operations.</description>
+        <degree>0</degree>
+        <statOffsets>
+          <CaravanRidingSpeedFactor>0.10</CaravanRidingSpeedFactor>
+        </statOffsets>
+      </li>
 
-<!-- Pilot (officer) -->
-<TraitDef>
-  <defName>Pilot_Officer</defName>
-  <label>pilot (officer)</label>
-  <description>{PAWN_nameDef} is a trained starship pilot.</description>
-  <commonality>0.07</commonality>
-  <degreeDatas>
-    <li>
-      <label>Pilot</label>
-      <description>Advanced flight under pressure.</description>
-      <degree>0</degree>
-      <statOffsets>
-        <PilotingAbility MayRequire="Ludeon.RimWorld.Odyssey">0.25</PilotingAbility>
-        <MentalBreakThreshold>-0.05</MentalBreakThreshold>
-      </statOffsets>
-    </li>
-  </degreeDatas>
-  <conflictingTraits>
-    <li>Wimp</li>
-    <li>Undergrounder</li>
-  </conflictingTraits>
-</TraitDef>
+      <li>
+        <label>pilot</label>
+        <description>A fully certified helm officer. Experienced in impulse and warp navigation.</description>
+        <degree>1</degree>
+        <statOffsets>
+          <CaravanRidingSpeedFactor>0.20</CaravanRidingSpeedFactor>
+          <WorkSpeedGlobal>0.05</WorkSpeedGlobal>
+        </statOffsets>
+      </li>
 
-<!-- Pilot (ace) -->
-<TraitDef>
-  <defName>Pilot_Ace</defName>
-  <label>Pilot (ace)</label>
-  <description>{PAWN_nameDef} has nerves of steel and unmatched flight instincts.</description>
-  <commonality>0.03</commonality>
-  <degreeDatas>
-    <li>
-      <label>ace</label>
-      <description>Elite maneuvering, rock-solid nerves.</description>
-      <degree>0</degree>
-      <statOffsets>
-        <PilotingAbility MayRequire="Ludeon.RimWorld.Odyssey">0.40</PilotingAbility>
-        <MentalBreakThreshold>-0.08</MentalBreakThreshold>
-      </statOffsets>
-    </li>
-  </degreeDatas>
-  <conflictingTraits>
-    <li>Wimp</li>
-    <li>Undergrounder</li>
-  </conflictingTraits>
-</TraitDef>
+      <li>
+        <label>ace pilot</label>
+        <description>An elite helmsman capable of pulling off high-risk maneuvers like the Picard Maneuver.</description>
+        <degree>2</degree>
+        <statOffsets>
+          <CaravanRidingSpeedFactor>0.35</CaravanRidingSpeedFactor>
+          <WorkSpeedGlobal>0.10</WorkSpeedGlobal>
+          <MeleeDodgeChance>5.0</MeleeDodgeChance> 
+        </statOffsets>
+        <marketValueFactorOffset>0.2</marketValueFactorOffset>
+      </li>
+
+    </degreeDatas>
+  </TraitDef>
 
   <!-- Starfleet Training -->
   <TraitDef>
