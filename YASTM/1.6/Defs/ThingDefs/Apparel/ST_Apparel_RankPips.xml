@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<ThingDef Name="ST_BaseRankPip" Abstract="True" ParentName="ApparelNoQualityBase">
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.8</drawSize>
+    </graphicData>
+
+    <statBases>
+      <Mass>0.05</Mass>
+      <Flammability>0</Flammability>
+      <EquipDelay>0</EquipDelay>
+      <MarketValue>0</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+    </statBases>
+
+    <destroyOnDrop>true</destroyOnDrop>
+    <tickerType>Normal</tickerType> <tradeability>None</tradeability>
+
+    <apparel>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      
+      <bodyPartGroups>
+        <li>Neck</li>
+      </bodyPartGroups>
+      
+      <layers>
+        <li>EyeCover</li>
+      </layers>
+      
+      <tags>
+        <li>ST_RankPip</li>
+      </tags>
+    </apparel>
+  </ThingDef>
+
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Cadet</defName>
+    <label>rank pip (Cadet)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_federation/Cadet</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Ensign</defName>
+    <label>rank pip (Ensign)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_federation/Ensign</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_LieutenantJG</defName>
+    <label>rank pip (Lt. J.G.)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_federation/LieutenantJG</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Lieutenant</defName>
+    <label>rank pip (Lieutenant)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_federation/Lieutenant</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_LtCommander</defName>
+    <label>rank pip (Lt. Cmdr.)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_federation/LtCommander</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Commander</defName>
+    <label>rank pip (Commander)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_federation/Commander</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Captain</defName>
+    <label>rank pip (Captain)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_federation/Captain</texPath></graphicData>
+  </ThingDef>
+
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Bekk</defName>
+    <label>rank insignia (Bekk)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_klingon/Bekk</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Lagh</defName>
+    <label>rank insignia (Lagh)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_klingon/Lagh</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Soghhom</defName>
+    <label>rank insignia (Sogh'hom)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_klingon/Soghhom</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Sogh</defName>
+    <label>rank insignia (Sogh)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_klingon/Sogh</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Lahom</defName>
+    <label>rank insignia (La'hom)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_klingon/Lahom</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_La</defName>
+    <label>rank insignia (La')</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_klingon/La</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_HoD</defName>
+    <label>rank insignia (HoD)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_klingon/HoD</texPath></graphicData>
+  </ThingDef>
+
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Uhlan</defName>
+    <label>rank insignia (Uhlan)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_romulan/Uhlan</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Romulan_SubLieutenant</defName>
+    <label>rank insignia (Sub-Lieutenant)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_romulan/SubLieutenant</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Romulan_Lieutenant</defName>
+    <label>rank insignia (Lieutenant)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_romulan/Lieutenant</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Centurion</defName>
+    <label>rank insignia (Centurion)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_romulan/Centurion</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_SubCommander</defName>
+    <label>rank insignia (Sub-Commander)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_romulan/SubCommander</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Romulan_Commander</defName>
+    <label>rank insignia (Commander)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_romulan/Commander</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Admiral</defName>
+    <label>rank insignia (Admiral)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_romulan/Admiral</texPath></graphicData>
+  </ThingDef>
+
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Huckster</defName>
+    <label>rank tattoo (Huckster)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_ferengi/Huckster</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_DaiMon</defName>
+    <label>rank tattoo (DaiMon)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_ferengi/DaiMon</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_Liquidator</defName>
+    <label>rank tattoo (Liquidator)</label>
+    <graphicData><texPath>Things/Item/Accessory/pips_ferengi/Liquidator</texPath></graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseRankPip">
+    <defName>ST_Apparel_Pip_GrandNagus</defName>
+    <label>staff of the Nagus</label> <graphicData><texPath>Things/Item/Accessory/pips_ferengi/GrandNagus</texPath></graphicData>
+  </ThingDef>
+
+</Defs>

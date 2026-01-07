@@ -5,21 +5,19 @@ namespace YASTM
 {
     public class RankVisualExtension : DefModExtension
     {
-
-        public string rankTexPath; 
+        // Der Pfad zu den Texturen (wird im XML definiert)
+        public string rankTexPath;
         
-
-
-        public List<RankGraphicData> ranks;
-
-
-
-        public string texName; 
+        // Die Liste der Ränge
+        public List<RankData> ranks;
     }
 
-    public class RankGraphicData
+    public class RankData
     {
-        public int degree;
-        public string texName;
+        public int degree;      // z.B. 1
+        public string texName;  // z.B. "Ensign"
+        
+        // Optional: Falls der DefName mal ganz anders heißt als der texName
+        public string specificDefName; 
     }
 }

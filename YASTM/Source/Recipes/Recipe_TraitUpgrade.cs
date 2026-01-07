@@ -12,55 +12,92 @@ namespace YASTM
             base.Notify_IterationCompleted(billDoer, ingredients);
 
             var extension = recipe.GetModExtension<ST_RecipeExtension>();
-            if (extension == null) return;
+            if (extension == null)
+            {
+                Log.Error($"[YASTM] Recipe {recipe.defName} is missing ST_RecipeExtension!");
+                return;
+            }
 
-            // --- TEIL 1: TRAIT UPDATE (Wie zuvor) ---
+            // --- TEIL 1: TRAIT UPDATE ---
             if (extension.requiredTrait != null)
             {
                 Trait currentTrait = billDoer.story.traits.GetTrait(extension.requiredTrait);
-                int newDegree = (currentTrait != null) ? currentTrait.Degree + 1 : 0;
+                
+                // LOGIK VERBESSERUNG: 
+                // Statt blind "+1" zu rechnen, leiten wir das Ziel vom Rezept ab.
+                // Wenn requiredDegree -999 ist (keine Voraussetzung), ist das Ziel Degree 0 (Basic).
+                // Wenn requiredDegree 0 ist (Cadet), ist das Ziel Degree 1 (Pilot).
+                int targetDegree = (extension.requiredDegree == -999) ? 0 : extension.requiredDegree + 1;
 
-                if (currentTrait != null) billDoer.story.traits.RemoveTrait(currentTrait);
-
-                if (extension.requiredTrait.degreeDatas != null && 
-                    extension.requiredTrait.degreeDatas.Any(d => d.degree == newDegree))
+                // Sicherheits-Check: Gibt es diesen Degree im XML überhaupt?
+                bool degreeExists = extension.requiredTrait.degreeDatas.Any(d => d.degree == targetDegree);
+                
+                if (!degreeExists)
                 {
-                    billDoer.story.traits.GainTrait(new Trait(extension.requiredTrait, newDegree));
+                    Log.Warning($"[YASTM] Training Complete but Target Degree {targetDegree} does not exist in TraitDef {extension.requiredTrait.defName}. Stopping.");
+                    // Wir brechen hier aber nicht ab, vielleicht gibt es ja noch ein Item (Pip).
+                }
+                else
+                {
+                    // Debug Log
+                    Log.Message($"[YASTM] Upgrading {billDoer.LabelShort}: CurrentTrait={currentTrait?.Degree.ToString() ?? "None"} -> NewDegree={targetDegree}");
+
+                    // Alten Trait entfernen (falls vorhanden)
+                    if (currentTrait != null)
+                    {
+                        // Wenn wir schon den Ziel-Rang (oder höher) haben, machen wir nichts (verhindert Downgrade durch Basic Training)
+                        if (currentTrait.Degree >= targetDegree)
+                        {
+                            Messages.Message("ST_Message_AlreadyQualified".Translate(billDoer.LabelShort), billDoer, MessageTypeDefOf.NeutralEvent);
+                            return; 
+                        }
+                        billDoer.story.traits.RemoveTrait(currentTrait);
+                    }
+
+                    // Neuen Trait erzwingen
+                    Trait newTrait = new Trait(extension.requiredTrait, targetDegree);
+                    
+                    // Trick 17: Wir umgehen das Trait-Limit, indem wir direkt auf die interne Liste zugreifen, 
+                    // falls GainTrait fehlschlägt (was bei vollen Slots passiert).
+                    billDoer.story.traits.GainTrait(newTrait);
+                    
+                    // Prüfen ob es geklappt hat
+                    if (!billDoer.story.traits.HasTrait(extension.requiredTrait))
+                    {
+                        // Fallback für volle Trait-Slots: Hartes Einfügen
+                        Log.Warning($"[YASTM] GainTrait failed (Max slots?). Forcing trait injection for {billDoer.LabelShort}.");
+                        billDoer.story.traits.allTraits.Add(newTrait);
+                    }
+                    
+                    // Feedback Nachricht
+                    string rankLabel = extension.requiredTrait.DataAtDegree(targetDegree).label;
+                    Messages.Message("ST_Message_TrainingComplete".Translate(billDoer.LabelShort, rankLabel), billDoer, MessageTypeDefOf.PositiveEvent);
                 }
             }
 
-            // --- TEIL 2: PIP UPDATE (Das Visuelle) ---
+            // --- TEIL 2: PIP UPDATE (Item) ---
             if (extension.rewardApparel != null)
             {
-                // 1. Alte Pips entfernen
+                // Alte Pips entfernen
                 if (!string.IsNullOrEmpty(extension.removeApparelWithTag))
                 {
-                    // Wir suchen alles, was der Pawn trägt und den Tag hat
                     var oldPips = billDoer.apparel.WornApparel
                         .Where(a => a.def.apparel.tags != null && a.def.apparel.tags.Contains(extension.removeApparelWithTag))
-                        .ToList(); // ToList ist wichtig, da wir die Collection modifizieren
+                        .ToList();
 
                     foreach (var oldPip in oldPips)
                     {
-                        // Ausziehen und zerstören (oder ins Inventar legen, hier: zerstören für Sauberkeit)
                         billDoer.apparel.Remove(oldPip);
-                        oldPip.Destroy(); 
+                        oldPip.Destroy();
                     }
                 }
 
-                // 2. Neuen Pip generieren
-                Thing newPip = ThingMaker.MakeThing(extension.rewardApparel, GenStuff.DefaultStuffFor(extension.rewardApparel));
-                if (newPip is not Apparel apparel) 
+                // Neuen Pip geben
+                Thing newPip = ThingMaker.MakeThing(extension.rewardApparel);
+                if (newPip is Apparel apparel)
                 {
-                    Log.Error($"[YASTM] {extension.rewardApparel} is defined as reward but is not Apparel!");
-                    return;
+                    billDoer.apparel.Wear(apparel, true, true);
                 }
-
-                // 3. Pip anziehen (ForceWear sorgt dafür, dass er nicht automatisch ausgezogen wird)
-                billDoer.apparel.Wear(apparel, true, true);
-                
-                // Feedback
-                Messages.Message("ST_Message_RankPipAwarded".Translate(billDoer.LabelShort, apparel.Label), billDoer, MessageTypeDefOf.PositiveEvent);
             }
         }
     }

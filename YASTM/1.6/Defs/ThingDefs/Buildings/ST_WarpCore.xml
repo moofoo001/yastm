@@ -74,7 +74,7 @@
       <li Class="CompProperties_Breakdownable" />
       
       <li Class="CompProperties_Glower">
-        <glowRadius>3</glowRadius>
+        <glowRadius>0.5</glowRadius>
         <glowColor>(137,207,240,0)</glowColor> <!-- bluish glow -->
       </li> 
       </comps>
