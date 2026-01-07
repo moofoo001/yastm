@@ -164,9 +164,9 @@
   </ThingDef>
 
   <ThingDef ParentName="ST_BaseRankPip">
-    <defName>ST_Apparel_Pip_Admiral</defName>
+    <defName>ST_Apparel_Pip_RearAdmiral</defName>
     <label>rank insignia (Admiral)</label>
-    <graphicData><texPath>Things/Item/Accessory/pips_romulan/Admiral</texPath></graphicData>
+    <graphicData><texPath>Things/Item/Accessory/pips_romulan/RearAdmiral</texPath></graphicData>
   </ThingDef>
 
 

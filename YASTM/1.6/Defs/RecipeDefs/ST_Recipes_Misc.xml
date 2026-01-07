@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <RecipeDef>
+      <defName>ST_Make_Bloodwine_Must</defName>
+      <label>stomp serpent worms</label>
+      <description>Crush live serpent worms with bare feet to extract the fluids for bloodwine fermentation.</description>
+      <jobString>Stomping worms.</jobString>
+      <ingredients>
+        <li>
+          <filter>
+            <thingDefs>
+              <li>ST_RawSerpentWorms</li>
+            </thingDefs>
+          </filter>
+          <count>20</count>
+        </li>
+      </ingredients>
+      </RecipeDef>
+</Defs>

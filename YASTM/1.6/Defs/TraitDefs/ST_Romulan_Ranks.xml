@@ -15,7 +15,7 @@
           <li><degree>3</degree><texName>Centurion</texName></li>
           <li><degree>4</degree><texName>SubCommander</texName></li>
           <li><degree>5</degree><texName>Commander</texName></li>
-          <li><degree>6</degree><texName>Admiral</texName></li>
+          <li><degree>6</degree><texName>RearAdmiral</texName></li>
         </ranks>
       </li>
     </modExtensions>
@@ -83,8 +83,8 @@
       </li>
 
       <li>
-        <label>Admiral</label>
-        <description>High command of the Romulan Star Empire.</description>
+        <label>RearAdmiral</label>
+        <description>A high-ranking officer of the Romulan Star Empire.</description>
         <degree>6</degree>
         <statOffsets>
           <ResearchSpeed>0.20</ResearchSpeed>

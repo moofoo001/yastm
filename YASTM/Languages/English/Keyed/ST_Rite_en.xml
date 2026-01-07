@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+ <ST_RiteRaidLabel>Rite of Ascension: Trial</ST_RiteRaidLabel>
+  <ST_RiteRaidDesc>The spirits of the ancient warriors test you! Survive this wave to prove your worth.</ST_RiteRaidDesc>
+
+  <ST_RiteQuestLabel>The Final Ascension</ST_RiteQuestLabel>
+  <ST_RiteQuestDesc>100 days of pain have forged you into warriors. The High Council has granted you the rank of 'Bekk'.\n\nBut one final test remains. A legendary Bat'leth has been hidden nearby, guarded by enemies of the Empire. Retrieve it to complete your Ascension! Qapla'!</ST_RiteQuestDesc>
+</LanguageData>

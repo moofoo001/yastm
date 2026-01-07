@@ -4,31 +4,21 @@
   <ScenarioDef ParentName="ScenarioBase">
     <defName>ST_Scenario_Klingon_Rite</defName>
     <label>Klingon Rite: Age Of Ascension</label>
-    <description>Age Of Ascension\n\nAlso known as the Rite of Ascension or the Klingon Rite of Passage, marking a new level of spiritual attainment for a Klingon warrior</description>
+    <description>Age Of Ascension.\n\nThree Klingon youths seeking glory on a harsh world, beginning their path as warriors.</description>
     <scenario>
-      <summary>Three Klingon youth seeking glory on a harsh world beginning their path as a warrior.</summary>
+      <summary>Three Klingon warriors - Qapla'!</summary>
       <playerFaction>
         <def>PlayerFaction</def>
         <factionDef>ST_Player_KlingonHouse</factionDef>
       </playerFaction>
       <parts>
       
-      <!-- Configure starting pawns -->   
-      <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
           <def>ConfigurePawnsKindDefs</def>
           <pawnChoiceCount>3</pawnChoiceCount>
           <kindCounts>
-            <li><kindDef>KLG_Warrior</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
-            <li><kindDef>KLG_Warrior</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
-            <li><kindDef>KLG_Warrior</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+            <li><kindDef>KLG_Warrior</kindDef><count>3</count><requiredAtStart>true</requiredAtStart></li>
            </kindCounts>
-        </li>
-
-        <!-- Player starting stuff spawn method-->
-        <li Class="ScenPart_PlayerPawnsArriveMethod">
-          <def>PlayerPawnsArriveMethod</def>
-          <method>DropPods</method>
-          <visible>false</visible>
         </li>
 
         <!-- Player pawns modifiers -->
@@ -37,43 +27,28 @@
           <allowedAgeRange>13~18</allowedAgeRange>
         </li>
 
+        <li Class="ScenPart_PlayerPawnsArriveMethod">
+          <def>PlayerPawnsArriveMethod</def>
+          <method>DropPods</method>
+        </li>
+
         <li Class="ScenPart_StartingThing_Defined">
           <def>StartingThing_Defined</def>
-          <thingDef>ST_Animal_Targ</thingDef>
-          <count>1</count>
-        </li>
-
-        <li Class="ScenPart_ScatterThingsNearPlayerStart">
-          <def>StartingThing_Defined</def>
-          <thingDef>Silver</thingDef>
-          <count>400</count>
-        </li>
-        <li Class="ScenPart_ScatterThingsNearPlayerStart">
-          <def>StartingThing_Defined</def>
-          <thingDef>ST_Bloodwine</thingDef>
-          <count>30</count>
-        </li>
-        <li Class="ScenPart_ScatterThingsNearPlayerStart">
-          <def>StartingThing_Defined</def>
-          <thingDef>Pemmican</thingDef>
-          <count>500</count>
-        </li>
-        <li Class="ScenPart_ScatterThingsNearPlayerStart">
-          <def>StartingThing_Defined</def>
-          <thingDef>MedicineHerbal</thingDef>
-          <count>20</count>
-        </li>
-        
-        <li Class="ScenPart_ScatterThingsNearPlayerStart">
-          <def>StartingThing_Defined</def>
           <thingDef>KL_Weapon_Batleth</thingDef>
+          <stuff>Steel</stuff>
           <count>2</count>
-         </li>
+        </li>
 
-        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+        <li Class="ScenPart_StartingThing_Defined">
           <def>StartingThing_Defined</def>
           <thingDef>KL_Weapon_Disruptor_Pistol</thingDef>
           <count>1</count>
+        </li>
+
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>ScatterThingsAnywhere</def>
+          <thingDef>ST_Bloodwine</thingDef>
+          <count>20</count>
         </li>
 
         <li Class="ScenPart_ScatterThingsNearPlayerStart">
@@ -86,31 +61,39 @@
           <thingDef>WoodLog</thingDef>
           <count>300</count>
         </li>
-        
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>StartingThing_Defined</def>
+          <thingDef>Pemmican</thingDef>
+          <count>500</count>
+        </li>
+       
+       <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>StartingThing_Defined</def>
+          <thingDef>MedicineHerbal</thingDef>
+          <count>20</count>
+        </li>
+
         <li Class="ScenPart_ForcedTrait">
           <def>ForcedTrait</def>
           <chance>0.5</chance>
           <trait>Bloodlust</trait>
         </li>
 
-        <!-- Starting research -->
-        <li Class="ScenPart_StartingResearch">
-          <def>StartingResearch</def>
-          <project>BasicGravtech</project>
-        </li>
+        <li Class="YASTM.ScenPart_KlingonRiteMarker" /> 
+
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs" />
 
         <li Class="ScenPart_StartingResearch">
           <def>StartingResearch</def>
           <project>Klingon_Standard</project>
         </li>
 
-        <!-- Game start dialog -->
         <li Class="ScenPart_GameStartDialog">
           <def>GameStartDialog</def>
-          <textKey>Age Of Ascension: "Today I am a Warrior, I must show you my heart.  Today I travel the river of blood."</textKey>
+          <text>Today I am a Warrior. I must show you my heart. I travel the river of blood.</text>
           <closeSound>GameStartSting</closeSound>
         </li>
-
+        
       </parts>
     </scenario>
   </ScenarioDef>

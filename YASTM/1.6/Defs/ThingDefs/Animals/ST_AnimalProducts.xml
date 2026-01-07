@@ -71,4 +71,36 @@
     </tradeTags>
   </ThingDef>
 
+<ThingDef ParentName="OrganicProductBase">
+    <defName>ST_RawSerpentWorms</defName>
+    <label>blood serpent worms</label>
+    <description>A writhing mass of Klingon Blood Serpent Worms. Traditional ingredient for Bloodwine.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ST_SerpentWorms</texPath> 
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>2.5</MarketValue>
+      <Mass>0.05</Mass>
+      <Nutrition>0.05</Nutrition>
+      <FoodPoisonChanceFixedHuman>0.10</FoodPoisonChanceFixedHuman>
+    </statBases>
+    <ingestible>
+      <foodType>Meat</foodType>
+      <preferability>RawBad</preferability>
+      <tasteThought>AteRawFood</tasteThought>
+      <ingestEffect>EatMeat</ingestEffect>
+      <ingestSound>RawMeat_Eat</ingestSound>
+    </ingestible>
+    <thingCategories>
+      <li>MeatRaw</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>4</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+  </ThingDef>
+
 </Defs>

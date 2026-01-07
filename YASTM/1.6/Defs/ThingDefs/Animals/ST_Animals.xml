@@ -642,5 +642,116 @@
   </lifeStages>
 </PawnKindDef>
 
+  <!-- =========================
+       SERPENT WORM – ThingDef
+       ========================= -->
+<ThingDef ParentName="AnimalThingBase">
+    <defName>ST_Animal_SerpentWorm</defName>
+    <label>blood serpent worm</label>
+    <description>A large, carnivorous worm native to Qo'noS. While slow moving, they are essential for Klingon culture as their internal fluids are the key ingredient in Bloodwine.</description>
+    <statBases>
+      <MoveSpeed>1.8</MoveSpeed>
+      <MarketValue>50</MarketValue>
+      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+      <ComfyTemperatureMax>60</ComfyTemperatureMax> <FilthRate>8</FilthRate>
+    </statBases>
+    <tools>
+      <li>
+        <label>mandibles</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+      </li>
+    </tools>
+    <race>
+      <body>BeetleLike</body> <baseBodySize>0.4</baseBodySize>
+      <baseHealthScale>0.6</baseHealthScale>
+      <foodType>CarnivoreAnimalStrict</foodType>
+      <wildness>0.40</wildness>
+      <trainability>None</trainability>
+      <lifeExpectancy>5</lifeExpectancy>
+      <litterSizeCurve>
+        <points>
+          <li>(0.5, 0)</li>
+          <li>(1, 1)</li>
+          <li>(3, 1)</li>
+        </points>
+      </litterSizeCurve>
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.1</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.33</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+    </race>
+    
+    <butcherProducts>
+      <ST_RawSerpentWorms>10</ST_RawSerpentWorms>
+    </butcherProducts>
+    
+    <tradeTags>
+      <li>AnimalExotic</li>
+    </tradeTags>
+  </ThingDef>
+
+<PawnKindDef ParentName="AnimalKindBase">
+    <defName>ST_PawnKind_SerpentWorm</defName>
+    <label>blood serpent worm</label>
+    <race>ST_Animal_SerpentWorm</race> <combatPower>35</combatPower>
+    <ecoSystemWeight>0.20</ecoSystemWeight>
+    <wildGroupSize>
+      <min>3</min>
+      <max>8</max>
+    </wildGroupSize>
+    <lifeStages>
+      <li>
+        <label>larva</label>
+        <bodyGraphicData>
+          <texPath>Things/Animals/SerpentWorm</texPath> <drawSize>0.5</drawSize>
+          <color>(130,50,50)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Animals/Dessicated_SerpentWorm</texPath>
+          <drawSize>0.5</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Animals/SerpentWorm</texPath>
+          <drawSize>0.8</drawSize>
+          <color>(130,50,50)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Animals/Dessicated_SerpentWorm</texPath>
+          <drawSize>0.8</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Animals/SerpentWorm</texPath>
+          <drawSize>1.1</drawSize>
+          <color>(110,30,30)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Animals/Dessicated_SerpentWorm</texPath>
+          <drawSize>1.1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
 
 </Defs>
