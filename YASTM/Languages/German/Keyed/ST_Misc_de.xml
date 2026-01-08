@@ -212,4 +212,12 @@
     <!-- Tooltip shown in Ferengi commerce research -->
   <ST.Ferengi.TradeBonus.Desc>Verbessert außerdem die Handelspreise für ferengi-verbundene Händler.</ST.Ferengi.TradeBonus.Desc>
 
+  <!-- Bloodwine Vat -->
+  <ST_VatEmpty>Leer. Braucht Blutwürmer.</ST_VatEmpty>
+  <ST_VatFermenting>Fermentiert: {0} fertig (Enthält {1} Würmer)</ST_VatFermenting>
+  <ST_VatReady>Blutwein fertig ({0} Flaschen)</ST_VatReady>
+  <ST_VatTooCold>Temperatur zu niedrig (unter 10°C)</ST_VatTooCold>
+  <ST_VatTooHot>Temperatur zu hoch (über 40°C)</ST_VatTooHot>
+  <ST_NoWorms>Keine Blutwürmer verfügbar.</ST_NoWorms>
+
 </LanguageData>

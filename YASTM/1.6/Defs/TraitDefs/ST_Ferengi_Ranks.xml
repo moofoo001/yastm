@@ -8,10 +8,13 @@
       <li Class="YASTM.RankVisualExtension">
         <rankTexPath>Things/Item/Accessory/pips_ferengi/</rankTexPath>
         <ranks>
-          <li><degree>0</degree><texName>Earner</texName></li> <li><degree>1</degree><texName>Huckster</texName></li>
-          <li><degree>2</degree><texName>Merchant</texName></li> <li><degree>3</degree><texName>Liquidator</texName></li>
+          <li><degree>0</degree><texName>Earner</texName></li>
+          <li><degree>1</degree><texName>Huckster</texName></li>
+          <li><degree>2</degree><texName>Merchant</texName></li>
+          <li><degree>3</degree><texName>Liquidator</texName></li>
           <li><degree>4</degree><texName>DaiMon</texName></li>
-          <li><degree>5</degree><texName>MagusAdvisor</texName></li> <li><degree>6</degree><texName>GrandNagus</texName></li>
+          <li><degree>5</degree><texName>MagusAdvisor</texName></li>
+          <li><degree>6</degree><texName>GrandNagus</texName></li>
         </ranks>
       </li>
     </modExtensions>

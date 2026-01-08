@@ -286,4 +286,11 @@
   <ST.Sci.ScanStarting>Starting subspace scan…</ST.Sci.ScanStarting>
   <ST.Sci.ScanComplete>Subspace scan complete.</ST.Sci.ScanComplete>
 
+  <ST_VatEmpty>Empty. Needs blood worms.</ST_VatEmpty>
+  <ST_VatFermenting>Fermenting: {0} complete (Contains {1} worms)</ST_VatFermenting>
+  <ST_VatReady>Bloodwine ready ({0} bottles)</ST_VatReady>
+  <ST_VatTooCold>Temperature too low (below 10°C)</ST_VatTooCold>
+  <ST_VatTooHot>Temperature too high (above 40°C)</ST_VatTooHot>
+  <ST_NoWorms>No blood serpent worms available.</ST_NoWorms>
+
 </LanguageData>

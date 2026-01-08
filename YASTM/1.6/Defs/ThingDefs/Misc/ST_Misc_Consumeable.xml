@@ -89,6 +89,11 @@
         <cooldownTime>2</cooldownTime>
       </li>
     </tools>
+    
+    <researchPrerequisites>
+      <li>Brewing</li>
+      <li>Klingon_Standard</li>
+    </researchPrerequisites>
   </ThingDef>
 
 </Defs>

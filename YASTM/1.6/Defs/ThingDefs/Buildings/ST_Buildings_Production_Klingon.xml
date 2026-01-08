@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_Building_BloodwineVat</defName>
+    <label>bloodwine vat</label>
+    <description>A large, open-topped vat used for the fermentation of Bloodwine. Klingons fill it with live Blood Serpent Worms and stomp them with their bare feet to extract the juices needed for fermentation.\n\nRequires a temperature between 10°C and 40°C.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Production/BloodwineVat</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5,1.5)</drawSize>
+      <shadowData>
+        <volume>(0.9, 0.5, 0.9)</volume>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.45</fillPercent>
+    <pathCost>42</pathCost>
+    <statBases>
+      <WorkToBuild>1000</WorkToBuild>
+      <Mass>15</Mass>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <size>(1,1)</size>
+    <costList>
+      <Steel>50</Steel>
+      <WoodLog>30</WoodLog>
+    </costList>
+    <comps>
+      <li Class="YASTM.CompBloodwineVat" /> </comps>
+    <designationCategory>Production</designationCategory>
+    <researchPrerequisites>
+      <li>Brewing</li>
+      <li>Klingon_Standard</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <JobDef>
+    <defName>ST_Job_FillBloodwineVat</defName>
+    <driverClass>YASTM.JobDriver_FillBloodwineVat</driverClass>
+    <reportString>stomping worms in TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
+    <defName>ST_Job_TakeBloodwine</defName>
+    <driverClass>YASTM.JobDriver_TakeBloodwine</driverClass>
+    <reportString>taking bloodwine from TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <WorkGiverDef>
+    <defName>ST_WorkGiver_FillBloodwineVat</defName>
+    <label>stomp worms</label>
+    <giverClass>YASTM.WorkGiver_FillBloodwineVat</giverClass>
+    <workType>Cooking</workType>
+    <priorityInType>20</priorityInType>
+    <verb>stomp</verb>
+    <gerund>stomping</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>ST_WorkGiver_TakeBloodwine</defName>
+    <label>take bloodwine</label>
+    <giverClass>YASTM.WorkGiver_TakeBloodwine</giverClass>
+    <workType>Hauling</workType>
+    <priorityInType>20</priorityInType>
+    <verb>take</verb>
+    <gerund>taking</gerund>
+  </WorkGiverDef>
+
+</Defs>
