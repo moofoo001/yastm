@@ -1,65 +1,79 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
   <YASTM.CareerDef>
-    <defName>ST_Career_Federation_Starfleet</defName>
-    <label>Starfleet Service Record</label>
+    <defName>ST_Career_Federation_Standard</defName>
+    <label>Starfleet Career</label>
+    <description>To boldy go. Advancement relies on scientific discovery, diplomacy, and time in service.</description>
+    <trait>ST_FederationRank</trait>
     
-    <requiredFactions>
-      <li>ST_Federation_Player</li> </requiredFactions>
-    
-    <pointCategory>Combat</pointCategory> 
-    
-    <ranks>
+    <stages>
       <li>
-        <threshold>0</threshold>
-        <rewardTrait>ST_FederationRank</rewardTrait>
-        <rewardDegree>0</rewardDegree>
-        <label>Cadet</label>
+        <targetDegree>1</targetDegree>
+        <requirements>
+          <minIntellectualSkill>4</minIntellectualSkill>
+          <minSocialSkill>3</minSocialSkill>
+          <timeInRankYears>0.5</timeInRankYears> <careerPoints>
+            <li><category>ScienceScan</category><count>5</count></li> </careerPoints>
+        </requirements>
       </li>
 
       <li>
-        <threshold>5</threshold>
-        <rewardTrait>ST_FederationRank</rewardTrait>
-        <rewardDegree>1</rewardDegree>
-        <label>Ensign</label>
-      </li>
-      
-      <li>
-        <threshold>15</threshold>
-        <rewardTrait>ST_FederationRank</rewardTrait>
-        <rewardDegree>2</rewardDegree>
-        <label>Lieutenant (JG)</label>
+        <targetDegree>2</targetDegree>
+        <requirements>
+          <minIntellectualSkill>6</minIntellectualSkill>
+          <timeInRankYears>1.0</timeInRankYears>
+          <careerPoints>
+            <li><category>ScienceScan</category><count>15</count></li>
+          </careerPoints>
+        </requirements>
       </li>
 
       <li>
-        <threshold>30</threshold>
-        <rewardTrait>ST_FederationRank</rewardTrait>
-        <rewardDegree>3</rewardDegree>
-        <label>Lieutenant</label>
+        <targetDegree>3</targetDegree>
+        <requirements>
+          <minIntellectualSkill>8</minIntellectualSkill>
+          <minSocialSkill>5</minSocialSkill>
+          <timeInRankYears>1.5</timeInRankYears>
+          <careerPoints>
+            <li><category>ScienceScan</category><count>30</count></li>
+            <li><category>SecuritySweep</category><count>5</count></li> </careerPoints>
+        </requirements>
       </li>
 
       <li>
-        <threshold>50</threshold>
-        <rewardTrait>ST_FederationRank</rewardTrait>
-        <rewardDegree>4</rewardDegree>
-        <label>Lt. Commander</label>
+        <targetDegree>4</targetDegree>
+        <requirements>
+          <minIntellectualSkill>10</minIntellectualSkill>
+          <minSocialSkill>8</minSocialSkill>
+          <timeInRankYears>2.0</timeInRankYears>
+          <careerPoints>
+            <li><category>ScienceScan</category><count>50</count></li>
+            <li><category>SuccessfulTrade</category><count>2</count></li> </careerPoints>
+        </requirements>
       </li>
 
       <li>
-        <threshold>80</threshold>
-        <rewardTrait>ST_FederationRank</rewardTrait>
-        <rewardDegree>5</rewardDegree>
-        <label>Commander</label>
+        <targetDegree>5</targetDegree>
+        <requirements>
+          <minSocialSkill>12</minSocialSkill> <minIntellectualSkill>12</minIntellectualSkill>
+          <timeInRankYears>3.0</timeInRankYears>
+          <careerPoints>
+            <li><category>ScienceScan</category><count>80</count></li>
+            <li><category>SecuritySweep</category><count>20</count></li>
+          </careerPoints>
+        </requirements>
       </li>
 
       <li>
-        <threshold>120</threshold>
-        <rewardTrait>ST_FederationRank</rewardTrait>
-        <rewardDegree>6</rewardDegree>
-        <label>Captain</label>
+        <targetDegree>6</targetDegree>
+        <requirements>
+          <minSocialSkill>15</minSocialSkill>
+          <minIntellectualSkill>14</minIntellectualSkill>
+          <minShootingSkill>6</minShootingSkill> <timeInRankYears>4.0</timeInRankYears>
+          <careerPoints>
+            <li><category>SuccessfulTrade</category><count>10</count></li> </careerPoints>
+        </requirements>
       </li>
-    </ranks>
+    </stages>
   </YASTM.CareerDef>
-
 </Defs>

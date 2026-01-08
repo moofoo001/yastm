@@ -2,20 +2,74 @@
 <Defs>
   <YASTM.CareerDef>
     <defName>ST_Career_Klingon_Warrior</defName>
-    <requiredXenotypes>
-      <li>Ectos_Klingon</li>
-    </requiredXenotypes>
-    <pointCategory>Combat</pointCategory> <ranks>
+    <label>Path of the Warrior</label>
+    <description>Victory or Death. Advancement requires blood and honor.</description>
+    <trait>ST_KlingonRank</trait>
+    
+    <stages>
       <li>
-        <threshold>5</threshold>
-        <rewardTrait>ST_KlingonRank</rewardTrait>
-        <rewardDegree>1</rewardDegree> <label>Lagh</label>
+        <targetDegree>1</targetDegree>
+        <requirements>
+          <minMeleeSkill>4</minMeleeSkill>
+          <careerPoints>
+            <li><category>CombatKill</category><count>1</count></li> </careerPoints>
+        </requirements>
       </li>
+
       <li>
-        <threshold>20</threshold>
-        <rewardTrait>ST_KlingonRank</rewardTrait>
-        <rewardDegree>2</rewardDegree> <label>Sogh hom</label>
+        <targetDegree>2</targetDegree>
+        <requirements>
+          <minMeleeSkill>6</minMeleeSkill>
+          <minShootingSkill>4</minShootingSkill>
+          <careerPoints>
+            <li><category>CombatKill</category><count>5</count></li>
+          </careerPoints>
+        </requirements>
       </li>
-      </ranks>
+
+      <li>
+        <targetDegree>3</targetDegree>
+        <requirements>
+          <minMeleeSkill>8</minMeleeSkill>
+          <minShootingSkill>6</minShootingSkill>
+          <careerPoints>
+            <li><category>CombatKill</category><count>12</count></li>
+            <li><category>HonorKill</category><count>1</count></li> </careerPoints>
+        </requirements>
+      </li>
+
+      <li>
+        <targetDegree>4</targetDegree>
+        <requirements>
+          <minMeleeSkill>10</minMeleeSkill>
+          <minSocialSkill>4</minSocialSkill> <careerPoints>
+            <li><category>CombatKill</category><count>25</count></li>
+            <li><category>HonorKill</category><count>3</count></li>
+          </careerPoints>
+        </requirements>
+      </li>
+
+      <li>
+        <targetDegree>5</targetDegree>
+        <requirements>
+          <minMeleeSkill>13</minMeleeSkill>
+          <minSocialSkill>6</minSocialSkill>
+          <careerPoints>
+            <li><category>CombatKill</category><count>50</count></li>
+            <li><category>HonorKill</category><count>10</count></li>
+          </careerPoints>
+        </requirements>
+      </li>
+
+      <li>
+        <targetDegree>6</targetDegree>
+        <requirements>
+          <minMeleeSkill>16</minMeleeSkill> <minSocialSkill>10</minSocialSkill>
+          <careerPoints>
+            <li><category>CombatKill</category><count>100</count></li> <li><category>HonorKill</category><count>25</count></li>
+          </careerPoints>
+        </requirements>
+      </li>
+    </stages>
   </YASTM.CareerDef>
 </Defs>

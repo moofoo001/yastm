@@ -85,6 +85,11 @@ namespace YASTM
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
             yield return finish;
+            
+            // NEU: Karriere-Punkt vergeben
+            var compCareer = pawn.TryGetComp<CompCareer>();
+            compCareer?.AddCareerPoint("ScienceScan", 1);
+
             Find.SignalManager.SendSignal(new Signal("STQ_ScanCategoryCompleted")); 
         }
 

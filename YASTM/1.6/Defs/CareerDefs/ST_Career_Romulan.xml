@@ -1,4 +1,74 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+  <YASTM.CareerDef>
+    <defName>ST_Career_Romulan_Navy</defName>
+    <label>Imperial Service</label>
+    <description>Service to the State through efficiency, surveillance, and absolute loyalty.</description>
+    <trait>ST_RomulanRank</trait>
+    
+    <stages>
+      <li>
+        <targetDegree>1</targetDegree>
+        <requirements>
+          <timeInRankYears>1.0</timeInRankYears> <minIntellectualSkill>4</minIntellectualSkill>
+          <careerPoints>
+            <li><category>SecuritySweep</category><count>5</count></li> </careerPoints>
+        </requirements>
+      </li>
 
+      <li>
+        <targetDegree>2</targetDegree>
+        <requirements>
+          <minIntellectualSkill>6</minIntellectualSkill>
+          <minShootingSkill>5</minShootingSkill>
+          <careerPoints>
+            <li><category>SecuritySweep</category><count>15</count></li>
+            <li><category>ScienceScan</category><count>5</count></li>
+          </careerPoints>
+        </requirements>
+      </li>
+
+      <li>
+        <targetDegree>3</targetDegree>
+        <requirements>
+          <minShootingSkill>8</minShootingSkill>
+          <minSocialSkill>5</minSocialSkill>
+          <timeInRankYears>2.0</timeInRankYears>
+          <careerPoints>
+            <li><category>CombatKill</category><count>5</count></li> <li><category>SecuritySweep</category><count>30</count></li>
+          </careerPoints>
+        </requirements>
+      </li>
+
+      <li>
+        <targetDegree>4</targetDegree>
+        <requirements>
+          <minIntellectualSkill>10</minIntellectualSkill>
+          <minSocialSkill>8</minSocialSkill>
+          <careerPoints>
+            <li><category>ScienceScan</category><count>20</count></li> </careerPoints>
+        </requirements>
+      </li>
+
+      <li>
+        <targetDegree>5</targetDegree>
+        <requirements>
+          <minIntellectualSkill>13</minIntellectualSkill>
+          <minSocialSkill>10</minSocialSkill> <timeInRankYears>3.5</timeInRankYears>
+          <careerPoints>
+            <li><category>SuccessfulTrade</category><count>5</count></li> </careerPoints>
+        </requirements>
+      </li>
+
+      <li>
+        <targetDegree>6</targetDegree>
+        <requirements>
+          <minSocialSkill>14</minSocialSkill>
+          <minIntellectualSkill>15</minIntellectualSkill>
+          <timeInRankYears>6.0</timeInRankYears> <careerPoints>
+            <li><category>SecuritySweep</category><count>100</count></li> </careerPoints>
+        </requirements>
+      </li>
+    </stages>
+  </YASTM.CareerDef>
 </Defs>

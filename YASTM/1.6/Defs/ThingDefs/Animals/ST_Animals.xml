@@ -650,6 +650,7 @@
     <label>blood serpent worm</label>
     <description>A large, carnivorous worm native to Qo'noS. While slow moving, they are essential for Klingon culture as their internal fluids are the key ingredient in Bloodwine.</description>
     <statBases>
+      <Wildness>0.35</Wildness>
       <MoveSpeed>1.8</MoveSpeed>
       <MarketValue>50</MarketValue>
       <ComfyTemperatureMin>-10</ComfyTemperatureMin>
@@ -670,7 +671,6 @@
       <body>BeetleLike</body> <baseBodySize>0.4</baseBodySize>
       <baseHealthScale>0.6</baseHealthScale>
       <foodType>CarnivoreAnimalStrict</foodType>
-      <wildness>0.40</wildness>
       <trainability>None</trainability>
       <lifeExpectancy>5</lifeExpectancy>
       <litterSizeCurve>

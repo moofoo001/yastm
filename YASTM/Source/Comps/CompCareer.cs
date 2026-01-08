@@ -1,136 +1,133 @@
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
 using Verse;
-using UnityEngine;
+using RimWorld;
 
 namespace YASTM
 {
+    public class CompProperties_Career : CompProperties
+    {
+        public CompProperties_Career()
+        {
+            this.compClass = typeof(CompCareer);
+        }
+    }
+
     public class CompCareer : ThingComp
     {
-        // Speichert Punkte: "Combat" -> 15.5, "Trade" -> 5000
-        private Dictionary<string, float> pointTracker = new Dictionary<string, float>();
+        public int ticksInCurrentRank = 0;
         
-        // Cache für die aktive Karriere (damit wir nicht jeden Tick suchen)
-        private CareerDef activeCareer;
+        // Das universelle Punktekonto
+        private Dictionary<string, int> pointTracker = new Dictionary<string, int>();
 
-        public override void PostExposeData()
+        public CompProperties_Career Props => (CompProperties_Career)props;
+
+        // --- API ---
+        
+        public void AddCareerPoint(string category, int amount = 1)
         {
-            base.PostExposeData();
-            Scribe_Collections.Look(ref pointTracker, "pointTracker", LookMode.Value, LookMode.Value);
-            // Wir speichern activeCareer nicht direkt, sondern suchen es beim Laden neu (sicherer bei Updates)
-        }
-
-        public override void PostSpawnSetup(bool respawningAfterLoad)
-        {
-            base.PostSpawnSetup(respawningAfterLoad);
-            if (activeCareer == null) AssignCareer();
-        }
-
-        public void AssignCareer()
-        {
-            Pawn p = parent as Pawn;
-            if (p == null) return;
-
-            // Finde die erste Karriere, die auf diesen Pawn passt
-            activeCareer = DefDatabase<CareerDef>.AllDefs.FirstOrDefault(def => IsApplicable(def, p));
-        }
-
-        private bool IsApplicable(CareerDef def, Pawn p)
-        {
-            // 1. Xenotype Check (Klingonen/Romulaner)
-            if (def.requiredXenotypes != null && !def.requiredXenotypes.NullOrEmpty())
+            if (!pointTracker.ContainsKey(category))
             {
-                if (p.genes?.Xenotype == null || !def.requiredXenotypes.Contains(p.genes.Xenotype.defName))
-                    return false;
+                pointTracker[category] = 0;
             }
+            pointTracker[category] += amount;
+            
+            // Sofort prüfen
+            TryPromote();
+        }
 
-            // 2. Faction Check (Föderation)
-            if (def.requiredFactions != null && !def.requiredFactions.NullOrEmpty())
+        public int GetPoints(string category)
+        {
+            if (pointTracker.TryGetValue(category, out int val)) return val;
+            return 0;
+        }
+
+        // --- LOGIK ---
+
+        public override void CompTickRare()
+        {
+            base.CompTickRare();
+            if (parent is Pawn p && !p.Dead)
             {
-                if (p.Faction == null || !def.requiredFactions.Contains(p.Faction.def.defName))
-                    return false;
+                ticksInCurrentRank += 250;
+                if (ticksInCurrentRank % 60000 == 0) TryPromote(); 
+            }
+        }
+
+        public void TryPromote()
+        {
+            Pawn pawn = parent as Pawn;
+            if (pawn == null || pawn.story == null) return;
+
+            // Finde die CareerDef
+            CareerDef career = DefDatabase<CareerDef>.AllDefsListForReading
+                .FirstOrDefault(c => pawn.story.traits.HasTrait(c.trait));
+
+            if (career == null) return;
+
+            Trait currentTrait = pawn.story.traits.GetTrait(career.trait);
+            int currentDegree = currentTrait?.Degree ?? -1;
+
+            foreach (var stage in career.stages)
+            {
+                // Nur der nächste Rang (oder Einstieg)
+                if (stage.targetDegree == currentDegree + 1)
+                {
+                    if (CheckRequirements(pawn, stage.requirements))
+                    {
+                        PromoteTo(pawn, career.trait, stage.targetDegree);
+                        break; 
+                    }
+                }
+            }
+        }
+
+        private bool CheckRequirements(Pawn p, CareerRequirements req)
+        {
+            if (req == null) return true;
+
+            // 1. Zeit
+            float yearsServed = ticksInCurrentRank / (60000f * 60f); // 60 Tage/Jahr
+            if (yearsServed < req.timeInRankYears) return false;
+
+            // 2. Skills
+            if (GetSkill(p, SkillDefOf.Social) < req.minSocialSkill) return false;
+            if (GetSkill(p, SkillDefOf.Intellectual) < req.minIntellectualSkill) return false;
+            if (GetSkill(p, SkillDefOf.Shooting) < req.minShootingSkill) return false;
+            if (GetSkill(p, SkillDefOf.Melee) < req.minMeleeSkill) return false;
+
+            // 3. Punkte
+            if (req.careerPoints != null)
+            {
+                foreach (var pointReq in req.careerPoints)
+                {
+                    if (GetPoints(pointReq.category) < pointReq.count) return false;
+                }
             }
 
             return true;
         }
 
-        // --- PUBLIC API: PUNKTE HINZUFÜGEN ---
-        public void AddPoints(string category, float amount)
+        private int GetSkill(Pawn p, SkillDef skill) => p.skills?.GetSkill(skill)?.Level ?? 0;
+
+        private void PromoteTo(Pawn p, TraitDef traitDef, int newDegree)
         {
-            if (activeCareer == null) return; // Wer keine Karriere hat, sammelt keine Punkte
-            if (activeCareer.pointCategory != category) return; // Falsche Kategorie (z.B. Klingone handelt)
+            ticksInCurrentRank = 0; // Reset Zeit
+            // pointTracker.Clear(); // Optional: Punkte behalten oder resetten? Hier: behalten.
+            
+            Trait existing = p.story.traits.GetTrait(traitDef);
+            if (existing != null) p.story.traits.RemoveTrait(existing);
+            p.story.traits.GainTrait(new Trait(traitDef, newDegree));
 
-            if (!pointTracker.ContainsKey(category)) pointTracker[category] = 0;
-            pointTracker[category] += amount;
-
-            // Kleines visuelles Feedback
-            if (amount > 0 && parent is Pawn p && p.Map != null && !p.Drafted)
-            {
-                // Zeigt "+1 Combat" über dem Kopf
-                MoteMaker.ThrowText(p.DrawPos, p.Map, $"+{amount:F0} {category}", Color.cyan);
-            }
-
-            CheckPromotion();
+            Messages.Message("ST_Message_Promoted".Translate(p.LabelShort, traitDef.DataAtDegree(newDegree).label), p, MessageTypeDefOf.PositiveEvent);
         }
 
-private void CheckPromotion()
+        public override void PostExposeData()
         {
-            if (activeCareer == null) return;
-            Pawn p = parent as Pawn;
-            if (p.story == null) return;
-
-            float currentPoints = pointTracker.ContainsKey(activeCareer.pointCategory) ? pointTracker[activeCareer.pointCategory] : 0;
-
-            CareerRank bestRank = activeCareer.ranks
-                                    .OrderByDescending(r => r.threshold)
-                                    .FirstOrDefault(r => currentPoints >= r.threshold);
-
-            if (bestRank == null) return;
-
-            // Haben wir diesen Rang schon?
-            Trait currentTrait = p.story.traits.GetTrait(bestRank.rewardTrait);
-            if (currentTrait != null && currentTrait.Degree == bestRank.rewardDegree)
-            {
-                return; 
-            }
-
-            // --- BEFÖRDERUNG ---
-            
-            // 1. Alte Ränge entfernen
-            foreach (var rank in activeCareer.ranks)
-            {
-                if (p.story.traits.HasTrait(rank.rewardTrait))
-                {
-                    Trait t = p.story.traits.GetTrait(rank.rewardTrait);
-                    p.story.traits.RemoveTrait(t);
-                }
-            }
-
-            // 2. Neuen Rang vergeben
-            Trait newTrait = new Trait(bestRank.rewardTrait, bestRank.rewardDegree);
-            p.story.traits.GainTrait(newTrait);
-
-            // 3. HIER WAR DER FEHLERHAFTE "APPAREL SWAP" BLOCK -> GELÖSCHT!
-            // Da wir nur noch Visuals nutzen, müssen wir keine Items mehr spawnen.
-
-            // 4. Feier!
-            Find.LetterStack.ReceiveLetter($"Promotion: {bestRank.label}", 
-                $"{p.LabelShort} has reached {currentPoints} {activeCareer.pointCategory} points and has been promoted to {bestRank.label}.", 
-                LetterDefOf.PositiveEvent, p);
-
-            // Sound (Optional)
-            // SoundDefOf.Quest_Succeeded.PlayOneShotOnCamera();
-        }
-
-
-        public override string CompInspectStringExtra()
-        {
-            if (activeCareer == null) return null;
-            float pts = pointTracker.ContainsKey(activeCareer.pointCategory) ? pointTracker[activeCareer.pointCategory] : 0;
-            
-            // Zeigt: "Career: Klingon Warrior (Combat: 5)"
-            return $"Career Progress ({activeCareer.pointCategory}): {pts:F0}";
+            base.PostExposeData();
+            Scribe_Values.Look(ref ticksInCurrentRank, "ticksInRank", 0);
+            Scribe_Collections.Look(ref pointTracker, "careerPoints", LookMode.Value, LookMode.Value);
+            if (pointTracker == null) pointTracker = new Dictionary<string, int>();
         }
     }
 }

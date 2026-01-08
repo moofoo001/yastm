@@ -87,7 +87,7 @@
     </statBases>
     <ingestible>
       <foodType>Meat</foodType>
-      <preferability>RawBad</preferability>
+      <preferability>DesperateOnly</preferability>
       <tasteThought>AteRawFood</tasteThought>
       <ingestEffect>EatMeat</ingestEffect>
       <ingestSound>RawMeat_Eat</ingestSound>

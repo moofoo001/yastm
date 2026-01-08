@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ScenPartDef>
+    <defName>ST_ScenPart_KlingonRiteMarker</defName>
+    <label>Klingon Rite Marker</label>
+    <description>Marker for the Klingon Rite scenario.</description>
+    <scenPartClass>YASTM.ScenPart_KlingonRiteMarker</scenPartClass>
+    <category>Misc</category>
+    <selectionWeight>0</selectionWeight>
+  </ScenPartDef>
+</Defs>

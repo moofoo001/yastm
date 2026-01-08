@@ -79,9 +79,9 @@
           <trait>Bloodlust</trait>
         </li>
 
-        <li Class="YASTM.ScenPart_KlingonRiteMarker" /> 
-
-        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs" />
+        <li Class="YASTM.ScenPart_KlingonRiteMarker">
+          <def>ST_ScenPart_KlingonRiteMarker</def>
+        </li>
 
         <li Class="ScenPart_StartingResearch">
           <def>StartingResearch</def>

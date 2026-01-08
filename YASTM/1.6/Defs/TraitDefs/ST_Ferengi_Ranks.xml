@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
   <TraitDef>
     <defName>ST_FerengiRank</defName>
-    <commonality>0.0</commonality> <degreeDatas>
+    <commonality>0.0</commonality>
+    
+    <modExtensions>
+      <li Class="YASTM.RankVisualExtension">
+        <rankTexPath>Things/Item/Accessory/pips_ferengi/</rankTexPath>
+        <ranks>
+          <li><degree>0</degree><texName>Earner</texName></li> <li><degree>1</degree><texName>Huckster</texName></li>
+          <li><degree>2</degree><texName>Merchant</texName></li> <li><degree>3</degree><texName>Liquidator</texName></li>
+          <li><degree>4</degree><texName>DaiMon</texName></li>
+          <li><degree>5</degree><texName>MagusAdvisor</texName></li> <li><degree>6</degree><texName>GrandNagus</texName></li>
+        </ranks>
+      </li>
+    </modExtensions>
+
+    <degreeDatas>
+      <li>
+        <label>Earner</label>
+        <description>An entry-level Ferengi just starting to polish lobes.</description>
+        <degree>0</degree>
+        <statOffsets>
+          <GeneralLaborSpeed>0.05</GeneralLaborSpeed>
+        </statOffsets>
+      </li>
+
       <li>
         <label>Huckster</label>
-        <description>Starting out in the Great Material Continuum.</description>
+        <description>A small-time trader looking for profit.</description>
         <degree>1</degree>
         <statOffsets>
           <TradePriceImprovement>0.05</TradePriceImprovement>
@@ -14,29 +36,49 @@
       </li>
 
       <li>
-        <label>DaiMon</label>
-        <description>A leader of commerce and trade missions.</description>
+        <label>Merchant</label>
+        <description>Established trader with a keen sense for business.</description>
         <degree>2</degree>
         <statOffsets>
           <TradePriceImprovement>0.10</TradePriceImprovement>
-          <SocialImpact>0.10</SocialImpact>
-        </statOffsets>
-      </li>
-      
-      <li>
-        <label>Liquidator</label>
-        <description>Enforcer of contracts.</description>
-        <degree>3</degree>
-        <statOffsets>
-          <TradePriceImprovement>0.15</TradePriceImprovement>
-          <NegotiationAbility>0.10</NegotiationAbility>
+          <SocialImpact>0.05</SocialImpact>
         </statOffsets>
       </li>
 
       <li>
-        <label>GrandNagus</label>
-        <description>The supreme leader of the Ferengi Alliance.</description>
+        <label>Liquidator</label>
+        <description>Enforcer of contracts and the FCA.</description>
+        <degree>3</degree>
+        <statOffsets>
+          <TradePriceImprovement>0.12</TradePriceImprovement>
+          <NegotiationAbility>0.10</NegotiationAbility>
+          <ShootingAccuracyPawn>2.0</ShootingAccuracyPawn> </statOffsets>
+      </li>
+
+      <li>
+        <label>DaiMon</label>
+        <description>A leader of commerce and trade missions.</description>
         <degree>4</degree>
+        <statOffsets>
+          <TradePriceImprovement>0.15</TradePriceImprovement>
+          <SocialImpact>0.15</SocialImpact>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>Magus Advisor</label>
+        <description>A trusted financial advisor to the high council.</description>
+        <degree>5</degree>
+        <statOffsets>
+          <TradePriceImprovement>0.20</TradePriceImprovement>
+          <NegotiationAbility>0.20</NegotiationAbility>
+        </statOffsets>
+      </li>
+
+      <li>
+        <label>Grand Nagus</label>
+        <description>The supreme leader of the Ferengi Alliance.</description>
+        <degree>6</degree>
         <statOffsets>
           <TradePriceImprovement>0.30</TradePriceImprovement>
           <SocialImpact>0.50</SocialImpact>
@@ -44,5 +86,4 @@
       </li>
     </degreeDatas>
   </TraitDef>
-
 </Defs>

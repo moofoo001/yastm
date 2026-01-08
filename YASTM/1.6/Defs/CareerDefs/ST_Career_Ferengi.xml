@@ -1,44 +1,73 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
   <YASTM.CareerDef>
-    <defName>ST_Career_Ferengi_Merchant</defName>
-    <label>Rules of Acquisition</label>
+    <defName>ST_Career_Ferengi_Commerce</defName>
+    <label>Ferengi Commerce</label>
+    <description>The acquisition of wealth. Greed is eternal.</description>
+    <trait>ST_FerengiRank</trait>
     
-    <requiredXenotypes>
-      <li>Ectos_Ferengi</li> </requiredXenotypes>
-    
-    <pointCategory>Trade</pointCategory> 
-    
-    <ranks>
+    <stages>
       <li>
-        <threshold>1000</threshold>
-        <rewardTrait>ST_FerengiRank</rewardTrait>
-        <rewardDegree>1</rewardDegree> 
-        <label>Huckster</label>
-      </li>
-      
-      <li>
-        <threshold>10000</threshold>
-        <rewardTrait>ST_FerengiRank</rewardTrait>
-        <rewardDegree>2</rewardDegree>
-        <label>DaiMon</label>
+        <targetDegree>1</targetDegree>
+        <requirements>
+          <minSocialSkill>3</minSocialSkill>
+          <careerPoints>
+            <li><category>SuccessfulTrade</category><count>3</count></li>
+            <li><category>ProfitVolume</category><count>2</count></li> </careerPoints>
+        </requirements>
       </li>
 
       <li>
-        <threshold>50000</threshold>
-        <rewardTrait>ST_FerengiRank</rewardTrait>
-        <rewardDegree>3</rewardDegree>
-        <label>Liquidator</label>
+        <targetDegree>2</targetDegree>
+        <requirements>
+          <minSocialSkill>6</minSocialSkill>
+          <careerPoints>
+            <li><category>SuccessfulTrade</category><count>10</count></li>
+            <li><category>ProfitVolume</category><count>10</count></li> </careerPoints>
+        </requirements>
       </li>
-      
+
       <li>
-        <threshold>200000</threshold>
-        <rewardTrait>ST_FerengiRank</rewardTrait>
-        <rewardDegree>4</rewardDegree>
-        <label>Grand Nagus</label>
+        <targetDegree>3</targetDegree>
+        <requirements>
+          <minSocialSkill>8</minSocialSkill>
+          <minShootingSkill>6</minShootingSkill> <careerPoints>
+            <li><category>CombatKill</category><count>3</count></li>
+            <li><category>ProfitVolume</category><count>20</count></li>
+          </careerPoints>
+        </requirements>
       </li>
-    </ranks>
+
+      <li>
+        <targetDegree>4</targetDegree>
+        <requirements>
+          <minSocialSkill>12</minSocialSkill>
+          <minIntellectualSkill>5</minIntellectualSkill> <careerPoints>
+            <li><category>SuccessfulTrade</category><count>30</count></li>
+            <li><category>ProfitVolume</category><count>50</count></li> </careerPoints>
+        </requirements>
+      </li>
+
+      <li>
+        <targetDegree>5</targetDegree>
+        <requirements>
+          <minSocialSkill>15</minSocialSkill>
+          <timeInRankYears>2.0</timeInRankYears>
+          <careerPoints>
+            <li><category>ProfitVolume</category><count>150</count></li> </careerPoints>
+        </requirements>
+      </li>
+
+      <li>
+        <targetDegree>6</targetDegree>
+        <requirements>
+          <minSocialSkill>18</minSocialSkill>
+          <minIntellectualSkill>10</minIntellectualSkill>
+          <careerPoints>
+            <li><category>ProfitVolume</category><count>500</count></li> <li><category>SuccessfulTrade</category><count>100</count></li>
+          </careerPoints>
+        </requirements>
+      </li>
+    </stages>
   </YASTM.CareerDef>
-
 </Defs>

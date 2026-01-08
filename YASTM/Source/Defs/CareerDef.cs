@@ -6,23 +6,34 @@ namespace YASTM
 {
     public class CareerDef : Def
     {
-        // BEDINGUNGEN: Wer bekommt diese Karriere?
-        public List<string> requiredXenotypes; // z.B. "Ectos_Klingon"
-        public List<string> requiredFactions;  // z.B. "ST_Federation"
-
-        // LOGIK: Welche Punktekategorie zählt hier?
-        // "Combat" (Kills), "Trade" (Silber), "Science" (Scans/Forschung), "Time" (Dienstzeit)
-        public string pointCategory = "Combat"; 
-
-        // RÄNGE: Die Leiter nach oben
-        public List<CareerRank> ranks;
+        public TraitDef trait;
+        public List<CareerStage> stages;
     }
 
-    public class CareerRank
+    public class CareerStage
     {
-        public float threshold;        // Benötigte Punkte (z.B. 10)
-        public TraitDef rewardTrait;   // Welches Trait gibt es?
-        public int rewardDegree = 0;   // Welches Degree (für Klingonen wichtig)?
-        public string label;           // Name für die Benachrichtigung
+        public int targetDegree;
+        public CareerRequirements requirements;
+    }
+
+    public class CareerRequirements
+    {
+        public float timeInRankYears = 0f;
+        
+        // Skill Anforderungen
+        public int minSocialSkill = 0;
+        public int minIntellectualSkill = 0;
+        public int minShootingSkill = 0;
+        public int minMeleeSkill = 0;
+
+        // NEU: Das generische Punkte-System
+        // XML: <careerPoints><li><category>ScienceScan</category><count>5</count></li></careerPoints>
+        public List<CareerPointRequirement> careerPoints;
+    }
+
+    public class CareerPointRequirement
+    {
+        public string category; // z.B. "ScienceScan", "CombatKill"
+        public int count;       // Benötigte Anzahl
     }
 }

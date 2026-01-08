@@ -97,6 +97,11 @@ namespace YASTM
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
             yield return finish;
+
+            // NEU: Karriere-Punkt vergeben
+            var compCareer = pawn.TryGetComp<CompCareer>();
+            compCareer?.AddCareerPoint("SecuritySweep", 1);
+
             Find.SignalManager.SendSignal(new Signal("STQ_SecuritySweepCompleted"));
         }
 
