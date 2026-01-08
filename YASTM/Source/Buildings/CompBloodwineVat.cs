@@ -34,7 +34,13 @@ namespace YASTM
                 }
             }
         }
-
+        public class CompProperties_BloodwineVat : CompProperties
+            {
+                public CompProperties_BloodwineVat()
+                {
+                    this.compClass = typeof(CompBloodwineVat);
+                }
+            }
         public void AddWorms(int count)
         {
             wormCount += count;

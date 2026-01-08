@@ -29,7 +29,8 @@
       <WoodLog>30</WoodLog>
     </costList>
     <comps>
-      <li Class="YASTM.CompBloodwineVat" /> </comps>
+      <li Class="YASTM.CompProperties_BloodwineVat" />
+    </comps>
     <designationCategory>Production</designationCategory>
     <researchPrerequisites>
       <li>Brewing</li>
