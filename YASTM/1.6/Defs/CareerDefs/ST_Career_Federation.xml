@@ -3,7 +3,7 @@
   <YASTM.CareerDef>
     <defName>ST_Career_Federation_Standard</defName>
     <label>Starfleet Career</label>
-    <description>To boldy go. Advancement relies on scientific discovery, diplomacy, and time in service.</description>
+    <description>The path of the explorer and diplomat. Advancement requires scientific curiosity, dedication to duty, and the ability to forge peace.</description>
     <trait>ST_FederationRank</trait>
     
     <stages>
@@ -11,9 +11,9 @@
         <targetDegree>1</targetDegree>
         <requirements>
           <minIntellectualSkill>4</minIntellectualSkill>
-          <minSocialSkill>3</minSocialSkill>
-          <timeInRankYears>0.5</timeInRankYears> <careerPoints>
-            <li><category>ScienceScan</category><count>5</count></li> </careerPoints>
+          <timeInRankYears>0.5</timeInRankYears>
+          <careerPoints>
+            <li><category>ScienceScan</category><count>10</count></li> </careerPoints>
         </requirements>
       </li>
 
@@ -23,8 +23,8 @@
           <minIntellectualSkill>6</minIntellectualSkill>
           <timeInRankYears>1.0</timeInRankYears>
           <careerPoints>
-            <li><category>ScienceScan</category><count>15</count></li>
-          </careerPoints>
+            <li><category>ScienceScan</category><count>25</count></li>
+            <li><category>SecuritySweep</category><count>5</count></li> </careerPoints>
         </requirements>
       </li>
 
@@ -35,8 +35,9 @@
           <minSocialSkill>5</minSocialSkill>
           <timeInRankYears>1.5</timeInRankYears>
           <careerPoints>
-            <li><category>ScienceScan</category><count>30</count></li>
-            <li><category>SecuritySweep</category><count>5</count></li> </careerPoints>
+            <li><category>ScienceScan</category><count>50</count></li>
+            <li><category>SecuritySweep</category><count>15</count></li>
+          </careerPoints>
         </requirements>
       </li>
 
@@ -45,21 +46,24 @@
         <requirements>
           <minIntellectualSkill>10</minIntellectualSkill>
           <minSocialSkill>8</minSocialSkill>
-          <timeInRankYears>2.0</timeInRankYears>
           <careerPoints>
-            <li><category>ScienceScan</category><count>50</count></li>
-            <li><category>SuccessfulTrade</category><count>2</count></li> </careerPoints>
+            <li><category>DiplomacyImprove</category><count>1</count></li>
+            <li><category>ScienceScan</category><count>75</count></li>
+            <li><category>SecuritySweep</category><count>15</count></li>
+          </careerPoints>
         </requirements>
       </li>
 
       <li>
         <targetDegree>5</targetDegree>
         <requirements>
-          <minSocialSkill>12</minSocialSkill> <minIntellectualSkill>12</minIntellectualSkill>
+          <minSocialSkill>12</minSocialSkill>
+          <minIntellectualSkill>12</minIntellectualSkill>
           <timeInRankYears>3.0</timeInRankYears>
           <careerPoints>
-            <li><category>ScienceScan</category><count>80</count></li>
-            <li><category>SecuritySweep</category><count>20</count></li>
+            <li><category>DiplomacyImprove</category><count>3</count></li>
+            <li><category>DiplomacyCeasefire</category><count>1</count></li>
+            <li><category>SecuritySweep</category><count>30</count></li>
           </careerPoints>
         </requirements>
       </li>
@@ -69,9 +73,11 @@
         <requirements>
           <minSocialSkill>15</minSocialSkill>
           <minIntellectualSkill>14</minIntellectualSkill>
-          <minShootingSkill>6</minShootingSkill> <timeInRankYears>4.0</timeInRankYears>
+          <timeInRankYears>5.0</timeInRankYears>
           <careerPoints>
-            <li><category>SuccessfulTrade</category><count>10</count></li> </careerPoints>
+            <li><category>DiplomacyCeasefire</category><count>3</count></li>
+            <li><category>DiplomacyImprove</category><count>10</count></li>
+          </careerPoints>
         </requirements>
       </li>
     </stages>

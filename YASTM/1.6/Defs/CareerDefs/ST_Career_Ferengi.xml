@@ -3,7 +3,7 @@
   <YASTM.CareerDef>
     <defName>ST_Career_Ferengi_Commerce</defName>
     <label>Ferengi Commerce</label>
-    <description>The acquisition of wealth. Greed is eternal.</description>
+    <description>The acquisition of wealth via the Great Material Continuum.</description>
     <trait>ST_FerengiRank</trait>
     
     <stages>
@@ -12,8 +12,9 @@
         <requirements>
           <minSocialSkill>3</minSocialSkill>
           <careerPoints>
-            <li><category>SuccessfulTrade</category><count>3</count></li>
-            <li><category>ProfitVolume</category><count>2</count></li> </careerPoints>
+            <li><category>SuccessfulTrade</category><count>5</count></li>
+            <li><category>ProfitVolume</category><count>2</count></li>
+          </careerPoints>
         </requirements>
       </li>
 
@@ -22,8 +23,9 @@
         <requirements>
           <minSocialSkill>6</minSocialSkill>
           <careerPoints>
-            <li><category>SuccessfulTrade</category><count>10</count></li>
-            <li><category>ProfitVolume</category><count>10</count></li> </careerPoints>
+            <li><category>SuccessfulTrade</category><count>15</count></li>
+            <li><category>ProfitVolume</category><count>10</count></li>
+          </careerPoints>
         </requirements>
       </li>
 
@@ -31,9 +33,10 @@
         <targetDegree>3</targetDegree>
         <requirements>
           <minSocialSkill>8</minSocialSkill>
-          <minShootingSkill>6</minShootingSkill> <careerPoints>
+          <minShootingSkill>5</minShootingSkill> 
+          <careerPoints>
             <li><category>CombatKill</category><count>3</count></li>
-            <li><category>ProfitVolume</category><count>20</count></li>
+            <li><category>ProfitVolume</category><count>25</count></li>
           </careerPoints>
         </requirements>
       </li>
@@ -42,9 +45,10 @@
         <targetDegree>4</targetDegree>
         <requirements>
           <minSocialSkill>12</minSocialSkill>
-          <minIntellectualSkill>5</minIntellectualSkill> <careerPoints>
-            <li><category>SuccessfulTrade</category><count>30</count></li>
-            <li><category>ProfitVolume</category><count>50</count></li> </careerPoints>
+          <careerPoints>
+            <li><category>DiplomacyCeasefire</category><count>1</count></li>
+            <li><category>ProfitVolume</category><count>60</count></li>
+          </careerPoints>
         </requirements>
       </li>
 
@@ -54,7 +58,9 @@
           <minSocialSkill>15</minSocialSkill>
           <timeInRankYears>2.0</timeInRankYears>
           <careerPoints>
-            <li><category>ProfitVolume</category><count>150</count></li> </careerPoints>
+            <li><category>DiplomacyImprove</category><count>5</count></li>
+            <li><category>ProfitVolume</category><count>150</count></li>
+          </careerPoints>
         </requirements>
       </li>
 
@@ -62,9 +68,11 @@
         <targetDegree>6</targetDegree>
         <requirements>
           <minSocialSkill>18</minSocialSkill>
-          <minIntellectualSkill>10</minIntellectualSkill>
           <careerPoints>
-            <li><category>ProfitVolume</category><count>500</count></li> <li><category>SuccessfulTrade</category><count>100</count></li>
+            <li><category>ProfitVolume</category><count>500</count></li>
+            <li><category>SuccessfulTrade</category><count>200</count></li>
+            <li><category>DiplomacyImprove</category><count>2</count></li>
+            <li><category>DiplomacyCeasefire</category><count>1</count></li>
           </careerPoints>
         </requirements>
       </li>

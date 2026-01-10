@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_Latinum</defName>
+    <label>gold-pressed latinum</label>
+    <description>A rare silver-colored liquid called latinum enclosed within gold to verify its quantity. It is the primary currency of the Ferengi Alliance and accepted across the galaxy where credits fail.\n\n"Rule of Acquisition #1: Once you have their money, you never give it back."</description>
+    <graphicData>
+        <texPath>Things/Item/Resource/ST_Latinum</texPath>
+        <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Silver_Drop</soundInteract>
+    <soundDrop>Silver_Drop</soundDrop>
+    <statBases>
+        <MarketValue>50</MarketValue>
+        <Mass>0.02</Mass>
+      <Flammability>0</Flammability>
+      <DeteriorationRate>0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+        <stackLimit>5000</stackLimit>
+    <tradeTags>
+         <li>ST_Latinum</li>
+    </tradeTags>
+  </ThingDef>
+
+</Defs>

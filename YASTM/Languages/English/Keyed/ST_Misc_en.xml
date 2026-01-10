@@ -286,11 +286,22 @@
   <ST.Sci.ScanStarting>Starting subspace scan…</ST.Sci.ScanStarting>
   <ST.Sci.ScanComplete>Subspace scan complete.</ST.Sci.ScanComplete>
 
+  <!-- Bloodwine Vat -->
   <ST_VatEmpty>Empty. Needs blood worms.</ST_VatEmpty>
   <ST_VatFermenting>Fermenting: {0} complete (Contains {1} worms)</ST_VatFermenting>
   <ST_VatReady>Bloodwine ready ({0} bottles)</ST_VatReady>
   <ST_VatTooCold>Temperature too low (below 10°C)</ST_VatTooCold>
   <ST_VatTooHot>Temperature too high (above 40°C)</ST_VatTooHot>
   <ST_NoWorms>No blood serpent worms available.</ST_NoWorms>
+
+  <!-- Ferengi Market -->
+  <ST_OpenFerengiMarket>Access Ferengi Exchange</ST_OpenFerengiMarket>
+  <ST_OpenFerengiMarketDesc>Connect to the subspace market. Buy and sell goods for Latinum. Beware of fluctuating prices.</ST_OpenFerengiMarketDesc>
+  <ST_FerengiRuleQuote>Rule of Acquisition #9: Opportunity plus instinct equals profit.</ST_FerengiRuleQuote>
+
+  <ST_Mote_Bzzzt>Bzzzt!</ST_Mote_Bzzzt>
+  <ST_Message_MindSiftSuccess>Mind Sifter effective. {0}'s resistance dropped by {1}.</ST_Message_MindSiftSuccess>
+  <ST_Message_MindSiftDamage>Warning: Neural overload detected in {0}. Brain damage sustained.</ST_Message_MindSiftDamage>
+  <ST_NoResistantPrisoners>No resistant prisoners available.</ST_NoResistantPrisoners>
 
 </LanguageData>

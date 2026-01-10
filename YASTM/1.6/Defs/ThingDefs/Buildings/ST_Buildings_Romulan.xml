@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_Building_MindSifter</defName>
+    <label>Tal Shiar mind sifter</label>
+    <description>A Romulan interrogation device capable of extracting information directly from the cortex. It rapidly breaks down a prisoner's resistance but carries a high risk of neurological damage.\n\n"The truth is just a setting on the dial."</description>
+    <graphicData>
+      <texPath>Things/Building/Romulan/ST_MindSifter</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,1)</drawSize>
+    </graphicData>
+    <size>(2,1)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.4</fillPercent>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Mass>50</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentSpacer>2</ComponentSpacer>
+      <Plasteel>30</Plasteel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>800</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+    </comps>
+    <designationCategory>Misc</designationCategory>
+    <researchPrerequisites>
+      <li>Romulan_TechDoctrine</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <JobDef>
+    <defName>ST_Job_MindSift</defName>
+    <driverClass>YASTM.JobDriver_MindSift</driverClass>
+    <reportString>interrogating TargetB using mind sifter.</reportString>
+  </JobDef>
+
+  <WorkGiverDef>
+    <defName>ST_WorkGiver_MindSift</defName>
+    <label>use mind sifter</label>
+    <giverClass>YASTM.WorkGiver_MindSift</giverClass>
+    <workType>Warden</workType>
+    <priorityInType>80</priorityInType> <verb>interrogate</verb>
+    <gerund>interrogating</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+</Defs>

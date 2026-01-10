@@ -2,8 +2,8 @@
 <Defs>
   <YASTM.CareerDef>
     <defName>ST_Career_Klingon_Warrior</defName>
-    <label>Path of the Warrior</label>
-    <description>Victory or Death. Advancement requires blood and honor.</description>
+    <label>Warrior's Path</label>
+    <description>Victory or Death. Advancement is earned through blood, labor, and honorable combat.</description>
     <trait>ST_KlingonRank</trait>
     
     <stages>
@@ -12,7 +12,9 @@
         <requirements>
           <minMeleeSkill>4</minMeleeSkill>
           <careerPoints>
-            <li><category>CombatKill</category><count>1</count></li> </careerPoints>
+            <li><category>WormsStomped</category><count>50</count></li> 
+            <li><category>CombatKill</category><count>1</count></li>
+          </careerPoints>
         </requirements>
       </li>
 
@@ -23,7 +25,7 @@
           <minShootingSkill>4</minShootingSkill>
           <careerPoints>
             <li><category>CombatKill</category><count>5</count></li>
-          </careerPoints>
+            <li><category>WormsStomped</category><count>100</count></li> </careerPoints>
         </requirements>
       </li>
 
@@ -31,10 +33,10 @@
         <targetDegree>3</targetDegree>
         <requirements>
           <minMeleeSkill>8</minMeleeSkill>
-          <minShootingSkill>6</minShootingSkill>
           <careerPoints>
-            <li><category>CombatKill</category><count>12</count></li>
-            <li><category>HonorKill</category><count>1</count></li> </careerPoints>
+            <li><category>CombatKill</category><count>10</count></li>
+            <li><category>HonorKill</category><count>1</count></li>
+          </careerPoints>
         </requirements>
       </li>
 
@@ -42,9 +44,10 @@
         <targetDegree>4</targetDegree>
         <requirements>
           <minMeleeSkill>10</minMeleeSkill>
-          <minSocialSkill>4</minSocialSkill> <careerPoints>
+          <minSocialSkill>4</minSocialSkill>
+          <careerPoints>
             <li><category>CombatKill</category><count>25</count></li>
-            <li><category>HonorKill</category><count>3</count></li>
+            <li><category>HonorKill</category><count>5</count></li>
           </careerPoints>
         </requirements>
       </li>
@@ -56,7 +59,7 @@
           <minSocialSkill>6</minSocialSkill>
           <careerPoints>
             <li><category>CombatKill</category><count>50</count></li>
-            <li><category>HonorKill</category><count>10</count></li>
+            <li><category>HonorKill</category><count>15</count></li>
           </careerPoints>
         </requirements>
       </li>
@@ -64,9 +67,11 @@
       <li>
         <targetDegree>6</targetDegree>
         <requirements>
-          <minMeleeSkill>16</minMeleeSkill> <minSocialSkill>10</minSocialSkill>
+          <minMeleeSkill>16</minMeleeSkill>
+          <minSocialSkill>10</minSocialSkill>
           <careerPoints>
-            <li><category>CombatKill</category><count>100</count></li> <li><category>HonorKill</category><count>25</count></li>
+            <li><category>CombatKill</category><count>100</count></li>
+            <li><category>HonorKill</category><count>30</count></li>
           </careerPoints>
         </requirements>
       </li>

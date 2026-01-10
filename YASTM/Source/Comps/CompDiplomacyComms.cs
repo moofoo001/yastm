@@ -9,17 +9,14 @@ namespace YASTM
 {
     public class CompProperties_DiplomacyComms : CompProperties
     {
-
         public int improveCost = 300;
         public int improveGoodwill = 10;
         public int ceasefireCost = 600;
         public float cooldownDaysImprove = 1f;
         public float cooldownDaysCeasefire = 2f;
 
-
         public int minSocialImprove = 6;
         public int minSocialCeasefire = 10;
-
 
         public List<string> requiredTraitsImprove;
         public List<string> requiredApparelsImprove;
@@ -57,13 +54,13 @@ namespace YASTM
                 icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/Diplomacy", false),
                 action       = OpenImproveMenu
             };
-            if (!powered)
-                gImprove.Disable("ST.Common.NeedsPower".Translate());
-            else if (MC != null && now < MC.NextImproveTick)
-                gImprove.Disable("ST.Common.Recharging".Translate((MC.NextImproveTick - now).ToStringTicksToPeriod()));
-            else if (map != null && !HasEligibleOfficer(map,
-                         Props.requiredTraitsImprove, Props.requiredApparelsImprove, Props.minSocialImprove, out _))
+            
+            // Checks ...
+            if (!powered) gImprove.Disable("ST.Common.NeedsPower".Translate());
+            else if (MC != null && now < MC.NextImproveTick) gImprove.Disable("ST.Common.Recharging".Translate((MC.NextImproveTick - now).ToStringTicksToPeriod()));
+            else if (map != null && !HasEligibleOfficer(map, Props.requiredTraitsImprove, Props.requiredApparelsImprove, Props.minSocialImprove, out _))
                 gImprove.Disable("ST.Diplo.Requirements.Improve".Translate(Props.minSocialImprove, Props.rankLabelImprove));
+            
             yield return gImprove;
 
             // Request ceasefire
@@ -74,13 +71,13 @@ namespace YASTM
                 icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/CeaseFire", false),
                 action       = OpenCeasefireMenu
             };
-            if (!powered)
-                gCease.Disable("ST.Common.NeedsPower".Translate());
-            else if (MC != null && now < MC.NextCeaseTick)
-                gCease.Disable("ST.Common.Recharging".Translate((MC.NextCeaseTick - now).ToStringTicksToPeriod()));
-            else if (map != null && !HasEligibleOfficer(map,
-                         Props.requiredTraitsCeasefire, Props.requiredApparelsCeasefire, Props.minSocialCeasefire, out _))
+
+            // Checks ...
+            if (!powered) gCease.Disable("ST.Common.NeedsPower".Translate());
+            else if (MC != null && now < MC.NextCeaseTick) gCease.Disable("ST.Common.Recharging".Translate((MC.NextCeaseTick - now).ToStringTicksToPeriod()));
+            else if (map != null && !HasEligibleOfficer(map, Props.requiredTraitsCeasefire, Props.requiredApparelsCeasefire, Props.minSocialCeasefire, out _))
                 gCease.Disable("ST.Diplo.Requirements.Ceasefire".Translate(Props.minSocialCeasefire, Props.rankLabelCeasefire));
+            
             yield return gCease;
         }
 
@@ -116,11 +113,19 @@ namespace YASTM
         void DoImprove(Faction f, int cost, int gain)
         {
             var map = parent.Map; if (map == null) return;
-            if (!HasEligibleOfficer(map, Props.requiredTraitsImprove, Props.requiredApparelsImprove, Props.minSocialImprove, out _))
-            { Messages.Message("ST.Diplo.Requirements.Improve".Translate(Props.minSocialImprove, Props.rankLabelImprove), MessageTypeDefOf.RejectInput); return; }
+            
+            // HIER IST DIE ÄNDERUNG: Wir holen uns den 'officer' aus der out-Variable
+            if (!HasEligibleOfficer(map, Props.requiredTraitsImprove, Props.requiredApparelsImprove, Props.minSocialImprove, out Pawn officer))
+            { 
+                Messages.Message("ST.Diplo.Requirements.Improve".Translate(Props.minSocialImprove, Props.rankLabelImprove), MessageTypeDefOf.RejectInput); 
+                return; 
+            }
 
             if (!TradeUtility.ColonyHasEnoughSilver(map, cost))
-            { Messages.Message("ST.Common.NotEnoughSilver".Translate(cost), parent, MessageTypeDefOf.RejectInput); return; }
+            { 
+                Messages.Message("ST.Common.NotEnoughSilver".Translate(cost), parent, MessageTypeDefOf.RejectInput); 
+                return; 
+            }
 
             TradeUtility.LaunchSilver(map, cost);
 
@@ -128,10 +133,17 @@ namespace YASTM
             int delta = Mathf.Min(gain, Mathf.Max(0, 100 - current));
             if (delta <= 0) { Messages.Message("ST.Diplo.Improve.Maxed".Translate(f.NameColored), MessageTypeDefOf.RejectInput); return; }
 
-
             Faction.OfPlayer.TryAffectGoodwillWith(f, delta, true, true, null, parent);
-
             Messages.Message("ST.Diplo.Improve.Success".Translate(f.NameColored, delta), parent, MessageTypeDefOf.PositiveEvent);
+
+            // KARRIERE PUNKTE VERGEBEN
+            var career = officer.TryGetComp<CompCareer>();
+            if (career != null)
+            {
+                career.AddCareerPoint("DiplomacyImprove", 1);
+                // Optional: Feedback, dass der Offizier das gut gemacht hat
+                MoteMaker.ThrowText(officer.DrawPos, officer.Map, "+Diplomacy", 3f);
+            }
 
             int now = Find.TickManager.TicksGame;
             int cd = (int)(Props.cooldownDaysImprove * 60000f);
@@ -170,15 +182,22 @@ namespace YASTM
         void DoCeasefire(Faction f, int cost)
         {
             var map = parent.Map; if (map == null) return;
-            if (!HasEligibleOfficer(map, Props.requiredTraitsCeasefire, Props.requiredApparelsCeasefire, Props.minSocialCeasefire, out _))
-            { Messages.Message("ST.Diplo.Requirements.Ceasefire".Translate(Props.minSocialCeasefire, Props.rankLabelCeasefire), MessageTypeDefOf.RejectInput); return; }
+            
+            // HIER IST DIE ÄNDERUNG: Wir holen uns den 'officer'
+            if (!HasEligibleOfficer(map, Props.requiredTraitsCeasefire, Props.requiredApparelsCeasefire, Props.minSocialCeasefire, out Pawn officer))
+            { 
+                Messages.Message("ST.Diplo.Requirements.Ceasefire".Translate(Props.minSocialCeasefire, Props.rankLabelCeasefire), MessageTypeDefOf.RejectInput); 
+                return; 
+            }
 
             if (!TradeUtility.ColonyHasEnoughSilver(map, cost))
-            { Messages.Message("ST.Common.NotEnoughSilver".Translate(cost), parent, MessageTypeDefOf.RejectInput); return; }
+            { 
+                Messages.Message("ST.Common.NotEnoughSilver".Translate(cost), parent, MessageTypeDefOf.RejectInput); 
+                return; 
+            }
 
             TradeUtility.LaunchSilver(map, cost);
 
-            // Goodwill
             int current = f.GoodwillWith(Faction.OfPlayer); 
             int delta = Mathf.Max(0, 0 - current);
             if (delta > 0)
@@ -189,10 +208,19 @@ namespace YASTM
 
             Messages.Message("ST.Diplo.Ceasefire.Success".Translate(f.NameColored), parent, MessageTypeDefOf.PositiveEvent);
 
+            // KARRIERE PUNKTE VERGEBEN
+            var career = officer.TryGetComp<CompCareer>();
+            if (career != null)
+            {
+                // Friedensverträge sind "große" diplomatische Erfolge
+                career.AddCareerPoint("DiplomacyCeasefire", 1);
+                MoteMaker.ThrowText(officer.DrawPos, officer.Map, "+Peacemaker", 3f);
+            }
+
             int now = Find.TickManager.TicksGame;
             int cd = (int)(Props.cooldownDaysCeasefire * 60000f);
             if (MC != null) MC.NextCeaseTick = now + cd;
-            Find.SignalManager.SendSignal(new Signal("STQ_DiplomacyImproveCompleted"));
+            Find.SignalManager.SendSignal(new Signal("STQ_DiplomacyImproveCompleted")); // Evtl neuen Signalnamen nutzen? "STQ_CeasefireCompleted"
         }
 
         // ---------- Helpers ----------
@@ -252,4 +280,3 @@ namespace YASTM
         }
     }
 }
-

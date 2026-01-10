@@ -8,7 +8,7 @@
     <graphicData>
       <texPath>Things/Item/Meal/ST_KlingonBloodwine</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
-      <drawSize>0.85</drawSize>
+      <drawSize>1</drawSize>
     </graphicData>
 
     <rotatable>false</rotatable>

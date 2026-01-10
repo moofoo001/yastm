@@ -4,9 +4,9 @@
   <ThingDef ParentName="ApparelBase">
     <defName>ST_PersonalShieldEmitter</defName>
     <label>personal shield emitter</label>
-    <description>A compact belt-mounted projector that creates a defensive energy field
-      around the wearer. Based on Starfleet starship shield technology, tuned
-      for personal combat and away missions.</description>
+    <description>A compact belt-mounted projector that creates a defensive energy field\n\n
+      around the wearer. Based on Starfleet starship shield technology,\n\n
+      tuned for personal combat and away missions.</description>
     <thingClass>Apparel</thingClass>
     <tickerType>Normal</tickerType>
     <techLevel>Spacer</techLevel>

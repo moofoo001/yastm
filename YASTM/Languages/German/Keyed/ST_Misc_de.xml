@@ -220,4 +220,9 @@
   <ST_VatTooHot>Temperatur zu hoch (über 40°C)</ST_VatTooHot>
   <ST_NoWorms>Keine Blutwürmer verfügbar.</ST_NoWorms>
 
+  <!-- Ferengi Market -->
+  <ST_OpenFerengiMarket>Ferengi-Börse betreten</ST_OpenFerengiMarket>
+  <ST_OpenFerengiMarketDesc>Verbindung zum Subraum-Markt herstellen. Kaufe und verkaufe Waren für Latinum. Vorsicht vor Preisschwankungen.</ST_OpenFerengiMarketDesc>
+  <ST_FerengiRuleQuote>Erwerbsregel Nr. 9: Gelegenheit plus Instinkt ergibt Profit.</ST_FerengiRuleQuote>
+
 </LanguageData>
