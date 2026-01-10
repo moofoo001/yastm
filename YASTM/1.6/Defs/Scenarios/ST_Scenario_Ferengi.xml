@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ScenarioDef>
+    <defName>ST_Scenario_Ferengi_Venture</defName>
+    <label>The Lost Venture</label>
+    <description>Your shuttle was en route to a lucrative trade deal when the engines failed (probably because you bought the cheap dilithium). You have crashed on an uncharted world.\n\nYou have your Latinum and your wits. Remember Rule of Acquisition #62: "The riskier the road, the greater the profit."\n\nRebuild your assets and open a new market on this primitive rock.</description>
+    <scenario>
+      <summary>A Ferengi trade delegation crashes. High wealth, low survival gear.</summary>
+      <playerFaction>
+        <def>ST_PlayerFaction_Ferengi</def> 
+        <factionDef>ST_PlayerFaction_Ferengi</factionDef>
+      </playerFaction>
+      <parts>
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+          <def>ConfigurePawns</def>
+          <pawnChoiceCount>3</pawnChoiceCount>
+          <pawnCount>3</pawnCount>
+        </li>
+
+        <li Class="ScenPart_PlayerPawnsArriveMethod">
+          <def>PlayerPawnsArriveMethod</def>
+          <method>Crashlanded</method>
+        </li>
+
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>ST_Latinum</thingDef> <count>1000</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Gold</thingDef>
+          <count>250</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Silver</thingDef>
+          <count>1500</count>
+        </li>
+
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MealNutrientPaste</thingDef> <count>30</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MedicineIndustrial</thingDef>
+          <count>15</count>
+        </li>
+
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>ST_Gun_PhaserPistol</thingDef> <count>3</count>
+        </li>
+
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>ScatterThingsNearPlayerStart</def>
+          <thingDef>Steel</thingDef>
+          <count>400</count>
+        </li>
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>ScatterThingsNearPlayerStart</def>
+          <thingDef>MealSurvivalPack</thingDef>
+          <count>10</count>
+        </li>
+
+        <li Class="ScenPart_GameStartDialog">
+          <def>GameStartDialog</def>
+          <text>The Grand Nagus will not be pleased about the shuttle loss... unless you turn this planet into a profit center.\n\nUse your Latinum to establish a Market Link as soon as possible!</text>
+          <closeSound>GameStartSting</closeSound>
+        </li>
+      </parts>
+    </scenario>
+  </ScenarioDef>
+</Defs>

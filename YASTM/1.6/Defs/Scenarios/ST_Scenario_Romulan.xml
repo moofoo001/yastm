@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ScenarioDef>
+    <defName>ST_Scenario_Romulan_TalShiar</defName>
+    <label>Tal Shiar Infiltration</label>
+    <description>Your Tal Shiar cell has been deployed deep behind enemy lines. Your Warbird remains cloaked in orbit, but due to atmospheric interference, you are on your own for now.\n\nEstablish a listening post, gather intelligence, and ensure the Empire's interests are protected. Loyalty is absolute.\n\nNote: You start with advanced materials but must establish a secure perimeter quickly.</description>
+    <scenario>
+      <summary>Three Tal Shiar operatives drop onto a rimworld with advanced tech.</summary>
+      <playerFaction>
+        <def>ST_PlayerFaction_Romulan</def> 
+        <factionDef>ST_PlayerFaction_Romulan</factionDef>
+      </playerFaction>
+      <parts>
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+          <def>ConfigurePawns</def>
+          <pawnChoiceCount>3</pawnChoiceCount>
+          <pawnCount>3</pawnCount>
+        </li>
+
+        <li Class="ScenPart_PlayerPawnsArriveMethod">
+          <def>PlayerPawnsArriveMethod</def>
+          <method>DropPods</method>
+        </li>
+
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Silver</thingDef>
+          <count>800</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MealSurvivalPack</thingDef>
+          <count>40</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MedicineIndustrial</thingDef>
+          <count>30</count>
+        </li>
+        
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>ComponentSpacer</thingDef> <count>5</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Plasteel</thingDef>
+          <count>150</count>
+        </li>
+
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>ST_Gun_DisruptorRifle</thingDef> 
+          <count>1</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>ST_Gun_DisruptorPistol</thingDef>
+          <count>2</count>
+        </li>
+
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>MicroelectronicsBasics</project> </li>
+        
+        <li Class="ScenPart_GameStartDialog">
+          <def>GameStartDialog</def>
+          <text>Operatives,\n\nSurface contact confirmed. The Empire expects results. Do not fail us.\n\nJolan Tru.</text>
+          <closeSound>GameStartSting</closeSound>
+        </li>
+      </parts>
+    </scenario>
+  </ScenarioDef>
+</Defs>
