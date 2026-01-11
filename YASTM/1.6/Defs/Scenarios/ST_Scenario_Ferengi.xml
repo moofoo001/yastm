@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <ScenarioDef>
+  <ScenarioDef ParentName="ScenarioBase">
     <defName>ST_Scenario_Ferengi_Venture</defName>
     <label>The Lost Venture</label>
     <description>Your shuttle was en route to a lucrative trade deal when the engines failed (probably because you bought the cheap dilithium). You have crashed on an uncharted world.\n\nYou have your Latinum and your wits. Remember Rule of Acquisition #62: "The riskier the road, the greater the profit."\n\nRebuild your assets and open a new market on this primitive rock.</description>
     <scenario>
       <summary>A Ferengi trade delegation crashes. High wealth, low survival gear.</summary>
       <playerFaction>
-        <def>ST_PlayerFaction_Ferengi</def> 
-        <factionDef>ST_PlayerFaction_Ferengi</factionDef>
+        <def>PlayerFaction</def> 
+        <factionDef>ST_Player_FerengiConsortium</factionDef>
       </playerFaction>
       <parts>
-        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
-          <def>ConfigurePawns</def>
+
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
+          <def>ConfigurePawnsKindDefs</def>
           <pawnChoiceCount>3</pawnChoiceCount>
-          <pawnCount>3</pawnCount>
+          <kindCounts>
+            <li><kindDef>FRG_Merchant</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+            <li><kindDef>FRG_Leader</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+            <li><kindDef>FRG_Guard</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+           </kindCounts>
         </li>
 
+        <!-- Player starting stuff spawn method-->
         <li Class="ScenPart_PlayerPawnsArriveMethod">
           <def>PlayerPawnsArriveMethod</def>
-          <method>Crashlanded</method>
+          <visible>false</visible>
+          <method>DropPods</method>
         </li>
 
         <li Class="ScenPart_StartingThing_Defined">
@@ -49,7 +56,7 @@
 
         <li Class="ScenPart_StartingThing_Defined">
           <def>StartingThing_Defined</def>
-          <thingDef>ST_Gun_PhaserPistol</thingDef> <count>3</count>
+          <thingDef>FE_Weapon_HandPhaser</thingDef> <count>3</count>
         </li>
 
         <li Class="ScenPart_ScatterThingsNearPlayerStart">

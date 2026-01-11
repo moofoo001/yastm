@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <ScenarioDef>
+  <ScenarioDef ParentName="ScenarioBase">
     <defName>ST_Scenario_Romulan_TalShiar</defName>
     <label>Tal Shiar Infiltration</label>
     <description>Your Tal Shiar cell has been deployed deep behind enemy lines. Your Warbird remains cloaked in orbit, but due to atmospheric interference, you are on your own for now.\n\nEstablish a listening post, gather intelligence, and ensure the Empire's interests are protected. Loyalty is absolute.\n\nNote: You start with advanced materials but must establish a secure perimeter quickly.</description>
     <scenario>
       <summary>Three Tal Shiar operatives drop onto a rimworld with advanced tech.</summary>
       <playerFaction>
-        <def>ST_PlayerFaction_Romulan</def> 
-        <factionDef>ST_PlayerFaction_Romulan</factionDef>
+        <def>PlayerFaction</def> 
+        <factionDef>ST_Player_RomulanOutpost</factionDef>
       </playerFaction>
       <parts>
-        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
-          <def>ConfigurePawns</def>
+
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
+          <def>ConfigurePawnsKindDefs</def>
           <pawnChoiceCount>3</pawnChoiceCount>
-          <pawnCount>3</pawnCount>
+          <kindCounts>
+            <li><kindDef>ROM_Leader</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+            <li><kindDef>ROM_Soldier</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+            <li><kindDef>ROM_Scout</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+           </kindCounts>
         </li>
 
         <li Class="ScenPart_PlayerPawnsArriveMethod">
           <def>PlayerPawnsArriveMethod</def>
           <method>DropPods</method>
+          <visible>false</visible>
         </li>
 
         <li Class="ScenPart_StartingThing_Defined">
@@ -50,12 +56,12 @@
 
         <li Class="ScenPart_StartingThing_Defined">
           <def>StartingThing_Defined</def>
-          <thingDef>ST_Gun_DisruptorRifle</thingDef> 
+          <thingDef>RO_Weapon_Disruptor_Rifle</thingDef> 
           <count>1</count>
         </li>
         <li Class="ScenPart_StartingThing_Defined">
           <def>StartingThing_Defined</def>
-          <thingDef>ST_Gun_DisruptorPistol</thingDef>
+          <thingDef>RO_Weapon_Disruptor_Pistol</thingDef>
           <count>2</count>
         </li>
 
