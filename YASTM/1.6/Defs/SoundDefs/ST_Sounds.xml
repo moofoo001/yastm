@@ -402,5 +402,50 @@
   </SoundDef>
 
 
+<SoundDef>
+    <defName>ST_Sound_Turret_Phaser</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>3</maxSimultaneous> <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/phaser_array</clipPath> </li>
+        </grains>
+        <volumeRange>60~75</volumeRange>
+        <pitchRange>0.95~1.05</pitchRange> </li>
+    </subSounds>
+  </SoundDef>
+
+
+  <SoundDef>
+    <defName>ST_Sound_Turret_Disruptor</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/disruptor_heavy</clipPath>
+          </li>
+        </grains>
+        <volumeRange>70~85</volumeRange> <pitchRange>0.9~1.1</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+
+  <SoundDef>
+    <defName>ST_Sound_Turret_Plasma</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/plasma_cannon</clipPath>
+          </li>
+        </grains>
+        <volumeRange>80~90</volumeRange> <pitchRange>0.9~1.0</pitchRange> </li>
+    </subSounds>
+  </SoundDef>
+
 
 </Defs>

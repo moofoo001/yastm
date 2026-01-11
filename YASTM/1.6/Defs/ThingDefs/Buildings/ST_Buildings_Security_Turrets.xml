@@ -40,6 +40,7 @@
     <researchPrerequisites>
         <li>ST_Federation_Phaser_Rifle</li>
         <li>ST_UFP_Engineering_III</li>
+    </researchPrerequisites>
     <placeWorkers>
       <li>PlaceWorker_TurretTop</li>
       <li>PlaceWorker_ShowTurretRadius</li>
@@ -66,7 +67,7 @@
         <range>34.9</range>
         <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
         <burstShotCount>3</burstShotCount>
-        <soundCast>Shot_ChargeRifle</soundCast>
+        <soundCast>ST_Sound_Turret_Phaser</soundCast>
         <muzzleFlashScale>26</muzzleFlashScale>
         <requireLineOfSight>false</requireLineOfSight>
         <targetParams>
@@ -160,7 +161,7 @@
         <warmupTime>1.8</warmupTime>
         <range>29.9</range>
         <burstShotCount>1</burstShotCount>
-        <soundCast>Shot_TurretSniper</soundCast>
+        <soundCast>ST_Sound_Turret_Disruptor</soundCast>
       </li>
     </verbs>
         <researchPrerequisites>
@@ -244,7 +245,7 @@
         <targetParams>
            <canTargetLocations>true</canTargetLocations>
         </targetParams>
-        <soundCast>Shot_IncendiaryLauncher</soundCast>
+        <soundCast>ST_Sound_Turret_Plasma</soundCast>
       </li>
     </verbs>
     <researchPrerequisites>
