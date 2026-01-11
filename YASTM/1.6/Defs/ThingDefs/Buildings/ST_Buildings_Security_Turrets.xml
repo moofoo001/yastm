@@ -40,10 +40,10 @@
     <researchPrerequisites>
         <li>ST_Federation_Phaser_Rifle</li>
         <li>ST_UFP_Engineering_III</li>
-    </researchPrerequisites>
-        <placeWorkers>
-            <li>PlaceWorker_TurretTop</li>
-        </placeWorkers>
+    <placeWorkers>
+      <li>PlaceWorker_TurretTop</li>
+      <li>PlaceWorker_ShowTurretRadius</li>
+    </placeWorkers>
   </ThingDef>
 
   <ThingDef ParentName="BaseWeaponTurret">
@@ -140,6 +140,10 @@
         <li>Klingon_AdvancedWarfare</li>
         <li>ST_Klingon_Disruptor_Heavy</li>
     </researchPrerequisites>
+    <placeWorkers>
+      <li>PlaceWorker_TurretTop</li>
+      <li>PlaceWorker_ShowTurretRadius</li>
+    </placeWorkers>
   </ThingDef>
 
   <ThingDef ParentName="BaseWeaponTurret">
@@ -217,6 +221,10 @@
         <li>ST_Romulan_Plasma_III</li>
         <li>Romulan_TechDoctrine</li>
     </researchPrerequisites>
+    <placeWorkers>
+      <li>PlaceWorker_TurretTop</li>
+      <li>PlaceWorker_ShowTurretRadius</li>
+    </placeWorkers>
   </ThingDef>
 
   <ThingDef ParentName="BaseWeaponTurret">
