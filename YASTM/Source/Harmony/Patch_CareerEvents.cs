@@ -15,16 +15,16 @@ namespace YASTM
             {
                 if (__instance.DevelopmentalStage != DevelopmentalStage.Adult) return;
                 
-                // Ignoriere eigene Fraktion (Friendly Fire gibt keine Punkte)
+                // Ignoriere friendly faction kills
                 if (killer.Faction == __instance.Faction) return; 
 
                 var comp = killer.TryGetComp<CompCareer>();
                 if (comp != null)
                 {
-                    // Standard Kill Punkt
+                    // Standard kill points
                     comp.AddCareerPoint("CombatKill", 1);
 
-                    // Spezial: Klingonen Ehren-Kill (Keine Kleintiere, keine wehrlosen)
+                    // Honor Kills (only for big pawns) / Klingon Honor Code
                     if (!__instance.Downed && __instance.BodySize >= 0.8f) 
                     {
                         comp.AddCareerPoint("HonorKill", 1);
@@ -34,7 +34,7 @@ namespace YASTM
         }
     }
 
-    // EVENT 2: Handel (Trade Points)
+    // Trade Event (Trade Points)
     [HarmonyPatch(typeof(TradeDeal), "TryExecute")]
     public static class Patch_Career_Trade
     {
@@ -59,10 +59,10 @@ namespace YASTM
                     var comp = negotiator.TryGetComp<CompCareer>();
                     if (comp != null)
                     {
-                        // 1 Punkt pro Deal
+                        // points per trade
                         comp.AddCareerPoint("SuccessfulTrade", 1);
                         
-                        // 1 Punkt pro 500 Silber Wert (für Ferengi Huckster Aufstieg)
+                        // points per profit volume (1 point per 500 silver traded)
                         int profitPoints = Mathf.FloorToInt(volume / 500f);
                         if (profitPoints > 0)
                         {
@@ -74,7 +74,7 @@ namespace YASTM
         }
     }
     
-    // EVENT 3: Skill Level Up (Trigger Check)
+    // Skill Learn Event (Skill Points)
     [HarmonyPatch(typeof(SkillRecord), "Learn")]
     public static class Patch_Career_SkillLearn
     {
@@ -82,9 +82,9 @@ namespace YASTM
         {
             if (xp > 0 && __instance.Pawn != null)
             {
-                // Wir checken nur selten, um Performance zu sparen (z.B. nur bei Level Up wäre besser, aber Hook ist schwerer)
-                // Hier einfach: Alle 1000 Learn-Calls mal checken oder comp.TryPromote() ist eh billig.
-                if (Find.TickManager.TicksGame % 600 == 0) // Alle 10 Sekunden
+                // only for adult pawns
+
+                if (Find.TickManager.TicksGame % 600 == 0)
                 {
                     __instance.Pawn.TryGetComp<CompCareer>()?.TryPromote();
                 }

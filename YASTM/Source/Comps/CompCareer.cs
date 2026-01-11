@@ -17,7 +17,7 @@ namespace YASTM
     {
         public int ticksInCurrentRank = 0;
         
-        // Das universelle Punktekonto
+        // point tracker
         private Dictionary<string, int> pointTracker = new Dictionary<string, int>();
 
         public CompProperties_Career Props => (CompProperties_Career)props;
@@ -32,7 +32,7 @@ namespace YASTM
             }
             pointTracker[category] += amount;
             
-            // Sofort prüfen
+            // Check for promotion
             TryPromote();
         }
 
@@ -42,7 +42,7 @@ namespace YASTM
             return 0;
         }
 
-        // --- LOGIK ---
+        // -- Internals ---
 
         public override void CompTickRare()
         {
@@ -59,7 +59,7 @@ namespace YASTM
             Pawn pawn = parent as Pawn;
             if (pawn == null || pawn.story == null) return;
 
-            // Finde die CareerDef
+            // Find career based on trait
             CareerDef career = DefDatabase<CareerDef>.AllDefsListForReading
                 .FirstOrDefault(c => pawn.story.traits.HasTrait(c.trait));
 
@@ -70,7 +70,7 @@ namespace YASTM
 
             foreach (var stage in career.stages)
             {
-                // Nur der nächste Rang (oder Einstieg)
+                // Check only next rank
                 if (stage.targetDegree == currentDegree + 1)
                 {
                     if (CheckRequirements(pawn, stage.requirements))
@@ -86,7 +86,7 @@ namespace YASTM
         {
             if (req == null) return true;
 
-            // 1. Zeit
+            // 1. Time in rank
             float yearsServed = ticksInCurrentRank / (60000f * 60f); // 60 Tage/Jahr
             if (yearsServed < req.timeInRankYears) return false;
 
@@ -96,7 +96,7 @@ namespace YASTM
             if (GetSkill(p, SkillDefOf.Shooting) < req.minShootingSkill) return false;
             if (GetSkill(p, SkillDefOf.Melee) < req.minMeleeSkill) return false;
 
-            // 3. Punkte
+            //  3. Career Points
             if (req.careerPoints != null)
             {
                 foreach (var pointReq in req.careerPoints)
@@ -112,8 +112,8 @@ namespace YASTM
 
         private void PromoteTo(Pawn p, TraitDef traitDef, int newDegree)
         {
-            ticksInCurrentRank = 0; // Reset Zeit
-            // pointTracker.Clear(); // Optional: Punkte behalten oder resetten? Hier: behalten.
+            ticksInCurrentRank = 0; // Reset time in rank
+            // pointTracker.Clear(); // Optional: Clear points on promotion
             
             Trait existing = p.story.traits.GetTrait(traitDef);
             if (existing != null) p.story.traits.RemoveTrait(existing);

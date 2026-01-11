@@ -21,7 +21,7 @@ namespace StarTrekFactions.Comps
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            // Haupt-Command
+            // setup gizmo
             var cmd = new Command_Action
             {
                 defaultLabel = Props.useLabel ?? "Transmit scan data",

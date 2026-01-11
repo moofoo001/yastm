@@ -8,7 +8,7 @@ namespace YASTM
     public class GameComponent_RankPipSync : GameComponent
     {
         private int tickCounter = 0;
-        private const int CheckInterval = 2500; // Alle ~40 Sekunden (Performance sparen)
+        private const int CheckInterval = 2500; 
 
         public GameComponent_RankPipSync(Game game) { }
 
@@ -24,7 +24,7 @@ namespace YASTM
 
         public void SyncAllRankPips()
         {
-            // Wir iterieren über die gesamte Crew (globale Liste aus ST_CrewUtility)
+            // check all crew members
             foreach (Pawn pawn in ST_CrewUtility.GetAllActiveCrewMembers())
             {
                 if (pawn.Destroyed || pawn.Dead || pawn.apparel == null) continue;
@@ -35,7 +35,7 @@ namespace YASTM
 
         private void SyncPawnPip(Pawn pawn)
         {
-            // 1. Suche nach Rang-Traits mit unserer VisualExtension
+            // get rank trait and corresponding data
             Trait rankTrait = null;
             RankVisualExtension extension = null;
             RankData currentRankData = null;
@@ -49,21 +49,20 @@ namespace YASTM
                 {
                     rankTrait = trait;
                     extension = ext;
-                    // Finde die Daten für den aktuellen Degree (Stufe) des Traits
+                    // set current rank data
                     currentRankData = ext.ranks?.FirstOrDefault(r => r.degree == trait.Degree);
-                    break; // Ein Pawn hat normalerweise nur einen Rang-Trait
+                    break; // found rank trait
                 }
             }
 
-            // Wenn kein Rang da ist, aber Pips getragen werden -> Ausziehen!
+            // no rank found, remove pips
             if (currentRankData == null)
             {
                 RemoveAllPips(pawn);
                 return;
             }
 
-            // 2. Bestimme, welches Item getragen werden soll
-            // Wir bauen den DefName: "ST_Apparel_Pip_" + "Ensign"
+            // which pip to wear?
             string targetDefName = !string.IsNullOrEmpty(currentRankData.specificDefName) 
                 ? currentRankData.specificDefName 
                 : "ST_Apparel_Pip_" + currentRankData.texName;
@@ -72,19 +71,18 @@ namespace YASTM
 
             if (targetPipDef == null)
             {
-                // Fallback: Logge Fehler nur einmalig, um Spam zu vermeiden (hier vereinfacht)
+                // Fallback: log warning and skip
                 // Log.Warning($"[YASTM] Could not find Pip ThingDef named: {targetDefName}");
                 return;
             }
 
-            // 3. Prüfen: Trägt er es schon?
+            // check worn pips
             bool correctPipWorn = false;
             List<Apparel> pipsToRemove = new List<Apparel>();
 
             foreach (var worn in pawn.apparel.WornApparel)
             {
-                // Prüfen ob es ein Pip ist (via Tag oder Naming)
-                // Am besten haben alle Pips in XML den Tag <li>ST_RankPip</li>
+                // is it a rank pip?
                 if (worn.def.apparel?.tags != null && worn.def.apparel.tags.Contains("ST_RankPip"))
                 {
                     if (worn.def == targetPipDef)
@@ -93,20 +91,20 @@ namespace YASTM
                     }
                     else
                     {
-                        // Falscher Pip (z.B. noch Ensign Pip obwohl jetzt Lieutenant)
+                        // wrong pip, mark for removal
                         pipsToRemove.Add(worn);
                     }
                 }
             }
 
-            // 4. Aufräumen (Falsche Pips weg)
+            // remove wrong pips
             foreach (var oldPip in pipsToRemove)
             {
                 pawn.apparel.Remove(oldPip);
-                oldPip.Destroy(); // Wir zerstören sie, damit das Lager nicht mit alten Pips vollmüllt
+                oldPip.Destroy(); // destroy to avoid clutter
             }
 
-            // 5. Anziehen (Wenn der richtige fehlt)
+            // wear correct pip if not already worn
             if (!correctPipWorn)
             {
                 Apparel newPip = (Apparel)ThingMaker.MakeThing(targetPipDef);

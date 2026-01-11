@@ -23,7 +23,7 @@ namespace YASTM.Relics
 
         public override void GameComponentTick()
         {
-            // Alle 2500 Ticks (~41 Sekunden) prüfen, reicht völlig
+            // Check every 2500 ticks (approx. every 41.6 seconds)
             if (Find.TickManager.TicksGame % 2500 != 0)
                 return;
 
@@ -33,13 +33,13 @@ namespace YASTM.Relics
             private bool CheckSwordOwned()
             {
                 // SwordDef via DefOf
-                var swordDef = STFDefOf.ST_SwordOfKahless;   // <-- statt ST_DefOf
+                var swordDef = STFDefOf.ST_SwordOfKahless;
                 if (swordDef == null)
                     return false;
 
                 foreach (var map in Find.Maps)
                 {
-                    // 1) Ausgerüstet von eigenen Pawns?
+                    // is the sword present in this map?
                     var pawns = map.mapPawns.FreeColonistsSpawned;
                     foreach (var pawn in pawns)
                     {
@@ -48,7 +48,7 @@ namespace YASTM.Relics
                             return true;
                     }
 
-                    // 2) In Kolonie-besessenem Storage
+                    // check for stored swords
                     var things = map.listerThings.ThingsOfDef(swordDef);
                     foreach (var t in things)
                     {

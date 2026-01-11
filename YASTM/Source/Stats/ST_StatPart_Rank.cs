@@ -5,13 +5,13 @@ namespace YASTM
 {
     public class ST_StatPart_Rank : StatPart
     {
-        // Diese Werte werden im XML definiert
-        public float rankFactor = 1.1f; // +10% pro Rang-Level
+        // factor Rank level (eg 1.1 = +10% pro Level)
+        public float rankFactor = 1.1f; // +10% per rank level
         
-        // Prüft, ob der Pawn einen Rang hat (wir nehmen an, du hast eine Component dafür)
+        // get rank of pawn
         protected ST_RankDef GetRank(Pawn pawn)
         {
-            // Hier greifen wir auf deine existierende Crew-Logik zu (fiktiv: CompStarfleetCareer)
+            // assuming we have a CompStarfleetCareer
             var careerComp = pawn.TryGetComp<CompStarfleetCareer>();
             return careerComp?.CurrentRank;
         }
@@ -23,9 +23,7 @@ namespace YASTM
             var rank = GetRank(pawn);
             if (rank != null)
             {
-                // Beispiel: Basis-Wert * (1 + (RangLevel * 0.1))
-                // Level 1 (Ensign) = 1.1x
-                // Level 5 (Captain) = 1.5x
+                // apply multiplier
                 float multiplier = 1f + (rank.level * (rankFactor - 1f));
                 val *= multiplier;
             }

@@ -20,20 +20,20 @@ namespace YASTM
     {
         public float timeInRankYears = 0f;
         
-        // Skill Anforderungen
+        // Skill requirements
         public int minSocialSkill = 0;
         public int minIntellectualSkill = 0;
         public int minShootingSkill = 0;
         public int minMeleeSkill = 0;
 
-        // NEU: Das generische Punkte-System
+
         // XML: <careerPoints><li><category>ScienceScan</category><count>5</count></li></careerPoints>
         public List<CareerPointRequirement> careerPoints;
     }
 
     public class CareerPointRequirement
     {
-        public string category; // z.B. "ScienceScan", "CombatKill"
-        public int count;       // Benötigte Anzahl
+        public string category; // eg "ScienceScan", "CombatKill"
+        public int count;       // level required
     }
 }

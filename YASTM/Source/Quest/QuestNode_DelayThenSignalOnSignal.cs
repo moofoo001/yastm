@@ -2,7 +2,6 @@ using RimWorld;
 using RimWorld.QuestGen;
 using Verse;
 
-// FIX: Namespace angepasst
 namespace YASTM.Source.Quest
 {
     public class QuestNode_DelayThenSignalOnSignal : QuestNode
@@ -74,7 +73,7 @@ namespace YASTM.Source.Quest
             {
                 active = true;
                 targetTick = Find.TickManager.TicksGame + delayTicks;
-                // HINWEIS: Prüfe, ob dieser Aufruf noch stimmt (Namespace von QuestWatchers)
+                // Register for ticking
                 YASTM.Source.Systems.GameComponent_QuestWatchers.Instance?.Register(this);
                 if (debug)
                     Log.Message($"[YASTM][Delay] Registered on '{signal.tag}', delayTicks={delayTicks}, targetTick={targetTick}, now={Find.TickManager.TicksGame}");

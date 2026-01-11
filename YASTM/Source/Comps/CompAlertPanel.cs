@@ -13,7 +13,7 @@ namespace YASTM
         public int yellowCooldownTicks = 45000;
         public int blinkSeconds = 3;
         
-        // Neu für die Grafik-Steuerung
+       
         public int pulseInterval = 60; // Schneller Takt (1 Sekunde) für Alarm
         public float pulseRadius = 3.0f;
 
@@ -23,7 +23,7 @@ namespace YASTM
         }
     }
 
-    // Wir brauchen hier kein StaticConstructorOnStartup mehr, da Flecks das regeln
+  
     public class CompAlertPanel : ThingComp
     {
         public CompProperties_AlertPanel Props => (CompProperties_AlertPanel)props;
@@ -60,7 +60,7 @@ namespace YASTM
             FleckMaker.Static(parent.TrueCenter(), parent.Map, pulseFleck, Props.pulseRadius);
         }
 
-        // --- GIZMOS (Buttons bleiben gleich) ---
+        // --- GIZMOS ---
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             if (parent.Faction != Faction.OfPlayer) yield break;

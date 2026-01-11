@@ -1,23 +1,21 @@
 using RimWorld;
 using Verse;
 using Verse.AI;
-using YASTM.Source.Comps; // WICHTIG: Namespace für den Comp
+using YASTM.Source.Comps;
 
 namespace YASTM.Source.WorkGivers
 {
     public class WorkGiver_ManBridgeStation : WorkGiver_Scanner
     {
-        // Wir scannen alles Künstliche (das ist okay, solange wir gleich filtern)
+        // set the thing request to artificial buildings
         public override ThingRequest PotentialWorkThingRequest => ThingRequest.ForGroup(ThingRequestGroup.BuildingArtificial);
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            // 1. Basis-Checks
+            // checks: if thing is valid
             if (!t.Spawned || t.IsForbidden(pawn)) return false;
 
-            // --- DER TÜR-STOPPER (FIX) ---
-            // Wir prüfen, ob das Gebäude überhaupt unsere Komponente hat.
-            // Wenn nicht (z.B. eine Tür oder Lampe), brechen wir sofort ab.
+            // checks: specific to Bridge Station
             var bridgeComp = t.TryGetComp<CompBridgeStation>();
             if (bridgeComp == null) 
             {
@@ -25,7 +23,7 @@ namespace YASTM.Source.WorkGivers
             }
             // -----------------------------
 
-            // 2. Strom
+            // power check
             CompPowerTrader power = t.TryGetComp<CompPowerTrader>();
             if (power != null && !power.PowerOn)
             {
@@ -33,26 +31,26 @@ namespace YASTM.Source.WorkGivers
                 return false;
             }
 
-            // 3. Reservierung
+            // checks: reservation
             if (!pawn.CanReserve(t, 1, -1, null, forced)) 
             {
                 return false;
             }
 
-            // 4. Pfad-Check (OnCell)
+            // reachability
             if (!pawn.CanReach(t, PathEndMode.OnCell, Danger.Deadly))
             {
                 if (forced) JobFailReason.Is("Cannot reach");
                 return false;
             }
 
-            // 5. Anti-Loop
+            // already
             if (pawn.CurJob != null && pawn.CurJob.def.defName == "ST_Job_ManBridgeStation" && pawn.CurJob.targetA.Thing == t)
             {
                 return false;
             }
 
-            // 6. Bedürfnisse (Pause machen)
+            // optional needs check
             if (!forced) 
             {
                 if (pawn.needs.food != null && pawn.needs.food.CurLevelPercentage < 0.30f) return false;

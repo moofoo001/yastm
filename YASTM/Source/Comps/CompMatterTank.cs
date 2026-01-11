@@ -29,7 +29,6 @@ namespace YASTM
         {
             base.CompTick();
             
-            // Scannt jede Sekunde (60 Ticks)
             if (parent.IsHashIntervalTick(60))
             {
                 if (storedMatter >= MaxCapacity) return;
@@ -39,25 +38,22 @@ namespace YASTM
 
         private void AbsorbEverythingAround()
         {
-            // === UPGRADE: RADIUS 2.9 (ca. 5x5 bis 6x6 Bereich) ===
-            // Wir nutzen GenRadial, das ist effizienter für Kreise
+            // radius 2.9f
             IEnumerable<IntVec3> cells = GenRadial.RadialCellsAround(parent.Position, 2.9f, true);
 
             foreach (var cell in cells)
             {
                 if (!cell.InBounds(parent.Map)) continue;
 
-                // Wir brauchen eine Kopie der Liste, da sich der Inhalt ändern kann
+                
                 var things = cell.GetThingList(parent.Map).ListFullCopy();
                 
                 foreach (Thing t in things)
                 {
-                    // 1. FALL: Item liegt auf dem Boden
                     if (t.def.defName == "ST_ReplicatorFeedstock")
                     {
                         ConsumeItem(t);
                     }
-                    // 2. FALL: Ein Pawn steht da (wir prüfen Hände und Inventar)
                     else if (t is Pawn p)
                     {
                         CheckPawnInventory(p);
@@ -68,13 +64,13 @@ namespace YASTM
 
         private void CheckPawnInventory(Pawn p)
         {
-            // A) Was hält er in den Händen? (Gerade produziert oder trägt es)
+            // carried thing
             if (p.carryTracker != null && p.carryTracker.CarriedThing != null)
             {
                 Thing carried = p.carryTracker.CarriedThing;
                 if (carried.def.defName == "ST_ReplicatorFeedstock")
                 {
-                    // Wir müssen es "vorsichtig" nehmen
+
                     int count = carried.stackCount;
                     float space = MaxCapacity - storedMatter;
                     int toTake = Mathf.Min(count, (int)space);
@@ -84,23 +80,22 @@ namespace YASTM
                         AddMatter(toTake);
                         ShowEffect(p.DrawPos, toTake);
                         
-                        // Item aus der Hand entfernen
+                        // remove carried items
                         if (toTake >= count) p.carryTracker.DestroyCarriedThing();
                         else carried.stackCount -= toTake;
                     }
                 }
             }
 
-            // B) Hat er es im Rucksack? (Inventar)
+            // inventory items
             if (p.inventory != null && p.inventory.innerContainer != null)
             {
-                // Suche im Container nach dem Feedstock
                 for (int i = p.inventory.innerContainer.Count - 1; i >= 0; i--)
                 {
                     Thing item = p.inventory.innerContainer[i];
                     if (item.def.defName == "ST_ReplicatorFeedstock")
                     {
-                        ConsumeItem(item); // Nutzt die gleiche Logik wie Boden-Items
+                        ConsumeItem(item); 
                     }
                 }
             }
@@ -125,12 +120,10 @@ namespace YASTM
 
         private void ShowEffect(Vector3 pos, int amount)
         {
-             // Nur anzeigen, wenn wir wirklich hinschauen, spart Performance
+             // Visual effect
             if (parent.Spawned && parent.Map == Find.CurrentMap)
             {
-                // Kleiner Blitz
                 FleckMaker.ThrowLightningGlow(pos, parent.Map, 0.4f);
-                // Text "+1"
                 MoteMaker.ThrowText(pos, parent.Map, $"+{amount}", Color.cyan);
             }
         }

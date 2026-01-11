@@ -7,7 +7,7 @@ using Verse;
 
 namespace YASTM
 {
-    // TEIL 1: Der Marker (Das "Fingerabdruck"-Teil für das Szenario)
+    // Part 1: scenario part marker (only for scenario defs)
     public class ScenPart_KlingonRiteMarker : ScenPart
     {
         public override void Randomize() { }
@@ -17,10 +17,10 @@ namespace YASTM
         }
     }
 
-    // TEIL 2: Die Logik (Der Dungeon Master)
+    // Part 2: GameComponent to handle the rite logic
     public class GameComponent_KlingonRite : GameComponent
     {
-        // Konfiguration
+        // Constants
         private const int RiteDurationDays = 100;
         private const int RaidIntervalDays = 12; 
         
@@ -32,8 +32,7 @@ namespace YASTM
 
         public override void FinalizeInit()
         {
-            // Wir prüfen nicht .def, sondern suchen unseren Marker in den Parts.
-            // Das verhindert den CS1061 Fehler und ist robuster.
+            // Check if the scenario includes the Klingon Rite marker
             if (Find.Scenario != null && Find.Scenario.AllParts.Any(p => p is ScenPart_KlingonRiteMarker))
             {
                 riteActive = true;
@@ -47,13 +46,13 @@ namespace YASTM
             ticksPassed++;
             if (ticksPassed % 250 != 0) return; // Performance Check
 
-            // 1. SCHMERZ (Raids)
+            // raid every RaidIntervalDays
             if (ticksPassed % (RaidIntervalDays * 60000) == 0) 
             {
                 TriggerRiteRaid();
             }
 
-            // 2. AUFSTIEG (Quest Start)
+            // check for rite completion
             if (ticksPassed >= RiteDurationDays * 60000)
             {
                 StartAscensionQuest();
@@ -81,11 +80,11 @@ namespace YASTM
             riteActive = false;
             riteCompleted = true;
 
-            // 1. Belohnungs-Item generieren (Legendäres Bat'leth)
+            // reward generation
             Thing weapon = ThingMaker.MakeThing(ThingDef.Named("KL_Weapon_Batleth"), GenStuff.DefaultStuffFor(ThingDef.Named("KL_Weapon_Batleth")));
             weapon.TryGetComp<CompQuality>()?.SetQuality(QualityCategory.Legendary, ArtGenerationContext.Outsider);
 
-            // 2. Quest generieren (Item Stash)
+            // create quest
             Slate slate = new Slate();
             slate.Set("points", StorytellerUtility.DefaultThreatPointsNow(Find.AnyPlayerHomeMap) * 2f); 
             slate.Set("itemStashSingleThing", weapon); 
@@ -95,10 +94,10 @@ namespace YASTM
                 slate
             );
 
-            // 3. Beförderung der Überlebenden
+            // reward Klingon rank to all Klingon crew members
             foreach (Pawn p in ST_CrewUtility.GetAllActiveCrewMembers())
             {
-                // Nur Klingonen ohne Rang
+                // only Klingons without existing rank
                 Trait existing = p.story?.traits?.GetTrait(TraitDef.Named("ST_KlingonRank"));
                 if (existing == null && (p.def.defName.Contains("Klingon") || p.kindDef.defName.Contains("Klingon"))) 
                 {
@@ -106,14 +105,14 @@ namespace YASTM
                 }
             }
 
-            // FIX: Argumente für ReceiveLetter korrigiert!
+            // send letter
             Find.LetterStack.ReceiveLetter(
                 "ST_RiteQuestLabel".Translate(),    // Label
                 "ST_RiteQuestDesc".Translate(),     // Text
                 LetterDefOf.PositiveEvent,          // LetterDef
                 null,                               // LookTargets
-                null,                               // Faction (hier war das Problem: wir übergeben null)
-                quest                               // Quest (jetzt an der richtigen Stelle)
+                null,                               // Faction
+                quest                               // Quest
             );
         }
 

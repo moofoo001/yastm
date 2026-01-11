@@ -48,7 +48,6 @@ namespace YASTM.Diagnostics
             }
         }
 
-        // Overload für Transpilers (ebenfalls ReadOnlyCollection<Patch>)
         private static void Dump(string kind, IEnumerable<Patch> patches)
         {
             if (patches == null) return;

@@ -4,40 +4,40 @@ using Verse;
 
 namespace YASTM
 {
-    // Die Extension bleibt gleich
+    // mod extension to define which trait to give
     public class DefModExtension_GiveTrait : DefModExtension
     {
         public TraitDef traitDef;
         public int degree = 0;
     }
 
-    // Wir erben von RecipeWorker (Basisklasse für beides)
+    // universal recipe worker to give a trait to the billDoer or patient
     public class Recipe_GiveTraitUniversal : RecipeWorker
     {
-        // 1. DIESE METHODE FEHLTE: Wird aufgerufen, wenn ein "Bill" an einer Werkbank fertig ist (Holodeck)
+        // recipe application for bills
         public override void Notify_IterationCompleted(Pawn billDoer, List<Thing> ingredients)
         {
             base.Notify_IterationCompleted(billDoer, ingredients);
-            // Derjenige, der das Rezept ausgeführt hat, bekommt den Trait
+            // training complete for billDoer
             TryGiveTrait(billDoer);
         }
 
-        // 2. Diese Methode ist für "Operationen" (Falls du es mal als Medical Bill nutzt)
+        // recipe application for operations
         public override void ApplyOnPawn(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)
         {
-            // Bei Operationen bekommt der PATIENT (pawn) den Trait, nicht der Arzt (billDoer)
+            // training complete for patient
             TryGiveTrait(pawn);
         }
 
-        // Die gemeinsame Logik
+        // logic to give the trait
         private void TryGiveTrait(Pawn p)
         {
             if (p == null || p.story == null || p.story.traits == null) return;
 
-            // Extension laden
+            // load recipe extension
             var extension = recipe.GetModExtension<DefModExtension_GiveTrait>();
             
-            // Sicherheitscheck: Hat das Rezept die Extension?
+            // validation
             if (extension == null)
             {
                 Log.Error($"[YASTM] Recipe {recipe.defName} uses Recipe_GiveTraitUniversal but has no DefModExtension_GiveTrait!");
@@ -45,26 +45,26 @@ namespace YASTM
             }
             if (extension.traitDef == null) return;
 
-            // Hat er den Trait schon?
+            // check if pawn already has the trait
             if (p.story.traits.HasTrait(extension.traitDef))
             {
                 Trait existing = p.story.traits.GetTrait(extension.traitDef);
                 
-                // Wenn gleicher oder höherer Grad -> Nachricht und Abbruch
+                // already at same or higher degree
                 if (existing.Degree >= extension.degree)
                 {
                     Messages.Message($"{p.LabelShort} has already completed this training.", p, MessageTypeDefOf.NeutralEvent);
                     return;
                 }
                 
-                // Wenn niedrigerer Grad (Upgrade) -> Alten entfernen
+                // remove existing lower-degree trait
                 p.story.traits.RemoveTrait(existing);
             }
 
-            // Neuen Trait vergeben
+            // give the trait
             p.story.traits.GainTrait(new Trait(extension.traitDef, extension.degree));
             
-            // Feedback
+            // notify
             Messages.Message($"Training Complete: {p.LabelShort} has gained the trait {extension.traitDef.LabelCap}.", p, MessageTypeDefOf.PositiveEvent);
         }
     }

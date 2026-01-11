@@ -7,7 +7,6 @@ namespace YASTM.Source.Quest
 {
     public class QuestPart_RunIncidentOnSignal : QuestPart
     {
-        // Diese Felder haben gefehlt:
         public string inSignalRaw;
         public string inSignalScoped;
         public string outSignalRaw;
@@ -25,7 +24,6 @@ namespace YASTM.Source.Quest
             if (signal.tag != inSignalRaw && signal.tag != inSignalScoped) return;
             if (incident == null) return;
 
-            // FIX: Verse.Map explizit nutzen
             Verse.Map map = Find.AnyPlayerHomeMap ?? Find.Maps.FirstOrDefault();
             if (map == null) return;
 

@@ -10,8 +10,7 @@ namespace YASTM
     {
         public static IEnumerable<Pawn> GetAllActiveCrewMembers()
         {
-            // 1. Kolonisten auf allen Karten (Maps)
-            // Dies ist die Standard-Liste und sehr schnell.
+            // is a crew member?
             if (PawnsFinder.AllMaps_FreeColonists != null)
             {
                 foreach (var pawn in PawnsFinder.AllMaps_FreeColonists)
@@ -20,8 +19,7 @@ namespace YASTM
                 }
             }
 
-            // 2. Kolonisten in Karawanen (Caravans)
-            // Karawanen sind eine spezifische, stabile Klasse.
+            // caravan crew members
             if (Find.World != null && Find.WorldObjects != null)
             {
                 foreach (var caravan in Find.WorldObjects.Caravans)
@@ -35,18 +33,15 @@ namespace YASTM
                     }
                 }
 
-                // 3. Kolonisten in Transportkapseln & Shuttles (Generischer Ansatz)
-                // FIX: Statt nach dem Typ "TravelingTransportPods" zu suchen (der den Fehler CS0246 verursacht),
-                // suchen wir nach allen Welt-Objekten, die Dinge beinhalten (IThingHolder),
-                // aber keine Karawanen (schon erledigt) oder Maps (Siedlungen) sind.
+                // other world objects
                 foreach (var worldObj in Find.WorldObjects.AllWorldObjects)
                 {
-                    // Wir überspringen, was wir schon kennen oder was irrelevant ist
+                    // skip non-container objects
                     if (worldObj is Caravan) continue;
-                    if (worldObj is MapParent) continue; // Siedlungen, Außenposten etc.
+                    if (worldObj is MapParent) continue; // skip maps
                     if (worldObj.def.defName == "DestroyedSettlement") continue;
 
-                    // Prüfen: Ist es ein Container? (Kapseln implementieren IThingHolder)
+                    // check for thing holder
                     if (worldObj is IThingHolder holder)
                     {
                         ThingOwner container = holder.GetDirectlyHeldThings();

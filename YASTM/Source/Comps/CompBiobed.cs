@@ -17,7 +17,7 @@ namespace YASTM.Source.Comps
     {
         public CompProperties_Biobed Props => (CompProperties_Biobed)props;
 
-        // Wir prüfen nur alle 250 Ticks (ca. 4 Sekunden), um Performance zu sparen
+        
         public override void CompTickRare()
         {
             base.CompTickRare();
@@ -25,12 +25,11 @@ namespace YASTM.Source.Comps
             Building_Bed bed = parent as Building_Bed;
             if (bed == null) return;
 
-            // 1. Hat das Bett Strom?
+
             CompPowerTrader power = parent.GetComp<CompPowerTrader>();
             if (power == null || !power.PowerOn) return;
 
-            // 2. Liegen Patienten darin?
-            // (CurOccupants ist besser als GetCurOccupant, da es auch für Doppelbetten funktioniert)
+
             foreach (Pawn occupant in bed.CurOccupants)
             {
                 if (occupant != null && !occupant.Dead)
@@ -42,7 +41,7 @@ namespace YASTM.Source.Comps
 
         private void ApplyBioMonitor(Pawn patient)
         {
-            // Wir fügen den Hediff hinzu oder erneuern ihn
+
             Hediff hediff = patient.health.hediffSet.GetFirstHediffOfDef(Props.hediffDef);
             if (hediff == null)
             {
@@ -50,8 +49,7 @@ namespace YASTM.Source.Comps
             }
             else
             {
-                // Reset timer (Disappears component)
-                // Wir setzen die Ticks zurück, damit der Effekt bleibt, solange man liegt
+
                 var comp = hediff.TryGetComp<HediffComp_Disappears>();
                 if (comp != null)
                 {

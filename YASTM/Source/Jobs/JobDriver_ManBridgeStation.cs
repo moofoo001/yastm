@@ -7,12 +7,12 @@ namespace YASTM.Source.Jobs
 {
     public class JobDriver_ManBridgeStation : JobDriver
     {
-        // Helfer für sauberen Zugriff
+        // helpter to get
         protected Thing Station => this.job.targetA.Thing;
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            // FIX 1: Prüfen ob Station null oder zerstört ist, BEVOR wir reservieren
+            // check if station is valid
             if (Station == null || Station.Destroyed) return false;
             
             return this.pawn.Reserve(Station, this.job, 1, -1, null, errorOnFailed);
@@ -20,10 +20,8 @@ namespace YASTM.Source.Jobs
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            // FIX 2: Wenn Station beim Start schon weg ist -> sofort sanft beenden
             if (Station == null || Station.Destroyed)
             {
-                // Erzeugt einen leeren Schritt, der den Job sofort beendet
                 yield return new Toil 
                 { 
                     initAction = () => EndJobWith(JobCondition.Incompletable) 
@@ -31,33 +29,33 @@ namespace YASTM.Source.Jobs
                 yield break; 
             }
 
-            // Standard RimWorld Sicherheitscheck
+            // safe-guard
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
 
-            // 1. Zur Station gehen
+            // setup pathing
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
 
-            // 2. Die Arbeit verrichten
+            // work toil
             Toil work = new Toil();
             work.tickAction = delegate ()
             {
                 Pawn actor = this.pawn;
                 Thing station = actor.CurJob?.targetA.Thing;
 
-                // FIX 3: Auch während der Arbeit prüfen (falls Konsole explodiert/abgebaut wird)
+                // check station validity
                 if (station == null || station.Destroyed) 
                 {
                     actor.jobs.EndCurrentJob(JobCondition.Incompletable);
                     return;
                 }
                 
-                // Pawn drehen
+                // face station
                 actor.rotationTracker.FaceTarget(station);
                 
-                // XP geben
+                // gain skill experience
                 actor.skills?.Learn(SkillDefOf.Intellectual, 0.035f);
 
-                // Bedürfnisse prüfen (Hunger/Schlaf) -> Pause machen
+                // auto end if needs are low
                 if (actor.needs.food != null && actor.needs.food.CurLevelPercentage < 0.25f)
                 {
                     actor.jobs.EndCurrentJob(JobCondition.Succeeded);

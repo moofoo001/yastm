@@ -50,16 +50,16 @@ namespace YASTM
 
         private void OpenMarket(Pawn negotiator)
         {
-            // Sicherstellen, dass Map existiert
+            // map check
             if (parent.Map == null) return;
 
-            // Restock Logik
+            // Restock  check
             if (virtualTrader == null || Find.TickManager.TicksGame - lastRestockTick > 180000)
             {
                 GenerateVirtualTrader();
             }
             
-            // SICHERHEITS-CHECK: Hat das Schiff den Map-Link verloren? (Kann beim Laden passieren)
+            // map manager assign check
             if (virtualTrader != null && virtualTrader.passingShipManager == null)
             {
                 virtualTrader.passingShipManager = parent.Map.passingShipManager;
@@ -79,30 +79,29 @@ namespace YASTM
 
         private void GenerateVirtualTrader()
         {
-            // 1. Suche die Ferengi Fraktion (oder Fallback auf Spacer/Ancients, damit es nicht crasht)
+            // get trade faction
             Faction tradeFaction = Find.FactionManager.FirstFactionOfDef(DefDatabase<FactionDef>.GetNamed("ST_Faction_Ferengi", false));
             
-            // Fallback: Wenn Ferengi nicht gefunden (z.B. nicht gespawnt), nimm eine neutrale Fraktion
+            // Fallback: any non-hostile faction
             if (tradeFaction == null)
             {
                 tradeFaction = Find.FactionManager.AllFactions.FirstOrDefault(f => !f.IsPlayer && !f.HostileTo(Faction.OfPlayer));
             }
 
-            // Wenn immer noch null (sehr unwahrscheinlich), Abbruch
+            // Error check
             if (tradeFaction == null) 
             {
                 Log.Error("[YASTM] Could not find any faction for Ferengi Market.");
                 return;
             }
 
-            // 2. Schiff erstellen mit KORREKTER Fraktion
+            // Create virtual trader
             virtualTrader = new TradeShip(Props.marketTraderKind, tradeFaction);
 
-            // 3. WICHTIGSTER FIX: Dem Schiff den Map-Manager zuweisen!
-            // Ohne das crasht es, weil es keine Orbital Beacons findet.
+            // Assign map manager
             virtualTrader.passingShipManager = parent.Map.passingShipManager;
 
-            // 4. Waren generieren
+            // Generate wares
             virtualTrader.GenerateThings();
             lastRestockTick = Find.TickManager.TicksGame;
         }

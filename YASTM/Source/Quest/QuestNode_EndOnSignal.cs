@@ -2,7 +2,6 @@ using RimWorld;
 using RimWorld.QuestGen;
 using Verse;
 
-// FIX: Namespace angepasst
 namespace YASTM.Source.Quest
 {
     public class QuestNode_EndOnSignal : QuestNode

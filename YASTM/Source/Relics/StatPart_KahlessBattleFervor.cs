@@ -22,7 +22,7 @@ namespace YASTM.Stats
             if (!Applies(req))
                 return;
 
-            // parentStat sagt uns, für welches Stat wir gerade laufen
+            // Apply bonuses
             if (parentStat == StatDefOf.MeleeHitChance)
             {
                 val *= HitChanceFactor;

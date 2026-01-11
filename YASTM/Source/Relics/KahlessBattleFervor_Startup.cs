@@ -35,7 +35,7 @@ namespace YASTM.Stats
             if (stat.parts == null)
                 stat.parts = new List<StatPart>();
 
-            // nicht doppelt hinzufügen, falls andere Mods reloaden
+            // avoid duplicate addition
             foreach (var existing in stat.parts)
             {
                 if (existing is StatPart_KahlessBattleFervor)

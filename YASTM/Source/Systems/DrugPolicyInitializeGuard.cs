@@ -40,7 +40,7 @@ namespace YASTM.Systems
                 if (m == null) return;
                 h.Patch(m, finalizer: new HarmonyMethod(typeof(DrugPolicyInitializeGuard), nameof(Finalizer)));
             }
-            catch { /* ignoriere – Ziel ist maximale Robustheit */ }
+            catch {} // ignore on failure – goal is maximum robustness
         }
 
         private static void TryPostfix(Harmony h, Type type, string methodName, Type[] paramTypes)
@@ -54,7 +54,7 @@ namespace YASTM.Systems
                 if (m == null) return;
                 h.Patch(m, postfix: new HarmonyMethod(typeof(DrugPolicyInitializeGuard), nameof(PostfixSanitizeFactory)));
             }
-            catch { /* ignoriere */ }
+            catch {} // ignore on failure – goal is maximum robustness
         }
 
         // ---- Harmony hooks ----
@@ -67,7 +67,7 @@ namespace YASTM.Systems
                 if (__instance is DrugPolicy dp)
                     SanitizePolicy(dp);
             }
-            catch { /* nichts tun – wichtiger ist: keine harten Crashes */ }
+            catch {} // ignore  
 
           
             return null;

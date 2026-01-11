@@ -24,7 +24,7 @@ namespace YASTM.MapSystems
     {
         static void Postfix(Map __instance)
         {
-            // Schon vorhanden?
+            // ensure MapComponent_ObeliskFlow is present
             var comp = __instance.GetComponent<MapComponent_ObeliskFlow>();
             if (comp == null)
             {

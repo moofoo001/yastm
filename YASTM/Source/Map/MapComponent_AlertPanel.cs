@@ -145,7 +145,7 @@ namespace YASTM
         {
             foreach (Building b in map.listerBuildings.allBuildingsColonist)
             {
-                // Prüft auf Vanilla Expanded Shields oder ähnliches
+                // check for shield comp
                 var shield = b.TryGetComp<CompProjectileInterceptor>();
                 if (shield != null)
                 {
@@ -153,8 +153,7 @@ namespace YASTM
                     if (flick != null) 
                     {
                         flick.SwitchIsOn = active;
-                        // HIER WURDE DIE FEHLERHAFTE ZEILE ENTFERNT.
-                        // RimWorld erledigt das Grafik-Update automatisch.
+                        // ensure state is applied
                     }
                 }
             }

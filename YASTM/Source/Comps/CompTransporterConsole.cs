@@ -38,7 +38,7 @@ namespace YASTM
                 List<Building> pads = TransporterPadUtil.GetLinkedPads(this.parent as Building, Props.maxLinkedPads);
                 bool systemsOnline = TransporterPadUtil.IsPoweredOn(this.parent) && pads.Count > 0;
                 
-                // --- NEUER CHECK: Transporter Chief ---
+                // ---Transporter Chief ---
                 bool engineerPresent = IsEngineerManning();
                 string engineerStatus = engineerPresent ? "Engineer present" : "Missing Transporter Chief";
                 // --------------------------------------
@@ -75,24 +75,24 @@ namespace YASTM
             }
         }
 
-        // --- Helper: Prüft ob ein Engineer an der Konsole steht ---
+        // --- Helper check for Transporter Chief ---
         private bool IsEngineerManning()
         {
-            // Die Position, wo man steht, um die Konsole zu bedienen
+            // 
             IntVec3 interactionCell = this.parent.InteractionCell;
             Map map = this.parent.Map;
 
             if (map == null) return false;
 
-            // Suche alle Dinge auf dieser Zelle
+            // 
             List<Thing> thingsOnCell = interactionCell.GetThingList(map);
             foreach (Thing t in thingsOnCell)
             {
-                // Ist es ein Pawn? Gehört er uns?
+                // pawn check
                 if (t is Pawn p && p.Faction == Faction.OfPlayer)
                 {
-                    // Hat er das Trait?
-                    // Nutzt unser neues DefOf
+
+                    // trait check
                     if (p.story != null && p.story.traits.HasTrait(ST_TraitDefOf.ST_TransporterEngineer))
                     {
                         return true;
@@ -102,10 +102,8 @@ namespace YASTM
             return false;
         }
 
-        // ... [Rest der Methoden: StartTacticalTargeting_Out, ExecuteMultiBeam etc. bleiben gleich] ...
-        // ... [Füge hier einfach den Rest deines funktionierenden Codes aus dem vorherigen Schritt ein] ...
-        
-        // Zur Sicherheit hier nochmal die Helper Methoden für Copy-Paste:
+
+        // --- Tactical Targeting Logic ---
         private void StartTacticalTargeting_Out(List<Building> pads)
         {
             Find.Targeter.BeginTargeting(new TargetingParameters

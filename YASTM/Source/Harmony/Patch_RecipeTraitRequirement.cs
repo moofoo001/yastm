@@ -6,25 +6,25 @@ using System.Collections.Generic;
 
 namespace YASTM
 {
-    // Wir patchen die Prüfung, ob ein Pawn einen Bill (Rezept) starten darf
+    // Patch to enforce trait requirements for recipes
     [HarmonyPatch(typeof(WorkGiver_DoBill), "JobOnThing")]
     public static class Patch_RecipeTraitRequirement
     {
         [HarmonyPrefix]
         public static bool Prefix(Pawn pawn, Thing thing, bool forced, ref Job __result)
         {
-            // Wenn das Ding kein Gebäude mit Bills ist, ignorieren wir es
+            // if the thing is not a bill giver, we skip
             if (thing is not IBillGiver billGiver) return true;
 
-            // Wir schauen uns alle Bills an
+            // check all bills on this bill giver
             foreach (Bill bill in billGiver.BillStack)
             {
-                // Hat das Rezept unsere Extension?
+                // Get our custom extension
                 var extension = bill.recipe.GetModExtension<ST_RecipeExtension>();
                 
                 if (extension != null && extension.mustHaveTrait)
                 {
-                    // Prüfung: Hat der Pawn den Trait?
+                    // check if the pawn has the required trait
                     Trait currentTrait = pawn.story?.traits?.GetTrait(extension.requiredTrait);
 
                     if (currentTrait == null)
@@ -33,13 +33,13 @@ namespace YASTM
                         continue; 
                     }
 
-                    // Prüfung: Stimmt der Degree?
+                    // check for required degree if specified
                     if (extension.requiredDegree != -999)
                     {
                         if (currentTrait.Degree != extension.requiredDegree)
                         {
-                            // Pawn hat falschen Rang (z.B. schon Ace, oder noch kein Cadet)
-                            continue; // Dieser Bill ist für diesen Pawn nicht gültig
+                            // pawn does not meet the degree requirement, skip this bill
+                            continue;
                         }
                     }
                 }

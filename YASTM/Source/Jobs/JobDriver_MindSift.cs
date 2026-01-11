@@ -7,7 +7,7 @@ using UnityEngine;
 namespace YASTM
 {
     // ---------------------------------------------------------
-    // 1. DER JOB DRIVER (Die "Behandlung")
+    // 1. job driver 
     // ---------------------------------------------------------
     public class JobDriver_MindSift : JobDriver
     {
@@ -22,35 +22,35 @@ namespace YASTM
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            // 1. Zum Gefangenen gehen
+            // prisoner valid?
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch)
                                    .FailOnDespawnedNullOrForbidden(TargetIndex.B);
 
-            // 2. Gefangenen schnappen (Tragen)
+            // get prisoner
             yield return Toils_Haul.StartCarryThing(TargetIndex.B);
 
-            // 3. Zur Maschine tragen
+            // carry to machine
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
 
-            // 4. Gefangenen in die Maschine "legen" (Drop on cell)
+            // drop prisoner at machine
             yield return new Toil
             {
                 initAction = () =>
                 {
                     pawn.carryTracker.TryDropCarriedThing(Machine.Position, ThingPlaceMode.Direct, out _);
                     Prisoner.jobs.StartJob(JobMaker.MakeJob(JobDefOf.Wait, 500), JobCondition.InterruptForced);
-                    Prisoner.Rotation = Rot4.South; // Blick nach vorne
+                    Prisoner.Rotation = Rot4.South; 
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
 
-            // 5. DAS VERHÖR (bzzzzzzzZZ)
-            Toil sift = Toils_General.Wait(400); // Ca. 7 Sekunden
+            // MindSifting Prozess
+            Toil sift = Toils_General.Wait(400); 
             sift.WithProgressBarToilDelay(TargetIndex.A);
             sift.FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
             sift.tickAction = () =>
             {
-                // Visuelle Effekte (Funken/Text)
+                // visuelle Effekte
                 if (pawn.IsHashIntervalTick(100))
                 {
                     MoteMaker.ThrowText(Machine.DrawPos, Map, "ST_Mote_Bzzzt".Translate(), Color.red);
@@ -59,12 +59,12 @@ namespace YASTM
             };
             yield return sift;
 
-            // 6. Abschluss & Konsequenzen
+            // Apply Effects
             yield return new Toil
             {
                 initAction = () =>
                 {
-                    // A. Widerstand brechen (Massiv!)
+                    // reduce resistance
                     if (Prisoner.guest != null)
                     {
                         float reduction = Rand.Range(10f, 20f);
@@ -72,10 +72,10 @@ namespace YASTM
                         Messages.Message("ST_Message_MindSiftSuccess".Translate(Prisoner.LabelShort, reduction.ToString("F1")), Prisoner, MessageTypeDefOf.PositiveEvent);
                     }
 
-                    // B. Risiko: Hirnschaden (30% Chance)
+                    // chance for negative effects
                     if (Rand.Chance(0.30f))
                     {
-                        // Hardcore: Chance auf permanente Narbe oder Dementia
+                        // A. Minor psychic shock
                         if (Rand.Chance(0.5f))
                         {
                             BodyPartRecord brain = Prisoner.health.hediffSet.GetBrain();
@@ -87,18 +87,18 @@ namespace YASTM
                         }
                     }
                     
-                    // C. Karriere-Punkt für den Romulaner
+                    // B. Career points
                     var compCareer = pawn.TryGetComp<CompCareer>();
                     compCareer?.AddCareerPoint("IntelExtracted", 1);
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
 
-            // 7. Zurück ins Bett bringen
+            // escort prisoner to bed or drop
             yield return Toils_Haul.StartCarryThing(TargetIndex.B);
             yield return Toils_General.Do(delegate 
             {
-                // FIX: GuestStatus.Prisoner statt 'false'
+                // find bed
                 Building_Bed bed = RestUtility.FindBedFor(Prisoner, pawn, true, false, GuestStatus.Prisoner);
                 
                 if (bed != null)
@@ -107,7 +107,7 @@ namespace YASTM
                 }
                 else
                 {
-                    // Einfach fallen lassen wenn kein Bett da ist
+                    // no bed found, just drop the prisoner
                     pawn.carryTracker.TryDropCarriedThing(pawn.Position, ThingPlaceMode.Near, out _);
                 }
             });
@@ -115,7 +115,7 @@ namespace YASTM
     }
 
     // ---------------------------------------------------------
-    // 2. DER WORK GIVER (Die Suche)
+    // work giver
     // ---------------------------------------------------------
     public class WorkGiver_MindSift : WorkGiver_Scanner
     {

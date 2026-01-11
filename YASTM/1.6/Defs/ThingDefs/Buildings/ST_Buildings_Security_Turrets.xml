@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_Turret_Phaser</defName>
+    <label>phaser phalanx</label>
+    <thingClass>Building_TurretGun</thingClass>
+    <graphicData>
+      <texPath>Things/Building/OpsSecurity/TurretPhaser_Base</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5,1.5)</drawSize>
+    </graphicData>
+    <fillPercent>0.4</fillPercent>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <ShootingAccuracyTurret>0.98</ShootingAccuracyTurret>
+    <WorkToBuild>2000</WorkToBuild>
+      <Mass>40</Mass>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
+      <Plasteel>20</Plasteel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>350</basePowerConsumption>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>ST_Gun_PhaserTurret</turretGunDef>
+      <turretBurstCooldownTime>1.5</turretBurstCooldownTime>
+      <turretTopDrawSize>4</turretTopDrawSize>
+      <turretBurstWarmupTime>4</turretBurstWarmupTime>
+      <ai_combatDangerous>true</ai_combatDangerous>
+    </building>
+    <designationCategory>ST_Designation</designationCategory>
+    <researchPrerequisites>
+        <li>ST_Federation_Phaser_Rifle</li>
+        <li>ST_UFP_Engineering_III</li>
+    </researchPrerequisites>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>ST_Gun_PhaserTurret</defName>
+    <label>phaser cannon</label>
+    <graphicData>
+      <texPath>Things/Building/OpsSecurity/TurretPhaser_Top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+        <AccuracyShort>0.86</AccuracyShort>
+        <AccuracyMedium>0.86</AccuracyMedium>
+        <AccuracyLong>0.86</AccuracyLong>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>ST_Bullet_PhaserTurret</defaultProjectile>
+        <warmupTime>0.5</warmupTime>
+        <range>34.9</range>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <burstShotCount>3</burstShotCount>
+        <soundCast>Shot_ChargeRifle</soundCast>
+        <muzzleFlashScale>26</muzzleFlashScale>
+        <requireLineOfSight>false</requireLineOfSight>
+        <targetParams>
+            <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+     </li>
+    </verbs>
+    <researchPrerequisites>
+        <li>ST_Federation_Phaser_Rifle</li>
+        <li>ST_UFP_Engineering_III</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>ST_Bullet_PhaserTurret</defName>
+    <label>phaser beam</label>
+    <graphicData>
+      <texPath>Things/Projectile/Charge_Small</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+        <damageDef>Burn</damageDef>
+        <damageAmountBase>12</damageAmountBase>
+        <stoppingPower>1.5</stoppingPower>
+        <speed>80</speed>
+    </projectile>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_Turret_Disruptor</defName>
+    <label>disruptor cannon</label>
+    <thingClass>Building_TurretGun</thingClass>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Building/OpsSecurity/TurretDisruptor_Base</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <fillPercent>0.6</fillPercent>
+    <statBases>
+      <MaxHitPoints>350</MaxHitPoints>
+      <ShootingAccuracyTurret>0.90</ShootingAccuracyTurret>
+      <WorkToBuild>2500</WorkToBuild>
+    </statBases>
+    <costList>
+      <Steel>150</Steel>
+      <Plasteel>30</Plasteel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>400</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>4.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0.1</chanceNeverExplodeFromDamage>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>ST_Gun_DisruptorTurret</turretGunDef>
+      <turretBurstCooldownTime>3.5</turretBurstCooldownTime>
+      <turretTopDrawSize>2</turretTopDrawSize>
+      <ai_combatDangerous>true</ai_combatDangerous>
+    </building>
+    <designationCategory>ST_Designation</designationCategory>
+    <researchPrerequisites>
+        <li>Klingon_AdvancedWarfare</li>
+        <li>ST_Klingon_Disruptor_Heavy</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>ST_Gun_DisruptorTurret</defName>
+    <label>heavy disruptor</label>
+    <graphicData>
+      <texPath>Things/Building/OpsSecurity/TurretDisruptor_Top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>ST_Bullet_DisruptorTurret</defaultProjectile>
+        <warmupTime>1.8</warmupTime>
+        <range>29.9</range>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>Shot_TurretSniper</soundCast>
+      </li>
+    </verbs>
+        <researchPrerequisites>
+        <li>Klingon_AdvancedWarfare</li>
+        <li>ST_Klingon_Disruptor_Heavy</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>ST_Bullet_DisruptorTurret</defName>
+    <label>disruptor bolt</label>
+    <graphicData>
+      <texPath>Things/Projectile/Charge_Small</texPath>
+      <shaderType>TransparentPostLight</shaderType>
+      <color>(0, 255, 0)</color>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>2.0</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+       <damageAmountBase>45</damageAmountBase>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_Turret_Plasma</defName>
+    <label>plasma mortar turret</label>
+    <thingClass>Building_TurretGun</thingClass>
+    <graphicData>
+      <texPath>Things/Building/OpsSecurity/TurretPlasma_Base</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+      <WorkToBuild>3000</WorkToBuild>
+    </statBases>
+    <costList>
+      <Steel>200</Steel>
+      <ComponentSpacer>1</ComponentSpacer>
+      <Chemfuel>50</Chemfuel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>500</basePowerConsumption>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>ST_Gun_PlasmaTurret</turretGunDef>
+      <turretBurstCooldownTime>5.0</turretBurstCooldownTime>
+    </building>
+    <designationCategory>ST_Designation</designationCategory>
+    <researchPrerequisites>
+        <li>ST_Romulan_Plasma_III</li>
+        <li>Romulan_TechDoctrine</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>ST_Gun_PlasmaTurret</defName>
+    <label>plasma launcher</label>
+    <graphicData>
+      <texPath>Things/Building/OpsSecurity/TurretPlasma_Top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>ST_Bullet_PlasmaTurret</defaultProjectile>
+        <warmupTime>2.5</warmupTime>
+        <range>40.9</range> <forcedMissRadius>1.9</forcedMissRadius>
+        <burstShotCount>1</burstShotCount>
+        <targetParams>
+           <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <soundCast>Shot_IncendiaryLauncher</soundCast>
+      </li>
+    </verbs>
+    <researchPrerequisites>
+        <li>ST_Romulan_Plasma_III</li>
+        <li>Romulan_TechDoctrine</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>ST_Bullet_PlasmaTurret</defName>
+    <label>plasma glob</label>
+    <thingClass>Projectile_Explosive</thingClass>
+    <graphicData>
+      <texPath>Things/Projectile/LauncherShot</texPath>
+      <color>(0, 255, 100)</color>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+        <damageDef>Flame</damageDef>
+        <damageAmountBase>20</damageAmountBase>
+        <explosionRadius>2.9</explosionRadius>
+        <speed>40</speed>
+        <arcHeightFactor>0.5</arcHeightFactor>
+    </projectile>
+  </ThingDef>
+
+</Defs>

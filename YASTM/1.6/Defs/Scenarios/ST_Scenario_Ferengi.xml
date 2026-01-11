@@ -70,6 +70,11 @@
           <count>10</count>
         </li>
 
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>Ferengi_Standard</project>
+        </li>
+
         <li Class="ScenPart_GameStartDialog">
           <def>GameStartDialog</def>
           <text>The Grand Nagus will not be pleased about the shuttle loss... unless you turn this planet into a profit center.\n\nUse your Latinum to establish a Market Link as soon as possible!</text>

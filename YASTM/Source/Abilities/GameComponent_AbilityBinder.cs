@@ -29,14 +29,13 @@ namespace YASTM
 
         public void CheckAndBindAbilities()
         {
-            // FIX: Wir nutzen jetzt unsere sichere Utility-Methode statt PawnsFinder direkt.
-            // Das behebt den CS0117 Fehler zuverlässig.
+
             foreach (Pawn pawn in ST_CrewUtility.GetAllActiveCrewMembers())
             {
                 TryUpdatePawn(pawn);
             }
 
-            // Gefangene (Prisoners) separat, da sie keine CrewMembers sind
+
             if (PawnsFinder.AllMaps_PrisonersOfColony != null)
             {
                 foreach (Pawn pawn in PawnsFinder.AllMaps_PrisonersOfColony)

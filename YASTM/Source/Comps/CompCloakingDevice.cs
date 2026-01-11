@@ -42,7 +42,6 @@ namespace YASTM.Comps
             if (tracker == null)
                 return;
 
-            // Older RW versions do not have HasAbility(), use GetAbility() instead
             Ability existing = tracker.GetAbility(Props.abilityDef);
             if (existing == null)
             {

@@ -138,7 +138,7 @@ namespace YASTM
             if (Props.useDuration > 0)
                 MoteMaker.ThrowText(parent.DrawPos, map, "Transmitting...", Color.cyan);
 
-            // Kosten: Silber
+            // cost check
             if (SilverCost > 0)
             {
                 if (!TryConsumeSilver(map, SilverCost))
@@ -148,7 +148,7 @@ namespace YASTM
                 }
             }
 
-            // Incident auslösen (unser eigener)
+            // Incident
             IncidentParms parms = new IncidentParms { target = map, forced = true };
             IncidentDef aidIncident = DefDatabase<IncidentDef>.GetNamed("ST_StarfleetAidDrop", false);
             if (aidIncident == null)
@@ -160,11 +160,11 @@ namespace YASTM
             bool ok = aidIncident.Worker.TryExecute(parms);
             if (ok)
             {
-                // Cooldown setzen
+                // set cooldown
                 int cdTicks = Mathf.RoundToInt(CooldownDays * 60000f);
                 if (wc != null) wc.NextAllowedTick = now + cdTicks;
 
-                // Goodwill-Kosten (optional)
+                // reduce goodwill
                 var federation = FindFederationFaction();
                 if (federation != null && GoodwillCost > 0)
                 {

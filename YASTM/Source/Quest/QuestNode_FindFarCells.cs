@@ -14,21 +14,21 @@ namespace YASTM.Source.Quest
 
         protected override void RunInt()
         {
-            // FIX: Verse.Map verwenden (hattest du hier schon richtig)
+            // use Verse.Map 
             Verse.Map map = Find.AnyPlayerHomeMap; 
             if (map == null) return;
 
             Slate slate = QuestGen.slate;
             IntVec3 a;
             
-            // Aufruf unserer Hilfsmethode
+            // help method call
             if (TryFind(map, minDist.GetValue(slate), maxDist.GetValue(slate), out a))
                 slate.Set("locA", a);
 
             if (findTwo.GetValue(slate))
             {
                 IntVec3 b;
-                // Aufruf Hilfsmethode
+                // ensure sufficient distance from A
                 if (TryFind(map, minDist.GetValue(slate), maxDist.GetValue(slate), out b, 18, a))
                     slate.Set("locB", b);
             }
@@ -36,12 +36,12 @@ namespace YASTM.Source.Quest
         
         protected override bool TestRunInt(Slate slate) => true;
 
-        // FIX: Hier lag der Fehler! "Map" -> "Verse.Map"
+        
         private bool TryFind(Verse.Map map, int min, int max, out IntVec3 cell, int minFromOther = 0, IntVec3 other = default)
         {
             var center = map.Center;
             
-            // Lokale Validierungs-Funktion
+            // Validator method
             bool Validator(IntVec3 c)
             {
                 if (!c.InBounds(map) || c.Fogged(map)) return false;

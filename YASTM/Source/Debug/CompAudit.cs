@@ -28,7 +28,7 @@ namespace YASTM
                     {
                         Log.Error($"[YASTM][AUDIT] {def.defName}: compClass '{props.compClass.FullName}' is not a ThingComp.");
                     }
-                    // häufigster Fehler: direkt ThingComp gesetzt (statt spez. Comp)
+
                    if (props.compClass == typeof(ThingComp))
                     {
                         Log.Error($"[YASTM][AUDIT] {def.defName}: compClass is plain ThingComp; propsType={props.GetType().FullName}");

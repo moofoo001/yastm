@@ -11,7 +11,7 @@ namespace YASTM
         public float safeTemperatureMax = 60f; 
         public int damagePerTick = 1; 
         
-        // Grafik-Einstellungen
+        
         public int pulseInterval = 180; 
         public float pulseRadius = 3.5f;
         
@@ -28,11 +28,11 @@ namespace YASTM
         private bool ejected = false;
         private int instabilityCounter = 0;
         
-        // NEU: Ejection Sequenz Logik
+        // NEU: Ejection sequence
         private bool ejectionSequenceActive = false;
-        private int ejectionCountdown = 300; // 5 Sekunden (bei 60 Ticks/Sekunde)
+        private int ejectionCountdown = 300; // 5 seconds
         
-        // Timer für Grafik
+        // Pulsing
         private int nextPulseTick = 0;
 
         public override void PostExposeData()
@@ -51,40 +51,40 @@ namespace YASTM
             base.CompTick();
             if (!IsActive()) return;
 
-            // --- 1. EJECTION SEQUENZ (Der Countdown) ---
+            // --- 1. Ejection Sequence ---
             if (ejectionSequenceActive)
             {
                 ejectionCountdown--;
                 
-                // Warnung alle Sekunde
+
                 if (ejectionCountdown % 60 == 0)
                 {
                     MoteMaker.ThrowText(parent.DrawPos, parent.Map, $"EJECTING IN {ejectionCountdown / 60}...", Color.red);
                 }
 
-                // BOOM / Eject wenn Zeit abgelaufen
+                // BOOM
                 if (ejectionCountdown <= 0)
                 {
                     DoEject();
                 }
                 
-                // Aggressiver roter Puls während des Countdowns
-                if (Find.TickManager.TicksGame % 20 == 0) // Schnelles Blinken
+                // pulsing effect during countdown
+                if (Find.TickManager.TicksGame % 20 == 0) 
                 {
                      FleckMaker.Static(parent.TrueCenter(), parent.Map, FleckDefOf.PsycastAreaEffect, 5f);
                 }
                 
-                return; // Keine weitere Hitze-Berechnung während der Sequenz
+                return; // Skip rest of tick while ejecting
             }
 
-            // --- 2. Normaler Betrieb (Puls) ---
+            // --- 2. Warp Pulse ---
             if (Find.TickManager.TicksGame >= nextPulseTick)
             {
                 TriggerWarpPulse();
                 nextPulseTick = Find.TickManager.TicksGame + Props.pulseInterval;
             }
 
-            // --- 3. Temperatur Check ---
+            // --- 3. Overheat Check ---
             float roomTemp = parent.AmbientTemperature;
             if (roomTemp > Props.safeTemperatureMax)
             {
@@ -103,7 +103,7 @@ namespace YASTM
             }
         }
 
-        // Die eigentliche Auswurf-Funktion
+        // --- EJECTION SEQUENCE LOGIC ---
         private void DoEject()
         {
             ejected = true;
@@ -111,8 +111,7 @@ namespace YASTM
             
             Messages.Message("CORE EJECTED!", MessageTypeDefOf.PositiveEvent);
             
-            // Explosion verhindern, da kontrollierter Auswurf
-            // Wir zerstören das Gebäude einfach sicher
+            // safely destroy the core
             parent.Destroy(DestroyMode.KillFinalize); 
         }
 
@@ -134,17 +133,17 @@ namespace YASTM
         {
             foreach (var g in base.CompGetGizmosExtra()) yield return g;
 
-            // HIER IST IHRE GEWÜNSCHTE LOGIK
-            // Wir nutzen Command_Toggle statt Command_Action
+
+            // EJECTION SEQUENCE GIZMO
             yield return new Command_Toggle
             {
                 defaultLabel = ejectionSequenceActive ? "ABORT EJECTION" : "EJECT WARP CORE",
                 defaultDesc = "EMERGENCY: Initiates core ejection sequence.",
                 icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/EjectCore", false),
                 
-                // --- DIE FARB-LOGIK ---
-                // Wenn Aktiv (gedrückt) -> ROT
-                // Wenn Inaktiv (nicht gedrückt) -> WEISS
+
+                // red when active
+                // white when inactive
                 defaultIconColor = ejectionSequenceActive ? Color.red : Color.white,
                 
                 isActive = () => ejectionSequenceActive,
@@ -155,13 +154,13 @@ namespace YASTM
                     
                     if (ejectionSequenceActive)
                     {
-                        // Start Sequenz
-                        ejectionCountdown = 300; // Reset Timer auf 5 Sek
+                        // Start countdown
+                        ejectionCountdown = 300; // Reset Timer
                         Messages.Message("EJECTION SEQUENCE INITIATED!", parent, MessageTypeDefOf.ThreatSmall);
                     }
                     else
                     {
-                        // Abbrechen
+                        // abort
                         Messages.Message("Ejection sequence aborted.", parent, MessageTypeDefOf.NeutralEvent);
                     }
                 }
@@ -172,7 +171,7 @@ namespace YASTM
         {
             base.PostDestroy(mode, previousMap);
 
-            // Wenn zerstört wurde OHNE dass 'ejected' true ist (z.B. durch Beschuss), dann BUMM
+            // explosion check
             if (!ejected && mode == DestroyMode.KillFinalize)
             {
                 var refuelable = parent.TryGetComp<CompRefuelable>();

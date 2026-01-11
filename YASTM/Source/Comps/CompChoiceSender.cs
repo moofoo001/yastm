@@ -50,7 +50,7 @@ namespace StarTrekFactions.Comps
 
             foreach (var opt in Props.options)
             {
-                // 
+                // setup label
                 string label = opt.labelKey.NullOrEmpty()
                     ? "Choose"
                     : opt.labelKey.Translate().ToString();

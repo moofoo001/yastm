@@ -23,16 +23,15 @@ namespace YASTM.Source.Comps
 
             if (Props.ability != null)
             {
-                // Prüfen, ob der Pawn die Ability schon hat
+                // check if pawn already has ability
                 if (usedBy.abilities.GetAbility(Props.ability) != null)
                 {
-                    // Nachricht geben, aber Item wurde verbraucht (Standard RimWorld Verhalten bei Fehlbenutzung)
-                    // Alternativ könnte man hier das Item zurückgeben, aber das ist komplexer.
+                    // already knows ability
                     Messages.Message($"{usedBy.LabelShort} already knows the secrets of {Props.ability.label}.", usedBy, MessageTypeDefOf.NeutralEvent, false);
                     return;
                 }
 
-                // Ability hinzufügen
+                // grant ability
                 usedBy.abilities.GainAbility(Props.ability);
                 Messages.Message($"{usedBy.LabelShort} has mastered {Props.ability.label}.", usedBy, MessageTypeDefOf.PositiveEvent);
             }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace YASTM
 {
-    // Dieser Chip kommt einfach ZUSÄTZLICH in das Gebäude
+    // get the fuel from "ST_ReplicatorFeedstock" items on the ground
     public class CompVacuum : ThingComp
     {
         private CompRefuelable tank;
@@ -20,10 +20,10 @@ namespace YASTM
         {
             base.CompTick();
             
-            // Nur 1x pro Sekunde prüfen (60 Ticks), spart CPU
+            //every second
             if (parent.IsHashIntervalTick(60) && tank != null)
             {
-                // Wenn Tank voll ist, nichts tun
+                // if full, skip
                 if (tank.Fuel >= tank.Props.fuelCapacity) return;
 
                 AbsorbFeedstock();
@@ -32,7 +32,7 @@ namespace YASTM
 
         private void AbsorbFeedstock()
         {
-            // Wir prüfen den Boden unter dem Gebäude und der Interaktions-Zelle
+            //
             var cells = new List<IntVec3> { parent.Position, parent.InteractionCell };
 
             foreach (var cell in cells)
@@ -42,22 +42,22 @@ namespace YASTM
                 {
                     Thing t = thingList[i];
                     
-                    // Ist es unser Feedstock?
+                    // is it feedstock?
                     if (t.def.defName == "ST_ReplicatorFeedstock")
                     {
-                        // Wie viel passt noch rein?
+                        // check how much we can take
                         float space = tank.Props.fuelCapacity - tank.Fuel;
                         int countToTake = Mathf.Min(t.stackCount, (int)space);
 
                         if (countToTake > 0)
                         {
-                            // Rein damit!
+                            // insert into tank
                             tank.Refuel(countToTake);
                             
-                            // Effekt anzeigen
+                            // show text
                             MoteMaker.ThrowText(parent.DrawPos, parent.Map, "+" + countToTake, Color.green);
                             
-                            // Item verkleinern oder zerstören
+                            // remove from ground
                             if (countToTake >= t.stackCount) t.Destroy();
                             else t.stackCount -= countToTake;
                         }

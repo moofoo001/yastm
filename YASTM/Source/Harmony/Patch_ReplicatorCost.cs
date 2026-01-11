@@ -7,13 +7,13 @@ using YASTM;
 
 namespace YASTM
 {
-    // 1. DAS IST NEU: Die Definition für unser XML-Preisschild
+    // price extension for replicator recipes
     public class ReplicatorCostExtension : DefModExtension
     {
-        public float cost = 5.0f; // Standardwert, falls im XML nichts steht
+        public float cost = 5.0f; // default cost if not specified
     }
 
-    // Die Helper-Klasse bleibt gleich
+    // helper class to find nearest matter tank
     public static class TankFinder
     {
         public static CompMatterTank FindNearestValidTank(Thing replicator, float amountRequired)
@@ -64,10 +64,10 @@ namespace YASTM.Source.HarmonyPatches
 
             if (billGiver != null && billGiver is Thing t && t.def.defName == "ST_Replicator")
             {
-                // === PREIS FINDUNG (DAS IST NEU) ===
-                float cost = 5.0f; // Der Fallback-Preis, wenn im XML nichts steht
+                // ================= REPLICATOR COST SYSTEM =================
+                float cost = 5.0f; // default cost
 
-                // Wir fragen das Rezept: "Hast du eine ReplicatorCostExtension?"
+                // Get custom cost from recipe extension
                 var extension = recipe.GetModExtension<ReplicatorCostExtension>();
                 
                 if (extension != null)
@@ -88,7 +88,7 @@ namespace YASTM.Source.HarmonyPatches
                     }
                     else
                     {
-                         // Sollte durch Finder verhindert werden, aber sicher ist sicher
+                         // insufficient matter
                         Log.Error($"[YASTM] Tank found but insufficient matter ({tank.storedMatter} < {cost})");
                     }
                 }

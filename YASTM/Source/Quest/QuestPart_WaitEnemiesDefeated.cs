@@ -8,7 +8,7 @@ namespace YASTM.Source.Quest
 {
     public class QuestPart_WaitEnemiesDefeated : QuestPart
     {
-        // Felder für Signale und Status
+        // added fields
         public string inSignalRaw;
         public string inSignalScoped;
         public bool onlyManhunters;
@@ -22,12 +22,12 @@ namespace YASTM.Source.Quest
             if (signal.tag == inSignalRaw || signal.tag == inSignalScoped)
             {
                 active = true;
-                // Registriert sich beim Watcher
+                // register with the quest watchers
                 GameComponent_QuestWatchers.Instance?.Register(this);
             }
         }
 
-        // Diese Methode wurde vom Compiler vermisst!
+        // method called by the quest watcher each tick
         public bool CheckAndMaybeComplete()
         {
             if (!active) return false;
@@ -46,7 +46,7 @@ namespace YASTM.Source.Quest
                 active = false;
                 if (!outSignalRaw.NullOrEmpty())    Find.SignalManager.SendSignal(new Signal(outSignalRaw));
                 if (!outSignalScoped.NullOrEmpty()) Find.SignalManager.SendSignal(new Signal(outSignalScoped));
-                return true; // Meldet "Erledigt" an den Watcher
+                return true; // completed
             }
             return false;
         }

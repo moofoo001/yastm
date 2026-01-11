@@ -35,10 +35,10 @@ namespace YASTM.Source.Comps
 
             if (Props.graphicData != null)
             {
-                // Versuche, die Referenzen aufzulösen (wichtig für Comps!)
+                // resolve references
                 Props.graphicData.ResolveReferencesSpecial();
                 
-                // Grafik erstellen
+                // load graphic
                 overlayGraphic = Props.graphicData.GraphicColoredFor(parent);
                 
                 if (overlayGraphic == null || overlayGraphic.MatSingle == null)
@@ -47,7 +47,7 @@ namespace YASTM.Source.Comps
                 }
                 else
                 {
-                    // Einmalige Bestätigung im Log (nur beim ersten Mal)
+                
                     Log.Message($"[YASTM] Overlay graphic loaded successfully for {parent.def.defName}");
                 }
             }
@@ -55,25 +55,21 @@ namespace YASTM.Source.Comps
 
         public override void PostDraw()
         {
-            // Sicherheits-Check: Falls beim Spawn nicht geladen wurde (passiert manchmal)
+            // assert graphic loaded
             if (overlayGraphic == null) TryLoadGraphic();
             if (overlayGraphic == null) return;
 
-            // 1. Position holen
             Vector3 drawPos = parent.DrawPos;
 
-            // 2. Absolute Höhe erzwingen (MetaOverlays ist sehr hoch)
-            // Wir addieren +2.0f, um sicher über ALLEM zu sein (Dächer, Nebel, UI-Marker)
+            // set altitude
             drawPos.y = AltitudeLayer.MoteOverhead.AltitudeFor() + 2.0f;
             
-            // 3. Offset anwenden (rotiert mit dem Gebäude)
+            // apply offset
             Vector3 finalOffset = Props.offset;
-            // Falls das Gebäude gedreht ist, muss der Offset mitgedreht werden
             finalOffset = finalOffset.RotatedBy(parent.Rotation);
             drawPos += finalOffset;
 
-            // 4. Zeichnen
-            // Wir nutzen parent.Rotation, damit das Overlay sich mitdreht
+            // draw overlay
             overlayGraphic.Draw(drawPos, parent.Rotation, parent);
         }
     }

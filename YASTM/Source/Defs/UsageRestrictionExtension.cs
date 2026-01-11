@@ -6,21 +6,19 @@ namespace YASTM
 {
     public class UsageRestrictionExtension : DefModExtension
     {
-        // 1. FACHAUSBILDUNG (Optional)
-        // Trait, den man via Holodisc gelernt haben muss (z.B. "ST_Training_Comms")
+        //trait required for usage (e.g., specialized training)
         public TraitDef requiredTrainingTrait;
 
-        // 2. RANG-LISTE (Optional)
-        // Einer dieser Ränge muss erfüllt sein.
+        //rank list - allowed ranks to use the item
         public List<RankRequirement> allowedRanks;
         
-        // Fehlernachricht für den Spieler
+        // message to show if usage is denied
         public string failMessage = "Access denied. Clearance or specialized training required.";
     }
 
     public class RankRequirement
     {
-        public TraitDef rankDef; // z.B. ST_FederationRank
-        public int minDegree;    // z.B. 1 (Ensign)
+        public TraitDef rankDef; // eg ST_FederationRank
+        public int minDegree;    // eg 1 (Ensign)
     }
 }

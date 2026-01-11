@@ -4,20 +4,20 @@ using RimWorld;
 
 namespace YASTM
 {
-    // Diese Def definiert Ränge wie "Ensign", "Lieutenant", "Captain"
+    // rank definition for crew members
     public class ST_RankDef : Def
     {
         public int level; // 1 = Ensign, 5 = Captain, etc.
-        public float salaryAmount; // Credits oder Energie-Credits pro Quartal
-        public bool isCommandStaff; // Darf Brücken-Konsolen voll nutzen
+        public float salaryAmount; // monthly salary
+        public bool isCommandStaff; // is part of command staff
         
-        // Optional: Skill-Voraussetzungen für die Beförderung
+        // required skill and level to attain this rank
         public SkillDef requiredSkill;
         public int requiredSkillLevel;
 
         public ST_RankDef() 
         {
-            // Verhindert Fehler bei Sonderzeichen in Labels
+            
             ignoreIllegalLabelCharacterConfigError = true;
         }
     }

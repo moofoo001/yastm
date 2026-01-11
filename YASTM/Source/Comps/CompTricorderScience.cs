@@ -11,11 +11,11 @@ namespace YASTM
     {
         public int cooldownTicks = 6000;   // ~2h
         public int scanTicks = 900;        // ~15s
-        public float range = 18f;          // Scanradius ab Zielzelle
+        public float range = 18f;          // scan range
         public string hediffDef = "ST_ScienceInsight";
         public int hediffMinTicks = 30000; // 0.5d
         public int hediffMaxTicks = 45000; // 0.75d
-        public int minIntellectual = 4;    // Mind. Forschen 4
+        public int minIntellectual = 4;    // min skill level
 
         public CompProperties_TricorderScience() { compClass = typeof(CompTricorderScience); }
     }

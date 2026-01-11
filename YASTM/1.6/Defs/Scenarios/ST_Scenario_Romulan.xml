@@ -69,6 +69,11 @@
           <def>StartingResearch</def>
           <project>MicroelectronicsBasics</project> </li>
         
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>Romulan_Standard</project>
+        </li>
+
         <li Class="ScenPart_GameStartDialog">
           <def>GameStartDialog</def>
           <text>Operatives,\n\nSurface contact confirmed. The Empire expects results. Do not fail us.\n\nJolan Tru.</text>

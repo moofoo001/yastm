@@ -8,7 +8,7 @@ namespace YASTM
     {
         public override void ApplyOnPawn(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)
         {
-            // Der "billDoer" ist derjenige, der das Programm nutzt (trainiert)
+
             if (billDoer != null)
             {
                 if (billDoer.story != null && !billDoer.story.traits.HasTrait(ST_TraitDefOf.ST_TransporterEngineer))

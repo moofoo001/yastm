@@ -34,7 +34,7 @@ namespace YASTM
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            // Basiskram ausgeben
+
             foreach (var g in base.CompGetGizmosExtra())
                 yield return g;
 

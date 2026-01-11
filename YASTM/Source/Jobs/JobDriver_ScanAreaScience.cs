@@ -28,7 +28,7 @@ namespace YASTM
             wait.tickAction = delegate
             {
                 pawn.rotationTracker.FaceCell(TargetCell);
-                // kleiner Scan-Ring
+                // show mote effect
                 int now = Find.TickManager.TicksGame;
                 if (now >= nextMoteTick && pawn.Map != null)
                 {
@@ -86,7 +86,7 @@ namespace YASTM
             };
             yield return finish;
             
-            // NEU: Karriere-Punkt vergeben
+            // career point
             var compCareer = pawn.TryGetComp<CompCareer>();
             compCareer?.AddCareerPoint("ScienceScan", 1);
 

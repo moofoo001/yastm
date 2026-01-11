@@ -14,6 +14,6 @@ namespace YASTM
 
     public class CompAlertPanelGizmo : CompAlertPanel
     {
-        // Leer - erbt Grafik und Gizmos vom Master
+        //  erbt Grafik und Gizmos vom Master
     }
 }

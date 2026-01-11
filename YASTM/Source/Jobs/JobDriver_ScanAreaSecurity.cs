@@ -64,7 +64,7 @@ namespace YASTM
                                 // Turrets
                                 if (!ping && t is Building_TurretGun) ping = true;
 
-                                // (Optional) explosive devices (IED etc.) heuristisch über CompExplosive
+                                // Explosives
                                 if (!ping && t.TryGetComp<CompExplosive>() != null) ping = true;
 
                                 if (ping)
@@ -77,7 +77,7 @@ namespace YASTM
                         }
                     }
 
-                    // Buff an den Benutzer
+                    // Apply Hediff
                     var compSec = GetTricorderComp(pawn);
                     string hedName = compSec?.HediffDefName ?? "ST_SecuritySweep";
                     var def = DefDatabase<HediffDef>.GetNamedSilentFail(hedName);
@@ -98,7 +98,7 @@ namespace YASTM
             };
             yield return finish;
 
-            // NEU: Karriere-Punkt vergeben
+            // career point
             var compCareer = pawn.TryGetComp<CompCareer>();
             compCareer?.AddCareerPoint("SecuritySweep", 1);
 

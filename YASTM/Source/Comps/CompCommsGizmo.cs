@@ -6,7 +6,6 @@ using RimWorld.QuestGen;
 using UnityEngine;
 using Verse;
 using YASTM.MapSystems;
-/// using StarTrekFactions;
 
 namespace YASTM.Comps
 {

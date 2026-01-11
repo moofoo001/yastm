@@ -41,14 +41,14 @@ namespace YASTM
         public bool IsOperational(out string reason)
         {
             reason = null;
-            // Power?
+
             var power = parent.TryGetComp<CompPowerTrader>();
             if (power != null && !power.PowerOn)
             {
                 reason = "ST.Transporter.NeedsPower".Translate();
                 return false;
             }
-            // Flickable?
+
             var flick = parent.TryGetComp<CompFlickable>();
             if (flick != null && !flick.SwitchIsOn)
             {

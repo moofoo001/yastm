@@ -10,12 +10,12 @@ namespace YASTM
     {
         public int cooldownTicks = 6000;   // ~2h
         public int scanTicks = 900;        // ~15s
-        public float range = 18f;          // Zielzelle muss innerhalb liegen
+        public float range = 18f;          // scan range
         public string hediffDef = "ST_SecuritySweep";
         public int hediffMinTicks = 30000; // 0.5d
         public int hediffMaxTicks = 45000; // 0.75d
-        public int minShooting = 4;        // Mind. Schusswaffen ODER
-        public int minMelee = 4;           // Mind. Nahkampf
+        public int minShooting = 4;        // min skill level
+        public int minMelee = 4;           // min skill level
 
         public CompProperties_TricorderSecurity() { compClass = typeof(CompTricorderSecurity); }
     }

@@ -18,34 +18,31 @@ namespace YASTM
                 return;
             }
 
-            // --- TEIL 1: TRAIT UPDATE ---
+            // ---TRAIT UPDATE ---
             if (extension.requiredTrait != null)
             {
                 Trait currentTrait = billDoer.story.traits.GetTrait(extension.requiredTrait);
                 
-                // LOGIK VERBESSERUNG: 
-                // Statt blind "+1" zu rechnen, leiten wir das Ziel vom Rezept ab.
-                // Wenn requiredDegree -999 ist (keine Voraussetzung), ist das Ziel Degree 0 (Basic).
-                // Wenn requiredDegree 0 ist (Cadet), ist das Ziel Degree 1 (Pilot).
+                // logic to determine target degree
                 int targetDegree = (extension.requiredDegree == -999) ? 0 : extension.requiredDegree + 1;
 
-                // Sicherheits-Check: Gibt es diesen Degree im XML überhaupt?
+                // safe check: does the target degree exist?
                 bool degreeExists = extension.requiredTrait.degreeDatas.Any(d => d.degree == targetDegree);
                 
                 if (!degreeExists)
                 {
                     Log.Warning($"[YASTM] Training Complete but Target Degree {targetDegree} does not exist in TraitDef {extension.requiredTrait.defName}. Stopping.");
-                    // Wir brechen hier aber nicht ab, vielleicht gibt es ja noch ein Item (Pip).
+                    // Feedback message
                 }
                 else
                 {
                     // Debug Log
                     Log.Message($"[YASTM] Upgrading {billDoer.LabelShort}: CurrentTrait={currentTrait?.Degree.ToString() ?? "None"} -> NewDegree={targetDegree}");
 
-                    // Alten Trait entfernen (falls vorhanden)
+                    // Remove current trait if exists
                     if (currentTrait != null)
                     {
-                        // Wenn wir schon den Ziel-Rang (oder höher) haben, machen wir nichts (verhindert Downgrade durch Basic Training)
+                        // Check if already at or above target degree
                         if (currentTrait.Degree >= targetDegree)
                         {
                             Messages.Message("ST_Message_AlreadyQualified".Translate(billDoer.LabelShort), billDoer, MessageTypeDefOf.NeutralEvent);
@@ -54,31 +51,29 @@ namespace YASTM
                         billDoer.story.traits.RemoveTrait(currentTrait);
                     }
 
-                    // Neuen Trait erzwingen
+                    // Add new trait degree
                     Trait newTrait = new Trait(extension.requiredTrait, targetDegree);
                     
-                    // Trick 17: Wir umgehen das Trait-Limit, indem wir direkt auf die interne Liste zugreifen, 
-                    // falls GainTrait fehlschlägt (was bei vollen Slots passiert).
+                    // add the trait 
                     billDoer.story.traits.GainTrait(newTrait);
                     
-                    // Prüfen ob es geklappt hat
+                    // double check: did it work?
                     if (!billDoer.story.traits.HasTrait(extension.requiredTrait))
                     {
-                        // Fallback für volle Trait-Slots: Hartes Einfügen
                         Log.Warning($"[YASTM] GainTrait failed (Max slots?). Forcing trait injection for {billDoer.LabelShort}.");
                         billDoer.story.traits.allTraits.Add(newTrait);
                     }
                     
-                    // Feedback Nachricht
+                    // Feedback message
                     string rankLabel = extension.requiredTrait.DataAtDegree(targetDegree).label;
                     Messages.Message("ST_Message_TrainingComplete".Translate(billDoer.LabelShort, rankLabel), billDoer, MessageTypeDefOf.PositiveEvent);
                 }
             }
 
-            // --- TEIL 2: PIP UPDATE (Item) ---
+            // ---REWARD APPAREL---
             if (extension.rewardApparel != null)
             {
-                // Alte Pips entfernen
+                // remove old pip if tag specified
                 if (!string.IsNullOrEmpty(extension.removeApparelWithTag))
                 {
                     var oldPips = billDoer.apparel.WornApparel
@@ -92,7 +87,7 @@ namespace YASTM
                     }
                 }
 
-                // Neuen Pip geben
+                // give new pip
                 Thing newPip = ThingMaker.MakeThing(extension.rewardApparel);
                 if (newPip is Apparel apparel)
                 {

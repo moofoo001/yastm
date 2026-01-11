@@ -7,16 +7,16 @@ namespace YASTM
 {
     public class CompUsageRestriction : ThingComp
     {
-        // Klinkt sich in das Rechtsklick-Menü ein
+        // --- FloatMenu Options ---
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
         {
-            // Regeln aus dem XML holen
+
             var rules = parent.def.GetModExtension<UsageRestrictionExtension>();
-            if (rules == null) yield break; // Keine Regeln -> Zugriff erlaubt
+            if (rules == null) yield break;
 
             if (!HasAccess(selPawn, rules))
             {
-                // Zeige ausgegraute Option mit Grund
+                // no access
                 string reason = GetReason(selPawn, rules);
                 yield return new FloatMenuOption($"{rules.failMessage} ({reason})", null);
             }
@@ -32,14 +32,14 @@ namespace YASTM
                 if (!p.story.traits.HasTrait(rules.requiredTrainingTrait)) return false;
             }
 
-            // 2. Check Rank (Liste durchgehen)
+            // 2. Check Rank (Traits)
             if (rules.allowedRanks != null && rules.allowedRanks.Count > 0)
             {
                 bool rankMet = false;
                 foreach (var req in rules.allowedRanks)
                 {
                     Trait t = p.story.traits.GetTrait(req.rankDef);
-                    // Hat den Rang-Trait UND der Degree ist hoch genug?
+
                     if (t != null && t.Degree >= req.minDegree)
                     {
                         rankMet = true;

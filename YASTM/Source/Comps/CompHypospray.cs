@@ -48,7 +48,7 @@ namespace YASTM.Source.Comps
 
             if (parent.ParentHolder is Pawn_EquipmentTracker eq && eq.pawn.IsColonistPlayerControlled)
             {
-                // Nachladen
+                // reload hypospray
                 if (charges < Props.maxCharges && Props.ammoDef != null)
                 {
                     yield return new Command_Action

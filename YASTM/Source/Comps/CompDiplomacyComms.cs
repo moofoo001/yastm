@@ -114,7 +114,7 @@ namespace YASTM
         {
             var map = parent.Map; if (map == null) return;
             
-            // HIER IST DIE ÄNDERUNG: Wir holen uns den 'officer' aus der out-Variable
+            // change:get 'officer' here
             if (!HasEligibleOfficer(map, Props.requiredTraitsImprove, Props.requiredApparelsImprove, Props.minSocialImprove, out Pawn officer))
             { 
                 Messages.Message("ST.Diplo.Requirements.Improve".Translate(Props.minSocialImprove, Props.rankLabelImprove), MessageTypeDefOf.RejectInput); 
@@ -136,12 +136,12 @@ namespace YASTM
             Faction.OfPlayer.TryAffectGoodwillWith(f, delta, true, true, null, parent);
             Messages.Message("ST.Diplo.Improve.Success".Translate(f.NameColored, delta), parent, MessageTypeDefOf.PositiveEvent);
 
-            // KARRIERE PUNKTE VERGEBEN
+            // set career points
             var career = officer.TryGetComp<CompCareer>();
             if (career != null)
             {
                 career.AddCareerPoint("DiplomacyImprove", 1);
-                // Optional: Feedback, dass der Offizier das gut gemacht hat
+                //  MoteMaker.ThrowText(officer.DrawPos, officer.Map, $"+Diplomacy ({delta})",
                 MoteMaker.ThrowText(officer.DrawPos, officer.Map, "+Diplomacy", 3f);
             }
 
@@ -183,7 +183,7 @@ namespace YASTM
         {
             var map = parent.Map; if (map == null) return;
             
-            // HIER IST DIE ÄNDERUNG: Wir holen uns den 'officer'
+            // change:get 'officer' here
             if (!HasEligibleOfficer(map, Props.requiredTraitsCeasefire, Props.requiredApparelsCeasefire, Props.minSocialCeasefire, out Pawn officer))
             { 
                 Messages.Message("ST.Diplo.Requirements.Ceasefire".Translate(Props.minSocialCeasefire, Props.rankLabelCeasefire), MessageTypeDefOf.RejectInput); 
@@ -208,11 +208,11 @@ namespace YASTM
 
             Messages.Message("ST.Diplo.Ceasefire.Success".Translate(f.NameColored), parent, MessageTypeDefOf.PositiveEvent);
 
-            // KARRIERE PUNKTE VERGEBEN
+            //  set career points
             var career = officer.TryGetComp<CompCareer>();
             if (career != null)
             {
-                // Friedensverträge sind "große" diplomatische Erfolge
+
                 career.AddCareerPoint("DiplomacyCeasefire", 1);
                 MoteMaker.ThrowText(officer.DrawPos, officer.Map, "+Peacemaker", 3f);
             }

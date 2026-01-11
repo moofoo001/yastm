@@ -36,13 +36,13 @@ namespace ST.PhaseWeapons
             Scribe_Values.Look(ref mode, "mode", PhaserFireMode.Kill);
         }
 
-        // --- REFLECTION HELPER (Linux Kompatibilität) ---
+        // --- REFLECTION HELPER linux_guy: ---
         private static FieldInfo disabledField;
         private void SetGizmoDisabled(Gizmo g, bool val)
         {
             if (disabledField == null)
             {
-                // Sucht das Feld, egal ob public oder protected
+           
                 disabledField = typeof(Gizmo).GetField("disabled", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
             }
             if (disabledField != null)

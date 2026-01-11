@@ -8,7 +8,7 @@ namespace ST.PhaseWeapons
     {
         static Startup()
         {
-            // Debugging aktivieren!
+            // debug mode
             Harmony.DEBUG = true; 
             
             Log.Message("[YASTM] Initializing Harmony...");

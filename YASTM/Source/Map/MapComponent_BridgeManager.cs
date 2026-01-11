@@ -21,7 +21,7 @@ namespace YASTM.Source.Map
         {
             base.MapComponentTick();
             
-            // Check alle 2 Sekunden (120 Ticks)
+            // periodic check
             tickCounter++;
             if (tickCounter >= 120) 
             {
@@ -61,7 +61,6 @@ namespace YASTM.Source.Map
                 {
                     Messages.Message("ST_BridgeSynergyOnline".Translate(), MessageTypeDefOf.PositiveEvent);
                 }
-                // Optional: Meldung bei Verlust
                 // else { Messages.Message("ST_BridgeSynergyLost".Translate(), MessageTypeDefOf.NegativeEvent); }
             }
         }
@@ -73,10 +72,9 @@ namespace YASTM.Source.Map
             if (Find.CurrentMap != map) return;
             if (Find.World != null && Find.World.renderer.wantedMode != WorldRenderMode.None) return;
 
-            // Nur zeichnen, wenn aktiv
+            // draw icon if active
             if (bridgeSynergyActive)
             {
-                // UI Positionierung (Unten rechts)
                 float iconSize = 48f;
                 Rect rect = new Rect(Verse.UI.screenWidth - 250f, Verse.UI.screenHeight - 140f, iconSize, iconSize);
 

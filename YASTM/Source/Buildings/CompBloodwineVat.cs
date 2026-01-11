@@ -170,7 +170,7 @@ namespace YASTM
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            if (!(t is Building)) return false; // Streng genommen kein WorkTable, also Building
+            if (!(t is Building)) return false; 
             
             var comp = t.TryGetComp<CompBloodwineVat>();
             if (comp == null || comp.Fermented || comp.Full) return false;

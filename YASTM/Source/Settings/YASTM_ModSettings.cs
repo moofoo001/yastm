@@ -33,7 +33,7 @@ namespace YASTM
         // --- Force Field (NEU) ---
         public int   forceFieldRadius = 8;                 // 2..20 (tiles)
         public int   forceFieldRefreshTicks = 60;          // 10..600 (ticks)
-        public bool  forceFieldHostilesOnly = false;       // nur Feinde verlangsamen?
+        public bool  forceFieldHostilesOnly = false;       // only block hostiles
 
         public override void ExposeData()
         {

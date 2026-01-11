@@ -7,14 +7,14 @@ namespace YASTM
 {
     public static class TransporterPadUtil
     {
-        // Altes Helper (kann bleiben für Abwärtskompatibilität, oder wir nutzen nur den neuen)
+        // gets the first linked pad (if any)
         public static bool TryGetLinkedPad(Building console, out Building pad)
         {
             pad = GetLinkedPads(console).FirstOrDefault();
             return pad != null;
         }
 
-        // NEU: Gibt alle aktiven, verbundenen Pads zurück
+        // gets all linked pads (up to maxCount)
         public static List<Building> GetLinkedPads(Building console, int maxCount = 5)
         {
             List<Building> pads = new List<Building>();
@@ -25,7 +25,7 @@ namespace YASTM
 
             foreach (var thing in caf.LinkedFacilitiesListForReading)
             {
-                // Limit check (z.B. max 5 Pads pro Konsole)
+                // Limit check max pads
                 if (pads.Count >= maxCount) break;
 
                 if (thing is not Building b) continue;

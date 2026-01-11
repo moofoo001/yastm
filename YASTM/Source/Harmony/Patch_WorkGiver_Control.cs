@@ -10,12 +10,12 @@ namespace YASTM.Source.HarmonyPatches
     [HarmonyPatch(typeof(WorkGiver_DoBill), "JobOnThing")]
     public static class Patch_WorkGiver_Control
     {
-        // Wir nutzen einen Timer, um das Log nicht zu fluten (nur alle 100 Aufrufe)
+        // Debug counter to limit log spam
         private static int debugCounter = 0;
 
         public static void Postfix(Pawn pawn, Thing thing, bool forced, ref Job __result)
         {
-            // Wenn schon kein Job da ist, brauchen wir nichts tun
+            // If no job is assigned, nothing to do
             if (__result == null) return;
 
             // --- REPLIKATOR CHECK ---
@@ -28,7 +28,7 @@ namespace YASTM.Source.HarmonyPatches
                  
                  if (linkComp != null)
                  {
-                     // Debugging alle paar Ticks, damit das Log lesbar bleibt
+                     // Debugging: Log every 100th check when forced
                      bool doDebug = (debugCounter++ % 100 == 0) && forced; 
 
                      if (doDebug) Log.Message($"[YASTM DEBUG] Replicator Check for {pawn.Name.ToStringShort}: Found {linkComp.LinkedFacilitiesListForReading.Count} facilities.");
@@ -59,10 +59,10 @@ namespace YASTM.Source.HarmonyPatches
 
                  if (!hasFuel) 
                  {
-                     // Job blockieren
+                     // Block the job
                      __result = null;
                      
-                     // Dem Spieler sagen, warum (wenn er den Pawn zwingt/Rechtsklick macht)
+                     // Log reason if forced
                      if (forced)
                      {
                          JobFailReason.Is("Replicator Error: " + failReason);

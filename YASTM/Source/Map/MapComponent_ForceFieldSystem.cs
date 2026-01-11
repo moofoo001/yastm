@@ -60,7 +60,7 @@ namespace YASTM
                     FleckMaker.Static(cell, map, fleck, 0.8f);
             }
 
-            // Rand-Schimmer: 3-5 kurze Wellen direkt am Radius
+            // Visual Effect at Edge
             var ripple = DefDatabase<FleckDef>.GetNamedSilentFail("ST_Fleck_FieldRipple");
             if (ripple != null)
             {
@@ -77,7 +77,7 @@ namespace YASTM
             }
         }
 
-        // ---- Static API für Comps ----
+        // ---- Static API 
         public static void Register(CompForceFieldEmitter em)
         {
             var m = em.parent.Map;

@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using Verse;
-// WICHTIG: Hier laden wir unsere Quest-Klassen
 using YASTM.Source.Quest; 
 
-// FIX: Namespace angepasst (war StarTrekFactions)
 namespace YASTM.Source.Systems
 {
     public class GameComponent_QuestWatchers : GameComponent

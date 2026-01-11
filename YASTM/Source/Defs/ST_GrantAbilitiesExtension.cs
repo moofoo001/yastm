@@ -4,10 +4,10 @@ using RimWorld;
 
 namespace YASTM
 {
-    // Diese Extension erlaubt es uns, Abilities direkt an einem TraitDef zu definieren.
+    //ability def extension to grant abilities via traits
     public class ST_GrantAbilitiesExtension : DefModExtension
     {
-        // Liste der Fähigkeiten, die dieser Trait gewährt
+        // List of abilities to grant
         public List<AbilityDef> abilities = new List<AbilityDef>();
     }
 }

@@ -6,10 +6,10 @@ using Verse;
 namespace YASTM.Research
 {
     /// <summary>
-    /// ModExtension für ResearchProjectDefs:
-    /// bindet Forschung an bestimmte Memes (required / disallowed).
+    /// ModExtension for ResearchProjectDefs:
+    /// bind to faction (required / disallowed).
     /// 
-    /// XML-Beispiel:
+    /// XML-example
     /// <modExtensions>
     ///   <li Class="YASTM.Research.ResearchRequiresMemeExtension">
     ///     <requiredMemes>
@@ -25,9 +25,7 @@ namespace YASTM.Research
     }
 
     /// <summary>
-    /// Patch auf ResearchProjectDef.CanStartNow (Getter):
-    /// Falls ein Projekt die Extension hat, wird geprüft, ob die
-    /// Player-Ideo passende Memes hat.
+    /// Patch to enforce meme requirements for research projects.
     /// </summary>
     [HarmonyPatch(typeof(ResearchProjectDef), nameof(ResearchProjectDef.CanStartNow), MethodType.Getter)]
     public static class Research_IdeoLock_Patch
@@ -35,7 +33,7 @@ namespace YASTM.Research
         [HarmonyPostfix]
         public static void CanStartNow_Postfix(ResearchProjectDef __instance, ref bool __result)
         {
-            // Vanilla blockt schon? -> wir lassen es so.
+            // already false -> no need to check further
             if (!__result)
                 return;
 
@@ -50,7 +48,7 @@ namespace YASTM.Research
                 return;
             }
 
-            // requiredMemes: alle müssen vorhanden sein
+            // requiredMemes: all must be present
             if (ext.requiredMemes != null)
             {
                 foreach (string defName in ext.requiredMemes)
@@ -67,7 +65,7 @@ namespace YASTM.Research
                 }
             }
 
-            // disallowedMemes: irgendeins vorhanden -> blockieren
+            // disallowedMemes: none must be present
             if (ext.disallowedMemes != null)
             {
                 foreach (string defName in ext.disallowedMemes)

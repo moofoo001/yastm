@@ -10,8 +10,8 @@ namespace YASTM
         public int maxTicks = 24000;        // 0.4 Tage
         public float severity = 0f;         // optional
         public int minMedicalSkill = 0;     // optional
-        public bool requireTalking = true;  // Sprechfähigkeit nötig?
-        public bool destroyOnUse = true;    // <— NEU: ein Exemplar verbrauchen
+        public bool requireTalking = true;  // pawn must be able to talk
+        public bool destroyOnUse = true;    // destroy item after use
 
         public CompProperties_UseHediffTimed()
         {

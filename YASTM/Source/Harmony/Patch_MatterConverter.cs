@@ -20,22 +20,22 @@ namespace YASTM.Source.HarmonyPatches
                 billGiver = __args.FirstOrDefault(x => x is IBillGiver) as IBillGiver;
             }
 
-            // Wir prüfen auf den Standard CompRefuelable
+            // check if the billGiver is a Matter Converter
             if (billGiver is Thing thing && thing.def.defName == "ST_MatterConverter")
             {
                 var tank = thing.TryGetComp<CompRefuelable>();
                 
                 if (tank != null)
                 {
-                    // ALLES was hier produziert wird, landet im Tank
+                    // Fill the tank with the produced matter
                     foreach (var p in inputs)
                     {
-                        // RimWorld Standard-Methode zum Auffüllen
+                        // Refuel the tank with the produced item
                         tank.Refuel(p.stackCount);
                     }
 
-                    // WICHTIG: Wir geben nichts zurück (yield break).
-                    // Das Item wird dadurch "gelöscht" und existiert nur noch als Zahl im Tank.
+
+                    // Remove the produced items from output
                     yield break; 
                 }
             }
