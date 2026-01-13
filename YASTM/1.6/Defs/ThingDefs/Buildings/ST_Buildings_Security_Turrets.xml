@@ -5,11 +5,16 @@
     <defName>ST_Turret_Phaser</defName>
     <label>phaser phalanx</label>
     <thingClass>Building_TurretGun</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <tickerType>Normal</tickerType>
     <graphicData>
-      <texPath>Things/Building/OpsSecurity/TurretPhaser_Base</texPath>
+      <texPath>Things/Building/OpsSecurity/Turret_Base</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(1.5,1.5)</drawSize>
+      <color>(0.8, 0.8, 0.8)</color> <!-- slight blue tint -->
     </graphicData>
+    <uiIconScale>0.8</uiIconScale>
+    <uiIconPath>Things/Building/OpsSecurity/TurretPhaser_Top</uiIconPath>
     <fillPercent>0.4</fillPercent>
     <statBases>
       <MaxHitPoints>250</MaxHitPoints>
@@ -32,8 +37,7 @@
     <building>
       <turretGunDef>ST_Gun_PhaserTurret</turretGunDef>
       <turretBurstCooldownTime>1.5</turretBurstCooldownTime>
-      <turretTopDrawSize>4</turretTopDrawSize>
-      <turretBurstWarmupTime>4</turretBurstWarmupTime>
+      <turretTopDrawSize>2</turretTopDrawSize>
       <ai_combatDangerous>true</ai_combatDangerous>
     </building>
     <designationCategory>ST_Designation</designationCategory>
@@ -102,11 +106,15 @@
     <label>disruptor cannon</label>
     <thingClass>Building_TurretGun</thingClass>
     <tickerType>Normal</tickerType>
+    <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
-      <texPath>Things/Building/OpsSecurity/TurretDisruptor_Base</texPath>
+      <texPath>Things/Building/OpsSecurity/Turret_Base</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(2,2)</drawSize>
+      <drawSize>(1.5,1.5)</drawSize>
+      <color>(0.8, 0.2, 0.4, 0.8)</color> <!-- slight purple tint -->
     </graphicData>
+    <uiIconScale>0.8</uiIconScale>
+    <uiIconPath>Things/Building/OpsSecurity/TurretDisruptor_Top</uiIconPath>
     <fillPercent>0.6</fillPercent>
     <statBases>
       <MaxHitPoints>350</MaxHitPoints>
@@ -178,7 +186,7 @@
       <shaderType>TransparentPostLight</shaderType>
       <color>(0, 255, 0)</color>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>2.0</drawSize>
+      <drawSize>1</drawSize>
     </graphicData>
     <projectile>
       <damageDef>Bomb</damageDef>
@@ -192,11 +200,16 @@
     <defName>ST_Turret_Plasma</defName>
     <label>plasma mortar turret</label>
     <thingClass>Building_TurretGun</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <tickerType>Normal</tickerType>
     <graphicData>
-      <texPath>Things/Building/OpsSecurity/TurretPlasma_Base</texPath>
+      <texPath>Things/Building/OpsSecurity/Turret_Base</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(2,2)</drawSize>
+      <drawSize>(1.5,1.5)</drawSize>
+      <color>(0.5, 1, 0.5)</color> <!-- slight green tint -->
     </graphicData>
+    <uiIconScale>0.8</uiIconScale>
+    <uiIconPath>Things/Building/OpsSecurity/TurretPlasma_Top</uiIconPath>
     <statBases>
       <MaxHitPoints>200</MaxHitPoints>
       <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
@@ -240,7 +253,8 @@
         <verbClass>Verb_Shoot</verbClass>
         <defaultProjectile>ST_Bullet_PlasmaTurret</defaultProjectile>
         <warmupTime>2.5</warmupTime>
-        <range>40.9</range> <forcedMissRadius>1.9</forcedMissRadius>
+        <range>40.9</range>
+        <forcedMissRadius>1.9</forcedMissRadius>
         <burstShotCount>1</burstShotCount>
         <targetParams>
            <canTargetLocations>true</canTargetLocations>
@@ -259,7 +273,7 @@
     <label>plasma glob</label>
     <thingClass>Projectile_Explosive</thingClass>
     <graphicData>
-      <texPath>Things/Projectile/LauncherShot</texPath>
+      <texPath>Things/Projectile/PlasmaShot</texPath>
       <color>(0, 255, 100)</color>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_ShuttleBay_Federation</defName>
+    <label>shuttle bay</label>
+    <description>A reinforced landing pad equipped with refueling lines and diagnostic computers. Capable of launching Type-6 shuttlecrafts for long-range away missions.</description>
+    <thingClass>Building_PodLauncher</thingClass> <graphicData>
+      <texPath>Things/Building/Transport/ShuttleBay_Fed</texPath> <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <size>(3,3)</size>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>0</pathCost> <fillPercent>0.3</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <statBases>
+      <MaxHitPoints>500</MaxHitPoints>
+      <WorkToBuild>2500</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <costList>
+      <Steel>400</Steel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+      <Chemfuel>100</Chemfuel> </costList>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0</fuelConsumptionRate>
+        <fuelCapacity>500.0</fuelCapacity> <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li> </thingDefs>
+        </fuelFilter>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <showFuelGizmo>true</showFuelGizmo>
+        <initialFuelPercent>1</initialFuelPercent>
+        <autoRefuelPercent>1</autoRefuelPercent>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>150</basePowerConsumption>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>PlaceWorker_NotUnderRoof</li>
+    </placeWorkers>
+    <designationCategory>Transport</designationCategory>
+    <researchPrerequisites>
+      <li>TransportPod</li> </researchPrerequisites>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_ShuttleCraft_Type6</defName>
+    <label>Type-6 Shuttlecraft</label>
+    <description>A short-range auxiliary vehicle capable of atmospheric flight. Can carry a full away team and heavy equipment.</description>
+    <thingClass>Building_SteamGeyser</thingClass> <graphicData>
+      <texPath>Things/Building/Transport/ShuttleType6</texPath> <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2.5,2.5)</drawSize> 
+      <shadowData>
+        <volume>(2, 0.5, 2)</volume>
+      </shadowData>
+    </graphicData>
+    <size>(1,1)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <castEdgeShadows>false</castEdgeShadows>
+    <statBases>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <WorkToBuild>0</WorkToBuild> <Flammability>0</Flammability>
+    </statBases>
+    <costList>
+      <Steel>1</Steel> 
+    </costList>
+    <comps>
+      <li Class="CompProperties_Launchable">
+        <skyfallerLeaving>ST_Shuttle_Leaving</skyfallerLeaving> </li>
+    </comps>
+  </ThingDef>
+
+
+  <ThingDef ParentName="SkyfallerBase">
+    <defName>ST_Shuttle_Leaving</defName>
+    <label>shuttle taking off</label>
+    <graphicData>
+      <texPath>Things/Building/Transport/ShuttleType6_Flying</texPath> <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2.5,2.5)</drawSize>
+    </graphicData>
+    <skyfaller>
+      <movementType>Decelerate</movementType>
+      <shadow>Things/Skyfaller/SkyfallerShadowDropPod</shadow>
+      <shadowSize>(2, 2)</shadowSize>
+      <anticipationSound>LaunchPod_Launch</anticipationSound> <anticipationSoundTicks>20</anticipationSoundTicks>
+      <motesPerCell>0</motesPerCell>
+    </skyfaller>
+  </ThingDef>
+
+  <ThingDef ParentName="SkyfallerBase">
+    <defName>ST_Shuttle_Incoming</defName>
+    <label>shuttle landing</label>
+    <graphicData>
+      <texPath>Things/Building/Transport/ShuttleType6_Flying</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2.5,2.5)</drawSize>
+    </graphicData>
+    <skyfaller>
+      <movementType>Decelerate</movementType>
+      <shadow>Things/Skyfaller/SkyfallerShadowDropPod</shadow>
+      <shadowSize>(2, 2)</shadowSize>
+      <anticipationSound>DropPod_Fall</anticipationSound>
+      <impactSound>DropPod_Impact</impactSound>
+      <motesPerCell>0</motesPerCell>
+    </skyfaller>
+  </ThingDef>
+
+</Defs>

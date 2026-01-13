@@ -145,7 +145,9 @@ namespace YASTM
             Pawn prisoner = FindPrisoner(pawn);
             if (prisoner != null)
             {
-                return JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("ST_Job_MindSift"), t, prisoner);
+                Job job = JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("ST_Job_MindSift"), t, prisoner);
+                job.count = 1;
+                return job;
             }
             return null;
         }
