@@ -31,7 +31,7 @@
       <drawSize>(2.5,2.5)</drawSize>
     </graphicData>
   <defaultPlacingRot>South</defaultPlacingRot>
-
+  <uiIconScale>0.8</uiIconScale>
   <statBases>
     <Mass>15</Mass>
     <MaxHitPoints>120</MaxHitPoints>

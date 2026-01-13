@@ -37,6 +37,7 @@
         <volume>(2.5, 1.0, 2.5)</volume>
       </shadowData>
     </graphicData>
+    <uiIconScale>0.8</uiIconScale>
     <size>(3,3)</size>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
@@ -59,6 +60,10 @@
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
       <li Class="YASTM.CompProperties_CloakingField" />
+      <li Class="CompProperties_Glower">
+        <glowRadius>10</glowRadius>
+        <glowColor>(50,100,1,0)</glowColor> <!-- greenish glow -->
+      </li> 
     </comps>
     <designationCategory>ST_Designation</designationCategory>
     <researchPrerequisites>

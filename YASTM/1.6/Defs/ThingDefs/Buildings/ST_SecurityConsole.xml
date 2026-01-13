@@ -106,6 +106,7 @@
       <shaderType>CutoutComplex</shaderType>
       <drawSize>(1.5,1.5)</drawSize>
     </graphicData>
+    <uiIconScale>0.8</uiIconScale>
     <altitudeLayer>Building</altitudeLayer>
     <size>(1,1)</size>
     <selectable>true</selectable>

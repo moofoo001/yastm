@@ -10,7 +10,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2.5,2.5)</drawSize>
     </graphicData>
-    
+    <uiIconScale>0.8</uiIconScale>
     <size>(2,2)</size>
     <rotatable>true</rotatable>
     <altitudeLayer>Building</altitudeLayer>

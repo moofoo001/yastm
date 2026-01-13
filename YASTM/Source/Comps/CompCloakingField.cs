@@ -7,10 +7,7 @@ namespace YASTM
 {
     public class CompCloakingField : ThingComp
     {
-        // cloak active state
         private bool isCloakActive = true;
-
-        // radius of the cloaking field
         private const float FieldRadius = 50f; 
 
         public CompProperties_CloakingField Props => (CompProperties_CloakingField)props;
@@ -18,11 +15,9 @@ namespace YASTM
         public override void PostExposeData()
         {
             base.PostExposeData();
-            // store the active state
             Scribe_Values.Look(ref isCloakActive, "isCloakActive", true);
         }
 
-        // 1. Gizmo
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             foreach (Gizmo g in base.CompGetGizmosExtra())
@@ -30,49 +25,38 @@ namespace YASTM
                 yield return g;
             }
 
-            // if player faction, show toggle
             if (parent.Faction == Faction.OfPlayer)
             {
                 yield return new Command_Toggle
                 {
-                    defaultLabel = "ST_CloakToggle".Translate(), // "Cloaking Field"
-                    defaultDesc = "ST_CloakToggleDesc".Translate(), // "activate or deactivate..."
-                    icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/RomulanCloak", true), 
+                    defaultLabel = "ST_CloakToggle".Translate(),
+                    defaultDesc = "ST_CloakToggleDesc".Translate(),
+                    icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/RomulanCloak", true),
                     isActive = () => isCloakActive,
                     toggleAction = () => { isCloakActive = !isCloakActive; }
                 };
             }
         }
 
-        // status string
         public override string CompInspectStringExtra()
         {
-            if (!isCloakActive)
-            {
-                return "ST_CloakStatus_Disabled".Translate(); // "Cloaking: Disabled"
-            }
+            if (!isCloakActive) return "ST_CloakStatus_Disabled".Translate();
             
             CompPowerTrader power = parent.GetComp<CompPowerTrader>();
-            if (power != null && !power.PowerOn)
-            {
-                return "ST_CloakStatus_NoPower".Translate(); // "Cloaking: Offline (No Power)"
-            }
+            if (power != null && !power.PowerOn) return "ST_CloakStatus_NoPower".Translate();
 
-            return "ST_CloakStatus_Active".Translate(); // "Cloaking: ACTIVE"
+            return "ST_CloakStatus_Active".Translate();
         }
 
-        // visual radius overlay
         public override void PostDrawExtraSelectionOverlays()
         {
             base.PostDrawExtraSelectionOverlays();
             if (isCloakActive)
             {
-                // draw radius
                 GenDraw.DrawRadiusRing(parent.Position, FieldRadius, Color.green);
             }
         }
 
-        // timer tick
         public override void CompTickRare()
         {
             base.CompTickRare();
@@ -82,15 +66,16 @@ namespace YASTM
             CompPowerTrader power = parent.GetComp<CompPowerTrader>();
             if (power == null || !power.PowerOn || parent.IsBrokenDown()) return;
 
-            // effect visuals
+            // visual effect
             FleckMaker.ThrowLightningGlow(parent.DrawPos, parent.Map, 3.0f);
             
+            // effects
             if (Rand.Chance(0.1f)) 
             {
-                MoteMaker.ThrowMetaIcon(parent.Position, parent.Map, ThingDefOf.Mote_PowerBeam);
+                FleckMaker.ThrowMicroSparks(parent.DrawPos, parent.Map);
             }
 
-            // for each hostile pawn in radius, apply jammer hediff
+            // logic effect
             IReadOnlyList<Pawn> pawns = parent.Map.mapPawns.AllPawnsSpawned;
             HediffDef jammerDef = HediffDef.Named("ST_CloakInterference");
 
@@ -103,7 +88,7 @@ namespace YASTM
                     {
                         p.health.AddHediff(jammerDef);
                         
-                        // optional text mote
+                        // feedback
                         if (p.IsHashIntervalTick(250)) 
                         {
                             MoteMaker.ThrowText(p.DrawPos, p.Map, "Jammed", Color.green); 
@@ -118,7 +103,6 @@ namespace YASTM
         }
     }
 
-    // properties class
     public class CompProperties_CloakingField : CompProperties
     {
         public CompProperties_CloakingField()

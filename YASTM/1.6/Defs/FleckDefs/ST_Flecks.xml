@@ -149,13 +149,13 @@
       <graphicData>
         <texPath>Things/Mote/BrightFlash</texPath>
         <shaderType>MoteGlow</shaderType>
-        <color>(0.4, 0.9, 1.0, 0.6)</color>
-        <drawSize>3.5</drawSize> </graphicData>
+        <color>(0.4, 0.9, 1.0, 0.2)</color>
+        <drawSize>1</drawSize> </graphicData>
         <altitudeLayer>MoteOverhead</altitudeLayer>
-        <fadeInTime>0.2</fadeInTime>
+        <fadeInTime>0.8</fadeInTime>
         <solidTime>0.4</solidTime>
         <fadeOutTime>0.8</fadeOutTime>
-        <growthRate>1.5</growthRate>
+        <growthRate>2</growthRate>
   </FleckDef>
 
   <FleckDef ParentName="FleckBase_Thrown">
