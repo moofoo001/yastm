@@ -17,7 +17,7 @@
       </shadowData>
     </graphicData>
     <size>(2,2)</size>
-
+    <uiIconScale>0.8</uiIconScale>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
