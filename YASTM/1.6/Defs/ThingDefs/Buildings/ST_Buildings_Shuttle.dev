@@ -44,7 +44,7 @@
     <placeWorkers>
       <li>PlaceWorker_NotUnderRoof</li>
     </placeWorkers>
-    <designationCategory>Transport</designationCategory>
+    <designationCategory>ST_Designation</designationCategory>
     <researchPrerequisites>
       <li>TransportPod</li> </researchPrerequisites>
   </ThingDef>

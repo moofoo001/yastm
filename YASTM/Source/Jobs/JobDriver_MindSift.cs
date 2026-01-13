@@ -103,7 +103,10 @@ namespace YASTM
                 
                 if (bed != null)
                 {
-                    pawn.jobs.jobQueue.EnqueueFirst(JobMaker.MakeJob(JobDefOf.EscortPrisonerToBed, Prisoner, bed));
+                    // HIER IST DIE ÄNDERUNG:
+                    Job escortJob = JobMaker.MakeJob(JobDefOf.EscortPrisonerToBed, Prisoner, bed);
+                    escortJob.count = 1; // Auch der Folge-Job braucht das!
+                    pawn.jobs.jobQueue.EnqueueFirst(escortJob);
                 }
                 else
                 {

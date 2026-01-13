@@ -36,7 +36,7 @@
       </li>
       <li Class="CompProperties_Flickable"/>
     </comps>
-    <designationCategory>Misc</designationCategory>
+    <designationCategory>ST_Designation</designationCategory>
     <researchPrerequisites>
       <li>Romulan_TechDoctrine</li>
     </researchPrerequisites>
