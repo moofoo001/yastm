@@ -4,7 +4,8 @@
   <ThingDef ParentName="ResourceBase">
     <defName>ST_DilithiumCrystal</defName>
     <label>dilithium crystal</label>
-    <description>A rare crystalline mineral with a periodic atomic structure that allows electromagnetic energy to flow through it without resistance. Essential for regulating matter/antimatter reactions in warp cores.</description>
+    <description>A raw crystalline mineral with a periodic atomic structure that allows electromagnetic energy to flow through it without resistance.\n\n
+    Can be turned into refined dilithium crystals using a fabrication bench.</description>
     <graphicData>
         <texPath>Things/Item/Resource/ST_RawDilithium</texPath>
         <graphicClass>Graphic_StackCount</graphicClass>
