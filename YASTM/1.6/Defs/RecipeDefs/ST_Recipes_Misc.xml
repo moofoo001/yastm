@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+
+
+  <RecipeDef>
+    <defName>ST_RefineDilithium</defName>
+    <label>refine dilithium</label>
+    <description>Process raw dilithium crystals into a stable form suitable for warp cores.</description>
+    <jobString>Refining dilithium.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>1000</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ST_DilithiumCrystal</li> </thingDefs>
+        </filter>
+        <count>10</count> </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>ST_DilithiumCrystal</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <ST_Dilithium_Refined>5</ST_Dilithium_Refined> </products>
+    <recipeUsers>
+      <li>FabricationBench</li> 
+    </recipeUsers>
+    <researchPrerequisites>
+      <li>ST_MatterConversion_Tech</li>
+    </researchPrerequisites>
+  </RecipeDef>
+
     <RecipeDef>
       <defName>ST_Make_Bloodwine_Must</defName>
       <label>stomp serpent worms</label>

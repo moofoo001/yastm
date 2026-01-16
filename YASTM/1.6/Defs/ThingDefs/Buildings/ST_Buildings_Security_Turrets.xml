@@ -15,7 +15,8 @@
     </graphicData>
     <uiIconScale>0.8</uiIconScale>
     <uiIconPath>Things/Building/OpsSecurity/TurretPhaser_Top</uiIconPath>
-    <fillPercent>0.4</fillPercent>
+    <uiOrder>1</uiOrder>
+
     <statBases>
       <MaxHitPoints>250</MaxHitPoints>
       <ShootingAccuracyTurret>0.98</ShootingAccuracyTurret>
@@ -41,6 +42,7 @@
       <ai_combatDangerous>true</ai_combatDangerous>
     </building>
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Security_Group</designatorDropdown>
     <researchPrerequisites>
         <li>ST_Federation_Phaser_Rifle</li>
         <li>ST_UFP_Engineering_III</li>
@@ -115,7 +117,8 @@
     </graphicData>
     <uiIconScale>0.8</uiIconScale>
     <uiIconPath>Things/Building/OpsSecurity/TurretDisruptor_Top</uiIconPath>
-    <fillPercent>0.6</fillPercent>
+    <uiOrder>2</uiOrder>
+
     <statBases>
       <MaxHitPoints>350</MaxHitPoints>
       <ShootingAccuracyTurret>0.90</ShootingAccuracyTurret>
@@ -145,6 +148,7 @@
       <ai_combatDangerous>true</ai_combatDangerous>
     </building>
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Security_Group</designatorDropdown>
     <researchPrerequisites>
         <li>Klingon_AdvancedWarfare</li>
         <li>ST_Klingon_Disruptor_Heavy</li>
@@ -210,6 +214,7 @@
     </graphicData>
     <uiIconScale>0.8</uiIconScale>
     <uiIconPath>Things/Building/OpsSecurity/TurretPlasma_Top</uiIconPath>
+    <uiOrder>3</uiOrder>
     <statBases>
       <MaxHitPoints>200</MaxHitPoints>
       <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
@@ -231,6 +236,7 @@
       <turretBurstCooldownTime>5.0</turretBurstCooldownTime>
     </building>
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Security_Group</designatorDropdown>
     <researchPrerequisites>
         <li>ST_Romulan_Plasma_III</li>
         <li>Romulan_TechDoctrine</li>

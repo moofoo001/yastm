@@ -10,22 +10,18 @@
         <graphicClass>Graphic_StackCount</graphicClass>
       <drawSize>0.8</drawSize>
     </graphicData>
-
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Metal_Drop</soundDrop>
-    
     <stackLimit>75</stackLimit>
     <statBases>
       <MarketValue>500</MarketValue> 
       <Mass>0.5</Mass>
       <Flammability>0.0</Flammability>
       <DeteriorationRate>0</DeteriorationRate> </statBases>
-
     <thingCategories>
       <li>ResourcesRaw</li>
     </thingCategories>
     <deepCommonality>0.05</deepCommonality>
-   
     <deepCountPerPortion>2</deepCountPerPortion>
     <deepLumpSizeRange>2~10</deepLumpSizeRange>
     <tradeTags>
@@ -33,4 +29,31 @@
       <li>QuestReward</li> 
     </tradeTags>
   </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_Dilithium_Refined</defName>
+    <label>refined dilithium</label>
+    <description>Dilithium crystals that have been structured and polished to regulate matter/antimatter reactions.</description>
+    <graphicData>
+        <texPath>Things/Item/Resource/ST_Dilithium</texPath>
+        <graphicClass>Graphic_StackCount</graphicClass>
+        <drawSize>0.8</drawSize>
+      <color>(255, 180, 200)</color> 
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <stackLimit>75</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MarketValue>50</MarketValue> <Mass>0.5</Mass>
+      <Flammability>0.0</Flammability> </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+  </ThingDef>
+
+
 </Defs>

@@ -19,6 +19,7 @@
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.5</fillPercent>
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Consoles_Group</designatorDropdown>
     <minifiedDef>MinifiedThing</minifiedDef>
     <thingCategories>
       <li>BuildingsMisc</li>
@@ -86,6 +87,7 @@
     <altitudeLayer>FloorEmplacement</altitudeLayer>
     <passability>Standable</passability>
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Consoles_Group</designatorDropdown>
     <costList>
       <Steel>25</Steel>
       <ComponentIndustrial>1</ComponentIndustrial>

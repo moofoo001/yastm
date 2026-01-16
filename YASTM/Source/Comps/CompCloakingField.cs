@@ -70,9 +70,9 @@ namespace YASTM
             FleckMaker.ThrowLightningGlow(parent.DrawPos, parent.Map, 3.0f);
             
             // effects
-            if (Rand.Chance(0.1f)) 
+            if (Rand.Chance(0.5f))
             {
-                FleckMaker.ThrowMicroSparks(parent.DrawPos, parent.Map);
+                FleckMaker.ThrowHeatGlow(parent.Position, parent.Map, 1.5f);
             }
 
             // logic effect

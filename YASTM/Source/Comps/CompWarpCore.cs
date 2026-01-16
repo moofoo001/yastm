@@ -149,7 +149,7 @@ namespace YASTM
                 isActive = () => ejectionSequenceActive,
                 toggleAction = () => 
                 {
-                    // Schalter umlegen
+                    // toggle state
                     ejectionSequenceActive = !ejectionSequenceActive;
                     
                     if (ejectionSequenceActive)

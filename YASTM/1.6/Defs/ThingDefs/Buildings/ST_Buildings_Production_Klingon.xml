@@ -33,6 +33,7 @@
       <li Class="YASTM.CompProperties_BloodwineVat" />
     </comps>
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_PowerandProduction_Group</designatorDropdown>
     <researchPrerequisites>
       <li>Brewing</li>
       <li>Klingon_Standard</li>

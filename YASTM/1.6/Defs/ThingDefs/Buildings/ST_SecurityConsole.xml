@@ -84,6 +84,7 @@
     <uiOrder>2006</uiOrder>
     <soundInteract>ST_SFX_LCARS_Click</soundInteract>
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Consoles_Group</designatorDropdown>
     <researchPrerequisites>
       <li>ST_Emitter_Tech</li>
     </researchPrerequisites>
@@ -149,6 +150,7 @@
     </placeWorkers>
     <uiOrder>2002</uiOrder>
   <designationCategory>ST_Designation</designationCategory>
+  <designatorDropdown>ST_Security_Group</designatorDropdown>
     <researchPrerequisites>
       <li>ST_Emitter_Tech</li>
     </researchPrerequisites>
@@ -158,6 +160,78 @@
     </costList>
     <constructEffect>ConstructMetal</constructEffect>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+  </ThingDef>
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_AlertPanel</defName>
+    <label>alert panel</label>
+    <description>Wall-mounted alert control panel with Red and Yellow alert toggles.</description>
+
+    <thingClass>Building</thingClass>
+    <size>(1,1)</size>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <rotatable>true</rotatable>
+    <selectable>true</selectable>
+    <fillPercent>0.1</fillPercent>
+    <pathCost>0.1</pathCost>
+    <passability>PassThroughOnly</passability>
+    <uiIconPath>Things/Building/OpsSecurity/AlertPanel</uiIconPath>
+
+  <graphicData>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <texPath>Things/Building/OpsSecurity/AlertPanel</texPath>
+      <drawSize>(3,3)</drawSize>
+      <drawOffsetNorth>(0,0,-0.2)</drawOffsetNorth>
+      <drawOffsetSouth>(0,0,0.2)</drawOffsetSouth>
+      <drawOffsetWest>(0.45,0,0)</drawOffsetWest>
+      <drawOffsetEast>(-0.45,0,0)</drawOffsetEast>
+      <damageData>
+          <enabled>false</enabled>
+      </damageData>
+      <color>(1, .7, 0.8, 0.75)</color>   
+    </graphicData>
+
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <WorkToBuild>700</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Mass>8</Mass>
+    </statBases>
+
+    <costList>
+      <Steel>40</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    
+    <tickerType>Normal</tickerType>
+    <comps>
+    <li Class="YASTM.CompProperties_AlertPanel">
+      <redDurationTicks>18000</redDurationTicks>
+      <redCooldownTicks>90000</redCooldownTicks>
+      <yellowDurationTicks>9000</yellowDurationTicks>
+      <yellowCooldownTicks>45000</yellowCooldownTicks>
+      <blinkSeconds>3</blinkSeconds>
+    </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+        <glowColor>(100,100,1,0)</glowColor>
+      </li>
+    </comps>
+    <building>
+		  <isEdifice>false</isEdifice>
+		  <isAttachment>true</isAttachment>
+		</building>
+    <uiOrder>2000</uiOrder>
+    <placeWorkers>
+			<li>Placeworker_AttachedToWall</li>
+		</placeWorkers>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Security_Group</designatorDropdown>
+    <researchPrerequisites>
+      <li>Electricity</li>
+      <li>ST_AlertProtocols</li>
+    </researchPrerequisites>
   </ThingDef>
 
 </Defs>

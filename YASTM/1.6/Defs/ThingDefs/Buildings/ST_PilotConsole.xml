@@ -34,6 +34,7 @@
     <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Consoles_Group</designatorDropdown>
     <hasInteractionCell>true</hasInteractionCell>
     <interactionCellOffset>(0,0,-1)</interactionCellOffset>
     <researchPrerequisites>
@@ -64,7 +65,7 @@
       <failMessage>Access denied. Pilot certification required.</failMessage>
     </li>
   </modExtensions>
-    <uiOrder>2100</uiOrder>
+    <uiOrder>1000</uiOrder>
   </ThingDef>
 
 

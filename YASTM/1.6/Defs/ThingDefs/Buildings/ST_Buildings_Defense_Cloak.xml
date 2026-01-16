@@ -66,6 +66,7 @@
       </li> 
     </comps>
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Security_Group</designatorDropdown>
     <researchPrerequisites>
       <li>Romulan_CloakingSystems</li>
     </researchPrerequisites>

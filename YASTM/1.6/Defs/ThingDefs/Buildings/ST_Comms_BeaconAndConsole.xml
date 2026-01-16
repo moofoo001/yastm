@@ -2,6 +2,145 @@
 <Defs>
 
   <!-- =========================================================
+       STAR TREK COMMS CONSOLE 
+       ========================================================= -->
+  <ThingDef ParentName="BenchBase">
+    <defName>ST_CommsConsole</defName>
+    <label>comms console</label>
+    <description>Starfleet communications console. Requires a linked subspace comms beacon to operate aid, diplomacy and mission control.</description>
+
+    <thingClass>Building_CommsConsole</thingClass>
+    <category>Building</category>
+    <selectable>true</selectable>
+    <rotatable>true</rotatable>
+
+    <graphicData>
+      <texPath>Things/Building/Comms/ST_ComConsole</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2.2,2.8)</drawSize>
+      <shadowData>
+        <volume>(2.2, 0.6, 0.35)</volume>
+      </shadowData>
+    </graphicData>
+
+    <altitudeLayer>Building</altitudeLayer>
+    <holdsRoof>false</holdsRoof>
+    <size>(2,1)</size>
+    <rotatable>true</rotatable>
+
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <passability>PassThroughOnly</passability>
+
+    <costList>
+      <Steel>70</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+
+    <statBases>
+      <WorkToBuild>1800</WorkToBuild>
+      <MaxHitPoints>220</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Mass>45</Mass>
+    </statBases>
+
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Consoles_Group</designatorDropdown>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+    <uiOrder>2005</uiOrder>
+
+    <soundInteract>ST_SFX_LCARS_Click</soundInteract>
+
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>250</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
+
+      <li>
+        <compClass>YASTM.CompUsageRestriction</compClass>
+      </li>
+
+      <!-- Console Link to Comms Beacon -->
+      <li Class="YASTM.CompProperties_ConsoleLink">
+        <linkTags>
+          <li>ST_Link_Comms</li>
+        </linkTags>
+        <maxLinkDistance>25</maxLinkDistance>
+      </li>
+
+      <li Class="YASTM.Comps.CompProperties_CommsGizmo">
+        <contactCooldownDays>7</contactCooldownDays>
+        <aidCooldownDays>7</aidCooldownDays>
+        <maxActiveQuests>2</maxActiveQuests>
+        <questPool>
+          <li>STQ_VE_Obelisks_I_II_Setup</li>
+        </questPool>
+      </li>
+
+      <li Class="StarTrekFactions.Comps.CompProperties_UseEffect_SpawnFarAndSignal">
+        <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
+        <minDist>42</minDist>
+        <maxDist>72</maxDist>
+        <outsideHome>true</outsideHome>
+        <requirePowerOn>true</requirePowerOn>  
+        <thingA>ST_Obelisk_A</thingA>
+        <thingB>ST_Obelisk_B</thingB>
+        <questDefToEnsure>STQ_VE_Obelisks_I_II_Setup</questDefToEnsure>
+      </li>
+
+      <!-- Diplomacy -->
+      <li Class="YASTM.CompProperties_DiplomacyComms">
+        <improveCost>300</improveCost>
+        <improveGoodwill>10</improveGoodwill>
+        <ceasefireCost>800</ceasefireCost>
+        <cooldownDaysImprove>1</cooldownDaysImprove>
+        <cooldownDaysCeasefire>2</cooldownDaysCeasefire>
+        <minSocialImprove>6</minSocialImprove>
+        <minSocialCeasefire>10</minSocialCeasefire>
+      </li>
+
+      <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
+          <role>Ops</role>
+          <mannable>true</mannable>
+      </li>
+    </comps>
+
+<modExtensions>
+    <li Class="YASTM.UsageRestrictionExtension">
+     <requiredTrainingTrait>ST_Training_CommsOfficer</requiredTrainingTrait>
+      <allowedRanks>
+        <li>
+          <rankDef>ST_FederationRank</rankDef>
+          <minDegree>1</minDegree>
+        </li>
+        <li>
+          <rankDef>ST_RomulanRank</rankDef>
+          <minDegree>0</minDegree>
+        </li>
+        <li>
+          <rankDef>ST_KlingonRank</rankDef>
+          <minDegree>1</minDegree>
+        </li>
+        <li>
+          <rankDef>ST_FerengiRank</rankDef>
+          <minDegree>1</minDegree>
+        </li>
+      </allowedRanks>
+      <failMessage>Access Denied</failMessage>
+    </li>
+  </modExtensions>
+
+  </ThingDef>
+  
+  <!-- =========================================================
        STAR TREK COMMS BEACON (Facility)
        ========================================================= 
    -->
@@ -100,148 +239,11 @@
 
   <uiOrder>2002</uiOrder>
   <designationCategory>ST_Designation</designationCategory>
+  <designatorDropdown>ST_Consoles_Group</designatorDropdown>
   <building>
     <isEdifice>false</isEdifice>
   </building>
 
 </ThingDef>
-
-  <!-- =========================================================
-       STAR TREK COMMS CONSOLE 
-       ========================================================= -->
-  <ThingDef ParentName="BenchBase">
-    <defName>ST_CommsConsole</defName>
-    <label>comms console</label>
-    <description>Starfleet communications console. Requires a linked subspace comms beacon to operate aid, diplomacy and mission control.</description>
-
-    <thingClass>Building_CommsConsole</thingClass>
-    <category>Building</category>
-    <selectable>true</selectable>
-    <rotatable>true</rotatable>
-
-    <graphicData>
-      <texPath>Things/Building/Comms/ST_ComConsole</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2.2,2.8)</drawSize>
-      <shadowData>
-        <volume>(2.2, 0.6, 0.35)</volume>
-      </shadowData>
-    </graphicData>
-
-    <altitudeLayer>Building</altitudeLayer>
-    <holdsRoof>false</holdsRoof>
-    <size>(2,1)</size>
-    <rotatable>true</rotatable>
-
-    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
-    <passability>PassThroughOnly</passability>
-
-    <costList>
-      <Steel>70</Steel>
-      <ComponentIndustrial>4</ComponentIndustrial>
-      <ComponentSpacer>1</ComponentSpacer>
-    </costList>
-
-    <statBases>
-      <WorkToBuild>1800</WorkToBuild>
-      <MaxHitPoints>220</MaxHitPoints>
-      <Flammability>0.2</Flammability>
-      <Mass>45</Mass>
-    </statBases>
-
-    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-    <designationCategory>ST_Designation</designationCategory>
-    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
-    
-    <researchPrerequisites>
-      <li>MicroelectronicsBasics</li>
-    </researchPrerequisites>
-    <uiOrder>2005</uiOrder>
-
-    <soundInteract>ST_SFX_LCARS_Click</soundInteract>
-
-    <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>250</basePowerConsumption>
-      </li>
-      <li Class="CompProperties_Flickable" />
-      <li Class="CompProperties_Breakdownable" />
-
-      <li>
-        <compClass>YASTM.CompUsageRestriction</compClass>
-      </li>
-
-      <!-- Console Link to Comms Beacon -->
-      <li Class="YASTM.CompProperties_ConsoleLink">
-        <linkTags>
-          <li>ST_Link_Comms</li>
-        </linkTags>
-        <maxLinkDistance>25</maxLinkDistance>
-      </li>
-
-      <li Class="YASTM.Comps.CompProperties_CommsGizmo">
-        <contactCooldownDays>7</contactCooldownDays>
-        <aidCooldownDays>7</aidCooldownDays>
-        <maxActiveQuests>2</maxActiveQuests>
-        <questPool>
-          <li>STQ_VE_Obelisks_I_II_Setup</li>
-        </questPool>
-      </li>
-
-      <li Class="StarTrekFactions.Comps.CompProperties_UseEffect_SpawnFarAndSignal">
-        <inSignal>STQ.Obelisks.BeaconActivated</inSignal>
-        <minDist>42</minDist>
-        <maxDist>72</maxDist>
-        <outsideHome>true</outsideHome>
-        <requirePowerOn>true</requirePowerOn>  
-        <thingA>ST_Obelisk_A</thingA>
-        <thingB>ST_Obelisk_B</thingB>
-        <questDefToEnsure>STQ_VE_Obelisks_I_II_Setup</questDefToEnsure>
-      </li>
-
-      <!-- Diplomacy -->
-      <li Class="YASTM.CompProperties_DiplomacyComms">
-        <improveCost>300</improveCost>
-        <improveGoodwill>10</improveGoodwill>
-        <ceasefireCost>800</ceasefireCost>
-        <cooldownDaysImprove>1</cooldownDaysImprove>
-        <cooldownDaysCeasefire>2</cooldownDaysCeasefire>
-        <minSocialImprove>6</minSocialImprove>
-        <minSocialCeasefire>10</minSocialCeasefire>
-      </li>
-
-      <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
-          <role>Ops</role>
-          <mannable>true</mannable>
-      </li>
-    </comps>
-
-<modExtensions>
-    <li Class="YASTM.UsageRestrictionExtension">
-     <requiredTrainingTrait>ST_Training_CommsOfficer</requiredTrainingTrait>
-      <allowedRanks>
-        <li>
-          <rankDef>ST_FederationRank</rankDef>
-          <minDegree>1</minDegree>
-        </li>
-        <li>
-          <rankDef>ST_RomulanRank</rankDef>
-          <minDegree>0</minDegree>
-        </li>
-        <li>
-          <rankDef>ST_KlingonRank</rankDef>
-          <minDegree>1</minDegree>
-        </li>
-        <li>
-          <rankDef>ST_FerengiRank</rankDef>
-          <minDegree>1</minDegree>
-        </li>
-      </allowedRanks>
-      <failMessage>Access Denied</failMessage>
-    </li>
-  </modExtensions>
-
-  </ThingDef>
 
 </Defs>

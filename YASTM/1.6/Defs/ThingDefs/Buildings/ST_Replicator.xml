@@ -64,6 +64,7 @@
 
     <soundInteract>ST_SFX_LCARS_Click</soundInteract>
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_PowerandProduction_Group</designatorDropdown>
 
     <comps>
       <li Class="CompProperties_Power">

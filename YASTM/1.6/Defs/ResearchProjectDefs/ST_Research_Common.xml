@@ -161,6 +161,27 @@
       </researchMods>
   </ResearchProjectDef>
 
+  <!-- Shuttle craft -->
+
+    <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Shuttle_Craft</defName>
+    <label>shuttle craft</label>
+    <description>A short-range auxiliary vehicle capable of atmospheric flight.</description>
+    <tab>ST_Research</tab>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2500</baseCost>
+    <prerequisites>
+      <li>Shuttles</li>
+      <li>TransportPod</li>
+    </prerequisites>
+    <researchViewX>6</researchViewX>
+    <researchViewY>1</researchViewY>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+  </ResearchProjectDef>
+
   <!-- Recreational Interfaces  -->  
   <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>ST_RecreationalInterfaces</defName>

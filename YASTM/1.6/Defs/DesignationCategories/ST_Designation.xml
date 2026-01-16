@@ -12,4 +12,40 @@
     </specialDesignatorClasses>
   </DesignationCategoryDef>
 
+  <DesignatorDropdownGroupDef>
+    <defName>ST_Consoles_Group</defName>
+    <label>trek tech consoles </label>
+    <description>Starfleet consoles and control stations.</description>
+    <iconSource>Placed</iconSource>
+  </DesignatorDropdownGroupDef>
+
+  <DesignatorDropdownGroupDef>
+    <defName>ST_Furiture_Group</defName>
+    <label>trek tek furniture </label>
+    <description>Starfleet furniture and decor.</description>
+    <iconSource>Placed</iconSource>
+  </DesignatorDropdownGroupDef>
+
+  <DesignatorDropdownGroupDef>
+    <defName>ST_Security_Group</defName>
+    <label>trek tek security </label>
+    <description>Starfleet security systems.</description>
+    <iconSource>Placed</iconSource>
+  </DesignatorDropdownGroupDef>
+
+  <DesignatorDropdownGroupDef>
+    <defName>ST_PowerandProduction_Group</defName>
+    <label>trek tek power and production </label>
+    <description>Starfleet power generation and production buildings.</description>
+    <iconSource>Placed</iconSource>
+  </DesignatorDropdownGroupDef>
+
+  <DesignatorDropdownGroupDef>
+    <defName>ST_ShipandVehicle_Group</defName>
+    <label>trek tek ships and vehicles </label>
+    <description>Starfleet ships and vehicles.</description>
+    <iconSource>Placed</iconSource>
+  </DesignatorDropdownGroupDef>
+
+
 </Defs>

@@ -90,6 +90,7 @@
     </costList>
 
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Consoles_Group</designatorDropdown>
 
     <modExtensions>
       <li Class="YASTM.DefModExt_LinkTags">

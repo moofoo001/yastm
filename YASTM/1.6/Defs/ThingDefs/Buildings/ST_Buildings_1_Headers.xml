@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_Icon_Furniture_Header</defName>
+    <label>Furniture and Interiors</label>
+    <description>Choose a furniture from the menu.</description>
+    <graphicData>
+      <texPath>UI/Icons/Menue/furniture</texPath> 
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costList>
+    </costList>
+    <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Furiture_Group</designatorDropdown>
+     <uiOrder>1000</uiOrder> <placeWorkers>
+      <li>YASTM.PlaceWorker_Header</li>
+    </placeWorkers>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_Icon_Production_Header</defName>
+    <label>Power and Production</label>
+    <description>Choose a production system from the menu.</description>
+    <graphicData>
+      <texPath>UI/Icons/Menue/production</texPath> 
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costList>
+    </costList>
+    <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_PowerandProduction_Group</designatorDropdown>
+     <uiOrder>2000</uiOrder> <placeWorkers>
+      <li>YASTM.PlaceWorker_Header</li>
+    </placeWorkers>
+  </ThingDef>
+    
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_Icon_Connsoles_Header</defName>
+    <label>Consoles and Automata</label>
+    <description>Choose a console system from the menu.</description>
+    <graphicData>
+      <texPath>UI/Icons/Menue/console</texPath> 
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costList>
+    </costList>
+    <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Consoles_Group</designatorDropdown>
+     <uiOrder>3000</uiOrder> <placeWorkers>
+      <li>YASTM.PlaceWorker_Header</li>
+    </placeWorkers>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_Icon_Security_Header</defName>
+    <label>security systems</label>
+    <description>Choose a defensive system from the menu.</description>
+    <graphicData>
+      <texPath>UI/Icons/Menue/security</texPath> 
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costList>
+    </costList>
+    <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Security_Group</designatorDropdown>
+     <uiOrder>4000</uiOrder>
+    <placeWorkers>
+      <li>YASTM.PlaceWorker_Header</li>
+    </placeWorkers> 
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_Icon_ShipandVehicle_Header</defName>
+    <label>ships, vehicles and stuff</label>
+    <description>Choose an item from the menu.</description>
+    <graphicData>
+      <texPath>UI/Icons/Menue/vehicle</texPath> 
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costList>
+    </costList>
+    <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_ShipandVehicle_Group</designatorDropdown>
+     <uiOrder>5000</uiOrder> <placeWorkers>
+      <li>YASTM.PlaceWorker_Header</li>
+    </placeWorkers>
+  </ThingDef>
+
+</Defs>

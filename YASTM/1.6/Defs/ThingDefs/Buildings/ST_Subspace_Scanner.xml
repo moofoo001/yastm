@@ -75,6 +75,7 @@
       <Plasteel>30</Plasteel>
     </costList>
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Consoles_Group</designatorDropdown>
 
 
   </ThingDef>

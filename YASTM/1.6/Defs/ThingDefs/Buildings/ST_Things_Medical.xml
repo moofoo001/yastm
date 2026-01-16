@@ -80,6 +80,8 @@
 	<constructionSkillPrerequisite>9</constructionSkillPrerequisite>
 
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Furiture_Group</designatorDropdown>
+
     <researchPrerequisites>
       <li>ST_Federation_AdvancedMedic</li>
     </researchPrerequisites>

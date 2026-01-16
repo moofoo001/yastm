@@ -304,4 +304,23 @@
   <ST_Message_MindSiftDamage>Warning: Neural overload detected in {0}. Brain damage sustained.</ST_Message_MindSiftDamage>
   <ST_NoResistantPrisoners>No resistant prisoners available.</ST_NoResistantPrisoners>
 
+<ST_MustPlaceOnShuttleBay>Must be placed on an active Shuttle Bay.</ST_MustPlaceOnShuttleBay>
+
+<ST_CallShuttle>Call Shuttle</ST_CallShuttle>
+<ST_CallShuttleDesc>Prepares a Type-6 Shuttle on the launch pad.</ST_CallShuttleDesc>
+<ST_ShuttleBayOccupied>Landing bay occupied</ST_ShuttleBayOccupied>
+<ST_MustPlaceOnShuttleBay>Must be placed on an active Shuttle Bay.</ST_MustPlaceOnShuttleBay>
+
+  <!-- Shuttle -->
+
+  <ST_CallOwnShuttle>Construct Shuttle</ST_CallOwnShuttle>
+  <ST_CallOwnShuttleDesc>Designate a plan to build a new shuttle on this landing pad. Requires materials and construction work.</ST_CallOwnShuttleDesc>
+  
+  <ST_RentShuttle>Rent Transport</ST_RentShuttle>
+  <ST_RentShuttleDesc>Call a Federation transport shuttle for a one-way trip. Cost: {0} Silver.</ST_RentShuttleDesc>
+  
+  <ST_ShuttleBayOccupied>Landing Pad Occupied</ST_ShuttleBayOccupied>
+  <ST_ShuttleArrived>Shuttle has arrived at destination.</ST_ShuttleArrived>
+  <ST_ConfirmPayment>Confirm payment of {0} silver for a rental shuttle?</ST_ConfirmPayment>
+
 </LanguageData>

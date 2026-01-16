@@ -48,10 +48,10 @@
 
       <li Class="CompProperties_Refuelable">
         <fuelConsumptionRate>2.0</fuelConsumptionRate>
-        <fuelCapacity>50.0</fuelCapacity>
+        <fuelCapacity>100.0</fuelCapacity>
         <fuelFilter>
           <thingDefs>
-            <li>ST_DilithiumCrystal</li>
+            <li>ST_Dilithium_Refined</li>
           </thingDefs>
         </fuelFilter>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
@@ -81,6 +81,7 @@
 
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_PowerandProduction_Group</designatorDropdown>
     <uiOrder>3000</uiOrder>
     <researchPrerequisites>
       <li>ST_WarpFieldTheory</li> 

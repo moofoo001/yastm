@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BenchBase">
+    <defName>ST_MatterConverter</defName>
+    <label>atmospheric matter converter</label>
+    <description>LCARS atmospheric matter converter that extracts water from the air and prepares it as feedstock for the replicator.</description>
+    
+    <thingClass>Building_WorkTable</thingClass>
+    <selectable>true</selectable>
+  
+    <graphicData>
+      <texPath>Things/Building/Replicator/MatterConverter</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2,2)</drawSize>
+      <shadowData>
+        <volume>(2.2, 0.6, 0.35)</volume>
+      </shadowData>
+    </graphicData>
+
+    <altitudeLayer>Building</altitudeLayer>
+    <size>(2,2)</size>
+    <passability>PassThroughOnly</passability>
+    <tickerType>Normal</tickerType>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <fillPercent>0.5</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <surfaceType>Item</surfaceType>
+    <clearBuildingArea>true</clearBuildingArea>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+  
+    <costList>
+      <Steel>120</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+
+    <statBases>
+      <WorkTableWorkSpeedFactor>1</WorkTableWorkSpeedFactor>
+      <WorkToBuild>2000</WorkToBuild>
+      <MaxHitPoints>300</MaxHitPoints>
+      <Flammability>0.3</Flammability>
+      <Mass>60</Mass>
+    </statBases>
+
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+      <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+      <uninstallWork>1800</uninstallWork>
+      <isMealSource>false</isMealSource>
+      <paintable>true</paintable>
+      <workTableRoomRole>Workshop</workTableRoomRole>
+      <buildingTags>
+        <li>Production</li>
+      </buildingTags>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+
+    <soundInteract>ST_SFX_LCARS_Click</soundInteract>
+    <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_PowerandProduction_Group</designatorDropdown>
+
+    <comps>
+      <li Class="CompProperties">
+        <compClass>YASTM.CompMatterTank</compClass>
+      </li>
+
+      <li Class="CompProperties_Facility">
+        <maxSimultaneous>4</maxSimultaneous>
+        <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
+        <maxDistance>10</maxDistance>
+        <linkableBuildings>
+          <li>ST_Replicator</li>
+        </linkableBuildings>
+      </li>
+      
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>200</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
+    </comps>
+
+    <researchPrerequisites>
+      <li>ST_MatterConversion_Tech</li>
+    </researchPrerequisites>
+    <uiOrder>2001</uiOrder>
+  </ThingDef>
+</Defs>

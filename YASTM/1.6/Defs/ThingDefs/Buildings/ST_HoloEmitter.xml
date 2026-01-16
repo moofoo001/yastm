@@ -87,6 +87,8 @@
     </researchPrerequisites>
     
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_PowerandProduction_Group</designatorDropdown>
+    
   </ThingDef>
 
 </Defs>

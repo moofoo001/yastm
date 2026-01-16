@@ -146,5 +146,6 @@
   <ST_BridgeSynergyActiveDesc>Bridge Synergy Active:\nFull crew complement provides enhanced ship operations.</ST_BridgeSynergyActiveDesc>
   <ST_BridgeSynergyOfflineDesc>Bridge Synergy Offline:\nRequires Captain, plus Ops or Tactical officers at their stations.</ST_BridgeSynergyOfflineDesc>
 
+  <ST_SelectSubItem>This is a category header. Please select a specific item (Right-click).</ST_SelectSubItem>
 
 </LanguageData>

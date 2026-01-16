@@ -18,6 +18,7 @@
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.5</fillPercent>
     <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Consoles_Group</designatorDropdown>
     <statBases>
       <MaxHitPoints>250</MaxHitPoints>
       <WorkToBuild>2500</WorkToBuild>
