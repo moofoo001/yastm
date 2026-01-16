@@ -7,7 +7,7 @@
     <description>A reinforced landing pad. Use the console to call a shuttle.</description>
     <thingClass>Building</thingClass> 
     <drawerType>MapMeshAndRealTime</drawerType>
- 
+
     <graphicData>
       <texPath>Things/Building/Shuttle/Shuttle_Pad</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -35,8 +35,8 @@
     </statBases>  
     
     <costList>
-      <Steel>400</Steel>
-      <ComponentIndustrial>5</ComponentIndustrial>
+      <Steel>300</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
     </costList>
     
     <comps>
@@ -203,8 +203,6 @@
     <researchPrerequisites>
       <li>ST_Shuttle_Craft</li>
     </researchPrerequisites>
-    <designationCategory>ST_Designation</designationCategory>
-    <designatorDropdown>ST_ShipandVehicle_Group</designatorDropdown>
   </ThingDef>
 
   <ThingDef ParentName="SkyfallerBase">

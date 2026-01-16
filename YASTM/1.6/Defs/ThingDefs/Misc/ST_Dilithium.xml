@@ -6,7 +6,7 @@
     <label>dilithium crystal</label>
     <description>A rare crystalline mineral with a periodic atomic structure that allows electromagnetic energy to flow through it without resistance. Essential for regulating matter/antimatter reactions in warp cores.</description>
     <graphicData>
-        <texPath>Things/Item/Resource/ST_Dilithium</texPath>
+        <texPath>Things/Item/Resource/ST_RawDilithium</texPath>
         <graphicClass>Graphic_StackCount</graphicClass>
       <drawSize>0.8</drawSize>
     </graphicData>

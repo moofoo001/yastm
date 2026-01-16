@@ -34,7 +34,8 @@
       <Steel>500</Steel>
       <Plasteel>200</Plasteel>
       <Uranium>50</Uranium>
-      <ComponentSpacer>8</ComponentSpacer>
+      <ComponentIndustrial>10</ComponentIndustrial>
+      <ComponentSpacer>4</ComponentSpacer>
       <ST_DilithiumCrystal>10</ST_DilithiumCrystal>
     </costList>
     <constructionSkillPrerequisite>14</constructionSkillPrerequisite>
