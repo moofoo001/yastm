@@ -20,7 +20,7 @@
       <li>ST_UFP_Engineering_I</li>
     </prerequisites>
     <researchViewX>2</researchViewX>
-    <researchViewY>2.2</researchViewY>
+    <researchViewY>2</researchViewY>
       <researchMods>
         <li Class="YASTM.ResearchMod_UnlockOtherProjects">
           <projects>
@@ -72,8 +72,8 @@
       <li>ST_UFP_Engineering_I</li>
       <li>ST_Starfleet_Melee_I</li>
     </prerequisites>
-    <researchViewX>2</researchViewX>
-    <researchViewY>1.7</researchViewY>
+    <researchViewX>3</researchViewX>
+    <researchViewY>2</researchViewY>
       <researchMods>
         <li Class="YASTM.ResearchMod_UnlockOtherProjects">
           <projects>

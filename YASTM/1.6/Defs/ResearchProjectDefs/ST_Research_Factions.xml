@@ -120,29 +120,7 @@
     <techprintMarketValue>1000</techprintMarketValue>
   </ResearchProjectDef>
 
-  <ResearchProjectDef ParentName="ST_Base_Research">
-      <defName>ST_UFP_Interior</defName>
-      <label>UFP standard interior</label>
-      <description>UFP standard interior for homes and ships.</description>
-      <baseCost>500</baseCost>
-      <techLevel>Spacer</techLevel>
-      <prerequisites>
-        <li>ST_UFP_Engineering_I</li>
-        <li>Machining</li>
-      </prerequisites>
-      <researchViewX>3</researchViewX>
-      <researchViewY>2</researchViewY>
-      <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-            <researchMods>
-        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
-          <projects>
-            <li>ComplexFurniture</li>
-            <li>SterileMaterials</li>
-            <li>CarpetMaking</li>
-          </projects>
-        </li>
-      </researchMods> 
-    </ResearchProjectDef>
+
   
   <!-- ===========================
        Klingon – Warfare Doctrine

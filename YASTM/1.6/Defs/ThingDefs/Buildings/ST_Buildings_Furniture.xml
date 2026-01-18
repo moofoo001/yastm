@@ -60,7 +60,7 @@
     <designationCategory>ST_Designation</designationCategory>
     <designatorDropdown>ST_Furiture_Group</designatorDropdown>
     <researchPrerequisites>
-      <li>ST_UFP_Interior</li>
+      <li>ST_Standard_Interior</li>
     </researchPrerequisites>
 
     <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
@@ -100,7 +100,7 @@
 		</building>
      <uiOrder>1000</uiOrder>
 		<researchPrerequisites>
-			<li>ST_UFP_Interior</li>
+			<li>ST_Standard_Interior</li>
 		</researchPrerequisites>
 		<designationCategory>ST_Designation</designationCategory>
     <designatorDropdown>ST_Furiture_Group</designatorDropdown>
@@ -155,7 +155,7 @@
      <uiOrder>1001</uiOrder>
 		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
 		<researchPrerequisites>
-			<li>ST_UFP_Interior</li>
+			<li>ST_Standard_Interior</li>
 		</researchPrerequisites>
 		<designationCategory>ST_Designation</designationCategory>
     <designatorDropdown>ST_Furiture_Group</designatorDropdown>
@@ -229,7 +229,7 @@
     <designationCategory>ST_Designation</designationCategory>
     <designatorDropdown>ST_Furiture_Group</designatorDropdown>
     <researchPrerequisites>
-      <li>ST_UFP_Interior</li>
+      <li>ST_Standard_Interior</li>
     </researchPrerequisites>
   </ThingDef>
 

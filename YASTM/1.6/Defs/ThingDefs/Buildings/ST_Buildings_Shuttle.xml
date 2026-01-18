@@ -41,8 +41,9 @@
     
     <comps>
       <li Class="YASTM.CompProperties_ShuttleBay">
-        <shuttleDef>ST_ShuttleCraft_TypeVI</shuttleDef>
-        <iconPath>UI/Icons/Gizmos/CallAid</iconPath>
+        <shuttleDef>ST_ShuttleCraft_TypeVI</shuttleDef>    
+        <buildIconPath>UI/Icons/Gizmos/ST_BuildShuttle</buildIconPath>
+        <rentIconPath>UI/Icons/Gizmos/ST_RentShuttle</rentIconPath>
       </li>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
@@ -57,6 +58,26 @@
     </researchPrerequisites>
     <designationCategory>ST_Designation</designationCategory>
     <designatorDropdown>ST_ShipandVehicle_Group</designatorDropdown>
+  </ThingDef>
+
+<ThingDef>
+    <defName>ST_ShuttleCraft_TypeVI_Blueprint</defName>
+    <label>Type-6 Shuttlecraft (Blueprint)</label>
+    <thingClass>Blueprint_Build</thingClass>
+    <category>Ethereal</category>  
+    <graphicData>
+      <texPath>Things/Building/Shuttle/ShuttleType6_Top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(6,6)</drawSize>
+      <shaderType>Transparent</shaderType> 
+      <color>(50, 50, 50, 200)</color>    
+    </graphicData>
+    <size>(4,5)</size>
+    <altitudeLayer>MetaOverlays</altitudeLayer>
+    <useHitPoints>false</useHitPoints>
+    <selectable>true</selectable>
+    <seeThroughFog>true</seeThroughFog>
+    <entityDefToBuild>ST_ShuttleCraft_TypeVI</entityDefToBuild>
   </ThingDef>
 
 <ThingDef ParentName="BuildingBase">
@@ -112,7 +133,7 @@
     <uiIconPath>Things/Building/Shuttle/ShuttleType6_Side</uiIconPath>
     <uiIconScale>0.9</uiIconScale>
     <drawerType>MapMeshAndRealTime</drawerType>
-    
+    <blueprintDef>ST_ShuttleCraft_TypeVI_Blueprint</blueprintDef>
     <minifiedDef>MinifiedThing</minifiedDef> 
     <thingCategories>
       <li>BuildingsMisc</li>
@@ -131,7 +152,7 @@
     <size>(4,5)</size>
     <rotatable>true</rotatable>
     <altitudeLayer>Building</altitudeLayer>
-    <clearBuildingArea>false</clearBuildingArea>
+    <clearBuildingArea>true</clearBuildingArea>
     <passability>PassThroughOnly</passability>
     <blockWind>true</blockWind>
     
@@ -195,6 +216,7 @@
       <li Class="CompProperties_AmbientSound">
         <sound>ShuttleIdle_Ambience</sound>
       </li>
+
     </comps>
     
     <placeWorkers>

@@ -1,10 +1,43 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+<!-- Dilithium Ore -->
+<ThingDef ParentName="RockBase">
+    <defName>ST_MineableDilithium</defName>
+    <label>dilithium ore</label>
+    <description>A rock formation embedded with raw dilithium crystals. These crystals are essential for regulating matter/antimatter reactions in warp cores.</description> 
+    <graphicData>
+      <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <color>(100,100,100)</color>
+      <colorTwo>(173, 49, 154)</colorTwo> 
+      
+    </graphicData>
+    <thingClass>Mineable</thingClass>
+    <statBases>
+      <MaxHitPoints>1500</MaxHitPoints> <Flammability>0</Flammability>
+    </statBases>   
+    <building>
+      <isResourceRock>true</isResourceRock>
+      <mineableThing>ST_DilithiumCrystal</mineableThing>
+      <mineableYield>3</mineableYield>
+      <mineableScatterCommonality>0.04</mineableScatterCommonality>
+      <mineableScatterLumpSizeRange>2~5</mineableScatterLumpSizeRange>
+    </building>
+    <deepCommonality>0.5</deepCommonality> <deepCountPerPortion>4</deepCountPerPortion>
+    <deepLumpSizeRange>2~10</deepLumpSizeRange>
+    <fillPercent>1</fillPercent>
+    <passability>Impassable</passability>
+    <selectable>true</selectable>
+    <drawerType>MapMeshOnly</drawerType>
+  </ThingDef>
+
+<!-- Dilithium Crystal -->
   <ThingDef ParentName="ResourceBase">
     <defName>ST_DilithiumCrystal</defName>
     <label>dilithium crystal</label>
-    <description>A raw crystalline mineral with a periodic atomic structure that allows electromagnetic energy to flow through it without resistance.\n\n
+    <description>A raw crystalline mineral with a periodic atomic structure that allows electromagnetic energy to flow through it without resistance. 
     Can be turned into refined dilithium crystals using a fabrication bench.</description>
     <graphicData>
         <texPath>Things/Item/Resource/ST_RawDilithium</texPath>
@@ -31,6 +64,7 @@
     </tradeTags>
   </ThingDef>
 
+<!-- Refined Dilithium -->
   <ThingDef ParentName="ResourceBase">
     <defName>ST_Dilithium_Refined</defName>
     <label>refined dilithium</label>

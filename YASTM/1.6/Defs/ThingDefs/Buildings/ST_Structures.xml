@@ -87,7 +87,7 @@
         </focusTypes>
       </li>
     </comps>
-  <researchPrerequisites><li>ST_UFP_Engineering_I</li></researchPrerequisites>
+  <researchPrerequisites><li>ST_Common_Engineering</li></researchPrerequisites>
     <damageMultipliers>
       <li>
         <damageDef>Bomb</damageDef>
@@ -170,7 +170,7 @@
     </comps>
 	<designationCategory>Structure</designationCategory> 
 	<researchPrerequisites> 
-      <li>ST_UFP_Engineering_I</li>
+      <li>ST_Common_Engineering</li>
     </researchPrerequisites>
   </ThingDef>
 
@@ -241,7 +241,7 @@
       </li>
     </damageMultipliers>
     <researchPrerequisites>
-      <li>ST_UFP_Engineering_I</li>
+      <li>ST_Common_Engineering</li>
     </researchPrerequisites>
   </ThingDef>
 

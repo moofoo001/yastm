@@ -196,7 +196,7 @@
        <li>ST_Common_Issue_Gear</li>
     </prerequisites>
     <researchViewX>1</researchViewX>
-    <researchViewY>1</researchViewY>
+    <researchViewY>0.6</researchViewY>
       <researchMods>
           <li Class="YASTM.ResearchMod_UnlockOtherProjects">
             <projects>
@@ -205,6 +205,27 @@
             </projects>
           </li>
       </researchMods>
+  </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Common_Engineering</defName>
+    <label>Common engineering</label>
+    <description>Foundational spacer engineering practices: Unlocks basic support structures and fittings.\n\nUnlocks: AirConditioning</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1000</baseCost>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Common_Issue_Gear</li>
+    </prerequisites>
+    <researchViewX>1</researchViewX>
+    <researchViewY>1.2</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>AirConditioning</li>
+          </projects>
+        </li>
+      </researchMods> 
   </ResearchProjectDef>
   
   <!-- EV Suits  -->
@@ -221,7 +242,7 @@
       <li>Electricity</li>
     </prerequisites>
     <researchViewX>2</researchViewX>
-    <researchViewY>1</researchViewY>
+    <researchViewY>0.6</researchViewY>
       <researchMods>
         <li Class="YASTM.ResearchMod_UnlockOtherProjects">
           <projects>
@@ -231,6 +252,30 @@
       </researchMods>
   </ResearchProjectDef>
  
+   <ResearchProjectDef ParentName="ST_Base_Research">
+      <defName>ST_Standard_Interior</defName>
+      <label>standard interior</label>
+      <description>Common standard interior for homes and ships.</description>
+      <baseCost>500</baseCost>
+      <techLevel>Spacer</techLevel>
+      <prerequisites>
+        <li>ST_Common_Engineering</li>
+        <li>Machining</li>
+      </prerequisites>
+      <researchViewX>2</researchViewX>
+      <researchViewY>1.2</researchViewY>
+      <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+            <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>ComplexFurniture</li>
+            <li>SterileMaterials</li>
+            <li>CarpetMaking</li>
+          </projects>
+        </li>
+      </researchMods> 
+    </ResearchProjectDef>
+
   <!-- Subspace telemetry to unlock advanced commsgear -->
   <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>ST_SubspaceTelemetry</defName>
