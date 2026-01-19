@@ -6,6 +6,7 @@ using UnityEngine;
 using Verse;
 using RimWorld;
 using RimWorld.Planet;
+using Verse.Sound;
 
 namespace YASTM
 {
@@ -206,7 +207,9 @@ namespace YASTM
                 }
                 
                 addMethod.Invoke(travelingPods, parameters);
+                // sound
 
+                 ST_SoundDefOf.ST_Shuttle_Launch.PlayOneShot(new TargetInfo(parent.Position, parent.Map));
                 // animation
                 if (Props.skyfallerLeaving != null && map != null)
                 {

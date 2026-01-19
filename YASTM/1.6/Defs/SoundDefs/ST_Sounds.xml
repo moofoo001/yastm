@@ -38,7 +38,6 @@
     </subSounds>
   </SoundDef>
 
-
   <SoundDef>
     <defName>com_chirp</defName>
     <context>MapOnly</context> 
@@ -54,7 +53,6 @@
       </li>
     </subSounds>
   </SoundDef>
-
 
   <SoundDef>
     <defName>Phaser_T1</defName>
@@ -136,7 +134,6 @@
     </subSounds>
   </SoundDef>
 
-
   <SoundDef>
     <defName>Disruptor_Pistol</defName>
     <context>MapOnly</context>
@@ -168,7 +165,6 @@
       </li>
     </subSounds>  
   </SoundDef>
-
 
   <SoundDef>
     <defName>ST_RedAlert_Chirp</defName>
@@ -296,7 +292,6 @@
     </subSounds>
   </SoundDef>
 
-
   <SoundDef>
     <defName>Pawn_Tribble_Wounded</defName>
     <context>MapOnly</context>
@@ -401,7 +396,6 @@
     </subSounds>
   </SoundDef>
 
-
 <SoundDef>
     <defName>ST_Sound_Turret_Phaser</defName>
     <context>MapOnly</context>
@@ -416,7 +410,6 @@
     </subSounds>
   </SoundDef>
 
-
   <SoundDef>
     <defName>ST_Sound_Turret_Disruptor</defName>
     <context>MapOnly</context>
@@ -427,7 +420,8 @@
             <clipPath>Things/disruptor_heavy</clipPath>
           </li>
         </grains>
-        <volumeRange>70~85</volumeRange> <pitchRange>0.9~1.1</pitchRange>
+        <volumeRange>70~85</volumeRange>
+        <pitchRange>0.9~1.1</pitchRange>
       </li>
     </subSounds>
   </SoundDef>
@@ -443,9 +437,27 @@
             <clipPath>Things/plasma_cannon</clipPath>
           </li>
         </grains>
-        <volumeRange>80~90</volumeRange> <pitchRange>0.9~1.0</pitchRange> </li>
+        <volumeRange>80~90</volumeRange>
+        <pitchRange>0.9~1.0</pitchRange>
+      </li>
     </subSounds>
   </SoundDef>
 
+<SoundDef>
+    <defName>ST_Shuttle_Launch</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/shuttle_launch</clipPath>
+          </li>
+        </grains>
+        <volumeRange>80~90</volumeRange>
+        <pitchRange>0.9~1.0</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
 
 </Defs>
