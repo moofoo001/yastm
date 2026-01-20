@@ -95,20 +95,21 @@
 
   <!-- Phase overcharge -->
       <ThingDef ParentName="BaseBullet">
-        <defName>Bullet_PhaserPulse_Overcharge</defName>
-        <label>phaser pulse (overcharge)</label>
-        <thingClass>ST.PhaseWeapons.Projectile_Phaser</thingClass>
-        <graphicData>
-          <texPath>Things/Projectile/PhaserPulse_Overcharge</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>0.30</drawSize>
-        </graphicData>
+      <defName>Bullet_PhaserPulse_Overcharge</defName>
+          <label>phaser pulse (overcharge)</label>
+          <thingClass>Bullet</thingClass> <graphicData>
+            <texPath>Things/Projectile/PhaserPulse_Overcharge</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+             <drawSize>0.50</drawSize>
+            </graphicData>
         <projectile>
-          <damageDef>Burn</damageDef>
-          <damageAmountBase>20</damageAmountBase>
-          <armorPenetrationBase>0.35</armorPenetrationBase>
-          <stoppingPower>0.15</stoppingPower>
-          <speed>120</speed>
+          <damageDef>Bomb</damageDef> <damageAmountBase>30</damageAmountBase>
+          <armorPenetrationBase>0.50</armorPenetrationBase>
+          <stoppingPower>2.0</stoppingPower>
+          <speed>100</speed>
+          <explosionRadius>1.9</explosionRadius>
+          <postExplosionSpawnThingDef>Filth_Fuel</postExplosionSpawnThingDef>
+          <postExplosionSpawnChance>0.2</postExplosionSpawnChance>
         </projectile>
       </ThingDef>
 

@@ -6,6 +6,7 @@ using Verse;
 namespace YASTM
 {
     [HarmonyPatch(typeof(GlobalControlsUtility), "DoDate")]
+    [StaticConstructorOnStartup]
     public static class Patch_StardateOverlay
     {
         private static Texture2D cachedBackground;

@@ -252,4 +252,31 @@
     <commonality>0.0</commonality>
   </TraitDef>
   
+<TraitDef>
+    <defName>ST_LowerDecker</defName>
+    <commonality>0.4</commonality>
+    <degreeDatas>
+      <li>
+        <label>Lower Decker</label>
+        <description>{PAWN_nameDef} is proud to be an Ensign. {PAWN_pronoun} works a bit slower but relaxes much faster (Buffer Time!).</description>
+        
+        <statOffsets>
+          <WorkSpeedGlobal>-0.10</WorkSpeedGlobal>
+          <JoyGainFactor>0.20</JoyGainFactor>
+        </statOffsets>
+        
+        <theOnlyAllowedMentalBreaks>
+            <li>BingeFood</li>
+            <li>BingeDrugMajor</li>
+            <li>WanderOwnRoom</li>
+        </theOnlyAllowedMentalBreaks>
+      </li>
+    </degreeDatas>
+    <conflictingTraits>
+        <li>Abrasive</li>
+        <li>Ascetic</li>
+        <li>Greedy</li>
+    </conflictingTraits>
+  </TraitDef>
+
 </Defs>
