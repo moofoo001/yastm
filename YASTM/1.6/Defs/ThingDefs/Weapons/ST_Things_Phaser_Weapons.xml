@@ -34,15 +34,6 @@
     <alwaysHaulable>True</alwaysHaulable>
     <tickerType>Never</tickerType>
     <techLevel>Spacer</techLevel>
-    <comps>
-      <li Class="CompProperties_Forbiddable"/>
-      <li>
-        <compClass>CompEquippable</compClass>
-      </li>
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-    </comps>
     <recipeMaker>
       <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
       <workSkill>Crafting</workSkill>
@@ -103,6 +94,13 @@
       <MarketValue>750</MarketValue>
     </statBases>
     <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
           <li Class="YASTM.CompProperties_MultiModeWeapon">
             <modes>     
               <li>
@@ -188,6 +186,13 @@
       <MarketValue>540</MarketValue>
     </statBases>
         <comps>
+              <li Class="CompProperties_Forbiddable"/>
+              <li>
+                <compClass>CompEquippable</compClass>
+              </li>
+              <li>
+                <compClass>CompQuality</compClass>
+              </li>
           <li Class="YASTM.CompProperties_MultiModeWeapon">
             <modes>     
               <li>
@@ -284,24 +289,31 @@
       <WorkToMake>7000</WorkToMake>
       <MarketValue>1800</MarketValue>
     </statBases>
-    <comps>
-      <li Class="YASTM.CompProperties_MultiModeWeapon">
-        <modes>     
-          <li>
-            <label>Setting: Stun</label>
-            <iconPath>UI/Icons/Gizmos/PhaserStun_n</iconPath>
-            <projectileDef>Bullet_PhaserPulse_Stun</projectileDef>
-            <soundInteract>Interact_Rifle</soundInteract>
+        <comps>
+            <li Class="CompProperties_Forbiddable"/>
+            <li>
+              <compClass>CompEquippable</compClass>
+            </li>
+            <li>
+              <compClass>CompQuality</compClass>
+            </li>
+          <li Class="YASTM.CompProperties_MultiModeWeapon">
+            <modes>     
+              <li>
+                <label>Setting: Stun</label>
+                <iconPath>UI/Icons/Gizmos/PhaserStun_n</iconPath>
+                <projectileDef>Bullet_PhaserPulse_Stun</projectileDef>
+                <soundInteract>Interact_Rifle</soundInteract>
+              </li>
+              <li>
+                <label>Setting: Kill</label>
+                <iconPath>UI/Icons/Gizmos/PhaserLethal_n</iconPath>
+                <projectileDef>Bullet_PhaserPulse_TypeII</projectileDef>
+                <soundInteract>Interact_Rifle</soundInteract>
+              </li>
+            </modes>
           </li>
-          <li>
-            <label>Setting: Kill</label>
-            <iconPath>UI/Icons/Gizmos/PhaserLethal_n</iconPath>
-            <projectileDef>Bullet_PhaserRifle</projectileDef>
-            <soundInteract>Interact_Rifle</soundInteract>
-          </li>
-        </modes>
-      </li>
-    </comps>
+        </comps>
     <recipeMaker>
       <workAmount>16000</workAmount>
       <skillRequirements><Crafting>10</Crafting></skillRequirements>
@@ -357,6 +369,13 @@
     </verbs>
 
     <comps>
+        <li Class="CompProperties_Forbiddable"/>
+        <li>
+          <compClass>CompEquippable</compClass>
+        </li>
+        <li>
+          <compClass>CompQuality</compClass>
+        </li>
       <li Class="YASTM.CompProperties_MultiModeWeapon">
         <modes>     
           <li>
