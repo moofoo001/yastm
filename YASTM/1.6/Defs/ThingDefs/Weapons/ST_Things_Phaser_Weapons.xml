@@ -48,7 +48,13 @@
       <Steel>50</Steel>
     </smeltProducts>
 	  <smeltable>true</smeltable>
-
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Styleable"/>
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+    </comps>
   </ThingDef>
  
 
@@ -72,7 +78,7 @@
     </weaponTags>
     <verbs>
       <li>
-        <verbClass>ST.PhaseWeapons.Verb_PhaserShoot</verbClass>
+        <verbClass>YASTM.Verb_PhaserShoot</verbClass>
         <defaultProjectile>Bullet_PhaserPulse_TypeI</defaultProjectile>
         <hasStandardCommand>true</hasStandardCommand>
         <burstShotCount>1</burstShotCount>
@@ -94,13 +100,6 @@
       <MarketValue>750</MarketValue>
     </statBases>
     <comps>
-      <li Class="CompProperties_Forbiddable"/>
-      <li>
-        <compClass>CompEquippable</compClass>
-      </li>
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
           <li Class="YASTM.CompProperties_MultiModeWeapon">
             <modes>     
               <li>
@@ -164,7 +163,7 @@
     </weaponTags>
     <verbs>
       <li>
-        <verbClass>ST.PhaseWeapons.Verb_PhaserShoot</verbClass>
+        <verbClass>YASTM.Verb_PhaserShoot</verbClass>
         <defaultProjectile>Bullet_PhaserPulse_TypeII</defaultProjectile>
         <hasStandardCommand>true</hasStandardCommand>
         <burstShotCount>1</burstShotCount>
@@ -186,13 +185,6 @@
       <MarketValue>540</MarketValue>
     </statBases>
         <comps>
-              <li Class="CompProperties_Forbiddable"/>
-              <li>
-                <compClass>CompEquippable</compClass>
-              </li>
-              <li>
-                <compClass>CompQuality</compClass>
-              </li>
           <li Class="YASTM.CompProperties_MultiModeWeapon">
             <modes>     
               <li>
@@ -256,7 +248,7 @@
     </weaponTags>
   <verbs>
     <li>
-    <verbClass>ST.PhaseWeapons.Verb_PhaserShoot</verbClass>
+    <verbClass>YASTM.Verb_PhaserShoot</verbClass>
     <hasStandardCommand>true</hasStandardCommand>
     <defaultProjectile>Bullet_PhaserRifle</defaultProjectile>
     <burstShotCount>3</burstShotCount>
@@ -289,31 +281,32 @@
       <WorkToMake>7000</WorkToMake>
       <MarketValue>1800</MarketValue>
     </statBases>
-        <comps>
-            <li Class="CompProperties_Forbiddable"/>
-            <li>
-              <compClass>CompEquippable</compClass>
-            </li>
-            <li>
-              <compClass>CompQuality</compClass>
-            </li>
-          <li Class="YASTM.CompProperties_MultiModeWeapon">
-            <modes>     
-              <li>
-                <label>Setting: Stun</label>
-                <iconPath>UI/Icons/Gizmos/PhaserStun_n</iconPath>
-                <projectileDef>Bullet_PhaserPulse_Stun</projectileDef>
-                <soundInteract>Interact_Rifle</soundInteract>
-              </li>
-              <li>
-                <label>Setting: Kill</label>
-                <iconPath>UI/Icons/Gizmos/PhaserLethal_n</iconPath>
-                <projectileDef>Bullet_PhaserPulse_TypeII</projectileDef>
-                <soundInteract>Interact_Rifle</soundInteract>
-              </li>
-            </modes>
+    <comps>
+      <li Class="YASTM.CompProperties_MultiModeWeapon">
+        <modes>
+          <li>
+            <label>Setting: Lethal</label>
+            <iconPath>UI/Icons/Gizmos/PhaserLethal_n</iconPath>
+            <projectileDef>Bullet_PhaserRifle</projectileDef>
+            <soundInteract>Interact_Rifle</soundInteract>
           </li>
-        </comps>
+          <li>
+            <label>Setting: Lethal AP</label>
+            <iconPath>UI/Icons/Gizmos/PhaserLethalAP</iconPath>
+            <projectileDef>Bullet_PhaserRifle_AP</projectileDef>
+            <soundInteract>Interact_Rifle</soundInteract>
+            <isOverload>false</isOverload>
+            <overloadSelfExplodeChance>0.0</overloadSelfExplodeChance>
+          </li>
+          <li>
+            <label>Setting: Stun</label>
+            <iconPath>UI/Icons/Gizmos/PhaserStun_n</iconPath>
+            <projectileDef>Bullet_PhaserPulse_Stun</projectileDef>
+            <soundInteract>Interact_Rifle</soundInteract>
+          </li>
+        </modes>
+      </li>
+    </comps>
     <recipeMaker>
       <workAmount>16000</workAmount>
       <skillRequirements><Crafting>10</Crafting></skillRequirements>
@@ -359,23 +352,18 @@
     </statBases>
     <verbs>
       <li>
-        <verbClass>Verb_Shoot</verbClass>
+        <verbClass>YASTM.Verb_PhaserShoot</verbClass>
+        <defaultProjectile>Bullet_PhaserPulse_TypeI</defaultProjectile>
         <hasStandardCommand>true</hasStandardCommand>
-        <defaultProjectile>Bullet_PhaserPulse_TypeI</defaultProjectile> 
-        <warmupTime>0.5</warmupTime>
-        <range>25.9</range>
+        <burstShotCount>1</burstShotCount>
+        <warmupTime>0.50</warmupTime>
+        <range>25</range>
+        <soundCast>Phaser_T1</soundCast>
+        <muzzleFlashScale>0.6</muzzleFlashScale>
         <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
       </li>
     </verbs>
-
     <comps>
-        <li Class="CompProperties_Forbiddable"/>
-        <li>
-          <compClass>CompEquippable</compClass>
-        </li>
-        <li>
-          <compClass>CompQuality</compClass>
-        </li>
       <li Class="YASTM.CompProperties_MultiModeWeapon">
         <modes>     
           <li>
@@ -401,7 +389,6 @@
         </modes>
       </li>
     </comps>
-
     <recipeMaker>
        <workAmount>5000</workAmount>
        <skillRequirements><Crafting>7</Crafting></skillRequirements>

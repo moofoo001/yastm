@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq; // WICHTIG für Count()
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -10,6 +11,22 @@ namespace YASTM
     {
         public CompProperties_MultiModeWeapon Props => (CompProperties_MultiModeWeapon)props;
         private int currentModeIndex = 0;
+
+        // Wir prüfen beim Start, ob etwas faul ist
+        public override void Initialize(CompProperties props)
+        {
+            base.Initialize(props);
+            
+            // SECURITY CHECK: Hat die Waffe diesen Comp versehentlich doppelt?
+            if (parent != null)
+            {
+                var duplicates = parent.GetComps<CompMultiModeWeapon>().ToList();
+                if (duplicates.Count > 1)
+                {
+                    Log.Error($"[YASTM CRITICAL] WEAPON CONFIG ERROR: {parent.Label} has {duplicates.Count} COPIES of CompMultiModeWeapon! The code will confuse them.");
+                }
+            }
+        }
 
         public WeaponModeDef CurrentMode 
         {
@@ -38,27 +55,11 @@ namespace YASTM
                 switchMode.defaultLabel = CurrentMode.label;
                 switchMode.defaultDesc = $"Cycle weapon mode.\nCurrent: {CurrentMode.label}";
                 
-                // --- ICON LOGIK MIT DEBUGGING ---
-                Texture2D iconTex = null;
-                
+                // ICON LOGIK
                 if (!CurrentMode.iconPath.NullOrEmpty())
-                {
-                    // Versuche das Icon zu laden
-                    iconTex = ContentFinder<Texture2D>.Get(CurrentMode.iconPath, false);
-                    
-                    // DEBUG: Schreib ins Log, wenn Textur fehlt!
-                    if (iconTex == null)
-                    {
-                        // Nur einmal warnen, um Spam zu vermeiden (optional)
-                        Log.Warning($"[YASTM] FEHLENDES ICON: Konnte '{CurrentMode.iconPath}' nicht finden!");
-                    }
-                }
-
-                // Wenn gefunden, setzen. Wenn nicht, nimm das Schwert als Warnung.
-                if (iconTex != null)
-                    switchMode.icon = iconTex;
-                else
-                    switchMode.icon = TexCommand.Attack; // Schwert = Bild fehlt!
+                    switchMode.icon = ContentFinder<Texture2D>.Get(CurrentMode.iconPath, false);
+                
+                if (switchMode.icon == null) switchMode.icon = TexCommand.Attack; 
 
                 switchMode.action = delegate { CycleMode(pawn); };
                 switchMode.activateSound = SoundDefOf.Click;
@@ -67,7 +68,6 @@ namespace YASTM
             }
         }
         
-        // Alte Methode leer lassen, da wir jetzt über Harmony patchen
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             yield break; 
@@ -75,6 +75,7 @@ namespace YASTM
 
         private void CycleMode(Pawn pawn)
         {
+            // Index hochzählen
             currentModeIndex++;
             if (currentModeIndex >= Props.modes.Count) currentModeIndex = 0;
 
@@ -83,8 +84,10 @@ namespace YASTM
             
             MoteMaker.ThrowText(pawn.DrawPos, pawn.Map, CurrentMode.label, 2f);
             
-            // Debug Log, damit wir sehen, was passiert
-            Log.Message($"[YASTM] Switch Mode -> Label: {CurrentMode.label} | IconPath: {CurrentMode.iconPath}");
+            // --- DIAGNOSE LOG ---
+            // Wir loggen die ID dieser Instanz (GetHashCode).
+            // Wenn diese ID anders ist als die im Patch (siehe unten), haben wir den Übeltäter.
+            Log.Warning($"[YASTM BUTTON] Switched Instance #{this.GetHashCode()} to Index {currentModeIndex} ({CurrentMode.label})");
         }
 
         private Pawn GetPawnOwner()
@@ -95,7 +98,7 @@ namespace YASTM
         }
     }
     
-    // ... (Hier müssen wieder die Properties und Def Klassen stehen, wie zuvor) ...
+    // Properties und Defs Klassen müssen hier bleiben...
     public class CompProperties_MultiModeWeapon : CompProperties
     {
         public List<WeaponModeDef> modes = new List<WeaponModeDef>();
@@ -108,10 +111,7 @@ namespace YASTM
         public string iconPath;
         public ThingDef projectileDef;
         public SoundDef soundInteract;
-        // NEUES FELD: Ist das ein gefährlicher Modus?
         public bool isOverload = false;
-        // Chance für Selbstzerstörung (0.05 = 5%)
-        public float overloadSelfExplodeChance = 0.05f;
+        public float overloadSelfExplodeChance = 0.05f; 
     }
-    
 }

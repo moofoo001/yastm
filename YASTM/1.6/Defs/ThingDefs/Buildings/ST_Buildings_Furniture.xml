@@ -117,7 +117,7 @@
 		<graphicData>
 			<texPath>Things/Building/Interiors/ST_chair</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
-			<drawSize>(1.2,1.2)</drawSize>
+			<drawSize>(1.5,1.5)</drawSize>
 			<damageData>
 				<rectN>(0,0,1,0.703125)</rectN>
 				<rectS>(0.09375,0,0.84375,1)</rectS>
@@ -128,7 +128,16 @@
 				<volume>(0.25, 0.28, 0.25)</volume>
 			</shadowData>
 		</graphicData>
-		<altitudeLayer>Building</altitudeLayer>
+    <modExtensions>
+      <li Class="YASTM.ST_SitOffsetExtension">
+        <offsetNorth>(0, 0, 0.05)</offsetNorth>
+        <offsetSouth>(0, 0, -0.1)</offsetSouth>
+        <offsetEast>(-0.2, 0, 0)</offsetEast>
+        <offsetWest>(0.2, 0, 0)</offsetWest>
+        <northLayerAdjust>-0.6</northLayerAdjust>
+      </li>
+    </modExtensions>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
 		<uiIconScale>1</uiIconScale>
 		<statBases>
 			<MaxHitPoints>150</MaxHitPoints>
@@ -136,7 +145,7 @@
 			<Mass>15</Mass>
 			<Flammability>1.0</Flammability>
 			<Beauty>5</Beauty>
-			<Comfort>0.90</Comfort>
+			<Comfort>0.70</Comfort>
 		</statBases>
 		<socialPropernessMatters>true</socialPropernessMatters>
 		<stuffCategories>

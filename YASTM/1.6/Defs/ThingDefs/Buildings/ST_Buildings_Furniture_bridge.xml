@@ -14,6 +14,15 @@
       </damageData>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
+    <modExtensions>
+      <li Class="YASTM.ST_SitOffsetExtension">
+        <offsetNorth>(0, 0, 0.05)</offsetNorth>
+        <offsetSouth>(0, 0, -0.1)</offsetSouth>
+        <offsetEast>(-0.2, 0, 0)</offsetEast>
+        <offsetWest>(0.2, 0, 0)</offsetWest>
+        <northLayerAdjust>-0.6</northLayerAdjust>
+      </li>
+    </modExtensions>
     <uiIconScale>0.8</uiIconScale>
     <uiIconPath>Things/Building/Interiors/ST_CptChair_south</uiIconPath>
     <altitudeLayer>Building</altitudeLayer>
@@ -66,5 +75,63 @@
        </li>
     </comps>
   </ThingDef>
+
+ <ThingDef ParentName="BuildingBase">
+    <defName>ST_Building_StationChair</defName>
+    <label>bridge station chair</label>
+    <description>A comfortable and elegant chair. For home and Starfleet Ship interiors</description>
+    <graphicData>
+      <texPath>Things/Building/Interiors/ST_StationChair</texPath> 
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1.2,1.2)</drawSize>
+      <damageData>
+        <rect>(0.1,0.1,0.8,0.8)</rect>
+      </damageData>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <modExtensions>
+      <li Class="YASTM.ST_SitOffsetExtension">
+        <offsetNorth>(0, 0, 0.05)</offsetNorth>
+        <offsetSouth>(0, 0, -0.1)</offsetSouth>
+        <offsetEast>(-0.2, 0, 0)</offsetEast>
+        <offsetWest>(0.2, 0, 0)</offsetWest>
+        <northLayerAdjust>-0.6</northLayerAdjust>
+      </li>
+    </modExtensions>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<uiIconScale>1</uiIconScale>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToBuild>10000</WorkToBuild>
+			<Mass>15</Mass>
+			<Flammability>1.0</Flammability>
+			<Beauty>6</Beauty>
+			<Comfort>0.80</Comfort>
+		</statBases>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<stuffCategories>
+      <li>Fabric</li>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>350</costStuffCount>
+		<pathCost>30</pathCost>
+		<fillPercent>0.35</fillPercent>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<building>
+			<isSittable>true</isSittable>
+			<paintable>true</paintable>
+      <destroySound>BuildingDestroyed_Soft_Small</destroySound>
+		</building>
+     <uiOrder>1001</uiOrder>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>ST_Standard_Interior</li>
+		</researchPrerequisites>
+		<designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Furiture_Group</designatorDropdown>
+    <comps>
+      <li Class="CompProperties_Styleable" />
+    </comps>
+	</ThingDef>
 
 </Defs>

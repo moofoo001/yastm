@@ -266,9 +266,9 @@
         </statOffsets>
         
         <theOnlyAllowedMentalBreaks>
-            <li>BingeFood</li>
-            <li>BingeDrugMajor</li>
-            <li>WanderOwnRoom</li>
+            <li>Binging_Food</li>
+            <li>Binging_DrugMajor</li>
+            <li>Wander_OwnRoom</li>
         </theOnlyAllowedMentalBreaks>
       </li>
     </degreeDatas>

@@ -220,4 +220,16 @@
     </stages>
   </ThoughtDef>
 
+  <ThoughtDef>
+      <defName>ST_ScienceSuccess</defName>
+      <durationDays>0.5</durationDays>
+      <stackLimit>3</stackLimit>
+      <stages>
+        <li>
+          <label>successful scan</label>
+          <description>Finally, some good readings! The Chief will be pleased... hopefully.</description>
+          <baseMoodEffect>4</baseMoodEffect> </li>
+      </stages>
+    </ThoughtDef>
+
 </Defs>

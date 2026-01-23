@@ -36,7 +36,7 @@
       <li Class="ST.PhaseWeapons.ModExtension_PhaserSettings">
         <stunChance>1.0</stunChance>
         <stunOnlyFlesh>true</stunOnlyFlesh>
-        <stunTicks>240</stunTicks>
+        <stunTicks>300</stunTicks>
       </li>
     </modExtensions>
   </ThingDef>
@@ -121,12 +121,32 @@
     <graphicData>
       <texPath>Things/Projectile/Bullet_PhaserRifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <color>(1, 0, 0, 1)</color> <!-- greenish -->
     </graphicData>
     <projectile>
     	<flyOverhead>false</flyOverhead>
       <damageDef>Burn</damageDef>
       <damageAmountBase>16</damageAmountBase>
       <armorPenetrationBase>0.25</armorPenetrationBase>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- Phaser rifle AP -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_PhaserRifle_AP</defName>
+    <thingClass>ST.PhaseWeapons.Projectile_Phaser</thingClass>
+    <label>phaser beam AP (rifle)</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_PhaserRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.1, 0.8, 1, 1)</color>
+    </graphicData>
+    <projectile>
+    	<flyOverhead>false</flyOverhead>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>14</damageAmountBase>
+      <armorPenetrationBase>0.5</armorPenetrationBase>
       <speed>90</speed>
     </projectile>
   </ThingDef>

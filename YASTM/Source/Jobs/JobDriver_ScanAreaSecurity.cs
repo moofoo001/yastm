@@ -16,93 +16,80 @@ namespace YASTM
         protected override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOn(() => !TargetCell.InBounds(pawn.Map));
+            
+            // 1. Zum Ziel gehen
             yield return Toils_Goto.GotoCell(TargetIndex.A, PathEndMode.OnCell);
 
+            // Tricorder Werte holen
             var comp = GetTricorderComp(pawn);
             int scanTicks = comp?.ScanTicks ?? 900;
-            float radius  = comp?.ScanRange ?? 18f;
-
+            
+            // 2. Scannen
             var wait = Toils_General.Wait(scanTicks);
             wait.handlingFacing = true;
             wait.initAction = () => nextMoteTick = Find.TickManager.TicksGame;
-
             wait.tickAction = delegate
             {
                 pawn.rotationTracker.FaceCell(TargetCell);
+                // Mote Effekt
                 int now = Find.TickManager.TicksGame;
                 if (now >= nextMoteTick && pawn.Map != null)
                 {
                     var fleck = DefDatabase<FleckDef>.GetNamedSilentFail("ST_KtarianHolo") ?? FleckDefOf.AirPuff;
-                    FleckMaker.Static(TargetCell.ToVector3Shifted(), pawn.Map, fleck, 1.1f);
-                    nextMoteTick = now + 60;
+                    FleckMaker.ThrowMetaIcon(pawn.Position, pawn.Map, fleck);
+                    nextMoteTick = now + 120;
                 }
             };
-            wait.WithProgressBarToilDelay(TargetIndex.A);
             yield return wait;
 
-            var finish = new Toil
+            // 3. Abschluss & Belohnung
+            Toil finish = new Toil
             {
                 initAction = delegate
                 {
-                    var map = pawn.Map;
-                    if (map != null)
+                    Pawn actor = this.pawn;
+
+                    // A) Bestehende Hediff Logik (Buffs für Security)
+                    /*if (comp != null && comp.Props.hediffToApply != null)
                     {
-                        foreach (var cell in GenRadial.RadialCellsAround(TargetCell, radius, true))
-                        {
-                            if (!cell.InBounds(map)) continue;
-                            var list = map.thingGrid.ThingsListAtFast(cell);
-                            for (int i = 0; i < list.Count; i++)
-                            {
-                                var t = list[i];
-                                if (t == null) continue;
-
-                                bool ping = false;
-
-                                // Hostile Pawns
-                                if (t is Pawn p && p.HostileTo(Faction.OfPlayer)) ping = true;
-
-                                // Turrets
-                                if (!ping && t is Building_TurretGun) ping = true;
-
-                                // Explosives
-                                if (!ping && t.TryGetComp<CompExplosive>() != null) ping = true;
-
-                                if (ping)
-                                {
-                                    var fleck = DefDatabase<FleckDef>.GetNamedSilentFail("ST_KtarianHolo") ?? FleckDefOf.AirPuff;
-                                    FleckMaker.Static(t.DrawPos + new Vector3(0f, 0f, 0.35f), map, fleck, 1.2f);
-                                    MoteMaker.ThrowText(t.DrawPos, map, "!", 1.4f);
-                                }
-                            }
-                        }
-                    }
-
-                    // Apply Hediff
-                    var compSec = GetTricorderComp(pawn);
-                    string hedName = compSec?.HediffDefName ?? "ST_SecuritySweep";
-                    var def = DefDatabase<HediffDef>.GetNamedSilentFail(hedName);
-                    if (def != null)
-                    {
-                        var h = pawn.health.hediffSet.GetFirstHediffOfDef(def) ?? pawn.health.AddHediff(def);
+                        HediffDef def = comp.Props.hediffToApply;
+                        var h = actor.health.hediffSet.GetFirstHediffOfDef(def) ?? actor.health.AddHediff(def);
                         var disp = h.TryGetComp<HediffComp_Disappears>();
                         if (disp != null)
                         {
-                            var dur = compSec != null ? compSec.HediffDuration : new IntRange(30000, 45000);
+                            var dur = comp.HediffDuration;
                             disp.ticksToDisappear = Rand.RangeInclusive(dur.min, dur.max);
                         }
-                        Messages.Message("ST.Tricorder.Sec.Applied".Translate(pawn.Named("PAWN")),
-                            pawn, MessageTypeDefOf.PositiveEvent);
+                        Messages.Message("ST.Tricorder.Sec.Applied".Translate(actor.Named("PAWN")), actor, MessageTypeDefOf.PositiveEvent);
                     }
+                    */
+                    // B) NEUES CAREER SYSTEM (Universal)
+                    var compCareer = actor.TryGetComp<CompCareer>();
+                    if (compCareer != null)
+                    {
+                        // 1 Punkt für Security Sweep
+                        compCareer.AddCareerPoint("SecuritySweep", 1);
+                        MoteMaker.ThrowText(actor.DrawPos, actor.Map, "+1 Security Point", 2.0f);
+                    }
+
+                    // C) LOWER DECKS BUFF (Moral)
+                    if (actor.story != null && actor.story.traits.HasTrait(DefDatabase<TraitDef>.GetNamed("ST_LowerDecker", false)))
+                    {
+                        // Security Leute freuen sich auch über den Erfolg
+                        // (Wir nutzen denselben Thought oder "ST_SecuritySuccess" falls du ihn anlegst)
+                        ThoughtDef thought = DefDatabase<ThoughtDef>.GetNamedSilentFail("ST_ScienceSuccess");
+                        if (thought != null)
+                        {
+                             actor.needs.mood.thoughts.memories.TryGainMemory(thought);
+                        }
+                    }
+
+                    // D) Signal für Quests
+                    Find.SignalManager.SendSignal(new Signal("STQ_SecuritySweepCompleted"));
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
             yield return finish;
-
-            // career point
-            var compCareer = pawn.TryGetComp<CompCareer>();
-            compCareer?.AddCareerPoint("SecuritySweep", 1);
-
-            Find.SignalManager.SendSignal(new Signal("STQ_SecuritySweepCompleted"));
         }
 
         private CompTricorderSecurity GetTricorderComp(Pawn p)
@@ -118,4 +105,3 @@ namespace YASTM
         }
     }
 }
-

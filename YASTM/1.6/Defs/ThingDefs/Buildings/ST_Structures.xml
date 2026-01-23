@@ -12,7 +12,7 @@
       <li>Wall</li>
     </replaceTags>
   <graphicData>
-    <texPath>Things/Building/Ship/HullWall2</texPath>
+    <texPath>Things/Building/Ship/WallShip</texPath>
     <graphicClass>Graphic_Single</graphicClass>
     <linkType>CornerFiller</linkType>
     <linkFlags>
@@ -29,6 +29,7 @@
         <edgeLeft>Damage/Edge</edgeLeft>
         <edgeRight>Damage/Edge</edgeRight>
       </damageData>
+       <color>(0.8, 0.8, 1, 1)</color> 
    </graphicData>
   <uiIconPath>Things/Building/Ship/HullWall_MenuIcon</uiIconPath>
   <statBases>

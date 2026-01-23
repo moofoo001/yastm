@@ -1,81 +1,63 @@
 using RimWorld;
 using Verse;
+using YASTM; // Make sure this matches your Comp's namespace!
 
-namespace ST.PhaseWeapons
+namespace YASTM
 {
     public class Verb_PhaserShoot : Verb_Shoot
     {
-        private static CompPhaserMode GetComp(ThingWithComps gear)
+        // This overrides the standard projectile selection
+        public override ThingDef Projectile
         {
-            if (gear == null) return null;
-            CompPhaserMode fallback = null;
-            foreach (var c in gear.AllComps)
+            get
             {
-                if (c is CompPhaserMode pm)
+                if (EquipmentSource == null) return base.Projectile;
+
+                // This will now find the ONLY comp (since we fixed XML)
+                var comp = EquipmentSource.GetComp<CompMultiModeWeapon>();
+                
+                if (comp != null && comp.CurrentMode != null && comp.CurrentMode.projectileDef != null)
                 {
-                    var p = pm.Props;
-                    if (p != null && (p.projectileKill != null || p.projectileStun != null || p.projectileOvercharge != null))
-                        return pm;  
-                    fallback ??= pm;
+                    return comp.CurrentMode.projectileDef;
                 }
+
+                return base.Projectile;
             }
-            return fallback;
         }
-
-            public override ThingDef Projectile
-            {
-                get
-                {
-                    var comp = PhaserUtil.GetPhaserComp(EquipmentSource as ThingWithComps);
-
-                    // Log.Message($"[PhaserMode] Verb getter on {EquipmentSource?.def?.defName} {EquipmentSource?.ThingID} mode={(comp!=null ? comp.mode.ToString() : "null-comp")}");
-                    if (comp?.Props == null) return base.Projectile;
-
-                    return comp.mode switch
-                    {
-                        PhaserFireMode.Stun       => comp.Props.projectileStun       ?? comp.Props.projectileKill ?? base.Projectile,
-                        PhaserFireMode.Overcharge => comp.Props.projectileOvercharge ?? comp.Props.projectileKill ?? base.Projectile,
-                        _                         => comp.Props.projectileKill       ?? base.Projectile
-                    };
-                }
-            }
 
         protected override bool TryCastShot()
         {
-            var comp = GetComp(EquipmentSource as ThingWithComps);
-            var old  = verbProps.defaultProjectile;
+            if (EquipmentSource == null) return base.TryCastShot();
 
-            if (comp?.Props != null)
+            var comp = EquipmentSource.GetComp<CompMultiModeWeapon>();
+            
+            // Overload Risk Logic
+            if (comp != null && comp.CurrentMode != null && comp.CurrentMode.isOverload)
             {
-                var forced = comp.mode switch
+                if (Rand.Chance(comp.CurrentMode.overloadSelfExplodeChance))
                 {
-                    PhaserFireMode.Stun       => comp.Props.projectileStun,
-                    PhaserFireMode.Overcharge => comp.Props.projectileOvercharge ?? comp.Props.projectileKill,
-                    _                         => comp.Props.projectileKill
-                };
-                if (forced != null) verbProps.defaultProjectile = forced;
-
-                if (comp.mode == PhaserFireMode.Overcharge)
-                {
-                    float mis = comp.Props.overchargeMisfireChance;
-                    if (mis > 0f && Rand.Value < mis)
+                    Pawn pawn = CasterPawn;
+                    if (pawn != null)
                     {
-                        var pawn = CasterPawn;
-                        MoteMaker.ThrowText(pawn.DrawPos, pawn.Map, "Overcharge!", 1.25f);
-                        if (comp.Props.overchargeExplosionRadius > 0.01f)
-                            GenExplosion.DoExplosion(pawn.Position, pawn.Map,
-                                comp.Props.overchargeExplosionRadius,
-                                comp.Props.overchargeExplosionDamage ?? DamageDefOf.Flame, pawn);
-                        verbProps.defaultProjectile = old;
-                        return false;
+                        MoteMaker.ThrowText(pawn.DrawPos, pawn.Map, "Overload Misfire!", 3f);
+                        Log.Warning($"[YASTM] {pawn.LabelShort}'s phaser exploded!");
+                        
+                        GenExplosion.DoExplosion(
+                            center: pawn.Position, 
+                            map: pawn.Map, 
+                            radius: 1.9f, 
+                            damType: DamageDefOf.Bomb, 
+                            instigator: pawn,
+                            damAmount: 10,
+                            weapon: EquipmentSource.def
+                        );
+                        
+                        return false; 
                     }
                 }
             }
 
-            bool ok = base.TryCastShot();
-            verbProps.defaultProjectile = old;
-            return ok;
+            return base.TryCastShot();
         }
     }
 }
-

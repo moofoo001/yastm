@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YASTM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92692cdd2aae0fb9a11eb42b87fcc17d93a2cdd3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7e9da9454a82d0c6583c0a5e0fd31e5c1e615e10")]
 [assembly: System.Reflection.AssemblyProductAttribute("YASTM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YASTM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
