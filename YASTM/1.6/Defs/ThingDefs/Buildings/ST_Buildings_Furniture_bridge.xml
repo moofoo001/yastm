@@ -18,8 +18,8 @@
       <li Class="YASTM.ST_SitOffsetExtension">
         <offsetNorth>(0, 0, 0.05)</offsetNorth>
         <offsetSouth>(0, 0, -0.1)</offsetSouth>
-        <offsetEast>(-0.2, 0, 0)</offsetEast>
-        <offsetWest>(0.2, 0, 0)</offsetWest>
+        <offsetEast>(0.02, 0, -0.08)</offsetEast>
+        <offsetWest>(-0.02, 0, 0.08)</offsetWest>
         <northLayerAdjust>-0.6</northLayerAdjust>
       </li>
     </modExtensions>
@@ -93,8 +93,8 @@
       <li Class="YASTM.ST_SitOffsetExtension">
         <offsetNorth>(0, 0, 0.05)</offsetNorth>
         <offsetSouth>(0, 0, -0.1)</offsetSouth>
-        <offsetEast>(-0.2, 0, 0)</offsetEast>
-        <offsetWest>(0.2, 0, 0)</offsetWest>
+        <offsetEast>(0.02, 0, -0.08)</offsetEast>
+        <offsetWest>(-0.02, 0, 0.08)</offsetWest>
         <northLayerAdjust>-0.6</northLayerAdjust>
       </li>
     </modExtensions>

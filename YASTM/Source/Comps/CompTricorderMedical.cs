@@ -13,7 +13,7 @@ namespace YASTM
         public int cooldownTicks = 6000;         // 100s
         public int scanTicks = 1200;             // 20s work
         public int range = 12;                   // target range
-        public string hediffDef = "ST_MedScan_Boost";
+        public string hediffDef = "ST_Hediff_MedBooster";
         public int hediffMinTicks = 30000;       // 8,3 Min
         public int hediffMaxTicks = 45000;       // 12,5 Min
         public int minMedicine = 0;              // optional skill level requirement

@@ -74,7 +74,7 @@
 
   <ThingDef ParentName="BuildingBase">
     <defName>ST_Icon_ShipandVehicle_Header</defName>
-    <label>ships, vehicles and stuff</label>
+    <label>structures, vehicles and stuff</label>
     <description>Choose an item from the menu.</description>
     <graphicData>
       <texPath>UI/Icons/Menue/vehicle</texPath> 
@@ -83,7 +83,7 @@
     <costList>
     </costList>
     <designationCategory>ST_Designation</designationCategory>
-    <designatorDropdown>ST_ShipandVehicle_Group</designatorDropdown>
+    <designatorDropdown>ST_StructuresAndVehicle_Group</designatorDropdown>
      <uiOrder>5000</uiOrder> <placeWorkers>
       <li>YASTM.PlaceWorker_Header</li>
     </placeWorkers>

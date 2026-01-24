@@ -57,7 +57,7 @@
       <li>ST_Shuttle_Craft</li>
     </researchPrerequisites>
     <designationCategory>ST_Designation</designationCategory>
-    <designatorDropdown>ST_ShipandVehicle_Group</designatorDropdown>
+    <designatorDropdown>ST_StructuresAndVehicle_Group</designatorDropdown>
   </ThingDef>
 
 <ThingDef>

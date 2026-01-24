@@ -41,9 +41,9 @@
   </DesignatorDropdownGroupDef>
 
   <DesignatorDropdownGroupDef>
-    <defName>ST_ShipandVehicle_Group</defName>
-    <label>trek tek ships and vehicles </label>
-    <description>Starfleet ships and vehicles.</description>
+    <defName>ST_StructuresAndVehicle_Group</defName>
+    <label>trek tek structures and vehicles </label>
+    <description>Starfleet structures and vehicles.</description>
     <iconSource>Placed</iconSource>
   </DesignatorDropdownGroupDef>
 

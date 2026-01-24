@@ -331,5 +331,122 @@
   </thingSetMakerTags>
 </ThingDef>
 
+<ThingDef Name="ST_EngineeringToolBase" Abstract="True" ParentName="ApparelBase">
+    <thingClass>Apparel</thingClass>
+    <category>Item</category>
+    <selectable>true</selectable>
+    <pathCost>10</pathCost>
+    <graphicData>
+      <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <DeteriorationRate>1.0</DeteriorationRate>
+      <Mass>0.5</Mass>
+      <EquipDelay>1.5</EquipDelay>
+    </statBases>
+    <apparel>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>ST_EngineeringTool</li>
+      </tags>
+    </apparel>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <researchPrerequisites><li>ST_Common_Engineering</li></researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_EngineeringToolBase">
+    <defName>ST_Tool_Hyperspanner</defName>
+    <label>hyperspanner</label>
+    <description>A nearly universal multitool, the hyperspanner is used to relink or bypass electrical systems. Increases construction speed and repair success chance.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Utilities/HyperSpanner</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <equippedStatOffsets>
+      <ConstructionSpeed>0.20</ConstructionSpeed>
+      <FixBrokenDownBuildingSuccessChance>0.20</FixBrokenDownBuildingSuccessChance>
+      <ConstructSuccessChance>0.10</ConstructSuccessChance>
+    </equippedStatOffsets>
+    <costList>
+      <Steel>30</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+
+  </ThingDef>
+
+  <ThingDef ParentName="ST_EngineeringToolBase">
+    <defName>ST_Tool_PlasmaTorch</defName>
+    <label>plasma torch</label>
+    <description>A cutting tool that utilizes a focused plasma beam to melt its way through solid objects. Significantly increases mining and deconstruction speed.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Utilities/PlasmaTorch</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <equippedStatOffsets>
+      <MiningSpeed>0.25</MiningSpeed>
+      <SmoothingSpeed>0.25</SmoothingSpeed>
+      <FixBrokenDownBuildingSuccessChance>0.10</FixBrokenDownBuildingSuccessChance>
+    </equippedStatOffsets>
+    <costList>
+      <Steel>40</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Chemfuel>10</Chemfuel>
+    </costList>
+  </ThingDef>
+
+<ThingDef ParentName="ApparelBase">
+    <defName>ST_Apparel_MultiMitt</defName>
+    <label>multi-mitt</label>
+    <description>A multi-adaptive glove used by Starfleet engineering crews for hazardous maintenance. It provides exceptional thermal insulation and magnetic grip assistance.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Utilities/MultiMitt</texPath> 
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints> <WorkToMake>4000</WorkToMake>
+      <Mass>0.3</Mass>
+      <Flammability>0.1</Flammability> <EquipDelay>1.5</EquipDelay>
+      <Insulation_Cold>30</Insulation_Cold> 
+      <Insulation_Heat>30</Insulation_Heat>
+    </statBases>
+    <equippedStatOffsets>
+      <WorkSpeedGlobal>0.10</WorkSpeedGlobal>
+      <ToxicEnvironmentResistance>0.20</ToxicEnvironmentResistance>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>Hands</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Middle</li> </layers>
+      <tags>
+        <li>ST_EngineeringTool</li>
+        <li>Starfleet_Engineering</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+      </defaultOutfitTags>
+    </apparel>
+    <recipeMaker>
+    <recipeUsers>
+        <li>TableMachining</li>
+    </recipeUsers>
+    </recipeMaker>
+    <costList>
+      <Synthread>20</Synthread>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+     <researchPrerequisites><li>ST_EVSuits</li></researchPrerequisites>
+  </ThingDef>
 
 </Defs>

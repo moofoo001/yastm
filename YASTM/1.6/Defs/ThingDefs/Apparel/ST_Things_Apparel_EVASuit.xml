@@ -189,9 +189,9 @@
       <texPath>Things/Item/Apparel/EVSuit/Starfleet_EV_Helmet</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
-      <drawSize>1.1,1.1</drawSize>
+      <drawSize>1,1</drawSize>
     </graphicData>
-    <uiIconScale>1.3</uiIconScale>
+    <uiIconScale>1</uiIconScale>
     <uiIconPath>Things/Item/Apparel/EVSuit/Starfleet_EV_Helmet</uiIconPath>
     <thingCategories>
       <li>Apparel</li>

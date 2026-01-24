@@ -12,7 +12,7 @@
       <li>Wall</li>
     </replaceTags>
   <graphicData>
-    <texPath>Things/Building/Ship/WallShip</texPath>
+    <texPath>Things/Building/Ship/HullWallv2</texPath>
     <graphicClass>Graphic_Single</graphicClass>
     <linkType>CornerFiller</linkType>
     <linkFlags>
@@ -31,7 +31,7 @@
       </damageData>
        <color>(0.8, 0.8, 1, 1)</color> 
    </graphicData>
-  <uiIconPath>Things/Building/Ship/HullWall_MenuIcon</uiIconPath>
+  <uiIconPath>Things/Building/Ship/HullWallv2Icon</uiIconPath>
   <statBases>
     <MaxHitPoints>900</MaxHitPoints>
     <WorkToBuild>900</WorkToBuild>
@@ -54,7 +54,7 @@
     <useStuffTerrainAffordance>true</useStuffTerrainAffordance>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded> <!-- Best affordance needed for stone -->
     <holdsRoof>true</holdsRoof>
-    <designationCategory>Structure</designationCategory>
+
     <uiOrder>2000</uiOrder>
     <staticSunShadowHeight>1.0</staticSunShadowHeight>
     <blockLight>true</blockLight>
@@ -103,8 +103,116 @@
     <Steel>40</Steel>
     <Plasteel>10</Plasteel>
   </costList>
+      <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_StructuresAndVehicle_Group</designatorDropdown>
 </ThingDef>
 
+
+  <!-- Fancy Wall -->
+<ThingDef ParentName="BuildingBase">
+  <defName>ST_FancyWall</defName>
+  <label>fancy wall</label>
+  <thingClass>Building</thingClass>
+  <category>Building</category>
+  <description>Designer wall. Suitable for every advanced colony home.</description>  
+    <replaceTags>
+      <li>Wall</li>
+    </replaceTags>
+  <graphicData>
+    <texPath>Things/Building/Ship/FancyWall</texPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <linkType>CornerFiller</linkType>
+    <linkFlags>
+    <li>Wall</li>
+    <li>Rock</li>
+    </linkFlags>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+        <edgeTop>Damage/Edge</edgeTop>
+        <edgeBot>Damage/Edge</edgeBot>
+        <edgeLeft>Damage/Edge</edgeLeft>
+        <edgeRight>Damage/Edge</edgeRight>
+      </damageData>
+       <color>(0.8, 0.8, 1, 1)</color> 
+   </graphicData>
+  <uiIconPath>Things/Building/Ship/FancyWallIcon</uiIconPath>
+  <statBases>
+    <MaxHitPoints>900</MaxHitPoints>
+    <WorkToBuild>900</WorkToBuild>
+    <Flammability>0</Flammability>
+    <MeditationFocusStrength>0.22</MeditationFocusStrength>
+  </statBases>
+  <costStuffCount>10</costStuffCount>
+   <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <coversFloor>true</coversFloor>
+    <drawStyleCategory>Walls</drawStyleCategory>
+    <tickerType>Never</tickerType>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <useStuffTerrainAffordance>true</useStuffTerrainAffordance>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded> <!-- Best affordance needed for stone -->
+    <holdsRoof>true</holdsRoof>
+
+    <uiOrder>2000</uiOrder>
+    <staticSunShadowHeight>1.0</staticSunShadowHeight>
+    <blockLight>true</blockLight>
+    <canOverlapZones>false</canOverlapZones>
+    <fertility>0</fertility>
+    <stuffCategories>
+      <li>Metallic</li>
+  </stuffCategories>
+   <building>
+      <paintable>true</paintable>
+      <isInert>true</isInert>
+      <isWall>true</isWall>
+      <isPlaceOverableWall>true</isPlaceOverableWall>
+      <ai_chillDestination>false</ai_chillDestination>
+      <supportsWallAttachments>true</supportsWallAttachments>
+      <isStuffableAirtight>true</isStuffableAirtight>
+      <relatedBuildCommands>
+        <li>Door</li>
+        <li>Autodoor</li>
+        <li MayRequire="Ludeon.RimWorld.Anomaly">SecurityDoor</li>
+        <li MayRequire="Ludeon.RimWorld.Odyssey">VacBarrier</li>
+        <li>Cooler</li>
+        <li>Vent</li>
+      </relatedBuildCommands>
+    </building>
+    <comps>
+      <li Class="CompProperties_MeditationFocus">
+        <statDef>MeditationFocusStrength</statDef>
+        <focusTypes>
+          <li>Minimal</li>
+        </focusTypes>
+      </li>
+    </comps>
+  <researchPrerequisites><li>ST_Common_Engineering</li></researchPrerequisites>
+    <damageMultipliers>
+      <li>
+        <damageDef>Bomb</damageDef>
+        <multiplier>0.02</multiplier>
+      </li>
+      <li>
+        <damageDef>Thump</damageDef>
+        <multiplier>0.02</multiplier>
+      </li>
+    </damageMultipliers>
+  <costList>
+    <Steel>40</Steel>
+    <Plasteel>10</Plasteel>
+  </costList>
+      <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_StructuresAndVehicle_Group</designatorDropdown>
+</ThingDef>
   <!-- Starship Hull Window  -->
       
  <ThingDef ParentName="LampBase">
@@ -169,10 +277,11 @@
         <darklightToggle>true</darklightToggle> 
       </li>
     </comps>
-	<designationCategory>Structure</designationCategory> 
 	<researchPrerequisites> 
       <li>ST_Common_Engineering</li>
     </researchPrerequisites>
+        <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_StructuresAndVehicle_Group</designatorDropdown>
   </ThingDef>
 
 <ThingDef ParentName="DoorBase">
@@ -210,13 +319,13 @@
       <doorTopGraphic>
         <texPath>Things/Building/Ship/ST_HullDoor_Top</texPath>
         <graphicClass>Graphic_Multi</graphicClass>
-        <drawSize>(2.4,2)</drawSize>
+        <drawSize>(2.5,2)</drawSize>
         <color>(105,105,105)</color>
       </doorTopGraphic>
       <doorSupportGraphic>
         <texPath>Things/Building/Ship/ST_HullDoor_Support</texPath>
         <graphicClass>Graphic_Multi</graphicClass>
-        <drawSize>(2,2.4)</drawSize>
+        <drawSize>(1.5,2)</drawSize>
         <color>(105,105,105)</color>
       </doorSupportGraphic>
       <soundDoorOpenPowered>ST_Door_Sound</soundDoorOpenPowered>
@@ -244,6 +353,82 @@
     <researchPrerequisites>
       <li>ST_Common_Engineering</li>
     </researchPrerequisites>
+    <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_StructuresAndVehicle_Group</designatorDropdown>
+  </ThingDef>
+
+
+  <ThingDef ParentName="DoorBase">
+    <defName>ST_FancyDoor</defName>
+    <label>fancy armored door</label>
+    <description>Fortified door for your home security</description>
+    <category>Building</category>
+    <thingClass>Building_MultiTileDoor</thingClass>
+    <statBases>
+        <WorkToBuild>1685</WorkToBuild>
+        <MaxHitPoints>450</MaxHitPoints>
+        <DoorOpenSpeed>0.75</DoorOpenSpeed>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Building/Ship/ST_FancyDoor_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      	  <shaderType>CutoutComplex</shaderType>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>Things/Building/Ship/ST_FancyDoor</uiIconPath>
+    <costList>
+      <Plasteel>20</Plasteel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <building>
+      <blueprintGraphicData>
+        <texPath>Things/Building/Ship/ST_HullDoor_Blueprint</texPath>
+        <drawSize>(2,2)</drawSize>
+      </blueprintGraphicData>
+      <paintable>true</paintable>
+      <isSupportDoor>true</isSupportDoor>
+      <isAirtight>true</isAirtight>
+      <doorTopGraphic>
+        <texPath>Things/Building/Ship/ST_FancyDoor_Top</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <drawSize>(2.5,2)</drawSize>
+        <color>(105,105,105)</color>
+      </doorTopGraphic>
+      <doorSupportGraphic>
+        <texPath>Things/Building/Ship/ST_FancyDoor_Support</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <drawSize>(1.5,2)</drawSize>
+        <color>(105,105,105)</color>
+      </doorSupportGraphic>
+      <soundDoorOpenPowered>ST_Door_Sound</soundDoorOpenPowered>
+      <soundDoorClosePowered>ST_Door_Sound</soundDoorClosePowered>
+      <soundDoorOpenManual>ST_Door_Sound</soundDoorOpenManual>
+      <soundDoorCloseManual>ST_Door_Sound</soundDoorCloseManual>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_MultiCellDoor</li>
+    </placeWorkers>
+    <stuffCategories Inherit="False">
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>50</costStuffCount>
+    <damageMultipliers>
+      <li>
+        <damageDef>Bomb</damageDef>
+        <multiplier>0.05</multiplier>
+      </li>
+      <li>
+        <damageDef>Thump</damageDef>
+        <multiplier>0.05</multiplier>
+      </li>
+    </damageMultipliers>
+    <researchPrerequisites>
+      <li>ST_Common_Engineering</li>
+    </researchPrerequisites>
+    <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_StructuresAndVehicle_Group</designatorDropdown>
   </ThingDef>
 
 </Defs>
