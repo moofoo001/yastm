@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BodyPartProstheticBase">
+    <defName>ST_NeuralInterfaceKit</defName>
+    <label>neural interface kit</label>
+    <description>A set of subspace transceivers and neural shunts implanted at the temples. Required to connect a V.I.S.O.R. directly to the brain.</description>
+    <descriptionHyperlinks><ThingDef>ST_Apparel_Visor</ThingDef></descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Special/ST_MedicalBox</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.2</drawSize>
+      <!--color>(100, 180, 255)</color-->
+    </graphicData>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+      <Steel>5</Steel>
+      <Gold>20</Gold>
+    </costList>
+    <statBases>
+      <Mass>0.1</Mass>
+      <WorkToMake>12000</WorkToMake>
+    </statBases>
+      <recipeMaker>
+        <researchPrerequisite>ST_Federation_AdvancedMedic</researchPrerequisite>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+  </ThingDef>
+
+</Defs>

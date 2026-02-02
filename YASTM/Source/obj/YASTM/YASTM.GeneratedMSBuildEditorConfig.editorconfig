@@ -1,6 +1,6 @@
 is_global = true
 build_property.RootNamespace = StarTrekFactions
-build_property.ProjectDir = D:\SteamLibrary\steamapps\common\RimWorld\Mods\YASTM\Source\
+build_property.ProjectDir = /home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.CsWinRTUseWindowsUIXamlProjections = false

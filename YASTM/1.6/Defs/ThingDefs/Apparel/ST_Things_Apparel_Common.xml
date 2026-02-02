@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="HatMakeableBase">
+    <defName>ST_Apparel_Visor</defName>
+    <label>V.I.S.O.R.</label>
+    <description>A Visual Instrument and Sensory Organ Replacement device. It detects electromagnetic signals across the entire spectrum, transmitting them directly into the brain via neural implants.\n\nProvides superior analytical vision, drastically improving research speed and shooting accuracy, but can cause sensory overload (slightly increased pain sensitivity).</description>
+    <tickerType>Normal</tickerType>
+
+    <graphicData>
+      <texPath>Things/Item/Apparel/Visor/Visor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </graphicData>
+
+    <statBases>
+      <WorkToMake>8000</WorkToMake>
+      <MaxHitPoints>80</MaxHitPoints>
+      <Mass>0.2</Mass>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2.0</EquipDelay>
+      <MarketValue>1200</MarketValue>
+    </statBases>
+
+    <equippedStatOffsets>
+        <ResearchSpeed>0.25</ResearchSpeed>
+        <ShootingAccuracyPawn>3.0</ShootingAccuracyPawn>
+        <MedicalTendQuality>0.15</MedicalTendQuality>
+        <WorkSpeedGlobal>0.10</WorkSpeedGlobal>
+        <PainShockThreshold>-0.05</PainShockThreshold>
+        <SocialImpact>-0.10</SocialImpact>
+    </equippedStatOffsets>
+
+    <apparel>
+        <bodyPartGroups>
+            <li>Eyes</li>
+            <li>UpperHead</li>
+        </bodyPartGroups>
+        <wornGraphicPath>Things/Item/Apparel/Visor/Visor</wornGraphicPath>
+        <wornGraphicData>
+        <renderUtilityAsPack>false</renderUtilityAsPack>
+        
+        <north>
+          <offset>(0.2, -0.2)</offset>
+          <scale>(0.55, 0.55)</scale>
+        </north>
+        
+        <south>
+          <offset>(0.0, -0.2)</offset>
+           <scale>(0.55, 0.55)</scale>
+        </south>
+        
+        <east>
+          <offset>(0.05, -0.2)</offset>
+          <scale>(0.55, 0.55)</scale>
+        </east>
+        
+        <west>
+          <offset>(-0.05, -0.2)</offset>
+          <scale>(0.55, 0.55)</scale>
+        </west>
+        
+        <male><scale>(0.55, 0.55)</scale></male>
+        <female><scale>(0.55, 0.55)</scale></female>
+        <thin><scale>(0.55, 0.55)</scale></thin>
+        <hulk><scale>(0.55, 0.55)</scale></hulk>
+        <fat><scale>(0.55, 0.55)</scale></fat>
+      </wornGraphicData>
+        <layers>
+          <li>EyeCover</li>
+        </layers>
+      <tags>
+        <li>Starfleet_Engineering</li>
+        <li>Starfleet_Science</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+      </defaultOutfitTags>
+      </apparel>
+
+    <recipeMaker>
+      <researchPrerequisite>ST_Federation_AdvancedMedic</researchPrerequisite>
+    <recipeUsers>
+        <li>TableMachining</li>
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>10</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    
+    <costList>
+        <Plasteel>20</Plasteel>
+        <ComponentSpacer>2</ComponentSpacer>
+        <Steel>10</Steel>
+    </costList>
+    
+    <comps>
+      <li Class="YASTM.CompProperties_Visor" />
+    </comps>
+
+  </ThingDef>
+
+</Defs>

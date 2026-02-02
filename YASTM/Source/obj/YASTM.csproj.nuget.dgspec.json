@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj": {}
+    "/home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/YASTM.csproj": {}
   },
   "projects": {
-    "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj": {
+    "/home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/YASTM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
+        "projectUniqueName": "/home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/YASTM.csproj",
         "projectName": "YASTM",
-        "projectPath": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\YASTM.csproj",
-        "packagesPath": "C:\\Users\\moofoo\\.nuget\\packages\\",
-        "outputPath": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\YASTM\\Source\\obj\\",
+        "projectPath": "/home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/YASTM.csproj",
+        "packagesPath": "/home/moofoo/.nuget/packages/",
+        "outputPath": "/home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\moofoo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/moofoo/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net472"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net472": {
@@ -60,7 +60,7 @@
               "version": "[*, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.309\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

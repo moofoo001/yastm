@@ -133,7 +133,7 @@
     <uiIconPath>Things/Building/Shuttle/ShuttleType6_Side</uiIconPath>
     <uiIconScale>0.9</uiIconScale>
     <drawerType>MapMeshAndRealTime</drawerType>
-    <blueprintDef>ST_ShuttleCraft_TypeVI_Blueprint</blueprintDef>
+
     <minifiedDef>MinifiedThing</minifiedDef> 
     <thingCategories>
       <li>BuildingsMisc</li>
@@ -225,6 +225,9 @@
     <researchPrerequisites>
       <li>ST_Shuttle_Craft</li>
     </researchPrerequisites>
+
+    <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_StructuresAndVehicle_Group</designatorDropdown>
   </ThingDef>
 
   <ThingDef ParentName="SkyfallerBase">

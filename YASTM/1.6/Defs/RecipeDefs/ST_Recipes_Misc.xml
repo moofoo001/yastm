@@ -50,4 +50,40 @@
         </li>
       </ingredients>
       </RecipeDef>
+
+
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>ST_InstallNeuralInterface</defName>
+        <label>install neural interface</label>
+        <description>Implant a neural interface port connecting directly to the brain.</description>
+        <workerClass>Recipe_InstallImplant</workerClass>
+        <jobString>Installing neural interface.</jobString>
+        <workAmount>2500</workAmount>
+        <recipeUsers>
+          <li>Human</li>
+        </recipeUsers>
+        <skillRequirements>
+          <Medicine>8</Medicine>
+        </skillRequirements>
+        <ingredients>
+          <li>
+            <filter>
+              <thingDefs>
+                <li>ST_NeuralInterfaceKit</li>
+              </thingDefs>
+            </filter>
+            <count>1</count>
+          </li>
+        </ingredients>
+        <fixedIngredientFilter>
+          <thingDefs>
+            <li>ST_NeuralInterfaceKit</li>
+          </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+          <li>Brain</li> 
+        </appliedOnFixedBodyParts>
+        <addsHediff>ST_Hediff_NeuralInterface</addsHediff>
+    </RecipeDef>
+  
 </Defs>

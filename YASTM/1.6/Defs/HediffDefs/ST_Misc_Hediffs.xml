@@ -199,7 +199,7 @@
     </stages>
   </HediffDef>
 
-    <!-- alert statuses -->
+    <!-- alert status -->
  
   <HediffDef>
     <defName>ST_Alert_RedState</defName>
@@ -499,6 +499,45 @@
         <showRemainingTime>true</showRemainingTime>
       </li>
     </comps>
+  </HediffDef>
+
+  <!-- Neural Interface Implant -->
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>ST_Hediff_NeuralInterface</defName>
+    <label>neural interface ports</label>
+    <labelNoun>a neural interface</labelNoun>
+    <description>Implanted neural ports at the temples that allow connection of external sensory devices like a V.I.S.O.R.</description>
+    <defaultLabelColor>(0.6, 0.7, 1.0)</defaultLabelColor> <stages>
+      <li>
+        <statOffsets>
+          <GlobalLearningFactor>0.05</GlobalLearningFactor>
+        </statOffsets>
+      </li>
+    </stages>
+    <spawnThingOnRemoved>ST_NeuralInterfaceKit</spawnThingOnRemoved>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>ST_Hediff_VisorUplink</defName>
+    <label>VISOR uplink</label>
+    <description>The V.I.S.O.R. is actively transmitting full-spectrum visual data to the neural cortex via the implanted interface.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.6, 0.8, 1.0)</defaultLabelColor> <isBad>false</isBad>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>1.20</offset>
+          </li>
+        </capMods>
+        <statOffsets>
+             <ResearchSpeed>0.25</ResearchSpeed>
+             <ShootingAccuracyPawn>3.0</ShootingAccuracyPawn>
+             <WorkSpeedGlobal>0.10</WorkSpeedGlobal>
+        </statOffsets>
+      </li>
+    </stages>
   </HediffDef>
 
 </Defs>
