@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    <Defs>
+    <!-- Precept-Definition für das Ritual -->
+        <PreceptDef ParentName="FestivalBase">
+                <defName>ST_PromotionCeremonyPrecept</defName>
+                <label>promotion ceremony</label>
+                <description>A formal gathering to pin a new pip on a crewmember. Celebrates recent promotions.</description>
+                <iconPath>UI/Icons/Starfleet/Ritual_Promotion</iconPath>
+                <issue>Ritual</issue>
+                <preceptClass>Precept_Ritual</preceptClass>
+                <ritualPatternBase>CelebrationPartyChat</ritualPatternBase>
+                <impact>Medium</impact>
+        </PreceptDef>
+    </Defs>
+

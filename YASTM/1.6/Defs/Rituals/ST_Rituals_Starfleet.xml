@@ -43,18 +43,6 @@
         <li>ST_Meme_Starfleet</li>
       </requiredMemes>
     </PreceptDef>
-  
-  <!-- Precept-Definition für das Ritual -->
-
-  <PreceptDef ParentName="FestivalBase">
-      <defName>ST_PromotionCeremonyPrecept</defName>
-      <label>promotion ceremony</label>
-      <description>A formal Starfleet promotion ceremony acknowledging exemplary service.</description>
-      <iconPath>UI/Icons/Starfleet/Ritual_Promotion</iconPath>
-      <preceptClass>Precept_Ritual</preceptClass>
-      <issue>Ritual</issue>
-      <impact>Low</impact>
-  </PreceptDef>
 
       <!-- PROMOTION: based on RoleChange -->
     <PreceptDef MayRequire="Ludeon.RimWorld.Ideology">

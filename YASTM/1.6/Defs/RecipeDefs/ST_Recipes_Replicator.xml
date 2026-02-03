@@ -236,11 +236,95 @@
     <researchPrerequisite>ST_Replicator_Tech</researchPrerequisite>
   </RecipeDef>
 
+  <RecipeDef>
+    <defName>ST_Replicate_HotBananaWater</defName>
+    <label>replicate hot banana water</label>
+    <description>A carbohydrate-rich beverage requested when the replicator parameters are slightly off... or by weird Canadians. It's basically warm fruit juice.</description>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <workAmount>10</workAmount>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>ST_SFX_LCARS_Click</soundWorking>
+    <jobString>Replicating...</jobString>
+    
+    <modExtensions>
+        <li Class="YASTM.ReplicatorCostExtension">
+          <cost>0.5</cost> </li>
+    </modExtensions>
+    
+    <products>
+      <ST_Drink_BananaWater>1</ST_Drink_BananaWater> 
+    </products>
+    <recipeUsers>
+      <li>ST_Replicator</li>
+    </recipeUsers>
+      <researchPrerequisite>ST_Replicator_Tech</researchPrerequisite>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>ST_Replicate_PlomeekSoup</defName>
+    <label>replicate plomeek soup</label>
+    <description>A traditional Vulcan breakfast. Bland, nutritious, and occasionally thrown at bulkheads during pon farr.</description>
+    <workAmount>20</workAmount>
+    <soundWorking>ST_SFX_LCARS_Click</soundWorking>
+    <modExtensions>
+        <li Class="YASTM.ReplicatorCostExtension">
+          <cost>1.5</cost>
+        </li>
+    </modExtensions>
+    <products>
+      <ST_Meal_PlomeekSoup>1</ST_Meal_PlomeekSoup>
+    </products>
+    <recipeUsers>
+      <li>ST_Replicator</li>
+    </recipeUsers>
+      <researchPrerequisite>ST_Replicator_Tech</researchPrerequisite>
+  </RecipeDef>
+
+
+<RecipeDef>
+    <defName>ST_Replicate_MachineOil</defName>
+    <label>replicate poly-lubricant</label>
+    <description>Replicate a cup of warm industrial lubricant. Not recommended for biological consumption.</description>
+    <workAmount>15</workAmount>
+    <soundWorking>ST_SFX_LCARS_Click</soundWorking>
+    <modExtensions>
+        <li Class="YASTM.ReplicatorCostExtension">
+          <cost>1.0</cost>
+        </li>
+    </modExtensions>
+    <products>
+      <ST_Drink_MachineOil>1</ST_Drink_MachineOil>
+    </products>
+    <recipeUsers>
+      <li>ST_Replicator</li>
+    </recipeUsers>
+      <researchPrerequisite>ST_Replicator_Tech</researchPrerequisite>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>ST_Replicate_PruneJuice</defName>
+    <label>replicate prune juice</label>
+    <description>Replicate a glass of chilled prune juice. Extra large.</description>
+    <workAmount>15</workAmount>
+    <soundWorking>ST_SFX_LCARS_Click</soundWorking>
+    <modExtensions>
+        <li Class="YASTM.ReplicatorCostExtension">
+          <cost>1.2</cost>
+        </li>
+    </modExtensions>
+    <products>
+      <ST_Drink_PruneJuice>1</ST_Drink_PruneJuice>
+    </products>
+    <recipeUsers>
+      <li>ST_Replicator</li>
+    </recipeUsers>
+      <researchPrerequisite>ST_Replicator_Tech</researchPrerequisite>
+  </RecipeDef>
 
   <!--RecipeDef>
     <defName>ST_Replicate_Bloodwine</defName>
-    <label>replicate klingon bloodwine</label>
-    <description>Replicates a potent alcoholic beverage favored by Klingon warriors.</description>
+    <label>replicated klingon bloodwine</label>
+    <description>Replicates a potent alcoholic beverage favored by Klingon warriors. Although its replicated therefor a Klingon will dislike this recipe.</description>
     <workSpeedStat>CookSpeed</workSpeedStat>
     <workAmount>30</workAmount>
     <workSkill>Cooking</workSkill>

@@ -154,4 +154,105 @@ bridge crews and overworked engineers.</description>
   </ingestible>
 </ThingDef>
 
+<ThingDef ParentName="MealBase">
+    <defName>ST_Drink_BananaWater</defName>
+    <label>hot banana water</label>
+    <description>A mug containing heated water infused with banana extract. It is surprisingly soothing, rich in potassium, and a favorite of certain Starfleet commanders who find coffee too jittery.\n\n"Keep it coming!"</description>
+    <graphicData>
+      <texPath>Things/Item/Meal/ST_Drink_BananaWater</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>(1.3,1.3)</drawSize>
+    </graphicData>
+    <stackLimit>25</stackLimit>
+    <statBases>
+      <MarketValue>5</MarketValue>
+      <Mass>0.3</Mass>
+      <Nutrition>0.25</Nutrition> </statBases>
+    <ingestible>
+      <preferability>MealSimple</preferability>
+      <foodType>Liquor</foodType>
+      <joy>0.30</joy>
+      <joyKind>Social</joyKind>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>Ingest_Drink</ingestSound>
+      <optimalityOffsetHumanlikes>10</optimalityOffsetHumanlikes>
+    </ingestible>
+  </ThingDef>
+
+  <ThingDef ParentName="MealBase">
+    <defName>ST_Meal_PlomeekSoup</defName>
+    <label>plomeek soup</label>
+    <description>A traditional Vulcan breakfast broth. It is reddish-orange, extremely nutritious, mild in flavor, and perfectly logical. \n\nHistorically known for its aerodynamic properties when thrown at bulkheads during Pon Farr.</description>
+    <graphicData>
+      <texPath>Things/Item/Meal/ST_PlomeekSoup</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>(1.3,1.3)</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>20</MarketValue>
+      <Mass>0.4</Mass>
+      <Nutrition>0.90</Nutrition>
+    </statBases>
+    <ingestible>
+      <preferability>MealFine</preferability>
+      <tasteThought>AteFineMeal</tasteThought>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>Meal_Eat</ingestSound>
+    </ingestible>
+  </ThingDef>
+
+<ThingDef ParentName="MealBase">
+    <defName>ST_Drink_MachineOil</defName>
+    <label>warm poly-lubricant</label>
+    <description>A cup of industrial-grade synthetic lubricant. Perfectly tailored for android servos and positronic neural nets.\n\nWarning: Consumption by organic lifeforms may result in severe indigestion, nausea, and questioning of one's life choices.</description>
+    <graphicData>
+      <texPath>Things/Item/Meal/ST_Drink_MachineOil</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>(1.3,1.3)</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>8</MarketValue>
+      <Mass>0.3</Mass>
+      <Nutrition>0.10</Nutrition>
+    </statBases>
+    <ingestible>
+      <preferability>NeverForNutrition</preferability>
+      <foodType>Liquor</foodType>
+      <joy>0.10</joy>
+      <joyKind>Chemical</joyKind>
+      <ingestEffect>Smoke_Joint</ingestEffect>
+      <ingestSound>Ingest_Drink</ingestSound>
+      <optimalityOffsetHumanlikes>-30</optimalityOffsetHumanlikes> <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>FoodPoisoning</hediffDef>
+          <chance>0.3</chance>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+  </ThingDef>
+
+  <ThingDef ParentName="MealBase">
+    <defName>ST_Drink_PruneJuice</defName>
+    <label>chilled prune juice</label>
+    <description>An opaque, purple liquid derived from dried plums. While considered a geriatric aid by some species, Klingons revere it for its bold texture and cleansing properties.\n\n"A warrior's drink!"</description>
+    <graphicData>
+      <texPath>Things/Item/Meal/ST_Drink_PruneJuice</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>(1.3,1.3)</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>10</MarketValue>
+      <Mass>0.3</Mass>
+      <Nutrition>0.4</Nutrition>
+    </statBases>
+    <ingestible>
+      <preferability>MealSimple</preferability>
+      <foodType>Liquor</foodType>
+      <joy>0.40</joy>
+      <joyKind>Social</joyKind>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>Ingest_Drink</ingestSound>
+    </ingestible>
+  </ThingDef>
+
 </Defs>
