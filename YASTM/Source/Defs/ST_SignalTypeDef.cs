@@ -1,6 +1,6 @@
 using Verse;
 
-namespace YASTM.Defs
+namespace YASTM
 {
    
     public class SignalTypeDef : Def

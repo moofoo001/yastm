@@ -540,4 +540,22 @@
     </stages>
   </HediffDef>
 
+  <!-- Holodeck Holographic Projection -->
+<HediffDef>
+    <defName>ST_Hediff_HolographicProjection</defName>
+    <label>holographic matrix</label>
+    <hediffClass>HediffWithComps</hediffClass> 
+    <description>This entity is a hard-light projection. It vanishes if disrupted.</description>
+    <isBad>false</isBad>
+        <stages>
+          <li>
+            <painFactor>0</painFactor>
+            <becomeVisible>false</becomeVisible>
+          </li>
+        </stages>
+        <comps>
+          <li Class="YASTM.HediffCompProperties_Hologram" />
+        </comps>
+  </HediffDef>
+
 </Defs>

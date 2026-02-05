@@ -5,5 +5,6 @@
 /home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/obj/YASTM/YASTM.AssemblyInfoInputs.cache
 /home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/obj/YASTM/YASTM.AssemblyInfo.cs
 /home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/obj/YASTM/YASTM.csproj.CoreCompileInputs.cache
+/home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/obj/YASTM/YASTM.sourcelink.json
 /home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/obj/YASTM/YASTM.dll
 /home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/obj/YASTM/YASTM.pdb

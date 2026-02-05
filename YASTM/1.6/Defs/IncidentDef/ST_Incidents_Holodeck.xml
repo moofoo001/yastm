@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <IncidentDef>
+    <defName>ST_Incident_HolodeckFailure</defName>
+    <label>holodeck safety failure</label>
+    <category>ThreatSmall</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>YASTM.IncidentWorker_HolodeckFailure</workerClass>
+    <baseChance>0.5</baseChance> 
+    <minRefireDays>15</minRefireDays>
+    <letterLabel>Safety Protocols Failed</letterLabel>
+    <letterText>The safety protocols in the Holodeck have been deactivated! An anomalous subroutine (Badgey?) has taken control and is materializing hostile projections.\n\n"I'M GONNA WEAR YOUR SKIN LIKE A SUIT!"</letterText>
+    <letterDef>ThreatSmall</letterDef>
+    <tale>Raid</tale>
+  </IncidentDef>
+</Defs>

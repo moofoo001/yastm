@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <YASTM.SignalTypeDef>
+    <defName>ST_Signal_GeneralHail</defName>
+    <label>general hail</label>
+    <description>Standard frequency hailing signal.</description>
+  </YASTM.SignalTypeDef>
+</Defs>
