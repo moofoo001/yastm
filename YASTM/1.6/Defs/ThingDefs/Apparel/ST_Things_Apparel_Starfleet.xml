@@ -5,11 +5,9 @@
   <ThingDef Name="ST_Apparel_StarfleetTunic_shared" ParentName="ApparelMakeableBase" Abstract="True">
     <label>Starfleet tunic</label>
     <description>UFP standard uniform.</description>
-    
     <graphicData>
       <texPath>Things/Item/Apparel/Federation_Tunic/FederationTunic</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <shaderType>CutoutComplex</shaderType>
+      <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <uiIconScale>2</uiIconScale>
     <uiIconPath>Things/Item/Apparel/Federation_Tunic/FederationTunic</uiIconPath>
@@ -48,12 +46,16 @@
     <label>Starfleet tunic</label>
     <stuffCategories><li>Fabric</li></stuffCategories>
     <costStuffCount>45</costStuffCount>
+        <graphicData><color>(1, 1, 1, 1)</color></graphicData>  <!-- neutral white -->
     <apparel>
       <wornGraphicPath>Things/Item/Apparel/Federation_Tunic/FederationTunic</wornGraphicPath>
       <bodyPartGroups><li>Torso</li><li>Arms</li></bodyPartGroups>
       <layers><li>OnSkin</li></layers>
       <tags><li>StarfleetUniform</li></tags>
     </apparel>
+    <statBases>
+     <SocialImpact>0.05</SocialImpact> 
+    </statBases>
     <recipeMaker>
       <workAmount>5000</workAmount>
       <workSkill>Crafting</workSkill>
@@ -72,6 +74,65 @@
     <tradeability>None</tradeability>
     <alwaysHaulable>true</alwaysHaulable>  
 
+  </ThingDef>
+
+  <!-- 3) Craftbare formale Tunic: fügt Stuff/Kosten/Recipe hinzu -->
+
+  <ThingDef ParentName="ST_Apparel_StarfleetTunic_shared">
+    <defName>ST_Apparel_StarfleetFormal</defName>
+    <label>Starfleet formal dress</label>
+    <description>Formal dress uniform for Starfleet personnel, used for ceremonial occasions and diplomatic events.</description>
+    
+    <graphicData>
+      <texPath>Things/Item/Apparel/Federation_Tunic/FederationFormal</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <color>(0.3,0.4,1,1)</color> <!-- default blue color -->
+      <colorTwo>(255,255,255)</colorTwo>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+
+    <stuffCategories><li>Fabric</li></stuffCategories>
+    <costStuffCount>100</costStuffCount>
+    
+    <uiIconPath>Things/Item/Apparel/Federation_Tunic/FederationFormal</uiIconPath>
+    <uiIconScale>1.5</uiIconScale>
+
+    <statBases>
+       <SocialImpact>0.1</SocialImpact> 
+    </statBases>
+      <equippedStatOffsets>
+        <SocialImpact>0.1</SocialImpact>
+        <NegotiationAbility>0.15</NegotiationAbility>
+        <ShootingAccuracyPawn>-1</ShootingAccuracyPawn>
+        <MeleeHitChance>-0.1</MeleeHitChance>
+      </equippedStatOffsets>
+      
+    <apparel>
+      <wornGraphicPath>Things/Item/Apparel/Federation_Tunic/FederationFormal</wornGraphicPath>
+      <useWornGraphicMask>true</useWornGraphicMask> 
+      <bodyPartGroups><li>Torso</li><li>Arms</li></bodyPartGroups>
+      <layers><li>OnSkin</li></layers>
+      <tags><li>StarfleetFormalDress</li></tags>
+    </apparel>
+    
+    <recipeMaker>
+      <workAmount>8000</workAmount>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Tailor</effectWorking>
+      <soundWorking>Recipe_Tailor</soundWorking>
+      <skillRequirements><Crafting>8</Crafting></skillRequirements>
+      <recipeUsers>
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+      </recipeUsers>
+      <researchPrerequisites>
+        <li>Federation_Standard</li>
+      </researchPrerequisites>
+    </recipeMaker>
+    <generateCommonality>2</generateCommonality>
+    <tradeability>None</tradeability>
+    <alwaysHaulable>true</alwaysHaulable>  
   </ThingDef>
 
   <!-- Command (Gold) -->
