@@ -174,7 +174,7 @@
       <li>Shuttles</li>
       <li>TransportPod</li>
     </prerequisites>
-    <researchViewX>6</researchViewX>
+    <researchViewX>7</researchViewX>
     <researchViewY>1</researchViewY>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
     <requiredResearchFacilities>
@@ -304,9 +304,8 @@
  <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>ST_TransporterTech</defName>
     <label>transporter systems</label>
-    <description>Enables the Transporter Beacon for short-range beam operations.
-    Unlocks: TransportPod</description>
-    <baseCost>2000</baseCost>
+    <description>Engineering technology for the turbolift and transporter pod.</description>
+    <baseCost>1500</baseCost>
     <techLevel>Spacer</techLevel>
     <prerequisites>
       <li>AdvancedFabrication</li>
@@ -324,6 +323,21 @@
       </researchMods>
   </ResearchProjectDef>
 
+
+   <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_AdvancedTransporterTech</defName>
+    <label>advanced transporter systems</label>
+    <description>Advanced engineering technology for beam transporters</description>
+    <baseCost>2500</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+        <li>ST_TransporterTech</li>
+    </prerequisites>
+    <researchViewX>5</researchViewX>
+    <researchViewY>0</researchViewY>
+  </ResearchProjectDef>
+
+
     <!-- Force Field tech  -->
  <ResearchProjectDef>
     <defName>ST_Emitter_Tech</defName>
@@ -337,8 +351,8 @@
       <li>Electricity</li>
       <li>MicroelectronicsBasics</li>
     </prerequisites>
-    <researchViewX>5</researchViewX>
-    <researchViewY>0</researchViewY>
+    <researchViewX>6</researchViewX>
+    <researchViewY>1</researchViewY>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
     <requiredResearchFacilities>
       <li>MultiAnalyzer</li>

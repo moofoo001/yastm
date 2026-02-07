@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <JobDef>
+    <defName>ST_Job_UseTurbolift</defName>
+    <driverClass>YASTM.JobDriver_UseTurbolift</driverClass>
+    <reportString>traveling via turbolift.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ST_Building_Turbolift</defName>
+    <label>turbolift access</label>
+    <description>A high-speed point to point transit system connecting different sections of the colony instantly.</description>
+    <thingClass>Building</thingClass>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Building/Turbolift/TurboLift</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <shadowData>
+        <volume>(2.2, 0.6, 0.35)</volume>
+      </shadowData>
+    <drawSize>(2.5,2.5)</drawSize>
+
+    </graphicData>
+    <uiIconPath>Things/Building/Turbolift/TurboLift</uiIconPath>
+    
+    <size>(2,2)</size>
+    <category>Building</category>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Standable</passability>
+     <fillPercent>1.0</fillPercent>
+    <castEdgeShadows>true</castEdgeShadows>
+
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>2500</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+
+    <costList>
+      <Steel>50</Steel>
+      <Plasteel>25</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+
+    <building>
+      <isInert>true</isInert>
+    </building>
+
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>200</basePowerConsumption> </li>
+      <li Class="YASTM.CompProperties_Turbolift">
+        <cooldownTicks>600</cooldownTicks> </li>
+    </comps>
+    <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_StructuresAndVehicle_Group</designatorDropdown>
+    <researchPrerequisites><li>ST_TransporterTech</li></researchPrerequisites>
+    <soundInteract>Door_OpenPowered</soundInteract> </ThingDef>
+
+</Defs>

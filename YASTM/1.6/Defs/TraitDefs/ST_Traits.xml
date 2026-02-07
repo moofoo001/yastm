@@ -198,20 +198,25 @@
     </conflictingTraits>
   </TraitDef>
 
-  <TraitDef>
+
+   <TraitDef>
     <defName>ST_TransporterEngineer</defName>
-    <label>Transporter Chief</label>
-    <commonality>0.0</commonality>
-    <degreeDatas>
+        <label>Transporter Chief</label>
+     <degreeDatas>
       <li>
-      <description>This person has completed the advanced subspace geometry protocols. They are qualified to operate transporter buffers safely.</description>
+        <label>Transporter Chief</label>
+        <description>This pawn has specialized training in matter-energy conversion protocols. They can operate transporter consoles with high efficiency and lower accident rates.</description>
+        <degree>0</degree>
         <statOffsets>
-          <GeneralLaborSpeed>0.10</GeneralLaborSpeed>
-          <ResearchSpeed>0.05</ResearchSpeed>
+            <ResearchSpeed>0.10</ResearchSpeed> 
         </statOffsets>
+        <commonality>0.2</commonality>
       </li>
     </degreeDatas>
-  </TraitDef>
+    <requiredWorkTags>
+        <li>Intellectual</li>
+    </requiredWorkTags>
+  </TraitDef> 
 
   <TraitDef>
       <defName>ST_Training_CommsOfficer</defName>

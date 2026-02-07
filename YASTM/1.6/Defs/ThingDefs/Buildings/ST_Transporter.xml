@@ -18,8 +18,10 @@
     <passability>PassThroughOnly</passability>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.5</fillPercent>
-    <designationCategory>ST_Designation</designationCategory>
-    <designatorDropdown>ST_Consoles_Group</designatorDropdown>
+    
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0, 0, -1)</interactionCellOffset>
+
     <minifiedDef>MinifiedThing</minifiedDef>
     <thingCategories>
       <li>BuildingsMisc</li>
@@ -68,9 +70,12 @@
     </placeWorkers>
 
     <researchPrerequisites>
-      <li>ST_TransporterTech</li>
+      <li>ST_AdvancedTransporterTech</li>
     </researchPrerequisites>
     <uiOrder>2006</uiOrder>
+
+    <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_Consoles_Group</designatorDropdown>
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
@@ -107,7 +112,7 @@
       </li>
     </comps>
     <researchPrerequisites>
-      <li>ST_TransporterTech</li>
+      <li>ST_AdvancedTransporterTech</li>
     </researchPrerequisites>
     <uiOrder>2007</uiOrder>
   </ThingDef>

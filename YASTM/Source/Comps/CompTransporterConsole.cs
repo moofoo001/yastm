@@ -54,7 +54,7 @@ namespace YASTM
                 if (!systemsOnline) 
                     beamOut.Disable("No Power or No Pads linked");
                 else if (!engineerPresent)
-                    beamOut.Disable("Requires a pawn with 'Transporter Chief' trait at the console."); // Sperre
+                    beamOut.Disable("Requires 'Transporter Chief' trait OR Intellectual skill 10+."); // Sperre
 
                 beamOut.action = delegate { StartTacticalTargeting_Out(pads); };
                 yield return beamOut;
@@ -68,32 +68,43 @@ namespace YASTM
                 if (!systemsOnline) 
                     beamIn.Disable("No Power or No Pads linked");
                 else if (!engineerPresent)
-                    beamIn.Disable("Requires a pawn with 'Transporter Chief' trait at the console."); // Sperre
+                    beamIn.Disable("Requires 'Transporter Chief' trait OR Intellectual skill 10+."); // Sperre
                 
                 beamIn.action = delegate { StartTacticalTargeting_In(pads); };
                 yield return beamIn;
             }
         }
 
-        // --- Helper check for Transporter Chief ---
         private bool IsEngineerManning()
         {
-            // 
+            if (this.parent.Map == null) return false;
+
+            // Hole die Dinge auf dem Stuhl
             IntVec3 interactionCell = this.parent.InteractionCell;
-            Map map = this.parent.Map;
+            List<Thing> thingsOnCell = interactionCell.GetThingList(this.parent.Map);
 
-            if (map == null) return false;
-
-            // 
-            List<Thing> thingsOnCell = interactionCell.GetThingList(map);
             foreach (Thing t in thingsOnCell)
             {
-                // pawn check
                 if (t is Pawn p && p.Faction == Faction.OfPlayer)
                 {
+                    // CHECK 1: Der "Idiotensichere" Trait-Check
+                    // Wir iterieren durch die Traits und prüfen den ANGEZEIGTEN NAMEN (Label).
+                    // Das umgeht alle Probleme mit defNames (ST_TransporterChief vs ST_TransporterEngineer).
+                    if (p.story?.traits?.allTraits != null)
+                    {
+                        foreach (Trait trait in p.story.traits.allTraits)
+                        {
+                            // Prüft, ob der Trait "Transporter Chief" heißt (egal wie die ID ist)
+                            if (trait.Label.IndexOf("Transporter Chief", System.StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                return true;
+                            }
+                        }
+                    }
 
-                    // trait check
-                    if (p.story != null && p.story.traits.HasTrait(ST_TraitDefOf.ST_TransporterEngineer))
+                    // CHECK 2: Fallback für Genies (Intellectual 10+)
+                    // Damit funktioniert Semna immer noch.
+                    if (p.skills != null && p.skills.GetSkill(SkillDefOf.Intellectual).Level >= 10)
                     {
                         return true;
                     }
@@ -101,7 +112,6 @@ namespace YASTM
             }
             return false;
         }
-
 
         // --- Tactical Targeting Logic ---
         private void StartTacticalTargeting_Out(List<Building> pads)
