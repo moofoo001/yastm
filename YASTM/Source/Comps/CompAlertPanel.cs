@@ -1,21 +1,17 @@
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using RimWorld;
 
 namespace YASTM
 {
     public class CompProperties_AlertPanel : CompProperties
     {
-        public int redDurationTicks = 18000;
-        public int yellowDurationTicks = 9000;
-        public int redCooldownTicks = 90000;
-        public int yellowCooldownTicks = 45000;
-        public int blinkSeconds = 3;
-        
-       
-        public int pulseInterval = 60; // Schneller Takt (1 Sekunde) für Alarm
-        public float pulseRadius = 3.0f;
+        public int redDurationTicks = 2500;
+        public int redCooldownTicks = 60000;
+        public int yellowDurationTicks = 5000;
+        public int yellowCooldownTicks = 30000;
+        public int blinkSeconds = 2; 
 
         public CompProperties_AlertPanel()
         {
@@ -23,69 +19,57 @@ namespace YASTM
         }
     }
 
-  
+    [StaticConstructorOnStartup]
     public class CompAlertPanel : ThingComp
     {
+        private static readonly Material MatGreen = MaterialPool.MatFrom("Things/Building/OpsSecurity/AlertPanel_Green", ShaderDatabase.MetaOverlay);
+        private static readonly Material MatYellow = MaterialPool.MatFrom("Things/Building/OpsSecurity/AlertPanel_Yellow", ShaderDatabase.MetaOverlay);
+        private static readonly Material MatRed = MaterialPool.MatFrom("Things/Building/OpsSecurity/AlertPanel_Red", ShaderDatabase.MetaOverlay);
+
+        // FIX: Neuer Klassenname hier verwendet
+        private MapComponent_ColonyAlert mapComp;
         public CompProperties_AlertPanel Props => (CompProperties_AlertPanel)props;
 
-        private int nextPulseTick = 0;
-
-        public override void CompTick()
+        public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            base.CompTick();
-
-            if (parent.Map == null) return;
-
-            // 1. Status holen
-            var mc = parent.Map.GetComponent<MapComponent_AlertPanel>();
-            if (mc == null || !mc.IsRedAlertActive) return;
-
-            // 2. Pulsieren (nur bei Red Alert)
-            if (Find.TickManager.TicksGame >= nextPulseTick)
+            base.PostSpawnSetup(respawningAfterLoad);
+            if (parent.Map != null)
             {
-                TriggerRedPulse();
-                nextPulseTick = Find.TickManager.TicksGame + Props.pulseInterval;
+                // FIX: Neuer Klassenname
+                mapComp = parent.Map.GetComponent<MapComponent_ColonyAlert>();
+                mapComp?.Register(this);
             }
         }
 
-        private void TriggerRedPulse()
+        public void UpdateVisuals()
         {
-            // XML Def laden
-            FleckDef pulseFleck = DefDatabase<FleckDef>.GetNamedSilentFail("ST_RedAlertPulse");
-            
-            // Fallback
-            if (pulseFleck == null) pulseFleck = FleckDefOf.PsycastAreaEffect;
-
-            // Effekt feuern
-            FleckMaker.Static(parent.TrueCenter(), parent.Map, pulseFleck, Props.pulseRadius);
+            if (parent.Spawned && parent.Map != null)
+            {
+                parent.Map.mapDrawer.MapMeshDirty(parent.Position, MapMeshFlagDefOf.Things);
+            }
         }
 
-        // --- GIZMOS ---
-        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        public override void PostDraw()
         {
-            if (parent.Faction != Faction.OfPlayer) yield break;
-            var map = parent.Map;
-            if (map == null) yield break;
-            
-            var mc = map.GetComponent<MapComponent_AlertPanel>();
+            base.PostDraw();
+            if (mapComp == null) return;
 
-            // Red Alert
-            yield return new Command_Action
+            Material matToDraw = null;
+            switch (mapComp.CurrentLevel)
             {
-                defaultLabel = mc != null && mc.IsRedOnCooldown ? $"Red Alert (CD {mc.ArmRedCooldownSeconds()}s)" : "Red Alert",
-                defaultDesc  = "Colony-wide red alert.",
-                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/RedAlert", false),
-                action       = () => mc?.StartRedAlert(Props.redDurationTicks, Props.redCooldownTicks, Props.blinkSeconds)
-            };
+                case AlertLevel.Green: matToDraw = MatGreen; break;
+                case AlertLevel.Yellow: matToDraw = MatYellow; break;
+                case AlertLevel.Red: matToDraw = MatRed; break;
+            }
 
-            // Yellow Alert
-            yield return new Command_Action
+            if (matToDraw != null)
             {
-                defaultLabel = mc != null && mc.IsYellowOnCooldown ? $"Yellow Alert (CD {mc.ArmYellowCooldownSeconds()}s)" : "Yellow Alert",
-                defaultDesc  = "Heightened awareness.",
-                icon         = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/YellowAlert", false),
-                action       = () => mc?.StartYellowAlert(Props.yellowDurationTicks, Props.yellowCooldownTicks, Props.blinkSeconds)
-            };
+                Vector3 s = new Vector3(parent.def.graphicData.drawSize.x, 1f, parent.def.graphicData.drawSize.y);
+                Matrix4x4 matrix = default(Matrix4x4);
+                Vector3 pos = parent.DrawPos + new Vector3(0, 0.01f, 0); 
+                matrix.SetTRS(pos, parent.Rotation.AsQuat, s);
+                Graphics.DrawMesh(MeshPool.plane10, matrix, matToDraw, 0);
+            }
         }
     }
 }

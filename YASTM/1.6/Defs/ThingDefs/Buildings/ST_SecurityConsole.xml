@@ -50,7 +50,9 @@
           <li>ST_ForceFieldEmitter</li>
         </linkableFacilities>
       </li>
-
+      <li Class="CompProperties">
+        <compClass>YASTM.CompOpsConsole</compClass>
+      </li>
       <!-- Forcefield-Gizmos -->
       <li Class="YASTM.CompProperties_ForceFieldConsole"/>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <YASTM.CareerDef>
+  <YASTM.ST_CareerDef>
     <defName>ST_Career_Federation_Standard</defName>
     <label>Starfleet Career</label>
     <description>The path of the explorer and diplomat. Advancement requires scientific curiosity, dedication to duty, and the ability to forge peace.</description>
@@ -81,5 +81,5 @@
         </requirements>
       </li>
     </stages>
-  </YASTM.CareerDef>
+  </YASTM.ST_CareerDef>
 </Defs>

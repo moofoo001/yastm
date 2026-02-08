@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <YASTM.CareerDef>
+  <YASTM.ST_CareerDef>
     <defName>ST_Career_Romulan_Navy</defName>
     <label>Imperial Service</label>
     <description>Service through loyalty, surveillance, and information extraction.</description>
@@ -83,5 +83,5 @@
         </requirements>
       </li>
     </stages>
-  </YASTM.CareerDef>
+  </YASTM.ST_CareerDef>
 </Defs>

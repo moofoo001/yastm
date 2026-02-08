@@ -1,131 +1,102 @@
 using UnityEngine;
 using Verse;
 using RimWorld;
-using System.Text;
-using System.Linq; 
+using System.Collections.Generic;
 
 namespace YASTM
 {
     public class Dialog_CareerHelp : Window
     {
-        private Vector2 scrollPosition;
-        private static string selectedTab = "Federation"; // standard tab 
+        private ST_CareerDef selectedCareer; 
+        private Vector2 scrollPos;
 
-        public override Vector2 InitialSize => new Vector2(700f, 600f);
-
-        public Dialog_CareerHelp()
+        // Der Konstruktor ist jetzt "optional" (= null). 
+        // Das repariert auch das Problem im Diplomacy-Comms automatisch!
+        public Dialog_CareerHelp(ST_CareerDef career = null)
         {
+            this.selectedCareer = career;
             this.doCloseX = true;
             this.forcePause = true;
             this.absorbInputAroundWindow = true;
         }
 
+        public override Vector2 InitialSize => new Vector2(600f, 700f);
+
         public override void DoWindowContents(Rect inRect)
         {
-            // titel
-            Text.Font = GameFont.Medium;
-            Widgets.Label(new Rect(0, 0, inRect.width, 40), "YASTM Career Database");
-            Text.Font = GameFont.Small;
-
-            // tabs
-            Rect tabRect = new Rect(0, 45, inRect.width, 30);
-            DrawTabs(tabRect);
-
-            // content area
-            Rect outRect = new Rect(0, 80, inRect.width, inRect.height - 90);
-            string content = GetDynamicContent(selectedTab);
-            
-            // scrollview
-            float height = Text.CalcHeight(content, outRect.width - 20f);
-            Rect viewRect = new Rect(0, 0, outRect.width - 20f, height);
-
-            Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect);
-            Widgets.Label(viewRect, content);
-            Widgets.EndScrollView();
-        }
-
-        private void DrawTabs(Rect rect)
-        {
-            float tabWidth = rect.width / 4f;
-            if (Widgets.ButtonText(new Rect(rect.x, rect.y, tabWidth, 30), "Federation")) selectedTab = "Federation";
-            if (Widgets.ButtonText(new Rect(rect.x + tabWidth, rect.y, tabWidth, 30), "Klingon")) selectedTab = "Klingon";
-            if (Widgets.ButtonText(new Rect(rect.x + tabWidth * 2, rect.y, tabWidth, 30), "Romulan")) selectedTab = "Romulan";
-            if (Widgets.ButtonText(new Rect(rect.x + tabWidth * 3, rect.y, tabWidth, 30), "Ferengi")) selectedTab = "Ferengi";
-        }
-
-        private string GetDynamicContent(string tab)
-        {
-            // def name
-            string defName = "";
-            switch (tab)
+            // Sicherheits-Check: Falls keine Daten da sind (z.B. Aufruf via Comms)
+            if (selectedCareer == null)
             {
-                case "Federation": defName = "ST_Career_Federation_Standard"; break;
-                case "Klingon":    defName = "ST_Career_Klingon_Warrior"; break;
-                case "Romulan":    defName = "ST_Career_Romulan_Navy"; break;
-                case "Ferengi":    defName = "ST_Career_Ferengi_Commerce"; break;
-                default: return "Unknown Data.";
+                Text.Font = GameFont.Medium;
+                Widgets.Label(new Rect(0, 0, inRect.width, 40), "Starfleet Career Database");
+                
+                Text.Font = GameFont.Small;
+                Rect msgRect = new Rect(0, 50, inRect.width, 100);
+                Widgets.Label(msgRect, "No specific career data selected.\nAccessing via Diplomacy Console.");
+                
+                if (Widgets.ButtonText(new Rect(inRect.width / 2 - 60, inRect.height - 40, 120, 30), "Close"))
+                {
+                    Close();
+                }
+                return;
             }
 
-            // database lookup
-            CareerDef def = DefDatabase<CareerDef>.GetNamedSilentFail(defName);
-            
-            if (def == null) 
-                return $"Error: Could not find CareerDef named '{defName}'. Please check your XML files.";
+            // Normaler Modus (mit Daten)
+            Text.Font = GameFont.Medium;
+            Widgets.Label(new Rect(0, 0, inRect.width, 40), selectedCareer.label.CapitalizeFirst());
+            Text.Font = GameFont.Small;
 
-            // content creation
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"=== {def.label.ToUpper()} ===");
-            sb.AppendLine(def.description);
-            sb.AppendLine("");
-            sb.AppendLine("Promotion Requirements:");
-            sb.AppendLine("------------------------------------------------");
+            Rect outRect = new Rect(0, 50, inRect.width, inRect.height - 60);
+            Rect viewRect = new Rect(0, 0, inRect.width - 16, 1000); 
 
-            // sort
-            if (def.stages != null)
+            Widgets.BeginScrollView(outRect, ref scrollPos, viewRect);
+            float curY = 0f;
+
+            if (selectedCareer.requiredTrait != null)
             {
-                foreach (var stage in def.stages.OrderBy(s => s.targetDegree))
+                Widgets.Label(new Rect(0, curY, viewRect.width, 30), "Required Trait: " + selectedCareer.requiredTrait.LabelCap);
+                curY += 30f;
+            }
+
+            Widgets.Label(new Rect(0, curY, viewRect.width, 30), "Career Path:");
+            curY += 35f;
+
+            if (selectedCareer.stages != null)
+            {
+                foreach (var stage in selectedCareer.stages)
                 {
-                    // get rank name
-                    string rankName = "Unknown Rank";
-                    if (def.trait != null)
+                    string rankName = stage.rank != null ? stage.rank.label.CapitalizeFirst() : "Unknown Rank";
+                    string rankLevel = stage.rank != null ? $" (Lvl {stage.rank.level})" : "";
+
+                    Widgets.Label(new Rect(10, curY, viewRect.width - 10, 25), $"• {rankName}{rankLevel}");
+                    curY += 25f;
+
+                    if (stage.requirements != null)
                     {
-                        var degreeData = def.trait.degreeDatas.FirstOrDefault(d => d.degree == stage.targetDegree);
-                        if (degreeData != null) rankName = degreeData.label.CapitalizeFirst();
-                    }
-
-                    sb.AppendLine($"\n>>> PROMOTION TO: {rankName.ToUpper()}");
-
-                    var r = stage.requirements;
-                    if (r != null)
-                    {
-                        // show skills
-                        if (r.minSocialSkill > 0)       sb.AppendLine($" - Social Skill: {r.minSocialSkill}+");
-                        if (r.minIntellectualSkill > 0) sb.AppendLine($" - Intellectual: {r.minIntellectualSkill}+");
-                        if (r.minShootingSkill > 0)     sb.AppendLine($" - Shooting: {r.minShootingSkill}+");
-                        if (r.minMeleeSkill > 0)        sb.AppendLine($" - Melee: {r.minMeleeSkill}+");
-
-                        // time in rank
-                        if (r.timeInRankYears > 0.01f)  sb.AppendLine($" - Service Time: {r.timeInRankYears} Year(s)");
-
-                        // points 
-                        if (r.careerPoints != null && r.careerPoints.Count > 0)
+                        string reqText = GetReqString(stage.requirements);
+                        if (!reqText.NullOrEmpty())
                         {
-                            foreach (var cp in r.careerPoints)
-                            {
-                                // make nice name
-                                string niceName = GenText.SplitCamelCase(cp.category);
-                                sb.AppendLine($" - Task: {niceName} (x{cp.count})");
-                            }
+                            Widgets.Label(new Rect(30, curY, viewRect.width - 30, 25), reqText);
+                            curY += 25f;
                         }
-                    }
-                    else
-                    {
-                        sb.AppendLine(" - No specific requirements.");
                     }
                 }
             }
+
+            Widgets.EndScrollView();
+        }
+
+        private string GetReqString(CareerRequirements req)
+        {
+            List<string> entries = new List<string>();
             
-            return sb.ToString();
+            if (req.minSocialSkill > 0) entries.Add($"Social {req.minSocialSkill}+");
+            if (req.minIntellectualSkill > 0) entries.Add($"Intellectual {req.minIntellectualSkill}+");
+            if (req.minShootingSkill > 0) entries.Add($"Shooting {req.minShootingSkill}+");
+            
+            if (req.timeInRankYears > 0) entries.Add($"{req.timeInRankYears} years service");
+
+            return string.Join(", ", entries);
         }
     }
 }

@@ -54,7 +54,10 @@
           <li>ST_TransporterPad</li>
         </linkableFacilities>
       </li>
-
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(137,207,240,100)</glowColor>
+      </li> 
       <li Class="YASTM.CompProperties_TransporterConsole">
         <energyCostPerUse>1200</energyCostPerUse>
         <tacticalBeamEnergyCost>2500</tacticalBeamEnergyCost>
@@ -110,6 +113,10 @@
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>50</basePowerConsumption>
       </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>1</glowRadius>
+        <glowColor>(137,207,240,20)</glowColor>
+      </li> 
     </comps>
     <researchPrerequisites>
       <li>ST_AdvancedTransporterTech</li>

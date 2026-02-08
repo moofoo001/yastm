@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <YASTM.CareerDef>
+  <YASTM.ST_CareerDef>
     <defName>ST_Career_Klingon_Warrior</defName>
     <label>Warrior's Path</label>
     <description>Victory or Death. Advancement is earned through blood, labor, and honorable combat.</description>
@@ -76,5 +76,5 @@
         </requirements>
       </li>
     </stages>
-  </YASTM.CareerDef>
+  </YASTM.ST_CareerDef>
 </Defs>

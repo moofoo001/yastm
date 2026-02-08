@@ -1,177 +1,133 @@
 using System.Collections.Generic;
-using System.Reflection; 
 using RimWorld;
 using Verse;
-using Verse.Sound;     
-using UnityEngine;
+using Verse.Sound;
 
 namespace YASTM
 {
-    public class MapComponent_AlertPanel : MapComponent
+    public enum AlertLevel { Green, Yellow, Red }
+
+    // WICHTIG: Name geändert von MapComponent_AlertPanel zu MapComponent_ColonyAlert
+    // Damit findet das Spiel die Klasse wieder!
+    public class MapComponent_ColonyAlert : MapComponent
     {
+        private AlertLevel currentLevel = AlertLevel.Green;
+        private List<CompAlertPanel> registeredPanels = new List<CompAlertPanel>();
+
         public int redAlertTicksLeft;
         public int yellowAlertTicksLeft;
-        public int redCooldownTicksLeft;
-        public int yellowCooldownTicksLeft;
+        public int NextAllowedTickRed;
+        public int NextAllowedTickYellow;
 
-        private Sustainer sirenSustainer;
+        public AlertLevel CurrentLevel => currentLevel;
 
-        public bool IsRedOnCooldown => redCooldownTicksLeft > 0;
-        public bool IsYellowOnCooldown => yellowCooldownTicksLeft > 0;
-        public int ArmRedCooldownSeconds() => redCooldownTicksLeft / 60;
-        public int ArmYellowCooldownSeconds() => yellowCooldownTicksLeft / 60;
-        
-        public int NextAllowedTickRed => Find.TickManager.TicksGame + redCooldownTicksLeft;
-        public int NextAllowedTickYellow => Find.TickManager.TicksGame + yellowCooldownTicksLeft;
-
-        public bool IsRedAlertActive => redAlertTicksLeft > 0; 
-
-        public MapComponent_AlertPanel(Map map) : base(map)
-        {
-        }
+        public MapComponent_ColonyAlert(Map map) : base(map) { }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref redAlertTicksLeft, "redAlertTicksLeft");
-            Scribe_Values.Look(ref yellowAlertTicksLeft, "yellowAlertTicksLeft");
-            Scribe_Values.Look(ref redCooldownTicksLeft, "redCooldownTicksLeft");
-            Scribe_Values.Look(ref yellowCooldownTicksLeft, "yellowCooldownTicksLeft");
+            Scribe_Values.Look(ref currentLevel, "currentLevel", AlertLevel.Green);
+            Scribe_Values.Look(ref redAlertTicksLeft, "redAlertTicksLeft", 0);
+            Scribe_Values.Look(ref yellowAlertTicksLeft, "yellowAlertTicksLeft", 0);
+            Scribe_Values.Look(ref NextAllowedTickRed, "NextAllowedTickRed", 0);
+            Scribe_Values.Look(ref NextAllowedTickYellow, "NextAllowedTickYellow", 0);
         }
 
         public override void MapComponentTick()
         {
             base.MapComponentTick();
 
-            if (redAlertTicksLeft > 0)
+            if (currentLevel == AlertLevel.Red)
             {
-                redAlertTicksLeft--;
-                if (redAlertTicksLeft == 0) EndAlert();
-                
-                if (sirenSustainer != null && !sirenSustainer.Ended)
+                if (redAlertTicksLeft > 0)
                 {
-                    sirenSustainer.Maintain();
+                    redAlertTicksLeft--;
+                    if (redAlertTicksLeft <= 0) EndAlert();
                 }
             }
-
-            if (yellowAlertTicksLeft > 0)
+            else if (currentLevel == AlertLevel.Yellow)
             {
-                yellowAlertTicksLeft--;
-                if (yellowAlertTicksLeft == 0) EndAlert();
+                if (yellowAlertTicksLeft > 0)
+                {
+                    yellowAlertTicksLeft--;
+                    if (yellowAlertTicksLeft <= 0) EndAlert();
+                }
             }
-
-            if (redCooldownTicksLeft > 0) redCooldownTicksLeft--;
-            if (yellowCooldownTicksLeft > 0) yellowCooldownTicksLeft--;
         }
 
-        public void StartRedAlert(int duration, int cooldown, int blink)
+        public void Register(CompAlertPanel panel)
         {
-            yellowAlertTicksLeft = 0;
+            if (!registeredPanels.Contains(panel)) registeredPanels.Add(panel);
+        }
+
+        public void Deregister(CompAlertPanel panel)
+        {
+            if (registeredPanels.Contains(panel)) registeredPanels.Remove(panel);
+        }
+
+        public void StartRedAlert(int duration, int cooldown, int blinkRate)
+        {
+            if (Find.TickManager.TicksGame < NextAllowedTickRed) return;
+
+            SetAlertLevel(AlertLevel.Red);
             redAlertTicksLeft = duration;
-            redCooldownTicksLeft = cooldown;
-
-            StartSiren("ST_SFX_RedAlert");
-
-            SetShields(true);
-            SetDoorsLockdown(true);
-            DraftCrew(true);
-            
-            Messages.Message("RED ALERT Engaged!", MessageTypeDefOf.ThreatBig);
+            NextAllowedTickRed = Find.TickManager.TicksGame + cooldown + duration;
         }
 
-        public void StartYellowAlert(int duration, int cooldown, int blink)
+        public void StartYellowAlert(int duration, int cooldown, int blinkRate)
         {
-            redAlertTicksLeft = 0;
+            if (Find.TickManager.TicksGame < NextAllowedTickYellow) return;
+
+            SetAlertLevel(AlertLevel.Yellow);
             yellowAlertTicksLeft = duration;
-            yellowCooldownTicksLeft = cooldown;
-
-            SoundDef.Named("ST_SFX_YellowAlert")?.PlayOneShotOnCamera(map);
-
-            SetShields(true);
-            SetDoorsLockdown(true);
+            NextAllowedTickYellow = Find.TickManager.TicksGame + cooldown + duration;
         }
 
         public void EndAlert()
         {
+            SetAlertLevel(AlertLevel.Green);
             redAlertTicksLeft = 0;
             yellowAlertTicksLeft = 0;
+        }
 
-            if (sirenSustainer != null && !sirenSustainer.Ended)
-            {
-                sirenSustainer.End();
-                sirenSustainer = null;
-            }
-
-            SetShields(false);
-            SetDoorsLockdown(false);
-            DraftCrew(false);
+        public void SetAlertLevel(AlertLevel newLevel)
+        {
+            if (currentLevel == newLevel) return;
+            currentLevel = newLevel;
             
-            Messages.Message("Condition Green.", MessageTypeDefOf.PositiveEvent);
-        }
-
-        private void StartSiren(string defName)
-        {
-            if (sirenSustainer != null) sirenSustainer.End();
-
-            SoundDef def = SoundDef.Named(defName);
-            if (def != null && def.sustain)
+            PlayAlertSound(newLevel);
+            
+            for (int i = registeredPanels.Count - 1; i >= 0; i--)
             {
-                SoundInfo info = SoundInfo.OnCamera(MaintenanceType.PerTick);
-                sirenSustainer = def.TrySpawnSustainer(info);
-            }
-            else if (def != null)
-            {
-                def.PlayOneShotOnCamera(map);
-            }
-        }
-
-        private void SetDoorsLockdown(bool active)
-        {
-            foreach (Building b in map.listerBuildings.allBuildingsColonist)
-            {
-                if (b is Building_Door door)
+                var panel = registeredPanels[i];
+                if (panel == null || panel.parent == null || !panel.parent.Spawned)
                 {
-                    if (active)
-                    {
-                        typeof(Building_Door).GetField("holdOpenInt", BindingFlags.Instance | BindingFlags.NonPublic)
-                            ?.SetValue(door, false);
-                        if (door.Open) door.StartManualCloseBy(null);
-                    }
+                    registeredPanels.RemoveAt(i);
+                    continue;
                 }
+                panel.UpdateVisuals();
+            }
+
+            if (newLevel == AlertLevel.Red)
+            {
+                Messages.Message("RED ALERT Initiated!", MessageTypeDefOf.ThreatBig, true);
+            }
+            else if (newLevel == AlertLevel.Yellow)
+            {
+                Messages.Message("Yellow Alert condition set.", MessageTypeDefOf.CautionInput, false);
+            }
+            else
+            {
+                Messages.Message("Condition Green. Stand down.", MessageTypeDefOf.PositiveEvent, false);
             }
         }
 
-        private void SetShields(bool active)
+        private void PlayAlertSound(AlertLevel level)
         {
-            foreach (Building b in map.listerBuildings.allBuildingsColonist)
-            {
-                // check for shield comp
-                var shield = b.TryGetComp<CompProjectileInterceptor>();
-                if (shield != null)
-                {
-                    var flick = b.TryGetComp<CompFlickable>();
-                    if (flick != null) 
-                    {
-                        flick.SwitchIsOn = active;
-                        // ensure state is applied
-                    }
-                }
-            }
-        }
-
-        private void DraftCrew(bool active)
-        {
-            foreach (Pawn p in map.mapPawns.FreeColonists)
-            {
-                if (p.drafter != null && !p.WorkTagIsDisabled(WorkTags.Violent))
-                {
-                    if (p.drafter.Drafted != active)
-                    {
-                        if (active && (p.InMentalState || p.Downed)) continue;
-                        p.drafter.Drafted = active;
-                    }
-                }
-            }
+            if (level == AlertLevel.Red)
+                SoundDef.Named("ST_Sound_RedAlert").PlayOneShotOnCamera(map);
+            else if (level == AlertLevel.Yellow)
+                SoundDef.Named("ST_Sound_YellowAlert").PlayOneShotOnCamera(map);
         }
     }
 }

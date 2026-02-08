@@ -6,10 +6,10 @@ using Verse.Sound;
 
 namespace YASTM
 {
-    public class JobDriver_UseTurbolift : JobDriver
+public class JobDriver_UseTurbolift : JobDriver
     {
-        private Building TurboliftStart => TargetA.Thing as Building;
-        private Building TurboliftEnd => TargetB.Thing as Building;
+        private Building TurboliftStart => TargetA.Thing as Building; 
+        private Building TurboliftEnd => TargetB.Thing as Building;   
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {

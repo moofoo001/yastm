@@ -21,7 +21,7 @@ namespace YASTM
             if (parent?.Map == null || parent.Faction != Faction.OfPlayer) yield break;
 
             var map = parent.Map;
-            var mc  = map.GetComponent<MapComponent_AlertPanel>();
+            var mc  = map.GetComponent<MapComponent_ColonyAlert>();
             if (mc == null) yield break;
 
             // Fetch Durations
