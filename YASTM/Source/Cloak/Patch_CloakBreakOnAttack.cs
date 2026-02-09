@@ -1,98 +1,45 @@
 using HarmonyLib;
 using RimWorld;
 using Verse;
+using System;
 
-namespace YASTM.Cloak
+namespace YASTM
 {
-    /// <summary>
-    /// Shared helper for cloak-related patches.
-    /// </summary>
-    public static class CloakUtility
+    // help method
+    public static class CloakBreakLogic
     {
-        private static HediffDef psychicInvisibilityDef;
-
-        public static HediffDef CloakHediff
+        public static void TryBreakCloak(Pawn pawn)
         {
-            get
-            {
-                if (psychicInvisibilityDef == null)
-                {
-                    psychicInvisibilityDef =
-                        DefDatabase<HediffDef>.GetNamedSilentFail("PsychicInvisibility");
-                }
+            if (pawn == null) return;
 
-                return psychicInvisibilityDef;
+            // Hat er den Hediff?
+            var cloak = pawn.health.hediffSet.GetFirstHediffOfDef(ST_HediffDefOf.ST_CloakingField);
+            if (cloak != null)
+            {
+                pawn.health.RemoveHediff(cloak);
             }
         }
+    }
 
-        public static void TryBreakCloak(Pawn caster, LocalTargetInfo target, string attackType)
+    // range attack and abilities
+    [HarmonyPatch(typeof(Verb), "TryStartCastOn", new Type[] { typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(bool), typeof(bool), typeof(bool), typeof(bool) })]
+    public static class Patch_CloakBreak_Ranged
+    {
+        [HarmonyPrefix]
+        public static void Prefix(Verb __instance)
         {
-            var hediffDef = CloakHediff;
-            if (hediffDef == null || caster == null || caster.health == null)
-                return;
-
-            // is active cloak present?
-            Hediff cloak = caster.health.hediffSet.GetFirstHediffOfDef(hediffDef);
-            if (cloak == null)
-                return;
-
-            Thing targetThing = target.Thing;
-            if (targetThing == null)
-                return;
-
-            // no self-attack
-            if (targetThing == caster)
-                return;
-
-            // remove Cloak
-            caster.health.RemoveHediff(cloak);
-
-            string targetName = (targetThing as Pawn)?.LabelShort ?? targetThing.LabelCap;
-            Log.Message("[YASTM][Cloak] Cloak removed from "
-                        + caster.LabelShort + " due to " + attackType
-                        + " against " + targetName);
+            CloakBreakLogic.TryBreakCloak(__instance.CasterPawn);
         }
     }
 
-    /// <summary>
-    /// Removes the cloaking hediff when a pawn with an active cloak
-    /// performs a successful hostile ranged attack.
-    /// </summary>
-    [HarmonyPatch(typeof(Verb_LaunchProjectile), "TryCastShot")]
-    public static class Patch_CloakBreakOnRangedAttack
+    // melee attack
+    [HarmonyPatch(typeof(Pawn_MeleeVerbs), "TryMeleeAttack")]
+    public static class Patch_CloakBreak_Melee
     {
-        public static void Postfix(Verb_LaunchProjectile __instance, ref bool __result)
+        [HarmonyPrefix]
+        public static void Prefix(Pawn_MeleeVerbs __instance)
         {
-
-            if (!__result)
-                return;
-
-            Pawn caster = __instance.CasterPawn;
-            if (caster == null)
-                return;
-
-            CloakUtility.TryBreakCloak(caster, __instance.CurrentTarget, "ranged attack");
-        }
-    }
-
-    /// <summary>
-    /// Removes the cloaking hediff when a pawn with an active cloak
-    /// performs a successful melee attack.
-    /// </summary>
-    [HarmonyPatch(typeof(Verb_MeleeAttack), "TryCastShot")]
-    public static class Patch_CloakBreakOnMeleeAttack
-    {
-        public static void Postfix(Verb_MeleeAttack __instance, ref bool __result)
-        {
-
-            if (!__result)
-                return;
-
-            Pawn caster = __instance.CasterPawn;
-            if (caster == null)
-                return;
-
-            CloakUtility.TryBreakCloak(caster, __instance.CurrentTarget, "melee attack");
+            CloakBreakLogic.TryBreakCloak(__instance.Pawn);
         }
     }
 }

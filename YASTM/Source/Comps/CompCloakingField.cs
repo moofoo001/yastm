@@ -1,113 +1,93 @@
 using System.Collections.Generic;
 using RimWorld;
-using Verse;
 using UnityEngine;
+using Verse;
 
 namespace YASTM
 {
+    public class CompProperties_CloakingField : CompProperties
+    {
+        public float radius = 15f; // Standard-Radius
+        public CompProperties_CloakingField()
+        {
+            this.compClass = typeof(CompCloakingField);
+        }
+    }
+
     public class CompCloakingField : ThingComp
     {
-        private bool isCloakActive = true;
-        private const float FieldRadius = 50f; 
-
         public CompProperties_CloakingField Props => (CompProperties_CloakingField)props;
 
-        public override void PostExposeData()
+        public bool IsActive
         {
-            base.PostExposeData();
-            Scribe_Values.Look(ref isCloakActive, "isCloakActive", true);
+            get
+            {
+                var power = parent.GetComp<CompPowerTrader>();
+                return power != null && power.PowerOn;
+            }
         }
 
-        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        // Optimierter Loop: Nur alle 250 Ticks prüfen
+        public override void CompTickRare()
         {
-            foreach (Gizmo g in base.CompGetGizmosExtra())
+            base.CompTickRare();
+
+            if (IsActive)
             {
-                yield return g;
+                ApplyCloakToArea();
+            }
+        }
+
+        private void ApplyCloakToArea()
+        {
+            float radius = Props.radius;
+            // Nutze GenRadial für effiziente Zell-Suche
+            IEnumerable<IntVec3> cells = GenRadial.RadialCellsAround(parent.Position, radius, true);
+
+            foreach (IntVec3 c in cells)
+            {
+                if (!c.InBounds(parent.Map)) continue;
+                
+                List<Thing> thingList = c.GetThingList(parent.Map);
+                foreach (Thing t in thingList)
+                {
+                    // Nur eigene Kolonisten tarnen
+                    if (t is Pawn p && !p.Dead && p.Faction == Faction.OfPlayer) 
+                    {
+                        RefreshCloak(p);
+                    }
+                }
+            }
+        }
+
+        private void RefreshCloak(Pawn p)
+        {
+            if (ST_HediffDefOf.ST_CloakingField == null) return;
+
+            var hediff = p.health.hediffSet.GetFirstHediffOfDef(ST_HediffDefOf.ST_CloakingField);
+            if (hediff == null)
+            {
+                hediff = p.health.AddHediff(ST_HediffDefOf.ST_CloakingField);
             }
 
-            if (parent.Faction == Faction.OfPlayer)
+            // HEARTBEAT: Timer verlängern
+            var disappearComp = hediff.TryGetComp<HediffComp_Disappears>();
+            if (disappearComp != null)
             {
-                yield return new Command_Toggle
-                {
-                    defaultLabel = "ST_CloakToggle".Translate(),
-                    defaultDesc = "ST_CloakToggleDesc".Translate(),
-                    icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/RomulanCloak", true),
-                    isActive = () => isCloakActive,
-                    toggleAction = () => { isCloakActive = !isCloakActive; }
-                };
+                disappearComp.ticksToDisappear = 300; // 5 Sekunden
             }
         }
 
         public override string CompInspectStringExtra()
         {
-            if (!isCloakActive) return "ST_CloakStatus_Disabled".Translate();
-            
-            CompPowerTrader power = parent.GetComp<CompPowerTrader>();
-            if (power != null && !power.PowerOn) return "ST_CloakStatus_NoPower".Translate();
-
-            return "ST_CloakStatus_Active".Translate();
+            return IsActive ? "Cloaking Field: Active" : "Cloaking Field: Offline";
         }
-
+        
+        // Optional: Radius zeichnen wenn ausgewählt
         public override void PostDrawExtraSelectionOverlays()
         {
             base.PostDrawExtraSelectionOverlays();
-            if (isCloakActive)
-            {
-                GenDraw.DrawRadiusRing(parent.Position, FieldRadius, Color.green);
-            }
-        }
-
-        public override void CompTickRare()
-        {
-            base.CompTickRare();
-
-            if (!isCloakActive) return;
-
-            CompPowerTrader power = parent.GetComp<CompPowerTrader>();
-            if (power == null || !power.PowerOn || parent.IsBrokenDown()) return;
-
-            // visual effect
-            FleckMaker.ThrowLightningGlow(parent.DrawPos, parent.Map, 3.0f);
-            
-            // effects
-            if (Rand.Chance(0.5f))
-            {
-                FleckMaker.ThrowHeatGlow(parent.Position, parent.Map, 1.5f);
-            }
-
-            // logic effect
-            IReadOnlyList<Pawn> pawns = parent.Map.mapPawns.AllPawnsSpawned;
-            HediffDef jammerDef = HediffDef.Named("ST_CloakInterference");
-
-            foreach (Pawn p in pawns)
-            {
-                if (p.HostileTo(parent.Faction) && !p.Downed && (p.RaceProps.Humanlike || p.RaceProps.IsMechanoid))
-                {
-                    Hediff existing = p.health.hediffSet.GetFirstHediffOfDef(jammerDef);
-                    if (existing == null)
-                    {
-                        p.health.AddHediff(jammerDef);
-                        
-                        // feedback
-                        if (p.IsHashIntervalTick(250)) 
-                        {
-                            MoteMaker.ThrowText(p.DrawPos, p.Map, "Jammed", Color.green); 
-                        }
-                    }
-                    else
-                    {
-                        existing.Severity = 1.0f; 
-                    }
-                }
-            }
-        }
-    }
-
-    public class CompProperties_CloakingField : CompProperties
-    {
-        public CompProperties_CloakingField()
-        {
-            this.compClass = typeof(CompCloakingField);
+            GenDraw.DrawRadiusRing(parent.Position, Props.radius);
         }
     }
 }

@@ -1,19 +1,17 @@
+using System.Collections.Generic;
 using RimWorld;
 using Verse;
 
-namespace YASTM.Comps
+namespace YASTM
 {
-    /// <summary>
-    /// When this apparel is worn, grants the pawn a cloaking ability.
-    /// When removed, the ability is taken away again.
-    /// </summary>
+    // Die Eigenschaften aus der XML
     public class CompProperties_CloakingDevice : CompProperties
     {
-        public AbilityDef abilityDef;
-
+        public AbilityDef abilityDef; // Damit Ihre XML nicht abstürzt
+        
         public CompProperties_CloakingDevice()
         {
-            compClass = typeof(CompCloakingDevice);
+            this.compClass = typeof(CompCloakingDevice);
         }
     }
 
@@ -21,51 +19,86 @@ namespace YASTM.Comps
     {
         public CompProperties_CloakingDevice Props => (CompProperties_CloakingDevice)props;
 
-        public override void Notify_Equipped(Pawn pawn)
+        private bool isActive;
+        public bool IsActive => isActive;
+
+        public Pawn Wearer => (parent as Apparel)?.Wearer;
+
+        public override void PostExposeData()
         {
-            base.Notify_Equipped(pawn);
-            GrantAbility(pawn);
+            base.PostExposeData();
+            Scribe_Values.Look(ref isActive, "isActive", false);
         }
 
+        // --- STEUERUNG ---
+        public override IEnumerable<Gizmo> CompGetWornGizmosExtra()
+        {
+            foreach (var g in base.CompGetWornGizmosExtra()) yield return g;
+
+            // Der An/Aus Schalter
+            yield return new Command_Toggle
+            {
+                defaultLabel = "Cloak",
+                defaultDesc = "Toggle the personal cloaking field.",
+                icon = parent.def.uiIcon,
+                isActive = () => isActive,
+                toggleAction = () => 
+                {
+                    isActive = !isActive;
+                    if (!isActive) RemoveCloak();
+                }
+            };
+        }
+
+        // --- DER HEARTBEAT (Alle 4 Sekunden) ---
+        public override void CompTickRare()
+        {
+            base.CompTickRare();
+            
+            // Wenn an und getragen -> Tarnung erneuern
+            if (isActive && Wearer != null)
+            {
+                RefreshCloak(Wearer);
+            }
+            // Wenn an aber nicht getragen -> Aus
+            else if (isActive && Wearer == null)
+            {
+                isActive = false;
+            }
+        }
+
+        private void RefreshCloak(Pawn p)
+        {
+            if (ST_HediffDefOf.ST_CloakingField == null) return;
+
+            var hediff = p.health.hediffSet.GetFirstHediffOfDef(ST_HediffDefOf.ST_CloakingField);
+            if (hediff == null)
+            {
+                hediff = p.health.AddHediff(ST_HediffDefOf.ST_CloakingField);
+            }
+
+            // Timer zurücksetzen (Heartbeat)
+            var disappearComp = hediff.TryGetComp<HediffComp_Disappears>();
+            if (disappearComp != null)
+            {
+                disappearComp.ticksToDisappear = 300; // 5 Sekunden Puffer
+            }
+        }
+
+        private void RemoveCloak()
+        {
+            if (Wearer != null && ST_HediffDefOf.ST_CloakingField != null)
+            {
+                var hediff = Wearer.health.hediffSet.GetFirstHediffOfDef(ST_HediffDefOf.ST_CloakingField);
+                if (hediff != null) Wearer.health.RemoveHediff(hediff);
+            }
+        }
+        
         public override void Notify_Unequipped(Pawn pawn)
         {
             base.Notify_Unequipped(pawn);
-            RemoveAbility(pawn);
-        }
-
-        private void GrantAbility(Pawn pawn)
-        {
-            if (pawn == null || Props.abilityDef == null)
-                return;
-
-            Pawn_AbilityTracker tracker = pawn.abilities;
-            if (tracker == null)
-                return;
-
-            Ability existing = tracker.GetAbility(Props.abilityDef);
-            if (existing == null)
-            {
-                tracker.GainAbility(Props.abilityDef);
-                Log.Message("[YASTM][Cloak] Granted " + Props.abilityDef.defName + " to " + pawn.LabelShort);
-            }
-        }
-
-        private void RemoveAbility(Pawn pawn)
-        {
-            if (pawn == null || Props.abilityDef == null)
-                return;
-
-            Pawn_AbilityTracker tracker = pawn.abilities;
-            if (tracker == null)
-                return;
-
-            // Only call RemoveAbility if the pawn actually has it
-            Ability existing = tracker.GetAbility(Props.abilityDef);
-            if (existing != null)
-            {
-                tracker.RemoveAbility(Props.abilityDef);
-                Log.Message("[YASTM][Cloak] Removed " + Props.abilityDef.defName + " from " + pawn.LabelShort);
-            }
+            isActive = false;
+            RemoveCloak(); // Sofort enttarnen beim Ausziehen
         }
     }
 }

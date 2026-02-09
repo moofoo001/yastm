@@ -115,7 +115,7 @@
     <description>A compact personal cloaking device used by Romulan operatives. Bends EM and
       subspace signatures to render the user nearly invisible for a short time.</description>
     <thingClass>Apparel</thingClass>
-    <tickerType>Normal</tickerType>
+    <tickerType>Rare</tickerType>
     <techLevel>Spacer</techLevel>
 
     <graphicData>
@@ -205,12 +205,10 @@
           <li>BeltDefense</li>
         </tags>
     </apparel>
-
     <comps>
-      <li Class="YASTM.Comps.CompProperties_CloakingDevice">
-        <abilityDef>ST_RomulanCloak_Ability</abilityDef>
-      </li>
-    </comps>
+    <li Class="YASTM.CompProperties_CloakingDevice">
+        </li>
+  </comps>
 
     <tradeTags>
       <li>ST_RomulanIntel</li>
