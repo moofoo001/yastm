@@ -1,17 +1,19 @@
-using System.Collections.Generic;
-using RimWorld;
 using UnityEngine;
 using Verse;
+using RimWorld;
 
 namespace YASTM
 {
+    // Die Definition "public enum AlertLevel" wurde hier ENTFERNT, 
+    // um den Konflikt zu lösen. Wir nutzen jetzt das globale "ST_AlertLevel".
+
     public class CompProperties_AlertPanel : CompProperties
     {
-        public int redDurationTicks = 2500;
-        public int redCooldownTicks = 60000;
-        public int yellowDurationTicks = 5000;
-        public int yellowCooldownTicks = 30000;
-        public int blinkSeconds = 2; 
+        // Diese Variablen bleiben erhalten, damit Ihre XML-Dateien keine Fehler werfen
+        public int redDurationTicks = 18000;
+        public int yellowDurationTicks = 9000;
+        public int redCooldownTicks = 90000;
+        public int yellowCooldownTicks = 45000;
 
         public CompProperties_AlertPanel()
         {
@@ -19,56 +21,51 @@ namespace YASTM
         }
     }
 
-    [StaticConstructorOnStartup]
     public class CompAlertPanel : ThingComp
     {
-        private static readonly Material MatGreen = MaterialPool.MatFrom("Things/Building/OpsSecurity/AlertPanel_Green", ShaderDatabase.MetaOverlay);
-        private static readonly Material MatYellow = MaterialPool.MatFrom("Things/Building/OpsSecurity/AlertPanel_Yellow", ShaderDatabase.MetaOverlay);
-        private static readonly Material MatRed = MaterialPool.MatFrom("Things/Building/OpsSecurity/AlertPanel_Red", ShaderDatabase.MetaOverlay);
-
-        // FIX: Neuer Klassenname hier verwendet
-        private MapComponent_ColonyAlert mapComp;
-        public CompProperties_AlertPanel Props => (CompProperties_AlertPanel)props;
-
-        public override void PostSpawnSetup(bool respawningAfterLoad)
+        // Zugriff auf das globale Alert-System der Karte
+        private ST_AlertLevel CurrentLevel
         {
-            base.PostSpawnSetup(respawningAfterLoad);
-            if (parent.Map != null)
+            get
             {
-                // FIX: Neuer Klassenname
-                mapComp = parent.Map.GetComponent<MapComponent_ColonyAlert>();
-                mapComp?.Register(this);
-            }
-        }
-
-        public void UpdateVisuals()
-        {
-            if (parent.Spawned && parent.Map != null)
-            {
-                parent.Map.mapDrawer.MapMeshDirty(parent.Position, MapMeshFlagDefOf.Things);
+                if (parent.Map == null) return ST_AlertLevel.Normal;
+                
+                var system = parent.Map.GetComponent<ST_ColonyAlertSystem>();
+                return system != null ? system.CurrentLevel : ST_AlertLevel.Normal;
             }
         }
 
         public override void PostDraw()
         {
             base.PostDraw();
-            if (mapComp == null) return;
+            
+            // Status prüfen
+            ST_AlertLevel level = CurrentLevel;
 
-            Material matToDraw = null;
-            switch (mapComp.CurrentLevel)
+            // Wenn Alarm ist (Gelb oder Rot), zeichnen wir ein Overlay
+            if (level != ST_AlertLevel.Normal)
             {
-                case AlertLevel.Green: matToDraw = MatGreen; break;
-                case AlertLevel.Yellow: matToDraw = MatYellow; break;
-                case AlertLevel.Red: matToDraw = MatRed; break;
-            }
+                // 1. Farbe wählen
+                Color color = (level == ST_AlertLevel.Red) ? Color.red : Color.yellow;
+                
+                // 2. Pulsieren berechnen (Sinus-Welle)
+                float pulseSpeed = (level == ST_AlertLevel.Red) ? 5f : 3f; // Rot blinkt schneller
+                float num = (Time.realtimeSinceStartup * pulseSpeed) % 6.28f; 
+                float alpha = 0.4f + (Mathf.Sin(num) * 0.3f); // Transparenz zwischen 0.1 und 0.7
+                color.a = alpha;
 
-            if (matToDraw != null)
-            {
-                Vector3 s = new Vector3(parent.def.graphicData.drawSize.x, 1f, parent.def.graphicData.drawSize.y);
+                // 3. Matrix für das Zeichnen erstellen (Position & Größe)
+                Vector3 drawPos = parent.DrawPos;
+                drawPos.y += 0.04f; // Zeichne es leicht ÜBER dem Gebäude, damit man es sieht
+                
+                Vector3 size = new Vector3(parent.def.graphicData.drawSize.x, 1f, parent.def.graphicData.drawSize.y);
                 Matrix4x4 matrix = default(Matrix4x4);
-                Vector3 pos = parent.DrawPos + new Vector3(0, 0.01f, 0); 
-                matrix.SetTRS(pos, parent.Rotation.AsQuat, s);
-                Graphics.DrawMesh(MeshPool.plane10, matrix, matToDraw, 0);
+                matrix.SetTRS(drawPos, parent.Rotation.AsQuat, size);
+
+                // 4. Das farbige Overlay zeichnen
+                // Wir nutzen ein einfaches "Plane"-Mesh und färben es ein.
+                // Das spart extra Texturen und sieht modern aus.
+                Graphics.DrawMesh(MeshPool.plane10, matrix, SolidColorMaterials.SimpleSolidColorMaterial(color), 0);
             }
         }
     }

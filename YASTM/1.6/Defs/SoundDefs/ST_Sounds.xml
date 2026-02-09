@@ -166,48 +166,31 @@
     </subSounds>  
   </SoundDef>
 
-  <SoundDef>
-    <defName>ST_RedAlert_Chirp</defName>
-    <eventNames/>
-    <subSounds>
-      <li>
-        <grains>
-          <li Class="AudioGrain_Clip">
-            <clipPath>Things/red_alert_fix</clipPath>
-          </li>
-        </grains>
-        <onCamera>true</onCamera>
-        <volumeRange>1.0~1.0</volumeRange>
-      </li>
-    </subSounds>
-  </SoundDef>
-
-  <SoundDef>
-    <defName>ST_YellowAlert_Chirp</defName>
-    <eventNames/>
-    <subSounds>
-      <li>
-        <grains>
-          <li Class="AudioGrain_Clip">
-            <clipPath>Things/yellow_alert_fix</clipPath>
-          </li>
-        </grains>
-        <onCamera>true</onCamera>
-        <volumeRange>1.0~1.0</volumeRange>
-      </li>
-    </subSounds>
-  </SoundDef>
-
-  <!-- Looping sirens (sustainers) -->
-
 <SoundDef>
-  <defName>ST_RedAlert_SirenLoop</defName>
+    <defName>ST_Sound_RedAlert</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+      <onCamera>true</onCamera>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/red_alert_fix</clipPath> </li>
+        </grains>
+        <volumeRange>85</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>ST_Sound_RedAlert_Loop</defName>
   <sustain>true</sustain>
   <priorityMode>PrioritizeNearest</priorityMode>
   <context>MapOnly</context>
   <maxSimultaneous>1</maxSimultaneous>
   <subSounds>
     <li>
+      <onCamera>true</onCamera> 
       <grains>
         <li Class="AudioGrain_Clip">
           <clipPath>Things/red_alert_fix</clipPath>
@@ -217,26 +200,44 @@
       <pitchRange>0.98~1.02</pitchRange>
     </li>
   </subSounds>
-</SoundDef>
+  </SoundDef>
 
-<SoundDef>
-  <defName>ST_YellowAlert_SirenLoop</defName>
-  <sustain>true</sustain>
-  <priorityMode>PrioritizeNearest</priorityMode>
-  <context>MapOnly</context>
-  <maxSimultaneous>1</maxSimultaneous>
-  <subSounds>
-    <li>
-      <grains>
-        <li Class="AudioGrain_Clip">
-          <clipPath>Things/yellow_alert_fix</clipPath>
-        </li>
-      </grains>
-      <volumeRange>20~25</volumeRange>
-      <pitchRange>0.98~1.02</pitchRange>
-    </li>
-  </subSounds>
-</SoundDef>
+  <SoundDef>
+    <defName>ST_Sound_YellowAlert</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+      <onCamera>true</onCamera> 
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/yellow_alert_fix</clipPath>
+          </li>
+        </grains>
+        <volumeRange>85</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>ST_Sound_YellowAlert_Loop</defName>
+        <sustain>true</sustain>
+        <priorityMode>PrioritizeNearest</priorityMode>
+        <context>MapOnly</context>
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+            <li>
+            <onCamera>true</onCamera> 
+            <grains>
+                <li Class="AudioGrain_Clip">
+                <clipPath>Things/yellow_alert_fix</clipPath>
+                </li>
+            </grains>
+            <volumeRange>20~25</volumeRange>
+            <pitchRange>0.98~1.02</pitchRange>
+            </li>
+        </subSounds>
+  </SoundDef>
 
   <!-- ST door woosh -->
   <SoundDef>

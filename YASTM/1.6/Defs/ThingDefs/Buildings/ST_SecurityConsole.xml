@@ -61,7 +61,7 @@
         <redCooldownTicks>90000</redCooldownTicks>
         <yellowDurationTicks>9000</yellowDurationTicks>
         <yellowCooldownTicks>45000</yellowCooldownTicks>
-        <blinkSeconds>3</blinkSeconds>
+
       </li>
       <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
         <role>Tactical</role>
@@ -212,7 +212,7 @@
       <redCooldownTicks>90000</redCooldownTicks>
       <yellowDurationTicks>9000</yellowDurationTicks>
       <yellowCooldownTicks>45000</yellowCooldownTicks>
-      <blinkSeconds>3</blinkSeconds>
+
     </li>
       <li Class="CompProperties_Glower">
         <glowRadius>5</glowRadius>
