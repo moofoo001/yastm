@@ -220,6 +220,7 @@
     </stages>
   </ThoughtDef>
 
+  <!-- Science Success -->
   <ThoughtDef>
       <defName>ST_ScienceSuccess</defName>
       <durationDays>0.5</durationDays>
@@ -232,4 +233,18 @@
       </stages>
     </ThoughtDef>
 
+  <!-- Buffer Time -->
+  <ThoughtDef>
+    <defName>ST_BufferTime_Mood</defName>
+    <durationDays>2.0</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>buffer time</label>
+        <description>Rules are just guidelines. Hanging out with the lower decks crew was exactly what I needed.</description>
+        <baseMoodEffect>12</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
 </Defs>

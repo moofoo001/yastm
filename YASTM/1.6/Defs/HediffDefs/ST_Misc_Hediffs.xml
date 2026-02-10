@@ -580,4 +580,28 @@
     </stages>
   </HediffDef>
 
+  <!-- Buffer Time -->
+
+  <HediffDef>
+    <defName>ST_BufferTime_Bliss</defName>
+    <label>buffer time vibe</label>
+    <description>Currently enjoying (or recovering from) unauthorized buffer time. Work speed is reduced, but stress is non-existent.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <WorkSpeedGlobal>-0.30</WorkSpeedGlobal>
+          <MentalBreakThreshold>-0.15</MentalBreakThreshold>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>15000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
 </Defs>

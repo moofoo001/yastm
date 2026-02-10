@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <IncidentDef>
+    <defName>ST_Incident_BufferTime</defName>
+    <label>buffer time</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>YASTM.IncidentWorker_BufferTime</workerClass>
+    <baseChance>3.0</baseChance> <letterLabel>Buffer Time</letterLabel>
+    <letterText>Several lower-deck crew members have decided that regulations are overrated.\n\nThey are gathering for unauthorized "Buffer Time". They will gain recreation and happiness, but don't expect much work from them for the next few hours.</letterText>
+    <letterDef>PositiveEvent</letterDef>
+  </IncidentDef>
+</Defs>
