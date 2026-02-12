@@ -9,41 +9,37 @@ namespace YASTM
 {
     public class MapComponent_TransporterOps : MapComponent
     {
-        // 5% chance of transporter accident
+        // chance of accident (5%)
         private const float ACCIDENT_CHANCE = 0.05f;
 
         public MapComponent_TransporterOps(Map map) : base(map) { }
 
-        // The main function, which should be called by your buildings
         public void TeleportThing(Thing thing, IntVec3 targetCell, Map targetMap)
         {
             if (thing == null || !targetCell.IsValid || targetMap == null) return;
 
-            // 1. Effect at the start location (before he's gone)
+            // 1. effect at the start location
             FleckMaker.ThrowLightningGlow(thing.TrueCenter(), thing.Map, 1.0f);
 
-            // 2. Perform teleportation
+            // 2. teleportation
             if (thing.Map == targetMap)
             {
-                // Same map: Just move
                 thing.Position = targetCell;
                 if (thing is Pawn p) p.Notify_Teleported();
             }
             else
             {
-                // Different map: De-Spawn and Re-Spawn
                 thing.DeSpawn(DestroyMode.Vanish);
                 GenSpawn.Spawn(thing, targetCell, targetMap);
             }
 
-            // 3. Effect at the destination
+            // 3. effect at the destination
             FleckMaker.ThrowLightningGlow(targetCell.ToVector3Shifted(), targetMap, 1.0f);
             
-            // Sound (if available)
             if (ST_SoundDefOf.ST_Transporter_Beam != null)
                 ST_SoundDefOf.ST_Transporter_Beam.PlayOneShot(new TargetInfo(targetCell, targetMap));
 
-            // 4. Accident check (only for pawns and alive)
+            // 4. accident check
             if (thing is Pawn victim && !victim.Dead)
             {
                 CheckForPatternDecay(victim);
@@ -52,50 +48,45 @@ namespace YASTM
 
         private void CheckForPatternDecay(Pawn p)
         {
-            // 95% chance of no accident
             if (!Rand.Chance(ACCIDENT_CHANCE)) return;
 
-            // Oh no, an accident!
             int roll = Rand.RangeInclusive(1, 3);
             string accidentDesc = "";
 
             switch (roll)
             {
-                case 1: // Nausea
+                case 1: // nausea
                     accidentDesc = $"{p.LabelShort} is suffering from severe pattern nausea.";
                     Hediff sickness = HediffMaker.MakeHediff(HediffDefOf.CryptosleepSickness, p);
                     p.health.AddHediff(sickness);
                     break;
 
-                case 2: // Hot Pattern
+                case 2: // burn
                     accidentDesc = $"{p.LabelShort}'s pattern buffer ran too hot! Mild burns detected.";
-                    // Random body part burn (damage 10)
                     p.TakeDamage(new DamageInfo(DamageDefOf.Burn, 10, 0, -1, null, null, null));
                     break;
 
-                case 3: // Wardrobe Malfunction
+                case 3: // naked
                     accidentDesc = $"{p.LabelShort}'s clothing failed to rematerialize correctly!";
-                    // Check if clothing is available
                     if (p.apparel != null && p.apparel.WornApparel.Any())
                     {
-                        // Drop all clothing!
                         p.apparel.DropAll(p.Position, false, true);
                         Messages.Message("Clothing pattern lost in buffer!", p, MessageTypeDefOf.NegativeEvent);
                     }
                     else
                     {
-                        // Fallback falls schon nackt -> Betäubung
                         accidentDesc = $"{p.LabelShort} was stunned by a rematerialization spike.";
                         p.health.AddHediff(HediffDefOf.Anesthetic);
                     }
                     break;
             }
 
-            // Visual feedback for the fail
+            // visual feedback
             FleckMaker.ThrowSmoke(p.Position.ToVector3Shifted(), p.Map, 2f);
-            FleckMaker.ThrowText(p.DrawPos, p.Map, "ERROR!", Color.red);
             
-            // Letter to the player
+            // MoteMaker for text
+            MoteMaker.ThrowText(p.DrawPos, p.Map, "ERROR!", Color.red);
+            
             Find.LetterStack.ReceiveLetter("Transporter Malfunction", 
                 $"Transporter logs indicate a pattern buffer error during transport of {p.LabelShort}.\n\nOutcome: {accidentDesc}\n\nMaintain your equipment, Captain!", 
                 LetterDefOf.NegativeEvent, p);
