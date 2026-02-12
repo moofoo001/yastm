@@ -158,6 +158,7 @@
         <growthRate>2</growthRate>
   </FleckDef>
 
+  <!-- red alert -->
   <FleckDef ParentName="FleckBase_Thrown">
     <defName>ST_RedAlertPulse</defName>
     <graphicData>
@@ -170,6 +171,7 @@
     <growthRate>1.0</growthRate>
   </FleckDef>
 
+  <!-- risa -->
 <FleckDef ParentName="FleckBase_Thrown">
     <defName>ST_Holo_Risa</defName>
     <graphicData>
@@ -185,6 +187,7 @@
     <growthRate>0.05</growthRate>
   </FleckDef>
 
+  <!-- training -->
   <FleckDef ParentName="FleckBase_Thrown">
     <defName>ST_Holo_Training</defName>
     <graphicData>
@@ -198,6 +201,21 @@
     <solidTime>2.8</solidTime>
     <fadeOutTime>1.0</fadeOutTime>
     <growthRate>0.1</growthRate>
+  </FleckDef>
+
+  <!-- badgey -->
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>ST_Fleck_BadgeyOverlay</defName>
+    <altitudeLayer>MetaOverlays</altitudeLayer> <fadeInTime>0.2</fadeInTime>
+    <solidTime>1.5</solidTime>
+    <fadeOutTime>0.5</fadeOutTime>
+    <growthRate>0</growthRate>
+    <graphicData>
+      <texPath>UI/Flecks/Badgey</texPath> 
+      <shaderType>MetaOverlay</shaderType>
+      <drawSize>1.2</drawSize>
+      <color>(255, 50, 50)</color>
+    </graphicData>
   </FleckDef>
 
 </Defs>

@@ -37,7 +37,6 @@
     
     <tickerType>Normal</tickerType>
     <comps>
-
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>1200</basePowerConsumption>
@@ -63,11 +62,11 @@
         <yellowCooldownTicks>45000</yellowCooldownTicks>
 
       </li>
-      <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
+      <li Class="YASTM.CompProperties_BridgeStation">
         <role>Tactical</role>
-        <mannable>true</mannable>
+        <requiredTraitDef>ST_Trait_Security</requiredTraitDef>
       </li>
-
+      <li Class="YASTM.CompProperties_BadgeyShutdown" />
       <li>
        <compClass>YASTM.CompUsageRestriction</compClass>
       </li>

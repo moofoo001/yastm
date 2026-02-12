@@ -1,23 +1,27 @@
 using Verse;
 using RimWorld;
-using System.Collections.Generic;
 
-namespace YASTM.Source.Comps
+namespace YASTM
 {
+    // role definition
     public enum BridgeRole
     {
         None,
-        Command,    // Captain
-        Tactical,   // Worf / Reed
-        Ops,        // Data / Harry Kim
-        Science,    // Spock / Jadzia Dax
-        Helm        // Pilot / Paris / Mayweather
+        Command,
+        Helm,
+        Ops,
+        Tactical,
+        Science,
+        Engineering
     }
 
     public class CompProperties_BridgeStation : CompProperties
     {
+        // for synergy
         public BridgeRole role = BridgeRole.None;
-        public bool mannable = true;
+        
+        // for access restriction (e.g. "ST_Trait_Security")
+        public string requiredTraitDef = ""; 
 
         public CompProperties_BridgeStation()
         {
@@ -29,44 +33,19 @@ namespace YASTM.Source.Comps
     {
         public CompProperties_BridgeStation Props => (CompProperties_BridgeStation)props;
 
+        // Helper property for the manager: Is the thing currently being used?
         public bool IsManned
         {
             get
             {
-                // 1. Vanilla Check
-                CompMannable mannable = parent.TryGetComp<CompMannable>();
-                if (mannable != null && mannable.MannedNow) return true;
-
-                // 2. Advanced Job Check
-                if (parent is Building building && parent.Map != null)
+                if (parent.Map == null) return false;
+                // Check if a pawn is currently interacting
+                IntVec3 interactionCell = parent.InteractionCell;
+                foreach (Pawn p in interactionCell.GetThingList(parent.Map).ConvertAll(t => t as Pawn))
                 {
-
-                    
-                    List<IntVec3> cellsToCheck = new List<IntVec3>
+                    if (p != null && p.CurJob != null && p.CurJob.targetA.Thing == parent)
                     {
-                        building.InteractionCell,
-                        building.Position
-                    };
-
-                    foreach (IntVec3 cell in cellsToCheck)
-                    {
-                        // Optimization: Check only if cell is valid
-                        if (!cell.InBounds(parent.Map)) continue;
-
-                        List<Thing> things = cell.GetThingList(parent.Map);
-                        for (int i = 0; i < things.Count; i++)
-                        {
-                            if (things[i] is Pawn p && p.IsColonist)
-                            {
-                                // Verify the pawn is actually doing OUR job targeting THIS building
-                                if (p.CurJob != null && 
-                                    p.CurJob.def.defName == "ST_Job_ManBridgeStation" &&
-                                    p.CurJob.targetA.Thing == parent)
-                                {
-                                    return true;
-                                }
-                            }
-                        }
+                        return true;
                     }
                 }
                 return false;

@@ -10,8 +10,8 @@ namespace YASTM
         private ST_CareerDef selectedCareer; 
         private Vector2 scrollPos;
 
-        // Der Konstruktor ist jetzt "optional" (= null). 
-        // Das repariert auch das Problem im Diplomacy-Comms automatisch!
+        // The constructor is now "optional" (= null). 
+        // This also fixes the problem in Diplomacy-Comms automatically!
         public Dialog_CareerHelp(ST_CareerDef career = null)
         {
             this.selectedCareer = career;
@@ -24,7 +24,7 @@ namespace YASTM
 
         public override void DoWindowContents(Rect inRect)
         {
-            // Sicherheits-Check: Falls keine Daten da sind (z.B. Aufruf via Comms)
+            // Safety check: If no data is available (e.g. via Diplomacy Console)
             if (selectedCareer == null)
             {
                 Text.Font = GameFont.Medium;
@@ -41,7 +41,7 @@ namespace YASTM
                 return;
             }
 
-            // Normaler Modus (mit Daten)
+            // Normal mode (with data)
             Text.Font = GameFont.Medium;
             Widgets.Label(new Rect(0, 0, inRect.width, 40), selectedCareer.label.CapitalizeFirst());
             Text.Font = GameFont.Small;

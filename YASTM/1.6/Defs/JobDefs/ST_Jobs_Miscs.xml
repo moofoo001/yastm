@@ -45,4 +45,34 @@
     <casualInterruptible>false</casualInterruptible>
   </JobDef>
 
+  <!-- Obelisk scan -->
+  <JobDef>
+    <defName>ST_ScanObelisk</defName>
+    <label>scan obelisk</label>
+    <driverClass>YASTM.Jobs.JobDriver_ScanObelisk</driverClass>
+    <reportString>scanning the obelisk TargetA.</reportString>
+    <playerInterruptible>true</playerInterruptible>
+    <casualInterruptible>true</casualInterruptible>
+    <alwaysShowWeapon>false</alwaysShowWeapon>
+   <checkOverrideOnDamage>OnlyIfInstigatorNotJobTarget</checkOverrideOnDamage>
+  </JobDef>
+
+  <!-- Badgey purge -->
+  <JobDef>
+    <defName>ST_Job_PurgeBadgey</defName>
+    <driverClass>YASTM.JobDriver_PurgeBadgey</driverClass>
+    <reportString>purging AI systems.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <!-- Bridge station operation -->
+  <JobDef>
+    <defName>ST_Job_ManBridgeStation</defName>
+    <driverClass>YASTM.Jobs.JobDriver_ManBridgeStation</driverClass>
+    <reportString>manning station.</reportString>
+    <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+    <suspendable>false</suspendable>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
+
 </Defs>

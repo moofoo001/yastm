@@ -107,9 +107,9 @@
         <minSocialCeasefire>10</minSocialCeasefire>
       </li>
 
-      <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
+      <li Class="YASTM.CompProperties_BridgeStation">
           <role>Ops</role>
-          <mannable>true</mannable>
+          <requiredTraitDef>ST_Trait_Command</requiredTraitDef>
       </li>
     </comps>
 

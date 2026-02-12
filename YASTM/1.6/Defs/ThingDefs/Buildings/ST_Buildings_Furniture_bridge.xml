@@ -58,9 +58,9 @@
     </building>
 
     <comps>
-      <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
+      <li Class="YASTM.CompProperties_BridgeStation">
           <role>Command</role>
-          <mannable>true</mannable>
+          <requiredTraitDef>ST_Trait_Command</requiredTraitDef>
       </li>
         <li Class="CompProperties_Power">
             <compClass>CompPowerTrader</compClass>

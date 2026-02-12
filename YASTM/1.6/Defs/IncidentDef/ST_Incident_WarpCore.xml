@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <IncidentDef>
+    <defName>ST_Incident_WarpCoreBreach</defName>
+    <label>warp core breach</label>
+    <category>ThreatBig</category> <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>YASTM.IncidentWorker_WarpCoreBreach</workerClass>
+    <baseChance>0.5</baseChance>
+    <minRefireDays>60</minRefireDays>
+    <letterLabel>Warp Core Breach</letterLabel>
+    <letterText>WARNING: Magnetic constrictors are failing on the Warp Core!\n\nA breach is imminent. An engineer must stabilize the core immediately or it will detonate.\n\n(Select an engineer and right-click the core to Stabilize)</letterText>
+    <letterDef>ThreatBig</letterDef>
+  </IncidentDef>
+</Defs>

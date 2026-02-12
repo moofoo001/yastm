@@ -27,7 +27,7 @@ namespace YASTM
         {
             if (currentLevel == newLevel) return;
 
-            // 1. Sound ändern
+         
             StopSustainer();
             currentLevel = newLevel;
 
@@ -48,27 +48,27 @@ namespace YASTM
                 Messages.Message("Condition Green. Stand down.", MessageTypeDefOf.PositiveEvent);
             }
 
-            // 2. Hediffs verteilen (Buffs an Crew geben)
+            // 2. headiff buff
             ApplyAlertBuffs(newLevel);
         }
 
         private void ApplyAlertBuffs(ST_AlertLevel level)
         {
-            // Wir holen alle freien Kolonisten auf der Karte
+            // get all free colonists
             List<Pawn> crew = map.mapPawns.FreeColonists;
 
             foreach (Pawn p in crew)
             {
                 if (p.Dead || p.Downed) continue;
 
-                // A) Erst mal ALLES Alte entfernen, damit sich nichts stapelt
+                // remove old buffs
                 var oldRed = p.health.hediffSet.GetFirstHediffOfDef(ST_HediffDefOf.ST_Alert_RedState);
                 if (oldRed != null) p.health.RemoveHediff(oldRed);
 
                 var oldYellow = p.health.hediffSet.GetFirstHediffOfDef(ST_HediffDefOf.ST_Alert_YellowState);
                 if (oldYellow != null) p.health.RemoveHediff(oldYellow);
 
-                // B) Neuen Buff hinzufügen (falls nicht Normal)
+                // add new buff
                 if (level == ST_AlertLevel.Red)
                 {
                     p.health.AddHediff(ST_HediffDefOf.ST_Alert_RedState);
@@ -106,7 +106,7 @@ namespace YASTM
                 activeSustainer.Maintain();
             }
             
-            // Optional: Alle paar Sekunden prüfen, ob neue Pawns dazugekommen sind?
+            // Optional: check for new pawns every few seconds
 
         }
 

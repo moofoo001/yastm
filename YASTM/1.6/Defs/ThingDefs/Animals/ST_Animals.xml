@@ -50,19 +50,19 @@
         <li>
         <def>AnimalAdult</def>
         <minAge>0.40</minAge>
-        	<soundWounded>Pawn_Rodent_Wounded</soundWounded>
-					<soundDeath>Pawn_Rodent_Death</soundDeath>
-					<soundCall>Pawn_Rodent_Call</soundCall>
-					<soundAngry>Pawn_Rodent_Angry</soundAngry>
+        	<soundWounded>ST_Sound_Tribble_Wounded</soundWounded>
+					<soundDeath>ST_Sound_Tribble_Death</soundDeath>
+					<soundCall>ST_Sound_Tribble_Coo</soundCall>
+					<soundAngry>ST_Sound_Tribble_Angry</soundAngry>
         </li>
       </lifeStageAges>
     </race>
       <comps>
       <li Class="YASTM.CompProperties_Tribbles">
-        <purrRadius>7</purrRadius>
-        <overrunCountRoom>12</overrunCountRoom>
-        <reproMTBHours>12</reproMTBHours>   <!-- mittlere Zeit bis „ein Tribble mehr“ -->
-        <maxNearby>30</maxNearby>           <!-- Hard-Limiter im 12-Tile-Umkreis -->
+        <reproduceChance>0.08</reproduceChance>
+        <reproduceThreshold>0.85</reproduceThreshold>
+        <maxTribblesOnMap>500</maxTribblesOnMap>
+        <hatedTrait>ST_Klingon</hatedTrait>
       </li>
     </comps>
     <tradeTags>

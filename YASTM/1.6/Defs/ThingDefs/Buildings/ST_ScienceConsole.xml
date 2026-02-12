@@ -62,9 +62,9 @@
         <maxSimultaneous>2</maxSimultaneous>
       </li>
 
-      <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
+      <li Class="YASTM.CompProperties_BridgeStation">
           <role>Science</role>
-          <mannable>true</mannable>
+          <requiredTraitDef>ST_Trait_Science</requiredTraitDef>
       </li>
 
     <li Class="StarTrekFactions.Comps.CompProperties_ScienceConsoleSubspaceScan">

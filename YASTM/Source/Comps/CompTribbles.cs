@@ -1,93 +1,92 @@
-using System.Linq;
+using System.Collections.Generic;
+using System.Linq; 
 using RimWorld;
 using Verse;
+using Verse.Sound;
 using UnityEngine;
 
 namespace YASTM
 {
     public class CompProperties_Tribbles : CompProperties
     {
-        public float purrRadius = 7f;
-        public int overrunCountRoom = 12;
-        public float reproMTBHours = 12f;
-        public int maxNearby = 30;
-
+        public float reproduceChance = 0.05f;
+        public float reproduceThreshold = 0.9f;
+        public int maxTribblesOnMap = 200;
+        public int checkInterval = 250;
+        public string hatedTrait = "ST_Klingon";
+        
         public CompProperties_Tribbles()
         {
-            compClass = typeof(CompTribbles);
+            this.compClass = typeof(CompTribbles);
         }
     }
 
     public class CompTribbles : ThingComp
     {
-        private int nextTick;
         public CompProperties_Tribbles Props => (CompProperties_Tribbles)props;
-        private Pawn Pawn => parent as Pawn;
+        private Pawn Pawn => (Pawn)parent;
 
         public override void CompTickRare()
         {
-            if (Pawn == null || Pawn.Map == null) return;
-            int tick = Find.TickManager.TicksGame;
-            if (tick < nextTick) return;
-            nextTick = tick + 250;
+            base.CompTickRare();
 
-            TryPurrAura();
-            TryAsexualReproduce();
-        }
+            if (Pawn.Dead || Pawn.Downed || Pawn.Map == null) return;
 
-        private void TryPurrAura()
-        {
-            if (!Pawn.Spawned) return;
-            var map = Pawn.Map;
-            var center = Pawn.Position;
-            float rad = Props.purrRadius;
-
-            int tribblesInRoom = 0;
-            Room room = center.GetRoom(map);
-            if (room != null)
-                tribblesInRoom = room.ContainedAndAdjacentThings.Count(t => t is Pawn p && p.def == Pawn.def);
-
-            var cells = GenRadial.RadialCellsAround(center, rad, true);
-            foreach (var c in cells)
+            // 1. KLINGONEN DETEKTOR
+            bool klingonNearby = false;
+            foreach (Pawn p in Pawn.Map.mapPawns.AllPawnsSpawned)
             {
-                if (!c.InBounds(map)) continue;
-                var p = c.GetFirstPawn(map);
-                if (p != null && p.RaceProps.Humanlike && p.needs?.mood != null && p.Faction == Faction.OfPlayer)
-                    p.needs.mood.thoughts.memories.TryGainMemory(DefDatabase<ThoughtDef>.GetNamed("ST_Tribbles_Purr"));
+                if (p.RaceProps.Humanlike && p.Position.InHorDistOf(Pawn.Position, 8f))
+                {
+                    if (p.story?.traits?.allTraits.Any(t => t.def.defName == Props.hatedTrait) ?? false)
+                    {
+                        klingonNearby = true;
+                        break;
+                    }
+                }
             }
 
-            if (tribblesInRoom >= Props.overrunCountRoom && room != null)
+            // Play sound
+            if (klingonNearby)
             {
-                foreach (var p in room.ContainedAndAdjacentThings.OfType<Pawn>().Where(pp => pp.RaceProps.Humanlike && pp.needs?.mood != null))
-                    p.needs.mood.thoughts.memories.TryGainMemory(DefDatabase<ThoughtDef>.GetNamed("ST_Tribbles_Overrun"));
+                ST_SoundDefOf.ST_Sound_Tribble_Angry?.PlayOneShot(Pawn);
+            }
+            else if (Rand.Chance(0.05f)) 
+            {
+                ST_SoundDefOf.ST_Sound_Tribble_Coo?.PlayOneShot(Pawn);
+            }
+
+            // 2. REPRODUCTION
+            if (!klingonNearby && Pawn.needs.food != null && Pawn.needs.food.CurLevelPercentage > Props.reproduceThreshold)
+            {
+                TryReproduce();
             }
         }
 
-        private void TryAsexualReproduce()
+        private void TryReproduce()
         {
-            var map = Pawn.Map;
-            if (map == null) return;
+            if (!Rand.Chance(Props.reproduceChance)) return;
 
-            int nearby = GenRadial.RadialCellsAround(Pawn.Position, 12f, true)
-                .Sum(c => c.InBounds(map) ? c.GetThingList(map).Count(t => t is Pawn p && p.def == Pawn.def) : 0);
-            if (nearby >= Props.maxNearby) return;
+            Map map = Pawn.Map;
+            
+            // Limit check
+            if (map.mapPawns.AllPawnsSpawned.Count(p => p.def == Pawn.def) >= Props.maxTribblesOnMap)
+            {
+                return; 
+            }
 
-            if (!Rand.MTBEventOccurs(Props.reproMTBHours, GenDate.HoursPerDay, 250)) return;
-
-            var kind = DefDatabase<PawnKindDef>.GetNamedSilentFail("ST_Animal_Tribble_Kind");
+            PawnKindDef kind = Pawn.kindDef;
             if (kind == null) return;
 
-            var baby = PawnGenerator.GeneratePawn(kind, Pawn.Faction);
-            if (baby == null) return;
+            Pawn newTribble = PawnGenerator.GeneratePawn(kind, Faction.OfPlayer);
+            PawnUtility.TrySpawnHatchedOrBornPawn(newTribble, Pawn);
 
-            if (baby.ageTracker != null)
-            {
-                baby.ageTracker.AgeBiologicalTicks = 0;
-                baby.ageTracker.AgeChronologicalTicks = 0;
-            }
-
-            GenSpawn.Spawn(baby, CellFinder.StandableCellNear(Pawn.Position, map, 1), map);
+            Pawn.needs.food.CurLevel -= 0.3f; 
+            
+            FleckMaker.ThrowDustPuff(Pawn.Position, map, 1.0f);
+            
+            if (Rand.Chance(0.1f)) 
+                Messages.Message("Tribbles are multiplying...", newTribble, MessageTypeDefOf.NeutralEvent, true);
         }
     }
 }
-

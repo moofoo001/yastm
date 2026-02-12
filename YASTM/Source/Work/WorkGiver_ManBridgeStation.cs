@@ -1,61 +1,49 @@
 using RimWorld;
 using Verse;
 using Verse.AI;
-using YASTM.Source.Comps;
+using System.Collections.Generic;
 
-namespace YASTM.Source.WorkGivers
+namespace YASTM
 {
     public class WorkGiver_ManBridgeStation : WorkGiver_Scanner
     {
-        // set the thing request to artificial buildings
         public override ThingRequest PotentialWorkThingRequest => ThingRequest.ForGroup(ThingRequestGroup.BuildingArtificial);
+        public override PathEndMode PathEndMode => PathEndMode.InteractionCell;
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            // checks: if thing is valid
-            if (!t.Spawned || t.IsForbidden(pawn)) return false;
+            if (!(t is Building building)) return false;
 
-            // checks: specific to Bridge Station
-            var bridgeComp = t.TryGetComp<CompBridgeStation>();
-            if (bridgeComp == null) 
-            {
-                return false;
-            }
-            // -----------------------------
+            // have comp ?
+            var stationComp = building.GetComp<CompBridgeStation>();
+            if (stationComp == null) return false;
 
-            // power check
-            CompPowerTrader power = t.TryGetComp<CompPowerTrader>();
-            if (power != null && !power.PowerOn)
+            // is bridge mode active ?
+            if (!forced)
             {
-                if (forced) JobFailReason.Is("No Power");
-                return false;
+                var manager = pawn.Map.GetComponent<MapComponent_BridgeManager>();
+                if (manager == null || !manager.bridgeManningActive) return false;
             }
 
-            // checks: reservation
-            if (!pawn.CanReserve(t, 1, -1, null, forced)) 
-            {
-                return false;
-            }
+            // can reserve ?
+            if (!pawn.CanReserve(building, 1, -1, null, forced)) return false;
+            if (building.IsForbidden(pawn)) return false;
+            
+            var power = building.GetComp<CompPowerTrader>();
+            if (power != null && !power.PowerOn) return false;
 
-            // reachability
-            if (!pawn.CanReach(t, PathEndMode.OnCell, Danger.Deadly))
+            // trait check
+            if (!string.IsNullOrEmpty(stationComp.Props.requiredTraitDef))
             {
-                if (forced) JobFailReason.Is("Cannot reach");
-                return false;
-            }
-
-            // already
-            if (pawn.CurJob != null && pawn.CurJob.def.defName == "ST_Job_ManBridgeStation" && pawn.CurJob.targetA.Thing == t)
-            {
-                return false;
-            }
-
-            // optional needs check
-            if (!forced) 
-            {
-                if (pawn.needs.food != null && pawn.needs.food.CurLevelPercentage < 0.30f) return false;
-                if (pawn.needs.rest != null && pawn.needs.rest.CurLevelPercentage < 0.30f) return false;
-                if (pawn.needs.joy != null && pawn.needs.joy.CurLevelPercentage < 0.10f) return false;
+                TraitDef requiredTrait = DefDatabase<TraitDef>.GetNamedSilentFail(stationComp.Props.requiredTraitDef);
+                
+                // trait exists and pawn does not have it -> reject
+                if (requiredTrait != null && (pawn.story == null || !pawn.story.traits.HasTrait(requiredTrait)))
+                {
+                    //  reason for right-click menu
+                    JobFailReason.Is($"Missing required training: {requiredTrait.label}");
+                    return false;
+                }
             }
 
             return true;
@@ -63,7 +51,7 @@ namespace YASTM.Source.WorkGivers
 
         public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            return JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("ST_Job_ManBridgeStation"), t);
+            return JobMaker.MakeJob(ST_JobDefOf.ST_Job_ManBridgeStation, t);
         }
     }
 }

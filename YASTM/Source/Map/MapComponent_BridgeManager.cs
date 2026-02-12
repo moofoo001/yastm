@@ -5,23 +5,41 @@ using RimWorld.Planet;
 using System.Collections.Generic;
 using YASTM.Source.Comps;
 
-namespace YASTM.Source.Map
+namespace YASTM
 {
     [StaticConstructorOnStartup]
     public class MapComponent_BridgeManager : MapComponent
     {
-        private int tickCounter = 0;
-        public bool bridgeSynergyActive = false;
+        // Man the bridge
+        public bool bridgeManningActive = false;
 
-        public MapComponent_BridgeManager(Verse.Map map) : base(map)
+        // Bridge crew status
+        public bool bridgeSynergyActive = false;
+        private int tickCounter = 0;
+
+        public MapComponent_BridgeManager(Map map) : base(map) { }
+
+        public override void ExposeData()
         {
+            base.ExposeData();
+            // Save the switch, synergy status is calculated on the fly
+            Scribe_Values.Look(ref bridgeManningActive, "bridgeManningActive", false);
         }
 
+        //  Feature 1: The switch (called by the gizmo/button)
+        public void ToggleBridgeManning()
+        {
+            bridgeManningActive = !bridgeManningActive;
+            string status = bridgeManningActive ? "ON" : "OFF";
+            Messages.Message($"Red Alert / Bridge Manning: {status}", MessageTypeDefOf.NeutralEvent);
+        }
+
+        // Feature 2: The monitoring (original logic restored)
         public override void MapComponentTick()
         {
             base.MapComponentTick();
             
-            // periodic check
+            // Check every 2 seconds (120 Ticks)
             tickCounter++;
             if (tickCounter >= 120) 
             {
@@ -34,11 +52,14 @@ namespace YASTM.Source.Map
         {
             bool hasCommand = false;
             bool hasHelm = false;
-            bool hasSupport = false; 
+            bool hasSupport = false; // Ops oder Tactical
 
+            // Scan all buildings for manned stations
             foreach (Building b in map.listerBuildings.allBuildingsColonist)
             {
                 var comp = b.GetComp<CompBridgeStation>();
+                
+                // Use comp.IsManned (must exist in Comp!)
                 if (comp != null && comp.IsManned)
                 {
                     switch (comp.Props.role)
@@ -46,7 +67,6 @@ namespace YASTM.Source.Map
                         case BridgeRole.Command: hasCommand = true; break;
                         case BridgeRole.Helm:    hasHelm = true; break;
                         case BridgeRole.Tactical:
-                        case BridgeRole.Science:
                         case BridgeRole.Ops:     hasSupport = true; break;
                     }
                 }
@@ -59,9 +79,9 @@ namespace YASTM.Source.Map
                 bridgeSynergyActive = newState;
                 if (bridgeSynergyActive)
                 {
-                    Messages.Message("ST_BridgeSynergyOnline".Translate(), MessageTypeDefOf.PositiveEvent);
+                    // "ST_BridgeSynergyOnline" use Key or Fallback Text
+                    Messages.Message("Bridge Synergy Online! Ship performance increased.", MessageTypeDefOf.PositiveEvent);
                 }
-                // else { Messages.Message("ST_BridgeSynergyLost".Translate(), MessageTypeDefOf.NegativeEvent); }
             }
         }
 
@@ -72,10 +92,11 @@ namespace YASTM.Source.Map
             if (Find.CurrentMap != map) return;
             if (Find.World != null && Find.World.renderer.wantedMode != WorldRenderMode.None) return;
 
-            // draw icon if active
+            // Draw the icon if synergy is active
             if (bridgeSynergyActive)
             {
                 float iconSize = 48f;
+                // Position bottom right
                 Rect rect = new Rect(Verse.UI.screenWidth - 250f, Verse.UI.screenHeight - 140f, iconSize, iconSize);
 
                 Texture2D icon = ContentFinder<Texture2D>.Get("UI/Icons/Starfleet/Combadge", true);
@@ -83,7 +104,7 @@ namespace YASTM.Source.Map
                 if (icon != null)
                 {
                     GUI.DrawTexture(rect, icon);
-                    TooltipHandler.TipRegion(rect, "ST_BridgeSynergyActiveDesc".Translate());
+                    TooltipHandler.TipRegion(rect, "Bridge Synergy Active: Crew is operating at peak efficiency.");
                 }
             }
         }

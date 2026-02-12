@@ -51,9 +51,9 @@
         <maxDistance>200</maxDistance>
       </li>
       <li Class="CompProperties_Breakdownable" />
-      <li Class="YASTM.Source.Comps.CompProperties_BridgeStation">
-        <role>Helm</role>
-        <mannable>true</mannable>
+      <li Class="YASTM.CompProperties_BridgeStation">
+          <role>Helm</role>
+          <requiredTraitDef>ST_Trait_PilotSkill</requiredTraitDef>
       </li>
     <li>
        <compClass>YASTM.CompUsageRestriction</compClass>

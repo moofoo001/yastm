@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <IncidentDef>
+    <defName>ST_Incident_Q_Visit</defName>
+    <label>visit from Q</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>YASTM.IncidentWorker_QVisit</workerClass>
+    <baseChance>1.5</baseChance> <minRefireDays>60</minRefireDays> <letterLabel>The Q</letterLabel>
+    <letterText>A flash of light blinds you for a second.\n\n"Mon Capitaine! How boring you little creatures are today. Let's spice things up a bit, shall we?"\n\nQ has snapped his fingers.</letterText>
+    <letterDef>NeutralEvent</letterDef>
+  </IncidentDef>
+</Defs>

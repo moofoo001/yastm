@@ -8,12 +8,12 @@
   <context>MapOnly</context>
   <subSounds>
     <li>
+     <onCamera>true</onCamera> 
       <grains>
         <li Class="AudioGrain_Clip">
           <clipPath>Things/transporter</clipPath> <!-- pfad anpassen -->
         </li>
       </grains>
-      <onCamera>false</onCamera>
       <volumeRange>10.5~10.75</volumeRange>
       <pitchRange>0.98~1.02</pitchRange>
     </li>
@@ -258,7 +258,7 @@
 
   <!-- Tribble sounds -->
   <SoundDef>
-    <defName>Pawn_Tribble_Angry</defName>  
+    <defName>ST_Sound_Tribble_Angry</defName>  
     <context>MapOnly</context>  
     <subSounds>
       <li>
@@ -276,7 +276,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>Pawn_Tribble_Call</defName>  
+    <defName>ST_Sound_Tribble_Coo</defName>  
     <context>MapOnly</context>  
     <subSounds>
       <li>
@@ -294,7 +294,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>Pawn_Tribble_Wounded</defName>
+    <defName>ST_Sound_Tribble_Wounded</defName>
     <context>MapOnly</context>
     <subSounds>
       <li>
@@ -311,7 +311,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>Pawn_Tribble_Death</defName>
+    <defName>ST_Sound_Tribble_Death</defName>
     <context>MapOnly</context>
     <subSounds>
       <li>

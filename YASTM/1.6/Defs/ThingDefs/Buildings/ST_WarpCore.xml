@@ -66,8 +66,8 @@
 
       <li Class="YASTM.CompProperties_WarpCore">
          <explosionRadius>50</explosionRadius>
-         <safeTemperatureMax>60.0</safeTemperatureMax>
-         <pulseInterval>180</pulseInterval>
+         <!--safeTemperatureMax>60.0</safeTemperatureMax-->
+         <!--pulseInterval>180</pulseInterval-->
          <pulseRadius>3.5</pulseRadius>
        </li>
 

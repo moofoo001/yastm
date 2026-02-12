@@ -17,6 +17,10 @@ namespace YASTM
         public static SoundDef ST_Transporter_Beam;
         public static SoundDef ST_Shuttle_Launch;
 
+        // Tribble Sounds
+        public static SoundDef ST_Sound_Tribble_Coo;
+        public static SoundDef ST_Sound_Tribble_Angry;
+
         static ST_SoundDefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(ST_SoundDefOf));

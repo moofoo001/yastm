@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <IncidentDef>
+    <defName>ST_Incident_BadgeyFailure</defName>
+    <label>Badgey AI glitch</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>YASTM.IncidentWorker_BadgeyFailure</workerClass>
+    <baseChance>0.8</baseChance>
+    <minRefireDays>45</minRefireDays>
+    <letterLabel>Badgey AI</letterLabel>
+    <letterText>Badgey is causing chaos.</letterText>
+    <letterDef>ThreatSmall</letterDef>
+  </IncidentDef>
+</Defs>

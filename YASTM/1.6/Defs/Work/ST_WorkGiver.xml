@@ -2,16 +2,7 @@
 <Defs>
 
   <!-- Obelisk scan -->
-  <JobDef>
-    <defName>ST_ScanObelisk</defName>
-    <label>scan obelisk</label>
-    <driverClass>YASTM.Jobs.JobDriver_ScanObelisk</driverClass>
-    <reportString>scanning the obelisk TargetA.</reportString>
-    <playerInterruptible>true</playerInterruptible>
-    <casualInterruptible>true</casualInterruptible>
-    <alwaysShowWeapon>false</alwaysShowWeapon>
-   <checkOverrideOnDamage>OnlyIfInstigatorNotJobTarget</checkOverrideOnDamage>
-  </JobDef>
+
 
  <WorkGiverDef>
     <defName>ST_UseMedicalTricorder</defName>

@@ -3,7 +3,7 @@ using RimWorld;
 using Verse;
 using Verse.AI;
 
-namespace YASTM.Source.Jobs
+namespace YASTM.Jobs
 {
     public class JobDriver_ManBridgeStation : JobDriver
     {
