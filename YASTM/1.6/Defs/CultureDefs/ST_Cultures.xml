@@ -221,7 +221,7 @@
     <defName>ST_Culture_Dominion</defName>
     <label>Dominion Order</label>
     <description>A rigid, hierarchical culture centered around the worship of the Founders and absolute obedience to the state.</description>
-    
+    <iconPath>UI/Icons/IdeoIcons/DominionCulture</iconPath>   
     <ideoNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerIdeoDominion</ideoNameMaker>
     <deityNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerDeityDominion</deityNameMaker>
     <deityTypeMaker MayRequire="Ludeon.RimWorld.Ideology">NamerDeityTypeDominion</deityTypeMaker>
