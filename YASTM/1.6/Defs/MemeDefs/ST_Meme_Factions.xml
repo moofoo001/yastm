@@ -511,4 +511,100 @@
     </disagreeableTraits>
   </MemeDef>
 
+<MemeDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>ST_Meme_DominionOrder</defName>
+    <label>Dominion order</label>
+    <description>The Founders are the gods of the universe. To serve them is the highest purpose. Chaos must be replaced by order, and resistance must be met with absolute force. Obedience brings victory.</description>
+    <iconPath>UI/Icons/IdeoIcons/DominionOrder</iconPath> <worshipRoomLabel>shrine of the Link</worshipRoomLabel>
+    <category>Structure</category>
+    <deityCount>1</deityCount> <allowSymbolsFromDeity>true</allowSymbolsFromDeity>
+    <groupDef>Spacefarer</groupDef>
+    <impact>0</impact>
+
+    <requireOne>
+      <li>
+        <li>IdeoDiversity_Abhorrent</li>
+        <li>IdeoDiversity_Horrible</li>
+      </li>
+      <li>
+        <li>Slavery_Acceptable</li>
+        <li>Slavery_Honorable</li>
+      </li>
+      <li>
+        <li>Apostasy_Abhorrent</li>
+      </li>
+      <li>
+        <li>Execution_RespectedIfGuilty</li>
+        <li>Execution_Required</li>
+      </li>
+      <li>
+        <li>Cannibalism_Abhorrent</li>
+      </li>
+    </requireOne>
+
+    <generalRules>
+      <rulesStrings>
+        <li>memeAdjective->loyal</li>
+        <li>memeAdjective->obedient</li>
+        <li>memeAdjective->ordered</li>
+        <li>memeConcept->The Great Link</li>
+        <li>memeConcept->The Founders</li>
+        <li>memeConcept->The Order</li>
+        <li>memeLeaderNoun->Founder</li>
+        <li>memeLeaderNoun->First</li>
+        <li>memeLeaderNoun->Overseer</li>
+        <li>memeMoralist->Vorta Supervisor</li>
+        <li>memeMoralist->Keeper of the White</li>
+        <li>chosenIdeoName->The Dominion</li>
+        <li>chosenIdeoName->The Great Link</li>
+        <li>chosenIdeoName->Will of the Founders</li>
+        <li>chosenIdeoName->Dominion Order</li>
+      </rulesStrings>
+    </generalRules>
+
+    <descriptionMaker>
+      <rules>
+        <rulesStrings>
+          <li>creation(tag=meme_ST_Dominion)      ->The Founders looked upon the chaos of the solids and saw only threat.</li>
+          <li>episode(uses=1,tag=meme_ST_Dominion)->They formed the Great Link, a sea of thought to withstand the storm of chaos.</li>
+          <li>intro(tag=meme_ST_Dominion)         ->To protect the Link, absolute order was imposed upon the chaotic stars.</li>
+          <li>conflict(tag=meme_ST_Dominion)      ->Solids resisted, for they did not understand that their freedom was merely chaos by another name.</li>
+          <li>founderJoin(tag=meme_ST_Dominion)   ->We pledged our lives to the Founders, for they alone possess the wisdom to rule.</li>
+          <li>victory(tag=meme_ST_Dominion)       ->Where the Dominion tread, silence fell, and in that silence, there was perfect order.</li>
+          <li>setup(tag=meme_ST_Dominion)         ->Thus the law is written: The Founders are wise, and obedience brings victory.</li>
+        </rulesStrings>
+      </rules>
+    </descriptionMaker>
+    
+    <symbolPacks>
+      <li>
+        <ideoName>The Great Order</ideoName>
+        <theme>order</theme>
+        <adjective>ordered</adjective>
+        <member>subject</member>
+      </li>
+      <li>
+        <ideoName>Founder's Will</ideoName>
+        <theme>obedience</theme>
+        <adjective>obedient</adjective>
+        <member>servant</member>
+      </li>
+    </symbolPacks>
+
+    <startingResearchProjects>
+      <li>Pre_Warp</li>
+    </startingResearchProjects>
+    
+    <factionWhitelist>
+      <li>ST_Faction_Dominion</li>
+    </factionWhitelist>
+    
+    <agreeableTraits>
+      <li>Psychopath</li> <li>Abrasive</li>
+    </agreeableTraits>
+    <disagreeableTraits>
+      <li>Wimp</li> </disagreeableTraits>
+
+  </MemeDef>
+
 </Defs>
