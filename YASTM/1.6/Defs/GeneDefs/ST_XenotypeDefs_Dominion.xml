@@ -56,4 +56,20 @@
         </genes>
   </XenotypeDef>
 
+  <XenotypeDef>
+      <defName>Ectos_Changeling</defName>
+      <label>Changeling</label>
+      <description>The Founders of the Dominion. Liquid lifeforms capable of shifting their shape. They are functionally immortal.</description>
+      <iconPath>UI/Icons/Xenotypes/Changeling</iconPath>
+      <combatPowerFactor>3.0</combatPowerFactor>
+      <genes>
+          <li>Skin_DeepYellow</li>
+          <li>Hair_BaldOnly</li>
+          <li>Body_Standard</li>
+          <li>Nose_Human</li>
+          <li>Sterile</li>
+          <li>PsychicAbility_Dull</li>
+      </genes>
+    </XenotypeDef>
+
 </Defs>

@@ -216,4 +216,38 @@
     </styleItemTags>
   </CultureDef>
 
+  <!-- DOMINION -->
+  <CultureDef>
+    <defName>ST_Culture_Dominion</defName>
+    <label>Dominion Order</label>
+    <description>A rigid, hierarchical culture centered around the worship of the Founders and absolute obedience to the state.</description>
+    
+    <ideoNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerIdeoDominion</ideoNameMaker>
+    <deityNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerDeityDominion</deityNameMaker>
+    <deityTypeMaker MayRequire="Ludeon.RimWorld.Ideology">NamerDeityTypeDominion</deityTypeMaker>
+    <leaderTitleMaker MayRequire="Ludeon.RimWorld.Ideology">NamerLeaderTitleDominion</leaderTitleMaker>
+    
+    <allowedPlaceTags>
+      <li>Outlander</li>
+    </allowedPlaceTags>
+    
+    <styleItemTags>
+      <li>
+        <tag>Totemic</tag>
+        <baseWeight>1</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>Spike</tag>
+        <baseWeight>1</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+      <li>
+        <tag>NoBeard</tag>
+        <baseWeight>10</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+    </styleItemTags>
+  </CultureDef>
+
 </Defs>

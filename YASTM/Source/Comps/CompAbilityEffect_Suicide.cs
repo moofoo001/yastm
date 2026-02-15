@@ -24,13 +24,19 @@ namespace YASTM
             
             if (pawn != null && !pawn.Dead)
             {
-                // Kopf suchen
+                // effect smoke from ears
+                FleckMaker.ThrowSmoke(pawn.Position.ToVector3Shifted(), pawn.Map, 1.0f);
+                
+                // find brain for death report
                 BodyPartRecord brain = pawn.health.hediffSet.GetBrain();
                 
-                DamageInfo dinfo = new DamageInfo(Props.damageDef ?? DamageDefOf.ExecutionCut, 99999, 999, -1, pawn, brain);
-                pawn.TakeDamage(dinfo);
+                // Fallback: if no damage def is defined, use "ExecutionCut"
+                DamageDef dmg = Props.damageDef ?? DamageDefOf.ExecutionCut;
                 
-                if (!pawn.Dead) pawn.Kill(dinfo); // Sicher ist sicher
+                //  preventing the "InvalidCastException" Crash in the DamageWorker
+                DamageInfo dinfo = new DamageInfo(dmg, 9999, 999f, -1f, pawn, brain);
+                
+                pawn.Kill(dinfo);
             }
         }
     }

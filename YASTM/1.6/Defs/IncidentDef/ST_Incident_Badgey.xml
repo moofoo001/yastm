@@ -7,7 +7,7 @@
     <targetTags>
       <li>Map_PlayerHome</li>
     </targetTags>
-    <workerClass>YASTM.IncidentWorker_BadgeyFailure</workerClass>
+    <workerClass>YASTM.IncidentWorker_BadgeyBetrayal</workerClass>
     <baseChance>0.8</baseChance>
     <minRefireDays>45</minRefireDays>
     <letterLabel>Badgey AI</letterLabel>

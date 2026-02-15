@@ -5,7 +5,7 @@
     <defName>ST_Bullet_Polaron</defName>
     <label>polaron pulse</label>
     <graphicData>
-      <texPath>Things/Projectile/Charge_Small</texPath>
+      <texPath>Things/Projectile/Charge_Small_single</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
       <color>(100, 150, 255)</color>
@@ -23,7 +23,7 @@
     <defName>ST_Bullet_PolaronPistol</defName>
     <label>polaron bolt</label>
     <graphicData>
-      <texPath>Things/Projectile/Charge_Small</texPath>
+      <texPath>Things/Projectile/Charge_Small_single</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
       <color>(100, 150, 255)</color>

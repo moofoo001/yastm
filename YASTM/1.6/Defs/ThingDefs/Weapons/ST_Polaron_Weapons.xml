@@ -6,8 +6,9 @@
     <label>Jem'Hadar polaron rifle</label>
     <description>A standard issue Dominion energy weapon. Fires bursts of polaron particles capable of piercing standard armor plating.</description>
     <graphicData>
-      <texPath>Things/Item/Equipment/Placeholder_ranged</texPath>
+      <texPath>Things/Item/Equipment/Dominion_weapons/PolaronRifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.2,1.2)</drawSize>
     </graphicData>
     <soundInteract>Interact_ChargeRifle</soundInteract>
     <statBases>
@@ -62,6 +63,9 @@
         <cooldownTime>2</cooldownTime>
       </li>
     </tools>
+    <weaponTags>
+      <li>ST_Dominion_Ranged</li>
+    </weaponTags>
   </ThingDef>
 
   <ThingDef ParentName="BaseHumanMakeableGun">
@@ -99,6 +103,9 @@
         <muzzleFlashScale>9</muzzleFlashScale>
       </li>
     </verbs>
+    <weaponTags>
+      <li>ST_Dominion_Sidearm</li>
+    </weaponTags>
   </ThingDef>
 
 </Defs>

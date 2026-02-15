@@ -233,4 +233,75 @@
   </RulePackDef>
 
 
+  <!-- ================== DOMINION ================== -->
+
+  <RulePackDef>
+    <defName>NamerIdeoDominion</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>ideoName->The Order of Things</li>
+        <li>ideoName->The Great Link</li>
+        <li>ideoName->Dominion Will</li>
+        <li>ideoName->The Founders' Law</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>NamerDeityDominion</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_deityName->The Founders</li>
+        <li>r_deityName->The Great Link</li>
+        <li>r_deityName->The Changer</li>
+        <li>r_deityName->The Formless One</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>NamerDeityTypeDominion</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>deityType->Progenitor</li>
+        <li>deityType->Creator</li>
+        <li>deityType->God</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>NamerLeaderTitleDominion</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_leaderTitle->Founder</li>
+        <li>r_leaderTitle->First</li>
+        <li>r_leaderTitle->Supervisor</li>
+        <li>r_leaderTitle->Overseer</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>ST_NamerDominionBase</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->Internment Camp [Number]</li>
+        <li>name->Cloning Facility [Number]</li>
+        <li>name->Dominion Outpost [Greek]</li>
+        <li>name->Ketracel Production [Greek]</li>
+        <li>name->Sector [Number] Command</li>
+        <li>name->Vorta Command Post [Greek]</li>
+
+        <li>Number->101</li>
+        <li>Number->375</li>
+        <li>Number->402</li>
+        <li>Number->808</li>
+        <li>Number->521</li>
+
+        <li>Greek->Alpha</li><li>Greek->Beta</li><li>Greek->Gamma</li><li>Greek->Delta</li><li>Greek->Omega</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
 </Defs>

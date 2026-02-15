@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <FactionDef ParentName="FactionBase">
+    <defName>ST_Faction_Dominion</defName>
+    <label>The Dominion</label>
+    <description>A powerful interstellar empire from the Gamma Quadrant. Rules by the Founders, administered by the Vorta, and protected by the Jem'Hadar.</description>
+    <pawnSingular>Dominion subject</pawnSingular>
+    <pawnsPlural>Dominion subjects</pawnsPlural>
+    <categoryTag>StarTrek</categoryTag>
+    <listOrderPriority>100</listOrderPriority>
+    <settlementGenerationWeight>0.5</settlementGenerationWeight>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <canMakeRandomly>true</canMakeRandomly>
+    <canSiege>true</canSiege>
+    <canStageAttacks>true</canStageAttacks>
+    <leaderTitle>Founder</leaderTitle>
+    <factionIconPath>UI/Icons/Factions/Dominion</factionIconPath>
+    <settlementNameMaker>ST_NamerDominionBase</settlementNameMaker>
+
+    <fixedLeaderKinds>
+      <li>ST_Pawn_Founder</li>
+    </fixedLeaderKinds>
+
+    <maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(0,35)</li>
+        <li>(70, 50)</li>
+        <li>(700, 100)</li>
+        <li>(1300, 150)</li>
+        <li>(100000, 10000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>
+
+    <techLevel>Ultra</techLevel>
+    <permanentEnemy>false</permanentEnemy>
+    
+    <backstoryFilters>
+      <li>
+        <categories>
+          <li>Offworld</li>
+          <li>Outlander</li>
+        </categories>
+      </li>
+    </backstoryFilters>
+
+    <colorSpectrum>
+      <li>(160, 32, 240)</li>
+      <li>(80, 80, 90)</li>
+    </colorSpectrum>
+
+    <allowedCultures><li>ST_Culture_Dominion</li></allowedCultures>
+    
+    <structureMemeWeights>
+      <Structure_TheistEmbodied MayRequire="Ludeon.RimWorld.Ideology">4</Structure_TheistEmbodied>
+      <Structure_Ideological MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Ideological>
+    </structureMemeWeights>
+    
+    <requiredMemes>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Supremacist</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Collectivist</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Loyalist</li>
+    </requiredMemes>
+    
+    <disallowedMemes>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Individualist</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Guilty</li>
+    </disallowedMemes>
+
+    <pawnGroupMakers>
+      <li>
+        <kindDef>Combat</kindDef>
+        <options>
+          <ST_Pawn_JemHadar_Trooper>80</ST_Pawn_JemHadar_Trooper>
+          <ST_Pawn_JemHadar_First>40</ST_Pawn_JemHadar_First>
+          <ST_Pawn_Vorta>20</ST_Pawn_Vorta>
+        </options>
+      </li>
+      <li>
+        <kindDef>Settlement</kindDef>
+        <options>
+          <ST_Pawn_JemHadar_Trooper>100</ST_Pawn_JemHadar_Trooper>
+          <ST_Pawn_JemHadar_First>50</ST_Pawn_JemHadar_First>
+          <ST_Pawn_Vorta>40</ST_Pawn_Vorta>
+          <ST_Pawn_Founder>5</ST_Pawn_Founder>
+        </options>
+      </li>
+      <li>
+        <kindDef>Trader</kindDef>
+        <traders>
+          <ST_Pawn_Vorta>1</ST_Pawn_Vorta>
+        </traders>
+        <carriers>
+          <Muffalo>1</Muffalo>
+        </carriers>
+        <guards>
+          <ST_Pawn_JemHadar_Trooper>60</ST_Pawn_JemHadar_Trooper>
+          <ST_Pawn_JemHadar_First>30</ST_Pawn_JemHadar_First>
+        </guards>
+      </li>
+    </pawnGroupMakers>
+  </FactionDef>
+</Defs>

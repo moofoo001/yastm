@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <PawnKindDef Name="ST_JemHadarBase" Abstract="True">
+    <race>Human</race>
+    <defaultFactionType>ST_Faction_Dominion</defaultFactionType>
+    <xenotypeSet>
+      <xenotypeChances>
+        <Ectos_JemHadar>999</Ectos_JemHadar>
+      </xenotypeChances>
+    </xenotypeSet>
+    <chemicalAddictionChance>0</chemicalAddictionChance>
+    <invNutrition>2.55</invNutrition>
+    <invFoodDef>ST_KetracelWhite</invFoodDef>
+    <itemQuality>Normal</itemQuality>
+    <backstoryCryptosleepCommonality>0.2</backstoryCryptosleepCommonality>
+    <maxGenerationAge>15</maxGenerationAge>
+    <isFighter>true</isFighter>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+      <li>IndustrialAdvanced</li>
+      <li>SpacerMilitary</li>
+    </apparelTags>
+    <apparelColor>(60, 60, 70)</apparelColor>
+    <weaponMoney>1500~3500</weaponMoney>
+    <weaponTags>
+      <li>ST_Dominion_Ranged</li>
+      <li>ST_Dominion_Melee</li>
+    </weaponTags>
+    <techHediffsChance>0.1</techHediffsChance>
+    <initialWillRange>10~10</initialWillRange>
+    <initialResistanceRange>20~40</initialResistanceRange>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="ST_JemHadarBase">
+    <defName>ST_Pawn_JemHadar_Trooper</defName>
+    <label>Jem'Hadar trooper</label>
+    <combatPower>90</combatPower> 
+    <weaponTags>
+      <li>ST_Dominion_Ranged</li>
+    </weaponTags>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="ST_JemHadarBase">
+    <defName>ST_Pawn_JemHadar_First</defName>
+    <label>Jem'Hadar First</label>
+    <combatPower>140</combatPower>
+    <weaponTags>
+      <li>ST_Dominion_Melee</li>
+    </weaponTags>
+    <apparelRequired>
+      <li>Apparel_ShieldBelt</li>
+    </apparelRequired>
+  </PawnKindDef>
+
+  <PawnKindDef>
+    <defName>ST_Pawn_Vorta</defName>
+    <label>Vorta supervisor</label>
+    <race>Human</race>
+    <defaultFactionType>ST_Faction_Dominion</defaultFactionType>
+    <xenotypeSet>
+      <xenotypeChances>
+        <Ectos_Vorta>999</Ectos_Vorta>
+      </xenotypeChances>
+    </xenotypeSet>
+    <combatPower>45</combatPower>
+    <itemQuality>Good</itemQuality>
+    <isFighter>false</isFighter>
+    <apparelTags>
+      <li>IndustrialAdvanced</li>
+      <li>Spacer</li>
+    </apparelTags>
+    <apparelColor>(120, 100, 140)</apparelColor>
+    <weaponMoney>500~1000</weaponMoney>
+    <weaponTags>
+      <li>ST_Dominion_Sidearm</li>
+    </weaponTags>
+    <initialWillRange>10~20</initialWillRange>
+    <initialResistanceRange>10~30</initialResistanceRange>
+  </PawnKindDef>
+
+  <PawnKindDef>
+    <defName>ST_Pawn_Founder</defName>
+    <label>Founder</label>
+    <race>Human</race>
+    <defaultFactionType>ST_Faction_Dominion</defaultFactionType>
+    <xenotypeSet>
+      <xenotypeChances>
+        <Ectos_Changeling>999</Ectos_Changeling>
+      </xenotypeChances>
+    </xenotypeSet>
+    <combatPower>500</combatPower>
+    <factionLeader>true</factionLeader>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+    <apparelTags>
+      <li>Spacer</li>
+    </apparelTags>
+    <apparelColor>(210, 180, 100)</apparelColor>
+    <weaponMoney>0</weaponMoney>
+    <initialWillRange>10~20</initialWillRange>
+    <initialResistanceRange>10~30</initialResistanceRange>
+  </PawnKindDef>
+
+</Defs>

@@ -605,6 +605,9 @@
         <armorPenetration>0.30</armorPenetration>
       </li>
     </tools>
+    <weaponTags>
+      <li>ST_Dominion_Melee</li>
+    </weaponTags>
   </ThingDef>
 
 <!-- ===== DOMINION: Jem'Hadar combat blade (cut, stab) ===== -->
@@ -613,8 +616,9 @@
     <label>Jem'Hadar combat blade</label>
     <description>A brutal, serrated combat knife standard issue to Dominion soldiers.</description>
     <graphicData>
-      <texPath>Things/Item/Equipment/Placeholder_melee</texPath>
+      <texPath>Things/Item/Equipment/Dominion_weapons/JemHadarBlade</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.8,0.8)</drawSize>
     </graphicData>
     <statBases>
       <WorkToMake>12000</WorkToMake>
@@ -642,6 +646,9 @@
         <cooldownTime>1.6</cooldownTime>
         <armorPenetration>0.40</armorPenetration> </li>
     </tools>
+    <weaponTags>
+      <li>ST_Dominion_Melee</li>
+    </weaponTags>
   </ThingDef>
 
 </Defs>
