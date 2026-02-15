@@ -604,4 +604,44 @@
     </comps>
   </HediffDef>
 
+  <!-- ===== DOMINION: Shroud Cloak ===== -->
+  <HediffDef>
+    <defName>ST_Hediff_ShroudCloak</defName>
+    <label>Shrouded</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <description>Visually undetectable.</description>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_Invisibility">
+        <visibleToPlayer>true</visibleToPlayer> </li>
+    </comps>
+    <isBad>false</isBad>
+  </HediffDef>
+
+
+  <!-- Morphogenic Matrix -->
+  <HediffDef>
+    <defName>ST_Hediff_MorphogenicMatrix</defName>
+    <label>morphogenic matrix</label>
+    <description>This being's physiology is based on a morphogenic liquid matrix. It does not possess internal organs in the traditional sense, does not bleed, and absorbs kinetic energy effectively.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(255, 215, 0)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <stages>
+      <li>
+        <totalBleedFactor>0</totalBleedFactor> <painFactor>0.1</painFactor> <statFactors>
+          <IncomingDamageFactor>0.25</IncomingDamageFactor> </statFactors>
+        <capMods>
+            <li><capacity>Manipulation</capacity><offset>0.2</offset></li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
+    </comps>
+  </HediffDef>
+
 </Defs>

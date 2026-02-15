@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneCategoryDef>
+    <defName>ST_Category_Dominion</defName>
+    <label>Dominion</label>
+    <displayPriorityInXenotype>600</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <!-- ===== DOMINION: Jem'Hadar Physiology ===== -->
+  <GeneDef ParentName="GeneHeadboneBase">
+    <defName>ST_Gene_JemHadar_Horns</defName>
+    <label>Jem'Hadar Crest</label>
+    <description>Bony protrusions and a heavy brow ridge characteristic of Jem'Hadar.</description>
+    <displayCategory>ST_Category_Dominion</displayCategory>
+    <iconPath>UI/Icons/Genes/Gene_JemHadar</iconPath> <renderNodeProperties>
+      <li>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <texPath>Pawn/HeadAttachments/jemhadar/jemhadar_horns</texPath> <parentTagDef>Head</parentTagDef>
+        <colorType>Skin</colorType>
+        <drawData>
+          <defaultData>
+            <layer>70</layer>
+          </defaultData>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <!-- ===== DOMINION: The Shroud ===== -->
+  <GeneDef>
+    <defName>ST_Gene_TheShroud</defName>
+    <label>The Shroud</label>
+    <description>Able to bend light to become effectively invisible for short durations.</description>
+    <iconPath>UI/Icons/Genes/Gene_Shroud</iconPath>
+    <displayCategory>ST_Category_Dominion</displayCategory>
+    <abilities>
+      <li>ST_Ability_Shroud</li>
+    </abilities>
+    <biostatCpx>2</biostatCpx>
+    <biostatMet>-3</biostatMet>
+  </GeneDef>
+  
+    <!-- Vorta -->
+  <GeneDef ParentName="GeneHeadboneBase">
+    <defName>ST_Gene_Vorta_Ears</defName>
+    <label>Vorta Ears</label>
+    <description>Distinctive rippled ears genetically selected for excellent hearing.</description>
+    <displayCategory>ST_Category_Dominion</displayCategory>
+    <iconPath>UI/Icons/Genes/Gene_VortaEars</iconPath>
+    <renderNodeProperties>
+      <li>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <texPath>Pawn/HeadAttachments/vorta/vorta_ears</texPath> <parentTagDef>Head</parentTagDef>
+        <colorType>Skin</colorType>
+        <drawData>
+          <defaultData>
+            <layer>70</layer>
+          </defaultData>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <!-- ===== DOMINION: Vorta Physiology ===== -->
+  <GeneDef ParentName="GeneEyeColor">
+    <defName>ST_Gene_Eyes_Purple</defName>
+    <label>purple eyes</label>
+    <labelShortAdj>purple</labelShortAdj>
+    <description>A piercing violet eye color common among Vorta clones.</description>
+    <displayCategory>ST_Category_Dominion</displayCategory>
+    <iconPath>UI/Icons/Genes/Gene_Eyes_Purple</iconPath>
+    <renderNodeProperties>
+      <li>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <texPath>Pawn/HeadAttachments/vorta/vorta_eyes</texPath>
+        <color>(160, 32, 240)</color> <parentTagDef>Head</parentTagDef>
+        <drawData>
+          <defaultData>
+            <layer>52</layer>
+            <offset>(0, 0, -0.25)</offset>
+          </defaultData>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <!-- ===== DOMINION: Termination Implant ===== -->
+  <GeneDef>
+    <defName>ST_Gene_TerminationImplant</defName>
+    <label>Termination Implant</label>
+    <description>A cranial implant allowing the Vorta to commit immediate suicide via neurotoxin to protect Dominion secrets.</description>
+    <iconPath>UI/Icons/Genes/Gene_Termination</iconPath>
+    <displayCategory>ST_Category_Dominion</displayCategory>
+    <abilities>
+      <li>ST_Ability_Termination</li>
+    </abilities>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>0</biostatMet>
+  </GeneDef>
+
+  <!-- ===== DOMINION: Founder Physiology ===== -->
+  <GeneDef>
+    <defName>ST_Gene_FounderPhysiology</defName>
+    <label>morphogenic matrix</label>
+    <description>The genetic code for a Changeling. Grants extreme resilience, immunity to bleeding, and stops aging.</description>
+    
+    <geneClass>YASTM.Gene_Founder</geneClass>
+    
+    <iconPath>UI/Icons/Genes/Gene_Founder</iconPath>
+    <displayCategory>ST_Category_Dominion</displayCategory>
+    <biostatCpx>5</biostatCpx>
+    <biostatMet>-6</biostatMet>
+    
+    <biologicalAgeTickFactorFromAgeCurve>
+      <points>
+        <li>(13, 1)</li>
+        <li>(18.5, 0)</li>
+      </points>
+    </biologicalAgeTickFactorFromAgeCurve>
+    
+    <abilities>
+      <li>ST_Ability_Shapeshift</li>
+    </abilities>
+    
+    <symbolPack>
+      <prefixSymbols>
+        <li><symbol>fluid</symbol></li>
+        <li><symbol>morph</symbol></li>
+        <li><symbol>change</symbol></li>
+      </prefixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+</Defs>

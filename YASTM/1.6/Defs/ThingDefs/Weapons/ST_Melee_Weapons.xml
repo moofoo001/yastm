@@ -556,4 +556,92 @@
     </tradeTags>
   </ThingDef>
 
+<!-- ===== DOMINION: Kar'takin (cut, cleave) ===== -->
+<ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+    <defName>ST_Melee_Kartakin</defName>
+    <label>Kar'takin</label>
+    <description>A heavy polearm used by the Jem'Hadar. It features a straight, single-edged blade on a long shaft, allowing for devastating cleaving strikes.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Placeholder_melee</texPath> <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Spacer</techLevel>
+    <statBases>
+      <WorkToMake>28000</WorkToMake>
+      <Mass>2.5</Mass>
+      <MeleeWeapon_DamageMultiplier>1.2</MeleeWeapon_DamageMultiplier> <MeleeWeapon_CooldownMultiplier>1.1</MeleeWeapon_CooldownMultiplier> </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <costList>
+      <Plasteel>70</Plasteel>
+      <Steel>30</Steel>
+    </costList>
+    <recipeMaker>
+      <recipeUsers>
+        <li>ElectricSmithy</li>
+      </recipeUsers>
+    </recipeMaker>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>24</power> <cooldownTime>2.2</cooldownTime>
+        <armorPenetration>0.35</armorPenetration>
+      </li>
+      <li>
+        <label>edge</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>28</power> <cooldownTime>2.2</cooldownTime>
+        <armorPenetration>0.30</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+
+<!-- ===== DOMINION: Jem'Hadar combat blade (cut, stab) ===== -->
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+    <defName>ST_Melee_JemHadarBlade</defName>
+    <label>Jem'Hadar combat blade</label>
+    <description>A brutal, serrated combat knife standard issue to Dominion soldiers.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Placeholder_melee</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <WorkToMake>12000</WorkToMake>
+      <Mass>1.0</Mass>
+      <MeleeWeapon_CooldownMultiplier>0.8</MeleeWeapon_CooldownMultiplier> </statBases>
+    <equippedAngleOffset>-20</equippedAngleOffset>
+    <costList>
+      <Plasteel>40</Plasteel>
+    </costList>
+    <tools>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>16</power>
+        <cooldownTime>1.6</cooldownTime>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.6</cooldownTime>
+        <armorPenetration>0.40</armorPenetration> </li>
+    </tools>
+  </ThingDef>
+
 </Defs>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ===== DOMINION: Neurotoxin Damage ===== -->
+  <DamageDef>
+    <defName>ST_Neurotoxin</defName>
+    <label>neurotoxin</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>false</externalViolence>
+    <deathMessage>{0} has activated their termination implant.</deathMessage>
+    <hediff>ChemicalDamageModerate</hediff>
+    <hediffSolid>Crack</hediffSolid>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <impactSoundType>Toxic</impactSoundType>
+    <armorCategory>Sharp</armorCategory>
+  </DamageDef>
+
+  <!-- ===== DOMINION: Termination Ability ===== -->  
+  <AbilityDef>
+    <defName>ST_Ability_Termination</defName>
+    <label>activate termination implant</label>
+    <description>Triggers a lethal neurotoxin.</description>
+    <iconPath>UI/Icons/Abilities/Termination</iconPath>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+    <aiCanUse>false</aiCanUse>
+    <warmupStartSound>Interact_BeatFire</warmupStartSound> 
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>2.0</warmupTime>
+      <range>0.9</range>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="YASTM.CompProperties_AbilitySuicide">
+         <damageDef>ST_Neurotoxin</damageDef> 
+      </li>
+    </comps>
+  </AbilityDef>
+
+    <!-- ===== DOMINION: Shroud Ability ===== -->
+  <AbilityDef>
+    <defName>ST_Ability_Shroud</defName>
+    <label>Shroud</label>
+    <description>Activate personal cloaking field.</description>
+    <iconPath>UI/Icons/Abilities/Shroud</iconPath>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+    <hostile>false</hostile>
+    <statBases>
+      <Ability_Duration>1000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>ST_Hediff_ShroudCloak</hediffDef>
+        <onlyBrain>false</onlyBrain>
+        <applyToSelf>true</applyToSelf>
+        <replaceExisting>true</replaceExisting>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- ===== DOMINION: Shapeshift Ability ===== -->
+  <AbilityDef>
+    <defName>ST_Ability_Shapeshift</defName>
+    <label>morph: mimicry</label>
+    <description>Analyze a target's appearance and shift the morphogenic matrix to mimic their physical form perfectly.</description>
+    <iconPath>UI/Icons/Abilities/Shapeshift</iconPath> 
+    <cooldownTicksRange>10000</cooldownTicksRange> 
+    <hostile>false</hostile>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>19.9</range>
+      <warmupTime>2.0</warmupTime>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetPawns>true</canTargetPawns> 
+        <neverTargetHostileFaction>false</neverTargetHostileFaction>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="YASTM.CompProperties_AbilityShapeshift" />
+    </comps>
+  </AbilityDef>
+  
+</Defs>

@@ -237,4 +237,84 @@
     </rulePack>
   </RulePackDef>
 
+  <!-- Dominion -->
+<RulePackDef>
+    <defName>NamerPersonVorta</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_name(p=1)->[VortaName]</li>
+        
+        <li>VortaName->Weyoun</li>
+        <li>VortaName->Keevan</li>
+        <li>VortaName->Yelgrun</li>
+        <li>VortaName->Borath</li>
+        <li>VortaName->Deyos</li>
+        <li>VortaName->Kilana</li>
+        <li>VortaName->Eris</li>
+        <li>VortaName->Luaran</li>
+        <li>VortaName->Gelnon</li>
+        
+        <li>VortaName->[Syl1][Syl2]</li>
+        
+        <li>Syl1->We</li>
+        <li>Syl1->Kee</li>
+        <li>Syl1->Ki</li>
+        <li>Syl1->Yel</li>
+        <li>Syl1->Lu</li>
+        <li>Syl1->Ge</li>
+        <li>Syl1->Bo</li>
+        
+        <li>Syl2->youn</li>
+        <li>Syl2->van</li>
+        <li>Syl2->lana</li>
+        <li>Syl2->grun</li>
+        <li>Syl2->ris</li>
+        <li>Syl2->ran</li>
+        <li>Syl2->non</li>
+        <li>Syl2->rath</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+<RulePackDef>
+    <defName>NamerPersonJemHadar</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_name(p=1)->[JemName]</li>
+        
+        <li>JemName->[Syllable1]'[Syllable2]</li>
+        <li>JemName->[Syllable1][Syllable2]</li>
+        
+        <li>Syllable1->Om</li>
+        <li>Syllable1->Rem</li>
+        <li>Syllable1->Gor</li>
+        <li>Syllable1->Ikat</li>
+        <li>Syllable1->Tal</li>
+        <li>Syllable1->Tom</li>
+        <li>Syllable1->Vir</li>
+        <li>Syllable1->Amat</li>
+        <li>Syllable1->Kud</li>
+        <li>Syllable1->Los</li>
+        <li>Syllable1->Yak</li>
+        <li>Syllable1->Zek</li>
+        <li>Syllable1->Lim</li>
+        <li>Syllable1->Tarak</li>
+        
+        <li>Syllable2->iklan</li>
+        <li>Syllable2->klan</li>
+        <li>Syllable2->agar</li>
+        <li>Syllable2->ika</li>
+        <li>Syllable2->talan</li>
+        <li>Syllable2->torax</li>
+        <li>Syllable2->kara</li>
+        <li>Syllable2->an</li>
+        <li>Syllable2->ar</li>
+        <li>Syllable2->or</li>
+        <li>Syllable2->atan</li>
+        <li>Syllable2->ax</li>
+        <li>Syllable2->ur</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
 </Defs>

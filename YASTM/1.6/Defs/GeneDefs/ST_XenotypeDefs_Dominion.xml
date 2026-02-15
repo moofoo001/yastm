@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<XenotypeDef>
+    <defName>Ectos_JemHadar</defName>
+    <nameMaker>NamerPersonJemHadar</nameMaker>
+    <label>Jem'Hadar</label>
+    <description>Genetically engineered shock troops of the Dominion. They do not eat, sleep, or reproduce. They live only to serve the Founders and require Ketracel White to survive.</description>
+    <iconPath>UI/Icons/Xenotypes/JemHadar</iconPath>
+    <combatPowerFactor>2.5</combatPowerFactor> <genes>
+        <li>Skin_LightGray</li>
+        <li>Skin_SlateGray</li>
+        <li>Hair_BaldOnly</li>
+        <li>Beard_NoBeardOnly</li>
+        <li>Body_Hulk</li>
+        <li>ST_Gene_JemHadar_Horns</li> <li>Gene_ChemicalDependency_ST_Chemical_Ketracel</li> <li>LowSleep</li> <li>Ectos_Lifespan_170</li> <li>Sterile</li> <li>ST_Gene_TheShroud</li>
+        <li>Aggression_HyperAggressive</li>
+        <li>Pain_Reduced</li>
+        <li>MeleeDamage_Strong</li>
+        <li>Robust</li>
+        <li>Unstoppable</li>
+        <li>KillThirst</li>
+        <li>AptitudeRemarkable_Melee</li>
+        <li>AptitudeRemarkable_Shooting</li>
+        <li>AptitudeTerrible_Social</li>
+        <li>AptitudeTerrible_Artistic</li>
+        <li>AptitudeTerrible_Plants</li>
+    </genes>
+  </XenotypeDef>
+
+
+  <XenotypeDef>
+    <defName>Ectos_Vorta</defName>
+    <nameMaker>NamerPersonVorta</nameMaker>
+    <label>Vorta</label>    
+    <description>Cloned diplomats and administrators of the Dominion. They possess total immunity to poisons, highly advanced social skills, but poor eyesight and a lack of creative drive.</description>
+    <iconPath>UI/Icons/Xenotypes/Vorta</iconPath>
+    <combatPowerFactor>1.0</combatPowerFactor>
+    <inheritable>false</inheritable> <genes>
+        <li>Skin_LightGray</li>
+        <li>Hair_SnowWhite</li>
+        <li>Hair_InkBlack</li>
+        <li>ST_Gene_Vorta_Ears</li>
+        <li>ST_Gene_Eyes_Purple</li>
+        <li>ST_Gene_TerminationImplant</li>
+        <li>ToxicEnvironmentResistance_Total</li>
+        <li>Sterile</li>
+        <li>Nearsighted</li>
+        <li>Libido_Low</li>
+        <li>PsychicAbility_Dull</li>
+        <li>AptitudeRemarkable_Social</li>
+        <li>AptitudeRemarkable_Intellectual</li>
+        <li>AptitudeTerrible_Artistic</li>
+        <li>AptitudePoor_Shooting</li>
+        <li>AptitudePoor_Melee</li>
+        </genes>
+  </XenotypeDef>
+
+</Defs>

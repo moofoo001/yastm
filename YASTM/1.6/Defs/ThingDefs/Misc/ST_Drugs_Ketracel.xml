@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ChemicalDef>
+    <defName>ST_Chemical_Ketracel</defName>
+    <label>Ketracel White</label>
+    <addictionHediff>ST_KetracelAddiction</addictionHediff>
+    <generateAddictionGenes>false</generateAddictionGenes> 
+  </ChemicalDef>
+
+  <NeedDef ParentName="DrugAddictionNeedBase">
+    <defName>Chemical_ST_Chemical_Ketracel</defName>
+    <needClass>Need_Chemical</needClass>
+    <label>Ketracel White</label>
+    <description>Because of a genetic dependency or addiction, this person needs to regularly consume Ketracel White to avoid death.</description>
+    <listPriority>45</listPriority>
+  </NeedDef>
+
+  <ThingDef ParentName="MakeableDrugBase">
+    <defName>ST_KetracelWhite</defName>
+    <label>Ketracel White</label>
+    <description>An isogenic enzyme essential for Jem'Hadar survival. Without it, they suffer circulatory failure and death. Provides nutrition and rest replacement.</description>
+    <graphicData>
+      <texPath>Things/Item/Drug/KetracelWhite</texPath> 
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <statBases>
+      <WorkToMake>600</WorkToMake>
+      <MarketValue>25</MarketValue>
+      <Mass>0.05</Mass>
+      <Nutrition>0.9</Nutrition>
+    </statBases>
+    <ingestible>
+      <foodType>Processed</foodType>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>ST_KetracelHigh</hediffDef>
+          <severity>1.0</severity>
+        </li>
+        <li Class="IngestionOutcomeDoer_OffsetNeed">
+          <need>Rest</need>
+          <offset>1.0</offset>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <costList>
+      <Neutroamine>1</Neutroamine>
+      <Chemfuel>2</Chemfuel>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>DrugProduction</researchPrerequisite>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+    </recipeMaker>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <chemical>ST_Chemical_Ketracel</chemical>
+        <addictiveness>1.0</addictiveness>
+        <minToleranceToAddict>0.0</minToleranceToAddict>
+        <existingAddictionSeverityOffset>1.0</existingAddictionSeverityOffset>
+        <needLevelOffset>1.0</needLevelOffset>
+        <listOrder>100</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>ST_KetracelHigh</defName>
+    <label>White active</label>
+    <description>Ketracel white is circulating in the system.</description>
+    <hediffClass>Hediff_High</hediffClass>
+    <defaultLabelColor>(0.8, 0.8, 1)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <painFactor>0.5</painFactor>
+        <capMods>
+            <li><capacity>Consciousness</capacity><offset>0.10</offset></li>
+            <li><capacity>Moving</capacity><offset>0.10</offset></li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="AddictionBase">
+    <defName>ST_KetracelAddiction</defName>
+    <label>Ketracel need</label>
+    <description>Genetically engineered dependency.</description>
+    <hediffClass>Hediff_Addiction</hediffClass>
+    <chemicalNeed>Chemical_ST_Chemical_Ketracel</chemicalNeed>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.1</severityPerDay>
+        <showDaysToRecover>false</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li></li> 
+      <li>
+        <label>withdrawal</label>
+        <painFactor>3.0</painFactor>
+        <capMods>
+           <li><capacity>Consciousness</capacity><offset>-0.40</offset></li>
+        </capMods>
+        <lifeThreatening>true</lifeThreatening>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <GeneDef>
+    <defName>Gene_ChemicalDependency_ST_Chemical_Ketracel</defName>
+    <label>Ketracel dependency</label>
+    <description>Carriers of this gene need to ingest Ketracel White on a regular basis to survive.</description>
+    <geneClass>Gene_ChemicalDependency</geneClass> 
+    <labelShortAdj>Ketracel-dependent</labelShortAdj>
+    <iconPath>UI/Icons/Genes/Gene_KetracelDependency</iconPath> 
+    
+    <chemical>ST_Chemical_Ketracel</chemical>
+    
+    <displayCategory>ST_Category_Dominion</displayCategory>
+    <displayOrderInCategory>0</displayOrderInCategory>
+    
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>4</biostatMet> 
+    <minAgeActive>13</minAgeActive>
+    
+    <symbolPack>
+      <prefixSymbols>
+        <li><symbol>white</symbol></li>
+        <li><symbol>ketra</symbol></li>
+      </prefixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+</Defs>

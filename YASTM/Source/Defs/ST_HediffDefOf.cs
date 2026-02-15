@@ -13,6 +13,9 @@ namespace YASTM
         // Cloaking Field
         public static HediffDef ST_CloakingField;
 
+        // Morphogenic Matrix
+        public static HediffDef ST_Hediff_MorphogenicMatrix;
+
         static ST_HediffDefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(ST_HediffDefOf));
