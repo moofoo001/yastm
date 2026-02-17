@@ -1,114 +1,147 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <PawnKindDef Name="ST_JemHadarBase" Abstract="True">
-    <race>Human</race>
-    <defaultFactionType>ST_Faction_Dominion</defaultFactionType>
-    <xenotypeSet>
-      <xenotypeChances>
-        <Ectos_JemHadar>999</Ectos_JemHadar>
-      </xenotypeChances>
-    </xenotypeSet>
-    <chemicalAddictionChance>0</chemicalAddictionChance>
-    <invNutrition>2.55</invNutrition>
-    <invFoodDef>ST_KetracelWhite</invFoodDef>
-    <itemQuality>Normal</itemQuality>
-    <backstoryCryptosleepCommonality>0.2</backstoryCryptosleepCommonality>
-    <backstoryCategories>
+  <BackstoryDef>
+    <defName>ST_BS_JemHadar_VatGrown</defName>
+    <title>vat-grown soldier</title>
+    <titleShort>vat-grown</titleShort>
+    <baseDesc>Grown in a birthing pod, reaching maturity in a matter of days. Implanted with genetic loyalty to the Founders and a dependency on Ketracel White, he knows only combat and obedience.</baseDesc>
+    <slot>Childhood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
       <li>ST_Dominion_JemHadar</li>
-    </backstoryCategories>
-    <maxGenerationAge>15</maxGenerationAge>
-    <isFighter>true</isFighter>
-    <apparelTags>
-      <li>IndustrialBasic</li>
-      <li>IndustrialAdvanced</li>
-      <li>SpacerMilitary</li>
-    </apparelTags>
-    <apparelColor>(60, 60, 70)</apparelColor>
-    <weaponMoney>1500~3500</weaponMoney>
-    <weaponTags>
-      <li>ST_Dominion_Ranged</li>
-      <li>ST_Dominion_Melee</li>
-    </weaponTags>
-    <techHediffsChance>0.1</techHediffsChance>
-    <initialWillRange>10~10</initialWillRange>
-    <initialResistanceRange>20~40</initialResistanceRange>
-  </PawnKindDef>
+    </spawnCategories>
+    <workDisables>
+      <li>Artistic</li>
+      <li>Caring</li>
+      <li>PlantWork</li>
+      <li>Animals</li>
+      <li>Social</li>
+    </workDisables>
+    <skillGains>
+      <Melee>4</Melee>
+      <Shooting>4</Shooting>
+    </skillGains>
+    <forcedTraits>
+      <Psychopath>0</Psychopath> </forcedTraits>
+    <disallowedTraits>
+      <Wimp>0</Wimp>
+      <Kind>0</Kind>
+    </disallowedTraits>
+  </BackstoryDef>
 
-  <PawnKindDef ParentName="ST_JemHadarBase">
-    <defName>ST_Pawn_JemHadar_Trooper</defName>
-    <label>Jem'Hadar trooper</label>
-    <combatPower>90</combatPower> 
-    <weaponTags>
-      <li>ST_Dominion_Ranged</li>
-    </weaponTags>
-  </PawnKindDef>
+  <BackstoryDef>
+    <defName>ST_BS_JemHadar_Trooper</defName>
+    <title>Dominion trooper</title>
+    <titleShort>trooper</titleShort>
+    <baseDesc>Has served the Founders in numerous campaigns across the Gamma Quadrant. Victory is life.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_JemHadar</li>
+    </spawnCategories>
+    <workDisables>
+      <li>Intellectual</li>
+    </workDisables>
+    <skillGains>
+      <Melee>4</Melee>
+      <Shooting>4</Shooting>
+      <Construction>2</Construction>
+    </skillGains>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <defName>ST_BS_JemHadar_First</defName>
+    <title>Jem'Hadar First</title>
+    <titleShort>First</titleShort>
+    <baseDesc>Having survived longer than most, he was promoted to 'First'. He leads his unit with brutal efficiency.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_JemHadar</li>
+    </spawnCategories>
+    <skillGains>
+      <Melee>6</Melee>
+      <Shooting>6</Shooting>
+      <Social>2</Social> </skillGains>
+    <forcedTraits>
+      <Abrasive>0</Abrasive>
+    </forcedTraits>
+  </BackstoryDef>
 
-  <PawnKindDef ParentName="ST_JemHadarBase">
-    <defName>ST_Pawn_JemHadar_First</defName>
-    <label>Jem'Hadar First</label>
-    <combatPower>140</combatPower>
-    <weaponTags>
-      <li>ST_Dominion_Melee</li>
-    </weaponTags>
-    <apparelRequired>
-      <li>Apparel_ShieldBelt</li>
-    </apparelRequired>
-  </PawnKindDef>
 
-  <PawnKindDef>
-    <defName>ST_Pawn_Vorta</defName>
-    <label>Vorta supervisor</label>
-    <race>Human</race>
-    <defaultFactionType>ST_Faction_Dominion</defaultFactionType>
-    <xenotypeSet>
-      <xenotypeChances>
-        <Ectos_Vorta>999</Ectos_Vorta>
-      </xenotypeChances>
-    </xenotypeSet>
-    <combatPower>45</combatPower>
-    <itemQuality>Good</itemQuality>
-    <isFighter>false</isFighter>
-    <apparelTags>
-      <li>IndustrialAdvanced</li>
-      <li>Spacer</li>
-    </apparelTags>
-    <apparelColor>(120, 100, 140)</apparelColor>
-    <weaponMoney>500~1000</weaponMoney>
-    <weaponTags>
-      <li>ST_Dominion_Sidearm</li>
-    </weaponTags>
-    <initialWillRange>10~20</initialWillRange>
-    <initialResistanceRange>10~30</initialResistanceRange>
-    <backstoryCategories>
+  <BackstoryDef>
+    <defName>ST_BS_Vorta_Clone</defName>
+    <title>Vorta clone</title>
+    <titleShort>clone</titleShort>
+    <baseDesc>Decanted from a cloning facility, carrying the memories and instincts of predecessors. Genetically engineered to serve the Founders as administrators.</baseDesc>
+    <slot>Childhood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
       <li>ST_Dominion_Vorta</li>
-    </backstoryCategories>
-  </PawnKindDef>
+    </spawnCategories>
+    <workDisables>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </workDisables>
+    <skillGains>
+      <Social>5</Social>
+      <Intellectual>3</Intellectual>
+    </skillGains>
+    <disallowedTraits>
+      <Brawler>0</Brawler> </disallowedTraits>
+  </BackstoryDef>
 
-  <PawnKindDef>
-    <defName>ST_Pawn_Founder</defName>
-    <label>Founder</label>
-    <race>Human</race>
-    <defaultFactionType>ST_Faction_Dominion</defaultFactionType>
-    <xenotypeSet>
-      <xenotypeChances>
-        <Ectos_Changeling>999</Ectos_Changeling>
-      </xenotypeChances>
-    </xenotypeSet>
-    <combatPower>500</combatPower>
-    <factionLeader>true</factionLeader>
-    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <forceNormalGearQuality>true</forceNormalGearQuality>
-    <apparelTags>
-      <li>Spacer</li>
-    </apparelTags>
-    <apparelColor>(210, 180, 100)</apparelColor>
-    <weaponMoney>0</weaponMoney>
-    <initialWillRange>10~20</initialWillRange>
-    <initialResistanceRange>10~30</initialResistanceRange>
-    <backstoryCategories>
+  <BackstoryDef>
+    <defName>ST_BS_Vorta_Supervisor</defName>
+    <title>field supervisor</title>
+    <titleShort>supervisor</titleShort>
+    <baseDesc>Assigned to oversee a Jem'Hadar unit, ensuring their loyalty and dispensing Ketracel White.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_Vorta</li>
+    </spawnCategories>
+    <workDisables>
+      <li>Violence</li> </workDisables>
+    <skillGains>
+      <Social>6</Social>
+      <Medicine>4</Medicine>
+    </skillGains>
+  </BackstoryDef>
+
+
+  <BackstoryDef>
+    <defName>ST_BS_Founder_Origin</defName>
+    <title>Great Link origin</title>
+    <titleShort>changeling</titleShort>
+    <baseDesc>Emerged from the Great Link to explore the galaxy and bring order to the chaos of the solids.</baseDesc>
+    <slot>Childhood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
       <li>ST_Dominion_Founder</li>
-    </backstoryCategories>
-  </PawnKindDef>
+    </spawnCategories>
+    <skillGains>
+      <Social>8</Social>
+      <Intellectual>8</Intellectual>
+    </skillGains>
+    <forcedTraits>
+      <Abrasive>0</Abrasive> </forcedTraits>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <defName>ST_BS_Founder_God</defName>
+    <title>living god</title>
+    <titleShort>Founder</titleShort>
+    <baseDesc>Worshipped as a god by the Jem'Hadar and Vorta. Demands absolute obedience.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_Founder</li>
+    </spawnCategories>
+    <skillGains>
+      <Social>8</Social>
+    </skillGains>
+  </BackstoryDef>
 
 </Defs>
