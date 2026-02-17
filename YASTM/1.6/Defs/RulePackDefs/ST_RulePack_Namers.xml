@@ -235,7 +235,7 @@
 
   <!-- ================== DOMINION ================== -->
 
-  <RulePackDef>
+<RulePackDef>
     <defName>NamerIdeoDominion</defName>
     <rulePack>
       <rulesStrings>
@@ -243,6 +243,7 @@
         <li>ideoName->The Great Link</li>
         <li>ideoName->Dominion Will</li>
         <li>ideoName->The Founders' Law</li>
+        <li>ideoName->Eternal Order</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>
@@ -254,7 +255,7 @@
         <li>r_deityName->The Founders</li>
         <li>r_deityName->The Great Link</li>
         <li>r_deityName->The Changer</li>
-        <li>r_deityName->The Formless One</li>
+        <li>r_deityName->The Progenitors</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>
@@ -266,6 +267,7 @@
         <li>deityType->Progenitor</li>
         <li>deityType->Creator</li>
         <li>deityType->God</li>
+        <li>deityType->Shaper</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>
@@ -276,8 +278,8 @@
       <rulesStrings>
         <li>r_leaderTitle->Founder</li>
         <li>r_leaderTitle->First</li>
-        <li>r_leaderTitle->Supervisor</li>
         <li>r_leaderTitle->Overseer</li>
+        <li>r_leaderTitle->Supervisor</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>
@@ -292,14 +294,20 @@
         <li>name->Ketracel Production [Greek]</li>
         <li>name->Sector [Number] Command</li>
         <li>name->Vorta Command Post [Greek]</li>
-
+        
         <li>Number->101</li>
         <li>Number->375</li>
         <li>Number->402</li>
         <li>Number->808</li>
         <li>Number->521</li>
-
-        <li>Greek->Alpha</li><li>Greek->Beta</li><li>Greek->Gamma</li><li>Greek->Delta</li><li>Greek->Omega</li>
+        <li>Number->749</li>
+        
+        <li>Greek->Alpha</li>
+        <li>Greek->Beta</li>
+        <li>Greek->Gamma</li>
+        <li>Greek->Delta</li>
+        <li>Greek->Omega</li>
+        <li>Greek->Prime</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>

@@ -562,9 +562,15 @@
       </rulesStrings>
     </generalRules>
 
-    <descriptionMaker>
-      <rules>
-        <rulesStrings>
+  <descriptionMaker>
+        <patterns>
+          <li>
+            <def>ST_Dominion_Pattern</def>
+            <weight>1</weight>
+          </li>
+        </patterns>
+        <rules>
+          <rulesStrings>
           <li>creation(tag=meme_ST_Dominion)      ->The Founders looked upon the chaos of the solids and saw only threat.</li>
           <li>episode(uses=1,tag=meme_ST_Dominion)->They formed the Great Link, a sea of thought to withstand the storm of chaos.</li>
           <li>intro(tag=meme_ST_Dominion)         ->To protect the Link, absolute order was imposed upon the chaotic stars.</li>

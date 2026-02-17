@@ -216,4 +216,65 @@
   </rules>
 </IdeoStoryPatternDef>
 
+
+  <!-- Dominion -->
+
+<IdeoStoryPatternDef>
+    <defName>ST_Dominion_Pattern</defName>
+      <segments>
+            <li>intro</li>
+            <li>conflict</li>
+            <li>founderJoin</li>
+            <li>victory</li>
+      </segments>
+      <rules>
+        <include>
+          <li>IdeoDescriptionGlobal</li>
+        </include>
+        <rulesStrings>
+
+          <!-- Intro: calm, controlled, already hierarchical -->
+          <li>intro(tag=meme_ST_Dominion) ->
+            The people of the [place_summary] [place_name] lived behind carefully guarded borders, trusting
+            only in the quiet strength of their command structure.
+          </li>
+          <li>intro(tag=meme_ST_Dominion) ->
+            On the [place_summary] [place_name], orders flowed from hidden chambers to distant outposts, and
+            loyalty to the state mattered more than any single life.
+          </li>
+
+          <!-- Conflict: external and internal threats test secrecy & hierarchy -->
+          <li>conflict(tag=meme_ST_Dominion) ->
+            A [foeLeader] sought to expose classified operations to foreign powers, using [foeLeader_possessive]
+            [foeSoldiers] and stolen archives.
+          </li>
+          <li>conflict(tag=meme_ST_Dominion) ->
+            Factions within the government turned information into a weapon, and border captains no longer knew
+            whose orders could be trusted.
+          </li>
+
+          <!-- FounderJoin: the doctrine crystallizes -->
+          <li>founderJoin(tag=meme_ST_Dominion) ->
+            A strategist named [founderName] mapped every border incident and uncovered the patterns of betrayal,
+            proving that only centralized, disciplined command could keep the empire secure.
+          </li>
+          <li>founderJoin(tag=meme_ST_Dominion) ->
+            After intercepting a secret transmission, [founderName] revealed how careless speech and divided
+            loyalties had nearly invited an invasion.
+          </li>
+
+          <!-- Victory: control is reasserted, secrecy becomes doctrine -->
+          <li>victory(tag=meme_ST_Dominion) ->
+            With the conspirators removed and their networks dismantled, [founderName] established new codes
+            and protocols, ensuring that information would flow only along trusted lines.
+          </li>
+          <li>victory(tag=meme_ST_Dominion) ->
+            The borders held firm, enemies saw only silence beyond the neutral zone, and the people learned
+            that survival depended on obedience and discretion.
+          </li>
+
+        </rulesStrings>
+      </rules>
+  </IdeoStoryPatternDef>
+
 </Defs>

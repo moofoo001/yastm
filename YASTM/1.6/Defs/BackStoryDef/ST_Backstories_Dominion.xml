@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <BackstoryDef>
+    <defName>ST_JemHadar_BirthingPod</defName>
+    <title>Vat-grown soldier</title>
+    <titleShort>Vat-grown</titleShort>
+    <description>[PAWN_nameDef] was grown in a birthing pod, reaching maturity in a matter of days. Implanted with genetic loyalty to the Founders and a dependency on Ketracel White, [PAWN_pronoun] knows only combat and obedience.</description>
+    <slot>Childhood</slot>
+    <spawnCategories>
+      <li>ST_Dominion_JemHadar</li>
+    </spawnCategories>
+    <workDisables>
+      <li>Artistic</li>
+      <li>Caring</li> <li>PlantWork</li>
+      <li>Animals</li>
+      <li>Social</li> </workDisables>
+    <skillGains>
+      <li>Melee>4</li>
+      <li>Shooting>4</li>
+    </skillGains>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_JemHadar_Soldier</defName>
+    <title>Dominion Trooper</title>
+    <titleShort>Trooper</titleShort>
+    <description>[PAWN_nameDef] has served the Founders in numerous campaigns across the Gamma Quadrant. Victory is life.</description>
+    <slot>Adulthood</slot>
+    <spawnCategories>
+      <li>ST_Dominion_JemHadar</li>
+    </spawnCategories>
+    <workDisables>
+      <li>Intellectual</li> </workDisables>
+    <skillGains>
+      <li>Melee>4</li>
+      <li>Shooting>4</li>
+      <li>Construction>2</li> </skillGains>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <defName>ST_JemHadar_First</defName>
+    <title>Jem'Hadar First</title>
+    <titleShort>First</titleShort>
+    <description>Having survived longer than most, [PAWN_nameDef] was promoted to 'First'. [PAWN_pronoun] leads [PAWN_possessive] unit with brutal efficiency.</description>
+    <slot>Adulthood</slot>
+    <spawnCategories>
+      <li>ST_Dominion_JemHadar</li>
+    </spawnCategories>
+    <skillGains>
+      <li>Melee>6</li>
+      <li>Shooting>6</li>
+    </skillGains>
+  </BackstoryDef>
+
+
+  <BackstoryDef>
+    <defName>ST_Vorta_Clone</defName>
+    <title>Vorta Clone</title>
+    <titleShort>Clone</titleShort>
+    <description>Decanted from a cloning facility, [PAWN_nameDef] carries the memories and instincts of [PAWN_possessive] predecessors. Genetically engineered to serve the Founders as administrators.</description>
+    <slot>Childhood</slot>
+    <spawnCategories>
+      <li>ST_Dominion_Vorta</li>
+    </spawnCategories>
+    <workDisables>
+      <li>ManualDumb</li> <li>ManualSkilled</li> </workDisables>
+    <skillGains>
+      <li>Social>5</li>
+      <li>Intellectual>3</li>
+    </skillGains>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_Vorta_Supervisor</defName>
+    <title>Field Supervisor</title>
+    <titleShort>Supervisor</titleShort>
+    <description>[PAWN_nameDef] was assigned to oversee a Jem'Hadar unit, ensuring their loyalty and dispensing Ketracel White.</description>
+    <slot>Adulthood</slot>
+    <spawnCategories>
+      <li>ST_Dominion_Vorta</li>
+    </spawnCategories>
+    <workDisables>
+      <li>Violence</li> </workDisables>
+    <skillGains>
+      <li>Social>6</li>
+      <li>Medicine>4</li> </skillGains>
+  </BackstoryDef>
+
+
+  <BackstoryDef>
+    <defName>ST_Founder_Origin</defName>
+    <title>Great Link Origin</title>
+    <titleShort>Changeling</titleShort>
+    <description>[PAWN_nameDef] emerged from the Great Link to explore the galaxy and bring order to the chaos of the solids.</description>
+    <slot>Childhood</slot>
+    <spawnCategories>
+      <li>ST_Dominion_Founder</li>
+    </spawnCategories>
+    <skillGains>
+      <li>Social>8</li>
+      <li>Intellectual>8</li>
+    </skillGains>
+  </BackstoryDef>
+  
+    <BackstoryDef>
+    <defName>ST_Founder_God</defName>
+    <title>Living God</title>
+    <titleShort>Founder</titleShort>
+    <description>[PAWN_nameDef] is worshipped as a god by the Jem'Hadar and Vorta. [PAWN_pronoun] demands absolute obedience.</description>
+    <slot>Adulthood</slot>
+    <spawnCategories>
+      <li>ST_Dominion_Founder</li>
+    </spawnCategories>
+    <skillGains>
+      <li>Social>8</li>
+    </skillGains>
+  </BackstoryDef>
+
+</Defs>

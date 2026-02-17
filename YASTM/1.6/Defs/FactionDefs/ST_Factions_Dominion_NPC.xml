@@ -33,8 +33,11 @@
     </maxPawnCostPerTotalPointsCurve>
 
     <techLevel>Ultra</techLevel>
-    <permanentEnemy>false</permanentEnemy>
-    
+
+    <hostileToFactionlessHumanlikes>true</hostileToFactionlessHumanlikes> 
+
+    <permanentEnemy>true</permanentEnemy>
+
     <backstoryFilters>
       <li>
         <categories>

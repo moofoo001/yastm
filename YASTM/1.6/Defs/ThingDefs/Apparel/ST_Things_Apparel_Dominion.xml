@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef Name="ST_Apparel_JemHadarUniform_shared" ParentName="ApparelMakeableBase" Abstract="True">
+    <label>Jem'Hadar uniform</label>
+    <description>A durable, grey tactical bodysuit worn by Dominion soldiers. It is designed for maximum mobility and minimal comfort.</description>
+    <graphicData>
+      <texPath>Things/Item/Apparel/Dominion_Tunic/JemHadar</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <statBases>
+      <WorkToMake>2000</WorkToMake>
+      <Mass>0.5</Mass>
+      <MarketValue>100</MarketValue>
+      <ArmorRating_Sharp>0.10</ArmorRating_Sharp>   
+      <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.10</ArmorRating_Heat>
+      <Insulation_Cold>5</Insulation_Cold>
+      <Insulation_Heat>5</Insulation_Heat>
+    </statBases>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <apparel>
+      <wornGraphicPath>Things/Item/Apparel/Dominion_Tunic/JemHadar</wornGraphicPath>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <tags>
+        <li>DominionUniform</li> 
+        <li>DominionMilitary</li>
+        <li>DominionArmor</li>  
+      </tags>
+    </apparel>
+    <costList>
+      <Cloth>60</Cloth>
+      <Synthread>20</Synthread>
+     </costList>
+    <recipeMaker>
+      <recipeUsers>
+        <li>ElectricTailoringBench</li>
+      </recipeUsers>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_Apparel_JemHadarUniform_shared">
+    <defName>ST_Apparel_JemHadarUniform</defName>
+  </ThingDef>
+
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_Apparel_JemHadarArmor</defName>
+    <label>Jem'Hadar combat vest</label>
+    <description>A heavy tactical vest with reinforced plating and vascular interface ports for Ketracel White delivery systems. Offers excellent protection against energy weapons.</description>
+    <graphicData>
+      <texPath>Things/Item/Apparel/Dominion_Vest/Starfleet_Vest</texPath> <!--Placeholder   -->
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <statBases>
+      <WorkToMake>7000</WorkToMake>
+      <Mass>4.5</Mass>
+      <MarketValue>450</MarketValue>
+      <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.45</ArmorRating_Heat>
+      <Insulation_Cold>2</Insulation_Cold>
+      <Insulation_Heat>2</Insulation_Heat>
+      <EquipDelay>5</EquipDelay>
+    </statBases>
+    <apparel>
+      <wornGraphicPath>Things/Item/Apparel/Dominion_Vest/Starfleet_Vest</wornGraphicPath>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+        <li>Neck</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Middle</li>
+      </layers>
+      <tags>
+        <li>DominionUniform</li> 
+        <li>DominionMilitary</li>
+        <li>DominionArmor</li>      
+      </tags>
+      <defaultOutfitTags>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+    </apparel>
+    <costList>
+      <Plasteel>50</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+      <Steel>20</Steel>
+    </costList>
+    <equippedStatOffsets>
+      <PainShockThreshold>0.05</PainShockThreshold>
+    </equippedStatOffsets>
+    <recipeMaker>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <researchPrerequisite>FlakArmor</researchPrerequisite> 
+    </recipeMaker>
+  </ThingDef>
+
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_Apparel_VortaTunic</defName>
+    <label>Vorta tunic</label>
+    <description>An elegant, high-collared tunic worn by Dominion administrators and diplomats. It projects authority and loyalty.</description>
+    <graphicData>
+      <texPath>Things/Item/Apparel/Dominion_Tunic/Vorta</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+      <Mass>0.4</Mass>
+      <MarketValue>200</MarketValue>
+      <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+      <Insulation_Cold>10</Insulation_Cold>
+      <Insulation_Heat>10</Insulation_Heat>
+    </statBases>
+    <apparel>
+      <wornGraphicPath>Things/Item/Apparel/Dominion_Tunic/Vorta</wornGraphicPath>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Arms</li>
+        <li>Legs</li>
+        <li>Shoulders</li>
+      </bodyPartGroups>
+      <layers>
+        <li>OnSkin</li>
+        <li>Middle</li>
+      </layers>
+      <tags>
+        <li>DominionCivil</li>
+        <li>DominionVorta</li>
+      </tags>
+    </apparel>
+    <costList>
+      <Cloth>80</Cloth>
+    </costList>
+    <equippedStatOffsets>
+      <SocialImpact>0.20</SocialImpact>
+      <TradePriceImprovement>0.05</TradePriceImprovement>
+    </equippedStatOffsets>
+  </ThingDef>
+
+</Defs>

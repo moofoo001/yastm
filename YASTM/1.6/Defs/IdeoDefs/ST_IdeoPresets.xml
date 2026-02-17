@@ -79,7 +79,7 @@
     <defName>ST_Ideo_DominionOrder</defName>
     <label>Dominion Order</label>
     <description>A rigid, hierarchical culture centered around the worship of the Founders and absolute obedience to the state.</description>
-    <categoryDef>Harsh</categoryDef>
+    <categoryDef>Mild</categoryDef>
     <iconPath>UI/Icons/IdeoIcons/DominionOrder</iconPath>
     <memes>
       <li>ST_Meme_DominionOrder</li>
