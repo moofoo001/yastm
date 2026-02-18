@@ -44,25 +44,34 @@
   
     <!-- Vorta -->
   <GeneDef ParentName="GeneHeadboneBase">
-    <defName>ST_Gene_Vorta_Ears</defName>
-    <label>Vorta Ears</label>
-    <description>Distinctive rippled ears genetically selected for excellent hearing.</description>
-    <displayCategory>ST_Category_Dominion</displayCategory>
-    <iconPath>UI/Icons/Genes/Gene_VortaEars</iconPath>
-    <renderNodeProperties>
-      <li>
-        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
-        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
-        <texPath>Pawn/HeadAttachments/vorta/vorta_ears</texPath> <parentTagDef>Head</parentTagDef>
-        <colorType>Skin</colorType>
-        <drawData>
-          <defaultData>
-            <layer>70</layer>
-          </defaultData>
-        </drawData>
-      </li>
-    </renderNodeProperties>
-  </GeneDef>
+      <defName>ST_Gene_Vorta_Ears</defName>
+      <label>Vorta Ears</label>
+      <description>Distinctive rippled ears genetically selected for excellent hearing.</description>
+      <displayCategory>ST_Category_Dominion</displayCategory>
+      <iconPath>UI/Icons/Genes/Gene_VortaEars</iconPath>
+      <renderNodeProperties>
+        <li>
+          <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+          <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+          <texPath>Pawn/HeadAttachments/vorta/vorta_ears</texPath> 
+          <parentTagDef>Head</parentTagDef>
+          <colorType>Skin</colorType>
+          <drawData>
+          <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+            <defaultData>
+              <layer>60</layer>
+              <offset>(0, 0, -0.05)</offset> 
+            </defaultData>
+            <dataWest>
+              <offset>(0, 0, -0.05)</offset>
+            </dataWest>
+            <dataEast>
+              <offset>(0, 0, -0.05)</offset>
+            </dataEast>
+          </drawData>
+        </li>
+      </renderNodeProperties>
+    </GeneDef>
 
   <!-- ===== DOMINION: Vorta Physiology ===== -->
   <GeneDef ParentName="GeneEyeColor">
@@ -81,7 +90,7 @@
         <drawData>
           <defaultData>
             <layer>52</layer>
-            <offset>(0, 0, -0.25)</offset>
+            <offset>(0, 0, -0.05)</offset>
           </defaultData>
         </drawData>
       </li>

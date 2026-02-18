@@ -16,7 +16,7 @@
     <canStageAttacks>true</canStageAttacks>
     <leaderTitle>Founder</leaderTitle>
     <factionIconPath>UI/Icons/Factions/Dominion</factionIconPath>
-    <settlementNameMaker>ST_NamerDominionBase</settlementNameMaker>
+    <settlementNameMaker>ST_SettlementName_Dominion</settlementNameMaker>
 
     <fixedLeaderKinds>
       <li>ST_Pawn_Founder</li>
@@ -46,6 +46,17 @@
         </categories>
       </li>
     </backstoryFilters>
+
+    <caravanTraderKinds>
+      <li>ST_Trader_Dominion_Caravan</li>
+      <li>ST_Trader_Dominion_Orbital</li>
+    </caravanTraderKinds>
+    <visitorTraderKinds>
+      <li>ST_Trader_Dominion_Caravan</li>
+    </visitorTraderKinds>
+    <baseTraderKinds>
+      <li>ST_Trader_Dominion_Base</li>
+    </baseTraderKinds>
 
     <colorSpectrum>
       <li>(160, 32, 240)</li>

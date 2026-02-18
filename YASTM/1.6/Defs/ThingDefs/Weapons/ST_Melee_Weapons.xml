@@ -562,13 +562,16 @@
     <label>Kar'takin</label>
     <description>A heavy polearm used by the Jem'Hadar. It features a straight, single-edged blade on a long shaft, allowing for devastating cleaving strikes.</description>
     <graphicData>
-      <texPath>Things/Item/Equipment/Placeholder_melee</texPath> <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Item/Equipment/Dominion_weapons/Kartakin</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <techLevel>Spacer</techLevel>
     <statBases>
       <WorkToMake>28000</WorkToMake>
       <Mass>2.5</Mass>
-      <MeleeWeapon_DamageMultiplier>1.2</MeleeWeapon_DamageMultiplier> <MeleeWeapon_CooldownMultiplier>1.1</MeleeWeapon_CooldownMultiplier> </statBases>
+      <MeleeWeapon_DamageMultiplier>1.2</MeleeWeapon_DamageMultiplier>  
+      <MeleeWeapon_CooldownMultiplier>1.1</MeleeWeapon_CooldownMultiplier>
+    </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <costList>
       <Plasteel>70</Plasteel>
@@ -593,7 +596,8 @@
         <capacities>
           <li>Stab</li>
         </capacities>
-        <power>24</power> <cooldownTime>2.2</cooldownTime>
+        <power>24</power>
+        <cooldownTime>2.2</cooldownTime>
         <armorPenetration>0.35</armorPenetration>
       </li>
       <li>
@@ -601,7 +605,8 @@
         <capacities>
           <li>Cut</li>
         </capacities>
-        <power>28</power> <cooldownTime>2.2</cooldownTime>
+        <power>28</power>
+        <cooldownTime>2.2</cooldownTime>
         <armorPenetration>0.30</armorPenetration>
       </li>
     </tools>
@@ -623,7 +628,8 @@
     <statBases>
       <WorkToMake>12000</WorkToMake>
       <Mass>1.0</Mass>
-      <MeleeWeapon_CooldownMultiplier>0.8</MeleeWeapon_CooldownMultiplier> </statBases>
+      <MeleeWeapon_CooldownMultiplier>0.8</MeleeWeapon_CooldownMultiplier>
+    </statBases>
     <equippedAngleOffset>-20</equippedAngleOffset>
     <costList>
       <Plasteel>40</Plasteel>
@@ -644,7 +650,8 @@
         </capacities>
         <power>18</power>
         <cooldownTime>1.6</cooldownTime>
-        <armorPenetration>0.40</armorPenetration> </li>
+        <armorPenetration>0.40</armorPenetration>
+      </li>
     </tools>
     <weaponTags>
       <li>ST_Dominion_Melee</li>

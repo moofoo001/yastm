@@ -69,7 +69,8 @@
           <li>Nose_Human</li>
           <li>Sterile</li>
           <li>PsychicAbility_Dull</li>
+          <li>ST_Gene_FounderPhysiology</li>
       </genes>
-    </XenotypeDef>
+    </XenotypeDef   >
 
 </Defs>

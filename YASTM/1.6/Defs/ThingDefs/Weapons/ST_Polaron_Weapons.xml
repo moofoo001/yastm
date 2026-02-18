@@ -73,7 +73,7 @@
     <label>Polaron pistol</label>
     <description>A compact sidearm used by Vorta supervisors and Jem'Hadar officers.</description>
     <graphicData>
-      <texPath>Things/Item/Equipment/Placeholder_ranged</texPath>
+      <texPath>Things/Item/Equipment/Dominion_weapons/PolaronPistol</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <soundInteract>Interact_Autopistol</soundInteract>

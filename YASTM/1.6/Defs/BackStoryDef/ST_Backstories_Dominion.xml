@@ -2,118 +2,146 @@
 <Defs>
 
   <BackstoryDef>
-    <defName>ST_JemHadar_BirthingPod</defName>
-    <title>Vat-grown soldier</title>
-    <titleShort>Vat-grown</titleShort>
-    <description>[PAWN_nameDef] was grown in a birthing pod, reaching maturity in a matter of days. Implanted with genetic loyalty to the Founders and a dependency on Ketracel White, [PAWN_pronoun] knows only combat and obedience.</description>
+    <defName>ST_BS_JemHadar_VatGrown</defName>
+    <title>vat-grown soldier</title>
+    <titleShort>vat-grown</titleShort>
+    <baseDesc>Grown in a birthing pod, reaching maturity in a matter of days. Implanted with genetic loyalty to the Founders and a dependency on Ketracel White, he knows only combat and obedience.</baseDesc>
     <slot>Childhood</slot>
+    <shuffleable>true</shuffleable>
     <spawnCategories>
       <li>ST_Dominion_JemHadar</li>
     </spawnCategories>
     <workDisables>
       <li>Artistic</li>
-      <li>Caring</li> <li>PlantWork</li>
+      <li>Caring</li>
+      <li>PlantWork</li>
       <li>Animals</li>
-      <li>Social</li> </workDisables>
+      <li>Social</li>
+    </workDisables>
     <skillGains>
-      <li>Melee>4</li>
-      <li>Shooting>4</li>
+      <Melee>4</Melee>
+      <Shooting>4</Shooting>
     </skillGains>
+    <forcedTraits>
+      <Psychopath>0</Psychopath> </forcedTraits>
+    <disallowedTraits>
+      <Wimp>0</Wimp>
+      <Kind>0</Kind>
+    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
-    <defName>ST_JemHadar_Soldier</defName>
-    <title>Dominion Trooper</title>
-    <titleShort>Trooper</titleShort>
-    <description>[PAWN_nameDef] has served the Founders in numerous campaigns across the Gamma Quadrant. Victory is life.</description>
+    <defName>ST_BS_JemHadar_Trooper</defName>
+    <title>Dominion trooper</title>
+    <titleShort>trooper</titleShort>
+    <baseDesc>Has served the Founders in numerous campaigns across the Gamma Quadrant. Victory is life.</baseDesc>
     <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
     <spawnCategories>
       <li>ST_Dominion_JemHadar</li>
     </spawnCategories>
     <workDisables>
-      <li>Intellectual</li> </workDisables>
+      <li>Intellectual</li>
+    </workDisables>
     <skillGains>
-      <li>Melee>4</li>
-      <li>Shooting>4</li>
-      <li>Construction>2</li> </skillGains>
+      <Melee>4</Melee>
+      <Shooting>4</Shooting>
+      <Construction>2</Construction>
+    </skillGains>
   </BackstoryDef>
   
   <BackstoryDef>
-    <defName>ST_JemHadar_First</defName>
+    <defName>ST_BS_JemHadar_First</defName>
     <title>Jem'Hadar First</title>
     <titleShort>First</titleShort>
-    <description>Having survived longer than most, [PAWN_nameDef] was promoted to 'First'. [PAWN_pronoun] leads [PAWN_possessive] unit with brutal efficiency.</description>
+    <baseDesc>Having survived longer than most, he was promoted to 'First'. He leads his unit with brutal efficiency.</baseDesc>
     <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
     <spawnCategories>
       <li>ST_Dominion_JemHadar</li>
     </spawnCategories>
     <skillGains>
-      <li>Melee>6</li>
-      <li>Shooting>6</li>
-    </skillGains>
+      <Melee>6</Melee>
+      <Shooting>6</Shooting>
+      <Social>2</Social> </skillGains>
+    <forcedTraits>
+      <Abrasive>0</Abrasive>
+    </forcedTraits>
   </BackstoryDef>
 
 
   <BackstoryDef>
-    <defName>ST_Vorta_Clone</defName>
-    <title>Vorta Clone</title>
-    <titleShort>Clone</titleShort>
-    <description>Decanted from a cloning facility, [PAWN_nameDef] carries the memories and instincts of [PAWN_possessive] predecessors. Genetically engineered to serve the Founders as administrators.</description>
+    <defName>ST_BS_Vorta_Clone</defName>
+    <title>Vorta clone</title>
+    <titleShort>clone</titleShort>
+    <baseDesc>Decanted from a cloning facility, carrying the memories and instincts of predecessors. Genetically engineered to serve the Founders as administrators.</baseDesc>
     <slot>Childhood</slot>
+    <shuffleable>true</shuffleable>
     <spawnCategories>
       <li>ST_Dominion_Vorta</li>
     </spawnCategories>
     <workDisables>
-      <li>ManualDumb</li> <li>ManualSkilled</li> </workDisables>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+    </workDisables>
     <skillGains>
-      <li>Social>5</li>
-      <li>Intellectual>3</li>
+      <Social>5</Social>
+      <Intellectual>3</Intellectual>
     </skillGains>
+    <disallowedTraits>
+      <Brawler>0</Brawler> </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
-    <defName>ST_Vorta_Supervisor</defName>
-    <title>Field Supervisor</title>
-    <titleShort>Supervisor</titleShort>
-    <description>[PAWN_nameDef] was assigned to oversee a Jem'Hadar unit, ensuring their loyalty and dispensing Ketracel White.</description>
+    <defName>ST_BS_Vorta_Supervisor</defName>
+    <title>field supervisor</title>
+    <titleShort>supervisor</titleShort>
+    <baseDesc>Assigned to oversee a Jem'Hadar unit, ensuring their loyalty and dispensing Ketracel White.</baseDesc>
     <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
     <spawnCategories>
       <li>ST_Dominion_Vorta</li>
     </spawnCategories>
     <workDisables>
-      <li>Violence</li> </workDisables>
+      <li>Violent</li>
+    </workDisables>
     <skillGains>
-      <li>Social>6</li>
-      <li>Medicine>4</li> </skillGains>
+      <Social>6</Social>
+      <Medicine>4</Medicine>
+    </skillGains>
   </BackstoryDef>
 
 
   <BackstoryDef>
-    <defName>ST_Founder_Origin</defName>
-    <title>Great Link Origin</title>
-    <titleShort>Changeling</titleShort>
-    <description>[PAWN_nameDef] emerged from the Great Link to explore the galaxy and bring order to the chaos of the solids.</description>
+    <defName>ST_BS_Founder_Origin</defName>
+    <title>Great Link origin</title>
+    <titleShort>changeling</titleShort>
+    <baseDesc>Emerged from the Great Link to explore the galaxy and bring order to the chaos of the solids.</baseDesc>
     <slot>Childhood</slot>
+    <shuffleable>true</shuffleable>
     <spawnCategories>
       <li>ST_Dominion_Founder</li>
     </spawnCategories>
     <skillGains>
-      <li>Social>8</li>
-      <li>Intellectual>8</li>
+      <Social>8</Social>
+      <Intellectual>8</Intellectual>
     </skillGains>
+    <forcedTraits>
+      <Abrasive>0</Abrasive> </forcedTraits>
   </BackstoryDef>
   
-    <BackstoryDef>
-    <defName>ST_Founder_God</defName>
-    <title>Living God</title>
+  <BackstoryDef>
+    <defName>ST_BS_Founder_God</defName>
+    <title>living god</title>
     <titleShort>Founder</titleShort>
-    <description>[PAWN_nameDef] is worshipped as a god by the Jem'Hadar and Vorta. [PAWN_pronoun] demands absolute obedience.</description>
+    <baseDesc>Worshipped as a god by the Jem'Hadar and Vorta. Demands absolute obedience.</baseDesc>
     <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
     <spawnCategories>
       <li>ST_Dominion_Founder</li>
     </spawnCategories>
     <skillGains>
-      <li>Social>8</li>
+      <Social>8</Social>
     </skillGains>
   </BackstoryDef>
 

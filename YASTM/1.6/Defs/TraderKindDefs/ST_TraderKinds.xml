@@ -437,4 +437,120 @@
     </stockGenerators>
   </TraderKindDef>
 
+
+  <!-- Dominion Traders -->
+<TraderKindDef>
+    <defName>ST_Trader_Dominion_Orbital</defName>
+    <label>Dominion supply fleet</label>
+    <orbital>true</orbital>
+    <faction>ST_Faction_Dominion</faction>
+   <commonality>1.0</commonality>
+    
+    <stockGenerators>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Silver</thingDef>
+        <countRange>2000~6000</countRange>
+      </li>
+
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>ST_KetracelWhite</thingDef>
+        <countRange>50~200</countRange>
+      </li>
+
+      <li Class="StockGenerator_Tag">
+        <tradeTag>ST_Dominion_Ranged</tradeTag>
+        <thingDefCountRange>3~8</thingDefCountRange>
+        <countRange>1~1</countRange>
+      </li>
+      <li Class="StockGenerator_Tag">
+        <tradeTag>ST_Dominion_Melee</tradeTag>
+        <thingDefCountRange>3~6</thingDefCountRange>
+        <countRange>1~2</countRange>
+      </li>
+
+      <li Class="StockGenerator_Tag">
+        <tradeTag>DominionUniform</tradeTag>
+        <thingDefCountRange>2~5</thingDefCountRange>
+        <countRange>1~3</countRange>
+      </li>
+      <li Class="StockGenerator_Tag">
+        <tradeTag>DominionArmor</tradeTag>
+        <thingDefCountRange>2~4</thingDefCountRange>
+        <countRange>1~2</countRange>
+      </li>
+
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Plasteel</thingDef>
+        <countRange>200~600</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>ComponentSpacer</thingDef>
+        <countRange>5~15</countRange>
+      </li>
+
+      <li Class="StockGenerator_Slaves">
+        <countRange>2~5</countRange>
+      </li>
+    </stockGenerators>
+  </TraderKindDef>
+
+
+  <TraderKindDef>
+    <defName>ST_Trader_Dominion_Caravan</defName>
+    <label>Dominion resource convoy</label>
+    <commonality>1.0</commonality>
+    <faction>ST_Faction_Dominion</faction>
+    
+    <stockGenerators>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Silver</thingDef>
+        <countRange>1000~3000</countRange>
+      </li>
+      
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>ST_KetracelWhite</thingDef>
+        <countRange>20~80</countRange>
+      </li>
+
+      <li Class="StockGenerator_Category">
+        <categoryDef>Medicine</categoryDef>
+        <thingDefCountRange>1~2</thingDefCountRange>
+        <countRange>5~15</countRange>
+      </li>
+      
+      <li Class="StockGenerator_Tag">
+        <tradeTag>ST_Dominion_Sidearm</tradeTag>
+        <thingDefCountRange>1~2</thingDefCountRange>
+        <countRange>1~1</countRange>
+      </li>
+    </stockGenerators>
+  </TraderKindDef>
+
+  <TraderKindDef>
+    <defName>ST_Trader_Dominion_Base</defName>
+    <label>Dominion Outpost</label>
+    <commonality>1.0</commonality>
+    <faction>ST_Faction_Dominion</faction>
+    <stockGenerators>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Silver</thingDef>
+        <countRange>4000~10000</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>ST_KetracelWhite</thingDef>
+        <countRange>100~500</countRange>
+      </li>
+      <li Class="StockGenerator_Tag">
+        <tradeTag>ST_Dominion_Ranged</tradeTag>
+        <thingDefCountRange>5~10</thingDefCountRange>
+        <countRange>1~1</countRange>
+      </li>
+      <li Class="StockGenerator_Tag">
+        <tradeTag>DominionVorta</tradeTag> <thingDefCountRange>1~3</thingDefCountRange>
+        <countRange>1~2</countRange>
+      </li>
+      <li Class="StockGenerator_BuySlaves" />
+    </stockGenerators>
+  </TraderKindDef>
+
 </Defs>

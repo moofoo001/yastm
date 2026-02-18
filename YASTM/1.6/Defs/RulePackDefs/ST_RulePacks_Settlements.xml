@@ -49,4 +49,16 @@
     </rulePack>
   </RulePackDef>
 
+  <!-- Dominion settlements -->
+  <RulePackDef>
+    <defName>ST_SettlementName_Dominion</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_name->[prefix] [term]</li>
+        <li>prefix->Dominion|Vorta|Jem'Hadar|Founders|Ketracel|Cardassian</li>
+        <li>term->Outpost|Station|Complex|Listening Post|Operations Node|Supply Point</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
 </Defs>

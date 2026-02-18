@@ -236,78 +236,50 @@
   <!-- ================== DOMINION ================== -->
 
 <RulePackDef>
-    <defName>NamerIdeoDominion</defName>
+    <defName>ST_NamerIdeoDominion</defName>
     <rulePack>
       <rulesStrings>
-        <li>ideoName->The Order of Things</li>
-        <li>ideoName->The Great Link</li>
-        <li>ideoName->Dominion Will</li>
-        <li>ideoName->The Founders' Law</li>
-        <li>ideoName->Eternal Order</li>
+        <li>r_ideoName->The Order of Things</li>
+        <li>r_ideoName->The Great Link</li>
+        <li>r_ideoName->Dominion Will</li>
+        <li>r_ideoName->The Founders' Law</li>
+        <li>r_ideoName->Eternal Order</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>
 
   <RulePackDef>
-    <defName>NamerDeityDominion</defName>
+    <defName>ST_NamerDeityDominion</defName>
     <rulePack>
       <rulesStrings>
         <li>r_deityName->The Founders</li>
         <li>r_deityName->The Great Link</li>
         <li>r_deityName->The Changer</li>
-        <li>r_deityName->The Progenitors</li>
+        <li>r_deityName->The Formless One</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>
 
   <RulePackDef>
-    <defName>NamerDeityTypeDominion</defName>
+    <defName>ST_NamerDeityTypeDominion</defName>
     <rulePack>
       <rulesStrings>
-        <li>deityType->Progenitor</li>
-        <li>deityType->Creator</li>
-        <li>deityType->God</li>
-        <li>deityType->Shaper</li>
+        <li>r_deityType->Progenitor</li>
+        <li>r_deityType->Creator</li>
+        <li>r_deityType->God</li>
+        <li>r_deityType->Shaper</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>
 
   <RulePackDef>
-    <defName>NamerLeaderTitleDominion</defName>
+    <defName>ST_NamerLeaderTitleDominion</defName>
     <rulePack>
       <rulesStrings>
         <li>r_leaderTitle->Founder</li>
         <li>r_leaderTitle->First</li>
-        <li>r_leaderTitle->Overseer</li>
         <li>r_leaderTitle->Supervisor</li>
-      </rulesStrings>
-    </rulePack>
-  </RulePackDef>
-
-  <RulePackDef>
-    <defName>ST_NamerDominionBase</defName>
-    <rulePack>
-      <rulesStrings>
-        <li>name->Internment Camp [Number]</li>
-        <li>name->Cloning Facility [Number]</li>
-        <li>name->Dominion Outpost [Greek]</li>
-        <li>name->Ketracel Production [Greek]</li>
-        <li>name->Sector [Number] Command</li>
-        <li>name->Vorta Command Post [Greek]</li>
-        
-        <li>Number->101</li>
-        <li>Number->375</li>
-        <li>Number->402</li>
-        <li>Number->808</li>
-        <li>Number->521</li>
-        <li>Number->749</li>
-        
-        <li>Greek->Alpha</li>
-        <li>Greek->Beta</li>
-        <li>Greek->Gamma</li>
-        <li>Greek->Delta</li>
-        <li>Greek->Omega</li>
-        <li>Greek->Prime</li>
+        <li>r_leaderTitle->Overseer</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>

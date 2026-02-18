@@ -59,7 +59,7 @@
     <label>Jem'Hadar combat vest</label>
     <description>A heavy tactical vest with reinforced plating and vascular interface ports for Ketracel White delivery systems. Offers excellent protection against energy weapons.</description>
     <graphicData>
-      <texPath>Things/Item/Apparel/Dominion_Vest/Starfleet_Vest</texPath> <!--Placeholder   -->
+      <texPath>Things/Item/Apparel/Dominion_Vest/Dominion_Vest</texPath> 
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
@@ -75,7 +75,7 @@
       <EquipDelay>5</EquipDelay>
     </statBases>
     <apparel>
-      <wornGraphicPath>Things/Item/Apparel/Dominion_Vest/Starfleet_Vest</wornGraphicPath>
+      <wornGraphicPath>Things/Item/Apparel/Dominion_Vest/Dominion_Vest</wornGraphicPath>
       <bodyPartGroups>
         <li>Torso</li>
         <li>Shoulders</li>
