@@ -256,7 +256,7 @@
       <li>
         <label>witnessed loyal termination</label>
         <description>A Vorta chose death over failure. Such loyalty to the Founders is inspiring.</description>
-        <baseMoodEffect>5</baseMoodEffect> </li>
+        <baseMoodEffect>15</baseMoodEffect> </li>
     </stages>
   </ThoughtDef>
   

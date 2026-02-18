@@ -515,9 +515,11 @@
     <defName>ST_Meme_DominionOrder</defName>
     <label>Dominion order</label>
     <description>The Founders are the gods of the universe. To serve them is the highest purpose. Chaos must be replaced by order, and resistance must be met with absolute force. Obedience brings victory.</description>
-    <iconPath>UI/Icons/IdeoIcons/DominionOrder</iconPath> <worshipRoomLabel>shrine of the Link</worshipRoomLabel>
+    <iconPath>UI/Icons/IdeoIcons/DominionOrder</iconPath>
+    <worshipRoomLabel>shrine of the Link</worshipRoomLabel>
     <category>Structure</category>
-    <deityCount>1</deityCount> <allowSymbolsFromDeity>true</allowSymbolsFromDeity>
+    <deityCount>1</deityCount>
+    <allowSymbolsFromDeity>true</allowSymbolsFromDeity>
     <groupDef>Spacefarer</groupDef>
     <impact>0</impact>
 
@@ -574,10 +576,23 @@
           <li>creation(tag=meme_ST_Dominion)      ->The Founders looked upon the chaos of the solids and saw only threat.</li>
           <li>episode(uses=1,tag=meme_ST_Dominion)->They formed the Great Link, a sea of thought to withstand the storm of chaos.</li>
           <li>intro(tag=meme_ST_Dominion)         ->To protect the Link, absolute order was imposed upon the chaotic stars.</li>
-          <li>conflict(tag=meme_ST_Dominion)      ->Solids resisted, for they did not understand that their freedom was merely chaos by another name.</li>
+          <li>conflict(tag=meme_ST_Dominion)      ->Solids resisted, for they did not understand that their freedom was merely chaos.</li>
           <li>founderJoin(tag=meme_ST_Dominion)   ->We pledged our lives to the Founders, for they alone possess the wisdom to rule.</li>
           <li>victory(tag=meme_ST_Dominion)       ->Where the Dominion tread, silence fell, and in that silence, there was perfect order.</li>
           <li>setup(tag=meme_ST_Dominion)         ->Thus the law is written: The Founders are wise, and obedience brings victory.</li>
+
+          <li>foeLeader->traitor</li>
+          <li>foeLeader->solid leader</li>
+          <li>foeLeader->resistance commander</li>
+          <li>foeLeader->usurper</li>
+          
+          <li>foeSoldiers->traitors</li>
+          <li>foeSoldiers->solids</li>
+          <li>foeSoldiers->rebels</li>
+          <li>foeSoldiers->defectors</li>
+
+          <li>place_foeLeader->traitor warlord</li>
+          <li>place_foeSoldiers->rebel bands</li>
         </rulesStrings>
       </rules>
     </descriptionMaker>
@@ -606,10 +621,12 @@
     </factionWhitelist>
     
     <agreeableTraits>
-      <li>Psychopath</li> <li>Abrasive</li>
+      <li>Psychopath</li>
+      <li>Abrasive</li>
     </agreeableTraits>
     <disagreeableTraits>
-      <li>Wimp</li> </disagreeableTraits>
+      <li>Wimp</li>
+    </disagreeableTraits>
 
   </MemeDef>
 
