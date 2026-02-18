@@ -304,11 +304,9 @@
   <ST_Message_MindSiftDamage>Warning: Neural overload detected in {0}. Brain damage sustained.</ST_Message_MindSiftDamage>
   <ST_NoResistantPrisoners>No resistant prisoners available.</ST_NoResistantPrisoners>
 
-<ST_MustPlaceOnShuttleBay>Must be placed on an active Shuttle Bay.</ST_MustPlaceOnShuttleBay>
 
 <ST_CallShuttle>Call Shuttle</ST_CallShuttle>
 <ST_CallShuttleDesc>Prepares a Type-6 Shuttle on the launch pad.</ST_CallShuttleDesc>
-<ST_ShuttleBayOccupied>Landing bay occupied</ST_ShuttleBayOccupied>
 <ST_MustPlaceOnShuttleBay>Must be placed on an active Shuttle Bay.</ST_MustPlaceOnShuttleBay>
 
   <!-- Shuttle -->

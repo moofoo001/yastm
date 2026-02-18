@@ -17,25 +17,33 @@ namespace YASTM
     {
         public new CompProperties_AbilitySuicide Props => (CompProperties_AbilitySuicide)props;
 
-        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
             base.Apply(target, dest);
             Pawn pawn = parent.pawn;
             
             if (pawn != null && !pawn.Dead)
             {
-                // effect smoke from ears
-                FleckMaker.ThrowSmoke(pawn.Position.ToVector3Shifted(), pawn.Map, 1.0f);
+                // Lore-Effekt:
+                FleckMaker.ThrowSmoke(pawn.Position.ToVector3Shifted(), pawn.Map, 1.5f);
                 
-                // find brain for death report
+                // buff: "Loyalty Sacrifice"
+                if (pawn.Map != null)
+                {
+                    foreach (Pawn p in pawn.Map.mapPawns.AllPawnsSpawned)
+                    {
+                        // Only own faction and humanlikes get the buff
+                        if (p.Faction == pawn.Faction && p.RaceProps.Humanlike && p != pawn)
+                        {
+                            p.needs?.mood?.thoughts?.memories?.TryGainMemory(ThoughtDef.Named("ST_Thought_WitnessedTermination"));
+                        }
+                    }
+                }
+
+                // The death
                 BodyPartRecord brain = pawn.health.hediffSet.GetBrain();
-                
-                // Fallback: if no damage def is defined, use "ExecutionCut"
                 DamageDef dmg = Props.damageDef ?? DamageDefOf.ExecutionCut;
-                
-                //  preventing the "InvalidCastException" Crash in the DamageWorker
                 DamageInfo dinfo = new DamageInfo(dmg, 9999, 999f, -1f, pawn, brain);
-                
                 pawn.Kill(dinfo);
             }
         }

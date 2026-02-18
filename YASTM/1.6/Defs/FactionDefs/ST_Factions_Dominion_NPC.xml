@@ -9,15 +9,15 @@
     <pawnsPlural>Dominion subjects</pawnsPlural>
     <categoryTag>StarTrek</categoryTag>
     <listOrderPriority>100</listOrderPriority>
-    <settlementGenerationWeight>0.5</settlementGenerationWeight>
+    <settlementGenerationWeight>0.05</settlementGenerationWeight>
     <requiredCountAtGameStart>1</requiredCountAtGameStart>
     <canMakeRandomly>true</canMakeRandomly>
     <canSiege>true</canSiege>
     <canStageAttacks>true</canStageAttacks>
     <leaderTitle>Founder</leaderTitle>
     <factionIconPath>UI/Icons/Factions/Dominion</factionIconPath>
-    <settlementNameMaker>ST_SettlementName_Dominion</settlementNameMaker>
-
+    <settlementNameMaker>ST_NamerDominionBase</settlementNameMaker>
+    <factionNameMaker>ST_NamerDominionFaction</factionNameMaker>
     <fixedLeaderKinds>
       <li>ST_Pawn_Founder</li>
     </fixedLeaderKinds>

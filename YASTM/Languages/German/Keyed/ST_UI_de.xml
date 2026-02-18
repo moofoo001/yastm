@@ -102,12 +102,7 @@
   <ST.Phaser.Mode.Overcharge>Überladung</ST.Phaser.Mode.Overcharge>
   <ST.Phaser.Mode.Overcharge.Desc>Leitet zusätzliche Energie in den Emitter für einen hochenergetischen tödlichen Schuss. Risiko von Rückkopplung bei Fehlfunktion.</ST.Phaser.Mode.Overcharge.Desc>
 
-  <!-- Bridge Synergy -->
-  <ST_BridgeSynergyOnline>Brücken-Synergie Online: Effizienz optimiert.</ST_BridgeSynergyOnline>
-  <ST_BridgeSynergyActiveDesc>Brücken-Synergie AKTIV\n\nCaptain und Führungsoffiziere sind auf Station.\nEffekt: +15% Forschung, +10% Geschütz-Präzision.</ST_BridgeSynergyActiveDesc>
-  <ST_BridgeSynergyOfflineDesc>Brücken-Synergie OFFLINE\n\nBenötigt: Captain + (Ops ODER Taktik) besetzt.</ST_BridgeSynergyOfflineDesc>
   
-
     <!-- Matter Converter feedback -->
   <ST_ReplicatorNoMatter>Replikation fehlgeschlagen: Unzureichende Materie im verbundenen Netzwerk.</ST_ReplicatorNoMatter>
   <ST_BridgeSynergyOnline>Brücken-Synergie hergestellt: Taktik, Ops und Kommando online.</ST_BridgeSynergyOnline>

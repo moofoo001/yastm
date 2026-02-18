@@ -222,10 +222,11 @@
     <label>Dominion Order</label>
     <description>A rigid, hierarchical culture centered around the worship of the Founders and absolute obedience to the state.</description>
     <iconPath>UI/Icons/IdeoIcons/DominionCulture</iconPath>   
-    <ideoNameMaker MayRequire="Ludeon.RimWorld.Ideology">ST_NamerIdeoDominion</ideoNameMaker>
-    <deityNameMaker MayRequire="Ludeon.RimWorld.Ideology">ST_NamerDeityDominion</deityNameMaker>
-    <deityTypeMaker MayRequire="Ludeon.RimWorld.Ideology">ST_NamerDeityTypeDominion</deityTypeMaker>
-    <leaderTitleMaker MayRequire="Ludeon.RimWorld.Ideology">ST_NamerLeaderTitleDominion</leaderTitleMaker>
+    <ideoNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerIdeoName_Dominion</ideoNameMaker>
+    <deityNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerDeity_Dominion</deityNameMaker>
+    <deityTypeMaker MayRequire="Ludeon.RimWorld.Ideology">DeityTypeMaker_Dominion</deityTypeMaker>
+    <leaderTitleMaker MayRequire="Ludeon.RimWorld.Ideology">NamerLeaderTitle_Dominion</leaderTitleMaker>
+    <festivalNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerFestivalAstropolitan</festivalNameMaker>
     
     <allowedPlaceTags>
       <li>Outlander</li>

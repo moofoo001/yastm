@@ -235,51 +235,62 @@
 
   <!-- ================== DOMINION ================== -->
 
-<RulePackDef>
-    <defName>ST_NamerIdeoDominion</defName>
+<!-- Faction -->
+  <RulePackDef>
+    <defName>ST_NamerDominionFaction</defName>
     <rulePack>
       <rulesStrings>
-        <li>r_ideoName->The Order of Things</li>
-        <li>r_ideoName->The Great Link</li>
-        <li>r_ideoName->Dominion Will</li>
-        <li>r_ideoName->The Founders' Law</li>
-        <li>r_ideoName->Eternal Order</li>
+        <li>name->[dom_word] Dominion</li>
+        <li>name->[dom_word] Directorate</li>
+        <li>name->[dom_word] Authority</li>
+        <li>name->[dom_name] Dynasty</li>
+
+        <li>dom_word->Cardassian</li>
+        <li>dom_word->Vorta</li>
+        <li>dom_word->Jem'Hadar</li>
+        <li>dom_word->Founders</li>
+        <li>dom_word->Ketracel</li>
+        <li>dom_word->Dominion</li>
+
+        <li>dom_name->Weyoun</li>
+        <li>dom_name->Keevan</li>
+        <li>dom_name->Yelgrun</li>
+        <li>dom_name->Borath</li>
+        <li>dom_name->Deyos</li>
+        <li>dom_name->Kilana</li>
+        <li>dom_name->Eris</li>
+        <li>dom_name->Luaran</li>
+        <li>dom_name->Gelnon</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>
 
+  <!-- Settlement/base names -->
   <RulePackDef>
-    <defName>ST_NamerDeityDominion</defName>
+    <defName>ST_NamerDominionBase</defName>
     <rulePack>
       <rulesStrings>
-        <li>r_deityName->The Founders</li>
-        <li>r_deityName->The Great Link</li>
-        <li>r_deityName->The Changer</li>
-        <li>r_deityName->The Formless One</li>
-      </rulesStrings>
-    </rulePack>
-  </RulePackDef>
+        <li>name->[dom_word] Outpost</li>
+        <li>name->[dom_word] Stronghold</li>
+        <li>name->[dom_word] Garrison</li>
+        <li>name->[dom_word] Complex</li>
 
-  <RulePackDef>
-    <defName>ST_NamerDeityTypeDominion</defName>
-    <rulePack>
-      <rulesStrings>
-        <li>r_deityType->Progenitor</li>
-        <li>r_deityType->Creator</li>
-        <li>r_deityType->God</li>
-        <li>r_deityType->Shaper</li>
-      </rulesStrings>
-    </rulePack>
-  </RulePackDef>
+        <li>dom_word->Cardassian</li>
+        <li>dom_word->Vorta</li>
+        <li>dom_word->Jem'Hadar</li>
+        <li>dom_word->Founders</li>
+        <li>dom_word->Ketracel</li>
+        <li>dom_word->Dominion</li>
 
-  <RulePackDef>
-    <defName>ST_NamerLeaderTitleDominion</defName>
-    <rulePack>
-      <rulesStrings>
-        <li>r_leaderTitle->Founder</li>
-        <li>r_leaderTitle->First</li>
-        <li>r_leaderTitle->Supervisor</li>
-        <li>r_leaderTitle->Overseer</li>
+        <li>dom_name->Weyoun</li>
+        <li>dom_name->Keevan</li>
+        <li>dom_name->Yelgrun</li>
+        <li>dom_name->Borath</li>
+        <li>dom_name->Deyos</li>
+        <li>dom_name->Kilana</li>
+        <li>dom_name->Eris</li>
+        <li>dom_name->Luaran</li>
+        <li>dom_name->Gelnon</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>

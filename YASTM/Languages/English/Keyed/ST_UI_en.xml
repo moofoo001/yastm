@@ -135,9 +135,7 @@
   <ST.Phaser.Mode.Overcharge.Desc>Route extra power into the emitter for a high-energy kill shot. Risk of feedback on misfire.</ST.Phaser.Mode.Overcharge.Desc>
 
   <!-- Bridge Synergy -->
-  <ST_BridgeSynergyOnline>Bridge Synergy Online: Efficiency optimized.</ST_BridgeSynergyOnline>
-  <ST_BridgeSynergyActiveDesc>Bridge Synergy ACTIVE\n\nCaptain and key officers are at their stations.\nEffect: +15% Research Speed, +10% Turret Accuracy.</ST_BridgeSynergyActiveDesc>
-  <ST_BridgeSynergyOfflineDesc>Bridge Synergy OFFLINE\n\nRequire: Captain's Chair + (Ops OR Tactical) occupied.</ST_BridgeSynergyOfflineDesc>
+
 
   
   <!-- Matter Converter feedback -->

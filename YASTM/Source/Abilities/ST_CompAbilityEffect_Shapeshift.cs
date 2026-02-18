@@ -18,6 +18,7 @@ namespace YASTM
         {
             base.Apply(target, dest);
             
+            // pawn = caster
             Pawn caster = parent.pawn;
             Pawn victim = target.Pawn;
 
@@ -28,22 +29,16 @@ namespace YASTM
                 return;
             }
 
-            // 1. Effekt: Rauch/Nebel
+            // 1. visual effects
             FleckMaker.ThrowSmoke(caster.Position.ToVector3Shifted(), caster.Map, 2.0f);
             
-            // 2. KOPIEREN DES AUSSEHENS (Story Data)
+            // 2. copy appearance
             caster.story.hairDef = victim.story.hairDef;
-            
-            // KORREKTUR: "HairColor" muss großgeschrieben werden!
             caster.story.HairColor = victim.story.HairColor;
-            
             caster.story.bodyType = victim.story.bodyType;
             caster.story.headType = victim.story.headType;
-            
-            // Hautfarbe übernehmen
             caster.story.skinColorOverride = victim.story.SkinColor;
             
-            // Bart & Tattoos (Falls vorhanden)
             if (victim.style != null && caster.style != null)
             {
                 caster.style.beardDef = victim.style.beardDef;
@@ -51,7 +46,13 @@ namespace YASTM
                 caster.style.BodyTattoo = victim.style.BodyTattoo;
             }
 
-            // 3. Grafik-Refresh erzwingen
+            // 3. buff
+            if (DefDatabase<HediffDef>.GetNamed("ST_Hediff_Shapeshifted_Combat", false) != null)
+            {
+                caster.health.AddHediff(HediffDef.Named("ST_Hediff_Shapeshifted_Combat"));
+            }
+
+            // 4. graphic update
             caster.Drawer.renderer.SetAllGraphicsDirty();
             PortraitsCache.SetDirty(caster);
             
