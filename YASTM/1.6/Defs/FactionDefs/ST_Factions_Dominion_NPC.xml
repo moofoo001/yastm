@@ -22,6 +22,11 @@
       <li>ST_Pawn_Founder</li>
     </fixedLeaderKinds>
 
+
+   <forcedMemes>
+      <li>ST_Meme_DominionOrder</li>
+    </forcedMemes>
+
     <maxPawnCostPerTotalPointsCurve>
       <points>
         <li>(0,35)</li>
