@@ -9,6 +9,9 @@ namespace YASTM
         // can fire now sub
         protected override bool CanFireNowSub(IncidentParms parms)
         {
+            // Check if the mod is enabled
+            if (!YASTM_Mod.Settings.enableBadgeyIncidents) return false;
+            
             if (!base.CanFireNowSub(parms)) return false;
             Map map = (Map)parms.target;
 

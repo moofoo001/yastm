@@ -17,6 +17,8 @@ namespace YASTM
 
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
+            // Check if the mod is enabled
+            if (!YASTM_Mod.Settings.enableQVisits) return false;
             Map map = (Map)parms.target;
             List<Pawn> colonists = map.mapPawns.FreeColonists.ToList();
             if (colonists.Count == 0) return false;

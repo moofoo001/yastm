@@ -10,6 +10,10 @@ namespace YASTM
     {
         public static void Postfix()
         {
+            // Check if the mod is enabled
+            if (!YASTM_Mod.Settings.showStardateOverlay) return;
+
+            // Check if the game is in screenshot mode or if there is no map
             if (Find.CurrentMap == null || Find.UIRoot.screenshotMode.FiltersCurrentEvent) return;
             
             float baseStardate = 1739.12f;
@@ -26,7 +30,6 @@ namespace YASTM
             float rightMargin = 150f;
             float bottomMargin = 80f; 
 
-            // HIER WAR DER FEHLER: Wir nutzen jetzt explizit "Verse.UI"
             Rect rect = new Rect(Verse.UI.screenWidth - size.x - rightMargin, Verse.UI.screenHeight - bottomMargin, size.x, size.y);
 
             GUI.color = new Color(0.1f, 0.1f, 0.1f, 0.8f);

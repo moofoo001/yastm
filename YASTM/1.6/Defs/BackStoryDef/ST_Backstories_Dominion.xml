@@ -69,7 +69,6 @@
     </forcedTraits>
   </BackstoryDef>
 
-
   <BackstoryDef>
     <defName>ST_BS_Vorta_Clone</defName>
     <title>Vorta clone</title>
@@ -111,7 +110,6 @@
     </skillGains>
   </BackstoryDef>
 
-
   <BackstoryDef>
     <defName>ST_BS_Founder_Origin</defName>
     <title>Great Link origin</title>
@@ -143,6 +141,172 @@
     <skillGains>
       <Social>8</Social>
     </skillGains>
+  </BackstoryDef>
+
+<BackstoryDef>
+    <defName>ST_BS_Vorta_DiplomatTemplate</defName>
+    <title>diplomatic template</title>
+    <titleShort>negotiator</titleShort>
+    <baseDesc>Created from a genetic template specifically designed for negotiation with subject races like the Karemma or Dosi. His hearing is acute, and his smile is practiced.</baseDesc>
+    <slot>Childhood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_Vorta</li>
+    </spawnCategories>
+    <workDisables>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+      <li>Violent</li>
+    </workDisables>
+    <skillGains>
+      <Social>6</Social>
+      <Artistic>2</Artistic>
+    </skillGains>
+    <forcedTraits>
+      <Kind>0</Kind> </forcedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Vorta_Geneticist</defName>
+    <title>cloning scientist</title>
+    <titleShort>geneticist</titleShort>
+    <baseDesc>Responsible for the birthing chambers of the Jem'Hadar. He adjusted genetic sequences to ensure strength and absolute loyalty to the Founders.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_Vorta</li>
+    </spawnCategories>
+    <workDisables>
+      <li>ManualDumb</li>
+    </workDisables>
+    <skillGains>
+      <Intellectual>6</Intellectual>
+      <Medicine>4</Medicine>
+    </skillGains>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Vorta_WhiteKeeper</defName>
+    <title>keeper of the white</title>
+    <titleShort>keeper</titleShort>
+    <baseDesc>Entrusted with the distribution of Ketracel White. He held the lives of his soldiers in a small vial, demanding perfection in exchange for existence.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_Vorta</li>
+    </spawnCategories>
+    <skillGains>
+      <Medicine>5</Medicine>
+      <Social>4</Social>
+    </skillGains>
+  </BackstoryDef>
+  <BackstoryDef>
+    <defName>ST_BS_JemHadar_AlphaBred</defName>
+    <title>Alpha Quadrant bred</title>
+    <titleShort>Alpha-bred</titleShort>
+    <baseDesc>Bred in the Alpha Quadrant specifically to fight the Federation. His genetic matrix emphasizes adaptability and initiative over pure brute force, making him slightly more independent.</baseDesc>
+    <slot>Childhood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_JemHadar</li>
+    </spawnCategories>
+    <workDisables>
+      <li>Artistic</li>
+      <li>Caring</li>
+      <li>PlantWork</li>
+      <li>Animals</li>
+      <li>Social</li>
+    </workDisables>
+    <skillGains>
+      <Melee>3</Melee>
+      <Shooting>3</Shooting>
+      <Intellectual>2</Intellectual>
+    </skillGains>
+    <forcedTraits>
+      <FastLearner>0</FastLearner>
+    </forcedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_JemHadar_GammaBred</defName>
+    <title>Gamma Quadrant bred</title>
+    <titleShort>Gamma-bred</titleShort>
+    <baseDesc>Grown from the original stock in the Gamma Quadrant. He is a traditionalist who views the Alpha-bred Jem'Hadar with suspicion. Loyalty is his only currency.</baseDesc>
+    <slot>Childhood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_JemHadar</li>
+    </spawnCategories>
+    <workDisables>
+      <li>Artistic</li>
+      <li>Caring</li>
+      <li>PlantWork</li>
+      <li>Animals</li>
+      <li>Social</li>
+      <li>Intellectual</li>
+    </workDisables>
+    <skillGains>
+      <Melee>5</Melee>
+      <Shooting>5</Shooting>
+    </skillGains>
+    <forcedTraits>
+      <Tough>0</Tough> 
+    </forcedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_JemHadar_Second</defName>
+    <title>Jem'Hadar Second</title>
+    <titleShort>Second</titleShort>
+    <baseDesc>Served as the 'Second' in his unit, responsible for discipline and interpreting the First's orders. He waits for the First to fall so he may lead.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_JemHadar</li>
+    </spawnCategories>
+    <skillGains>
+      <Melee>5</Melee>
+      <Shooting>4</Shooting>
+    </skillGains>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_JemHadar_Elder</defName>
+    <title>honored elder</title>
+    <titleShort>elder</titleShort>
+    <baseDesc>Defying the odds, this soldier has lived past the age of 20. He is no longer fighting for bloodlust, but out of mastery. Even the Vorta accord him some respect.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_JemHadar</li>
+    </spawnCategories>
+    <skillGains>
+      <Melee>8</Melee>
+      <Shooting>8</Shooting>
+      <Social>2</Social>
+    </skillGains>
+    <forcedTraits>
+      <Tough>0</Tough>
+    </forcedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_JemHadar_BladeMaster</defName>
+    <title>blade master</title>
+    <titleShort>blade master</titleShort>
+    <baseDesc>He disdains plasma weapons, preferring the visceral efficiency of the Kar'takin polearm. He seeks close quarters combat at every opportunity.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_JemHadar</li>
+    </spawnCategories>
+    <skillGains>
+      <Melee>10</Melee>
+      <Shooting>-2</Shooting>
+    </skillGains>
+    <forcedTraits>
+      <Brawler>0</Brawler>
+    </forcedTraits>
   </BackstoryDef>
 
 </Defs>

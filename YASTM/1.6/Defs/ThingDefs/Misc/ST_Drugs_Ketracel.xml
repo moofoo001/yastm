@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ChemicalDef>
-    <defName>ST_Chemical_Ketracel</defName>
-    <label>Ketracel White</label>
-    <addictionHediff>ST_KetracelAddiction</addictionHediff>
-    <generateAddictionGenes>false</generateAddictionGenes> 
-  </ChemicalDef>
 
-  <NeedDef ParentName="DrugAddictionNeedBase">
-    <defName>Chemical_ST_Chemical_Ketracel</defName>
-    <needClass>Need_Chemical</needClass>
-    <label>Ketracel White</label>
-    <description>Because of a genetic dependency or addiction, this person needs to regularly consume Ketracel White to avoid death.</description>
-    <listPriority>45</listPriority>
-  </NeedDef>
 
-  <ThingDef ParentName="MakeableDrugBase">
+<ThingDef ParentName="MakeableDrugBase">
     <defName>ST_KetracelWhite</defName>
-    <label>Ketracel White</label>
-    <description>An isogenic enzyme essential for Jem'Hadar survival. Without it, they suffer circulatory failure and death. Provides nutrition and rest replacement.</description>
+    <label>Ketracel White vial</label>
+    <description>An isogenic enzyme formulated to provide all necessary nutrients for Jem'Hadar physiology. Without it, their circulatory system collapses. Contains sedatives to suppress aggression and stimulants to replace the need for sleep.</description>
+    <descriptionHyperlinks>
+      <ChemicalDef>ST_Chemical_Ketracel</ChemicalDef>
+    </descriptionHyperlinks>
     <graphicData>
-      <texPath>Things/Item/Drug/KetracelWhite</texPath> 
-      <graphicClass>Graphic_StackCount</graphicClass>
+      <texPath>Things/Item/Drug/KetracelWhite</texPath> <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
     <rotatable>false</rotatable>
     <statBases>
       <WorkToMake>600</WorkToMake>
       <MarketValue>25</MarketValue>
       <Mass>0.05</Mass>
-      <Nutrition>0.9</Nutrition>
+      <Flammability>0.5</Flammability>
     </statBases>
+    <techLevel>Spacer</techLevel>
     <ingestible>
-      <foodType>Processed</foodType>
+      <foodType>Fluid, Processed</foodType>
       <drugCategory>Medical</drugCategory>
+      <baseIngestTicks>100</baseIngestTicks>
+      <ingestSound>Ingest_Inject</ingestSound>
+      <ingestHoldOffsetStanding>
+        <northDefault>
+          <offset>(0.18,0,0)</offset>
+        </northDefault>
+      </ingestHoldOffsetStanding>
+      <ingestCommandString>Administer {0}</ingestCommandString>
+      <ingestReportString>Administering {0}.</ingestReportString>
+      <chairSearchRadius>0</chairSearchRadius>
       <outcomeDoers>
         <li Class="IngestionOutcomeDoer_GiveHediff">
-          <hediffDef>ST_KetracelHigh</hediffDef>
+          <hediffDef>ST_Hediff_KetracelHigh</hediffDef>
           <severity>1.0</severity>
+        </li>
+        <li Class="IngestionOutcomeDoer_OffsetNeed">
+          <need>Food</need>
+          <offset>0.9</offset>
         </li>
         <li Class="IngestionOutcomeDoer_OffsetNeed">
           <need>Rest</need>
@@ -45,49 +49,48 @@
         </li>
       </outcomeDoers>
     </ingestible>
-    <costList>
-      <Neutroamine>1</Neutroamine>
-      <Chemfuel>2</Chemfuel>
-    </costList>
     <recipeMaker>
-      <researchPrerequisite>DrugProduction</researchPrerequisite>
+      <researchPrerequisite>ST_Research_KetracelProduction</researchPrerequisite>
       <recipeUsers>
-        <li>DrugLab</li>
+        <li>ST_Building_KetracelSynthesizer</li>
       </recipeUsers>
     </recipeMaker>
+    <costList>
+      <Chemfuel>1</Chemfuel>
+      <Neutroamine>1</Neutroamine> </costList>
     <comps>
       <li Class="CompProperties_Drug">
         <chemical>ST_Chemical_Ketracel</chemical>
-        <addictiveness>1.0</addictiveness>
-        <minToleranceToAddict>0.0</minToleranceToAddict>
-        <existingAddictionSeverityOffset>1.0</existingAddictionSeverityOffset>
-        <needLevelOffset>1.0</needLevelOffset>
+        <addictiveness>1.00</addictiveness> <needLevelOffset>1.00</needLevelOffset>
         <listOrder>100</listOrder>
       </li>
     </comps>
   </ThingDef>
 
-  <HediffDef>
-    <defName>ST_KetracelHigh</defName>
-    <label>White active</label>
-    <description>Ketracel white is circulating in the system.</description>
+<HediffDef>
+    <defName>ST_Hediff_KetracelHigh</defName>
+    <label>white active</label>
+    <description>Ketracel White is coursing through the system, providing clarity and strength.</description>
     <hediffClass>Hediff_High</hediffClass>
-    <defaultLabelColor>(0.8, 0.8, 1)</defaultLabelColor>
-    <scenarioCanAdd>true</scenarioCanAdd>
+    <defaultLabelColor>(179,137,255)</defaultLabelColor> <maxSeverity>1.0</maxSeverity>
     <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.0</severityPerDay> <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
     <stages>
       <li>
-        <painFactor>0.5</painFactor>
-        <capMods>
-            <li><capacity>Consciousness</capacity><offset>0.10</offset></li>
-            <li><capacity>Moving</capacity><offset>0.10</offset></li>
+        <painFactor>0.5</painFactor> <capMods>
+          <li><capacity>Consciousness</capacity><offset>0.10</offset></li>
+          <li><capacity>Moving</capacity><offset>0.10</offset></li>
         </capMods>
       </li>
     </stages>
   </HediffDef>
   
   <HediffDef ParentName="AddictionBase">
-    <defName>ST_KetracelAddiction</defName>
+    <defName>ST_Hediff_KetracelDependency</defName>
     <label>Ketracel need</label>
     <description>Genetically engineered dependency.</description>
     <hediffClass>Hediff_Addiction</hediffClass>
@@ -136,4 +139,19 @@
     </symbolPack>
   </GeneDef>
 
+<ChemicalDef>
+    <defName>ST_Chemical_Ketracel</defName>
+    <label>Ketracel White</label>
+    <addictionHediff>ST_Hediff_KetracelDependency</addictionHediff>
+    <geneOverdoseChanceFactorResist>0.5</geneOverdoseChanceFactorResist>
+    <geneOverdoseChanceFactorImmune>0</geneOverdoseChanceFactorImmune>
+</ChemicalDef>
+
+  <NeedDef ParentName="DrugAddictionNeedBase">
+    <defName>Chemical_ST_Chemical_Ketracel</defName>
+    <needClass>Need_Chemical</needClass>
+    <label>Ketracel White</label>
+    <description>Because of a genetic dependency or addiction, this person needs to regularly consume Ketracel White to avoid death.</description>
+    <listPriority>45</listPriority>
+  </NeedDef>
 </Defs>

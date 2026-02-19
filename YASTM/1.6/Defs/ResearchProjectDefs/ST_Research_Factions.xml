@@ -662,4 +662,25 @@
       </researchMods> 
   </ResearchProjectDef>
 
+
+  <!-- Dominion -->
+  <ResearchProjectDef>
+    <defName>ST_Research_KetracelProduction</defName>
+    <label>Ketracel synthesis</label>
+    <description>Unlock the chemical secrets of the Founders to produce Ketracel White.</description>
+    <baseCost>1000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <researchViewX>1</researchViewX>
+    <researchViewY>6</researchViewY>
+    <prerequisites>
+      <li>AdvancedFabrication</li>
+      <li>ST_Common_MedicalCore</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+  </ResearchProjectDef>
+
 </Defs>

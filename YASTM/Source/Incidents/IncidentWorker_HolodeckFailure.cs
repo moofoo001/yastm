@@ -17,6 +17,9 @@ namespace YASTM
 
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
+            // Check if the mod is enabled
+            if (!YASTM_Mod.Settings.enableHolodeckFailures) return false;
+            
             Map map = (Map)parms.target;
             Building holodeck = GetHolodeck(map);
 
