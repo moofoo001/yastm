@@ -28,7 +28,7 @@ namespace YASTM
             IntVec3 spawnSpot = holodeck.InteractionCell;
             if (!spawnSpot.Walkable(map)) spawnSpot = holodeck.Position;
 
-            // Badgey spawnt 2-5 Hologramme
+            // Badgey spawns  2-5 holograms
             int count = Mathf.Clamp((int)(parms.points / 100), 2, 5); 
             
             PawnKindDef enemyKind = PawnKindDefOf.AncientSoldier; 
@@ -44,9 +44,7 @@ namespace YASTM
                     cell = spawnSpot;
                 }
 
-                // --- DER FIX: DIE SICHERE METHODE ---
-                // Wir nutzen den simplen Konstruktor und setzen wichtige Werte manuell, falls nötig.
-                // Das verhindert Abstürze durch Versions-Unterschiede bei den Parametern.
+
                 
                 PawnGenerationRequest request = new PawnGenerationRequest(
                     enemyKind,
@@ -56,31 +54,29 @@ namespace YASTM
                     true // forceGenerateNewPawn
                 );
                 
-                // Weitere Einstellungen (optional, aber sicherer so):
                 request.AllowDead = false;
                 request.AllowDowned = false;
                 request.MustBeCapableOfViolence = true;
                 
-                // ------------------------------------
 
                 Pawn hologram = PawnGenerator.GeneratePawn(request);
                 
-                // Hediff geben (Macht sie schmerzfrei etc.)
+                // add hediff
                 hologram.health.AddHediff(HediffDef.Named("ST_Hediff_HolographicProjection"));
                 
-                // Name ändern
+                // set name
                 hologram.Name = new NameTriple("Hologram", "Villain", "Simulation");
 
                 GenSpawn.Spawn(hologram, cell, map, WipeMode.Vanish);
                 spawnedHolograms.Add(hologram);
                 
-                // Effekt: Blauer Blitz
+                // blue lightning effect
                 FleckMaker.ThrowLightningGlow(cell.ToVector3(), map, 1.5f);
             }
 
             if (spawnedHolograms.Count > 0)
             {
-                // LordJob: Angriff auf die Kolonie!
+                // LordJob: Attack the colony!
                 LordMaker.MakeNewLord(enemyFaction, new LordJob_AssaultColony(enemyFaction, true, true, false, false, true), map, spawnedHolograms);
             }
 
@@ -91,7 +87,7 @@ namespace YASTM
 
         private Building GetHolodeck(Map map)
         {
-            // Suche nach dem Gebäude.
+            // find holodeck
             ThingDef def = DefDatabase<ThingDef>.GetNamedSilentFail("ST_HoloEmitter");
             
             if (def == null) return null;
