@@ -7,6 +7,7 @@
     <race>Human</race>
     <combatPower>24</combatPower>
     <isFighter>false</isFighter>
+    <trader>true</trader>
     <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
       <xenotypeChances><Ectos_Romulan>0.85</Ectos_Romulan><Baseliner>0.15</Baseliner></xenotypeChances>
     </xenotypeSet>

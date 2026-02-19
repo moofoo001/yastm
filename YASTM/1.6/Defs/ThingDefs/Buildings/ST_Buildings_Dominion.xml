@@ -9,7 +9,7 @@
     <graphicData>
       <texPath>Things/Building/Production/KetracelSynthesizer</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(3,2)</drawSize>
+      <drawSize>(2,1)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -33,7 +33,7 @@
       <Flammability>1.0</Flammability>
       <Cleanliness>-2</Cleanliness>
     </statBases>
-    <size>(3,2)</size>
+    <size>(2,1)</size>
     <designationCategory>Production</designationCategory>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
@@ -56,7 +56,11 @@
         <glowColor>(168, 30, 232,0)</glowColor>
       </li>
     </comps>
-    <designatorDropdown>ST_Security_Group</designatorDropdown>
+
+    <soundInteract>ST_SFX_LCARS_Click</soundInteract>
+    <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_PowerandProduction_Group</designatorDropdown>
+    
     <researchPrerequisites>
       <li>ST_Research_KetracelProduction</li>
     </researchPrerequisites>
