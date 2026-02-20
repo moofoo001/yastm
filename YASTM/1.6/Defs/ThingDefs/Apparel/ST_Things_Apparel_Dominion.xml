@@ -47,10 +47,17 @@
         <li>ElectricTailoringBench</li>
       </recipeUsers>
     </recipeMaker>
+
   </ThingDef>
 
   <ThingDef ParentName="ST_Apparel_JemHadarUniform_shared">
     <defName>ST_Apparel_JemHadarUniform</defName>
+    <recipeMaker>
+      <researchPrerequisite>ST_Dominion_Foundation</researchPrerequisite>
+      <recipeUsers>
+        <li>ElectricTailoringBench</li>
+      </recipeUsers>
+    </recipeMaker>
   </ThingDef>
 
 
@@ -102,13 +109,13 @@
       <PainShockThreshold>0.05</PainShockThreshold>
     </equippedStatOffsets>
     <recipeMaker>
+      <researchPrerequisite>ST_Dominion_Foundation</researchPrerequisite>
       <skillRequirements>
         <Crafting>8</Crafting>
       </skillRequirements>
       <recipeUsers>
         <li>FabricationBench</li>
       </recipeUsers>
-      <researchPrerequisite>FlakArmor</researchPrerequisite> 
     </recipeMaker>
   </ThingDef>
 
@@ -154,6 +161,15 @@
       <SocialImpact>0.20</SocialImpact>
       <TradePriceImprovement>0.05</TradePriceImprovement>
     </equippedStatOffsets>
+    <recipeMaker>
+      <researchPrerequisite>ST_Dominion_Foundation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+    </recipeMaker>
   </ThingDef>
 
 </Defs>

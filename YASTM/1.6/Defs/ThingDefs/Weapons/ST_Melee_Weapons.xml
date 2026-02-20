@@ -615,6 +615,15 @@
     <weaponTags>
       <li>ST_Dominion_Melee</li>
     </weaponTags>
+    <recipeMaker>
+      <researchPrerequisite>ST_Research_DominionMelee</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+    </recipeMaker>
   </ThingDef>
 
 <!-- ===== DOMINION: Jem'Hadar combat blade (cut, stab) ===== -->
@@ -658,6 +667,15 @@
     <weaponTags>
       <li>ST_Dominion_Melee</li>
     </weaponTags>
+    <recipeMaker>
+      <researchPrerequisite>ST_Dominion_Engineering_I</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+    </recipeMaker>
   </ThingDef>
 
 </Defs>

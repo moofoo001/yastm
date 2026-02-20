@@ -718,7 +718,7 @@
       <li>ST_Common_MedicalCore</li>
     </prerequisites>
     <researchViewX>2</researchViewX>
-    <researchViewY>6</researchViewY>
+    <researchViewY>5.8</researchViewY>
   </ResearchProjectDef>
 
 
@@ -731,7 +731,7 @@
     <techLevel>Spacer</techLevel>
     <tab>ST_Research</tab>
     <researchViewX>3</researchViewX>
-    <researchViewY>6.5</researchViewY>
+    <researchViewY>6.2</researchViewY>
     <prerequisites>
       <li>ST_Dominion_Engineering_I</li>
     </prerequisites>
@@ -758,10 +758,11 @@
     <prerequisites>
       <li>ST_Dominion_KetracelProduction</li>
       <li>ST_Dominion_Engineering_II</li>
-      <li>ST_Federation_AdvancedMedic</li>  
+      <li>ST_Federation_AdvancedMedic</li>
+      <li>Xenogermination</li>
     </prerequisites>
-    <researchViewX>4</researchViewX>
-    <researchViewY>6.5</researchViewY>
+    <researchViewX>5</researchViewX>
+    <researchViewY>6.2</researchViewY>
   </ResearchProjectDef>
 
 

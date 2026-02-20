@@ -25,7 +25,7 @@
       <ComponentSpacer>2</ComponentSpacer>
     </costList>
     <recipeMaker>
-      <researchPrerequisite>ChargedShot</researchPrerequisite>
+      <researchPrerequisite>ST_Research_PolaronHeavyWeapons</researchPrerequisite>
       <skillRequirements>
         <Crafting>7</Crafting>
       </skillRequirements>
