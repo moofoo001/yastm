@@ -229,7 +229,6 @@
           </projects>
         </li>
       </researchMods>
-
     <techprintCount>1</techprintCount> 
     <heldByFactionCategoryTags>
       <li>Empire</li>
@@ -239,7 +238,7 @@
     <techprintMarketValue>1000</techprintMarketValue>
   </ResearchProjectDef>
 
-  <ResearchProjectDef>
+  <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>Klingon_Warfare</defName>
     <label>Klingon warfare doctrine</label>
     <description>Fundamental Klingon combat doctrines, honor codes, and battlefield strategies.
@@ -268,7 +267,7 @@
     </researchMods> 
   </ResearchProjectDef>
 
-  <ResearchProjectDef>
+  <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>Klingon_AdvancedWarfare</defName>
     <label>klingon advanced warfare</label>
     <description>Refined Klingon combat doctrines, logistics and battle-group organization.
@@ -406,7 +405,6 @@
           </projects>
         </li>
       </researchMods>
-   
     <techprintCount>1</techprintCount> 
     <heldByFactionCategoryTags>
       <li>Empire</li>
@@ -416,7 +414,7 @@
     <techprintMarketValue>1000</techprintMarketValue>
   </ResearchProjectDef>
 
-  <ResearchProjectDef>
+  <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>Romulan_TechDoctrine</defName>
     <label>Romulan technological doctrine</label>
     <description>Core Romulan technological principles, engineering philosophies, and scientific methodologies.
@@ -448,7 +446,7 @@
       </researchMods> 
   </ResearchProjectDef>
 
-  <ResearchProjectDef>
+  <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>Romulan_CloakingSystems</defName>
     <label>Romulan cloaking systems</label>
     <description>Advanced Romulan cloaking architectures, power cycling disciplines and emission suppression.
@@ -586,18 +584,16 @@
           </projects>
         </li>
       </researchMods>
-          <techprintCount>1</techprintCount> 
-    
-    <heldByFactionCategoryTags>
-      <li>Empire</li>
-      <li>Pirate</li>
-    </heldByFactionCategoryTags>
-    <techprintCommonality>0.5</techprintCommonality>
-    <techprintMarketValue>1000</techprintMarketValue>
-
+      <techprintCount>1</techprintCount> 
+      <heldByFactionCategoryTags>
+        <li>Empire</li>
+        <li>Pirate</li>
+      </heldByFactionCategoryTags>
+      <techprintCommonality>0.5</techprintCommonality>
+      <techprintMarketValue>1000</techprintMarketValue>
   </ResearchProjectDef>
 
-  <ResearchProjectDef>
+  <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>Ferengi_Commerce</defName>
     <label>Ferengi commerce protocols</label>
     <description>  Comprehensive study of Ferengi trade practices, market manipulation techniques,
@@ -630,7 +626,7 @@
       </researchMods> 
   </ResearchProjectDef>
 
-   <ResearchProjectDef>
+   <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>Ferengi_AdvancedCommerce</defName>
     <label>Ferengi advanced commerce</label>
     <description>  High-volume Ferengi trade architecture, warehousing and risk-optimized profit structures.
@@ -651,12 +647,12 @@
     <tags>
       <li>YASTM_Faction_Ferengi</li>
     </tags>
-          <researchMods>
-        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
-          <projects>
-            <li>FlatscreenTelevision</li>
-            <li>DeepDrilling</li>
-            <li>BrainWiring</li>
+    <researchMods>
+      <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+        <projects>
+          <li>FlatscreenTelevision</li>
+          <li>DeepDrilling</li>
+          <li>BrainWiring</li>
           </projects>
         </li>
       </researchMods> 
@@ -664,23 +660,109 @@
 
 
   <!-- Dominion -->
-  <ResearchProjectDef>
-    <defName>ST_Research_KetracelProduction</defName>
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Dominion_Foundation</defName>
+    <label>Dominion foundation</label>
+    <description>Unlocks Dominion research and production chains.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Common_Issue_Gear</li>
+    </prerequisites>
+    <researchViewX>0</researchViewX>
+    <researchViewY>6</researchViewY>
+    <modExtensions>
+      <li Class="YASTM.Research.ResearchRequiresMeme">
+        <requiredMemes>
+          <li>ST_Meme_DominionOrder</li>
+        </requiredMemes>
+      </li>
+    </modExtensions>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Dominion_Engineering_I</defName>
+    <label>Dominion engineering I</label>
+    <description>Basic understanding of Dominion engineering, allowing the construction of fundamental structures and decoding the Founders' directives.
+    Unlocks: Batteries, SolarPanels, NutrientPaste, AirConditioning</description>
+    <baseCost>1000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab> 
+    <prerequisites>
+      <li>ST_Dominion_Foundation</li>
+    </prerequisites>
+    <researchViewX>1</researchViewX>
+    <researchViewY>6</researchViewY>
+    <researchMods>
+      <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+        <projects>
+          <li>Batteries</li>
+          <li>SolarPanels</li>
+          <li>NutrientPaste</li>
+          <li>AirConditioning</li>
+        </projects>
+      </li>
+    </researchMods>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Dominion_KetracelProduction</defName>
     <label>Ketracel synthesis</label>
-    <description>Unlock the chemical secrets of the Founders to produce Ketracel White.</description>
+    <description>Unlock the chemical secrets of the Founders to synthesize the complex isogenic enzyme chain known as Ketracel White. Essential for Jem'Hadar survival.</description>
     <baseCost>1000</baseCost>
     <techLevel>Spacer</techLevel>
     <tab>ST_Research</tab>
-    <researchViewX>1</researchViewX>
-    <researchViewY>6</researchViewY>
     <prerequisites>
-      <li>AdvancedFabrication</li>
+      <li>ST_Dominion_Engineering_I</li>
       <li>ST_Common_MedicalCore</li>
     </prerequisites>
-    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-    <requiredResearchFacilities>
-      <li>MultiAnalyzer</li>
-    </requiredResearchFacilities>
+    <researchViewX>2</researchViewX>
+    <researchViewY>6</researchViewY>
   </ResearchProjectDef>
+
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Dominion_Engineering_II</defName>
+    <label>Dominion engineering II</label>
+    <description>Advanced understanding of Dominion engineering, allowing the construction of fundamental structures and decoding the Founders' directives.
+    Unlocks: ToxifierGenerator, Firefoam, BasicMechtech, ComplexFurniture, HeavyBridges</description>
+    <baseCost>1500</baseCost>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <researchViewX>3</researchViewX>
+    <researchViewY>6.5</researchViewY>
+    <prerequisites>
+      <li>ST_Dominion_Engineering_I</li>
+    </prerequisites>
+    <researchMods>
+      <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+        <projects>
+          <li>ToxifierGenerator</li>
+          <li>Firefoam</li>
+          <li>BasicMechtech</li>
+          <li>ComplexFurniture</li>
+          <li>HeavyBridges</li>
+        </projects>
+      </li>
+    </researchMods>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Dominion_Cloning</defName>
+    <label>Vat-grown soldiers</label>
+    <description>Construct specialized birthing chambers and cloning vats to mass-produce Jem'Hadar and sequence new Vorta clones.</description>
+    <baseCost>1500</baseCost>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Dominion_KetracelProduction</li>
+      <li>ST_Dominion_Engineering_II</li>
+      <li>ST_Federation_AdvancedMedic</li>  
+    </prerequisites>
+    <researchViewX>4</researchViewX>
+    <researchViewY>6.5</researchViewY>
+  </ResearchProjectDef>
+
 
 </Defs>

@@ -62,7 +62,7 @@
     <designatorDropdown>ST_PowerandProduction_Group</designatorDropdown>
     
     <researchPrerequisites>
-      <li>ST_Research_KetracelProduction</li>
+      <li>ST_Dominion_KetracelProduction</li>
     </researchPrerequisites>
   </ThingDef>
 

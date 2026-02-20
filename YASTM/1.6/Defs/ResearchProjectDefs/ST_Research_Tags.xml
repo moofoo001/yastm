@@ -21,4 +21,9 @@
     <label>united federation of planets</label>
   </ResearchProjectTagDef>
 
+  <ResearchProjectTagDef>
+    <defName>YASTM_Faction_Dominion</defName>
+    <label>dominion</label>
+  </ResearchProjectTagDef>
+
 </Defs>

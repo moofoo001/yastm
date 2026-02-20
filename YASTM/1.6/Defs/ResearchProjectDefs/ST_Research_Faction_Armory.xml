@@ -504,7 +504,7 @@
       <li>ST_Ferengi_Engineering_II</li>
     </prerequisites>
     <researchViewX>5</researchViewX>
-    <researchViewY>5.5</researchViewY>
+    <researchViewY>5.6</researchViewY>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
       <researchMods>
         <li Class="YASTM.ResearchMod_UnlockOtherProjects">
@@ -544,4 +544,75 @@
       </researchMods> 
   </ResearchProjectDef>
 
+  <!-- ==================================================
+       Dominion Melee (Security Tools)
+       ================================================== -->
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Research_DominionMelee</defName>
+    <label>Kar'takin mastery</label>
+    <description>The metallurgical and balancing techniques required to forge the deadly Kar'takin polearms favored by the Jem'Hadar for close-quarters combat.</description>
+    <baseCost>800</baseCost>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Dominion_Engineering_II</li>
+    </prerequisites>
+    <researchViewX>5</researchViewX>
+    <researchViewY>6.5</researchViewY>
+    <researchMods>
+      <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+        <projects>
+          <li>Smithing</li>
+          <li>LongBlades</li>
+        </projects>
+      </li>
+    </researchMods>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Research_PolaronLightWeapons</defName>
+    <label>Polaron weaponry I</label>
+    <description>Light polaron weaponry for close-range combat.</description>
+    <baseCost>1500</baseCost>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Dominion_Engineering_I</li>
+    </prerequisites>
+    <researchViewX>4</researchViewX>
+    <researchViewY>6</researchViewY>
+    <researchMods>
+      <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+        <projects>
+          <li>GasOperation</li>
+          <li>ToxGas</li>
+        </projects>
+      </li>
+    </researchMods>
+  </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="ST_Base_Research">
+    <defName>ST_Research_PolaronHeavyWeapons</defName>
+    <label>Polaron weaponry II</label>
+    <description>Heavy polaron weaponry for close-range combat.</description>
+    <baseCost>2200</baseCost>
+    <techLevel>Spacer</techLevel>
+    <tab>ST_Research</tab>
+    <prerequisites>
+      <li>ST_Dominion_Engineering_II</li>
+    </prerequisites>
+    <researchViewX>6</researchViewX>
+    <researchViewY>6</researchViewY>
+      <researchMods>
+        <li Class="YASTM.ResearchMod_UnlockOtherProjects">
+          <projects>
+            <li>TurretPack</li>
+            <li>PrecisionRifling</li>
+            <li>HunterDrones</li>
+          </projects>
+        </li>
+      </researchMods> 
+  </ResearchProjectDef>
+  
 </Defs>

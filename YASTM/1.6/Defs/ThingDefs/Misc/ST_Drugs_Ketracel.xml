@@ -50,7 +50,7 @@
       </outcomeDoers>
     </ingestible>
     <recipeMaker>
-      <researchPrerequisite>ST_Research_KetracelProduction</researchPrerequisite>
+      <researchPrerequisite>ST_Dominion_KetracelProduction</researchPrerequisite>
       <recipeUsers>
         <li>ST_Building_KetracelSynthesizer</li>
       </recipeUsers>
