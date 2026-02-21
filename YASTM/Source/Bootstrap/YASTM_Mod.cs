@@ -64,6 +64,8 @@ namespace YASTM
             ls.Label("UI Settings".Colorize(Color.cyan));
             ls.CheckboxLabeled("Show Stardate Overlay", ref Settings.showStardateOverlay, "Toggles the Star Trek Stardate display on the main screen.");
             
+            ls.CheckboxLabeled("Show Memory Alpha Tab", ref Settings.showMemoryAlphaTab, "Toggles the visibility of the Memory Alpha database button in the bottom menu bar.");
+            
             ls.GapLine();
 
             ls.Label("Career & Promotion".Colorize(Color.cyan));

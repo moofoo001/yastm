@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Faction_UFP</defName>
+    <category>Factions &amp; Powers</category>
+    <title>United Federation of Planets</title>
+    <listOrder>1</listOrder>
+    <text>The United Federation of Planets is an interstellar alliance of planetary governments sharing knowledge, resources, and a commitment to peaceful exploration.\n\nGameplay: The Federation (and Starfleet) are highly advanced but generally peaceful. They prefer diplomacy over conflict. Trading with Starfleet will give you access to high-tech medical supplies, components, and standard-issue phasers. If angered, however, Starfleet will deploy highly coordinated security teams armed with advanced energy weapons. Keep them as allies, and they might even send drop-pod reinforcements when your colony is under attack!</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Faction_Klingon</defName>
+    <category>Factions &amp; Powers</category>
+    <title>Klingon Empire</title>
+    <listOrder>2</listOrder>
+    <text>The Klingon Empire is a proud, warrior-centric civilization where honor in battle is valued above all else. To die in glorious combat is the greatest aspiration of any Klingon.\n\nGameplay: Klingons are fearsome opponents. While they possess disruptor technology, many prefer to charge into melee combat wielding traditional weapons like the Bat'leth or D'k Tahg. Klingon pawns possess a natural "Battle Fervor" that makes them highly resilient to pain and panic. When raiding, they are aggressive and direct. Earning their respect through trade and combat can secure you a powerful, albeit volatile, ally.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Faction_Romulan</defName>
+    <category>Factions &amp; Powers</category>
+    <title>Romulan Star Empire</title>
+    <listOrder>3</listOrder>
+    <text>The Romulan Star Empire is characterized by strict discipline, paranoia, and a philosophy of absolute state loyalty. They rely heavily on espionage and the formidable Tal Shiar intelligence agency.\n\nGameplay: Romulans are highly unpredictable. They utilize devastating plasma weaponry which deals terrible burn damage. Romulan raids often involve stealth or sudden ambushes. They are hard to befriend, but if you do manage to establish trade, you may acquire access to cloaking technology components and high-yield explosives.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Faction_Ferengi</defName>
+    <category>Factions &amp; Powers</category>
+    <title>Ferengi Alliance</title>
+    <listOrder>4</listOrder>
+    <text>The Ferengi are an ultra-capitalist society driven entirely by the pursuit of profit, guided by the sacred 285 Rules of Acquisition. "Greed is eternal."\n\nGameplay: The Ferengi are the ultimate traders of the galaxy. They will rarely attack you outright unless they see a massive profit in doing so (often employing mercenaries). Ferengi caravans visit frequently and carry a wide variety of exotic goods, but their prices are steep. Having a colonist with high Social skills is absolutely necessary to avoid being swindled out of all your silver and Latinum.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Faction_Dominion</defName>
+    <category>Factions &amp; Powers</category>
+    <title>The Dominion</title>
+    <listOrder>5</listOrder>
+    <text>The Dominion is a vast, ruthlessly efficient empire from the Gamma Quadrant, ruled by the shape-shifting Founders, administered by the Vorta, and enforced by the genetically engineered Jem'Hadar.\n\nGameplay: The Dominion is an existential threat. They do not trade, and they do not negotiate. Their raiding parties consist of waves of fearless Jem'Hadar soldiers wielding armor-piercing Polaron weapons, often commanded by a Vorta and supported by Cardassian allies. Capturing a Jem'Hadar is almost impossible, as they will fight to the death and eventually die from Ketracel-White withdrawal if imprisoned.</text>
+  </YASTM.ST_HelpDef>
+
+</Defs>

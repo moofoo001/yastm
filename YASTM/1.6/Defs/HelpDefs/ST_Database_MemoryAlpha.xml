@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+<YASTM.ST_HelpDef>
+    <defName>ST_Help_Ranks</defName>
+    <category>Careers &amp; Ranks</category>
+    <title>Starfleet Promotions &amp; Careers</title>
+    <listOrder>1</listOrder>
+    <text>Starfleet is an organization built on merit, dedication, and continuous self-improvement. Any colonist joining Starfleet begins their journey at the bottom of the ladder, but can work their way up to the prestigious rank of Admiral through hard work and loyalty.\n\nCAREER DIVISIONS:\nColonists can be assigned to one of three main divisions, which is often reflected in the color of their uniform:\n- Command (Red): Focuses on leadership, social interaction, and tactical command.\n- Operations &amp; Security (Yellow): Focuses on defense, construction, and engineering.\n- Science &amp; Medical (Blue): Focuses on research, scanning, and healing.\n\nPROMOTIONS:\nA promotion doesn't happen overnight. To advance in rank, a colonist must meet specific criteria:\n1. Time in Service: A minimum number of days must be served at the current rank.\n2. Skills: The colonist must reach specific skill levels relevant to their division (e.g., Medicine for a Chief Medical Officer).\n3. Merit: Completing objectives such as successful surgeries, constructing buildings, or fending off hostiles.\n\nTHE RANK STRUCTURE:\n- Cadet / Crewman (Recruit)\n- Ensign\n- Lieutenant\n- Commander\n- Captain\n- Admiral\n\nPERKS &amp; PRIVILEGES:\nHigher ranks come with significant benefits. Officers receive passive mood bonuses ("Proud to serve Starfleet") and have a higher social impact. Furthermore, certain high-tier equipment and advanced weapons require a specific rank to be equipped. A simple Crewman won't be granted access to a Captain's Phaser!</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Tribbles</defName>
+    <category>Anomalies &amp; Events</category>
+    <title>Tribble Infestation</title>
+    <listOrder>1</listOrder>
+    <text>Tribbles are small, non-intelligent lifeforms known for their soft fur, soothing purr, and absolutely terrifying reproductive rate. They are born pregnant.\n\nGameplay: If a Tribble enters your map, it will consume your food stores and multiply exponentially. Left unchecked, they will overrun your colony, crashing both your food supply and your frame rate. Deal with them immediately by culling them or selling them to unsuspecting traders. Klingons gain a mood buff for killing them.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Q</defName>
+    <category>Anomalies &amp; Events</category>
+    <title>The Q Continuum</title>
+    <listOrder>2</listOrder>
+    <text>Q is an omnipotent, god-like entity with a penchant for testing lesser species. He finds humanity particularly amusing.\n\nGameplay: Q visits are entirely unpredictable. He might instantly heal your entire colony, drop rare resources, or decide to turn all your plasteel into wood just for a laugh. There is no defense against a Q visit. You are at his mercy.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Cloning</defName>
+    <category>Dominion Logistics</category>
+    <title>Vat-Grown Soldiers</title>
+    <listOrder>1</listOrder>
+    <text>The Dominion does not recruit; it manufactures its armies. The Jem'Hadar are bred for combat and mature in a matter of days.\n\nGameplay: Once researched, you can build a Cloning Vat. By combining raw meat (biomass) and Neutroamine, you can gestate Jem'Hadar and Vorta clones over several days. When the process is complete, a colonist must manually open the stasis pod to decant the new pawn, who will instantly join your faction.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Ketracel</defName>
+    <category>Dominion Logistics</category>
+    <title>Ketracel-White</title>
+    <listOrder>2</listOrder>
+    <text>Ketracel-White is an isogenic enzyme crucial to the survival of the Jem'Hadar. They are genetically engineered to lack this enzyme to ensure absolute loyalty to the Founders.\n\nGameplay: Jem'Hadar pawns do not eat normal food, but they MUST consume Ketracel-White regularly. If they run out, they will enter severe withdrawal, eventually going berserk and attacking anything in sight before dying. Always secure a steady supply of Neutroamine and Chemfuel to synthesize it!</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Transporters</defName>
+    <category>Technology</category>
+    <title>Transporter Systems</title>
+    <listOrder>1</listOrder>
+    <text>Transporters convert matter into an energy pattern, beam it to a target location, and reassemble it flawlessly. Mostly.\n\nGameplay: Transporter pads allow instant travel across the map. They require immense power and have a cooldown period after use. Beware: Ion storms or solar flares will render transporters offline. Do not attempt to beam during a power failure.</text>
+  </YASTM.ST_HelpDef>
+
+    <YASTM.ST_HelpDef>
+        <defName>ST_Help_Replicator</defName>
+        <category>Technology</category>
+        <title>Replicator Systems</title>
+        <listOrder>2</listOrder>
+        <text>Replicators are capable of materializing almost any inanimate object or food item by converting energy into matter based on a stored subatomic blueprint.\n\nGameplay: Replicators serve as advanced production stations. Instead of requiring complex ingredients like normal stoves or workbenches, they primarily require a massive amount of Power and basic matter (such as raw biomass or steel) to synthesize meals, medicine, and components. They save a lot of space and labor, but will instantly shut down during a power outage or solar flare. Always keep backup rations!</text>
+    </YASTM.ST_HelpDef>
+
+    <YASTM.ST_HelpDef>
+        <defName>ST_Help_Consoles</defName>
+        <category>Technology</category>
+        <title>Subspace Consoles</title>
+        <listOrder>3</listOrder>
+        <text>Subspace transceivers allow for faster-than-light communication and deep-space telemetry, keeping your colony connected to the wider galaxy.\n\nGameplay: Consoles act as the nerve center of your operations. The Subspace Scanner requires a skilled operator to detect anomalies, hidden resources, or approaching hostile fleets. Always ensure your consoles are manned by your best officers to maximize early warning times and unlock specialized faction interactions (like requesting Starfleet Aid).</text>
+    </YASTM.ST_HelpDef>
+
+    <YASTM.ST_HelpDef>
+        <defName>ST_Help_ForceFields</defName>
+        <category>Technology</category>
+        <title>Force Field Emitters</title>
+        <listOrder>4</listOrder>
+        <texturePath>Things/Building/Security/ForceFieldIcon</texturePath>
+        <text>Force fields consume a massive amount of power but provide an impenetrable shield around your structures. Remember to keep them maintained, or a warp core breach might take out the entire grid!</text>
+    </YASTM.ST_HelpDef>
+
+    </Defs>

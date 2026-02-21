@@ -7,6 +7,7 @@ namespace YASTM
     {
         // --- UI & Overlays ---
         public bool showStardateOverlay = true;
+        public bool showMemoryAlphaTab = true;
 
         // --- Gameplay / Careers ---
         public float promotionObjectiveMultiplier = 1.0f;
@@ -46,6 +47,7 @@ namespace YASTM
             
             // UI
             Scribe_Values.Look(ref showStardateOverlay, "showStardateOverlay", true);
+            Scribe_Values.Look(ref showMemoryAlphaTab, "showMemoryAlphaTab", true);
             
             // Career
             Scribe_Values.Look(ref promotionObjectiveMultiplier, "promotionObjectiveMultiplier", 1.0f);
