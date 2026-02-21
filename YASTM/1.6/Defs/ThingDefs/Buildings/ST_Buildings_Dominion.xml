@@ -60,10 +60,112 @@
     <soundInteract>ST_SFX_LCARS_Click</soundInteract>
     <designationCategory>ST_Designation</designationCategory>
     <designatorDropdown>ST_PowerandProduction_Group</designatorDropdown>
-    
     <researchPrerequisites>
       <li>ST_Dominion_KetracelProduction</li>
     </researchPrerequisites>
+  </ThingDef>
+
+<ThingDef ParentName="BenchBase">
+    <defName>ST_Building_CloningVat</defName>
+    <label>Dominion cloning vat</label>
+    <description>A highly advanced biogenic chamber utilized by the Founders to rapidly grow Jem'Hadar soldiers and sequence Vorta clones from organic slurry.</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Dominion/CloningVat</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <castEdgeShadows>true</castEdgeShadows>
+    <costList>
+      <Steel>150</Steel>
+      <Plasteel>50</Plasteel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <altitudeLayer>Building</altitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    <useHitPoints>True</useHitPoints>
+    <statBases>
+      <WorkToBuild>4000</WorkToBuild>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Cleanliness>2</Cleanliness>
+    </statBases>
+    <size>(1,2)</size>
+    <soundInteract>ST_SFX_LCARS_Click</soundInteract>
+    <designationCategory>ST_Designation</designationCategory>
+    <designatorDropdown>ST_PowerandProduction_Group</designatorDropdown>
+    <passability>PassThroughOnly</passability>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>600</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+    </comps>
+    <researchPrerequisites>
+      <li>ST_Dominion_Cloning</li>
+    </researchPrerequisites>  
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_Item_JemHadarPod</defName>
+    <label>Jem'Hadar stasis pod</label>
+    <description>A nutrient-filled stasis pod containing a fully matured Jem'Hadar soldier ready for decanting. Needs to be activated by a colonist.</description>
+    <graphicData>
+      <texPath>Things/Building/Dominion/JemHadar_Pod</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <Mass>15</Mass>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Decant Jem'Hadar Soldier</useLabel>
+      </li>
+      <li Class="YASTM.CompProperties_SpawnDominionPawn">
+        <pawnKind>ST_Pawn_JemHadar_Trooper</pawnKind> 
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf" />
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>ST_Item_VortaPod</defName>
+    <label>Vorta stasis pod</label>
+    <description>A sequence-locked stasis pod containing a newly minted Vorta administrator. Needs to be activated.</description>
+    <graphicData>
+      <texPath>Things/Building/Dominion/Vorta_Pod</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(180, 150, 200)</color>
+    </graphicData>
+    <statBases>
+      <MarketValue>1200</MarketValue>
+      <Mass>15</Mass>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Activate Vorta Clone</useLabel>
+      </li>
+      <li Class="YASTM.CompProperties_SpawnDominionPawn">
+        <pawnKind>ST_Pawn_Vorta</pawnKind> </li>
+      <li Class="CompProperties_UseEffectDestroySelf" />
+    </comps>
   </ThingDef>
 
 </Defs>

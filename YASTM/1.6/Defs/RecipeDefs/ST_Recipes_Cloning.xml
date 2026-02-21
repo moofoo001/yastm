@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+<RecipeDef>
+    <defName>ST_Recipe_GrowJemHadar</defName>
+    <label>grow Jem'Hadar</label>
+    <description>Synthesize a Jem'Hadar soldier using organic matter and chemical accelerators.</description>
+    <jobString>Decanting Jem'Hadar...</jobString>
+    <workAmount>8000</workAmount>
+    <workSpeedStat>MedicalTendSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <ingredients>
+      <li>
+        <filter>
+          <categories><li>MeatRaw</li></categories> </filter>
+        <count>150</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs><li>Neutroamine</li></thingDefs> </filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+    <products>
+      <ST_Item_JemHadarPod>1</ST_Item_JemHadarPod>
+    </products>
+    <recipeUsers>
+      <li>ST_Building_CloningVat</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>ST_Recipe_CloneVorta</defName>
+    <label>sequence Vorta</label>
+    <description>Carefully construct a Vorta clone body and implant memory engrams.</description>
+    <jobString>Sequencing Vorta...</jobString>
+    <workAmount>12000</workAmount>
+    <workSpeedStat>MedicalTendSpeed</workSpeedStat>
+    <ingredients>
+      <li>
+        <filter>
+          <categories><li>MeatRaw</li></categories>
+        </filter>
+        <count>100</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs><li>Neutroamine</li></thingDefs>
+        </filter>
+        <count>15</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs><li>ComponentSpacer</li></thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <ST_Item_VortaPod>1</ST_Item_VortaPod>
+    </products>
+    <recipeUsers>
+      <li>ST_Building_CloningVat</li>
+    </recipeUsers>
+  </RecipeDef>
+
+</Defs>

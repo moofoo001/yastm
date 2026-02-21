@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- Federation standard -->
-  <ResearchProjectDef Parent="ST_Base_Research" Name="Federation_Standard">
+  <ResearchProjectDef ParentName="ST_Base_Research" Name="Federation_Standard">
     <defName>Federation_Standard</defName>
     <description>Standardized Starfleet issue gear and fittings.</description>
     <label>Federation standard</label>
@@ -126,7 +126,7 @@
        Klingon – Warfare Doctrine
        =========================== -->
 
-    <ResearchProjectDef Parent="ST_Base_Research" Name="Klingon_Standard">
+    <ResearchProjectDef ParentName="ST_Base_Research" Name="Klingon_Standard">
       <defName>Klingon_Standard</defName>
       <description>Standardized Klingon issue gear and fittings.</description>
       <label>Klingon standard</label>
@@ -302,7 +302,7 @@
        =========================== -->
 
 
-  <ResearchProjectDef Parent="ST_Base_Research" Name="Romulan_Standard">
+  <ResearchProjectDef ParentName="ST_Base_Research" Name="Romulan_Standard">
     <defName>Romulan_Standard</defName>
     <description>Standardized Romulan issue gear and fittings.</description>
     <label>Romulan standard</label>
@@ -323,7 +323,7 @@
       </modExtensions>
   </ResearchProjectDef>
 
- <ResearchProjectDef ParentName="ST_Base_Research">
+ <ResearchProjectDef ParentName="ST_Base_Research"  >
     <defName>ST_Romulan_Engineering_I</defName>
     <label>Romulan engineering I</label>
     <description>Foundational Romulan system architecture: compact power routing, compartmentalized hulls and secure control systems. Unlocks basic Romulan support structures and fittings.
@@ -481,7 +481,7 @@
        Ferengi 
        =========================== -->
 
-  <ResearchProjectDef Parent="ST_Base_Research" Name="Ferengi_Standard">
+  <ResearchProjectDef ParentName="ST_Base_Research" Name="Ferengi_Standard">
     <defName>Ferengi_Standard</defName>
     <description>Standardized Ferengi issue gear and fittings.</description>
     <label>Ferengi standard</label>
