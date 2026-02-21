@@ -162,4 +162,58 @@
     </startingTechprintsResearchTags>
   </FactionDef>
 
+
+  <!-- Dominion player faction -->
+  <FactionDef ParentName="PlayerFactionBase">
+    <defName>ST_Player_DominionOutpost</defName>
+    <label>dominion outpost</label>
+    <description>A Dominion outpost, here to expand the glory of the Founders and bring order to the galaxy.</description>
+    <isPlayer>true</isPlayer>
+    <basicMemberKind>Colonist</basicMemberKind>
+    <pawnSingular>colonist</pawnSingular>
+    <pawnsPlural>colonists</pawnsPlural>
+    <techLevel>Spacer</techLevel>
+    <factionNameMaker>ST_NamerDominionFaction</factionNameMaker>
+    <settlementNameMaker>ST_SettlementName_Dominion</settlementNameMaker>
+    <factionIconPath>UI/Icons/Factions/Dominion</factionIconPath>
+    <colorSpectrum>
+      <li>(0.10, 0.10, 0.60)</li>
+      <li>(0.20, 0.20, 0.90)</li>
+    </colorSpectrum>
+    <allowedCultures>
+      <li>ST_Culture_Dominion</li>
+    </allowedCultures>
+    <forcedMemes>
+      <li>ST_Meme_DominionOrder</li>
+    </forcedMemes>
+    <disallowedMemes>
+      <li>Cannibal</li>
+    </disallowedMemes>
+    <xenotypeSet Inherit="False" MayRequire="Ludeon.RimWorld.Biotech">
+      <xenotypeChances>
+        <Ectos_JemHadar>0.75</Ectos_JemHadar>
+        <Ectos_Vorta>0.10</Ectos_Vorta>
+        <Ectos_Cardassian>0.12</Ectos_Cardassian>
+        <Baseliner>0.025</Baseliner>
+        <Ectos_Changeling>0.005</Ectos_Changeling>
+      </xenotypeChances>
+    </xenotypeSet>
+    <canMakeRandomly>false</canMakeRandomly>
+    <hidden>false</hidden>
+    <backstoryCategories>
+      <li>Dominion_Engineering</li>
+      <li>Dominion_Science</li>
+      <li>Dominion_Medical</li>
+      <li>Dominion_Warrior</li>
+      <li>Dominion_Command</li>
+      <li>Dominion_Cardassian</li> 
+    </backstoryCategories>
+    <startingResearchTags>
+      <li>ClassicStart</li>
+    </startingResearchTags>
+    <startingTechprintsResearchTags>
+      <li>ClassicStart</li>
+      <li>ClassicStartTechprints</li>
+    </startingTechprintsResearchTags>
+  </FactionDef>
 </Defs>

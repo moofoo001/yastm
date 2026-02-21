@@ -111,4 +111,35 @@
     </backstoryCategories>
   </PawnKindDef>
 
+<PawnKindDef>
+    <defName>ST_Pawn_Dominion_CardassianAlly</defName>
+    <label>Cardassian ally</label>
+    <description>A soldier of the Cardassian Union, fighting alongside the Jem'Hadar under the banner of the Dominion.</description>
+    <race>Human</race>
+    <defaultFactionType>ST_Faction_Dominion</defaultFactionType>
+    <xenotypeSet>
+      <xenotypeChances>
+        <Ectos_Cardassian>999</Ectos_Cardassian>
+      </xenotypeChances> 
+    </xenotypeSet>
+    <combatPower>65</combatPower>
+    <isFighter>true</isFighter>
+    <maxGenerationAge>55</maxGenerationAge>
+    <gearHealthRange>0.8~1.0</gearHealthRange>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+      <li>SpacerMilitary</li>
+    </apparelTags>
+    <apparelMoney>1000~1500</apparelMoney>
+    <weaponMoney>800~1200</weaponMoney>
+    <weaponTags>
+      <li>ST_Weapon_Cardassian</li>
+    </weaponTags>
+    <techHediffsMoney>1000~1500</techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <initialWillRange>3~5</initialWillRange>
+    <initialResistanceRange>15~24</initialResistanceRange>
+  </PawnKindDef>
 </Defs>

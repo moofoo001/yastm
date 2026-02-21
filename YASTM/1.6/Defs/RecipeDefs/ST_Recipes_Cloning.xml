@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <Defs>
+
+  <!-- clonning -->
 
 <RecipeDef>
     <defName>ST_Recipe_GrowJemHadar</defName>
     <label>grow Jem'Hadar</label>
-    <description>Synthesize a Jem'Hadar soldier using organic matter and chemical accelerators.</description>
+    <description>Synthesize a Jem'Hadar soldier using organic matter and chemical accelerators. Takes roughly 1.5 to 2 days of active supervision.</description>
     <jobString>Decanting Jem'Hadar...</jobString>
-    <workAmount>8000</workAmount>
+    <workAmount>40000</workAmount> 
+    <unfinishedThingDef>ST_UnfinishedClone</unfinishedThingDef> 
     <workSpeedStat>MedicalTendSpeed</workSpeedStat>
     <effectWorking>Cook</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
     <ingredients>
       <li>
-        <filter>
-          <categories><li>MeatRaw</li></categories> </filter>
+        <filter><categories><li>MeatRaw</li></categories></filter>
         <count>150</count>
       </li>
       <li>
-        <filter>
-          <thingDefs><li>Neutroamine</li></thingDefs> </filter>
+        <filter><thingDefs><li>Neutroamine</li></thingDefs></filter>
         <count>10</count>
       </li>
     </ingredients>
@@ -34,27 +34,22 @@
   <RecipeDef>
     <defName>ST_Recipe_CloneVorta</defName>
     <label>sequence Vorta</label>
-    <description>Carefully construct a Vorta clone body and implant memory engrams.</description>
+    <description>Carefully construct a Vorta clone body and implant memory engrams. A highly complex process taking several days.</description>
     <jobString>Sequencing Vorta...</jobString>
-    <workAmount>12000</workAmount>
+    <workAmount>80000</workAmount>
+    <unfinishedThingDef>ST_UnfinishedClone</unfinishedThingDef>
     <workSpeedStat>MedicalTendSpeed</workSpeedStat>
     <ingredients>
       <li>
-        <filter>
-          <categories><li>MeatRaw</li></categories>
-        </filter>
+        <filter><categories><li>MeatRaw</li></categories></filter>
         <count>100</count>
       </li>
       <li>
-        <filter>
-          <thingDefs><li>Neutroamine</li></thingDefs>
-        </filter>
+        <filter><thingDefs><li>Neutroamine</li></thingDefs></filter>
         <count>15</count>
       </li>
       <li>
-        <filter>
-          <thingDefs><li>ComponentSpacer</li></thingDefs>
-        </filter>
+        <filter><thingDefs><li>ComponentSpacer</li></thingDefs></filter>
         <count>1</count>
       </li>
     </ingredients>

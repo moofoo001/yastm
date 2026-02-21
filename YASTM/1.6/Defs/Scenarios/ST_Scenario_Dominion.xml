@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ScenarioDef ParentName="ScenarioBase"> 
+    <defName>ST_Scenario_DominionVanguard</defName>
+    <label>The Dominion Vanguard</label>
+    <description>Your scout ship suffered a catastrophic failure and crash-landed in the Alpha Quadrant. As a Vorta administrator, your primary directive is to establish a foothold for the Founders. Your loyal Jem'Hadar guards will protect you with their lives, but their supply of Ketracel-White is critically low.\n\nYou must secure a steady production of the white before the withdrawal drives them mad. Victory is life!</description>
+    <scenario>
+      <summary>A Vorta two Jem'Hadar and a cardassian ally crash-land. Ketracel-White is limited.</summary>
+      <playerFaction>
+        <def>PlayerFaction</def>
+        <factionDef>ST_Player_DominionOutpost</factionDef>
+      </playerFaction>
+      <parts>
+        
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
+          <def>ConfigurePawnsKindDefs</def>
+          <pawnChoiceCount>4</pawnChoiceCount>
+          <kindCounts>
+            <li><kindDef>ST_Pawn_Vorta</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+            <li><kindDef>ST_Pawn_JemHadar_Trooper</kindDef><count>2</count><requiredAtStart>true</requiredAtStart></li>
+            <li><kindDef>ST_Pawn_Dominion_CardassianAlly</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+           </kindCounts>
+        </li>
+
+        <li Class="ScenPart_PlayerPawnsArriveMethod">
+          <def>PlayerPawnsArriveMethod</def>
+          <method>DropPods</method>
+        </li>
+
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>ST_Dominion_Foundation</project>
+        </li>
+        
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>ST_Dominion_KetracelProduction</project>
+        </li>
+
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>ST_KetracelWhite</thingDef>
+          <count>50</count> 
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Neutroamine</thingDef>
+          <count>150</count> 
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Chemfuel</thingDef>
+          <count>150</count> 
+        </li>
+        
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Steel</thingDef>
+          <count>800</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Plasteel</thingDef>
+          <count>100</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>ComponentIndustrial</thingDef>
+          <count>30</count>
+        </li>
+
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MealSurvivalPack</thingDef>
+          <count>20</count>
+        </li>
+        <li Class="ScenPart_GameStartDialog">
+          <def>GameStartDialog</def>
+          <text>The Founders will not be pleased about the crash... unless you turn this planet into a profit center.\n\nUse your Ketracel-White to establish a Market Link as soon as possible!</text>
+          <closeSound>GameStartSting</closeSound>
+        </li>
+      </parts>
+    </scenario>
+  </ScenarioDef>
+
+</Defs>

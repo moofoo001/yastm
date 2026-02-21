@@ -37,4 +37,37 @@
     </projectile>
   </ThingDef>
 
+<ThingDef ParentName="BaseBullet">
+    <defName>ST_Bullet_CardassianDisruptor_Pistol</defName>
+    <label>disruptor bolt</label>
+    <graphicData>
+      <texPath>Things/Projectile/Charge_Small_single</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(255, 180, 50)</color>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>12</damageAmountBase>
+      <stoppingPower>1</stoppingPower>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>ST_Bullet_CardassianDisruptor_Rifle</defName>
+    <label>heavy disruptor beam</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Medium</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(255, 180, 50)</color>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>18</damageAmountBase>
+      <armorPenetrationBase>0.35</armorPenetrationBase>
+      <stoppingPower>1.5</stoppingPower>
+      <speed>85</speed>
+    </projectile>
+  </ThingDef>
+
 </Defs>

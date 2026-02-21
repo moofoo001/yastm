@@ -63,20 +63,7 @@ namespace YASTM
             
             yield return gImprove;
 
-            // Career Database 
-            if (powered)    
-            {
-                yield return new Command_Action
-                {
-                    defaultLabel = "Career Database",
-                    defaultDesc = "Access the rank requirements and promotion matrix.",
-                    icon = ContentFinder<Texture2D>.Get("UI/Icons/Gizmos/Database", true), // Vanilla Info Icon
-                    action = () => 
-                    {
-                        Find.WindowStack.Add(new Dialog_CareerHelp());
-                    }
-                };
-            }
+
 
             // Request ceasefire
             var gCease = new Command_Action

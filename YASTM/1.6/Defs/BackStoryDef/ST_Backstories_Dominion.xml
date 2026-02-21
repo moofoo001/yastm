@@ -9,7 +9,7 @@
     <slot>Childhood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>ST_Dominion_JemHadar</li>
+      <li>Dominion_Warrior</li>
     </spawnCategories>
     <workDisables>
       <li>Artistic</li>
@@ -38,7 +38,7 @@
     <slot>Adulthood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>ST_Dominion_JemHadar</li>
+      <li>Dominion_Warrior</li>
     </spawnCategories>
     <workDisables>
       <li>Intellectual</li>
@@ -58,7 +58,8 @@
     <slot>Adulthood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>ST_Dominion_JemHadar</li>
+      <li>Dominion_Warrior</li>
+      <li>Dominion_Command</li>
     </spawnCategories>
     <skillGains>
       <Melee>6</Melee>
@@ -77,7 +78,8 @@
     <slot>Childhood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>ST_Dominion_Vorta</li>
+      <li>Dominion_Science</li>
+      <li>Dominion_Medical</li>
     </spawnCategories>
     <workDisables>
       <li>ManualDumb</li>
@@ -99,7 +101,9 @@
     <slot>Adulthood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>ST_Dominion_Vorta</li>
+      <li>Dominion_Science</li>
+      <li>Dominion_Medical</li>
+      <li>Dominion_Engineering</li>
     </spawnCategories>
     <workDisables>
       <li>Violent</li>
@@ -118,7 +122,7 @@
     <slot>Childhood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>ST_Dominion_Founder</li>
+      <li>Dominion_Command</li>
     </spawnCategories>
     <skillGains>
       <Social>8</Social>
@@ -136,7 +140,7 @@
     <slot>Adulthood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>ST_Dominion_Founder</li>
+      <li>Dominion_Command</li>
     </spawnCategories>
     <skillGains>
       <Social>8</Social>
@@ -151,7 +155,8 @@
     <slot>Childhood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>ST_Dominion_Vorta</li>
+      <li>Dominion_Engineering</li>
+      <li>Dominion_Science</li>
     </spawnCategories>
     <workDisables>
       <li>ManualDumb</li>
@@ -174,7 +179,8 @@
     <slot>Adulthood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>ST_Dominion_Vorta</li>
+      <li>Dominion_Engineering</li>
+      <li>Dominion_Science</li>
     </spawnCategories>
     <workDisables>
       <li>ManualDumb</li>
@@ -193,13 +199,14 @@
     <slot>Adulthood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>ST_Dominion_Vorta</li>
+      <li>Dominion_Medical</li>
     </spawnCategories>
     <skillGains>
       <Medicine>5</Medicine>
       <Social>4</Social>
     </skillGains>
   </BackstoryDef>
+
   <BackstoryDef>
     <defName>ST_BS_JemHadar_AlphaBred</defName>
     <title>Alpha Quadrant bred</title>
@@ -208,7 +215,7 @@
     <slot>Childhood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>ST_Dominion_JemHadar</li>
+      <li>Dominion_Warrior</li>
     </spawnCategories>
     <workDisables>
       <li>Artistic</li>
@@ -235,7 +242,7 @@
     <slot>Childhood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>ST_Dominion_JemHadar</li>
+      <li>Dominion_Warrior</li>
     </spawnCategories>
     <workDisables>
       <li>Artistic</li>
@@ -262,7 +269,7 @@
     <slot>Adulthood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>ST_Dominion_JemHadar</li>
+      <li>Dominion_Warrior</li>
     </spawnCategories>
     <skillGains>
       <Melee>5</Melee>
@@ -278,7 +285,7 @@
     <slot>Adulthood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>ST_Dominion_JemHadar</li>
+      <li>Dominion_Command</li>
     </spawnCategories>
     <skillGains>
       <Melee>8</Melee>
@@ -298,7 +305,7 @@
     <slot>Adulthood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>ST_Dominion_JemHadar</li>
+      <li>Dominion_Warrior</li>
     </spawnCategories>
     <skillGains>
       <Melee>10</Melee>
@@ -307,6 +314,70 @@
     <forcedTraits>
       <Brawler>0</Brawler>
     </forcedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Cardassian_Officer</defName>
+    <title>Cardassian officer</title>
+    <titleShort>officer</titleShort>
+    <baseDesc>A proud officer of the Cardassian military. He values order, discipline, and the glory of the Union above all else.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>Dominion_Cardassian</li>
+      <li>Dominion_Warrior</li> 
+    </spawnCategories>
+    <skillGains>
+      <Social>4</Social>
+      <Shooting>3</Shooting>
+      <Melee>2</Melee>
+    </skillGains>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Cardassian_Spy</defName>
+    <title>obsidian order agent</title>
+    <titleShort>agent</titleShort>
+    <baseDesc>A spy from the Obsidian Order, trained in subterfuge, interrogation, and the art of manipulation. He sees weakness everywhere.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>Dominion_Cardassian</li>
+      <li>Dominion_Engineering</li>
+    </spawnCategories>
+    <workDisables>
+      <li>Caring</li>
+      <li>PlantWork</li>
+      <li>Animals</li>
+    </workDisables>
+    <skillGains>
+      <Social>6</Social>
+      <Intellectual>4</Intellectual>
+    </skillGains>
+    <forcedTraits>
+      <Psychopath>0</Psychopath>
+    </forcedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Cardassian_Tailor</defName>
+    <title>master tailor</title>
+    <titleShort>tailor</titleShort>
+    <baseDesc>A master tailor from Cardassia Prime, renowned for his ability to create elegant and functional uniforms. He takes great pride in his work.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>Dominion_Cardassian</li>
+      <li>Dominion_Engineering</li>
+    </spawnCategories>
+    <workDisables>
+      <li>Violent</li>
+      <li>ManualDumb</li>
+    </workDisables>
+    <skillGains>
+      <Artistic>8</Artistic>
+      <Social>2</Social>
+    </skillGains>
   </BackstoryDef>
 
 </Defs>

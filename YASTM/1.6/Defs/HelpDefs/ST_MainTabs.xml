@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <MainButtonDef>
+    <defName>ST_MainTab_MemoryAlpha</defName>
+    <label>Memory Alpha</label>
+    <description>Access the Federation database for information on technology, factions, and protocols.</description>
+    
+    <tabWindowClass>YASTM.MainTabWindow_MemoryAlpha</tabWindowClass>
+    
+    <order>100</order> 
+    
+    <hotKey>Misc12</hotKey> 
+  </MainButtonDef>
+
+</Defs>
