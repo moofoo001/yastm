@@ -7,6 +7,7 @@
     <description>Access the Federation database for information on technology, factions, and protocols.</description>
     
     <tabWindowClass>YASTM.MainTabWindow_MemoryAlpha</tabWindowClass>
+    <workerClass>YASTM.MainButtonWorker_MemoryAlpha</workerClass>
     
     <order>100</order> 
     

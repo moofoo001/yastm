@@ -12,11 +12,17 @@ namespace YASTM
         private ST_HelpDef selectedArticle;
         private string selectedCategory;
         
-        private Vector2 rightScrollPosition; 
+        private Vector2 rightScrollPosition;
+
+        //  LCARS colors
+        private readonly Color lcarsOrange = new Color(1f, 0.6f, 0f);
+        private readonly Color lcarsPurple = new Color(0.8f, 0.6f, 1f);
+        private readonly Color lcarsBlue = new Color(0.6f, 0.8f, 1f);
+        private readonly Color lcarsLightBlue = new Color(0.4f, 0.7f, 1f);
 
         public Dialog_MemoryAlpha()
         {
-            this.doCloseButton = true;
+            this.doCloseButton = false; // LCARS Button
             this.forcePause = true;
             this.absorbInputAroundWindow = true;
 
@@ -30,14 +36,32 @@ namespace YASTM
 
         public override void DoWindowContents(Rect inRect)
         {
+            // === LCARS HEADER BAR ===
+            Rect headerBar = new Rect(0, 0, inRect.width - 120f, 35f);
+            Widgets.DrawBoxSolid(headerBar, lcarsOrange);
+            
             Text.Font = GameFont.Medium;
-            Widgets.Label(new Rect(0, 0, inRect.width, 40f), "Memory Alpha Database".Colorize(Color.cyan));
+            GUI.color = Color.black;
+            Text.Anchor = TextAnchor.MiddleRight;
+            Widgets.Label(new Rect(headerBar.x, headerBar.y, headerBar.width - 15f, headerBar.height), "MEMORY ALPHA DATABASE");
+            
+            // LCARS Close Button
+            Rect closeRect = new Rect(inRect.width - 110f, 0, 110f, 35f);
+            Widgets.DrawBoxSolid(closeRect, lcarsLightBlue);
+            Widgets.Label(new Rect(closeRect.x, closeRect.y, closeRect.width - 15f, closeRect.height), "CLOSE");
+            if (Widgets.ButtonInvisible(closeRect))
+            {
+                this.Close();
+            }
+
+            // Reset Text
+            GUI.color = Color.white;
+            Text.Anchor = TextAnchor.UpperLeft;
             Text.Font = GameFont.Small;
 
-            Widgets.DrawLineHorizontal(0, 40f, inRect.width);
-
-            Rect leftPanel = new Rect(0, 50f, 250f, inRect.height - 100f);
-            Rect rightPanel = new Rect(270f, 50f, inRect.width - 270f, inRect.height - 100f);
+            // === PANELS ===
+            Rect leftPanel = new Rect(0, 50f, 250f, inRect.height - 50f);
+            Rect rightPanel = new Rect(270f, 50f, inRect.width - 270f, inRect.height - 50f);
 
             DrawLeftMenu(leftPanel);
             DrawRightContent(rightPanel);
@@ -45,94 +69,92 @@ namespace YASTM
 
         private void DrawLeftMenu(Rect rect)
         {
-            Widgets.DrawMenuSection(rect);
-            Rect innerRect = rect.ContractedBy(4f);
-            
             var categories = DefDatabase<ST_HelpDef>.AllDefs.Select(d => d.category).Distinct().OrderBy(c => c).ToList();
             
-            Listing_Standard ls = new Listing_Standard();
-            ls.Begin(innerRect);
+            float currentY = rect.y;
 
             foreach (var category in categories)
             {
-                // Kategorie-Header 
-                Rect catRect = ls.GetRect(30f);
-                if (selectedCategory == category)
-                    Widgets.DrawHighlightSelected(catRect);
-                else
-                    Widgets.DrawHighlightIfMouseover(catRect);
+                // LCARS Category Block (Wide, right-aligned text)
+                Rect catRect = new Rect(rect.x, currentY, rect.width, 30f);
+                Color blockColor = (selectedCategory == category) ? lcarsPurple : lcarsBlue;
+                Widgets.DrawBoxSolid(catRect, blockColor);
 
-                Text.Font = GameFont.Medium;
-                Text.Anchor = TextAnchor.MiddleLeft;
-                Widgets.Label(catRect, " " + category);
-                Text.Anchor = TextAnchor.UpperLeft;
+                GUI.color = Color.black;
                 Text.Font = GameFont.Small;
+                Text.Anchor = TextAnchor.MiddleRight;
+                Widgets.Label(new Rect(catRect.x, catRect.y, catRect.width - 10f, catRect.height), category.ToUpper());
+                GUI.color = Color.white;
+                Text.Anchor = TextAnchor.UpperLeft;
 
                 if (Widgets.ButtonInvisible(catRect))
                 {
                     selectedCategory = category;
                 }
+                currentY += 35f;
 
-                // articels in this category
+                // Draw sub-items when category is open
                 if (selectedCategory == category)
                 {
                     var articlesInCat = DefDatabase<ST_HelpDef>.AllDefs.Where(d => d.category == category).OrderBy(d => d.listOrder).ToList();
                     foreach (var article in articlesInCat)
                     {
-                        Rect btnRect = ls.GetRect(24f);
-                        btnRect.xMin += 15f; // tree structure
+                        //  Smaller LCARS Block, slightly indented
+                        Rect btnRect = new Rect(rect.x + 50f, currentY, rect.width - 50f, 22f);
+                        Color artColor = (selectedArticle == article) ? lcarsOrange : lcarsLightBlue;
+                        
+                        // A vertical line next to it, typical LCARS
+                        Rect sideLine = new Rect(rect.x, currentY, 40f, 22f);
+                        Widgets.DrawBoxSolid(sideLine, artColor);
+                        Widgets.DrawBoxSolid(btnRect, artColor);
 
-                        bool isSelected = (selectedArticle == article);
-                        if (isSelected)
-                            Widgets.DrawHighlightSelected(btnRect);
-                        else
-                            Widgets.DrawHighlightIfMouseover(btnRect);
-
-                        Text.Anchor = TextAnchor.MiddleLeft;
-                        Widgets.Label(btnRect, " - " + article.title);
+                        GUI.color = Color.black;
+                        Text.Anchor = TextAnchor.MiddleRight;
+                        Widgets.Label(new Rect(btnRect.x, btnRect.y, btnRect.width - 10f, btnRect.height), article.title.ToUpper());
+                        GUI.color = Color.white;
                         Text.Anchor = TextAnchor.UpperLeft;
 
-                        if (Widgets.ButtonInvisible(btnRect))
+                        if (Widgets.ButtonInvisible(btnRect) || Widgets.ButtonInvisible(sideLine))
                         {
                             selectedArticle = article;
                         }
+                        currentY += 26f;
                     }
+                    currentY += 10f; // space after an open category
                 }
-                ls.Gap(4f);
             }
-            ls.End();
         }
 
         private void DrawRightContent(Rect rect)
         {
-            Widgets.DrawMenuSection(rect);
-            Rect innerRect = rect.ContractedBy(10f);
+            if (selectedArticle == null) return;
 
-            if (selectedArticle == null)
-            {
-                Widgets.Label(innerRect, "Please select an entry from the database.");
-                return;
-            }
-
+            // Content Header (LCARS Style)
+            Rect titleBar = new Rect(rect.x, rect.y, rect.width, 35f);
+            Widgets.DrawBoxSolid(titleBar, lcarsOrange);
+            
+            GUI.color = Color.black;
             Text.Font = GameFont.Medium;
-            Widgets.Label(new Rect(innerRect.x, innerRect.y, innerRect.width, 35f), selectedArticle.title.Colorize(Color.yellow));
+            Text.Anchor = TextAnchor.MiddleLeft;
+            Widgets.Label(new Rect(titleBar.x + 15f, titleBar.y, titleBar.width, titleBar.height), selectedArticle.title.ToUpper());
+            GUI.color = Color.white;
+            Text.Anchor = TextAnchor.UpperLeft;
             Text.Font = GameFont.Small;
-            Widgets.DrawLineHorizontal(innerRect.x, innerRect.y + 35f, innerRect.width);
 
-            Rect textRect = new Rect(innerRect.x, innerRect.y + 45f, innerRect.width, innerRect.height - 45f);
+            Rect innerRect = new Rect(rect.x, rect.y + 50f, rect.width, rect.height - 50f);
             
             if (!string.IsNullOrEmpty(selectedArticle.texturePath))
             {
                 Texture2D image = ContentFinder<Texture2D>.Get(selectedArticle.texturePath, false);
                 if (image != null)
                 {
-                    Rect imgRect = new Rect(textRect.x, textRect.y, 200f, 200f);
+                    Rect imgRect = new Rect(innerRect.x, innerRect.y, 200f, 200f);
                     GUI.DrawTexture(imgRect, image, ScaleMode.ScaleToFit);
-                    textRect.yMin += 210f; 
+                    innerRect.yMin += 210f; 
                 }
             }
 
-            Widgets.LabelScrollable(textRect, selectedArticle.text, ref rightScrollPosition);
+            Widgets.LabelScrollable(innerRect, selectedArticle.text, ref rightScrollPosition);
         }
     }
 }
