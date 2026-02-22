@@ -1,12 +1,15 @@
-using System.Collections.Generic;
+// YASTM comp multi mode weapon v1.8.3
+
+
+using System.Collections.Generic;  
 using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
+using HarmonyLib; // WICHTIG: Damit erzwingen wir den Button!
 
 namespace YASTM
 {
-    // 1. DIE XML-EINSTELLUNGEN
     public class CompProperties_MultiModeWeapon : CompProperties
     {
         public List<WeaponModeDef> modes = new List<WeaponModeDef>();
@@ -16,14 +19,13 @@ namespace YASTM
     public class WeaponModeDef
     {
         public string label;
-        public string iconPath;
+        public string iconPath; // Hier wird das Bild aus der XML gezogen!
         public ThingDef projectileDef;
         public SoundDef soundInteract;
         public bool isOverload = false;
         public float overloadSelfExplodeChance = 0.05f; 
     }
 
-    // 2. DAS HERZSTÜCK
     public class CompMultiModeWeapon : ThingComp
     {
         public CompProperties_MultiModeWeapon Props => (CompProperties_MultiModeWeapon)props;
@@ -60,21 +62,16 @@ namespace YASTM
                 CurrentMode.soundInteract.PlayOneShot(new TargetInfo(parent.Position, parent.Map));
         }
 
-        // HIER IST DER SAUBERE VANILLA WEG (Wird automatisch von RimWorld aufgerufen)
-        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        // Diese Methode wird jetzt sicher von unserem Patch aufgerufen!
+        public IEnumerable<Gizmo> GetPhaserGizmos()
         {
-            Pawn pawn = null;
-            if (parent.ParentHolder is Pawn_EquipmentTracker eq) pawn = eq.pawn;
-            else if (parent.ParentHolder is Pawn p) pawn = p;
-
-            if (pawn != null && pawn.Faction == Faction.OfPlayer && CurrentMode != null)
+            if (CurrentMode != null)
             {
                 yield return new Command_PhaserMode(this);
             }
         }
     }
 
-    // 3. UNSER EIGENER, INTELLIGENTER BUTTON (Mit Linksklick & Rechtsklick!)
     public class Command_PhaserMode : Command_Action
     {
         private CompMultiModeWeapon comp;
@@ -85,11 +82,10 @@ namespace YASTM
             this.groupKey = 3133701 + comp.parent.def.shortHash;
             UpdateVisuals();
             
-            // Was passiert beim Linksklick?
             this.action = delegate 
             {
                 this.comp.CycleMode();
-                UpdateVisuals(); // Bild sofort aktualisieren!
+                UpdateVisuals();
             };
         }
 
@@ -104,7 +100,6 @@ namespace YASTM
                 this.icon = TexCommand.Attack;
         }
 
-        // Was passiert beim Rechtsklick? (Das coole neue Menü!)
         public override IEnumerable<FloatMenuOption> RightClickFloatMenuOptions
         {
             get
@@ -124,7 +119,33 @@ namespace YASTM
         }
     }
 
-    // 4. DAS VERB (Wie die Waffe feuert)
+    // =================================================================
+    // DER ABSOLUT KUGELSICHERE PATCH
+    // Zwingt RimWorld, den Button JEDEM Kolonisten zu geben, der die Waffe hält!
+    // =================================================================
+    [HarmonyPatch(typeof(Pawn), nameof(Pawn.GetGizmos))]
+    public static class Patch_Pawn_GetPhaserGizmos
+    {
+        public static IEnumerable<Gizmo> Postfix(IEnumerable<Gizmo> values, Pawn __instance)
+        {
+            foreach (var gizmo in values) yield return gizmo;
+
+            if (__instance.Faction != Faction.OfPlayer) yield break;
+
+            if (__instance.equipment != null && __instance.equipment.Primary != null)
+            {
+                var comp = __instance.equipment.Primary.GetComp<CompMultiModeWeapon>();
+                if (comp != null)
+                {
+                    foreach (var gizmo in comp.GetPhaserGizmos())
+                    {
+                        yield return gizmo;
+                    }
+                }
+            }
+        }
+    }
+
     public class Verb_PhaserShoot : Verb_Shoot
     {
         public override ThingDef Projectile
