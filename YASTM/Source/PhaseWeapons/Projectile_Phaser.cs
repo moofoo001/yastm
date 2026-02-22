@@ -1,5 +1,6 @@
 using RimWorld;
 using Verse;
+using YASTM; 
 
 namespace ST.PhaseWeapons
 {
@@ -12,18 +13,20 @@ namespace ST.PhaseWeapons
 
     public class Projectile_Phaser : Bullet
     {
-        static HediffDef StunMarker =>
-            DefDatabase<HediffDef>.GetNamedSilentFail("ST_Hediff_PhaserStunMode");
+        static HediffDef StunMarker => DefDatabase<HediffDef>.GetNamedSilentFail("ST_Hediff_PhaserStunMode");
 
         protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
             var shooter  = launcher as Pawn;
-            var modeComp = shooter?.equipment?.Primary?.TryGetComp<CompPhaserMode>();
+            
+            // Lese das NEUE Waffen-System aus!
+            var modeComp = shooter?.equipment?.Primary?.TryGetComp<CompMultiModeWeapon>();
             var ext      = def.GetModExtension<ModExtension_PhaserSettings>();
 
-            bool wantStun =
-                (modeComp != null && modeComp.mode == PhaserFireMode.Stun) ||
-                (StunMarker != null && shooter != null && shooter.health.hediffSet.HasHediff(StunMarker));
+            bool isStunMode = modeComp != null && modeComp.CurrentMode != null && modeComp.CurrentMode.label.ToLower().Contains("stun");
+            bool isOverloadMode = modeComp != null && modeComp.CurrentMode != null && modeComp.CurrentMode.isOverload;
+
+            bool wantStun = isStunMode || (StunMarker != null && shooter != null && shooter.health.hediffSet.HasHediff(StunMarker));
 
             if (wantStun && !blockedByShield && hitThing is Pawn target)
             {
@@ -38,7 +41,7 @@ namespace ST.PhaseWeapons
                 }
             }
 
-            if (modeComp != null && modeComp.mode == PhaserFireMode.Overcharge && launcher?.Map != null)
+            if (isOverloadMode && launcher?.Map != null)
             {
                 GenExplosion.DoExplosion(Position, launcher.Map, 1.3f, DamageDefOf.Flame, shooter);
             }
@@ -47,4 +50,3 @@ namespace ST.PhaseWeapons
         }
     }
 }
-

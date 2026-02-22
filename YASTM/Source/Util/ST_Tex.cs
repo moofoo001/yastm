@@ -27,15 +27,7 @@ namespace ST.PhaseWeapons
         }
          
 
-        public static Texture2D IconFor(PhaserFireMode mode)
-        {
-            switch (mode)
-            {
-                case PhaserFireMode.Stun:       return PhaserPulse_Stun;
-                case PhaserFireMode.Overcharge: return PhaserPulse_Overcharge;
-                default:                        return PhaserPulse; // Kill/Lethal
-            }
-        }
+
     }
 }
 

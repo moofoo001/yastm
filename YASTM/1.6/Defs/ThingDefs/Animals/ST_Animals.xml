@@ -668,7 +668,8 @@
       </li>
     </tools>
     <race>
-      <body>BeetleLike</body> <baseBodySize>0.4</baseBodySize>
+      <body>BeetleLike</body>
+      <baseBodySize>0.4</baseBodySize>
       <baseHealthScale>0.6</baseHealthScale>
       <foodType>CarnivoreAnimalStrict</foodType>
       <trainability>None</trainability>
@@ -721,7 +722,8 @@
       <li>
         <label>larva</label>
         <bodyGraphicData>
-          <texPath>Things/Animals/SerpentWorm</texPath> <drawSize>0.5</drawSize>
+          <texPath>Things/Animals/SerpentWorm</texPath>
+          <drawSize>0.5</drawSize>
           <color>(130,50,50)</color>
         </bodyGraphicData>
         <dessicatedBodyGraphicData>
@@ -749,6 +751,95 @@
         <dessicatedBodyGraphicData>
           <texPath>Things/Animals/Dessicated_SerpentWorm</texPath>
           <drawSize>1.1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <!-- =========================
+       WARP SLUG – ThingDef
+       ========================= -->
+
+<ThingDef ParentName="AnimalThingBase">
+    <defName>ST_WarpSlug</defName>
+    <label>warp-slug</label>
+    <description>A sub-orbital shelled slug capable of making short warp jumps to relocate almost instantaneously. It produces large amounts of mucus to cling to surfaces and delivers a nasty, toxic bite if threatened.</description>
+    <statBases>
+      <MoveSpeed>1.5</MoveSpeed> 
+      <MarketValue>350</MarketValue>
+      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+      <ComfyTemperatureMax>45</ComfyTemperatureMax>
+      <MeatAmount>10</MeatAmount>
+      <LeatherAmount>0</LeatherAmount>
+      <Wildness>0.75</Wildness> 
+    </statBases>
+    <race>
+      <herdAnimal>false</herdAnimal>
+      <predator>false</predator>
+      <body>BeetleLike</body> 
+      <baseBodySize>0.15</baseBodySize> 
+      <baseHealthScale>0.3</baseHealthScale>
+      <foodType>VegetarianRoughAnimal</foodType>
+      <manhunterOnDamageChance>1.0</manhunterOnDamageChance> 
+      <lifeExpectancy>15</lifeExpectancy>
+      
+      <lifeStageAges>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.0</minAge>
+        </li>
+      </lifeStageAges>
+      </race>
+    <tools>
+      <li>
+        <label>poisonous bite</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>3</power>
+        <cooldownTime>2.0</cooldownTime>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>10</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+    </tools>
+    <comps>
+      <li Class="CompProperties_SpawnerFilth">
+        <filthDef>Filth_Slime</filthDef>
+        <spawnCountOnSpawn>1</spawnCountOnSpawn>
+        <spawnMtbHours>2</spawnMtbHours>
+        <spawnRadius>1</spawnRadius>
+      </li>
+      <li Class="YASTM.CompProperties_WarpSlug">
+        <warpChance>0.85</warpChance>
+        <warpRadius>30</warpRadius>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>ST_WarpSlug</defName>
+    <label>warp-slug</label>
+    <race>ST_WarpSlug</race>
+    <combatPower>25</combatPower>
+    <ecoSystemWeight>0.1</ecoSystemWeight>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Animals/WarpSlug</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>0.8</drawSize>
+          <color>(200, 50, 50)</color> 
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Animals/Dessicated_WarpSlug</texPath>
+          <drawSize>0.8</drawSize>
         </dessicatedBodyGraphicData>
       </li>
     </lifeStages>

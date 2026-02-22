@@ -1,7 +1,7 @@
 using HarmonyLib;
 using Verse;
 
-namespace ST.PhaseWeapons
+namespace YASTM
 {
     [StaticConstructorOnStartup]
     public static class Startup

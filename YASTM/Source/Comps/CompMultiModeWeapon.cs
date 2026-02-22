@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq; // WICHTIG für Count()
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -7,26 +6,28 @@ using Verse.Sound;
 
 namespace YASTM
 {
+    // 1. DIE EINSTELLUNGEN
+    public class CompProperties_MultiModeWeapon : CompProperties
+    {
+        public List<WeaponModeDef> modes = new List<WeaponModeDef>();
+        public CompProperties_MultiModeWeapon() { this.compClass = typeof(CompMultiModeWeapon); }
+    }
+
+    public class WeaponModeDef
+    {
+        public string label;
+        public string iconPath;
+        public ThingDef projectileDef;
+        public SoundDef soundInteract;
+        public bool isOverload = false;
+        public float overloadSelfExplodeChance = 0.05f; 
+    }
+
+    // 2. DAS HERZSTÜCK (Der Comp & Button)
     public class CompMultiModeWeapon : ThingComp
     {
         public CompProperties_MultiModeWeapon Props => (CompProperties_MultiModeWeapon)props;
         private int currentModeIndex = 0;
-
-        // Wir prüfen beim Start, ob etwas faul ist
-        public override void Initialize(CompProperties props)
-        {
-            base.Initialize(props);
-            
-            // SECURITY CHECK: Hat die Waffe diesen Comp versehentlich doppelt?
-            if (parent != null)
-            {
-                var duplicates = parent.GetComps<CompMultiModeWeapon>().ToList();
-                if (duplicates.Count > 1)
-                {
-                    Log.Error($"[YASTM CRITICAL] WEAPON CONFIG ERROR: {parent.Label} has {duplicates.Count} COPIES of CompMultiModeWeapon! The code will confuse them.");
-                }
-            }
-        }
 
         public WeaponModeDef CurrentMode 
         {
@@ -44,10 +45,27 @@ namespace YASTM
             Scribe_Values.Look(ref currentModeIndex, "currentModeIndex", 0);
         }
 
-        public IEnumerable<Gizmo> GetWeaponGizmos()
+        // NEU: Idiotensichere Methode, um den Träger der Waffe zu finden, 
+        // egal wie tief RimWorld die Waffe im Inventar verschachtelt hat!
+        private Pawn GetPawnOwner()
+        {
+            IThingHolder holder = parent.ParentHolder;
+            while (holder != null)
+            {
+                if (holder is Pawn_EquipmentTracker eq) return eq.pawn;
+                if (holder is Pawn p) return p;
+                holder = holder.ParentHolder;
+            }
+            return null;
+        }
+
+        // HIER IST DER FIX: Wir nutzen GetPawnOwner()
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             Pawn pawn = GetPawnOwner();
-            if (pawn == null || !pawn.IsColonistPlayerControlled) yield break;
+            
+            // Zeige den Button nur, wenn die Waffe einem Spieler-Kolonisten gehört
+            if (pawn == null || pawn.Faction != Faction.OfPlayer) yield break;
 
             if (CurrentMode != null)
             {
@@ -55,10 +73,8 @@ namespace YASTM
                 switchMode.defaultLabel = CurrentMode.label;
                 switchMode.defaultDesc = $"Cycle weapon mode.\nCurrent: {CurrentMode.label}";
                 
-                // ICON LOGIK
                 if (!CurrentMode.iconPath.NullOrEmpty())
                     switchMode.icon = ContentFinder<Texture2D>.Get(CurrentMode.iconPath, false);
-                
                 if (switchMode.icon == null) switchMode.icon = TexCommand.Attack; 
 
                 switchMode.action = delegate { CycleMode(pawn); };
@@ -67,15 +83,9 @@ namespace YASTM
                 yield return switchMode;
             }
         }
-        
-        public override IEnumerable<Gizmo> CompGetGizmosExtra()
-        {
-            yield break; 
-        }
 
         private void CycleMode(Pawn pawn)
         {
-            // Index hochzählen
             currentModeIndex++;
             if (currentModeIndex >= Props.modes.Count) currentModeIndex = 0;
 
@@ -83,35 +93,46 @@ namespace YASTM
                 CurrentMode.soundInteract.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map));
             
             MoteMaker.ThrowText(pawn.DrawPos, pawn.Map, CurrentMode.label, 2f);
-            
-            // --- DIAGNOSE LOG ---
-            // Wir loggen die ID dieser Instanz (GetHashCode).
-            // Wenn diese ID anders ist als die im Patch (siehe unten), haben wir den Übeltäter.
-            Log.Warning($"[YASTM BUTTON] Switched Instance #{this.GetHashCode()} to Index {currentModeIndex} ({CurrentMode.label})");
         }
+    }
 
-        private Pawn GetPawnOwner()
+    // 3. DAS VERB (Wie die Waffe feuert)
+    public class Verb_PhaserShoot : Verb_Shoot
+    {
+        public override ThingDef Projectile
         {
-            if (parent.ParentHolder is Pawn_EquipmentTracker tracker) return tracker.pawn;
-            if (parent.ParentHolder is Pawn p) return p;
-            return null;
+            get
+            {
+                if (EquipmentSource == null) return base.Projectile;
+                var comp = EquipmentSource.GetComp<CompMultiModeWeapon>();
+                
+                if (comp != null && comp.CurrentMode != null && comp.CurrentMode.projectileDef != null)
+                {
+                    return comp.CurrentMode.projectileDef;
+                }
+                return base.Projectile;
+            }
         }
-    }
-    
-    // Properties und Defs Klassen müssen hier bleiben...
-    public class CompProperties_MultiModeWeapon : CompProperties
-    {
-        public List<WeaponModeDef> modes = new List<WeaponModeDef>();
-        public CompProperties_MultiModeWeapon() { this.compClass = typeof(CompMultiModeWeapon); }
-    }
 
-    public class WeaponModeDef
-    {
-        public string label;
-        public string iconPath;
-        public ThingDef projectileDef;
-        public SoundDef soundInteract;
-        public bool isOverload = false;
-        public float overloadSelfExplodeChance = 0.05f; 
+        protected override bool TryCastShot()
+        {
+            if (EquipmentSource == null) return base.TryCastShot();
+            var comp = EquipmentSource.GetComp<CompMultiModeWeapon>();
+            
+            if (comp != null && comp.CurrentMode != null && comp.CurrentMode.isOverload)
+            {
+                if (Rand.Chance(comp.CurrentMode.overloadSelfExplodeChance))
+                {
+                    Pawn pawn = CasterPawn;
+                    if (pawn != null)
+                    {
+                        MoteMaker.ThrowText(pawn.DrawPos, pawn.Map, "Overload Misfire!", 3f);
+                        GenExplosion.DoExplosion(pawn.Position, pawn.Map, 1.9f, DamageDefOf.Bomb, pawn, 10, weapon: EquipmentSource.def);
+                        return false; 
+                    }
+                }
+            }
+            return base.TryCastShot();
+        }
     }
 }

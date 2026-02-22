@@ -67,21 +67,23 @@ namespace YASTM
             DrawRightContent(rightPanel);
         }
 
-        private void DrawLeftMenu(Rect rect)
+     private void DrawLeftMenu(Rect rect)
         {
             var categories = DefDatabase<ST_HelpDef>.AllDefs.Select(d => d.category).Distinct().OrderBy(c => c).ToList();
             
             float currentY = rect.y;
 
+            // WICHTIG: Schriftart festlegen, bevor wir Höhen berechnen!
+            Text.Font = GameFont.Small; 
+
             foreach (var category in categories)
             {
-                // LCARS Category Block (Wide, right-aligned text)
+                // LCARS Kategorie Block
                 Rect catRect = new Rect(rect.x, currentY, rect.width, 30f);
                 Color blockColor = (selectedCategory == category) ? lcarsPurple : lcarsBlue;
                 Widgets.DrawBoxSolid(catRect, blockColor);
 
                 GUI.color = Color.black;
-                Text.Font = GameFont.Small;
                 Text.Anchor = TextAnchor.MiddleRight;
                 Widgets.Label(new Rect(catRect.x, catRect.y, catRect.width - 10f, catRect.height), category.ToUpper());
                 GUI.color = Color.white;
@@ -93,24 +95,30 @@ namespace YASTM
                 }
                 currentY += 35f;
 
-                // Draw sub-items when category is open
+                // Unterpunkte zeichnen, wenn Kategorie offen
                 if (selectedCategory == category)
                 {
                     var articlesInCat = DefDatabase<ST_HelpDef>.AllDefs.Where(d => d.category == category).OrderBy(d => d.listOrder).ToList();
                     foreach (var article in articlesInCat)
                     {
-                        //  Smaller LCARS Block, slightly indented
-                        Rect btnRect = new Rect(rect.x + 50f, currentY, rect.width - 50f, 22f);
+                        string titleText = article.title.ToUpper();
+                        
+                        // NEU: Wir berechnen, wie viel Platz der Text braucht!
+                        float textWidth = rect.width - 60f; // Verfügbare Breite für den Text
+                        float textHeight = Text.CalcHeight(titleText, textWidth);
+                        float finalHeight = Mathf.Max(22f, textHeight + 4f); // Mindestens 22px hoch, ansonsten so hoch wie der Text
+
+                        // Blöcke zeichnen mit der neuen, dynamischen Höhe
+                        Rect btnRect = new Rect(rect.x + 50f, currentY, rect.width - 50f, finalHeight);
                         Color artColor = (selectedArticle == article) ? lcarsOrange : lcarsLightBlue;
                         
-                        // A vertical line next to it, typical LCARS
-                        Rect sideLine = new Rect(rect.x, currentY, 40f, 22f);
+                        Rect sideLine = new Rect(rect.x, currentY, 40f, finalHeight);
                         Widgets.DrawBoxSolid(sideLine, artColor);
                         Widgets.DrawBoxSolid(btnRect, artColor);
 
                         GUI.color = Color.black;
                         Text.Anchor = TextAnchor.MiddleRight;
-                        Widgets.Label(new Rect(btnRect.x, btnRect.y, btnRect.width - 10f, btnRect.height), article.title.ToUpper());
+                        Widgets.Label(new Rect(btnRect.x, btnRect.y, btnRect.width - 10f, btnRect.height), titleText);
                         GUI.color = Color.white;
                         Text.Anchor = TextAnchor.UpperLeft;
 
@@ -118,9 +126,11 @@ namespace YASTM
                         {
                             selectedArticle = article;
                         }
-                        currentY += 26f;
+                        
+                        // Y-Position für den nächsten Button anpassen
+                        currentY += finalHeight + 4f; 
                     }
-                    currentY += 10f; // space after an open category
+                    currentY += 10f; 
                 }
             }
         }

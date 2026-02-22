@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+ 
+
+    <!-- Field Triage Buff -->
+    <HediffDef>
+    <defName>ST_FieldTriageBuff</defName>
+    <label>field triage</label>
+    <description>Provides a temporary boost to medical tend speed and immunity gain, while slightly reducing pain.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.65,0.95,1)</defaultLabelColor>
+    <tendable>false</tendable>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>3000</disappearsAfterTicks> 
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MedicalTendSpeed>0.25</MedicalTendSpeed>
+          <ImmunityGainSpeed>0.05</ImmunityGainSpeed>
+        </statOffsets>
+        <painOffset>-0.05</painOffset>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- command presence buff -->
+  <HediffDef>
+    <defName>ST_CommandPresenceBuff</defName>
+    <label>command presence</label>
+    <description>Leadership aura that steadies nerves and improves coordination.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>2200</disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MoveSpeed>0.10</MoveSpeed>
+          <AimingDelayFactor>-0.05</AimingDelayFactor>
+          <ShootingAccuracyPawn>0.05</ShootingAccuracyPawn>
+          <MentalBreakThreshold>-0.03</MentalBreakThreshold>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+    <!-- tactical overwatch buff -->
+  <HediffDef>
+    <defName>ST_TacticalOverwatchBuff</defName>
+    <label>tactical overwatch</label>
+    <description>Assumes a steady firing stance, improving aim at the cost of mobility.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>900</disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <AimingDelayFactor>-0.15</AimingDelayFactor>
+          <ShootingAccuracyPawn>0.03</ShootingAccuracyPawn>
+          <MoveSpeed>-0.05</MoveSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- STARFLEET – Duty Focus-->
+  <HediffDef>
+    <defName>ST_Hediff_Starfleet_DutyFocus</defName>
+    <label>duty focus</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <description>This pawn has recently reaffirmed their duty to Starfleet and the Federation.
+      Their sense of responsibility sharpens their focus and work ethic for a limited time.</description>
+    <initialSeverity>1</initialSeverity>
+    <isBad>false</isBad>
+
+    <stages>
+      <li>
+        <label>duty-focused</label>
+        <statFactors>
+          <WorkSpeedGlobal>1.10</WorkSpeedGlobal>
+        </statFactors>
+        <statOffsets>
+          <MentalBreakThreshold>-0.03</MentalBreakThreshold>
+        </statOffsets>
+      </li>
+    </stages>
+
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>45000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+
+  <!-- KLINGON – Battle Oath Focus -->
+  <HediffDef>
+    <defName>ST_Hediff_Klingon_BattleFocus</defName>
+    <label>battle focus</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <description>This warrior has recently sworn or renewed a blood oath.
+      Honor and battle are at the center of their thoughts, sharpening their combat focus.</description>
+    <initialSeverity>1</initialSeverity>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <label>oathbound</label>
+        <statFactors>
+          <MoveSpeed>1.08</MoveSpeed>
+        </statFactors>
+        <statOffsets>
+          <MeleeHitChance>0.10</MeleeHitChance>
+          <MeleeDodgeChance>0.05</MeleeDodgeChance>
+        </statOffsets>
+      </li>
+    </stages>
+
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>30000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+
+  <!-- ROMULAN – Analysis Trance -->
+  <HediffDef>
+    <defName>ST_Hediff_Romulan_AnalysisFocus</defName>
+    <label>analysis focus</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <description>This pawn is in a state of intense, controlled analytical focus,
+      shutting out distractions to process data, plots and intelligence.</description>
+    <initialSeverity>1</initialSeverity>
+    <isBad>false</isBad>
+
+    <stages>
+      <li>
+        <label>deep analysis</label>
+        <statFactors>
+          <ResearchSpeed>1.20</ResearchSpeed>
+          <GlobalLearningFactor>1.10</GlobalLearningFactor>
+        </statFactors>
+        <statOffsets>
+          <MoveSpeed>-0.08</MoveSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>60000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+
+  <!-- FERENGI – Profit High -->
+  <HediffDef>
+    <defName>ST_Hediff_Ferengi_ProfitHigh</defName>
+    <label>profit high</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <description>This Ferengi has recently concluded a profitable deal or profit ceremony.
+      Latinum dreams sharpen their bargaining and business instincts.</description>
+    <initialSeverity>1</initialSeverity>
+    <isBad>false</isBad>
+
+    <stages>
+      <li>
+        <label>profit-inspired</label>
+        <statFactors>
+          <TradePriceImprovement>1.15</TradePriceImprovement>
+        </statFactors>
+        <statOffsets>
+          <WorkSpeedGlobal>0.05</WorkSpeedGlobal>
+        </statOffsets>
+      </li>
+    </stages>
+
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+
+        <disappearsAfterTicks>30000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- ===== DOMINION: Shroud Cloak ===== -->
+  <HediffDef>
+    <defName>ST_Hediff_ShroudCloak</defName>
+    <label>Shrouded</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <description>Visually undetectable.</description>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_Invisibility">
+        <visibleToPlayer>true</visibleToPlayer> </li>
+    </comps>
+    <isBad>false</isBad>
+  </HediffDef>
+
+
+  <!-- Morphogenic Matrix -->
+  <HediffDef>
+    <defName>ST_Hediff_MorphogenicMatrix</defName>
+    <label>morphogenic matrix</label>
+    <description>This being's physiology is based on a morphogenic liquid matrix. It does not possess internal organs in the traditional sense, does not bleed, and absorbs kinetic energy effectively.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(255, 215, 0)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <stages>
+      <li>
+        <totalBleedFactor>0</totalBleedFactor> <painFactor>0.1</painFactor> <statFactors>
+          <IncomingDamageFactor>0.25</IncomingDamageFactor> </statFactors>
+        <capMods>
+            <li><capacity>Manipulation</capacity><offset>0.2</offset></li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
+    </comps>
+  </HediffDef>
+
+  <!-- Shapeshifted Combat Form -->
+<HediffDef>
+    <defName>ST_Hediff_Shapeshifted_Combat</defName>
+    <label>combat form</label>
+    <description>This Founder has shifted their morphogenic matrix into a combat-ready configuration. Muscles are denser, reactions are fluid.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(255, 100, 100)</defaultLabelColor>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeleeDodgeChance>15</MeleeDodgeChance> <MeleeHitChance>10</MeleeHitChance>
+          <HuntingStealth>0.20</HuntingStealth> </statOffsets>
+        <capMods>
+            <li><capacity>Moving</capacity><offset>0.2</offset></li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>10000</disappearsAfterTicks> <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- Warp Slug Bite Reaction -->
+  <HediffDef>
+    <defName>ST_WarpSlugBiteReaction</defName>
+    <label>warp-slug toxin</label>
+    <description>A localized luminescent allergic reaction caused by the bite of a warp-slug. Causes severe swelling of the ears and mild disorientation.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.2, 1.0, 0.2)</defaultLabelColor> <makesSickThought>true</makesSickThought>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>60000~120000</disappearsAfterTicks> </li>
+    </comps>
+    <stages>
+      <li>
+        <painOffset>0.15</painOffset>
+        <capMods>
+          <li>
+            <capacity>Hearing</capacity>
+            <offset>-0.50</offset> </li>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.10</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>
