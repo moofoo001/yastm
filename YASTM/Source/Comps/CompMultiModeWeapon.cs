@@ -3,10 +3,11 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
+using HarmonyLib; // NEU: Damit wir RimWorld zwingen können, den Button zu zeigen!
 
 namespace YASTM
 {
-    // 1. DIE EINSTELLUNGEN
+    // 1. DIE XML-EINSTELLUNGEN
     public class CompProperties_MultiModeWeapon : CompProperties
     {
         public List<WeaponModeDef> modes = new List<WeaponModeDef>();
@@ -16,14 +17,14 @@ namespace YASTM
     public class WeaponModeDef
     {
         public string label;
-        public string iconPath;
+        public string iconPath; // HIER WIRD DER PFAD AUS DER XML GELESEN!
         public ThingDef projectileDef;
         public SoundDef soundInteract;
         public bool isOverload = false;
         public float overloadSelfExplodeChance = 0.05f; 
     }
 
-    // 2. DAS HERZSTÜCK (Der Comp & Button)
+    // 2. DAS HERZSTÜCK
     public class CompMultiModeWeapon : ThingComp
     {
         public CompProperties_MultiModeWeapon Props => (CompProperties_MultiModeWeapon)props;
@@ -45,28 +46,9 @@ namespace YASTM
             Scribe_Values.Look(ref currentModeIndex, "currentModeIndex", 0);
         }
 
-        // NEU: Idiotensichere Methode, um den Träger der Waffe zu finden, 
-        // egal wie tief RimWorld die Waffe im Inventar verschachtelt hat!
-        private Pawn GetPawnOwner()
+        // Diese Methode baut den Button (mit dem Icon aus der XML)
+        public IEnumerable<Gizmo> GetEquippedGizmos()
         {
-            IThingHolder holder = parent.ParentHolder;
-            while (holder != null)
-            {
-                if (holder is Pawn_EquipmentTracker eq) return eq.pawn;
-                if (holder is Pawn p) return p;
-                holder = holder.ParentHolder;
-            }
-            return null;
-        }
-
-        // HIER IST DER FIX: Wir nutzen GetPawnOwner()
-        public override IEnumerable<Gizmo> CompGetGizmosExtra()
-        {
-            Pawn pawn = GetPawnOwner();
-            
-            // Zeige den Button nur, wenn die Waffe einem Spieler-Kolonisten gehört
-            if (pawn == null || pawn.Faction != Faction.OfPlayer) yield break;
-
             if (CurrentMode != null)
             {
                 Command_Action switchMode = new Command_Action();
@@ -77,26 +59,50 @@ namespace YASTM
                     switchMode.icon = ContentFinder<Texture2D>.Get(CurrentMode.iconPath, false);
                 if (switchMode.icon == null) switchMode.icon = TexCommand.Attack; 
 
-                switchMode.action = delegate { CycleMode(pawn); };
+                switchMode.action = delegate 
+                { 
+                    currentModeIndex++;
+                    if (currentModeIndex >= Props.modes.Count) currentModeIndex = 0;
+
+                    if (CurrentMode.soundInteract != null)
+                        CurrentMode.soundInteract.PlayOneShot(new TargetInfo(parent.Position, parent.Map));
+                };
                 switchMode.activateSound = SoundDefOf.Click;
 
                 yield return switchMode;
             }
         }
+    }
 
-        private void CycleMode(Pawn pawn)
+    // =====================================================================
+    // 3. DER FEHLENDE PATCH: Zwingt RimWorld, den Button in der Leiste zu zeigen!
+    // =====================================================================
+    [HarmonyPatch(typeof(Pawn), nameof(Pawn.GetGizmos))]
+    public static class Patch_Pawn_PhaserGizmos
+    {
+        public static IEnumerable<Gizmo> Postfix(IEnumerable<Gizmo> values, Pawn __instance)
         {
-            currentModeIndex++;
-            if (currentModeIndex >= Props.modes.Count) currentModeIndex = 0;
+            // Zeige zuerst alle normalen Buttons (Bewegen, Schießen etc.)
+            foreach (var gizmo in values) yield return gizmo;
 
-            if (CurrentMode.soundInteract != null)
-                CurrentMode.soundInteract.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map));
-            
-            MoteMaker.ThrowText(pawn.DrawPos, pawn.Map, CurrentMode.label, 2f);
+            // Wenn es ein Spieler-Kolonist ist und er eine Waffe hält...
+            if (__instance.Faction == Faction.OfPlayer && __instance.equipment?.Primary != null)
+            {
+                // ...prüfe ob es unser Phaser ist!
+                var comp = __instance.equipment.Primary.GetComp<CompMultiModeWeapon>();
+                if (comp != null)
+                {
+                    // Zeige unseren Button an!
+                    foreach (var customGizmo in comp.GetEquippedGizmos())
+                    {
+                        yield return customGizmo;
+                    }
+                }
+            }
         }
     }
 
-    // 3. DAS VERB (Wie die Waffe feuert)
+    // 4. DAS VERB (Wie die Waffe feuert)
     public class Verb_PhaserShoot : Verb_Shoot
     {
         public override ThingDef Projectile

@@ -18,13 +18,12 @@ namespace ST.PhaseWeapons
         protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
             var shooter  = launcher as Pawn;
-            
-            // Lese das NEUE Waffen-System aus!
-            var modeComp = shooter?.equipment?.Primary?.TryGetComp<CompMultiModeWeapon>();
             var ext      = def.GetModExtension<ModExtension_PhaserSettings>();
 
-            bool isStunMode = modeComp != null && modeComp.CurrentMode != null && modeComp.CurrentMode.label.ToLower().Contains("stun");
-            bool isOverloadMode = modeComp != null && modeComp.CurrentMode != null && modeComp.CurrentMode.isOverload;
+            // SUPER-SAFE-FIX: Wir fragen einfach den Namen des abgeschossenen Projektils ab!
+            string defNameLower = def.defName.ToLower();
+            bool isStunMode = defNameLower.Contains("stun");
+            bool isOverloadMode = defNameLower.Contains("overcharge") || defNameLower.Contains("overload");
 
             bool wantStun = isStunMode || (StunMarker != null && shooter != null && shooter.health.hediffSet.HasHediff(StunMarker));
 
