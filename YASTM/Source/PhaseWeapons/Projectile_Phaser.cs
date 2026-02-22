@@ -20,7 +20,7 @@ namespace ST.PhaseWeapons
             var shooter  = launcher as Pawn;
             var ext      = def.GetModExtension<ModExtension_PhaserSettings>();
 
-            // SUPER-SAFE-FIX: Wir fragen einfach den Namen des abgeschossenen Projektils ab!
+            // check if the projectile is in stun mode
             string defNameLower = def.defName.ToLower();
             bool isStunMode = defNameLower.Contains("stun");
             bool isOverloadMode = defNameLower.Contains("overcharge") || defNameLower.Contains("overload");

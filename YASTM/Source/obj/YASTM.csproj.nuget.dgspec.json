@@ -1,0 +1,68 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/YASTM.csproj": {}
+  },
+  "projects": {
+    "/home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/YASTM.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/YASTM.csproj",
+        "projectName": "YASTM",
+        "projectPath": "/home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/YASTM.csproj",
+        "packagesPath": "/home/moofoo/.nuget/packages/",
+        "outputPath": "/home/moofoo/.local/share/Steam/steamapps/common/RimWorld/Mods/YASTM/Source/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/moofoo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Krafs.Rimworld.Ref": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "Lib.Harmony": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[*, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.103/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
