@@ -3,7 +3,6 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
-using HarmonyLib; // NEU: Damit wir RimWorld zwingen können, den Button zu zeigen!
 
 namespace YASTM
 {
@@ -17,7 +16,7 @@ namespace YASTM
     public class WeaponModeDef
     {
         public string label;
-        public string iconPath; // HIER WIRD DER PFAD AUS DER XML GELESEN!
+        public string iconPath;
         public ThingDef projectileDef;
         public SoundDef soundInteract;
         public bool isOverload = false;
@@ -46,58 +45,81 @@ namespace YASTM
             Scribe_Values.Look(ref currentModeIndex, "currentModeIndex", 0);
         }
 
-        // Diese Methode baut den Button (mit dem Icon aus der XML)
-        public IEnumerable<Gizmo> GetEquippedGizmos()
+        public void CycleMode()
         {
-            if (CurrentMode != null)
+            currentModeIndex++;
+            if (currentModeIndex >= Props.modes.Count) currentModeIndex = 0;
+            if (CurrentMode?.soundInteract != null)
+                CurrentMode.soundInteract.PlayOneShot(new TargetInfo(parent.Position, parent.Map));
+        }
+
+        public void SetMode(int index)
+        {
+            currentModeIndex = index;
+            if (CurrentMode?.soundInteract != null)
+                CurrentMode.soundInteract.PlayOneShot(new TargetInfo(parent.Position, parent.Map));
+        }
+
+        // HIER IST DER SAUBERE VANILLA WEG (Wird automatisch von RimWorld aufgerufen)
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        {
+            Pawn pawn = null;
+            if (parent.ParentHolder is Pawn_EquipmentTracker eq) pawn = eq.pawn;
+            else if (parent.ParentHolder is Pawn p) pawn = p;
+
+            if (pawn != null && pawn.Faction == Faction.OfPlayer && CurrentMode != null)
             {
-                Command_Action switchMode = new Command_Action();
-                switchMode.defaultLabel = CurrentMode.label;
-                switchMode.defaultDesc = $"Cycle weapon mode.\nCurrent: {CurrentMode.label}";
-                
-                if (!CurrentMode.iconPath.NullOrEmpty())
-                    switchMode.icon = ContentFinder<Texture2D>.Get(CurrentMode.iconPath, false);
-                if (switchMode.icon == null) switchMode.icon = TexCommand.Attack; 
-
-                switchMode.action = delegate 
-                { 
-                    currentModeIndex++;
-                    if (currentModeIndex >= Props.modes.Count) currentModeIndex = 0;
-
-                    if (CurrentMode.soundInteract != null)
-                        CurrentMode.soundInteract.PlayOneShot(new TargetInfo(parent.Position, parent.Map));
-                };
-                switchMode.activateSound = SoundDefOf.Click;
-
-                yield return switchMode;
+                yield return new Command_PhaserMode(this);
             }
         }
     }
 
-    // =====================================================================
-    // 3. DER FEHLENDE PATCH: Zwingt RimWorld, den Button in der Leiste zu zeigen!
-    // =====================================================================
-    [HarmonyPatch(typeof(Pawn), nameof(Pawn.GetGizmos))]
-    public static class Patch_Pawn_PhaserGizmos
+    // 3. UNSER EIGENER, INTELLIGENTER BUTTON (Mit Linksklick & Rechtsklick!)
+    public class Command_PhaserMode : Command_Action
     {
-        public static IEnumerable<Gizmo> Postfix(IEnumerable<Gizmo> values, Pawn __instance)
-        {
-            // Zeige zuerst alle normalen Buttons (Bewegen, Schießen etc.)
-            foreach (var gizmo in values) yield return gizmo;
+        private CompMultiModeWeapon comp;
 
-            // Wenn es ein Spieler-Kolonist ist und er eine Waffe hält...
-            if (__instance.Faction == Faction.OfPlayer && __instance.equipment?.Primary != null)
+        public Command_PhaserMode(CompMultiModeWeapon comp)
+        {
+            this.comp = comp;
+            this.groupKey = 3133701 + comp.parent.def.shortHash;
+            UpdateVisuals();
+            
+            // Was passiert beim Linksklick?
+            this.action = delegate 
             {
-                // ...prüfe ob es unser Phaser ist!
-                var comp = __instance.equipment.Primary.GetComp<CompMultiModeWeapon>();
-                if (comp != null)
+                this.comp.CycleMode();
+                UpdateVisuals(); // Bild sofort aktualisieren!
+            };
+        }
+
+        private void UpdateVisuals()
+        {
+            this.defaultLabel = comp.CurrentMode.label;
+            this.defaultDesc = $"Left-click to cycle.\nRight-click for list.\nCurrent: {comp.CurrentMode.label}";
+            
+            if (!comp.CurrentMode.iconPath.NullOrEmpty())
+                this.icon = ContentFinder<Texture2D>.Get(comp.CurrentMode.iconPath, false);
+            else
+                this.icon = TexCommand.Attack;
+        }
+
+        // Was passiert beim Rechtsklick? (Das coole neue Menü!)
+        public override IEnumerable<FloatMenuOption> RightClickFloatMenuOptions
+        {
+            get
+            {
+                List<FloatMenuOption> list = new List<FloatMenuOption>();
+                for (int i = 0; i < comp.Props.modes.Count; i++)
                 {
-                    // Zeige unseren Button an!
-                    foreach (var customGizmo in comp.GetEquippedGizmos())
+                    int index = i;
+                    list.Add(new FloatMenuOption(comp.Props.modes[i].label, delegate
                     {
-                        yield return customGizmo;
-                    }
+                        comp.SetMode(index);
+                        UpdateVisuals();
+                    }));
                 }
+                return list;
             }
         }
     }
@@ -111,7 +133,6 @@ namespace YASTM
             {
                 if (EquipmentSource == null) return base.Projectile;
                 var comp = EquipmentSource.GetComp<CompMultiModeWeapon>();
-                
                 if (comp != null && comp.CurrentMode != null && comp.CurrentMode.projectileDef != null)
                 {
                     return comp.CurrentMode.projectileDef;
@@ -124,7 +145,6 @@ namespace YASTM
         {
             if (EquipmentSource == null) return base.TryCastShot();
             var comp = EquipmentSource.GetComp<CompMultiModeWeapon>();
-            
             if (comp != null && comp.CurrentMode != null && comp.CurrentMode.isOverload)
             {
                 if (Rand.Chance(comp.CurrentMode.overloadSelfExplodeChance))
