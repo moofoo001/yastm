@@ -1,3 +1,4 @@
+// YASTM Patch_StardateOverlay v1.1
 using HarmonyLib;
 using RimWorld;
 using UnityEngine;
@@ -5,20 +6,34 @@ using Verse;
 
 namespace YASTM
 {
+    [StaticConstructorOnStartup]
+    public static class YASTM_StardateInit
+    {
+        static YASTM_StardateInit()
+        {
+            Log.Message("[YASTM DEBUG] Initialized Patch_StardateOverlay v1.1");
+        }
+    }
+
     [HarmonyPatch(typeof(MapInterface), "MapInterfaceOnGUI_AfterMainTabs")]
     public static class Patch_StardateOverlay
     {
         public static void Postfix()
         {
-            // Check if the mod is enabled
             if (!YASTM_Mod.Settings.showStardateOverlay) return;
-
-            // Check if the game is in screenshot mode or if there is no map
             if (Find.CurrentMap == null || Find.UIRoot.screenshotMode.FiltersCurrentEvent) return;
             
             float baseStardate = 1739.12f;
             float stardate = baseStardate + GenDate.DaysPassedFloat;
-            string text = $"STARDATE {stardate:F1} | THE FEDERATION OF PLANETS";
+
+            // gets faction name
+            string factionName = "UNKNOWN FACTION";
+            if (Faction.OfPlayer != null)
+            {
+                factionName = Faction.OfPlayer.HasName ? Faction.OfPlayer.Name.ToUpper() : Faction.OfPlayer.def.LabelCap.Resolve().ToUpper();
+            }
+
+            string text = $"STARDATE {stardate:F1} | {factionName}";
 
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.MiddleCenter;
@@ -27,8 +42,8 @@ namespace YASTM
             size.x += 30f;
             size.y += 8f;
 
-            float rightMargin = 150f;
-            float bottomMargin = 80f; 
+            float rightMargin = 150f; // right margin
+            float bottomMargin = 160f; // bottom margin 
 
             Rect rect = new Rect(Verse.UI.screenWidth - size.x - rightMargin, Verse.UI.screenHeight - bottomMargin, size.x, size.y);
 
@@ -38,9 +53,8 @@ namespace YASTM
             GUI.color = new Color(1f, 0.6f, 0f, 1f); 
             Widgets.DrawBox(rect, 2); 
 
-            GUI.color = new Color(0.6f, 0.8f, 1f, 1f);
-            Rect textRect = new Rect(rect.x, rect.y, rect.width, rect.height);
-            Widgets.Label(textRect, text);
+            GUI.color = new Color(0.6f, 0.6f, 0.6f, 1f); 
+            Widgets.Label(rect, text);
 
             Text.Anchor = TextAnchor.UpperLeft;
             GUI.color = Color.white;

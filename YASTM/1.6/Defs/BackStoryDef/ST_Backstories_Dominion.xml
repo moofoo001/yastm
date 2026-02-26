@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <BackstoryDef>
+<!--Childhood Backstories-->
+
+ <BackstoryDef>
     <defName>ST_BS_JemHadar_VatGrown</defName>
     <title>vat-grown soldier</title>
     <titleShort>vat-grown</titleShort>
@@ -9,7 +11,7 @@
     <slot>Childhood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>Dominion_Warrior</li>
+      <li>ST_Dominion_JemHadar</li>
     </spawnCategories>
     <workDisables>
       <li>Artistic</li>
@@ -19,192 +21,44 @@
       <li>Social</li>
     </workDisables>
     <skillGains>
-      <Melee>4</Melee>
-      <Shooting>4</Shooting>
+      <Melee>3</Melee>
+      <Shooting>2</Shooting>
     </skillGains>
     <forcedTraits>
-      <Psychopath>0</Psychopath> </forcedTraits>
+      <Psychopath>0</Psychopath>
+      <Tough>0</Tough>
+    </forcedTraits>
     <disallowedTraits>
       <Wimp>0</Wimp>
       <Kind>0</Kind>
     </disallowedTraits>
   </BackstoryDef>
 
-  <BackstoryDef>
-    <defName>ST_BS_JemHadar_Trooper</defName>
-    <title>Dominion trooper</title>
-    <titleShort>trooper</titleShort>
-    <baseDesc>Has served the Founders in numerous campaigns across the Gamma Quadrant. Victory is life.</baseDesc>
-    <slot>Adulthood</slot>
+ <BackstoryDef>
+    <defName>ST_BS_JemHadar_GammaBred</defName>
+    <title>Gamma Quadrant bred</title>
+    <titleShort>Gamma-bred</titleShort>
+    <baseDesc>Grown from the original stock in the Gamma Quadrant. He is a traditionalist who views the Alpha-bred Jem'Hadar with suspicion. Loyalty is his only currency.</baseDesc>
+    <slot>Childhood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>Dominion_Warrior</li>
+      <li>ST_Dominion_JemHadar</li>
     </spawnCategories>
     <workDisables>
+      <li>Artistic</li>
+      <li>Caring</li>
+      <li>PlantWork</li>
+      <li>Animals</li>
+      <li>Social</li>
       <li>Intellectual</li>
     </workDisables>
     <skillGains>
       <Melee>4</Melee>
-      <Shooting>4</Shooting>
-      <Construction>2</Construction>
+      <Shooting>3</Shooting>
     </skillGains>
-  </BackstoryDef>
-  
-  <BackstoryDef>
-    <defName>ST_BS_JemHadar_First</defName>
-    <title>Jem'Hadar First</title>
-    <titleShort>First</titleShort>
-    <baseDesc>Having survived longer than most, he was promoted to 'First'. He leads his unit with brutal efficiency.</baseDesc>
-    <slot>Adulthood</slot>
-    <shuffleable>true</shuffleable>
-    <spawnCategories>
-      <li>Dominion_Warrior</li>
-      <li>Dominion_Command</li>
-    </spawnCategories>
-    <skillGains>
-      <Melee>6</Melee>
-      <Shooting>6</Shooting>
-      <Social>2</Social> </skillGains>
     <forcedTraits>
-      <Abrasive>0</Abrasive>
+      <Tough>0</Tough>   
     </forcedTraits>
-  </BackstoryDef>
-
-  <BackstoryDef>
-    <defName>ST_BS_Vorta_Clone</defName>
-    <title>Vorta clone</title>
-    <titleShort>clone</titleShort>
-    <baseDesc>Decanted from a cloning facility, carrying the memories and instincts of predecessors. Genetically engineered to serve the Founders as administrators.</baseDesc>
-    <slot>Childhood</slot>
-    <shuffleable>true</shuffleable>
-    <spawnCategories>
-      <li>Dominion_Science</li>
-      <li>Dominion_Medical</li>
-    </spawnCategories>
-    <workDisables>
-      <li>ManualDumb</li>
-      <li>ManualSkilled</li>
-    </workDisables>
-    <skillGains>
-      <Social>5</Social>
-      <Intellectual>3</Intellectual>
-    </skillGains>
-    <disallowedTraits>
-      <Brawler>0</Brawler> </disallowedTraits>
-  </BackstoryDef>
-
-  <BackstoryDef>
-    <defName>ST_BS_Vorta_Supervisor</defName>
-    <title>field supervisor</title>
-    <titleShort>supervisor</titleShort>
-    <baseDesc>Assigned to oversee a Jem'Hadar unit, ensuring their loyalty and dispensing Ketracel White.</baseDesc>
-    <slot>Adulthood</slot>
-    <shuffleable>true</shuffleable>
-    <spawnCategories>
-      <li>Dominion_Science</li>
-      <li>Dominion_Medical</li>
-      <li>Dominion_Engineering</li>
-    </spawnCategories>
-    <workDisables>
-      <li>Violent</li>
-    </workDisables>
-    <skillGains>
-      <Social>6</Social>
-      <Medicine>4</Medicine>
-    </skillGains>
-  </BackstoryDef>
-
-  <BackstoryDef>
-    <defName>ST_BS_Founder_Origin</defName>
-    <title>Great Link origin</title>
-    <titleShort>changeling</titleShort>
-    <baseDesc>Emerged from the Great Link to explore the galaxy and bring order to the chaos of the solids.</baseDesc>
-    <slot>Childhood</slot>
-    <shuffleable>true</shuffleable>
-    <spawnCategories>
-      <li>Dominion_Command</li>
-    </spawnCategories>
-    <skillGains>
-      <Social>8</Social>
-      <Intellectual>8</Intellectual>
-    </skillGains>
-    <forcedTraits>
-      <Abrasive>0</Abrasive> </forcedTraits>
-  </BackstoryDef>
-  
-  <BackstoryDef>
-    <defName>ST_BS_Founder_God</defName>
-    <title>living god</title>
-    <titleShort>Founder</titleShort>
-    <baseDesc>Worshipped as a god by the Jem'Hadar and Vorta. Demands absolute obedience.</baseDesc>
-    <slot>Adulthood</slot>
-    <shuffleable>true</shuffleable>
-    <spawnCategories>
-      <li>Dominion_Command</li>
-    </spawnCategories>
-    <skillGains>
-      <Social>8</Social>
-    </skillGains>
-  </BackstoryDef>
-
-<BackstoryDef>
-    <defName>ST_BS_Vorta_DiplomatTemplate</defName>
-    <title>diplomatic template</title>
-    <titleShort>negotiator</titleShort>
-    <baseDesc>Created from a genetic template specifically designed for negotiation with subject races like the Karemma or Dosi. His hearing is acute, and his smile is practiced.</baseDesc>
-    <slot>Childhood</slot>
-    <shuffleable>true</shuffleable>
-    <spawnCategories>
-      <li>Dominion_Engineering</li>
-      <li>Dominion_Science</li>
-    </spawnCategories>
-    <workDisables>
-      <li>ManualDumb</li>
-      <li>ManualSkilled</li>
-      <li>Violent</li>
-    </workDisables>
-    <skillGains>
-      <Social>6</Social>
-      <Artistic>2</Artistic>
-    </skillGains>
-    <forcedTraits>
-      <Kind>0</Kind> </forcedTraits>
-  </BackstoryDef>
-
-  <BackstoryDef>
-    <defName>ST_BS_Vorta_Geneticist</defName>
-    <title>cloning scientist</title>
-    <titleShort>geneticist</titleShort>
-    <baseDesc>Responsible for the birthing chambers of the Jem'Hadar. He adjusted genetic sequences to ensure strength and absolute loyalty to the Founders.</baseDesc>
-    <slot>Adulthood</slot>
-    <shuffleable>true</shuffleable>
-    <spawnCategories>
-      <li>Dominion_Engineering</li>
-      <li>Dominion_Science</li>
-    </spawnCategories>
-    <workDisables>
-      <li>ManualDumb</li>
-    </workDisables>
-    <skillGains>
-      <Intellectual>6</Intellectual>
-      <Medicine>4</Medicine>
-    </skillGains>
-  </BackstoryDef>
-
-  <BackstoryDef>
-    <defName>ST_BS_Vorta_WhiteKeeper</defName>
-    <title>keeper of the white</title>
-    <titleShort>keeper</titleShort>
-    <baseDesc>Entrusted with the distribution of Ketracel White. He held the lives of his soldiers in a small vial, demanding perfection in exchange for existence.</baseDesc>
-    <slot>Adulthood</slot>
-    <shuffleable>true</shuffleable>
-    <spawnCategories>
-      <li>Dominion_Medical</li>
-    </spawnCategories>
-    <skillGains>
-      <Medicine>5</Medicine>
-      <Social>4</Social>
-    </skillGains>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -215,7 +69,7 @@
     <slot>Childhood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>Dominion_Warrior</li>
+      <li>ST_Dominion_JemHadar</li>
     </spawnCategories>
     <workDisables>
       <li>Artistic</li>
@@ -235,47 +89,193 @@
   </BackstoryDef>
 
   <BackstoryDef>
-    <defName>ST_BS_JemHadar_GammaBred</defName>
-    <title>Gamma Quadrant bred</title>
-    <titleShort>Gamma-bred</titleShort>
-    <baseDesc>Grown from the original stock in the Gamma Quadrant. He is a traditionalist who views the Alpha-bred Jem'Hadar with suspicion. Loyalty is his only currency.</baseDesc>
+    <defName>ST_BS_Cardassian_scolar</defName>
+    <title>cardassian scholar</title>
+    <titleShort>scolar</titleShort>
+    <baseDesc>Raised in the strict, state-controlled education system of the Cardassian Union. Family is everything, but the State is family.</baseDesc>
     <slot>Childhood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>Dominion_Warrior</li>
+      <li>ST_Dominion_Cardassian</li>
+    </spawnCategories>
+    <skillGains>
+      <Intellectual>2</Intellectual>
+      <Social>2</Social>
+    </skillGains>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Cardassian_WarOrphan</defName>
+    <title>cardassian war orphan</title>
+    <titleShort>war orphan</titleShort>
+    <baseDesc>Abandoned as a child, he was raised by a mercenary group. He is a skilled fighter and a survivor.</baseDesc>
+    <slot>Childhood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_Cardassian</li>
+    </spawnCategories>
+    <skillGains>
+      <Melee>2</Melee>
+      <Shooting>2</Shooting>
+    </skillGains>
+  </BackstoryDef>
+
+<BackstoryDef>
+    <defName>ST_BS_Cardassian_builder</defName>
+    <title>Cardassian builder</title>
+    <titleShort>builder</titleShort>
+    <baseDesc>Raised in the strict, state-controlled education system of the Cardassian Union. Discipline and loyalty to the state were instilled from the earliest age.</baseDesc>
+    <slot>Childhood</slot> <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_Cardassian</li>
+    </spawnCategories>
+    <skillGains>
+      <Construction>2</Construction>
+      <Social>2</Social>
+    </skillGains>
+  </BackstoryDef>
+  <BackstoryDef>
+
+    <defName>ST_BS_Vorta_Clone</defName>
+    <title>Vorta clone</title>
+    <titleShort>clone</titleShort>
+    <baseDesc>Decanted from a cloning facility, carrying the memories and instincts of predecessors. Genetically engineered to serve the Founders as administrators.</baseDesc>
+    <slot>Childhood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_Vorta</li>
+    </spawnCategories>
+    <skillGains>
+      <Social>4</Social>
+      <Intellectual>2</Intellectual>
+    </skillGains>
+    <disallowedTraits>
+      <Brawler>0</Brawler>
+    </disallowedTraits>
+  </BackstoryDef>
+
+<BackstoryDef>
+    <defName>ST_BS_Vorta_Diplomat</defName>
+    <title>diplomatic template</title>
+    <titleShort>negotiator</titleShort>
+    <baseDesc>Created from a genetic template specifically designed for negotiation with subject races like the Karemma or Dosi. His hearing is acute, and his smile is practiced.</baseDesc>
+    <slot>Childhood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_Vorta</li>
     </spawnCategories>
     <workDisables>
-      <li>Artistic</li>
-      <li>Caring</li>
-      <li>PlantWork</li>
-      <li>Animals</li>
-      <li>Social</li>
-      <li>Intellectual</li>
+      <li>ManualDumb</li>
+      <li>ManualSkilled</li>
+      <li>Violent</li>
     </workDisables>
     <skillGains>
-      <Melee>5</Melee>
-      <Shooting>5</Shooting>
+      <Social>5</Social>
+      <Artistic>1</Artistic>
     </skillGains>
     <forcedTraits>
-      <Tough>0</Tough> 
+      <Kind>0</Kind>
     </forcedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
-    <defName>ST_BS_JemHadar_Second</defName>
-    <title>Jem'Hadar Second</title>
-    <titleShort>Second</titleShort>
-    <baseDesc>Served as the 'Second' in his unit, responsible for discipline and interpreting the First's orders. He waits for the First to fall so he may lead.</baseDesc>
+    <defName>ST_BS_Founder_Origin</defName>
+    <title>Great Link origin</title>
+    <titleShort>changeling</titleShort>
+    <baseDesc>Emerged from the Great Link to explore the galaxy and bring order to the chaos of the solids.</baseDesc>
+    <slot>Childhood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_Founder</li>
+    </spawnCategories>
+    <skillGains>
+      <Social>4</Social>
+      <Intellectual>4</Intellectual>
+    </skillGains>
+    <forcedTraits>
+      <Abrasive>0</Abrasive>
+    </forcedTraits>
+  </BackstoryDef>
+  
+
+  <!--Adult Backstories-->
+ 
+  <BackstoryDef>
+    <defName>ST_BS_Founder_God</defName>
+    <title>living god</title>
+    <titleShort>Founder</titleShort>
+    <baseDesc>Worshipped as a god by the Jem'Hadar and Vorta. Demands absolute obedience.</baseDesc>
     <slot>Adulthood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>Dominion_Warrior</li>
+      <li>ST_Dominion_Founder</li>
     </spawnCategories>
     <skillGains>
-      <Melee>5</Melee>
-      <Shooting>4</Shooting>
+      <Social>6</Social>
+      <Intellectual>6</Intellectual>
     </skillGains>
   </BackstoryDef>
+
+
+  <BackstoryDef>
+    <defName>ST_BS_Vorta_Supervisor</defName>
+    <title>field supervisor</title>
+    <titleShort>supervisor</titleShort>
+    <baseDesc>Assigned to oversee a Jem'Hadar unit, ensuring their loyalty and dispensing Ketracel White.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_Vorta</li>
+    </spawnCategories>
+    <workDisables>
+      <li>Violent</li>
+    </workDisables>
+    <skillGains>
+      <Social>5</Social>
+      <Medicine>2</Medicine>
+      <Intellectual>2</Intellectual>
+    </skillGains>
+  </BackstoryDef>
+
+
+  <BackstoryDef>
+    <defName>ST_BS_Vorta_Geneticist</defName>
+    <title>cloning scientist</title>
+    <titleShort>geneticist</titleShort>
+    <baseDesc>Responsible for the birthing chambers of the Jem'Hadar. He adjusted genetic sequences to ensure strength and absolute loyalty to the Founders.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_Vorta</li>
+    </spawnCategories>
+    <workDisables>
+      <li>ManualDumb</li>
+    </workDisables>
+    <skillGains>
+      <Intellectual>3</Intellectual>
+      <Medicine>4</Medicine>
+      <Plants>2</Plants>
+    </skillGains>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_Vorta_WhiteKeeper</defName>
+    <title>keeper of the white</title>
+    <titleShort>keeper</titleShort>
+    <baseDesc>Entrusted with the distribution of Ketracel White. He held the lives of his soldiers in a small vial, demanding perfection in exchange for existence.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_Vorta</li>
+    </spawnCategories>
+    <skillGains>
+      <Medicine>4</Medicine>
+      <Social>2</Social>
+      <Plants>2</Plants>
+      <Intellectual>2</Intellectual>
+    </skillGains>
+  </BackstoryDef>
+
 
   <BackstoryDef>
     <defName>ST_BS_JemHadar_Elder</defName>
@@ -285,16 +285,51 @@
     <slot>Adulthood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>Dominion_Command</li>
+      <li>ST_Dominion_JemHadar</li>
     </spawnCategories>
     <skillGains>
-      <Melee>8</Melee>
-      <Shooting>8</Shooting>
+      <Melee>6</Melee>
+      <Shooting>6</Shooting>
       <Social>2</Social>
     </skillGains>
     <forcedTraits>
       <Tough>0</Tough>
     </forcedTraits>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ST_BS_JemHadar_First</defName>
+    <title>Jem'Hadar First</title>
+    <titleShort>First</titleShort>
+    <baseDesc>Having survived longer than most, he was promoted to 'First'. He leads his unit with brutal efficiency.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_JemHadar</li>
+      <li>Dominion_Command</li>
+    </spawnCategories>
+    <skillGains>
+      <Melee>6</Melee>
+      <Shooting>6</Shooting>
+      <Social>2</Social> </skillGains>
+    <forcedTraits>
+      <Abrasive>0</Abrasive>
+    </forcedTraits>
+  </BackstoryDef>
+  <BackstoryDef>
+    <defName>ST_BS_JemHadar_Second</defName>
+    <title>Jem'Hadar Second</title>
+    <titleShort>Second</titleShort>
+    <baseDesc>Served as the 'Second' in his unit, responsible for discipline and interpreting the First's orders. He waits for the First to fall so he may lead.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_JemHadar</li>
+    </spawnCategories>
+    <skillGains>
+      <Melee>5</Melee>
+      <Shooting>4</Shooting>
+    </skillGains>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -305,7 +340,7 @@
     <slot>Adulthood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>Dominion_Warrior</li>
+      <li>ST_Dominion_JemHadar</li>
     </spawnCategories>
     <skillGains>
       <Melee>10</Melee>
@@ -316,6 +351,26 @@
     </forcedTraits>
   </BackstoryDef>
 
+ <BackstoryDef>
+    <defName>ST_BS_JemHadar_Trooper</defName>
+    <title>Dominion trooper</title>
+    <titleShort>trooper</titleShort>
+    <baseDesc>Fresh from the Ketracel-White vat but ready to die for the Founders. Victory is life.</baseDesc>
+    <slot>Adulthood</slot>
+    <shuffleable>true</shuffleable>
+    <spawnCategories>
+      <li>ST_Dominion_JemHadar</li>
+    </spawnCategories>
+    <workDisables>
+      <li>Intellectual</li>
+    </workDisables>
+    <skillGains>
+      <Melee>2</Melee>
+      <Shooting>2</Shooting>
+      <Construction>2</Construction>
+    </skillGains>
+  </BackstoryDef>
+  
   <BackstoryDef>
     <defName>ST_BS_Cardassian_Officer</defName>
     <title>Cardassian officer</title>
@@ -324,13 +379,12 @@
     <slot>Adulthood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>Dominion_Cardassian</li>
-      <li>Dominion_Warrior</li> 
+      <li>ST_Dominion_Cardassian</li>
     </spawnCategories>
     <skillGains>
       <Social>4</Social>
       <Shooting>3</Shooting>
-      <Melee>2</Melee>
+      <Melee>1</Melee>
     </skillGains>
   </BackstoryDef>
 
@@ -342,8 +396,7 @@
     <slot>Adulthood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>Dominion_Cardassian</li>
-      <li>Dominion_Engineering</li>
+      <li>ST_Dominion_Cardassian</li>
     </spawnCategories>
     <workDisables>
       <li>Caring</li>
@@ -353,6 +406,7 @@
     <skillGains>
       <Social>6</Social>
       <Intellectual>4</Intellectual>
+
     </skillGains>
     <forcedTraits>
       <Psychopath>0</Psychopath>
@@ -367,8 +421,7 @@
     <slot>Adulthood</slot>
     <shuffleable>true</shuffleable>
     <spawnCategories>
-      <li>Dominion_Cardassian</li>
-      <li>Dominion_Engineering</li>
+      <li>ST_Dominion_Cardassian</li>
     </spawnCategories>
     <workDisables>
       <li>Violent</li>

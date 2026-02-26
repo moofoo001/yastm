@@ -27,6 +27,9 @@
       <li>ST_Pawn_Founder</li>
     </fixedLeaderKinds>
 
+    <allowedCultures>
+      <li>ST_Culture_Dominion</li>
+    </allowedCultures>
     <forcedMemes>
       <li>ST_Meme_DominionOrder</li>
     </forcedMemes>
@@ -50,9 +53,12 @@
     <backstoryFilters>
       <li>
         <categories>
+          <li>ST_Dominion_JemHadar</li>
+          <li>ST_Dominion_Vorta</li>
           <li>Offworld</li>
-          <li>Outlander</li>
         </categories>
+        <categoriesChildhood><li>Civil</li><li>Spacer</li></categoriesChildhood>
+        <categoriesAdulthood><li>Civil</li><li>Spacer</li></categoriesAdulthood>
       </li>
     </backstoryFilters>
 
@@ -72,15 +78,6 @@
       <li>(80, 80, 90)</li>
     </colorSpectrum>
 
-    <allowedCultures><li>ST_Culture_Dominion</li></allowedCultures>
-    
-    <structureMemeWeights>
-      <Structure_TheistEmbodied MayRequire="Ludeon.RimWorld.Ideology">4</Structure_TheistEmbodied>
-      <Structure_Ideological MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Ideological>
-    </structureMemeWeights>
-
-
-    
     <disallowedMemes>
       <li MayRequire="Ludeon.RimWorld.Ideology">Individualist</li>
       <li MayRequire="Ludeon.RimWorld.Ideology">Guilty</li>

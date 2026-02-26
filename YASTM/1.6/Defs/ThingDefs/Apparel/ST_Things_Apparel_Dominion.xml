@@ -33,7 +33,7 @@
         <li>OnSkin</li>
       </layers>
       <tags>
-        <li>DominionUniform</li> 
+        <li>JemHadarUniform</li> 
         <li>DominionMilitary</li>
         <li>DominionArmor</li>  
       </tags>
@@ -58,6 +58,21 @@
         <li>ElectricTailoringBench</li>
       </recipeUsers>
     </recipeMaker>
+    <apparel>
+      <wornGraphicPath>Things/Item/Apparel/Dominion_Tunic/JemHadar</wornGraphicPath>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <tags>
+        <li>DominionMilitary</li>
+        <li>JemHadarUniform</li> 
+      </tags>
+    </apparel>
   </ThingDef>
 
 
@@ -92,7 +107,6 @@
         <li>Middle</li>
       </layers>
       <tags>
-        <li>DominionUniform</li> 
         <li>DominionMilitary</li>
         <li>DominionArmor</li>      
       </tags>
@@ -151,7 +165,7 @@
       </layers>
       <tags>
         <li>DominionCivil</li>
-        <li>DominionVorta</li>
+        <li>VortaUniform</li>
       </tags>
     </apparel>
     <costList>

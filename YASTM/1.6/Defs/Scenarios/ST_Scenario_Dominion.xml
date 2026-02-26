@@ -77,7 +77,7 @@
         </li>
         <li Class="ScenPart_GameStartDialog">
           <def>GameStartDialog</def>
-          <text>The Founders will not be pleased about the crash... unless you turn this planet into a profit center.\n\nUse your Ketracel-White to establish a Market Link as soon as possible!</text>
+          <text>As a Vorta, your primary directive is to establish a foothold for the Founders. Your loyal Jem'Hadar guards will protect you with their lives, but their supply of Ketracel-White is critically low.</text>
           <closeSound>GameStartSting</closeSound>
         </li>
       </parts>

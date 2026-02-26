@@ -42,6 +42,10 @@
     <weaponTags>
       <li>ST_Dominion_Ranged</li>
     </weaponTags>
+    <apparelMoney>300~600</apparelMoney>
+    <apparelRequired>
+      <li>ST_Apparel_JemHadarUniform</li>
+    </apparelRequired>
   </PawnKindDef>
 
   <PawnKindDef ParentName="ST_JemHadarBase">
@@ -51,7 +55,9 @@
     <weaponTags>
       <li>ST_Dominion_Melee</li>
     </weaponTags>
+    <apparelMoney>300~600</apparelMoney>
     <apparelRequired>
+      <li>ST_Apparel_JemHadarUniform</li>
       <li>Apparel_ShieldBelt</li>
     </apparelRequired>
   </PawnKindDef>
@@ -71,9 +77,10 @@
     <isFighter>false</isFighter>
     <apparelTags>
       <li>IndustrialAdvanced</li>
-      <li>Spacer</li>
+      <li>VortaUniform</li>
     </apparelTags>
     <apparelColor>(120, 100, 140)</apparelColor>
+    <apparelMoney>1000~1500</apparelMoney>
     <weaponMoney>500~1000</weaponMoney>
     <weaponTags>
       <li>ST_Dominion_Sidearm</li>
@@ -99,6 +106,7 @@
     <factionLeader>true</factionLeader>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
     <forceNormalGearQuality>true</forceNormalGearQuality>
+    <apparelMoney>1000~1500</apparelMoney>
     <apparelTags>
       <li>Spacer</li>
     </apparelTags>
@@ -129,6 +137,7 @@
     <apparelTags>
       <li>IndustrialBasic</li>
       <li>SpacerMilitary</li>
+      <li>JemHadarUniform</li>
     </apparelTags>
     <apparelMoney>1000~1500</apparelMoney>
     <weaponMoney>800~1200</weaponMoney>

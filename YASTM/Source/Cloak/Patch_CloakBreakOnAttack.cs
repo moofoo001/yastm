@@ -1,3 +1,4 @@
+// YASTM Patch_CloakBreakOnAttack v1.2
 using HarmonyLib;
 using RimWorld;
 using Verse;
@@ -5,23 +6,41 @@ using System;
 
 namespace YASTM
 {
-    // help method
+    [StaticConstructorOnStartup]
+    public static class YASTM_CloakBreakInit
+    {
+        static YASTM_CloakBreakInit()
+        {
+            Log.Message("[YASTM DEBUG] Initialized Patch_CloakBreakOnAttack v1.2");
+        }
+    }
+
     public static class CloakBreakLogic
     {
         public static void TryBreakCloak(Pawn pawn)
         {
             if (pawn == null) return;
 
-            // Hat er den Hediff?
-            var cloak = pawn.health.hediffSet.GetFirstHediffOfDef(ST_HediffDefOf.ST_CloakingField);
-            if (cloak != null)
+            // 1. Romulanisches Tarnfeld removed
+            var romulanCloak = pawn.health.hediffSet.GetFirstHediffOfDef(ST_HediffDefOf.ST_CloakingField);
+            if (romulanCloak != null)
             {
-                pawn.health.RemoveHediff(cloak);
+                pawn.health.RemoveHediff(romulanCloak);
+            }
+
+            // 2. Jem'Hadar Shroud removed 
+            HediffDef shroudDef = DefDatabase<HediffDef>.GetNamedSilentFail("ST_Hediff_ShroudCloak");
+            if (shroudDef != null)
+            {
+                var shroudCloak = pawn.health.hediffSet.GetFirstHediffOfDef(shroudDef);
+                if (shroudCloak != null)
+                {
+                    pawn.health.RemoveHediff(shroudCloak);
+                }
             }
         }
     }
 
-    // range attack and abilities
     [HarmonyPatch(typeof(Verb), "TryStartCastOn", new Type[] { typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(bool), typeof(bool), typeof(bool), typeof(bool) })]
     public static class Patch_CloakBreak_Ranged
     {
@@ -32,7 +51,6 @@ namespace YASTM
         }
     }
 
-    // melee attack
     [HarmonyPatch(typeof(Pawn_MeleeVerbs), "TryMeleeAttack")]
     public static class Patch_CloakBreak_Melee
     {
