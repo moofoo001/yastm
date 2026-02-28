@@ -47,7 +47,14 @@
       <Mass>3.0</Mass>
       <MarketValue>6000</MarketValue>
     </statBases>
+    
+    <recipeMaker>
+      <researchPrerequisite>ST_Klingon_Melee_III</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>14</Crafting>
+    </skillRequirements>
 
+    </recipeMaker>
     <equippedStatOffsets>
       <MeleeHitChance>0.1</MeleeHitChance>
     </equippedStatOffsets>
