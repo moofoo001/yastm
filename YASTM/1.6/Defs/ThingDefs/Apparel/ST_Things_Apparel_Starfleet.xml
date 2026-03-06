@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+    <!-- SNW Uniforms -->
    <!-- 1) Shared-Base: kein Stuff, keine Kosten, kein recipeMaker -->
   <ThingDef Name="ST_Apparel_StarfleetTunic_shared" ParentName="ApparelMakeableBase" Abstract="True">
     <label>Starfleet tunic</label>
@@ -196,6 +197,129 @@
   </ThingDef>
 
 
+<!-- TNG Uniforms -->
+ 
+  <ThingDef Name="ST_Apparel_StarfleetTNG_shared" ParentName="ApparelMakeableBase" Abstract="True">
+    <label>Starfleet TNG uniform</label>
+    <description>UFP standard TNG uniform.</description>
+    <graphicData>
+      <texPath>Things/Item/Apparel/Federation_Tunic/FederationTNG</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>2</uiIconScale>
+    <uiIconPath>Things/Item/Apparel/Federation_Tunic/FederationTNG</uiIconPath>
+    <statBases>
+      <WorkToMake>2200</WorkToMake>
+      <Mass>0.6</Mass>
+      <MarketValue>120</MarketValue>
+      <ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.03</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.10</ArmorRating_Heat>
+      <Insulation_Cold>4</Insulation_Cold>
+      <Insulation_Heat>4</Insulation_Heat>
+    </statBases>
+    <thingCategories><li>Apparel</li></thingCategories>
+    <apparel>
+      <wornGraphicPath>Things/Item/Apparel/Federation_Tunic/FederationTNG</wornGraphicPath>
+      <bodyPartGroups><li>Torso</li><li>Arms</li></bodyPartGroups>
+      <layers><li>OnSkin</li></layers>
+      <tags><li>StarfleetUniformTNG</li></tags>
+    </apparel>
+    <costList>
+      <Cloth>80</Cloth>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <equippedStatOffsets><SocialImpact>0.05</SocialImpact></equippedStatOffsets>
+    <comps Inherit="False">
+      <li Class="CompProperties_Forbiddable"/>
+      <li><compClass>CompQuality</compClass></li>
+    </comps>
+  </ThingDef>
+
+
+    <!-- 2) Craftbare neutrale Tunic: fügt Stuff/Kosten/Recipe hinzu -->
+  <ThingDef ParentName="ST_Apparel_StarfleetTNG_shared">
+    <defName>ST_Apparel_StarfleetTNG</defName>
+    <label>Starfleet TNG uniform</label>
+    <stuffCategories><li>Fabric</li></stuffCategories>
+    <costStuffCount>45</costStuffCount>
+      <graphicData><color>(1, 1, 1, 1)</color></graphicData>  <!-- neutral white -->
+    <apparel>
+      <wornGraphicPath>Things/Item/Apparel/Federation_Tunic/FederationTNG</wornGraphicPath>
+      <bodyPartGroups><li>Torso</li><li>Arms</li></bodyPartGroups>
+      <layers><li>OnSkin</li></layers>
+      <tags><li>StarfleetUniformTNG</li></tags>
+    </apparel>
+    <statBases>
+     <SocialImpact>0.05</SocialImpact> 
+    </statBases>
+    <recipeMaker>
+      <workAmount>5000</workAmount>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Tailor</effectWorking>
+      <soundWorking>Recipe_Tailor</soundWorking>
+      <skillRequirements><Crafting>4</Crafting></skillRequirements>
+      <recipeUsers>
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+      </recipeUsers>
+      <researchPrerequisites>
+        <li>Federation_Standard</li>
+      </researchPrerequisites>
+    </recipeMaker>
+    <generateCommonality>0</generateCommonality>
+    <tradeability>None</tradeability>
+    <alwaysHaulable>true</alwaysHaulable>  
+  </ThingDef>
+
+  <!-- Command TNG (Red) -->
+  <ThingDef ParentName="ST_Apparel_StarfleetTNG_shared">
+    <defName>ST_Apparel_StarfleetTNG_Command</defName>
+    <label>Starfleet TNG uniform (command)</label>
+    <stuffCategories Inherit="False" />  
+    <graphicData><color>(0.60, 0.01, 0.01, 1)</color></graphicData> <!-- red -->
+    <apparel>
+     <tags>
+        <li>StarfleetUniformTNG</li>
+        <li>ST_CommandOnly</li>
+     </tags>
+    </apparel>
+    <alwaysHaulable>true</alwaysHaulable>
+  </ThingDef>
+
+  <!-- Operations TNG (Gold)-->
+  <ThingDef ParentName="ST_Apparel_StarfleetTNG_shared">
+    <defName>ST_Apparel_StarfleetTNG_Operations</defName>
+    <label>Starfleet TNG uniform (operations)</label>
+    <stuffCategories Inherit="False" />  
+    <graphicData><color>(0.85, 0.60, 0.01, 1)</color></graphicData> <!-- gold -->
+    <apparel>
+     <tags>
+        <li>StarfleetUniformTNG</li>
+        <li>ST_OperationsOnly</li>
+     </tags>
+    </apparel>
+    <alwaysHaulable>true</alwaysHaulable>
+  </ThingDef>
+
+  <!-- Science / Medical TNG (Blue) -->
+  <ThingDef ParentName="ST_Apparel_StarfleetTNG_shared">
+    <defName>ST_Apparel_StarfleetTNG_Science</defName>
+    <label>Starfleet TNG uniform (science)</label>
+    <stuffCategories Inherit="False" />  
+    <graphicData><color>(0.01, 0.01, 0.60, 1)</color></graphicData> <!-- blue -->
+    <apparel>
+     <tags>
+        <li>StarfleetUniformTNG</li>
+        <li>ST_ScienceOnly</li>
+        <li>ST_MedicalOnly</li>
+     </tags>
+    </apparel>
+    <alwaysHaulable>true</alwaysHaulable>
+  </ThingDef>
+
+
 <!-- black fancy Pantsy !!! -->
 <ThingDef ParentName="ApparelBase">
   <defName>ST_Apparel_StarfleetPants</defName>
@@ -265,7 +389,6 @@
     </researchPrerequisites>
   </recipeMaker>
   <alwaysHaulable>true</alwaysHaulable>
-
 </ThingDef>
 
 <!-- Counselor Sash-->

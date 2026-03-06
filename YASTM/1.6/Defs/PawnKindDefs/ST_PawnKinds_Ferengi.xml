@@ -13,7 +13,6 @@
     <initialResistanceRange>0~1</initialResistanceRange>
     <initialWillRange>1~3</initialWillRange>
     <initialResistanceRange>0~0</initialResistanceRange>
-    <initialWillRange>0~1</initialWillRange>
     <apparelMoney>300~600</apparelMoney>
     <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <apparelTags><li>IndustrialBasic</li><li>Spacer</li></apparelTags>
@@ -36,8 +35,6 @@
     </xenotypeSet>
     <initialResistanceRange>2~4</initialResistanceRange>
     <initialWillRange>3~6</initialWillRange>
-    <initialResistanceRange>0~1</initialResistanceRange>
-    <initialWillRange>0~1</initialWillRange>
     <apparelMoney>260~520</apparelMoney>
     <apparelRequired>
       <li>ST_Apparel_FerengiTunic</li>
@@ -64,8 +61,6 @@
     </xenotypeSet>
     <initialResistanceRange>3~6</initialResistanceRange>
     <initialWillRange>5~9</initialWillRange>
-    <initialResistanceRange>0~1</initialResistanceRange>
-    <initialWillRange>1~3</initialWillRange>
     <apparelMoney>500~1500</apparelMoney>
     <apparelRequired>
       <li>ST_Apparel_FerengiTunic</li>

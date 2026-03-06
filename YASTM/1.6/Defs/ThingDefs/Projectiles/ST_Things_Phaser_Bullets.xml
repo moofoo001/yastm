@@ -151,4 +151,23 @@
     </projectile>
   </ThingDef>
 
+  <!-- Compression Rifle Heavy Beam -->
+  <ThingDef ParentName="BaseBullet">
+      <defName>ST_Bullet_CompressionPhaser</defName>
+      <label>compression phaser beam</label>
+      <graphicData>
+        <texPath>Things/Projectile/Heavy_Beam</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize>1.5</drawSize>
+        <color>(0.4, 0.8, 1, 1)</color> 
+      </graphicData>
+      <projectile>
+        <damageDef>Burn</damageDef> 
+        <damageAmountBase>24</damageAmountBase>
+        <armorPenetrationBase>0.65</armorPenetrationBase> 
+        <speed>120</speed>
+        <stoppingPower>1.5</stoppingPower>
+      </projectile>
+    </ThingDef>
+
 </Defs>

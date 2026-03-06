@@ -1,62 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Federation settlements -->
   <RulePackDef>
     <defName>ST_SettlementName_Federation</defName>
     <rulePack>
       <rulesStrings>
-        <li>r_name->[prefix] [term]</li>
-        <li>prefix->Federation|Starfleet|UFP|Science|Research|Operations|Explorer</li>
-        <li>term->Outpost|Station|Base|Relay|Depot|Observation Post|Field Lab|Colony</li>
+        <li>name->[prefix] [term]</li>
+        <li>prefix->Federation</li>
+        <li>prefix->Starfleet</li>
+        <li>prefix->UFP</li>
+        <li>prefix->Science</li>
+        <li>prefix->Research</li>
+        <li>prefix->Operations</li>
+        <li>prefix->Explorer</li>
+        <li>term->Outpost</li>
+        <li>term->Station</li>
+        <li>term->Base</li>
+        <li>term->Relay</li>
+        <li>term->Depot</li>
+        <li>term->Observation Post</li>
+        <li>term->Field Lab</li>
+        <li>term->Colony</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>
 
-  <!-- Klingon settlements -->
   <RulePackDef>
     <defName>ST_SettlementName_Klingon</defName>
     <rulePack>
       <rulesStrings>
-        <li>r_name->[term] of [valor]</li>
-        <li>term->Stronghold|Garrison|War Camp|Fortress|Honor Hold|Blade Keep</li>
-        <li>valor->Kahless|the Empire|Glory|Honor|Warriors|Qo'noS</li>
+        <li>name->[term] of [valor]</li>
+        <li>term->Stronghold</li>
+        <li>term->Garrison</li>
+        <li>term->War Camp</li>
+        <li>term->Fortress</li>
+        <li>term->Honor Hold</li>
+        <li>term->Blade Keep</li>
+        <li>valor->Kahless</li>
+        <li>valor->the Empire</li>
+        <li>valor->Glory</li>
+        <li>valor->Honor</li>
+        <li>valor->Warriors</li>
+        <li>valor->Qo'noS</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>
 
-  <!-- Romulan settlements -->
   <RulePackDef>
     <defName>ST_SettlementName_Romulan</defName>
     <rulePack>
       <rulesStrings>
-        <li>r_name->[prefix] [term]</li>
-        <li>prefix->Romulan|Tal Shiar|Imperial|Galae|Border|Listening</li>
-        <li>term->Outpost|Station|Complex|Listening Post|Operations Node|Supply Point</li>
+        <li>name->[prefix] [term]</li>
+        <li>prefix->Romulan</li>
+        <li>prefix->Tal Shiar</li>
+        <li>prefix->Imperial</li>
+        <li>prefix->Galae</li>
+        <li>prefix->Border</li>
+        <li>prefix->Listening</li>
+        <li>term->Outpost</li>
+        <li>term->Station</li>
+        <li>term->Complex</li>
+        <li>term->Listening Post</li>
+        <li>term->Operations Node</li>
+        <li>term->Supply Point</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>
 
-  <!-- Ferengi settlements -->
   <RulePackDef>
     <defName>ST_SettlementName_Ferengi</defName>
     <rulePack>
       <rulesStrings>
-        <li>r_name->[prefix] [term]</li>
-        <li>prefix->Ferengi|Commerce|Acquisition|Profit|Exchange|Contract</li>
-        <li>term->Hub|Bazaar|Trade Post|Depot|Auction House|Ledger Office</li>
+        <li>name->[prefix] [term]</li>
+        <li>prefix->Ferengi</li>
+        <li>prefix->Commerce</li>
+        <li>prefix->Acquisition</li>
+        <li>prefix->Profit</li>
+        <li>prefix->Exchange</li>
+        <li>prefix->Contract</li>
+        <li>term->Hub</li>
+        <li>term->Bazaar</li>
+        <li>term->Trade Post</li>
+        <li>term->Depot</li>
+        <li>term->Auction House</li>
+        <li>term->Ledger Office</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>
 
-  <!-- Dominion settlements -->
   <RulePackDef>
     <defName>ST_SettlementName_Dominion</defName>
     <rulePack>
       <rulesStrings>
-        <li>r_name->[prefix] [term]</li>
-        <li>prefix->Dominion|Vorta|Jem'Hadar|Founders|Ketracel|Cardassian</li>
-        <li>term->Outpost|Station|Complex|Listening Post|Operations Node|Supply Point</li>
+        <li>name->[prefix] [term]</li>
+        <li>prefix->Dominion</li>
+        <li>prefix->Vorta</li>
+        <li>prefix->Jem'Hadar</li>
+        <li>prefix->Founders</li>
+        <li>prefix->Ketracel</li>
+        <li>prefix->Cardassian</li>
+        <li>term->Outpost</li>
+        <li>term->Station</li>
+        <li>term->Complex</li>
+        <li>term->Listening Post</li>
+        <li>term->Operations Node</li>
+        <li>term->Supply Point</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>

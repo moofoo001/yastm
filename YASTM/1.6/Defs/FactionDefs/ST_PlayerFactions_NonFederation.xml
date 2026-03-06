@@ -202,12 +202,11 @@
     <canMakeRandomly>false</canMakeRandomly>
     <hidden>false</hidden>
     <backstoryCategories>
-      <li>Dominion_Engineering</li>
-      <li>Dominion_Science</li>
-      <li>Dominion_Medical</li>
-      <li>Dominion_Warrior</li>
-      <li>Dominion_Command</li>
-      <li>Dominion_Cardassian</li> 
+      <li>ST_Dominion_JemHadar</li>
+      <li>ST_Dominion_Vorta</li>
+      <li>ST_Dominion_Founder</li>
+      <li>ST_Dominion_Cardassian</li>
+      <li>Offworld</li> 
     </backstoryCategories>
     <startingResearchTags>
       <li>ClassicStart</li>

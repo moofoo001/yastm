@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_Apparel_FedChild</defName>
+    <label>Federation child clothing</label>
+    <description>Comfortable, standard-issue civilian clothing designed specifically for children growing up on starbases or starships. Often seen on the Enterprise-D.</description>
+    <graphicData>
+      <texPath>Things/Item/Apparel/Federation_Tunic/FederationTunic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.7, 0.7)</drawSize>
+    </graphicData>
+    <uiIconScale>1</uiIconScale>
+    <uiIconPath>Things/Item/Apparel/Federation_Tunic/FederationTunic</uiIconPath>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+      <Mass>0.25</Mass>
+      <ArmorRating_Blunt>0.02</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+      <Insulation_Cold>10</Insulation_Cold>
+      <Insulation_Heat>5</Insulation_Heat>
+    </statBases>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Item/Apparel/Federation_Tunic/FederationTunic</wornGraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <tags>
+        <li>Spacer</li>
+        <li>ST_Civilian</li>
+      </tags>
+      <developmentalStageFilter>Child, Baby</developmentalStageFilter>
+    </apparel>
+    <recipeMaker>
+      <researchPrerequisite>Federation_Standard</researchPrerequisite>
+      <recipeUsers>
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+      </recipeUsers>
+    </recipeMaker>
+    <costList>
+      <Cloth>25</Cloth> </costList>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li><weight>10</weight>
+          <only>(180, 180, 190)</only>
+        </li> 
+        <li><weight>10</weight>
+          <only>(100, 150, 200)</only>
+        </li> 
+        <li><weight>10</weight>
+          <only>(200, 150, 100)</only>
+        </li> 
+      </options>
+    </colorGenerator>
+  </ThingDef>
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_Apparel_KlingonChild</defName>
+    <label>Klingon child clothing</label>
+    <description>Comfortable, standard-issue civilian clothing designed specifically for children growing up on Qo'noS.</description>
+    <graphicData>
+      <texPath>Things/Item/Apparel/Klingon_Tunic/KlingonTunic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.7, 0.7)</drawSize>
+    </graphicData>
+    <uiIconScale>1</uiIconScale>
+    <uiIconPath>Things/Item/Apparel/Klingon_Tunic/KlingonTunic</uiIconPath>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+      <Mass>0.25</Mass>
+      <ArmorRating_Blunt>0.02</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+      <Insulation_Cold>10</Insulation_Cold>
+      <Insulation_Heat>5</Insulation_Heat>
+    </statBases>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Item/Apparel/Klingon_Tunic/KlingonTunic</wornGraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <tags>
+        <li>Spacer</li>
+        <li>ST_Civilian</li>
+      </tags>
+      <developmentalStageFilter>Child, Baby</developmentalStageFilter>
+    </apparel>
+    <recipeMaker>
+      <researchPrerequisite>Klingon_Standard</researchPrerequisite>
+      <recipeUsers>
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+      </recipeUsers>
+    </recipeMaker>
+    <costList>
+      <Cloth>25</Cloth> </costList>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li><weight>10</weight>
+          <only>(180, 180, 190)</only>
+        </li> 
+        <li><weight>10</weight>
+          <only>(100, 150, 200)</only>
+        </li> 
+        <li><weight>10</weight>
+          <only>(200, 150, 100)</only>
+        </li> 
+      </options>
+    </colorGenerator>
+  </ThingDef>
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_Apparel_RomulanChild</defName>
+    <label>Romulan child clothing</label>
+    <description>Comfortable, standard-issue civilian clothing designed specifically for children growing up on Romulus.</description>
+    <graphicData>
+      <texPath>Things/Item/Apparel/Romulan_Tunic/RomulanTunic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.7, 0.7)</drawSize>
+    </graphicData>
+    <uiIconScale>1</uiIconScale>
+    <uiIconPath>Things/Item/Apparel/Romulan_Tunic/RomulanTunic</uiIconPath>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+      <Mass>0.25</Mass>
+      <ArmorRating_Blunt>0.02</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+      <Insulation_Cold>10</Insulation_Cold>
+      <Insulation_Heat>5</Insulation_Heat>
+    </statBases>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Item/Apparel/Romulan_Tunic/RomulanTunic</wornGraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <tags>
+        <li>Spacer</li>
+        <li>ST_Civilian</li>
+      </tags>
+      <developmentalStageFilter>Child, Baby</developmentalStageFilter>
+    </apparel>
+    <recipeMaker>
+      <researchPrerequisite>Romulan_Standard</researchPrerequisite>
+      <recipeUsers>
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+      </recipeUsers>
+    </recipeMaker>
+    <costList>
+      <Cloth>25</Cloth> </costList>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li><weight>10</weight>
+          <only>(180, 180, 190)</only>
+        </li> 
+        <li><weight>10</weight>
+          <only>(100, 150, 200)</only>
+        </li> 
+        <li><weight>10</weight>
+          <only>(200, 150, 100)</only>
+        </li> 
+      </options>
+    </colorGenerator>
+  </ThingDef>
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_Apparel_FerengiChild</defName>
+    <label>Ferengi child clothing</label>
+    <description>Comfortable, standard-issue civilian clothing designed specifically for children growing up on Ferenginar.</description>
+    <graphicData>
+      <texPath>Things/Item/Apparel/Ferengi_Tunic/FerengiTunic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.7, 0.7)</drawSize>
+    </graphicData>
+    <uiIconScale>1</uiIconScale>
+    <uiIconPath>Things/Item/Apparel/Ferengi_Tunic/FerengiTunic</uiIconPath>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+      <Mass>0.25</Mass>
+      <ArmorRating_Blunt>0.02</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+      <Insulation_Cold>10</Insulation_Cold>
+      <Insulation_Heat>5</Insulation_Heat>
+    </statBases>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Item/Apparel/Ferengi_Tunic/FerengiTunic</wornGraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <tags>
+        <li>Spacer</li>
+        <li>ST_Civilian</li>
+      </tags>
+      <developmentalStageFilter>Child, Baby</developmentalStageFilter>
+    </apparel>
+    <recipeMaker>
+      <researchPrerequisite>Ferengi_Standard</researchPrerequisite>
+      <recipeUsers>
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+      </recipeUsers>
+    </recipeMaker>
+    <costList>
+      <Cloth>25</Cloth> </costList>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li><weight>10</weight>
+          <only>(180, 180, 190)</only>
+        </li> 
+        <li><weight>10</weight>
+          <only>(100, 150, 200)</only>
+        </li> 
+        <li><weight>10</weight>
+          <only>(200, 150, 100)</only>
+        </li> 
+      </options>
+    </colorGenerator>
+  </ThingDef>
+
+
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_Apparel_BajoranChild</defName>
+    <label>Bajoran child clothing</label>
+    <description>Comfortable, standard-issue civilian clothing designed specifically for children growing up on Bajor.</description>
+    <graphicData>
+      <texPath>Things/Item/Apparel/Bajor_Tunic/bajor_tunic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.7, 0.7)</drawSize>
+    </graphicData>
+    <uiIconScale>1</uiIconScale>
+    <uiIconPath>Things/Item/Apparel/Bajor_Tunic/bajor_tunic</uiIconPath>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+      <Mass>0.25</Mass>
+      <ArmorRating_Blunt>0.02</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+      <Insulation_Cold>10</Insulation_Cold>
+      <Insulation_Heat>5</Insulation_Heat>
+    </statBases>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Item/Apparel/Bajor_Tunic/bajor_tunic</wornGraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <tags>
+        <li>Spacer</li>
+        <li>ST_Civilian</li>
+      </tags>
+      <developmentalStageFilter>Child, Baby</developmentalStageFilter>
+    </apparel>
+    <recipeMaker>
+      <researchPrerequisite>ST_Common_Issue_Gear</researchPrerequisite>
+      <recipeUsers>
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+      </recipeUsers>
+    </recipeMaker>
+    <costList>
+      <Cloth>25</Cloth> </costList>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li><weight>10</weight>
+          <only>(180, 180, 190)</only>
+        </li> 
+        <li><weight>10</weight>
+          <only>(100, 150, 200)</only>
+        </li> 
+        <li><weight>10</weight>
+          <only>(200, 150, 100)</only>
+        </li> 
+      </options>
+    </colorGenerator>
+  </ThingDef>
+
+</Defs>

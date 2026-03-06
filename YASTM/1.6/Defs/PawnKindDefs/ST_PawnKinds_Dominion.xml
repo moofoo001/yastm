@@ -17,7 +17,8 @@
     <backstoryCategories>
       <li>ST_Dominion_JemHadar</li>
     </backstoryCategories>
-    <maxGenerationAge>15</maxGenerationAge>
+    <minGenerationAge>20</minGenerationAge>
+    <maxGenerationAge>30</maxGenerationAge>
     <isFighter>true</isFighter>
     <apparelTags>
       <li>IndustrialBasic</li>

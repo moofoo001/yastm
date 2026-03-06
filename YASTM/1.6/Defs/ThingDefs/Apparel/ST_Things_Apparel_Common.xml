@@ -101,4 +101,76 @@
 
   </ThingDef>
 
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_Apparel_BajoranSecurity</defName>
+    <label>Bajoran security uniform</label>
+    <description>A sturdy, rust-red and brown uniform standard issue for the Bajoran Militia. Worn famously by the Chief of Security on Deep Space Nine, this attire commands respect and is designed to aid in subduing unruly individuals during station brawls.</description>
+    <graphicData>
+      <texPath>Things/Item/Apparel/Bajor_Tunic/bajor_tunic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>2</uiIconScale>
+    <uiIconPath>Things/Item/Apparel/Bajor_Tunic/bajor_tunic</uiIconPath>
+    
+    <statBases>
+      <WorkToMake>6500</WorkToMake>
+      <Mass>1.5</Mass>
+      <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
+      <Insulation_Cold>15</Insulation_Cold>
+      <Insulation_Heat>10</Insulation_Heat>
+    </statBases>
+    
+    <equippedStatOffsets>
+      <ArrestSuccessChance>0.15</ArrestSuccessChance>
+      <SocialImpact>0.10</SocialImpact>
+    </equippedStatOffsets>
+
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Legs</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Item/Apparel/Bajor_Tunic/bajor_tunic</wornGraphicPath>
+      <layers>
+        <li>OnSkin</li>
+        <li>Middle</li> </layers>
+      <tags>
+        <li>Spacer</li>
+        <li>ST_Security</li>
+      </tags>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
+    </apparel>
+    
+    <recipeMaker>
+      <researchPrerequisite>ST_Common_Issue_Gear</researchPrerequisite>
+      <recipeUsers>
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+      </recipeUsers>
+    </recipeMaker>
+    
+    <costList>
+      <Cloth>60</Cloth>
+      <Steel>5</Steel> 
+    </costList>
+    
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>(139, 69, 19)</only> </li>
+        <li>
+          <weight>5</weight>
+          <only>(160, 82, 45)</only> </li>
+      </options>
+    </colorGenerator>
+  </ThingDef>
+
 </Defs>

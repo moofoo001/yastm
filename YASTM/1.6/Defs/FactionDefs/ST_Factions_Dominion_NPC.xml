@@ -55,10 +55,15 @@
         <categories>
           <li>ST_Dominion_JemHadar</li>
           <li>ST_Dominion_Vorta</li>
+          <li>ST_Dominion_Founder</li>
+          <li>ST_Dominion_Cardassian</li>
+        </categories>
+      </li>
+      <li>
+        <categories>
           <li>Offworld</li>
         </categories>
-        <categoriesChildhood><li>Civil</li><li>Spacer</li></categoriesChildhood>
-        <categoriesAdulthood><li>Civil</li><li>Spacer</li></categoriesAdulthood>
+        <commonality>0.01</commonality>
       </li>
     </backstoryFilters>
 

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<RulePackDef>
+    <defName>ST_Namer_Wesley</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->Wesley 'The Boy' Crusher</li>
+        <li>name->Wesley 'Prodigy' Crusher</li>
+        <li>name->Wesley 'Ensign' Crusher</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+<HairDef>
+    <defName>FringeWesley</defName>
+    <label>fringe wesley</label>
+    <styleGender>Male</styleGender>
+    <texPath>Things/Pawn/Humanlike/Hairs/Fringe</texPath>
+    <category>Urban</category>
+    <styleTags>
+      <li>HairWesley</li>
+    </styleTags>
+  </HairDef>
+
+<GeneDef ParentName="GeneHairStyleBase">
+    <defName>ST_Gene_WesleyHair</defName>
+    <label>ensign hairstyle</label>
+    <description>A very specific, neatly combed side part.</description>
+    <iconPath>UI/Icons/Genes/Gene_Wesley</iconPath>
+    <displayCategory>Cosmetic</displayCategory>
+    <hairTagFilter>
+      <whitelist>true</whitelist>
+      <tags>
+        <li>HairWesley</li>
+      </tags>
+    </hairTagFilter>
+    <biostatCpx>0</biostatCpx>
+    <biostatMet>0</biostatMet>
+  </GeneDef>
+
+  <XenotypeDef>
+    <defName>ST_Xenotype_Wesley</defName>
+    <label>prodigy</label>
+    <description>A young human with an uncanny aptitude for science and a very strict haircut.</description>
+    <inheritable>false</inheritable>
+    <combatPowerFactor>1.0</combatPowerFactor>
+    <iconPath>UI/Icons/Genes/Gene_Wesley</iconPath>
+    <genes>
+      <li>Beard_NoBeardOnly</li>
+      <li>Body_Thin</li>
+      <li>Skin_Melanin2</li>
+      <li>Hair_DarkBrown</li>
+      <li>ST_Gene_WesleyHair</li>
+      <li>AptitudeRemarkable_Intellectual</li>
+      <li>AptitudePoor_Social</li>
+    </genes>
+  </XenotypeDef>
+
+  <PawnKindDef>
+    <defName>ST_PawnKind_Wesley</defName>
+    <label>acting ensign</label>
+    <race>Human</race>
+    <fixedGender>Male</fixedGender>
+    <nameMaker>ST_Namer_Wesley</nameMaker>
+    <combatPower>15</combatPower>
+    <isFighter>false</isFighter>
+    <minGenerationAge>16</minGenerationAge>
+    <maxGenerationAge>19</maxGenerationAge>
+    <useFactionXenotypes>false</useFactionXenotypes>
+    <xenotypeSet>
+      <xenotypeChances>
+        <ST_Xenotype_Wesley>999</ST_Xenotype_Wesley>
+      </xenotypeChances>
+    </xenotypeSet>  
+    <apparelRequired>
+      <li>ST_Apparel_StarfleetTNG_Science</li>
+      <li>ST_Apparel_StarfleetPants</li>
+      <li>Fed_Combadge_TNG</li>
+    </apparelRequired>
+    <apparelTags><li>StarfleetUniform</li></apparelTags>
+    <apparelMoney>300~700</apparelMoney>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <weaponMoney>0</weaponMoney>
+    <forcedTraits>
+      <Abrasive>0</Abrasive> 
+      <TooSmart>0</TooSmart> 
+    </forcedTraits>
+    <initialWillRange>0~1</initialWillRange>
+    <initialResistanceRange>0~1</initialResistanceRange>
+    <skills>
+      <li><skill>Intellectual</skill>
+      <range>14~18</range></li>
+      <li><skill>Social</skill>
+      <range>1~3</range></li>
+    </skills>
+  </PawnKindDef>
+
+</Defs>

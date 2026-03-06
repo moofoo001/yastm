@@ -272,46 +272,50 @@
   </ThingDef>
 
   <!-- KLINGON Bat'leth -->
-  <ThingDef ParentName="ST_MeleeBase">
+<ThingDef ParentName="ST_MeleeBase">
     <defName>KL_Weapon_Batleth</defName>
     <label>bat'leth</label>
-    <description>The bat'leth is a traditional Klingon curved blade weapon, symbolizing honor and combat prowess in Klingon culture.</description>
+    <description>The bat'leth is a traditional Klingon curved blade weapon. Known as the 'sword of honor', its crescent shape and multiple handholds allow for devastating strikes, parries, and lethal thrusts in the hands of a skilled warrior.</description>
     <graphicData>
       <texPath>Things/Item/Equipment/Klingon_weapons/Batleth</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>1</drawSize>
-    </graphicData>
+      <drawSize>1.2</drawSize> </graphicData>
     <uiIconScale>1</uiIconScale>
     <weaponTags>
       <li>KlingonMelee_Batleth</li>
       <li>KlingonMelee</li>
     </weaponTags>
     <statBases>
-      <Mass>3.2</Mass>
-      <MarketValue>380</MarketValue>
+      <Mass>3.8</Mass> <MarketValue>450</MarketValue>
     </statBases>
+    <equippedAngleOffset>-45</equippedAngleOffset>
     <recipeMaker>
-        <workAmount>8000</workAmount>
-        <skillRequirements><Crafting>7</Crafting></skillRequirements>
+        <workAmount>12000</workAmount> <skillRequirements><Crafting>8</Crafting></skillRequirements>
         <recipeUsers><li>ElectricSmithy</li></recipeUsers>
         <researchPrerequisite>ST_Klingon_Melee_I</researchPrerequisite>
     </recipeMaker>
     <costList>
-      <Plasteel>4</Plasteel>
-      <Steel>25</Steel>
-      <Gold>15</Gold>
+      <Plasteel>10</Plasteel>
+      <Steel>30</Steel>
       <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
     <tools>
       <li>
-        <label>edge</label>
+        <label>outer edge</label>
         <capacities>
           <li>Cut</li>
         </capacities>
-        <power>16</power>
-        <cooldownTime>2.1</cooldownTime>
-        <armorPenetration>0.33</armorPenetration>
+        <power>24</power> <cooldownTime>1.8</cooldownTime> <armorPenetration>0.45</armorPenetration>
         <chanceFactor>1.0</chanceFactor>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.6</cooldownTime>
+        <armorPenetration>0.65</armorPenetration> <chanceFactor>0.4</chanceFactor>
       </li>
       <li>
         <label>pommel</label>
@@ -319,14 +323,9 @@
           <li>Blunt</li>
         </capacities>
         <power>10</power>
-        <cooldownTime>2.1</cooldownTime>
-        <armorPenetration>0.20</armorPenetration>
-        <chanceFactor>0.15</chanceFactor>
-      </li>
+        <cooldownTime>1.6</cooldownTime>
+        <chanceFactor>0.2</chanceFactor> </li>
     </tools>
-    <tradeTags>
-     <li>ST_KlingonArms</li> 
-    </tradeTags>
   </ThingDef>
 
   <!-- KLINGON Haf'leth -->

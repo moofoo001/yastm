@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<IncidentDef>
+    <defName>ST_Incident_UnwantedGuest</defName>
+    <label>Starfleet emergency transfer</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>YASTM.Incidents.IncidentWorker_UnwantedGuest</workerClass>
+    <baseChance>1.2</baseChance> 
+  </IncidentDef>
+
+
+ <QuestScriptDef>
+    <defName>ST_Quest_BabysitWesley</defName>
+    <rootSelectionWeight>0</rootSelectionWeight> 
+    <autoAccept>true</autoAccept>
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->The Boy Genius</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->You agreed to take in an 'Acting Ensign' for 10 days. He will help immensely in the lab, but his personality drives everyone crazy. Keep him alive for 10 days, and Starfleet will reward you handsomely.</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    <root Class="QuestNode_Sequence">
+      <nodes>
+        <li Class="QuestNode_GetMap" />
+        
+        <li Class="QuestNode_GeneratePawn">
+          <kindDef>ST_PawnKind_Wesley</kindDef>
+          <addToList>wesleyPawnList</addToList> 
+          <storeAs>wesleyPawn</storeAs> </li>
+        
+        <li Class="QuestNode_DropPods">
+          <contents>$wesleyPawnList</contents>
+        </li>
+        
+        <li Class="QuestNode_JoinPlayer">
+          <pawns>$wesleyPawnList</pawns>
+          <joinPlayer>true</joinPlayer>
+        </li>
+
+        <li Class="QuestNode_Delay">
+          <delayTicks>600000</delayTicks>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_GiveRewards">
+                <parms>
+                  <allowGoodwill>true</allowGoodwill>
+                  <thingRewardRequired>true</thingRewardRequired>
+                </parms>
+              </li>
+
+              <li Class="QuestNode_Letter">
+                <label>Administrative Error</label>
+                <text>Starfleet has deposited your reward for keeping the boy safe. However, it seems the Enterprise has 'conveniently' forgotten to send a shuttle to pick him up. His transfer back has been infinitely delayed. He is now officially your problem. Good luck!</text>
+              </li>
+
+              <li Class="QuestNode_End">
+                <outcome>Success</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+<QuestScriptDef>
+    <defName>ST_Quest_BabysitTribbles</defName>
+    <rootSelectionWeight>0</rootSelectionWeight>
+    <autoAccept>true</autoAccept>
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->A Tribbling Situation</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->You agreed to take in a crate of Tribbles. Survive for 10 days without them eating all your supplies, and Starfleet will compensate you for the trouble. What you do with the Tribbles afterwards is up to you...</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    <root Class="QuestNode_Sequence">
+      <nodes>
+        <li Class="QuestNode_GetMap" />
+        
+        <li Class="QuestNode_LoopCount">
+          <loopCount>6</loopCount>
+          <node Class="QuestNode_GeneratePawn">
+             <kindDef>ST_PawnKind_Tribble</kindDef> 
+             <faction>Player</faction> <addToList>tribblePawns</addToList>
+          </node>
+        </li>
+
+        <li Class="QuestNode_DropPods">
+          <contents>$tribblePawns</contents>
+        </li>
+        <li Class="QuestNode_JoinPlayer">
+          <pawns>$tribblePawns</pawns>
+          <joinPlayer>true</joinPlayer>
+        </li>
+        <li Class="QuestNode_Delay">
+          <delayTicks>600000</delayTicks>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_GiveRewards">
+                <parms>
+                  <allowGoodwill>true</allowGoodwill>
+                  <thingRewardRequired>true</thingRewardRequired>
+                </parms>
+              </li>
+              <li Class="QuestNode_Letter">
+                <label>Compensation arrived</label>
+                <text>Starfleet has sent the reward for storing the Tribbles. Unfortunately, they declined to take the animals back. Good luck!</text>
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Success</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>
