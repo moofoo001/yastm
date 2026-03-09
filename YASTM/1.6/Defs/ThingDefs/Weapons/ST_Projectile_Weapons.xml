@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>ST_Weapon_TR116r</defName>
+    <label>TR-116r projectile rifle</label>
+    <description>A Starfleet-designed projectile weapon, developed for environments where energy weapons are rendered useless or against enemies that adapt to directed energy. It fires a chemically propelled tritanium slug with devastating kinetic force and unparalleled armor penetration.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/Federation_weapons/TR116</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.3</drawSize>
+    </graphicData>
+    <soundInteract>Interact_SniperRifle</soundInteract>
+
+    <statBases>
+      <WorkToMake>50000</WorkToMake> <Mass>4.5</Mass>
+      <AccuracyTouch>0.50</AccuracyTouch> <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.90</AccuracyMedium>
+      <AccuracyLong>0.95</AccuracyLong> <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+    </statBases>
+    
+    <recipeMaker>
+      <skillRequirements><Crafting>12</Crafting></skillRequirements>
+      <recipeUsers><li>FabricationBench</li></recipeUsers>
+    <researchPrerequisite>ST_UFP_Engineering_III</researchPrerequisite> 
+    </recipeMaker>
+    
+    <costList>
+      <Plasteel>40</Plasteel>
+      <Steel>30</Steel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    
+    <weaponTags>
+      <li>SpacerGun</li>
+      <li>SniperRifle</li>
+      <li>StarfleetSpecial</li>
+    </weaponTags>
+    
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>ST_Bullet_TR116r</defaultProjectile>
+        <warmupTime>2.5</warmupTime>
+        <range>45.9</range>
+        <soundCast>Shot_SniperRifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>11</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities><li>Blunt</li><li>Poke</li></capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+
+  </ThingDef>
+
+</Defs>

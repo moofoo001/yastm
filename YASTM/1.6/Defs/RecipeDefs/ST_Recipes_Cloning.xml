@@ -15,14 +15,29 @@
     <soundWorking>Recipe_Machining</soundWorking>
     <ingredients>
       <li>
-        <filter><categories><li>MeatRaw</li></categories></filter>
-        <count>150</count>
+        <filter>
+          <customSummary>protein</customSummary>
+          <categories>
+            <li>MeatRaw</li>
+            <li>AnimalProductRaw</li>
+          </categories>
+        </filter>
+        <count>100</count>
       </li>
       <li>
         <filter><thingDefs><li>Neutroamine</li></thingDefs></filter>
         <count>10</count>
       </li>
     </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>MeatRaw</li>
+        <li>AnimalProductRaw</li>
+      </categories>
+      <thingDefs>
+        <li>Neutroamine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
     <products>
       <ST_Item_JemHadarPod>1</ST_Item_JemHadarPod>
     </products>
@@ -41,7 +56,13 @@
     <workSpeedStat>MedicalTendSpeed</workSpeedStat>
     <ingredients>
       <li>
-        <filter><categories><li>MeatRaw</li></categories></filter>
+        <filter>
+          <customSummary>protein</customSummary>
+          <categories>
+            <li>MeatRaw</li>
+            <li>AnimalProductRaw</li>
+          </categories>
+        </filter>
         <count>100</count>
       </li>
       <li>
@@ -53,6 +74,16 @@
         <count>1</count>
       </li>
     </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>MeatRaw</li>
+        <li>AnimalProductRaw</li>
+      </categories>
+      <thingDefs>
+        <li>Neutroamine</li>
+        <li>ComponentSpacer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
     <products>
       <ST_Item_VortaPod>1</ST_Item_VortaPod>
     </products>

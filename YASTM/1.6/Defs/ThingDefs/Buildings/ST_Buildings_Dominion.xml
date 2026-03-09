@@ -168,16 +168,26 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="UnfinishedBase">
+<ThingDef>
     <defName>ST_UnfinishedClone</defName>
     <label>gestating clone</label>
     <description>A Dominion clone currently gestating in a nutrient suspension. It requires more active sequencing before decanting.</description>
+    <thingClass>UnfinishedThing</thingClass> <category>Item</category>
+    <altitudeLayer>Item</altitudeLayer>
+    <useHitPoints>true</useHitPoints>
+    <isUnfinishedThing>true</isUnfinishedThing>
     <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
       <Flammability>0.5</Flammability>
+      <Mass>5</Mass>
     </statBases>
     <graphicData>
-      <texPath>Things/Item/Unfinished/UnfinishedHealthItem</texPath> <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Item/Unfinished/UnfinishedHealthItem</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+    </comps>
   </ThingDef>
 
 </Defs>

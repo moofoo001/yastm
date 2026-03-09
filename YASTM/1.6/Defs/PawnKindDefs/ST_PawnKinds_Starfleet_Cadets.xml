@@ -24,13 +24,14 @@
       </li>
     </backstoryFiltersOverride>
 
+
     <skills>
       <li>
-        <skill>Social</skill><range>6~10</range>
-        <skill>Shooting</skill><range>5~9</range>
-        <skill>Melee</skill><range>3~6</range>
-        <skill>Intellectual</skill><range>4~7</range>
-        <skill>Construction</skill><range>3~6</range>
+        <skill>Social</skill><range>0~10</range>
+        <skill>Shooting</skill><range>0~9</range>
+        <skill>Melee</skill><range>0~6</range>
+        <skill>Intellectual</skill><range>0~7</range>
+        <skill>Construction</skill><range>0~6</range>
       </li>
     </skills>
 
@@ -90,15 +91,17 @@
       <ST_FederationRank>0</ST_FederationRank>
     </forcedTraits>
 
+
     <skills>
       <li>
-        <skill>Social</skill><range>3~6</range>
-        <skill>Shooting</skill><range>3~6</range>
-        <skill>Construction</skill><range>2~5</range>
-        <skill>Plants</skill><range>2~5</range>
-        <skill>Mining</skill><range>1~4</range>
+        <skill>Social</skill><range>0~6</range>
+        <skill>Shooting</skill><range>0~6</range>
+        <skill>Construction</skill><range>0~5</range>
+        <skill>Plants</skill><range>0~5</range>
+        <skill>Mining</skill><range>0~4</range>
       </li>
     </skills>
+  
 
     <weaponTags><li>ST_Phaser_T1</li></weaponTags>
     <weaponMoney>750~800</weaponMoney>
@@ -126,7 +129,6 @@
     <backstoryFiltersOverride>
       <li>
         <categoriesChildhood>
-          <li>ST_Apparel_StarfleetTunic_Operations</li>
           <li>Starfleet_Operations</li>
           <li>Starfleet_Science</li>
         </categoriesChildhood>
@@ -140,15 +142,17 @@
       <ST_FederationRank>0</ST_FederationRank>
     </forcedTraits>
 
+
     <skills>
       <li>
-        <skill>Construction</skill><range>4~7</range>
-        <skill>Crafting</skill><range>4~7</range>
-        <skill>Intellectual</skill><range>2~5</range>
-        <skill>Mining</skill><range>2~5</range>
-        <skill>Shooting</skill><range>2~4</range>
+        <skill>Construction</skill><range>0~7</range>
+        <skill>Crafting</skill><range>0~7</range>
+        <skill>Intellectual</skill><range>0~5</range>
+        <skill>Mining</skill><range>0~5</range>
+        <skill>Shooting</skill><range>0~4</range>
       </li>
     </skills>
+
 
     <weaponTags><li>ST_Phaser_T1</li></weaponTags>
     <weaponMoney>750~800</weaponMoney>
@@ -189,14 +193,16 @@
       <ST_FederationRank>0</ST_FederationRank>
     </forcedTraits>
 
+
     <skills>
       <li>
-        <skill>Shooting</skill><range>5~8</range>
-        <skill>Melee</skill><range>4~7</range>
-        <skill>Social</skill><range>2~5</range>
-        <skill>Construction</skill><range>1~4</range>
+        <skill>Shooting</skill><range>0~8</range>
+        <skill>Melee</skill><range>0~7</range>
+        <skill>Social</skill><range>0~5</range>
+        <skill>Construction</skill><range>0~4</range>
       </li>
     </skills>
+
 
     <weaponTags><li>ST_Phaser_T1</li></weaponTags>
     <weaponMoney>750~800</weaponMoney>
@@ -238,14 +244,16 @@
       <ST_FederationRank>0</ST_FederationRank>
     </forcedTraits>
 
+
     <skills>
       <li>
-        <skill>Intellectual</skill><range>5~8</range>
-        <skill>Medicine</skill><range>4~7</range>
-        <skill>Cooking</skill><range>1~4</range>
-        <skill>Shooting</skill><range>2~4</range>
+        <skill>Intellectual</skill><range>0~8</range>
+        <skill>Medicine</skill><range>0~7</range>
+        <skill>Cooking</skill><range>0~4</range>
+        <skill>Shooting</skill><range>0~4</range>
       </li>
     </skills>
+
 
     <weaponTags><li>ST_Phaser_T1</li></weaponTags>
     <weaponMoney>750~800</weaponMoney>

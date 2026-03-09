@@ -7,10 +7,12 @@
     <scenario>
       <summary>Three Tal Shiar operatives drop onto a rimworld with advanced tech.</summary>
       <playerFaction>
-        <def>PlayerFaction</def> 
+        <def>PlayerFaction</def>
         <factionDef>ST_Player_RomulanOutpost</factionDef>
       </playerFaction>
       <parts>
+
+        
 
         <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
           <def>ConfigurePawnsKindDefs</def>

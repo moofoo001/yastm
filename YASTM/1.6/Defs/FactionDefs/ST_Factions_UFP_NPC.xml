@@ -16,6 +16,7 @@
     <configurationListOrderPriority>30</configurationListOrderPriority>
     <displayInFactionSelection>true</displayInFactionSelection>
 
+    
     <allowedCultures>
       <li>ST_Culture_UFP</li>
     </allowedCultures>
@@ -83,7 +84,7 @@
       </li>
     </backstoryFilters>
     
-    <basicMemberKind>UFP_Civilian</basicMemberKind>
+
 
     <!-- trader caravan visitor -->
     <caravanTraderKinds>

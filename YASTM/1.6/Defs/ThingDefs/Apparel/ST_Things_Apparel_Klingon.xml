@@ -123,4 +123,90 @@
     </recipeMaker>
   </ThingDef>
 
+  <!-- Klingon Honor Armor -->
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_Apparel_KlingonHonorArmor</defName>
+    <label>Klingon honor armor</label>
+    <description>A heavy, meticulously crafted suit of battle armor forged in the fires of Qo'noS. Designed specifically for close-quarters combat, it integrates micro-servos to assist with the sweeping strikes of a bat'leth. It offers incredible protection without sacrificing the warrior's mobility.</description>
+    <graphicData>
+      <texPath>Things/Item/Apparel/Klingon_Vest/Klingon_HonorArmor</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    
+    <statBases>
+      <WorkToMake>35000</WorkToMake>
+      <Mass>12.5</Mass>
+      <MarketValue>1800</MarketValue>
+      <ArmorRating_Sharp>1.10</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.55</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.60</ArmorRating_Heat>
+      <Insulation_Cold>25</Insulation_Cold>
+      <Insulation_Heat>15</Insulation_Heat>
+      <EquipDelay>10</EquipDelay>
+    </statBases>
+
+    <equippedStatOffsets>
+      <MoveSpeed>0.4</MoveSpeed>
+      <MeleeDodgeChance>0.15</MeleeDodgeChance>
+      <MeleeHitChance>0.10</MeleeHitChance>
+    </equippedStatOffsets>
+
+    <thingCategories>
+      <li>ApparelArmor</li>
+    </thingCategories>
+    
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Item/Apparel/KlingonHonorArmor/KlingonHonorArmor</wornGraphicPath>
+      <layers>
+        <li>Middle</li>
+        <li>Shell</li> </layers>
+      <tags>
+        <li>SpacerMilitary</li>
+        <li>KlingonArmor</li> </tags>
+      <defaultOutfitTags>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
+    </apparel>
+    
+    <recipeMaker>
+      <researchPrerequisite>PoweredArmor</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>10</Crafting>
+      </skillRequirements>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+    </recipeMaker>
+    
+    <costList>
+      <Plasteel>100</Plasteel>
+      <Steel>40</Steel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>(60, 60, 60)</only> </li>
+        <li>
+          <weight>5</weight>
+          <only>(80, 50, 50)</only> </li>
+        <li>
+          <weight>5</weight>
+          <only>(40, 40, 40)</only> </li>
+      </options>
+    </colorGenerator>
+  </ThingDef>
+
 </Defs>

@@ -14,13 +14,13 @@
     </prerequisites>
     <researchViewX>0</researchViewX>
     <researchViewY>2</researchViewY>
-      <modExtensions>
-     <li Class="YASTM.Research.ResearchRequiresMemeExtension">
-          <requiredMemes>
-            <li>ST_Meme_Starfleet</li>
-          </requiredMemes>
-        </li>
-      </modExtensions>
+  <modExtensions>
+    <li Class="YASTM.Research.ResearchRequiresMemeExtension">
+      <requiredMemes>
+        <li>ST_Meme_Starfleet</li>
+      </requiredMemes>
+      <lockReason>Requires Starfleet faction.</lockReason> </li>
+  </modExtensions>
   </ResearchProjectDef>
   
   <ResearchProjectDef ParentName="ST_Base_Research">
@@ -138,13 +138,13 @@
       </prerequisites>
       <researchViewX>0</researchViewX>
       <researchViewY>3</researchViewY>
-        <modExtensions>
-          <li Class="YASTM.Research.ResearchRequiresMemeExtension">
-          <requiredMemes>
-            <li>ST_Meme_KlingonHonor</li>
-          </requiredMemes>
-        </li>
-      </modExtensions>
+    <modExtensions>
+      <li Class="YASTM.Research.ResearchRequiresMemeExtension">
+      <requiredMemes>
+        <li>ST_Meme_KlingonHonor</li>
+      </requiredMemes>
+      <lockReason>Requires Klingon Empire faction.</lockReason> </li>
+    </modExtensions>
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="ST_Base_Research">
@@ -314,13 +314,13 @@
     </prerequisites>
     <researchViewX>0</researchViewX>
     <researchViewY>4</researchViewY>
-      <modExtensions>
-       <li Class="YASTM.Research.ResearchRequiresMemeExtension">
-          <requiredMemes>
-            <li>ST_Meme_RomulanCommand</li>
-          </requiredMemes>
-        </li>
-      </modExtensions>
+    <modExtensions>
+      <li Class="YASTM.Research.ResearchRequiresMemeExtension">
+      <requiredMemes>
+        <li>ST_Meme_RomulanCommand</li>
+      </requiredMemes>
+      <lockReason>Requires Romulan Star Empire faction.</lockReason> </li>
+   </modExtensions>
   </ResearchProjectDef>
 
  <ResearchProjectDef ParentName="ST_Base_Research"  >
@@ -493,13 +493,13 @@
     </prerequisites>
     <researchViewX>0</researchViewX>
     <researchViewY>5</researchViewY>
-      <modExtensions>
+    <modExtensions>
       <li Class="YASTM.Research.ResearchRequiresMemeExtension">
-          <requiredMemes>
-            <li>ST_Meme_FerengiCommerce</li>
-          </requiredMemes>
-          </li>
-      </modExtensions>
+      <requiredMemes>
+        <li>ST_Meme_FerengiCommerce</li>
+      </requiredMemes>
+      <lockReason>Requires Ferengi faction.</lockReason> </li>
+  </modExtensions>
   </ResearchProjectDef>
 
   <ResearchProjectDef ParentName="ST_Base_Research">
@@ -673,12 +673,12 @@
     <researchViewX>0</researchViewX>
     <researchViewY>6</researchViewY>
     <modExtensions>
-      <li Class="YASTM.Research.ResearchRequiresMeme">
-        <requiredMemes>
-          <li>ST_Meme_DominionOrder</li>
-        </requiredMemes>
-      </li>
-    </modExtensions>
+      <li Class="YASTM.Research.ResearchRequiresMemeExtension">
+      <requiredMemes>
+        <li>ST_Meme_DominionOrder</li>
+      </requiredMemes>
+      <lockReason>Requires Dominion faction.</lockReason> </li>
+  </modExtensions>
   </ResearchProjectDef>
 
   <ResearchProjectDef ParentName="ST_Base_Research">

@@ -38,27 +38,28 @@
   
   <minGenerationAge>22</minGenerationAge>
   <maxGenerationAge>55</maxGenerationAge>
-  
+
+
   <skills>
     <li>
       <skill>Construction</skill>
-      <range>2~10</range>
+      <range>0~10</range>
       <skill>Crafting</skill>
-      <range>2~10</range>
+      <range>0~10</range>
       <skill>Shooting</skill>
-      <range>4~9</range>
+      <range>0~9</range>
       <skill>Melee</skill>
-      <range>2~8</range>
+      <range>0~8</range>
       <skill>Intellectual</skill>
-      <range>4~8</range>
+      <range>0~8</range>
       <skill>Cooking</skill>
-      <range>3~7</range>
+      <range>0~7</range>
       <skill>Social</skill>
-      <range>2~6</range>
+      <range>0~6</range>
       <skill>Mining</skill>
-      <range>2~6</range>
+      <range>0~6</range>
       <skill>Plants</skill>
-      <range>2~6</range>
+      <range>0~6</range>
     </li>
   </skills> 
 

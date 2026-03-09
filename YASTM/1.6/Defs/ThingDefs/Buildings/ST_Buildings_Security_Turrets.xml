@@ -44,7 +44,7 @@
     <designationCategory>ST_Designation</designationCategory>
     <designatorDropdown>ST_Security_Group</designatorDropdown>
     <researchPrerequisites>
-        <li>ST_Federation_Phaser_Rifle</li>
+        <li>ST_Federation_advanced_Phaser</li>
         <li>ST_UFP_Engineering_III</li>
     </researchPrerequisites>
     <placeWorkers>
@@ -82,7 +82,7 @@
      </li>
     </verbs>
     <researchPrerequisites>
-        <li>ST_Federation_Phaser_Rifle</li>
+        <li>ST_Federation_advanced_Phaser</li>
         <li>ST_UFP_Engineering_III</li>
     </researchPrerequisites>
   </ThingDef>

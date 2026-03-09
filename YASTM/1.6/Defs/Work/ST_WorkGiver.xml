@@ -68,4 +68,36 @@
     <prioritizeSustains>true</prioritizeSustains>
   </WorkGiverDef>
 
+<WorkGiverDef>
+    <defName>DoBill_ST_KetracelSynthesizer</defName>
+    <label>synthesize Ketracel White</label>
+    <giverClass>WorkGiver_DoBill</giverClass>       
+    <workType>Crafting</workType> <priorityInType>90</priorityInType>
+    <fixedBillGiverDefs>
+      <li>ST_Building_KetracelSynthesizer</li>
+    </fixedBillGiverDefs>
+    <verb>synthesize</verb>
+    <gerund>synthesizing at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>DoBill_ST_CloningVat</defName>
+    <label>operate cloning vat</label>
+    <giverClass>WorkGiver_DoBill</giverClass>       
+    <workType>Crafting</workType> <priorityInType>85</priorityInType>
+    <fixedBillGiverDefs>
+      <li>ST_Building_CloningVat</li>
+    </fixedBillGiverDefs>
+    <verb>sequence clone</verb>
+    <gerund>sequencing clone at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
 </Defs>

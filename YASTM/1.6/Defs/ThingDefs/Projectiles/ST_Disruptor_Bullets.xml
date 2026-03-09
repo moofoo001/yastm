@@ -70,6 +70,24 @@
     </projectile>
   </ThingDef>
 
+  <ThingDef ParentName="BaseBullet">
+    <defName>ST_Bullet_RomulanIsolinear</defName>
+    <label>heavy disruptor bolt</label>
+    <graphicData>
+      <texPath>Things/Projectile/DisruptorBeam_Heavy</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.6</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>38</damageAmountBase>
+      <armorPenetrationBase>0.50</armorPenetrationBase>
+      <speed>100</speed>
+      <stoppingPower>1.0</stoppingPower>
+    </projectile>
+  </ThingDef>
+
+
   <!-- FERENGI -->
   <ThingDef ParentName="BaseBullet">
     <defName>FE_Projectile_Disruptor_Pistol</defName>

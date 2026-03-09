@@ -68,6 +68,14 @@ namespace YASTM
             
             ls.GapLine();
 
+            ls.Label("Gameplay Mechanics".Colorize(Color.cyan));
+            ls.CheckboxLabeled(
+                "Enable Faction Research Lock", 
+                ref Settings.enableFactionResearchLock, 
+                "If enabled, specific technologies (like Klingon engineering) can only be researched by their respective factions. Disable to unlock the full tech tree for everyone."
+            );
+            
+            ls.GapLine();
             ls.Label("Career & Promotion".Colorize(Color.cyan));
             ls.Label($"Promotion Objective Multiplier: {Settings.promotionObjectiveMultiplier:F1}x");
             Settings.promotionObjectiveMultiplier = ls.Slider(Settings.promotionObjectiveMultiplier, 0.1f, 5.0f);

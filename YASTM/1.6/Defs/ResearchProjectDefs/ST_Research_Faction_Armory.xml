@@ -112,8 +112,8 @@
 
   <!-- Phaser Rifle -->
   <ResearchProjectDef ParentName="ST_Base_Research">
-    <defName>ST_Federation_Phaser_Rifle</defName>
-    <label>phaser rifle technology</label>
+    <defName>ST_Federation_advanced_Phaser</defName>
+    <label>advanced phaser technology</label>
     <description>Heavy phaser rifle systems with enhanced power cells and precision targeting optics.
     Unlocks: BeamWeapons</description>
     <techLevel>Spacer</techLevel>

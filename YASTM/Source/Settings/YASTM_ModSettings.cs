@@ -31,12 +31,16 @@ namespace YASTM
         public int forceFieldRefreshTicks = 60;
         public bool forceFieldHostilesOnly = true;
 
+        // --- Research ---
+        public bool enableFactionResearchLock = true;
+
         // --- Starfleet Aid ---
         public bool enableStarfleetAid = true;
         public int AidCooldownDays = 15;
         public int AidSilverCost = 500;
         public int AidGoodwillCost = 10;
         public int AidMinGoodwill = 20;
+
 
         // --- Debug ---
         public bool debugMode = false;
@@ -70,6 +74,9 @@ namespace YASTM
             Scribe_Values.Look(ref forceFieldRadius, "forceFieldRadius", 6);
             Scribe_Values.Look(ref forceFieldRefreshTicks, "forceFieldRefreshTicks", 60);
             Scribe_Values.Look(ref forceFieldHostilesOnly, "forceFieldHostilesOnly", true);
+
+            // Research
+            Scribe_Values.Look(ref enableFactionResearchLock, "enableFactionResearchLock", true);
 
             // Aid
             Scribe_Values.Look(ref enableStarfleetAid, "enableStarfleetAid", true);

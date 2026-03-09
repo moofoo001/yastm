@@ -8,33 +8,33 @@
     <scenario>
       <name>Starfleet landing party</name>
       <summary>Five Starfleet officers with basic field gear.</summary>
-      
       <playerFaction>
         <def>PlayerFaction</def>
         <factionDef>Federation_Of_Planets</factionDef>
-        </playerFaction>
+      </playerFaction>
+    
       <parts>
-
-<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
-  <def>ConfigurePawnsKindDefs</def>
-  <pawnChoiceCount>5</pawnChoiceCount> <!-- 5 Startkolonisten -->
-  <kindCounts>
-    <li><kindDef>FederationPawn_Command</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
-    <li><kindDef>FederationPawn_Operations</kindDef><count>2</count><requiredAtStart>true</requiredAtStart></li>
-    <li><kindDef>FederationPawn_Science</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
-    <li><kindDef>FederationPawn_Medical</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
-  </kindCounts>
-</li>
+      
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
+          <def>ConfigurePawnsKindDefs</def>
+          <pawnChoiceCount>5</pawnChoiceCount> <!-- 5 Startkolonisten -->
+          <kindCounts>
+            <li><kindDef>FederationPawn_Command</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+            <li><kindDef>FederationPawn_Operations</kindDef><count>2</count><requiredAtStart>true</requiredAtStart></li>
+            <li><kindDef>FederationPawn_Science</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+            <li><kindDef>FederationPawn_Medical</kindDef><count>1</count><requiredAtStart>true</requiredAtStart></li>
+          </kindCounts>
+        </li>
         <li Class="ScenPart_PlayerPawnsArriveMethod">
           <def>PlayerPawnsArriveMethod</def>
           <method>DropPods</method>
           <visible>false</visible>
-          </li>
+        </li>
         <li Class="ScenPart_StartingThing_Defined">
           <def>StartingThing_Defined</def>
           <thingDef>MealSurvivalPack</thingDef>
           <count>50</count>
-          </li>
+        </li>
         <li Class="ScenPart_StartingThing_Defined">
           <def>StartingThing_Defined</def>
           <thingDef>MedicineIndustrial</thingDef>

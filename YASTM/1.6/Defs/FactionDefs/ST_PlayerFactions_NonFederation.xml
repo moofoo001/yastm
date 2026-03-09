@@ -41,6 +41,7 @@
       <li>Klingon_Medic</li>    <!-- dedicated healers -->
       <li>Klingon_Warrior</li>    <!-- frontline fighters -->
       <li>Klingon_Command</li>    <!-- strategic leaders -->
+      <li>Offworld</li>
     </backstoryCategories>
 
     <startingResearchTags>
@@ -94,6 +95,7 @@
       <li>Romulan_Science</li>    <!-- research specialists -->
       <li>Romulan_Medical</li>    <!-- dedicated healers -->
       <li>Romulan_Command</li>    <!-- strategic leaders -->
+      <li>Offworld</li>
     </backstoryCategories>
 
     <startingResearchTags>
@@ -151,6 +153,7 @@
       <li>Ferengi_Engineering</li>   <!-- maintaining equipment -->
       <li>Ferengi_Medical</li>       <!-- profit from health -->
       <li>Ferengi_TradeNegotiator</li>  <!-- skilled bargainers -->
+      <li>Offworld</li>
     </backstoryCategories>
     
     <startingResearchTags>

@@ -313,7 +313,7 @@
       <recipeUsers>
         <li>ElectricSmithy</li>
       </recipeUsers>
-      <researchPrerequisite>ST_Federation_Phaser_Rifle</researchPrerequisite>
+      <researchPrerequisite>ST_Federation_Phaser_II</researchPrerequisite>
     </recipeMaker>
     <costList>
       <Silver>200</Silver>
@@ -349,7 +349,7 @@
     </statBases>
 
     <recipeMaker>
-      <researchPrerequisite>ChargedShot</researchPrerequisite> 
+      <researchPrerequisite>ST_Federation_advanced_Phaser</researchPrerequisite> 
       <skillRequirements>
         <Crafting>10</Crafting>
       </skillRequirements>

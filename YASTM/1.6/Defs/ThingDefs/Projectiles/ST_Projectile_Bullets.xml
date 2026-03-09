@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+<ThingDef ParentName="BaseBullet">
+    <defName>ST_Bullet_TR116r</defName>
+    <label>tritanium micro-projectile</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>32</damageAmountBase>
+      <armorPenetrationBase>0.80</armorPenetrationBase>
+      <speed>140</speed>
+      <stoppingPower>2.0</stoppingPower>
+    </projectile>
+  </ThingDef>
+
+</Defs>

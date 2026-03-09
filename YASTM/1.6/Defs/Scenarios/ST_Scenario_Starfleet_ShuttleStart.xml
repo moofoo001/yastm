@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Defs>
-  <ScenarioDef>
+  <ScenarioDef ParentName="ScenarioBase">
     <defName>ST_Gravship_ShuttleStart</defName>
     <label>Starfleet Shuttle Start</label>
     <description>Starfleet Command has flagged a small neutral zone world for a routine surface survey.\n
