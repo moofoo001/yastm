@@ -448,8 +448,8 @@
 
   <ResearchProjectDef ParentName="ST_Base_Research">
     <defName>Romulan_CloakingSystems</defName>
-    <label>Romulan cloaking systems</label>
-    <description>Advanced Romulan cloaking architectures, power cycling disciplines and emission suppression.
+    <label>Romulan cloaking and covert ops systems</label>
+    <description>Advanced Romulan cloaking and covert ops architectures, power cycling disciplines and emission suppression.
       Enables access to cloaking-related infrastructure and stealth-support equipment.
       Unlocks: ReconArmor</description>
     <techLevel>Spacer</techLevel>

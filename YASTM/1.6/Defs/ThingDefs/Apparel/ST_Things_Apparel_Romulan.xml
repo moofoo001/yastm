@@ -119,4 +119,72 @@
     </recipeMaker>
   </ThingDef>
 
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ST_Apparel_TalShiarSuit</defName>
+    <label>Tal Shiar covert ops suit</label>
+    <description>An advanced, lightweight stealth suit issued only to elite operatives of the Romulan Tal Shiar. Woven from sensor-baffling metamaterials, it offers moderate kinetic protection but drastically enhances the wearer's agility, speed, and ability to subdue targets quietly.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>Romulan_CloakingSystems</researchPrerequisite>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>10</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Item/Apparel/Romulan_Vest/TalShiarSuit</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <uiIconScale>1.5</uiIconScale>
+    <uiIconPath>Things/Item/Apparel/Romulan_Vest/TalShiarSuit</uiIconPath>
+    <statBases>
+      <WorkToMake>35000</WorkToMake>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Mass>3.5</Mass>
+      <Flammability>0.2</Flammability>
+      <ArmorRating_Sharp>0.65</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.50</ArmorRating_Heat>
+      <Insulation_Cold>20</Insulation_Cold>
+      <Insulation_Heat>20</Insulation_Heat>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+    <costList>
+      <Synthread>60</Synthread>
+      <Plasteel>40</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <equippedStatOffsets>
+      <MoveSpeed>0.6</MoveSpeed>
+      <MeleeDodgeChance>15.0</MeleeDodgeChance>
+      <ArrestSuccessChance>0.25</ArrestSuccessChance>
+      <ToxicResistance>0.50</ToxicResistance>
+      <ShootingAccuracyPawn>1.5</ShootingAccuracyPawn>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Item/Apparel/Romulan_Vest/TalShiarSuit</wornGraphicPath>
+      <layers>
+        <li>OnSkin</li>
+        <li>Middle</li>
+      </layers>
+      <tags>
+        <li>SpacerMilitary</li>
+        <li>RomulanTalShiar</li> </tags>
+      <defaultOutfitTags>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+    </apparel>
+  </ThingDef>
+
 </Defs>
