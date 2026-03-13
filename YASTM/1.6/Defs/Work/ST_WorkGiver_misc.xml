@@ -2,8 +2,6 @@
 <Defs>
 
   <!-- Obelisk scan -->
-
-
  <WorkGiverDef>
     <defName>ST_UseMedicalTricorder</defName>
     <label>use medical tricorder</label>
@@ -18,6 +16,7 @@
     </requiredCapacities>
   </WorkGiverDef>
 
+<!-- Matter Converter -->
   <WorkGiverDef>
     <defName>DoBill_ST_MatterConverter</defName>
     <label>operate matter converter</label>
@@ -34,6 +33,7 @@
     </requiredCapacities>
   </WorkGiverDef>
 
+<!-- Replicator -->
 	<WorkGiverDef>
 		<defName>DoBill_ST_Replicator</defName>
 		<label>replicate anything ...</label>
@@ -51,6 +51,7 @@
 		<prioritizeSustains>true</prioritizeSustains>
 	</WorkGiverDef>
 
+<!-- Holodeck -->
 <WorkGiverDef>
     <defName>ST_DoBillsHolodeck</defName>
     <label>train on holodeck</label>
@@ -68,6 +69,7 @@
     <prioritizeSustains>true</prioritizeSustains>
   </WorkGiverDef>
 
+<!-- Ketracel Synthesizer-->
 <WorkGiverDef>
     <defName>DoBill_ST_KetracelSynthesizer</defName>
     <label>synthesize Ketracel White</label>
@@ -84,6 +86,7 @@
     <prioritizeSustains>true</prioritizeSustains>
   </WorkGiverDef>
 
+<!-- Cloning Vat -->
   <WorkGiverDef>
     <defName>DoBill_ST_CloningVat</defName>
     <label>operate cloning vat</label>
@@ -99,5 +102,28 @@
     </requiredCapacities>
     <prioritizeSustains>true</prioritizeSustains>
   </WorkGiverDef>
+
+<!-- Ship Ops -->
+  <WorkTypeDef>
+    <defName>ST_WorkType_ShipOps</defName>
+    <labelShort>Bridge</labelShort>
+    <pawnLabel>Officer</pawnLabel>
+    <gerundLabel>manning bridge</gerundLabel>
+    <description>Manning bridge stations.</description>
+    <naturalPriority>1000</naturalPriority>
+    <alwaysStartActive>true</alwaysStartActive>
+  </WorkTypeDef>
+
+<!-- Bridge -->
+  <WorkGiverDef>
+    <defName>ST_WorkGiver_ManBridge</defName>
+    <label>man bridge station</label>
+    <giverClass>YASTM.WorkGiver_ManBridgeStation</giverClass>
+    <verb>man</verb>
+    <gerund>manning</gerund>
+    <priorityInType>100</priorityInType>
+    <workType>ST_WorkType_ShipOps</workType> 
+  </WorkGiverDef>
+
 
 </Defs>

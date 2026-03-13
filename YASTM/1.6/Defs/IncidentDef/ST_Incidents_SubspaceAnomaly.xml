@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <IncidentDef>
+    <defName>ST_Incident_SubspaceAnomaly</defName>
+    <label>subspace anomaly</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>IncidentWorker_MakeGameCondition</workerClass>
+    <gameCondition>ST_SubspaceAnomalyCondition</gameCondition>
+    <letterLabel>Subspace Anomaly</letterLabel>
+    <letterText>Sensors detect a massive subspace anomaly enveloping the region. The intense gravimetric and subspace distortions are scrambling all long-range frequencies, completely disabling orbital trade and comms.\n\nMedical officers also report that the interference is heavily dampening telepathic and psionic abilities across the colony.</letterText>
+    <letterDef>NegativeEvent</letterDef>
+    <baseChance>1.5</baseChance>
+    <minRefireDays>15</minRefireDays>
+    <durationDays>0.5~1.5</durationDays>
+  </IncidentDef>
+
+  <GameConditionDef>
+    <defName>ST_SubspaceAnomalyCondition</defName>
+    <conditionClass>GameCondition</conditionClass>
+    <label>subspace anomaly</label>
+    <description>Severe subspace distortions are blocking long-range communications and heavily dampening psionic abilities.</description>
+    <endMessage>The subspace anomaly has dissipated. Communications and psionic networks are fully restored.</endMessage>
+  </GameConditionDef>
+
+  <ThoughtDef>
+    <defName>ST_Thought_SubspaceAnomaly</defName>
+    <workerClass>ThoughtWorker_GameCondition</workerClass>
+    <gameCondition>ST_SubspaceAnomalyCondition</gameCondition>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>subspace anomaly</label>
+        <description>The ambient subspace interference is completely scrambling my thoughts. It feels like static in my brain, making it impossible to tap into any psionic frequencies.</description>
+        <baseMoodEffect>-2</baseMoodEffect> <statOffsets>
+          <PsychicSensitivity>-2.0</PsychicSensitivity> </statOffsets>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>
