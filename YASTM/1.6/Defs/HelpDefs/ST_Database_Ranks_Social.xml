@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Ranks_UFP</defName>
+    <category>Factions &amp; Xenotypes</category> <title>Starfleet: Rank &amp; Merit</title>
+    <listOrder>20</listOrder>
+    <text>Starfleet utilizes a structured hierarchy to maintain efficiency and discipline during deep-space assignments.\n\nGameplay: Colonists can progress from Cadet to Captain. Each rank provides increasing bonuses to Global Work Speed, Social Impact, and Mental Stability. \n\nAdvancement: Promotion requires a balance of 'Time in Service' and 'Skill Proficiency'. For example, a Lieutenant Commander requires significantly higher skill levels than an Ensign. Once a pawn is eligible, you can trigger a Promotion Ceremony to officially grant the new rank and its associated 'Pips' on their uniform.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Ranks_Klingon</defName>
+    <category>Factions &amp; Xenotypes</category>
+    <title>Klingon Hierarchy: Trial by Combat</title>
+    <listOrder>21</listOrder>
+    <text>In the Klingon Empire, rank is a reflection of a warrior's honor and their ability to withstand the fires of battle.\n\nGameplay: Klingon ranks (Bekk to HoD) focus heavily on combat prowess. Higher-ranking Klingons possess a vastly increased 'Pain Shock Threshold' and 'Melee Hit Chance'. \n\nAdvancement: Unlike the Federation's academic approach, Klingon promotion is earned through battle experience and resilience. A 'HoD' (Captain) is nearly unstoppable in close quarters, acting as a beacon of suppression and morale for lower-ranking Bekks.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Ranks_Romulan</defName>
+    <category>Factions &amp; Xenotypes</category>
+    <title>Romulan Navy: Discipline &amp; Intel</title>
+    <listOrder>22</listOrder>
+    <text>The Romulan military structure is designed for absolute state control and tactical superiority through intelligence.\n\nGameplay: Romulan ranks (Uhlan to Rear Admiral) provide unique boosts to Research Speed and Suppression Power. \n\nAdvancement: Promotion within the Star Navy or the Tal Shiar is a matter of loyalty and intellectual growth. High-ranking officers excel at managing complex colony systems and are less likely to break under mental pressure, reflecting their rigid mental discipline.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Ranks_Ferengi</defName>
+    <category>Factions &amp; Xenotypes</category>
+    <title>Ferengi Gilded Ladder: The Cost of Profit</title>
+    <listOrder>23</listOrder>
+    <text>For a Ferengi, rank is simply another word for 'Buying Power'. One does not serve; one acquires.\n\nGameplay: Ferengi ranks (Earner to Grand Nagus) are the most profitable in the game. They provide massive bonuses to 'Trade Price Improvement' and 'Negotiation Ability'. \n\nAdvancement: Progression is tied to social skills and commercial success. A 'Liquidator' or 'DaiMon' can turn even a poor trade into a massive win for your colony. At the top, the 'Grand Nagus' holds unparalleled social influence, though they rarely excel in physical labor.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Social_Dominion</defName>
+    <category>Factions &amp; Xenotypes</category>
+    <title>Dominion: The Trinity of Castes</title>
+    <listOrder>24</listOrder>
+    <texturePath>UI/Icons/Factions/Dominion</texturePath>
+    <text>The Dominion does not use a traditional promotion system. Instead, it relies on a genetically hardwired caste system where every individual is born into their perfect role.\n\n1. The Founders (Gods): The absolute rulers. Their word is law, and their shapeshifting abilities make them nearly immortal.\n\n2. The Vorta (Administrators): Cloned diplomats and commanders. They do not seek higher rank; they seek only to serve the Founders with absolute bureaucratic efficiency.\n\n3. The Jem'Hadar (Soldiers): Genetically engineered for war. They do not have 'careers'—only the cycle of combat and the dependency on Ketracel-White.\n\nGameplay: Because their roles are fixed by their DNA, Dominion pawns do not participate in the Promotion system. Instead, their 'rank' is their species itself. A Vorta will always be your best researcher/diplomat, and a Jem'Hadar will always be your ultimate soldier, with their stats pre-optimized for these roles from the moment they leave the Cloning Vat.</text>
+  </YASTM.ST_HelpDef>
+
+</Defs>

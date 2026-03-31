@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Tech_WarpCore</defName>
+    <category>Technology &amp; Infrastructure</category>
+    <title>Warp Cores &amp; Power</title>
+    <listOrder>1</listOrder>
+    <texturePath>Things/Building/Power/ST_WarpCore</texturePath>
+    <text>The Matter/Antimatter Reaction Assembly (M/ARA), commonly known as the Warp Core, is the beating heart of any Starfleet vessel or advanced colony.\n\nGameplay: The Warp Core provides an absolutely massive amount of electrical power, easily sustaining force fields, holodecks, and transporters. However, this power comes with extreme risk. If the core takes physical damage, overheats, or suffers a containment failure, it will trigger a Breach Event. You will have a very short window to eject the core or repair it before it detonates in a base-leveling antimatter explosion.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Tech_Replicator</defName>
+    <category>Technology &amp; Infrastructure</category>
+    <title>Replicator Network</title>
+    <listOrder>2</listOrder>
+    <texturePath>Things/Building/Replicator/ST_Replicator</texturePath>
+    <text>Replicators convert stored energy and base matter into complex objects, fundamentally changing post-scarcity economics.\n\nGameplay: Replicating items is a two-step process. First, build a 'Matter Converter' to break down raw resources (like steel or organic biomass) into digital 'Replicator Feedstock'. Second, use the Replicator terminals to instantly synthesize meals, medicine, and industrial components. \n\nFaction Specifics: The Dominion uses specialized Ketracel-White Synthesizers to keep their troops alive, while Klingons can build Blood Wine vats for morale.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Tech_Transporters</defName>
+    <category>Technology &amp; Infrastructure</category>
+    <title>Transporters &amp; Turbolifts</title>
+    <listOrder>3</listOrder>
+    <texturePath>Things/Building/Transporter/ST_Pad</texturePath>
+    <text>Instantaneous travel is achieved by converting a subject into an energy pattern and beaming it to a target destination.\n\nGameplay: Transporter Pads allow your colonists to perform point-to-point 'beaming' across your colony map, instantly bypassing walls and defenses. Turbolifts act as high-speed transit nodes for rapid base movement. \n\nFor orbital and world-map travel, you can construct Shuttlecraft and launch pads. Beware: Beaming during a solar flare or power outage is highly discouraged.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Tech_Holodeck</defName>
+    <category>Technology &amp; Infrastructure</category>
+    <title>Holodeck Facilities</title>
+    <listOrder>4</listOrder>
+    <texturePath>Things/Building/Misc/HoloEmitter</texturePath>
+    <text>Holodecks use a combination of force fields and holographics to create fully immersive environments.\n\nGameplay: By default, Holodecks provide massive joy and recreation (e.g., Risa vacation programs). However, by inserting crafted 'Isolinear Chips', colonists can run simulated XP-training (Tactical, Medical, Science). \n\nWarning: Disabling safety protocols or suffering a system malfunction might cause the 'Badgey' subroutine to take over, spawning hostile, lethal holograms inside your base.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Tech_Medical</defName>
+    <category>Technology &amp; Infrastructure</category>
+    <title>Bio-Beds &amp; Cloning Vats</title>
+    <listOrder>5</listOrder>
+    <texturePath>Things/Building/Medical/ST_BioBed</texturePath>
+    <text>Advanced medical science allows for rapid tissue regeneration and, in the case of the Dominion, rapid gestation of entire lifeforms.\n\nGameplay: Replacing standard hospital beds with Starfleet Bio-Beds drastically accelerates wound healing, immunity gain, and surgical success chance. \n\nFor the Dominion, the Cloning Vat is essential infrastructure. By combining biomass and Neutroamine, you can rapidly gestate new Jem'Hadar soldiers or Vorta administrators to replace your losses within days.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Tech_Security</defName>
+    <category>Technology &amp; Infrastructure</category>
+    <title>Security &amp; Defenses</title>
+    <listOrder>6</listOrder>
+    <texturePath>Things/Building/OpsSecurity/AlertPanel</texturePath>
+    <text>A secure colony is a surviving colony.\n\nGameplay: \n- Alert Panels: Interactive wall panels that allow you to set the base to Red, Yellow, or Blue alert, dynamically altering pawn work-schedules and combat readiness.\n- Force Fields: Modular emitters that project impassable energy shields to block enemy fire.\n- Cloaking Devices: High-tier Romulan technology that can render your entire base invisible to orbital raids.\n- Tactical Turrets: Automated defense grids utilizing Phaser, Disruptor, or Polaron energy profiles.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Tech_Bridge</defName>
+    <category>Technology &amp; Infrastructure</category>
+    <title>Bridge Consoles &amp; Scanners</title>
+    <listOrder>7</listOrder>
+    <texturePath>Things/Building/Science/ST_ScienceConsole</texturePath>
+    <text>The command center is the brain of your operation, directing all colonial subsystems.\n\nGameplay: Bridge stations (Pilot, Ops, Science, Security) require officers with the appropriate rank and traits to be manned. Manned stations provide global buffs to your base (e.g., turret accuracy from Security, or faster research from Science).\n\nSubspace Scanners are crucial for advanced long-range detection, allowing you to intercept deep-space anomalies. Finally, the Captain's Chair provides a massive command aura for your colony's leader.</text>
+  </YASTM.ST_HelpDef>
+
+</Defs>

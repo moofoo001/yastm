@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Gear_EnergyWeapons</defName>
+    <category>Gear &amp; Equipment</category>
+    <title>Arsenal: Energy Weapons</title>
+    <listOrder>1</listOrder>
+    <texturePath>Things/Item/Equipment/Federation_weapons/Phaser_TypeII</texturePath>
+    <text>Directed energy weapons are the standard armament of the 24th century, ranging from Starfleet Phasers to Klingon Disruptors and Dominion Polaron beams.\n\nGameplay: \n- Phasers: Feature integrated fire modes. 'Stun' safely neutralizes targets without bleeding (perfect for taking prisoners). 'Lethal' causes heavy burns. 'Overload' fires a devastating, armor-penetrating blast but consumes more weapon charge/durability.\n- Disruptors: Favored by Klingons and Romulans, these weapons lack a stun setting but deal massive raw thermal damage.\n- Polaron Weapons: Used by the Jem'Hadar, these unique beams are designed to bypass most conventional armor and shields.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Gear_MeleeSpecial</defName>
+    <category>Gear &amp; Equipment</category>
+    <title>Arsenal: Melee &amp; Projectiles (TR-116)</title>
+    <listOrder>2</listOrder>
+    <texturePath>Things/Item/Equipment/Klingon_weapons/Batleth</texturePath>
+    <text>Despite advanced technology, close-quarters combat and kinetic weaponry still have their place in the galaxy.\n\nGameplay: \n- Melee: Canonical weapons like the Klingon Bat'leth or D'k Tahg, and the Vulcan Lirpa, provide massive melee hit bonuses and armor penetration. They are exceptionally deadly in the hands of a Klingon pawn.\n- TR-116 Rifle: A rare Starfleet prototype that fires solid projectiles (tritanium bullets) instead of energy. It is highly effective in radioactive environments or against enemies equipped with energy-dampening fields where standard Phasers would fail.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Gear_Gadgets</defName>
+    <category>Gear &amp; Equipment</category>
+    <title>Field Gadgets: Tricorders &amp; Hyposprays</title>
+    <listOrder>3</listOrder>
+    <texturePath>Things/Item/Equipment/Utilities/Tricorder</texturePath>
+    <text>Starfleet officers rely on specialized tools to analyze their environment and treat injuries on the fly.\n\nGameplay: \n- Tricorders: Equipped as utility items. 'Medical Tricorders' drastically boost tend speed and surgery success. 'Science Tricorders' increase research and scanning speeds. 'Security Tricorders' enhance combat awareness and trap detection.\n- Hyposprays: An essential tool for field medics. It allows instant, needle-less administration of medicine, painkillers, or combat stims to pawns directly on the battlefield without needing a hospital bed.\n- Combadges: Wearable devices that provide minor social bonuses and enable remote coordination.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Gear_Apparel</defName>
+    <category>Gear &amp; Equipment</category>
+    <title>Apparel: EV-Suits &amp; Shields</title>
+    <listOrder>4</listOrder>
+    <texturePath>Things/Item/Apparel/EVSuit/Starfleet_EVS</texturePath>
+    <text>Advanced tailoring provides protection against hostile environments and enemy fire.\n\nGameplay: \n- Uniforms: Faction-correct tunics (TOS, TNG, etc.) visually distinguish your crew's roles (Command, Medical, Ops) and provide minor work-specific buffs.\n- EV-Suits: Extravehicular suits offer absolute protection against the vacuum of space, extreme temperatures, and toxic fallout. Essential for repairing exterior hull breaches.\n- Personal Shield Emitters: A wearable belt that projects a personal force field, absorbing incoming ranged attacks until its capacitor is depleted.\n- Tal Shiar Suits: Specialized Romulan infiltration gear that reduces a pawn's visibility and psychic signature.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Gear_Resources</defName>
+    <category>Gear &amp; Equipment</category>
+    <title>Strategic Resources</title>
+    <listOrder>5</listOrder>
+    <texturePath>Things/Item/Resource/ST_Latinum/ST_Latinum_a</texturePath>
+    <text>The galactic economy and war machines run on very specific materials.\n\nGameplay: \n- Dilithium: Mined as raw crystal and refined at specialized benches. It is the absolute prerequisite for building and fueling Warp Cores.\n- Gold-Pressed Latinum: A rare liquid encased in gold. It cannot be replicated and serves as the ultimate currency, especially when dealing with the Ferengi.\n- Ketracel-White: An isogenic enzyme vital for the Jem'Hadar. You must synthesize it constantly to prevent your Dominion soldiers from going into lethal withdrawal.\n- Replicator Feedstock: The digital 'ammunition' for Replicators, produced by Matter Converters from raw base materials.</text>
+  </YASTM.ST_HelpDef>
+
+</Defs>
