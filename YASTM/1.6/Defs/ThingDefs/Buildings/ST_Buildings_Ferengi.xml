@@ -8,7 +8,7 @@
     <graphicData>
       <texPath>Things/Building/Misc/MarketConsole</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(2.5,2.5)</drawSize>
+      <drawSize>(2,2)</drawSize>
     </graphicData>
     <uiIconScale>0.8</uiIconScale>
     <size>(2,2)</size>

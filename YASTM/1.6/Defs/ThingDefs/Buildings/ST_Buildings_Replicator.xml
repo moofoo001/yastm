@@ -15,7 +15,7 @@
       <shadowData>
         <volume>(2.2, 0.6, 0.35)</volume>
       </shadowData>
-      <drawSize>(2.5,2)</drawSize>
+      <drawSize>(2,2)</drawSize>
     </graphicData>
 
     <altitudeLayer>Building</altitudeLayer>

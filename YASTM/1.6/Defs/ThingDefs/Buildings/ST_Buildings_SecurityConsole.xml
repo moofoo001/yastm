@@ -11,7 +11,7 @@
       <texPath>Things/Building/OpsSecurity/ST_OpsConsole</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
-      <drawSize>(2.2,2.8)</drawSize>
+      <drawSize>(2.2,2.2)</drawSize>
       <shadowData>
         <volume>(2.2, 0.6, 0.35)</volume>
       </shadowData>
@@ -21,12 +21,13 @@
     <size>(2,1)</size>
     <selectable>true</selectable>
 
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(1, 0, -1)</interactionCellOffset>
+
     <rotatable>true</rotatable>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
     <fillPercent>0.5</fillPercent>
-    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
-    <hasInteractionCell>true</hasInteractionCell>
     <surfaceType>Item</surfaceType>
 
     <statBases>

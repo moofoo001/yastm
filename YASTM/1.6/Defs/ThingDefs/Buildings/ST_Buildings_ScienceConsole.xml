@@ -10,7 +10,7 @@
     <graphicData>
       <texPath>Things/Building/Science/ST_ScienceConsole</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2.5,2.6)</drawSize>
+      <drawSize>(2.2,2.2)</drawSize>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
 
@@ -18,7 +18,8 @@
     <!-- Placement / interaction -->
     <size>(2,1)</size>
     <rotatable>true</rotatable>
-    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(1,0,-1)</interactionCellOffset>
     <passability>PassThroughOnly</passability>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <tickerType>Normal</tickerType>

@@ -226,4 +226,92 @@
     <recipeUsers><li>ST_HoloEmitter</li></recipeUsers>
   </RecipeDef>
   
+<RecipeDef>
+    <defName>ST_Program_CombatShooting</defName>
+    <label>run program: Phaser Range</label>
+    <description>Practice ranged combat skills against holographic targets.</description>
+    <jobString>Practicing on the phaser range.</jobString>
+    <workAmount>4000</workAmount>
+    <workSpeedStat>GlobalLearningFactor</workSpeedStat>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <ingredients>
+      <li>
+        <filter>
+        <thingDefs><li>ST_IsoChip_Shooting</li></thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>ST_IsoChip_Shooting</li></thingDefs>
+    </fixedIngredientFilter>
+    <recipeUsers><li>ST_HoloEmitter</li></recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>ST_Program_CombatMelee</defName>
+    <label>run program: Mok'bara Sparring</label>
+    <description>Practice close-quarters combat and martial arts.</description>
+    <jobString>Sparring on the holodeck.</jobString>
+    <workAmount>4000</workAmount>
+    <workSpeedStat>GlobalLearningFactor</workSpeedStat>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <ingredients>
+      <li>
+        <filter>
+        <thingDefs><li>ST_IsoChip_Melee</li></thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>ST_IsoChip_Melee</li></thingDefs>
+    </fixedIngredientFilter>
+    <recipeUsers><li>ST_HoloEmitter</li></recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>ST_Program_MedicalSim</defName>
+    <label>run program: Medical Triage</label>
+    <description>Practice advanced surgery and emergency medicine.</description>
+    <jobString>Running medical simulation.</jobString>
+    <workAmount>4000</workAmount>
+    <workSpeedStat>GlobalLearningFactor</workSpeedStat>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <ingredients>
+      <li>
+        <filter>
+        <thingDefs><li>ST_IsoChip_Medical</li></thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>ST_IsoChip_Medical</li></thingDefs>
+    </fixedIngredientFilter>
+    <recipeUsers><li>ST_HoloEmitter</li></recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>ST_Program_SocialSim</defName>
+    <label>run program: First Contact</label>
+    <description>Practice negotiation and diplomacy in a simulated environment.</description>
+    <jobString>Running diplomacy simulation.</jobString>
+    <workAmount>4000</workAmount>
+    <workSpeedStat>GlobalLearningFactor</workSpeedStat>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <ingredients>
+      <li>
+        <filter>
+        <thingDefs><li>ST_IsoChip_Social</li></thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs><li>ST_IsoChip_Social</li></thingDefs>
+    </fixedIngredientFilter>
+    <recipeUsers><li>ST_HoloEmitter</li></recipeUsers>
+  </RecipeDef>
+
 </Defs>

@@ -9,7 +9,7 @@
     <graphicData>
       <graphicClass>Graphic_Multi</graphicClass>
       <texPath>Things/Building/HelmNav/ST_HelmConsole</texPath>
-      <drawSize>(4, 3.8)</drawSize>
+      <drawSize>(3.4, 3.4)</drawSize>
     </graphicData>
 
     <statBases>

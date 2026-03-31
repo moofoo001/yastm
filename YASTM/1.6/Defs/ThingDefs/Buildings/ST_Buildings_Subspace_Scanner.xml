@@ -10,12 +10,12 @@
     <graphicData>
       <texPath>Things/Building/Science/ST_SubspaceScanner</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2.5,2.6)</drawSize>
+      <drawSize>(1.5,1.5)</drawSize>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
 
 
-    <size>(2,2)</size>
+    <size>(1,1)</size>
     <rotatable>true</rotatable>
     <passability>PassThroughOnly</passability>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
@@ -24,7 +24,11 @@
     <fillPercent>0.5</fillPercent>
 
     <selectable>true</selectable>
-
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    
     <statBases>
       <WorkToBuild>1200</WorkToBuild>
       <MaxHitPoints>250</MaxHitPoints>

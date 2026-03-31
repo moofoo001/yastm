@@ -165,7 +165,7 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <wornGraphicPath>Things/Item/Apparel/KlingonHonorArmor/KlingonHonorArmor</wornGraphicPath>
+      <wornGraphicPath>Things/Item/Apparel/Klingon_Vest/Klingon_HonorArmor</wornGraphicPath>
       <layers>
         <li>Middle</li>
         <li>Shell</li> </layers>

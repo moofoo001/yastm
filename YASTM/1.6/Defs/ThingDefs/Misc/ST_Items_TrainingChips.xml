@@ -97,4 +97,48 @@
     </statBases>
   </ThingDef>
 
+<ThingDef ParentName="ST_BaseIsolinearChip">
+    <defName>ST_IsoChip_Shooting</defName>
+    <label>isolinear chip (Phaser Range)</label>
+    <description>A tactical simulation chip containing countless moving targets and hostile combat scenarios. Perfect for training marksmanship.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ST_IsolinearChip</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+      <color>(0.8, 0.2, 0.2)</color> </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseIsolinearChip">
+    <defName>ST_IsoChip_Melee</defName>
+    <label>isolinear chip (Mok'bara Training)</label>
+    <description>A Klingon martial arts and close-quarters combat simulation. Warning: Safety protocols can be overridden.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ST_IsolinearChip</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+      <color>(0.6, 0.1, 0.1)</color> </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseIsolinearChip">
+    <defName>ST_IsoChip_Medical</defName>
+    <label>isolinear chip (EMH Medical Sim)</label>
+    <description>Advanced medical triage and surgery simulations guided by a holographic doctor.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ST_IsolinearChip</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+      <color>(0.2, 0.8, 0.4)</color> </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="ST_BaseIsolinearChip">
+    <defName>ST_IsoChip_Social</defName>
+    <label>isolinear chip (First Contact Sim)</label>
+    <description>Diplomatic scenarios ranging from establishing first contact with pre-warp civilizations to tense Romulan negotiations.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ST_IsolinearChip</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+      <color>(0.9, 0.8, 0.2)</color> </graphicData>
+  </ThingDef>
+
 </Defs>

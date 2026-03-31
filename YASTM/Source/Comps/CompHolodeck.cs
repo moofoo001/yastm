@@ -46,18 +46,25 @@ namespace YASTM
             bool hasPower = (powerComp != null && powerComp.PowerOn);
             if (!hasPower) return;
 
-
+            // check every 60 sec ( performance impact )
             if (parent.IsHashIntervalTick(60))
             {
-                CheckForUsers();
+                Pawn activeUser = GetActiveUser();
+                isTrainingMode = (activeUser != null);
                 
                 // set power consumption
                 powerComp.PowerOutput = isTrainingMode 
                     ? -Props.powerTrainingMode 
                     : -Props.powerRelaxMode;
+
+                // apply training
+                if (isTrainingMode)
+                {
+                    ApplyTraining(activeUser);
+                }
             }
 
-            // Hologramm Timer
+            // Hologramm Partikel Timer
             if (Find.TickManager.TicksGame >= nextHoloTick)
             {
                 SpawnHoloFleck();
@@ -65,34 +72,61 @@ namespace YASTM
             }
         }
 
-        private void SpawnHoloFleck()
+/// <summary>
+        /// Distribute XP based on the active Isolinear-Chip Program (RecipeDef)
+        /// </summary>
+        private void ApplyTraining(Pawn p)
         {
-            if (parent.Map == null) return;
+            RecipeDef recipe = p.CurJob?.RecipeDef;
+            if (recipe == null) return;
 
-            // fleck def based on mode
-            string defName = isTrainingMode ? "ST_Holo_Training" : "ST_Holo_Risa";
+            string recipeName = recipe.defName.ToLower();
+            float xp = Props.trainingXpPerTick * 60f; // 60 Ticks = 1 second XP
 
-            FleckDef holoDef = DefDatabase<FleckDef>.GetNamedSilentFail(defName);
-
-            if (holoDef != null)
+            // 1. SECURITY / TACTICAL PROGRAMM
+            if (recipeName.Contains("security") || recipeName.Contains("tactical") || recipeName.Contains("combat") || recipeName.Contains("shooting") || recipeName.Contains("melee"))
             {
+                p.skills.Learn(SkillDefOf.Shooting, xp / 1.5f);
+                p.skills.Learn(SkillDefOf.Melee, xp / 1.5f);
 
-                FleckMaker.Static(parent.TrueCenter(), parent.Map, holoDef);
+                // Injury risk (Bruises during Worf-Bat'leth training!)
+                if (Rand.Chance(Props.injuryChance * 20f)) 
+                {
+                    DamageInfo dinfo = new DamageInfo(DamageDefOf.Blunt, Rand.RangeInclusive(2, 4));
+                    p.TakeDamage(dinfo);
+                    // Floating text for visual confirmation
+                    MoteMaker.ThrowText(p.DrawPos, p.Map, "Holodeck Injury!");
+                }
             }
+            // 2. SCIENCE PROGRAMM
+            else if (recipeName.Contains("science") || recipeName.Contains("medical"))
+            {
+                p.skills.Learn(SkillDefOf.Intellectual, xp);
+                p.skills.Learn(SkillDefOf.Medicine, xp / 2f);
+            }
+            // 3. TRANSPORTER / ENGINEERING PROGRAMM
+            else if (recipeName.Contains("transporter") || recipeName.Contains("engineering"))
+            {
+                p.skills.Learn(SkillDefOf.Crafting, xp);
+            }
+            // 4. SOCIAL / DIPLOMACY PROGRAMM (NEU)
+            else if (recipeName.Contains("social") || recipeName.Contains("contact"))
+            {
+                p.skills.Learn(SkillDefOf.Social, xp);
+            }
+            // FALLBACK: If the recipe has no known name
             else
             {
-                // warning only occasionally to avoid log spam
-                 if (Find.TickManager.TicksGame % 600 == 0)
-                    Log.Warning($"[YASTM] CompHolodeck: Could not find FleckDef named '{defName}'. Check ST_Holo_Flecks.xml!");
+                p.skills.Learn(SkillDefOf.Intellectual, xp / 2f);
             }
         }
 
-        private void CheckForUsers()
+        /// <summary>
+        /// Search for a pawn who is doing a bill at the console
+        /// </summary>
+        private Pawn GetActiveUser()
         {
-            // Standard: Relax Mode
-            isTrainingMode = false;
-
-            if (!parent.Spawned) return;
+            if (!parent.Spawned) return null;
             
             IntVec3 cell = parent.InteractionCell;
             List<Thing> thingList = cell.GetThingList(parent.Map);
@@ -101,13 +135,30 @@ namespace YASTM
             {
                 if (t is Pawn p && !p.Dead && !p.Downed)
                 {
-                    // Training Mode
                     if (p.CurJobDef == JobDefOf.DoBill)
                     {
-                        isTrainingMode = true;
-                        return; // early exit
+                        return p; // User found
                     }
                 }
+            }
+            return null;
+        }
+
+        private void SpawnHoloFleck()
+        {
+            if (parent.Map == null) return;
+
+            string defName = isTrainingMode ? "ST_Holo_Training" : "ST_Holo_Risa";
+            FleckDef holoDef = DefDatabase<FleckDef>.GetNamedSilentFail(defName);
+
+            if (holoDef != null)
+            {
+                FleckMaker.Static(parent.TrueCenter(), parent.Map, holoDef);
+            }
+            else
+            {
+                 if (Find.TickManager.TicksGame % 600 == 0)
+                    Log.Warning($"[YASTM] CompHolodeck: Could not find FleckDef named '{defName}'. Check ST_Holo_Flecks.xml!");
             }
         }
     }

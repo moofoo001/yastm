@@ -17,7 +17,7 @@
     <graphicData>
       <texPath>Things/Building/Comms/ST_ComConsole</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2.2,2.8)</drawSize>
+      <drawSize>(2.2,2.2)</drawSize>
       <shadowData>
         <volume>(2.2, 0.6, 0.35)</volume>
       </shadowData>
@@ -28,7 +28,8 @@
     <size>(2,1)</size>
     <rotatable>true</rotatable>
 
-    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(1,0,-1)</interactionCellOffset>
     <passability>PassThroughOnly</passability>
 
     <costList>

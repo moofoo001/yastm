@@ -44,7 +44,7 @@
   <RecipeDef>
     <defName>Make_ST_MedKitBelt</defName>
     <label>make med kit</label>
-    <uiIconPath>Things/Item/Equipment/Utilities/Medic_sash</uiIconPath>
+    <uiIconPath>Things/Item/Equipment/Utilities/MedTricorder</uiIconPath>
     <jobString>Assembling med kit…</jobString>
     <workAmount>6000</workAmount>
     <workSkill>Crafting</workSkill>
@@ -226,14 +226,14 @@
   <thingClass>Apparel</thingClass>
 
   <graphicData>
-    <texPath>Things/Item/Equipment/Utilities/Medic_sash</texPath>
+    <texPath>Things/Item/Equipment/Utilities/MedTricorder</texPath>
     <graphicClass>Graphic_Single</graphicClass>
     <shaderType>CutoutComplex</shaderType>
     <drawSize>(0.6,0.6)</drawSize>
   </graphicData>
 
   <!-- ICON FIX -->
-  <uiIconPath>Things/Item/Equipment/Utilities/Medic_sash</uiIconPath>
+  <uiIconPath>Things/Item/Equipment/Utilities/MedTricorder</uiIconPath>
   <uiIconScale>1</uiIconScale>
 
   <statBases>
@@ -280,7 +280,7 @@
       <li>Soldier</li>
     </defaultOutfitTags>
 
-    <wornGraphicPath>Things/Item/Equipment/Utilities/Medic_sash</wornGraphicPath>
+    <wornGraphicPath>Things/Item/Equipment/Utilities/MedTricorder</wornGraphicPath>
     <wornGraphicData>
       <renderUtilityAsPack>true</renderUtilityAsPack>
       <north>
