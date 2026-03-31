@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Fauna_Tribble</defName>
+    <category>Flora &amp; Fauna</category>
+    <title>Tribbles (Iota Geminorum IV)</title>
+    <listOrder>1</listOrder>
+    <texturePath>Things/Animals/Tribble</texturePath>
+    <text>Tribbles are small, non-intelligent lifeforms known for their soft fur, soothing purr, and absolutely terrifying reproductive rate. They are born pregnant and consider a bowl of grain to be a romantic invitation.\n\nGameplay: Tribbles are incredibly tame but serve as an ecological hazard. If they enter your map or are bought from a trader, they will immediately begin consuming your food stores and multiplying exponentially. Left unchecked, they will overrun your colony. Deal with them by culling them for meat/leather, or selling them. Klingons naturally hate them and gain a mood buff for killing them.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Fauna_Targ</defName>
+    <category>Flora &amp; Fauna</category>
+    <title>Targ (Qo'noS)</title>
+    <listOrder>2</listOrder>
+    <texturePath>Things/Animals/Targ</texturePath>
+    <text>A tusked, boar-like creature native to the Klingon homeworld. Despite their fearsome appearance and aggressive grunts, they are often kept as beloved pets by Klingon warriors.\n\nGameplay: Targs act as highly resilient pack and guard animals. They are relatively easy to tame if you have a capable handler. In combat, their tusks deal significant physical damage, making them the perfect vanguard for a Klingon melee charge. They also yield high-quality meat and sturdy leather when butchered.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Fauna_Sehlat</defName>
+    <category>Flora &amp; Fauna</category>
+    <title>Sehlat (Vulcan)</title>
+    <listOrder>3</listOrder>
+    <texturePath>Things/Animals/Sehlat</texturePath>
+    <text>A large, bear-like mammal native to Vulcan. Equipped with massive six-inch fangs, a wild Sehlat is incredibly dangerous. However, when domesticated, they form intense, lifelong bonds with their masters.\n\nGameplay: Taming a Sehlat is a difficult task requiring a highly skilled animal handler. Once bonded to a colonist, a Sehlat is fiercely protective and serves as an exceptional defensive companion with lethal melee attacks. Just be sure to keep them well-fed.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Fauna_Mugato</defName>
+    <category>Flora &amp; Fauna</category>
+    <title>Mugato (Neural)</title>
+    <listOrder>4</listOrder>
+    <texturePath>Things/Animals/Mugato</texturePath>
+    <text>A large, white, ape-like primate with a single horn on its head and a spiked back. Mugatos are highly territorial, completely untameable, and exceptionally aggressive.\n\nGameplay: Treat a Mugato encounter with extreme caution. They are apex predators and will actively hunt colonists who wander too far from the base. Their physical strength and highly lethal bites make them a priority target for your security teams. Engage them from a distance using Phasers on heavy stun or lethal settings.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Fauna_SerpentWorm</defName>
+    <category>Flora &amp; Fauna</category>
+    <title>Blood Serpent Worm</title>
+    <listOrder>5</listOrder>
+    <texturePath>Things/Animals/SerpentWorm</texturePath>
+    <text>A large, slow-moving, carnivorous worm. While utterly repulsive to most Federation species, these worms are a staple of Klingon agriculture and cuisine.\n\nGameplay: Serpent Worms are not particularly dangerous due to their slow movement speed, but they serve a crucial economic purpose. Their internal fluids and biomass are an essential ingredient in the brewing and fermentation of traditional Klingon Bloodwine. Cultivating or hunting these worms is highly recommended if you are hosting Klingon colonists or trading with the Empire.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Fauna_WarpSlug</defName>
+    <category>Flora &amp; Fauna</category>
+    <title>Warp-Slug</title>
+    <listOrder>6</listOrder>
+    <texturePath>Things/Animals/WarpSlug</texturePath>
+    <text>A bizarre, shelled slug capable of manipulating subspace to make short, localized warp jumps, allowing it to relocate almost instantaneously.\n\nGameplay: The Warp-Slug is one of the most unpredictable creatures on the Rim. Thanks to its unique biology, it can "teleport" across your map, bypassing walls and defenses to reach food sources. It leaves a constant trail of thick slime and filth in your base. If threatened or attacked, it delivers a nasty, toxic bite. Keep your food storages securely double-walled!</text>
+  </YASTM.ST_HelpDef>
+
+</Defs>

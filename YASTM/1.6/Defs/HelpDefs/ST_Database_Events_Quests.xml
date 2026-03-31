@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Event_Tribbles</defName>
+    <category>Events, Quests &amp; Storytelling</category>
+    <title>Tribble Infestations</title>
+    <listOrder>1</listOrder>
+    <texturePath>Things/Animals/Tribble</texturePath>
+    <text>Tribbles are small, non-intelligent lifeforms known for their soft fur, soothing purr, and absolutely terrifying reproductive rate. They are born pregnant.\n\nGameplay: If a Tribble enters your map, it will consume your food stores and multiply exponentially. Left unchecked, they will overrun your colony, crashing both your food supply and your ecosystem. Deal with them immediately by culling them or selling them to unsuspecting traders. Note: Klingons gain a mood buff for killing them.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Event_Q</defName>
+    <category>Events, Quests &amp; Storytelling</category>
+    <title>Visits from Q</title>
+    <listOrder>2</listOrder>
+    <text>Q is an omnipotent, god-like entity from the Q Continuum with a penchant for testing lesser species. He finds humanity particularly amusing.\n\nGameplay: Q visits are entirely unpredictable and bypass all base defenses. He might instantly heal your entire colony, drop rare resources, or decide to turn all your plasteel into wood just for a laugh. There is no defense against a Q visit. You are entirely at his mercy.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Event_Anomaly</defName>
+    <category>Events, Quests &amp; Storytelling</category>
+    <title>Subspace Anomalies</title>
+    <listOrder>3</listOrder>
+    <text>Space is rarely empty, and the fabric of subspace is delicate.\n\nGameplay: Subspace anomalies can manifest on your map as localized weather or psychic events. They actively interfere with long-range communications (Comms Consoles) and can severely dampen or alter Psycast abilities. Some anomalies require active scanning from the Science Console to be neutralized.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Event_BufferTime</defName>
+    <category>Events, Quests &amp; Storytelling</category>
+    <title>"Buffer Time" (Lower Decks)</title>
+    <listOrder>4</listOrder>
+    <text>Even the most rigid Starfleet schedule needs a little padding to keep the crew sane.\n\nGameplay: 'Buffer Time' is a positive incident where your colonists discover they have finished their assigned tasks earlier than expected. This grants a temporary but significant boost to global work speed and mood. It represents the crew working together efficiently to create some hidden free time.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Quest_HighTier</defName>
+    <category>Events, Quests &amp; Storytelling</category>
+    <title>High-Tier Missions &amp; Relics</title>
+    <listOrder>5</listOrder>
+    <text>Beyond mere survival, the galaxy offers legendary artifacts and critical resources for those brave enough to seek them.\n\nGameplay: \n- The Sword of Kahless: A multi-part relic hunt. Finding this legendary Bat'leth will grant its wielder unparalleled melee prowess and inspire any Klingons in your colony.\n- Dilithium Salvage: Special world-map missions where you must secure crashed vessels or asteroid deposits to harvest raw Dilithium for your Warp Cores.\n- Mysterious Obelisks: Ancient alien structures that occasionally land on your map. They must be carefully investigated using Tricorders or Science Consoles before they activate and cause untold havoc.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Ideo_Memes</defName>
+    <category>Events, Quests &amp; Storytelling</category>
+    <title>Ideology: Memes &amp; Beliefs</title>
+    <listOrder>6</listOrder>
+    <text>(Requires Ideology DLC) True immersion comes from living the philosophy of your chosen faction.\n\nGameplay: When creating your colony, you can select custom Memes to shape your society:\n- Federation Doctrine: Focuses on diversity (IDIC), peaceful exploration, and strict adherence to the Prime Directive.\n- Klingon Honor: Demands glorious melee combat, execution of cowards, and venerates martial prowess.\n- Ferengi Profit: Colonists will demand wealth, trade dominance, and will be unhappy if the colony is not constantly generating silver.</text>
+  </YASTM.ST_HelpDef>
+
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Ideo_Rituals</defName>
+    <category>Events, Quests &amp; Storytelling</category>
+    <title>Ideology: Ceremonies &amp; Ranks</title>
+    <listOrder>7</listOrder>
+    <text>(Requires Ideology DLC) Structured societies require formal recognition of achievement.\n\nGameplay: The automated career progression system ties directly into your colony's rituals. When a colonist meets the requirements for a higher rank, you can host a 'Promotion Ceremony'. A successful ritual will officially grant the colonist their new rank trait, update their uniform pips, and provide a massive mood boost to the entire crew. You can also host 'Shore Leave' rituals to rapidly regenerate recreation.</text>
+  </YASTM.ST_HelpDef>
+
+</Defs>
