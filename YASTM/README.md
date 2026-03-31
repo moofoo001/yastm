@@ -1,52 +1,78 @@
-# YASTM ( Yet Another Star Trek Mod )
-**YASTM ( Yet Another Star Trek Mod )** brings a Star Trek inspired player and non-player factions with tailored backstories, uniforms, and custom scenarios based on the Star Trek Strange New Worlds timeline / series.
+🌟 YASTM (Yet Another Star Trek Mod) – Master Feature List
+1. Factions & Xenotypes
 
+    United Federation of Planets (Starfleet): Playable and NPC factions featuring realistic rank structures, cadets, and specialized officer roles.
 
-**Highlights**
-- Federation player and non-player faction (UFP) with lore-friendly backstories.
-- Klingon, Romluans, Ferengi NPC Factions 
-- Landing Party scenario (5 crew, Shuttle or DropPods) – stable in 1.6.
-- Faction based tunics and  armored vest.
-- Starfleet EV suit 
-- Phaser with stun,leathal aaaaaand OVERCHARGE mode and Desruptors
-- Faction based Melee Weapons 
-- Briefing & Shore Leave rituals (fallback to vanilla outcomes).
-- Balanced values – not OP, playable from day one.
-- Custom ST abilities and traits 
+    Klingon Empire: Focus on Honor mechanics, Bat'leth combat, and high-aggression warrior culture (NPC & Player Factions).
 
-Update log:
+    Romulan Star Empire: Advanced stealth mechanics, Tal Shiar infiltration events, and intelligence-based logistics.
 
-- Tweaked the weapon stats / workamount and value
-- Added Klingon, Romluans, Ferengi as NPC Factions
-- added a 3rd mode to Type I and II:
-  Overcharge enhances the damage output but has a high chance to let the weapon explode on you !
-- added intro music
-- soft overwrite of the Odysee menue screen 
-- redesigned my gravship scenario ( Starfleet Shuttle Start ):
-- custom build gravship ( early shuttle type 5 )
-- custom color and transparent walls ( transparent aluminum = front windows  ) 
-- Phaser Type I and II can now switch between stun ( non leathal ) and leathal mode
-- issue according  "breaks the meme selection screen when creating a new ideoligion" should be fixed
-- added UFP NPC faction
-- redesigned the space suit to fit the SNW standard-issue Starfleet EV suit
-- Added Starfleet Admiral Robert April as Storyteller ( (w.i.p) will tweak him to be more quest and exploration driven , lower random raids and longer cooldowns)
-- All tunics and utilities are now in their proper <thingCategories> and can be stored in shelfs  (thx @MattS)
-- redesigned the uniform from scratch 
-- added new Combadge graphic and added a new "badge Layer" to avoid conflicting with "shell" layer items
-- Added Counselor-Sash , graphics and slightly social boost ( moral role to be reviewed yet)
-- made new icons for Phaser_Type I/II/Rifle to fit my other graphics( tweaked its stats )
-- added Command, Operations, Medic, Science variations of the uniform should show up correctly at the pawn configuration screen
-- added Tricorder and Medic Sash incl small boost
-- added piloting traits for the prober starfleet backgrounds
+    Ferengi Alliance: Profit-driven trade guilds, Rules of Acquisition mentalities, and DaiMon leadership.
 
+    The Dominion: Full implementation of the hierarchy: Founders (Changelings), Vorta administrators, and Jem'Hadar soldiers with Ketracel-White dependency.
 
-ToDo / Fix :
-- Startfleet Quest is available but still w.i.p. 
+2. Technology & Infrastructure (Buildings & Systems)
 
+    Power & Subspace: Warp Cores (with high-risk containment breach mechanics) and Subspace Scanners for advanced long-range detection.
 
-**Requires:Ectos (Star Trek Genetics) for xenotypes and Vanilla Ideology Expanded - Memes and Structures ( Federation custom ideology : Federation Doctrin )
+    Replicator Network: * Matter Converters: Transform raw resources into digital feedstock.
 
-**Load Order**
-1. Core + DLCs (Ideology/Biotech if used)
-2. Humanoid Alien Races (if used)
-4.YASTM
+        Replicators: Instant synthesis of meals and items.
+
+        Specialized Units: Ketracel-White synthesizers and Blood Wine vats.
+
+    Transport & Mobility: * Functional Transporter Pads & Consoles for point-to-point "beaming."
+
+        Shuttlecraft: Including launch pads for orbital travel and world map traversal.
+
+        Turbolifts: Advanced pathfinding buildings for rapid base movement.
+
+    Leisure & Training: * Holodecks: Use Isolinear Chips for XP-training simulations, Risa-vacation mood buffs, or high-risk "Badgey" malfunction scenarios.
+
+    Medical: Bio-beds for accelerated tissue repair and Dominion Cloning Vats for rapid pawn replacement.
+
+    Security & Defense:
+
+        Cloaking Devices: Romulan-tech base-wide invisibility.
+
+        Force Fields: Modular shield emitters for defensive perimeters.
+
+        Tactical Turrets: Phaser, Disruptor, and Polaron-based automated defenses.
+
+        Alert Panels: Interactive Red, Yellow, and Blue alert system affecting pawn behavior.
+
+    Bridge Furniture: Immersive command centers featuring Pilot, Ops, Science, and Security stations, plus the iconic Captain’s Chair.
+
+3. Gear & Equipment
+
+    Arsenal:
+
+        Phasers: Integrated fire modes (Stun, Lethal, Overload).
+
+        Disruptors & Polaron Weapons: High-damage alternatives for rival factions.
+
+        Melee: Canonical weapons including the Bat'leth, Dk'Tahg, Lirpa, and the solid-projectile TR-116.
+
+    Gadgets: Functional Tricorders (Medical, Science, Security), Hyposprays for instant drug/medicine administration, and wearable Combadges.
+
+    Apparel & Armor:
+
+        Faction-correct uniforms across eras (TOS, TNG, DS9/VOY).
+
+        Tal Shiar Infiltration Suits and Personal Shield Emitters.
+
+        EV-Suits: Full vacuum protection for hazardous environments.
+
+    Resources: Dilithium (Raw & Refined), Gold-Pressed Latinum, Ketracel-White, and Replicator feedstock.
+
+4. Events, Quests & Storytelling
+
+    Incidents: Visits from Q, Tribble Infestations, Subspace Anomalies (interfering with comms/psycasts), and "Buffer Time" efficiency events.
+
+    Quests: High-tier missions such as the Search for the Sword of Kahless, Dilithium salvage operations, and Mysterious Obelisk investigations.
+
+    Ideology & Rituals (DLC Required): * Custom Memes: Federation Doctrine, Klingon Honor, Ferengi Profit.
+
+        Rank Progression: Automated career advancement and Pip-ceremonies.
+
+    In-Game Documentation: Integrated "Memory Alpha" Codex for lore and technical help.
