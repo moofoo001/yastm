@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="SkyfallerBase">
+    <defName>ST_Shuttle_Crashing</defName>
+    <label>crashing shuttle</label>
+    <graphicData>
+      <texPath>Things/Building/Shuttle/ShuttleType6_Top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(6,6)</drawSize>
+    </graphicData>
+    <skyfaller>
+      <movementType>Decelerate</movementType>
+      <shadow>Things/Skyfaller/SkyfallerShadowDropPod</shadow>
+      <shadowSize>(4, 5)</shadowSize>
+      <anticipationSound>DropPod_Fall</anticipationSound>
+      <impactSound>ShipChunkDrop</impactSound>
+      <hitRoof>true</hitRoof>
+      <cameraShake>1.5</cameraShake>
+    </skyfaller>
+  </ThingDef>
+
+  <IncidentDef>
+    <defName>ST_Incident_ShuttleCrash</defName>
+    <label>shuttle crash</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>YASTM.IncidentWorker_ShuttleCrash</workerClass>
+    <baseChance>1.5</baseChance> <minRefireDays>20</minRefireDays>
+    <letterLabel>Shuttle Crash</letterLabel>
+    <letterText>A severely damaged shuttlecraft has crashed nearby! A wounded survivor was ejected in an escape pod right before impact.\n\nIf you rescue them, they might join your colony. You can also repair and refuel the salvaged shuttlecraft for your own use!</letterText>
+    <letterDef>ThreatSmall</letterDef>
+  </IncidentDef>
+
+</Defs>
