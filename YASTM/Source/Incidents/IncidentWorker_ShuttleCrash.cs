@@ -21,7 +21,7 @@ namespace YASTM
             ThingDef shuttleDef = ThingDef.Named("ST_Shuttle_Taxi");
             Thing shuttle = ThingMaker.MakeThing(shuttleDef);
             
-            // Set the faction to "Player" so the player can repair it
+            // Set the faction to player for repairs
             shuttle.SetFaction(Faction.OfPlayer); 
             
             // Set the hitpoints to critical 15%
