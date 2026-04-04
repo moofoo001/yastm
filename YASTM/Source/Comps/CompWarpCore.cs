@@ -147,6 +147,48 @@ namespace YASTM
                     DoCatastrophicExplosion();
                 }
             }
+
+            // dynamic cooling system
+            if (parent.IsHashIntervalTick(60)) 
+            {
+                CompPowerTrader power = parent.GetComp<CompPowerTrader>();
+                
+                // is core powered
+                if (power != null && power.PowerOn)
+                {
+                    bool isCooled = false;
+                    CompAffectedByFacilities facilities = parent.GetComp<CompAffectedByFacilities>();
+
+                    // is cooler installed
+                    if (facilities != null)
+                    {
+                        foreach (Thing facility in facilities.LinkedFacilitiesListForReading)
+                        {
+                            if (facility.def.defName == "WarpCoreCooling")
+                            {
+                                CompPowerTrader facPower = facility.TryGetComp<CompPowerTrader>();
+                                if (facPower != null && facPower.PowerOn)
+                                {
+                                    isCooled = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                    // no cooler nor power 
+                    if (!isCooled)
+                    {
+                        // massiv heat
+                        GenTemperature.PushHeat(parent.Position, parent.Map, 200f);
+                    }
+                    else
+                    {
+                        // with cooler installed
+                        GenTemperature.PushHeat(parent.Position, parent.Map, 10f);
+                    }
+                }
+            }
         }
 
         private void DoRadiationPulse()

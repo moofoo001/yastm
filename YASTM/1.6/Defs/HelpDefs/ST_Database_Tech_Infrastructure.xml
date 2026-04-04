@@ -56,19 +56,10 @@
   </YASTM.ST_HelpDef>
 
   <YASTM.ST_HelpDef>
-    <defName>ST_Help_ForceFields</defName>
-    <category>Technology &amp; Infrastructure</category>
-    <title>Force Field Emitters</title>
-    <listOrder>7</listOrder>
-    <texturePath>Things/Building/Security/ForceFieldIcon</texturePath>
-    <text>Force fields consume a massive amount of power but provide an impenetrable shield around your structures. Remember to keep them maintained, or a warp core breach might take out the entire grid!</text>
-  </YASTM.ST_HelpDef>
-
-  <YASTM.ST_HelpDef>
     <defName>ST_Help_Tech_Bridge</defName>
     <category>Technology &amp; Infrastructure</category>
     <title>Bridge Consoles &amp; Scanners</title>
-    <listOrder>8</listOrder>
+    <listOrder>7</listOrder>
     <texturePath>Things/Building/Science/ST_ScienceConsole</texturePath>
     <text>The command center is the brain of your operation, directing all colonial subsystems.\n\nGameplay: Bridge stations (Pilot, Ops, Science, Security) require officers with the appropriate rank and traits to be manned. Manned stations provide global buffs to your base (e.g., turret accuracy from Security, or faster research from Science).\n\nSubspace Scanners are crucial for advanced long-range detection, allowing you to intercept deep-space anomalies. Finally, the Captain's Chair provides a massive command aura for your colony's leader.</text>
   </YASTM.ST_HelpDef>

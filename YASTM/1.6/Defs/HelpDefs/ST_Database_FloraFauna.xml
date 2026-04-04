@@ -51,7 +51,7 @@
     <category>Flora &amp; Fauna</category>
     <title>Warp-Slug</title>
     <listOrder>6</listOrder>
-    <texturePath>Things/Animals/WarpSlug</texturePath>
+    <texturePath>Things/Animals/WarpSlug_east</texturePath>
     <text>A bizarre, shelled slug capable of manipulating subspace to make short, localized warp jumps, allowing it to relocate almost instantaneously.\n\nGameplay: The Warp-Slug is one of the most unpredictable creatures on the Rim. Thanks to its unique biology, it can "teleport" across your map, bypassing walls and defenses to reach food sources. It leaves a constant trail of thick slime and filth in your base. If threatened or attacked, it delivers a nasty, toxic bite. Keep your food storages securely double-walled!</text>
   </YASTM.ST_HelpDef>
 

@@ -163,6 +163,7 @@
     <constructEffect>ConstructMetal</constructEffect>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
   </ThingDef>
+  
   <ThingDef ParentName="BuildingBase">
     <defName>ST_AlertPanel</defName>
     <label>alert panel</label>

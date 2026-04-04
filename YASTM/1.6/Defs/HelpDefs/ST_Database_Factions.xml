@@ -6,7 +6,7 @@
     <category>Factions &amp; Xenotypes</category>
     <title>United Federation of Planets (Starfleet)</title>
     <listOrder>1</listOrder>
-    <texturePath>UI/Icons/Factions/Federation</texturePath>
+    <texturePath>UI/Icons/Factions/Federation_color</texturePath>
     <text>The United Federation of Planets is an interstellar alliance of planetary governments sharing knowledge, resources, and a commitment to peaceful exploration. Its military and exploratory wing is Starfleet.\n\nGameplay: The Federation is a highly advanced, diplomatic faction. Trading with them yields access to superior medical supplies (Hyposprays, Medical Tricorders), industrial components, and standard-issue Phasers. They prefer diplomacy, but if provoked, Starfleet Security will deploy highly coordinated teams with stun-capable and lethal energy weapons. \n\nIf you maintain a strong alliance, your Comms Console can be used to request immediate Starfleet Aid (reinforcement drop-pods) during massive raids.</text>
   </YASTM.ST_HelpDef>
 
@@ -15,7 +15,7 @@
     <category>Factions &amp; Xenotypes</category>
     <title>Klingon Empire</title>
     <listOrder>3</listOrder>
-    <texturePath>UI/Icons/Factions/Klingon</texturePath>
+    <texturePath>UI/Icons/Factions/Klingon_color</texturePath>
     <text>The Klingon Empire is a proud, warrior-centric civilization where honor in battle is valued above all else. To die in glorious combat is the greatest aspiration of any Klingon.\n\nGameplay: Klingons are fearsome opponents. While they possess heavy Disruptor technology, many prefer to charge into melee combat wielding traditional weapons like the Bat'leth or D'k Tahg. \n\nKlingon pawns possess a natural "Battle Fervor" that makes them highly resilient to pain and panic. Earning their respect through trade and combat can secure you a powerful, albeit volatile, ally. They also gain significant mood buffs from drinking Bloodwine and killing Tribbles.</text>
   </YASTM.ST_HelpDef>
 
@@ -24,7 +24,7 @@
     <category>Factions &amp; Xenotypes</category>
     <title>Romulan Star Empire</title>
     <listOrder>4</listOrder>
-    <texturePath>UI/Icons/Factions/Romulan</texturePath>
+    <texturePath>UI/Icons/Factions/Romulan_color</texturePath>
     <text>The Romulan Star Empire is characterized by strict discipline, paranoia, and absolute state loyalty. They rely heavily on espionage, sabotage, and the formidable Tal Shiar intelligence agency.\n\nGameplay: Romulans are highly unpredictable and secretive. They utilize devastating Plasma weaponry and Disruptor Sniper Rifles. Romulan raids often bypass standard defenses by utilizing Cloaking Devices for sudden ambushes inside your perimeter. \n\nThey are incredibly hard to befriend, but trading with a Romulan Intelligence Broker gives you access to stealth equipment and high-yield explosives.</text>
   </YASTM.ST_HelpDef>
 
@@ -33,7 +33,7 @@
     <category>Factions &amp; Xenotypes</category>
     <title>Ferengi Alliance</title>
     <listOrder>5</listOrder>
-    <texturePath>UI/Icons/Factions/Ferengi</texturePath>
+    <texturePath>UI/Icons/Factions/Ferengi_color</texturePath>
     <text>The Ferengi are an ultra-capitalist society driven entirely by the pursuit of profit, guided by the sacred 285 Rules of Acquisition. "Greed is eternal."\n\nGameplay: The Ferengi are the ultimate traders of the galaxy. They will rarely attack you outright unless they see a massive profit in doing so. Ferengi caravans visit frequently and carry a massive variety of exotic goods, but their prices are steep. \n\nHaving a colonist with high Social skills is absolutely necessary to avoid being swindled. Ferengi pawns naturally excel at trading and social manipulation but are often poor combatants.</text>
   </YASTM.ST_HelpDef>
 
@@ -42,7 +42,7 @@
     <category>Factions &amp; Xenotypes</category>
     <title>The Dominion</title>
     <listOrder>6</listOrder>
-    <texturePath>UI/Icons/Factions/Dominion</texturePath>
+    <texturePath>UI/Icons/Factions/Dominion_color</texturePath>
     <text>The Dominion is a vast, ruthlessly efficient empire from the Gamma Quadrant, ruled by the shape-shifting Founders, administered by the Vorta, and enforced by the genetically engineered Jem'Hadar.\n\nGameplay: The Dominion is an existential threat. They do not trade, and they do not negotiate. Their raiding parties consist of waves of fearless Jem'Hadar soldiers wielding armor-piercing Polaron weapons. Capturing a Jem'Hadar is almost impossible, as they will fight to the death.\n\nIf playing as the Dominion, you can utilize Cloning Vats to rapidly grow new soldiers, but you must constantly synthesize 'Ketracel-White'. Without it, your Jem'Hadar will enter lethal withdrawals and turn on your own colony.</text>
   </YASTM.ST_HelpDef>
 

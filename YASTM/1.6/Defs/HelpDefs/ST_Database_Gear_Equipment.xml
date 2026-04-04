@@ -42,7 +42,7 @@
     <category>Gear &amp; Equipment</category>
     <title>Strategic Resources</title>
     <listOrder>5</listOrder>
-    <texturePath>Things/Item/Resource/ST_Latinum/ST_Latinum_a</texturePath>
+    <texturePath>Things/Item/Resource/ST_Latinum/ST_Latinum_c</texturePath>
     <text>The galactic economy and war machines run on very specific materials.\n\nGameplay: \n- Dilithium: Mined as raw crystal and refined at specialized benches. It is the absolute prerequisite for building and fueling Warp Cores.\n- Gold-Pressed Latinum: A rare liquid encased in gold. It cannot be replicated and serves as the ultimate currency, especially when dealing with the Ferengi.\n- Ketracel-White: An isogenic enzyme vital for the Jem'Hadar. You must synthesize it constantly to prevent your Dominion soldiers from going into lethal withdrawal.\n- Replicator Feedstock: The digital 'ammunition' for Replicators, produced by Matter Converters from raw base materials.</text>
   </YASTM.ST_HelpDef>
 
