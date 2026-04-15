@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <QuestScriptDef>
+    <defName>ST_Quest_MoopsyContract</defName>
+    <rootSelectionWeight>0.6</rootSelectionWeight>
+    <expireDaysRange>4~8</expireDaysRange>  
+    <rootMinPoints>0</rootMinPoints>
+    <autoAccept>false</autoAccept>
+    
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->The Moopsy Contract</li>
+        <li>questName->DaiMon's Pet</li>
+        <li>questName->Biological Asset</li>
+      </rulesStrings>
+    </questNameRules>
+    
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->A Ferengi DaiMon named Grab is offering a lucrative contract. He needs a temporary holding facility for a highly dangerous biological asset: a Moopsy.\n\nIf you accept, the creature will be drop-podded to your colony. You must keep it alive and fed for exactly 15 days.\n\nWARNING: The Moopsy feeds on bones. If it dies, the Ferengi will send heavily armed mercenaries directly into your base to collect their lost profit.\n\nReward:\n- Lucrative Ferengi compensation</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    
+    <root Class="QuestNode_Sequence">
+      <nodes>
+        
+        <li Class="QuestNode_GeneratePawn">
+          <kindDef>ST_Moopsy</kindDef>
+          <storeAs>moopsy</storeAs>
+        </li>
+
+        <li Class="QuestNode_GetFaction">
+          <allowEnemy>true</allowEnemy>
+          <storeAs>enemyFaction</storeAs>
+        </li>
+
+        <li Class="QuestNode_Set">
+          <name>rewardValue</name>
+          <value>5000</value>
+        </li>
+        <li Class="QuestNode_GiveRewards">
+          <parms>
+            <allowGoodwill>false</allowGoodwill>
+            <allowRoyalFavor>false</allowRoyalFavor>
+          </parms>
+        </li>
+
+        <li Class="QuestNode_Letter">
+          <inSignal>Quest.Accept</inSignal>
+          <label>Asset Arrived</label>
+          <text>The Moopsy has been dropped into your colony. The 15-day timer has started. Do not let it die.</text>
+        </li>
+        
+        <li Class="QuestNode_DropPods">
+          <inSignal>Quest.Accept</inSignal>
+          <contents>$moopsy</contents>
+        </li>
+
+        <li Class="QuestNode_SetFaction">
+          <inSignal>Quest.Accept</inSignal>
+          <things>
+            <li>$moopsy</li>
+          </things>
+          <faction>OfPlayer</faction>
+        </li>
+
+        <li Class="QuestNode_Delay">
+          <inSignalEnable>Quest.Accept</inSignalEnable>
+          <delayTicks>900000</delayTicks> <isQuestTimeout>false</isQuestTimeout>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+
+              <li Class="QuestNode_Letter">
+                <label>Contract Fulfilled</label>
+                <text>DaiMon Grab has transferred your payment! However, to save on transport costs, he decided he doesn't want the Moopsy back. \n\n"Rule of Acquisition #3: Never spend more for an acquisition than you have to. Enjoy your new pet!"</text>
+                <letterDef>PositiveEvent</letterDef>
+              </li>
+              
+              <li Class="QuestNode_End">
+                <outcome>Success</outcome>
+              </li>
+              
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_Signal">
+          <inSignal>moopsy.Destroyed</inSignal> 
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              
+              <li Class="QuestNode_Letter">
+                <label>Contract Failed!</label>
+                <text>The Moopsy is dead! DaiMon Grab is furious about the lost profit. He has dispatched mercenaries directly into your base to collect the debt!</text>
+                <letterDef>ThreatBig</letterDef>
+              </li>
+              
+              <li Class="QuestNode_Set">
+                <name>incidentPoints</name>
+                <value>1500</value>
+              </li>
+              
+              <li Class="QuestNode_CreateIncidents">
+                <incidentDef>RaidEnemy</incidentDef>
+                <points>$incidentPoints</points>
+                <faction>$enemyFaction</faction>
+              </li>
+              
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+              
+            </nodes>
+          </node>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

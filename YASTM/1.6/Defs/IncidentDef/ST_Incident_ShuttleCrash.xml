@@ -14,7 +14,7 @@
       <shadow>Things/Skyfaller/SkyfallerShadowDropPod</shadow>
       <shadowSize>(4, 5)</shadowSize>
       <anticipationSound>DropPod_Fall</anticipationSound>
-      <impactSound>ShipChunkDrop</impactSound>
+      <impactSound>DropPod_Impact</impactSound>
       <hitRoof>true</hitRoof>
       <cameraShake>1.5</cameraShake>
     </skyfaller>

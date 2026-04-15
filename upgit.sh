@@ -2,6 +2,6 @@
 echo 'Adding new / changed files'
 git add ./
 echo 'commiting my presures .....'
-git commit ./ -m "V1.9.1 Incidents and graphic "
+git commit ./ -m "V1.9.8 Incidents and moopsy "
 echo 'push it to the limit .........'
 git push -u origin rimworld_st_mod

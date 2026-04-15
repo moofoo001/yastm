@@ -11,7 +11,7 @@ namespace YASTM
     {
         static YASTM_StardateInit()
         {
-            Log.Message("[YASTM DEBUG] Initialized Patch_StardateOverlay v1.1");
+            //Log.Message("[YASTM DEBUG] Initialized Patch_StardateOverlay v1.1");
         }
     }
 

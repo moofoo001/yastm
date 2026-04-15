@@ -16,7 +16,7 @@ namespace YASTM
     {
         static YASTM_MultiModeInit()
         {
-            Log.Message("[YASTM DEBUG] Initialized CompMultiModeWeapon v1.8.5");
+            //Log.Message("[YASTM DEBUG] Initialized CompMultiModeWeapon v1.8.5");
         }
     }
 

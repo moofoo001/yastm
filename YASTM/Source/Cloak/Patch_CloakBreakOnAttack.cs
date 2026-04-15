@@ -11,7 +11,7 @@ namespace YASTM
     {
         static YASTM_CloakBreakInit()
         {
-            Log.Message("[YASTM DEBUG] Initialized Patch_CloakBreakOnAttack v1.2");
+           // Log.Message("[YASTM DEBUG] Initialized Patch_CloakBreakOnAttack v1.2");
         }
     }
 
