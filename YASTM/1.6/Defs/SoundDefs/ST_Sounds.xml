@@ -461,4 +461,22 @@
     </subSounds>
   </SoundDef>
 
+<!-- The inner light flute -->
+<SoundDef>
+    <defName>ST_Sound_RessikanFlute_Melody</defName>  
+    <context>MapOnly</context>
+    <eventNames />
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/flute</clipPath> </li>
+        </grains>        
+        <volumeRange>100~110</volumeRange>      
+        <distRange>0~20</distRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
 </Defs>

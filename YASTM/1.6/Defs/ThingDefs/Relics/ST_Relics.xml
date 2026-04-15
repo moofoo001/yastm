@@ -61,4 +61,48 @@
 
   </ThingDef>
 
+<ThingDef ParentName="BuildingBase">
+    <defName>ST_RessikanFluteBox</defName>
+    <label>Ressikan flute</label>
+    <description>A simple tin flute in a box. For most, it's a beautiful antique. For some, it's a lifetime of memories. (Hint: Try letting a certain Captain play it...)</description>
+    <thingClass>YASTM.Building_RessikanFlute</thingClass>
+    <tickerType>Rare</tickerType>
+    <graphicData>
+      <texPath>Things/Item/Special/FluteBox</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(0.8,0.8)</drawSize>
+    </graphicData>
+    <uiIconScale>0.8</uiIconScale>
+    <uiIconPath>Things/Item/Special/FluteBox</uiIconPath>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <clearBuildingArea>false</clearBuildingArea>
+    <statBases>
+      <Mass>0.5</Mass>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>500</WorkToBuild>
+      <Beauty>250</Beauty>
+      <JoyGainFactor>1.2</JoyGainFactor>
+    </statBases>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <building>
+      <joyKind>ST_RessikanMemory</joyKind>
+      <isEdifice>false</isEdifice>
+    </building> 
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Glower">
+        <overlightRadius>1.0</overlightRadius>
+        <glowRadius>2</glowRadius>
+        <glowColor>(370,370,370,0)</glowColor>
+      </li>
+    </comps>
+    <thingCategories>
+      <li>BuildingsArt</li>
+    </thingCategories>
+    <soundInteract>ST_Sound_RessikanFlute_Melody</soundInteract>
+  </ThingDef>
+
+
 </Defs>

@@ -260,4 +260,18 @@
     </stages>
   </ThoughtDef>
   
+ <!-- Inner Light Memory --> 
+<ThoughtDef>
+    <defName>ST_InnerLightMemory</defName>
+    <durationDays>20</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>Memories of Kataan</label>
+        <description>I remember a sun, a family, and a life that never was. It makes this world seem so much brighter.</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
 </Defs>

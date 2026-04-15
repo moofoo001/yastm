@@ -55,4 +55,13 @@
     <text>A bizarre, shelled slug capable of manipulating subspace to make short, localized warp jumps, allowing it to relocate almost instantaneously.\n\nGameplay: The Warp-Slug is one of the most unpredictable creatures on the Rim. Thanks to its unique biology, it can "teleport" across your map, bypassing walls and defenses to reach food sources. It leaves a constant trail of thick slime and filth in your base. If threatened or attacked, it delivers a nasty, toxic bite. Keep your food storages securely double-walled!</text>
   </YASTM.ST_HelpDef>
 
+  <YASTM.ST_HelpDef>
+    <defName>ST_Help_Fauna_Moopsy</defName>
+    <category>Flora &amp; Fauna</category>
+    <title>Moopsy</title>
+    <listOrder>7</listOrder>
+    <texturePath>Things/Animals/Moopsy</texturePath>
+    <text>A tiny, pudgy white creature with big innocent eyes. It appears completely harmless and communicates with a single adorable chirp: "Moopsy!"\n\nGameplay: DO NOT LET IT NEAR YOUR COLONISTS. The Moopsy is an apex predator that feeds on bones. If a Moopsy bites a pawn, it completely bypasses armor and inflicts a rapid, lethal condition called 'Bone Liquefaction'. The victim will instantly collapse as their skeleton dissolves into a slurry. \n\nIf you are insane enough, a highly skilled handler can tame a Moopsy. Unleashing a pack of trained Moopsies on a raiding party is considered a war crime even by Klingon standards.</text>
+  </YASTM.ST_HelpDef>
+
 </Defs>

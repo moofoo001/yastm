@@ -406,5 +406,28 @@
       </li>
     </comps>
   </HediffDef>
+  
+<!--Inner Light Coma-->
+<HediffDef>
+    <defName>ST_InnerLightComa</defName>
+    <label>Ressikan memory trance</label>
+    <description>A profound neurological state where decades of memories are being integrated into the mind in mere hours.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad> <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>10000~15000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.1</setMax> </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
 
 </Defs>

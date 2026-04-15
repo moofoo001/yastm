@@ -164,7 +164,8 @@
     <graphicData>
       <texPath>Things/Mote/BrightFlash</texPath>
       <shaderType>MoteGlow</shaderType>
-      <color>(1.0, 0.0, 0.0, 0.6)</color> <drawSize>3.0</drawSize> </graphicData>
+      <color>(1.0, 0.0, 0.0, 0.6)</color> <drawSize>3.0</drawSize>
+    </graphicData>
     <altitudeLayer>MoteOverhead</altitudeLayer>
     <fadeInTime>0.1</fadeInTime> <solidTime>0.2</solidTime>
     <fadeOutTime>0.5</fadeOutTime>
@@ -206,7 +207,8 @@
   <!-- badgey -->
   <FleckDef ParentName="FleckBase_Thrown">
     <defName>ST_Fleck_BadgeyOverlay</defName>
-    <altitudeLayer>MetaOverlays</altitudeLayer> <fadeInTime>0.2</fadeInTime>
+    <altitudeLayer>MetaOverlays</altitudeLayer>
+    <fadeInTime>0.2</fadeInTime>
     <solidTime>1.5</solidTime>
     <fadeOutTime>0.5</fadeOutTime>
     <growthRate>0</growthRate>
@@ -217,5 +219,21 @@
       <color>(255, 50, 50)</color>
     </graphicData>
   </FleckDef>
+
+  <!-- music note -->
+<FleckDef ParentName="FleckBase_Thrown">
+    <defName>ST_Fleck_MusicNote</defName>
+    <graphicData>
+      <texPath>Things/Effects/SongNotes_b</texPath>
+      <shaderType>TransparentPostLight</shaderType>
+      <drawSize>0.6</drawSize>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <fadeInTime>0.4</fadeInTime>
+    <solidTime>1.2</solidTime>
+    <fadeOutTime>1.5</fadeOutTime>
+    <growthRate>0.1</growthRate>
+  </FleckDef>
+
 
 </Defs>

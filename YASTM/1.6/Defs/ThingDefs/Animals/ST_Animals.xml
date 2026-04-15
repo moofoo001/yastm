@@ -14,8 +14,8 @@
       <Wildness>0.30</Wildness>
       <ComfyTemperatureMin>-10</ComfyTemperatureMin>
       <ComfyTemperatureMax>45</ComfyTemperatureMax>
-
     </statBases>
+
     <race>
       <herdAnimal>true</herdAnimal>
       <canBePredatorPrey>false</canBePredatorPrey>
@@ -56,7 +56,8 @@
         </li>
       </lifeStageAges>
     </race>
-      <comps>
+
+    <comps>
       <li Class="YASTM.CompProperties_Tribbles">
         <reproduceChance>0.08</reproduceChance>
         <reproduceThreshold>0.85</reproduceThreshold>
@@ -112,7 +113,6 @@
 				</dessicatedBodyGraphicData>
 			</li>
 		</lifeStages>
-
   </PawnKindDef>
 
   <!-- Klingonischer Targ (einfaches Wildtier/Haustier-Grundgerüst) -->
@@ -843,5 +843,100 @@
       </li>
     </lifeStages>
   </PawnKindDef>
+
+
+
+  <!--  Moopsy -->
+  <ThingDef ParentName="AnimalThingBase">
+    <defName>ST_Animal_Moopsy</defName>
+    <label>moopsy</label>
+    <description>A small, incredibly cute, pudgy white creature. It is completely docile and makes an adorable "Moopsy!" sound. \n\nWARNING: The Moopsy is an apex predator that feeds exclusively on the bones of living creatures. It will bite its prey, instantly liquefying their skeleton, and drink the slurry. Do not let it near your colonists.</description>
+    <statBases>
+      <MarketValue>2500</MarketValue>
+      <MoveSpeed>4.5</MoveSpeed> 
+      <Wildness>0.80</Wildness>
+      <ComfyTemperatureMin>-30</ComfyTemperatureMin>
+      <ComfyTemperatureMax>50</ComfyTemperatureMax>
+      <ArmorRating_Blunt>0.5</ArmorRating_Blunt>
+      </statBases>
+
+    <race>
+      <body>QuadrupedAnimalWithPaws</body>
+      <baseBodySize>0.3</baseBodySize>
+      <baseHealthScale>0.5</baseHealthScale>
+      <foodType>CarnivoreAnimal</foodType>
+      <trainability>Advanced</trainability> 
+      <lifeExpectancy>50</lifeExpectancy>
+      <manhunterOnDamageChance>1.0</manhunterOnDamageChance>
+
+      <lifeStageAges>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.0</minAge>
+        </li>
+      </lifeStageAges>
+    </race>
+
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>2</power>
+        <cooldownTime>1.5</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>ST_MoopsyBite</def>
+              <amount>2</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>vampiric bite</label>
+        <capacities>
+          <li>ToxicBite</li>
+        </capacities>
+        <power>2</power>
+        <cooldownTime>2.0</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+      </li>
+    </tools>
+
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>ST_Moopsy</defName>
+    <label>moopsy</label>
+    <race>ST_Animal_Moopsy</race>
+    <combatPower>250</combatPower> <ecoSystemWeight>0.5</ecoSystemWeight>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Animals/Moopsy</texPath>
+           <drawSize>0.8</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Animals/Dessicated_Moopsy</texPath>
+          <drawSize>1.0</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <DamageDef>
+    <defName>ST_MoopsyBite</defName>
+    <label>moopsy bite</label>
+    <workerClass>YASTM.DamageWorker_MoopsyBite</workerClass>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} was turned into a boneless puddle by a Moopsy.</deathMessage>
+    <defaultDamage>2</defaultDamage>
+    <defaultArmorPenetration>1.0</defaultArmorPenetration>
+    <armorCategory>Blunt</armorCategory>
+  </DamageDef>
 
 </Defs>

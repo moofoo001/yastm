@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <QuestScriptDef>
+    <defName>ST_Quest_MoopsyContract</defName>
+    <rootSelectionWeight>0.6</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <autoAccept>false</autoAccept>
+    
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->The Moopsy Contract</li>
+        <li>questName->DaiMon's Pet</li>
+        <li>questName->Biological Asset</li>
+      </rulesStrings>
+    </questNameRules>
+    
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->A Ferengi DaiMon named Grab is offering a lucrative contract. He needs a temporary holding facility for a highly dangerous biological asset: a Moopsy.\n\nIf you accept, the creature will be drop-podded to your colony. You must keep it alive and fed for exactly 15 days.\n\nWARNING: The Moopsy feeds on bones. If it dies, the Ferengi will send heavily armed mercenaries directly into your base to collect their lost profit.\n\nReward:\n- 5000 Silver</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    
+    <root Class="QuestNode_Sequence">
+      <nodes>
+        
+        <li Class="QuestNode_GeneratePawn">
+          <kindDef>ST_Moopsy</kindDef>
+          <storeAs>moopsy</storeAs>
+          <faction>OfPlayer</faction> 
+        </li>
+
+        <li Class="QuestNode_GetFaction">
+          <allowEnemy>true</allowEnemy>
+          <mustBePermanentEnemy>true</mustBePermanentEnemy>
+          <storeAs>enemyFaction</storeAs>
+        </li>
+
+        <li Class="QuestNode_Letter">
+          <inSignal>Quest.Accept</inSignal>
+          <label>Asset Arrived</label>
+          <text>The Moopsy has been dropped into your colony. The 15-day timer has started. Do not let it die.</text>
+        </li>
+        <li Class="QuestNode_DropPods">
+          <inSignal>Quest.Accept</inSignal>
+          <contents>$moopsy</contents>
+        </li>
+
+        <li Class="QuestNode_Delay">
+          <inSignal>Quest.Accept</inSignal>
+          <delayTicks>900000</delayTicks> <isQuestTimeout>false</isQuestTimeout>
+          <outSignalComplete>MoopsySurvived</outSignalComplete>
+        </li>
+
+        <li Class="QuestNode_Sequence">
+          <inSignal>MoopsySurvived</inSignal>
+          <nodes>
+            <li Class="QuestNode_DestroyThing">
+              <thing>$moopsy</thing>
+            </li>
+            
+            <li Class="QuestNode_GenerateThing">
+              <def>Silver</def>
+              <count>5000</count>
+              <storeAs>rewardSilver</storeAs>
+            </li>
+            <li Class="QuestNode_DropPods">
+              <contents>$rewardSilver</contents>
+            </li>
+            
+            <li Class="QuestNode_End">
+              <outcome>Success</outcome>
+              <sendStandardLetter>true</sendStandardLetter>
+            </li>
+          </nodes>
+        </li>
+
+        <li Class="QuestNode_Signal">
+          <inSignal>moopsy.Destroyed</inSignal> <node Class="QuestNode_Sequence">
+            <nodes>
+              
+              <li Class="QuestNode_Letter">
+                <label>Contract Failed!</label>
+                <text>The Moopsy is dead! DaiMon Grab is furious about the lost profit. He has dispatched mercenaries to collect the debt!</text>
+                <letterDef>ThreatBig</letterDef>
+              </li>
+              
+              <li Class="QuestNode_Raid">
+                <faction>$enemyFaction</faction>
+                <points>1500</points> <arrivalMode>CenterDrop</arrivalMode>
+              </li>
+              
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

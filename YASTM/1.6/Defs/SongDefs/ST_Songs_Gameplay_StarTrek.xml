@@ -48,4 +48,11 @@
     <commonality>0.6</commonality>
   </SongDef>
 
+ <SongDef>
+    <defName>ST_Song_Stars_Come_Home</defName>
+    <clipPath>IdeoSound/Where_the_Stars_Come_Home</clipPath>
+    <volume>1.00</volume>
+    <commonality>0</commonality>
+  </SongDef>
+
 </Defs>
